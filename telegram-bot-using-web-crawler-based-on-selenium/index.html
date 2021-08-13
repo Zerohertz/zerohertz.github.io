@@ -34,13 +34,15 @@
     var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="택배 조회">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Telegram Bot Using Web Crawler Based on Selenium">
 <meta property="og:url" content="https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/index.html">
 <meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="택배 조회">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-13T02:31:38.000Z">
-<meta property="article:modified_time" content="2021-08-13T02:34:27.450Z">
+<meta property="article:modified_time" content="2021-08-13T02:36:19.312Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Web crawling">
@@ -236,7 +238,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%83%9D%EB%B0%B0-%EC%A1%B0%ED%9A%8C"><span class="nav-number">1.</span> <span class="nav-text">택배 조회</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -344,7 +346,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-13 11:31:38 / Modified: 11:34:27" itemprop="dateCreated datePublished" datetime="2021-08-13T11:31:38+09:00">2021-08-13</time>
+      <time title="Created: 2021-08-13 11:31:38 / Modified: 11:36:19" itemprop="dateCreated datePublished" datetime="2021-08-13T11:31:38+09:00">2021-08-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -407,7 +409,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id><a href="#" class="headerlink" title></a></h1><a id="more"></a>
+        <h1 id="택배-조회"><a href="#택배-조회" class="headerlink" title="택배 조회"></a>택배 조회</h1><a id="more"></a>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateStatus</span>():</span></span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;paramInvcNo&quot;]&#x27;</span>).send_keys(num)</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;btnSubmit&quot;]&#x27;</span>).click()</span><br><span class="line">    status = browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;statusDetail&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> status.text</span><br><span class="line"></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;headless&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&#x27;window-size=1920x1080&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&quot;disable-gpu&quot;</span>)</span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;Location of Chrome Driver&quot;</span>, options = options)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.cjlogistics.com/ko/tool/parcel/tracking&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line">myToken = <span class="string">&#x27;TelegramToken&#x27;</span></span><br><span class="line">bot = telegram.Bot(token = myToken)</span><br><span class="line">chat_id = ID<span class="comment">#bot.getUpdates()[-1].message.chat.id #가장 최근에 온 메세지의 chat id를 가져옵니다</span></span><br><span class="line">num = 운송장 번호</span><br><span class="line">statusArr = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    status = updateStatus()</span><br><span class="line">    statusArr[i%<span class="number">2</span>] = str(status)</span><br><span class="line">    <span class="keyword">if</span> statusArr[<span class="number">0</span>] != statusArr[<span class="number">1</span>]:</span><br><span class="line">        bot.sendMessage(chat_id=chat_id, text=statusArr[i%<span class="number">2</span>])</span><br><span class="line">        print(<span class="string">&#x27;Different&#x27;</span>)</span><br><span class="line">    browser.refresh()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    i = i+<span class="number">1</span></span><br></pre></td></tr></table></figure>
     </div>
@@ -422,10 +424,10 @@
       <div class="popular-posts-title"><a href="/web-crawler-for-ecampus-by-selenium/" rel="bookmark">Web Crawler for eCampus by Selenium</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/web-crawler-for-nlp-2/" rel="bookmark">Web Crawler for NLP(2)</a></div>
+      <div class="popular-posts-title"><a href="/web-crawler-for-nlp-1/" rel="bookmark">Web Crawler for NLP(1)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/web-crawler-for-nlp-1/" rel="bookmark">Web Crawler for NLP(1)</a></div>
+      <div class="popular-posts-title"><a href="/web-crawler-for-nlp-2/" rel="bookmark">Web Crawler for NLP(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/web-crawler-for-nlp-3/" rel="bookmark">Web Crawler for NLP(3)</a></div>
