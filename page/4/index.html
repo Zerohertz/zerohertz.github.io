@@ -170,7 +170,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">86</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">87</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -246,7 +246,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -306,6 +306,124 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/matlab-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/matlab-6/" class="post-title-link" itemprop="url">MatLAB(6)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-11-13 14:54:38" itemprop="dateCreated datePublished" datetime="2019-11-13T14:54:38+09:00">2019-11-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-02-26 14:06:34" itemprop="dateModified" datetime="2021-02-26T14:06:34+09:00">2021-02-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/matlab/" itemprop="url" rel="index"><span itemprop="name">MatLAB</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/matlab-6/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="matlab-6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="m-10kg-c-0-4Ns-m-k-4Nm-Mass-Spring-Damper-System"><a href="#m-10kg-c-0-4Ns-m-k-4Nm-Mass-Spring-Damper-System" class="headerlink" title="m=10kg, c=0.4Ns/m, k=4Nm(Mass-Spring-Damper System)"></a>m=10kg, c=0.4N<em>s/m, k=4N</em>m(Mass-Spring-Damper System)</h1><h2 id="General-solution-Natural-response-Step-response"><a href="#General-solution-Natural-response-Step-response" class="headerlink" title="General solution, Natural response, Step response"></a>General solution, Natural response, Step response</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">syms x y;</span><br><span class="line">u=dsolve(<span class="string">&#x27;D2y+0.04*Dy+0.4*y=0&#x27;</span>,<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">U=dsolve(<span class="string">&#x27;D2y+0.04*Dy+0.4*y=0&#x27;</span>,<span class="string">&#x27;y(0)=1&#x27;</span>,<span class="string">&#x27;Dy(0)=1&#x27;</span>,<span class="string">&#x27;x&#x27;</span>);</span><br><span class="line">subs_U=subs(U,x,<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">250</span>);</span><br><span class="line">t=<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">250</span>;</span><br><span class="line">plot_U=double(subs_U);</span><br><span class="line"><span class="built_in">plot</span>(t,plot_U)</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">num=[<span class="number">1</span>];</span><br><span class="line">den=[<span class="number">10</span> <span class="number">0.4</span> <span class="number">4</span>];</span><br><span class="line">h=tf(num, den);</span><br><span class="line">step(h)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/matlab-6/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -2044,128 +2162,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/unreal-engine-and-c-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/unreal-engine-and-c-2/" class="post-title-link" itemprop="url">Unreal engine and C++(2)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-02-11 17:20:12" itemprop="dateCreated datePublished" datetime="2019-02-11T17:20:12+09:00">2019-02-11</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-08-20 20:57:20" itemprop="dateModified" datetime="2020-08-20T20:57:20+09:00">2020-08-20</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">C, C++</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/unreal-engine/" itemprop="url" rel="index"><span itemprop="name">Unreal Engine</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/unreal-engine-and-c-2/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="unreal-engine-and-c-2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>9.1k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>8 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="프로젝트-구성"><a href="#프로젝트-구성" class="headerlink" title="프로젝트 구성"></a>프로젝트 구성</h1><p><img src="https://user-images.githubusercontent.com/42334717/52553672-a9453c80-2e27-11e9-8f39-972d4343c66c.png" alt="파일 생성"><br><img src="https://user-images.githubusercontent.com/42334717/52553714-da257180-2e27-11e9-843d-052977910ea1.png" alt="Maps 폴더 생성"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/unreal-engine-and-c-2/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2222,14 +2218,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">521k</span>
+    <span title="Symbols count total">522k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">7:53</span>
+    <span title="Reading time total">7:54</span>
   </span>
 </div>
 <div class="busuanzi-count">
