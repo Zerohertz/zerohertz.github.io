@@ -508,9 +508,9 @@
             
             <tag> Python </tag>
             
-            <tag> R </tag>
-            
             <tag> Sleep apnea </tag>
+            
+            <tag> R </tag>
             
         </tags>
       
@@ -2489,6 +2489,17 @@
     
     
     <entry>
+      <title>Page not found</title>
+      <link href="/404.html"/>
+      <url>/404.html</url>
+      
+        <content type="html"><![CDATA[<p><code>404</code></p><blockquote><p>Page not found</p></blockquote><p><a href="https://zerohertz.github.io/">Zerohertz</a></p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>about Zerohertz</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -2516,17 +2527,6 @@
       <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Page not found</title>
-      <link href="/404.html"/>
-      <url>/404.html</url>
-      
-        <content type="html"><![CDATA[<p><code>404</code></p><blockquote><p>Page not found</p></blockquote><p><a href="https://zerohertz.github.io/">Zerohertz</a></p>]]></content>
       
     </entry>
     
