@@ -4,11 +4,44 @@
   
     
     <entry>
+      <title>Setting Up Virtual Environment for PyTorch</title>
+      <link href="/setting-up-virtual-environment-for-pytorch/"/>
+      <url>/setting-up-virtual-environment-for-pytorch/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='terminal' style='height: 60px'></div>            <script>        new GDemo('#terminal')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '>'})    .command(`activate pytorch_env`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><a id="more"></a><ul><li>시작하기 전 필수 설치<ul><li>Python</li><li>Anaconda</li></ul></li></ul><h1 id="Setting-Up-Virtual-Environment"><a href="#Setting-Up-Virtual-Environment" class="headerlink" title="Setting Up Virtual Environment"></a>Setting Up Virtual Environment</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='terminal1' style='height: 60px'></div>            <script>        new GDemo('#terminal1')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '>'})    .command(`conda create <span class="token comment">--name pytorch_env python=3</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><blockquote><p>To activate environment</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch_env</span><br></pre></td></tr></table></figure><blockquote><p>To deactivate an active environment</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure><hr><h1 id="Installing-PyTorch-and-Package"><a href="#Installing-PyTorch-and-Package" class="headerlink" title="Installing PyTorch and Package"></a>Installing PyTorch and Package</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda install -y pytorch-cpu torchvision-cpu -c pytorch</span><br><span class="line">pip install torchtext</span><br><span class="line">conda install -y scikit-learn</span><br><span class="line">conda install -y matplotlib</span><br><span class="line">conda install -y pandas</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+          <category> PyTorch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Deep Learning </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> PyTorch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Telegram Bot Using Web Crawler Based on Selenium</title>
       <link href="/telegram-bot-using-web-crawler-based-on-selenium/"/>
       <url>/telegram-bot-using-web-crawler-based-on-selenium/</url>
       
-        <content type="html"><![CDATA[<h1 id="택배-조회"><a href="#택배-조회" class="headerlink" title="택배 조회"></a>택배 조회</h1><a id="more"></a><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateStatus</span>():</span></span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;paramInvcNo&quot;]&#x27;</span>).send_keys(num)</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;btnSubmit&quot;]&#x27;</span>).click()</span><br><span class="line">    status = browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;statusDetail&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> status.text</span><br><span class="line"></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;headless&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&#x27;window-size=1920x1080&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&quot;disable-gpu&quot;</span>)</span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;Location of Chrome Driver&quot;</span>, options = options)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.cjlogistics.com/ko/tool/parcel/tracking&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line">myToken = <span class="string">&#x27;TelegramToken&#x27;</span></span><br><span class="line">bot = telegram.Bot(token = myToken)</span><br><span class="line">chat_id = ID<span class="comment">#bot.getUpdates()[-1].message.chat.id #가장 최근에 온 메세지의 chat id를 가져옵니다</span></span><br><span class="line">num = 운송장 번호</span><br><span class="line">statusArr = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    status = updateStatus()</span><br><span class="line">    statusArr[i%<span class="number">2</span>] = str(status)</span><br><span class="line">    <span class="keyword">if</span> statusArr[<span class="number">0</span>] != statusArr[<span class="number">1</span>]:</span><br><span class="line">        bot.sendMessage(chat_id=chat_id, text=statusArr[i%<span class="number">2</span>])</span><br><span class="line">        print(<span class="string">&#x27;Different&#x27;</span>)</span><br><span class="line">    browser.refresh()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    i = i+<span class="number">1</span></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateStatus</span>():</span></span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;paramInvcNo&quot;]&#x27;</span>).send_keys(num)</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;btnSubmit&quot;]&#x27;</span>).click()</span><br><span class="line">    status = browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;statusDetail&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> status.text</span><br><span class="line"></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;headless&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&#x27;window-size=1920x1080&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&quot;disable-gpu&quot;</span>)</span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;Location of Chrome Driver&quot;</span>, options = options)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.cjlogistics.com/ko/tool/parcel/tracking&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line">myToken = <span class="string">&#x27;TelegramToken&#x27;</span></span><br><span class="line">bot = telegram.Bot(token = myToken)</span><br><span class="line">chat_id = ID<span class="comment">#bot.getUpdates()[-1].message.chat.id #가장 최근에 온 메세지의 chat id를 가져옵니다</span></span><br><span class="line">num = 운송장 번호</span><br><span class="line">statusArr = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    status = updateStatus()</span><br><span class="line">    statusArr[i%<span class="number">2</span>] = str(status)</span><br><span class="line">    <span class="keyword">if</span> statusArr[<span class="number">0</span>] != statusArr[<span class="number">1</span>]:</span><br><span class="line">        bot.sendMessage(chat_id=chat_id, text=statusArr[i%<span class="number">2</span>])</span><br><span class="line">        print(<span class="string">&#x27;Different&#x27;</span>)</span><br><span class="line">    browser.refresh()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    i = i+<span class="number">1</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -55,7 +88,7 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> DNN </tag>
+            <tag> Deep Learning </tag>
             
             <tag> Statistics </tag>
             
@@ -86,7 +119,7 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> DNN </tag>
+            <tag> Deep Learning </tag>
             
             <tag> Signal Processing </tag>
             
@@ -127,7 +160,7 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> DNN </tag>
+            <tag> Deep Learning </tag>
             
             <tag> Signal Processing </tag>
             
@@ -163,8 +196,6 @@
         <tags>
             
             <tag> Machine Learning </tag>
-            
-            <tag> DNN </tag>
             
             <tag> Signal Processing </tag>
             
@@ -477,9 +508,9 @@
             
             <tag> Python </tag>
             
-            <tag> Sleep apnea </tag>
-            
             <tag> R </tag>
+            
+            <tag> Sleep apnea </tag>
             
         </tags>
       
@@ -504,7 +535,7 @@
       
         <tags>
             
-            <tag> DNN </tag>
+            <tag> Deep Learning </tag>
             
             <tag> MatLAB </tag>
             
@@ -1432,7 +1463,7 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> DNN </tag>
+            <tag> Deep Learning </tag>
             
             <tag> TensorFlow </tag>
             
@@ -1463,7 +1494,7 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> DNN </tag>
+            <tag> Deep Learning </tag>
             
             <tag> TensorFlow </tag>
             
@@ -1494,7 +1525,7 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> DNN </tag>
+            <tag> Deep Learning </tag>
             
             <tag> TensorFlow </tag>
             
@@ -2458,22 +2489,22 @@
     
     
     <entry>
-      <title>Page not found</title>
-      <link href="/404.html"/>
-      <url>/404.html</url>
+      <title>about Zerohertz</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<p><code>404</code></p><blockquote><p>Page not found</p></blockquote><p><a href="https://zerohertz.github.io/">Zerohertz</a></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> B<span class="token operator">.</span>S<span class="token operator">.</span> <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Undergraduate Researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2019.11</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> Undergraduate Researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2021.03</span> ~ <span class="token punctuation">:</span> M<span class="token operator">.</span>S<span class="token operator">.</span> Candidate <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM (Prognostics and Health Management)</li><li>Smart Data<ul><li>Feature Extraction</li><li>Feature Selection</li><li>Feature Fusion</li></ul></li><li>ML (Machine Learning)</li><li>DNN (Deep Neural Network)</li></ul>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>about Zerohertz</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> B<span class="token operator">.</span>S<span class="token operator">.</span> <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Undergraduate Researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2019.11</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> Undergraduate Researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2021.03</span> ~ <span class="token punctuation">:</span> M<span class="token operator">.</span>S<span class="token operator">.</span> Candidate <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM (Prognostics and Health Management)</li><li>Smart Data<ul><li>Feature Extraction</li><li>Feature Selection</li><li>Feature Fusion</li></ul></li><li>ML (Machine Learning)</li><li>DNN (Deep Neural Network)</li></ul>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -2491,11 +2522,11 @@
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>Page not found</title>
+      <link href="/404.html"/>
+      <url>/404.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><code>404</code></p><blockquote><p>Page not found</p></blockquote><p><a href="https://zerohertz.github.io/">Zerohertz</a></p>]]></content>
       
     </entry>
     

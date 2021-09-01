@@ -8,8 +8,80 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/</loc>
+        <lastmod>2021-09-01T05:24:36.043Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/numpy/</loc>
+        <lastmod>2021-09-01T05:09:29.602Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
+        <lastmod>2021-09-01T05:09:17.695Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/app-designer/</loc>
+        <lastmod>2021-09-01T05:09:03.089Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
+        <lastmod>2021-09-01T05:08:42.286Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-12/</loc>
+        <lastmod>2021-09-01T05:07:53.830Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/tensorflow-2/</loc>
+        <lastmod>2021-09-01T05:07:41.964Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/tensorflow-1/</loc>
+        <lastmod>2021-09-01T05:07:39.708Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/tensorflow-3/</loc>
+        <lastmod>2021-09-01T05:07:37.139Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/</loc>
-        <lastmod>2021-08-13T02:36:19.312Z</lastmod>
+        <lastmod>2021-09-01T04:54:57.140Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -18,30 +90,6 @@
     <url>
         <loc>https://zerohertz.github.io/word/</loc>
         <lastmod>2021-07-23T15:42:48.086Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/numpy/</loc>
-        <lastmod>2021-06-07T02:29:54.628Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
-        <lastmod>2021-02-28T07:10:22.242Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
-        <lastmod>2021-02-26T05:07:51.129Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -136,14 +184,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-12/</loc>
-        <lastmod>2021-02-26T05:06:00.815Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/numerical-analysis-3/</loc>
         <lastmod>2021-02-26T05:05:45.484Z</lastmod>
         <changefreq>daily</changefreq>
@@ -154,14 +194,6 @@
     <url>
         <loc>https://zerohertz.github.io/numerical-analysis-5/</loc>
         <lastmod>2021-02-26T05:05:14.083Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/app-designer/</loc>
-        <lastmod>2021-02-26T05:05:10.516Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -544,14 +576,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/tensorflow-1/</loc>
-        <lastmod>2020-02-25T07:09:08.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</loc>
         <lastmod>2020-02-25T07:06:49.000Z</lastmod>
         <changefreq>daily</changefreq>
@@ -602,22 +626,6 @@
     <url>
         <loc>https://zerohertz.github.io/venture/</loc>
         <lastmod>2020-02-25T06:56:35.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/tensorflow-2/</loc>
-        <lastmod>2020-02-25T06:36:48.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/tensorflow-3/</loc>
-        <lastmod>2020-02-25T06:36:40.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 

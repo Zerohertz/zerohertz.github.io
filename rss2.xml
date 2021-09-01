@@ -9,8 +9,49 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Fri, 13 Aug 2021 02:36:19 GMT</pubDate>
+    <pubDate>Wed, 01 Sep 2021 05:24:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Setting Up Virtual Environment for PyTorch</title>
+      <link>https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/</link>
+      <guid>https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/</guid>
+      <pubDate>Wed, 01 Sep 2021 05:04:31 GMT</pubDate>
+      
+      <description>&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css&quot;&gt;
+            &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css&quot;&gt;
+            &lt;script src=&quot;//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js&quot;&gt;&lt;/script&gt;
+            &lt;div id=&#39;terminal&#39; style=&#39;height: 60px&#39;&gt;&lt;/div&gt;
+            &lt;script&gt;
+        new GDemo(&#39;#terminal&#39;)
+          .openApp(&#39;terminal&#39;, {minHeight: &#39;60px&#39;, windowTitle: &#39;Zerohertz&#39;, promptString: &#39;&gt;&#39;})
+    .command(`activate pytorch_env`, {onCompleteDelay: 300})
+        .respond(``)
+        .end();
+    &lt;/script&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='terminal' style='height: 60px'></div>            <script>        new GDemo('#terminal')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '>'})    .command(`activate pytorch_env`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><a id="more"></a><ul><li>시작하기 전 필수 설치<ul><li>Python</li><li>Anaconda</li></ul></li></ul><h1 id="Setting-Up-Virtual-Environment"><a href="#Setting-Up-Virtual-Environment" class="headerlink" title="Setting Up Virtual Environment"></a>Setting Up Virtual Environment</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='terminal1' style='height: 60px'></div>            <script>        new GDemo('#terminal1')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '>'})    .command(`conda create <span class="token comment">--name pytorch_env python=3</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><blockquote><p>To activate environment</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch_env</span><br></pre></td></tr></table></figure><blockquote><p>To deactivate an active environment</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure><hr><h1 id="Installing-PyTorch-and-Package"><a href="#Installing-PyTorch-and-Package" class="headerlink" title="Installing PyTorch and Package"></a>Installing PyTorch and Package</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda install -y pytorch-cpu torchvision-cpu -c pytorch</span><br><span class="line">pip install torchtext</span><br><span class="line">conda install -y scikit-learn</span><br><span class="line">conda install -y matplotlib</span><br><span class="line">conda install -y pandas</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      <category domain="https://zerohertz.github.io/categories/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/categories/python/pytorch/">PyTorch</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
+      
+      <category domain="https://zerohertz.github.io/tags/deep-learning/">Deep Learning</category>
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/pytorch/">PyTorch</category>
+      
+      
+      <comments>https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Telegram Bot Using Web Crawler Based on Selenium</title>
@@ -18,11 +59,14 @@
       <guid>https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/</guid>
       <pubDate>Fri, 13 Aug 2021 02:31:38 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;택배-조회&quot;&gt;&lt;a href=&quot;#택배-조회&quot; class=&quot;headerlink&quot; title=&quot;택배 조회&quot;&gt;&lt;/a&gt;택배 조회&lt;/h1&gt;</description>
+        
+        
+      <description>&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas</description>
+        
       
       
       
-      <content:encoded><![CDATA[<h1 id="택배-조회"><a href="#택배-조회" class="headerlink" title="택배 조회"></a>택배 조회</h1><a id="more"></a><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateStatus</span>():</span></span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;paramInvcNo&quot;]&#x27;</span>).send_keys(num)</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;btnSubmit&quot;]&#x27;</span>).click()</span><br><span class="line">    status = browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;statusDetail&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> status.text</span><br><span class="line"></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;headless&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&#x27;window-size=1920x1080&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&quot;disable-gpu&quot;</span>)</span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;Location of Chrome Driver&quot;</span>, options = options)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.cjlogistics.com/ko/tool/parcel/tracking&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line">myToken = <span class="string">&#x27;TelegramToken&#x27;</span></span><br><span class="line">bot = telegram.Bot(token = myToken)</span><br><span class="line">chat_id = ID<span class="comment">#bot.getUpdates()[-1].message.chat.id #가장 최근에 온 메세지의 chat id를 가져옵니다</span></span><br><span class="line">num = 운송장 번호</span><br><span class="line">statusArr = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    status = updateStatus()</span><br><span class="line">    statusArr[i%<span class="number">2</span>] = str(status)</span><br><span class="line">    <span class="keyword">if</span> statusArr[<span class="number">0</span>] != statusArr[<span class="number">1</span>]:</span><br><span class="line">        bot.sendMessage(chat_id=chat_id, text=statusArr[i%<span class="number">2</span>])</span><br><span class="line">        print(<span class="string">&#x27;Different&#x27;</span>)</span><br><span class="line">    browser.refresh()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    i = i+<span class="number">1</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
+      <content:encoded><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateStatus</span>():</span></span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;paramInvcNo&quot;]&#x27;</span>).send_keys(num)</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;btnSubmit&quot;]&#x27;</span>).click()</span><br><span class="line">    status = browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;statusDetail&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> status.text</span><br><span class="line"></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;headless&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&#x27;window-size=1920x1080&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&quot;disable-gpu&quot;</span>)</span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;Location of Chrome Driver&quot;</span>, options = options)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.cjlogistics.com/ko/tool/parcel/tracking&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line">myToken = <span class="string">&#x27;TelegramToken&#x27;</span></span><br><span class="line">bot = telegram.Bot(token = myToken)</span><br><span class="line">chat_id = ID<span class="comment">#bot.getUpdates()[-1].message.chat.id #가장 최근에 온 메세지의 chat id를 가져옵니다</span></span><br><span class="line">num = 운송장 번호</span><br><span class="line">statusArr = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    status = updateStatus()</span><br><span class="line">    statusArr[i%<span class="number">2</span>] = str(status)</span><br><span class="line">    <span class="keyword">if</span> statusArr[<span class="number">0</span>] != statusArr[<span class="number">1</span>]:</span><br><span class="line">        bot.sendMessage(chat_id=chat_id, text=statusArr[i%<span class="number">2</span>])</span><br><span class="line">        print(<span class="string">&#x27;Different&#x27;</span>)</span><br><span class="line">    browser.refresh()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    i = i+<span class="number">1</span></span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
       <category domain="https://zerohertz.github.io/categories/python/">Python</category>
@@ -71,7 +115,7 @@
       
       <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
       
-      <category domain="https://zerohertz.github.io/tags/dnn/">DNN</category>
+      <category domain="https://zerohertz.github.io/tags/deep-learning/">Deep Learning</category>
       
       <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
       
@@ -122,7 +166,7 @@
       
       <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
       
-      <category domain="https://zerohertz.github.io/tags/dnn/">DNN</category>
+      <category domain="https://zerohertz.github.io/tags/deep-learning/">Deep Learning</category>
       
       <category domain="https://zerohertz.github.io/tags/signal-processing/">Signal Processing</category>
       
@@ -165,7 +209,7 @@
       
       <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
       
-      <category domain="https://zerohertz.github.io/tags/dnn/">DNN</category>
+      <category domain="https://zerohertz.github.io/tags/deep-learning/">Deep Learning</category>
       
       <category domain="https://zerohertz.github.io/tags/signal-processing/">Signal Processing</category>
       
@@ -207,8 +251,6 @@
       
       
       <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
-      
-      <category domain="https://zerohertz.github.io/tags/dnn/">DNN</category>
       
       <category domain="https://zerohertz.github.io/tags/signal-processing/">Signal Processing</category>
       
@@ -637,9 +679,9 @@
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
-      
       <category domain="https://zerohertz.github.io/tags/r/">R</category>
+      
+      <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
       
       
       <comments>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/#disqus_thread</comments>
@@ -664,7 +706,7 @@
       <category domain="https://zerohertz.github.io/categories/matlab/">MatLAB</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/dnn/">DNN</category>
+      <category domain="https://zerohertz.github.io/tags/deep-learning/">Deep Learning</category>
       
       <category domain="https://zerohertz.github.io/tags/matlab/">MatLAB</category>
       
@@ -769,45 +811,6 @@
       
       
       <comments>https://zerohertz.github.io/computer-programming/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Selection and Iteration</title>
-      <link>https://zerohertz.github.io/selection-and-iteration/</link>
-      <guid>https://zerohertz.github.io/selection-and-iteration/</guid>
-      <pubDate>Thu, 02 Jul 2020 06:30:43 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;제어문&quot;&gt;&lt;a href=&quot;#제어문&quot; class=&quot;headerlink&quot; title=&quot;제어문&quot;&gt;&lt;/a&gt;제어문&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;제어문(Control statement)을 사용하여 조건에 의해 문장들의 실행 순서 변경&lt;ul&gt;
-&lt;li&gt;조건문 : 조건에 따라서 여러 개의 실행 경로 가운데 하나를 선택&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;if-else&lt;/code&gt; 문장&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;switch&lt;/code&gt; 문장&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;반복문 : 조건이 유지되는 한, 혹은 정해진 횟수만큼 처리를 되풀이하는 문장&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;for&lt;/code&gt; 문장&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;while&lt;/code&gt; 문장&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="제어문"><a href="#제어문" class="headerlink" title="제어문"></a>제어문</h1><ul><li>제어문(Control statement)을 사용하여 조건에 의해 문장들의 실행 순서 변경<ul><li>조건문 : 조건에 따라서 여러 개의 실행 경로 가운데 하나를 선택<ul><li><code>if-else</code> 문장</li><li><code>switch</code> 문장</li></ul></li><li>반복문 : 조건이 유지되는 한, 혹은 정해진 횟수만큼 처리를 되풀이하는 문장<ul><li><code>for</code> 문장</li><li><code>while</code> 문장</li></ul></li></ul></li></ul><a id="more"></a><hr><h1 id="조건문"><a href="#조건문" class="headerlink" title="조건문"></a>조건문</h1><h2 id="if문"><a href="#if문" class="headerlink" title="if문"></a>if문</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(조건식<span class="number">1</span>)&#123;</span><br><span class="line">    문장<span class="number">1</span>; <span class="comment">// 조건식1이 true이면 실행</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(조건식<span class="number">2</span>)&#123;</span><br><span class="line">    문장<span class="number">2</span>; <span class="comment">// 조건식1이 false이고 조건식2가 true이면 실행</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    문장<span class="number">3</span>; <span class="comment">// 조건식1과 조건식2가 false이면 실행</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><code>&#123;&#125;</code>로 묶인 문장 그룹핑을 복합문(Compound statement) 또는 블록(Block)이라고 함<ul><li>하나의 작업으로 분류될 수 있는 문장들을 묶는데 사용</li><li>단일문이 들어갈 수 있는 곳이면 어디나 단일문 대신 넣을 수 있음</li></ul></li></ul><hr><h1 id="반복문"><a href="#반복문" class="headerlink" title="반복문"></a>반복문</h1><ul><li>while문 : 조건이 만족되면 반복을 계속하는 구조, 미리 반복 횟수를 알 수 없음</li><li>for문 : 정해진 횟수만큼 반복</li></ul><h2 id="while문"><a href="#while문" class="headerlink" title="while문"></a>while문</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(조건식)&#123;</span><br><span class="line">    반복문장</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>무한 루프 : <code>while(true)</code></li></ul><h2 id="for문"><a href="#for문" class="headerlink" title="for문"></a>for문</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(초기식 ; 조건식 ; 증감식)&#123;</span><br><span class="line">    반복문장</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>무한 루프 : <code>for( ; ; )</code></li></ul><hr><h1 id="break문과-continue문"><a href="#break문과-continue문" class="headerlink" title="break문과 continue문"></a>break문과 continue문</h1><ul><li>break문 : 반복 루프를 벗어나기 위하여 사용<ul><li>반복 루프 안에서 실행되면 반복 루프는 즉시 중단되고 반복 루프 다음에 있는 문장 실행</li></ul></li><li>continue문 : 현재 수행하고 있는 반복 과정의 나머지를 건너뛰고 다음 반복 과정을 강제적 실행<ul><li>반복 루프 안에서 실행되면 continue문 다음에 있는 후속 코드들은 실행되지 않고 건너뜀</li></ul></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/">C, C++</category>
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/basic/">Basic</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
-      
-      <comments>https://zerohertz.github.io/selection-and-iteration/#disqus_thread</comments>
       
     </item>
     
