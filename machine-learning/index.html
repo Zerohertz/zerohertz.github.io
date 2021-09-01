@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89857466-2301e600-dbd7-11ea-9f52-f375b8a3d435.jpg">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Theorical Background Types of Machine Learning Supervised Learning Unsupervised Learning Reinforcement Learning Self Learning Feature Learning Sparse Dictionary Learning Anomaly Detection Association">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning">
+<meta property="og:url" content="https://zerohertz.github.io/machine-learning/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Theorical Background Types of Machine Learning Supervised Learning Unsupervised Learning Reinforcement Learning Self Learning Feature Learning Sparse Dictionary Learning Anomaly Detection Association">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-01T06:14:11.000Z">
+<meta property="article:modified_time" content="2021-09-01T17:10:16.993Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Statistics">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/machine-learning/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Machine Learning | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">89</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Theorical-Background"><span class="nav-number">1.</span> <span class="nav-text">Theorical Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-amp-Classification"><span class="nav-number">1.2.</span> <span class="nav-text">Regression &amp; Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-Risk-and-Empirical-Risk-Minimization"><span class="nav-number">1.3.</span> <span class="nav-text">Loss, Risk and Empirical Risk Minimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Iterative-Algorithms"><span class="nav-number">2.</span> <span class="nav-text">Iterative Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Univariate-Function-Minimization"><span class="nav-number">2.1.</span> <span class="nav-text">Univariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Golden-Section-Algorithm"><span class="nav-number">2.1.2.</span> <span class="nav-text">Golden Section Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multivariate-Function-Minimization"><span class="nav-number">2.2.</span> <span class="nav-text">Multivariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Descent-Condtion-for-Direction-Vector"><span class="nav-number">2.2.1.</span> <span class="nav-text">Descent Condtion for Direction Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Descent-Algorithm"><span class="nav-number">2.2.2.</span> <span class="nav-text">Gradient Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Size-of-Gradient-Descent-Algorithm"><span class="nav-number">2.2.3.</span> <span class="nav-text">Step Size of Gradient Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm"><span class="nav-number">2.2.4.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sub-Gradient-Descent-Algorithm"><span class="nav-number">2.2.5.</span> <span class="nav-text">Sub-Gradient (Descent) Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-Descent-Algorithm"><span class="nav-number">2.2.6.</span> <span class="nav-text">Stochastic Gradient (Descent) Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-Methods"><span class="nav-number">3.</span> <span class="nav-text">Learning Methods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Comparison"><span class="nav-number">4.</span> <span class="nav-text">Model Comparison</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/machine-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-01 15:14:11" itemprop="dateCreated datePublished" datetime="2021-09-01T15:14:11+09:00">2021-09-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-02 02:10:16" itemprop="dateModified" datetime="2021-09-02T02:10:16+09:00">2021-09-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/r/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/r/feature-engineering/" itemprop="url" rel="index"><span itemprop="name">Feature Engineering</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/machine-learning/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="machine-learning/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>7.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>7 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Theorical-Background"><a href="#Theorical-Background" class="headerlink" title="Theorical Background"></a>Theorical Background</h1><ul>
+<li>Types of Machine Learning<ul>
+<li>Supervised Learning</li>
+<li>Unsupervised Learning</li>
+<li>Reinforcement Learning</li>
+<li>Self Learning</li>
+<li>Feature Learning</li>
+<li>Sparse Dictionary Learning</li>
+<li>Anomaly Detection</li>
+<li>Association Rules</li>
+</ul>
+</li>
+<li>Two Supervised Learning Methods<ul>
+<li>Regression</li>
+<li>Classification</li>
+</ul>
+</li>
+<li>Empirical Risk Minimization<ul>
+<li>Loss and Risk Functions</li>
+<li>Algorithms</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><blockquote>
+<p>A problem of inferring, estimating or learning a function $f$ for explaining $y$ based on $f(x)$</p>
+</blockquote>
+<ul>
+<li>$y\in \mathcal{Y}$: Output (Dependent, Response Variable or Label)</li>
+<li>$x\in \mathcal{X}$: Input (Independent, Predictive Variable of Feature)</li>
+<li>$f\in \mathcal{F}$: $\mathcal{X}\rightarrow \mathcal{Y}$: Model (Regression Function or Hypothesis, Machine)</li>
+</ul>
+<blockquote>
+<p>c.f., Unsupervised Learning</p>
+</blockquote>
+<h2 id="Regression-amp-Classification"><a href="#Regression-amp-Classification" class="headerlink" title="Regression &amp; Classification"></a>Regression &amp; Classification</h2><ul>
+<li>Regression<ul>
+<li>$\mathcal{Y}$: Infinite and Ordered ($\mathcal{Y}=\mathbb{R},\mathbb{R}^+,\mathbb{N}\cup{0},…$)</li>
+<li>Linear Regression: $\mathcal{Y}=\mathbb{R}$</li>
+<li>Poisson Regression: $\mathcal{Y}=\mathbb{N}\cup{0}$</li>
+</ul>
+</li>
+<li>Classification<ul>
+<li>$\mathcal{Y}$: Finite and Unordered ($\mathcal{Y}={0,1},{-1,1},{1,…,k},…$)</li>
+<li>Logistic Regression: $\mathcal{Y}={0,1}$</li>
+<li>Support Vector Machine: $\mathcal{Y}={-1,1}$</li>
+<li>Multinomial Regression: $\mathcal{Y}={1,…,k}$</li>
+</ul>
+</li>
+<li>Prediction Based on $x$<ul>
+<li>Regression: $y_x=f(x)$</li>
+<li>Classification: $y_x=\phi(x)$<ul>
+<li>$\phi(x)$: Classifier as a Function of $f(x)$</li>
+<li>e.g., $\phi(x)=sign(f(x))$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Loss-Risk-and-Empirical-Risk-Minimization"><a href="#Loss-Risk-and-Empirical-Risk-Minimization" class="headerlink" title="Loss, Risk and Empirical Risk Minimization"></a>Loss, Risk and Empirical Risk Minimization</h2><ul>
+<li>Loss (Cost) Function: $L(y,f(x))$<ul>
+<li>It measures <code>loss</code> or <code>cost</code> for the use of $f$</li>
+<li>Regression: $y\in \mathbb{R}$<ul>
+<li>Square: $(y-f(x))^2$</li>
+<li>Quantile: $\rho_\tau(y-f(x)), 0&lt;\tau&lt;1$</li>
+<li>Huber: $H_\delta(y-f(x)), \delta&gt;0$</li>
+</ul>
+</li>
+<li>Classification: $y\in {-1,1}$<ul>
+<li>Zero-One: $I[y\neq\phi]=I[yf(x)&lt;0]$</li>
+<li>Logistic: $log{1+exp(-yf(x))}$</li>
+<li>Exponential: $exp(-yf(x))$</li>
+<li>Hinge: $max{0,1-yf(x)}$</li>
+<li>$\psi$: $I[yf(x)\leq0]+max{0,1-yf(x)}I[yf(x)&gt;0]$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Risk Function: $R(f)=E_{(y,x)}L(y,f(x))$<ul>
+<li>Long-Term average of losses or costs<ul>
+<li>Square Loss: $E(y-f(x))^2$</li>
+<li>Zero-One Loss: $EI[y\neq \phi(x)]=P[y\neq \phi(x)]$</li>
+<li>Condition Risk: $R(f)=E_{y|x}[L(y,f(x))|x]$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Empirical Risk Minimization: $\hat f=argmin_{f\in \mathcal{F}}R_n(f)$<ul>
+<li>Empirical Risk Function: $R_n(f)=\Sigma^n_{i=1}L(y_i,f(x_i))/n$<ul>
+<li>Training Sample ($y_i,x_i$), $i\leq n$: Independent samples / observations of $(y,x)$</li>
+<li>Linear Regression with Square Loss: $\hat \beta =argmin_\beta\Sigma^n_{i=1}(y_i-x^T_i\beta)^2/n$</li>
+<li>Logistic Regression with Logistic Loss: $\hat\beta=argmin_\beta\Sigma^n_{i=1}{-y_ix^T_i\beta+log(1+exp(x^T_i\beta))}/n$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Iterative-Algorithms"><a href="#Iterative-Algorithms" class="headerlink" title="Iterative Algorithms"></a>Iterative Algorithms</h1><ul>
+<li>Univariate Function Minimization<ul>
+<li>Iterative Grid Search Algorithm</li>
+<li>Golden Section Algorithm</li>
+</ul>
+</li>
+<li>Multivariate Function Minimization<ul>
+<li>Coordinate Descent Algorithm</li>
+<li>Gradient Descent Algorithm</li>
+</ul>
+</li>
+</ul>
+<h2 id="Univariate-Function-Minimization"><a href="#Univariate-Function-Minimization" class="headerlink" title="Univariate Function Minimization"></a>Univariate Function Minimization</h2><ul>
+<li>Problem: find $x^*=argmin_{x\in[a,b]}f(x)$</li>
+<li>Iterative Algorithm: for $n=1,2,…$<ul>
+<li>$x^*\in[a_{n+1},b_{n+1}]\subset[a_n,b_n]$</li>
+</ul>
+</li>
+<li>(Lemma) $f$: convex on $[a_n,b_n]$<ul>
+<li>$<br>\begin{equation}<br>\left.<br>\begin{gathered}x^*\in[a_n,b_n]\newline \exists_C\in[a_{n+1},b_{n+1}]\subset[a_n,n_n]\newline s.t.\ \ f(a_{n+1})&gt;f(c)&lt;f(b_{n+1})<br>\end{gathered}<br>\right\rbrace\rightarrow x^\ast [a_{n+1},b_{n+1}] \notag<br>\end{equation}<br>$</li>
+</ul>
+</li>
+</ul>
+<h3 id="Grid-Search"><a href="#Grid-Search" class="headerlink" title="Grid Search"></a>Grid Search</h3><ul>
+<li>Non-Iterative Grid Search Alhorithm: $x^*\approx argmin_{z\in z_k=a+k(b-a)/m|k=0,…,m}f(z)$</li>
+<li>Iterative Grid Search Algorithm: for $n=1,2,…$<ul>
+<li>$<br>\begin{equation}<br>\left\lbrace<br>\begin{gathered}<br>a_{n+1}=a_n+(k_n-1)(b_n-a_n)/m \newline<br>b_{n+1}=a_n+(k_n+1)(b_n-a_n)/m<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li>
+<li>$k_n=argmin_{k\in{0,…,m}}f(a_n+k(b_n-a_n)/m)$</li>
+</ul>
+</li>
+</ul>
+<h3 id="Golden-Section-Algorithm"><a href="#Golden-Section-Algorithm" class="headerlink" title="Golden Section Algorithm"></a>Golden Section Algorithm</h3><ul>
+<li>Golden Section Algorithm: for $n=1,2,…$<ul>
+<li>Two inner points<ul>
+<li>$<br>\begin{equation}<br>\left.<br>\begin{gathered}<br>c_n=\gamma a_n+(1-\gamma)b_n \newline<br>d_n=\gamma b_n+(1-\gamma)a_n<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li>
+<li>Golden Ratio: $\gamma=(\sqrt{5}-1)/2\approx0.618034$</li>
+<li>$[c_n,d_n]\subset[a_n,b_n]$</li>
+</ul>
+</li>
+<li>Update Rule<ul>
+<li>$<br>\begin{equation}<br>\left.<br>\begin{gathered}<br>f(c_n)&gt;f(d_n)\rightarrow[a_{n+1},b_{n+1}]=[c_n,b_n] \newline<br>f(c_n)&lt;f(d_n)\rightarrow[a_{n+1},b_{n+1}]=[a_n,d_n]<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Multivariate-Function-Minimization"><a href="#Multivariate-Function-Minimization" class="headerlink" title="Multivariate Function Minimization"></a>Multivariate Function Minimization</h2><ul>
+<li>Problem: $x^*=argmin_{x\in\mathbb{R}^p}f(x)$</li>
+<li>Iterative Algorithm: for $n=1,2,…$<ul>
+<li>$x_{n+1}=x_n+\alpha_nd_n,\alpha_n&gt;0,f(x_{n+1})&lt;f(x_n)$</li>
+<li>$\alpha_n\in\mathbb{R}$: Step Size or Learning Rate</li>
+<li>$d_n\in\mathbb{R}^p$: Descent Direction Vector</li>
+</ul>
+</li>
+<li>How to find $\alpha_n$ and $d_n$?<ol>
+<li>Find a descent direction $d_n$</li>
+<li>Find a step size $\alpha_n$<ul>
+<li>$a_n=argmin_{t&gt;0}g_n(t),g_n(t)=f(x_n+td_n)$</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Descent-Condtion-for-Direction-Vector"><a href="#Descent-Condtion-for-Direction-Vector" class="headerlink" title="Descent Condtion for Direction Vector"></a>Descent Condtion for Direction Vector</h3><ul>
+<li>Direction Opposite to Current Gradient<ul>
+<li>Let $x_\alpha=x+\alpha d$, then by the first order Taylor’s expansion around $x$, we have $f(x_\alpha)$<ul>
+<li>$\begin{equation}\begin{aligned}f(x_\alpha)&amp;=f(x)+\nabla f(x)^T(x_\alpha-x)+o(||x_\alpha-x||)\newline &amp;=f(x)+\alpha\nabla f(x)^Td+o(\alpha||d||)\newline &amp;=f(x)+\alpha\nabla f(x)^Td+o(\alpha)\end{aligned}\notag\end{equation}$</li>
+<li>$\nabla f(x)=\partial f(x)/\partial x_j,j\leq p$: Gradient vector of $f$ at $x$</li>
+</ul>
+</li>
+<li>(Descent Condition) So we have, $f(x_\alpha)-f(x)&lt;\alpha\nabla f(x)^Td&lt;0$, for all sufficiently small $\alpha&gt;0$, if $\nabla f(x)^Td&lt;0$</li>
+</ul>
+</li>
+</ul>
+<h3 id="Gradient-Descent-Algorithm"><a href="#Gradient-Descent-Algorithm" class="headerlink" title="Gradient Descent Algorithm"></a>Gradient Descent Algorithm</h3><ul>
+<li>General Form with Negative Gradient Direction<ul>
+<li>$x_{n+1}=x_n+\alpha_nd_n=x_n-\alpha_nD_n\nabla f(x_n)$<ul>
+<li>$D_n$: Strictly Positive Definite Matrix</li>
+</ul>
+</li>
+<li>$\nabla f(x_n)^TD_n\nabla f(x_n)&gt;0$</li>
+</ul>
+</li>
+<li>Various Directions Vectors<ul>
+<li>Steepest Descent: $D_n=I_p\rightarrow x_{n+1}=x_n-\alpha_n\nabla f(x_n)$</li>
+<li>Newton-Raphson: $D_n=\nabla^2f(x_n)^{-1},\alpha_n=1$</li>
+<li>Modified Newton’s Method: $D_n=\nabla^2f(x_0)$ for some $x_0$</li>
+<li>Diagonally Scaled Steepest Descent: $D_n=[diag(\nabla^2f(x_n))]^{-1}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="Step-Size-of-Gradient-Descent-Algorithm"><a href="#Step-Size-of-Gradient-Descent-Algorithm" class="headerlink" title="Step Size of Gradient Descent Algorithm"></a>Step Size of Gradient Descent Algorithm</h3><ul>
+<li>Limited Minimization Rule<ul>
+<li>$f(x_n+\alpha_nd_n)=min_{\alpha\in[0,s]}f(x_n+\alpha d_n)$, for some $s&gt;0$</li>
+</ul>
+</li>
+<li>Successive Step Size Reduction (Armijo Rule, Armijo [1996])<ul>
+<li>Find the first integer $m\geq 0$ that satisfies the stopping rule $f(x_n+r^msd_n)-f(x_n)\leq\sigma r^ms\nabla f(x_n)^Td_n$, for some constans $s&gt;0,0&lt;r&lt;1$ and $0&lt;\sigma&lt;1$</li>
+<li>Practical Choice: Try $\alpha_n=1,1/2,1/4,…$</li>
+</ul>
+</li>
+<li>Deterministic Step Size: Small Constant (0.1, 0.01, 0.001)</li>
+<li>A Sequence: Square summable but not summable ($\propto1/n$), nonsummable diminishing ($\propto1/\sqrt{n}$), …</li>
+</ul>
+<h3 id="Coordinate-Descent-Algorithm"><a href="#Coordinate-Descent-Algorithm" class="headerlink" title="Coordinate Descent Algorithm"></a>Coordinate Descent Algorithm</h3><ul>
+<li>Successive Minimization of Univariate Functions</li>
+<li>Iterative Algorithm: for $n=1,2,…$ repeat inner cycling below<ul>
+<li>Inner Cycling: for $j=1,2,…,p$<ul>
+<li>$x_{(n+1)j}argmin_{t\in\mathbb{R}}f(x_{(n+1)1},…,x_{(n+1)(j-1)},t,x_{n(j+1)},…,x_{np}$</li>
+<li>Direction vector for the $j$th inner cycling step<ul>
+<li>$<br>\begin{equation}<br>d_{nk}=<br>\left\lbrace<br>\begin{gathered}-sign(\partial f(\tilde x_{nj})/\partial x_j),&amp;k=j\newline 0, &amp;k\neq j<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li>
+<li>$\tilde x_{nj}=(x_{(n+1)1},…,x_{(n+1)(j=1)},x_{nj},x_{n(j+1)},…,x_{np})$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Inner Cycling Minimization<ul>
+<li>Closed Form vs Univariate Minimization</li>
+<li>Invariance to the order of coordinates</li>
+<li>Individual Corrdinate vs A Block of Coordinates</li>
+<li><code>one-at-a-time</code> not <code>all-at-once</code></li>
+</ul>
+</li>
+<li>Convergence Cases<ul>
+<li>$f$: Convex and Differentiable $\rightarrow$ Always converges to a local minimizer<ul>
+<li>$f(x,y)=x^2+y^2+x+10y$</li>
+</ul>
+</li>
+<li>$f$: Convex but Not Differentiable $\rightarrow$ May stuck in a point that is not a local minimizer<ul>
+<li>$f(x,y)=(x-y)^2+(x+y)^2+|x-y|+20|x+y|$</li>
+</ul>
+</li>
+<li>CD algorithm always converges if $f(x)=g(x)+\Sigma^p_{j=1}h_j(x_j)$, where $g$ is convex differentiable and $h_j$ is convex but may not differentiable for all $j\leq p$ [Tseng, 2001]<ul>
+<li>$f(x,y)=x^2+y^2+|x|+10|y|$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Sub-Gradient-Descent-Algorithm"><a href="#Sub-Gradient-Descent-Algorithm" class="headerlink" title="Sub-Gradient (Descent) Algorithm"></a>Sub-Gradient (Descent) Algorithm</h3><ul>
+<li>$u(x_0)$: Sub-gradient of $f$ at $x_0$ if $f(x)\geq f(x_0)+u(x_0)^T(x-x_0),\forall x\in B(x_0,\delta)$</li>
+<li>Sub-Gradient Descent Algorithm: $x_{n+1}=x_n-\alpha_nu_n$<ul>
+<li>$u_n$: Sub-gradient at $x_n$</li>
+<li>$f$: Convex but may not differentiable</li>
+<li>Not a descent method</li>
+<li>Stopping rule by tracing $f^{best}_n=min{f(x_1),…,f(x_n)}$</li>
+<li>Deterministic step size<ul>
+<li>$\alpha_n$: Small constant, square summable but not summable ($1/n$), nonsummable diminishing ($1/\sqrt{n}$), …</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Stochastic-Gradient-Descent-Algorithm"><a href="#Stochastic-Gradient-Descent-Algorithm" class="headerlink" title="Stochastic Gradient (Descent) Algorithm"></a>Stochastic Gradient (Descent) Algorithm</h3><ul>
+<li>Minimizing Empirical Risk Function: $R_n(\beta)=\Sigma^n_{i=1}L(y_i,x_i^T\beta)$<ul>
+<li>Batch: Whole Samples<ul>
+<li>$\beta_{t+1}=\beta_t-\alpha_t\Sigma^n_{i=1}\nabla L(y_i,x_i^T\beta_t)$</li>
+</ul>
+</li>
+<li>Stochastic: One Random Smaple $(y_i,x_i)$<ul>
+<li>$\beta_{t+1}=\beta_t-\alpha_t\nabla L(y_i,x_i^T\beta_t)$</li>
+</ul>
+</li>
+<li>Mini-Batch: A Number of Random Sample $(y_i,x_i),i\in S$<ul>
+<li>$\beta_{t+1}=\beta_t-\alpha_t\Sigma_{i\in S}\nabla L(y_i,x_i^T\beta_t)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Learning-Methods"><a href="#Learning-Methods" class="headerlink" title="Learning Methods"></a>Learning Methods</h1><hr>
+<h1 id="Model-Comparison"><a href="#Model-Comparison" class="headerlink" title="Model Comparison"></a>Model Comparison</h1>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-for-extracting-cis/" rel="bookmark">Source code for extracting CIs</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/app-designer/" rel="bookmark">App Designer</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/exporting-ai-model-to-c-from-matlab/" rel="bookmark">Exporting AI Model to C++ from MatLAB</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/machine-learning/" title="Machine Learning">https://zerohertz.github.io/machine-learning/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/setting-up-virtual-environment-for-pytorch/" rel="prev" title="Setting Up Virtual Environment for PyTorch">
+                  <i class="fa fa-chevron-left"></i> Setting Up Virtual Environment for PyTorch
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">530k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:02</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="150" alpha="0.8" zindex="-2" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/machine-learning/";
+    this.page.identifier = "machine-learning/";
+    this.page.title = "Machine Learning";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

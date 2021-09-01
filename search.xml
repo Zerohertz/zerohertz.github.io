@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Machine Learning</title>
+      <link href="/machine-learning/"/>
+      <url>/machine-learning/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Theorical-Background"><a href="#Theorical-Background" class="headerlink" title="Theorical Background"></a>Theorical Background</h1><ul><li>Types of Machine Learning<ul><li>Supervised Learning</li><li>Unsupervised Learning</li><li>Reinforcement Learning</li><li>Self Learning</li><li>Feature Learning</li><li>Sparse Dictionary Learning</li><li>Anomaly Detection</li><li>Association Rules</li></ul></li><li>Two Supervised Learning Methods<ul><li>Regression</li><li>Classification</li></ul></li><li>Empirical Risk Minimization<ul><li>Loss and Risk Functions</li><li>Algorithms</li></ul></li></ul><a id="more"></a><h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><blockquote><p>A problem of inferring, estimating or learning a function $f$ for explaining $y$ based on $f(x)$</p></blockquote><ul><li>$y\in \mathcal{Y}$: Output (Dependent, Response Variable or Label)</li><li>$x\in \mathcal{X}$: Input (Independent, Predictive Variable of Feature)</li><li>$f\in \mathcal{F}$: $\mathcal{X}\rightarrow \mathcal{Y}$: Model (Regression Function or Hypothesis, Machine)</li></ul><blockquote><p>c.f., Unsupervised Learning</p></blockquote><h2 id="Regression-amp-Classification"><a href="#Regression-amp-Classification" class="headerlink" title="Regression &amp; Classification"></a>Regression &amp; Classification</h2><ul><li>Regression<ul><li>$\mathcal{Y}$: Infinite and Ordered ($\mathcal{Y}=\mathbb{R},\mathbb{R}^+,\mathbb{N}\cup{0},…$)</li><li>Linear Regression: $\mathcal{Y}=\mathbb{R}$</li><li>Poisson Regression: $\mathcal{Y}=\mathbb{N}\cup{0}$</li></ul></li><li>Classification<ul><li>$\mathcal{Y}$: Finite and Unordered ($\mathcal{Y}={0,1},{-1,1},{1,…,k},…$)</li><li>Logistic Regression: $\mathcal{Y}={0,1}$</li><li>Support Vector Machine: $\mathcal{Y}={-1,1}$</li><li>Multinomial Regression: $\mathcal{Y}={1,…,k}$</li></ul></li><li>Prediction Based on $x$<ul><li>Regression: $y_x=f(x)$</li><li>Classification: $y_x=\phi(x)$<ul><li>$\phi(x)$: Classifier as a Function of $f(x)$</li><li>e.g., $\phi(x)=sign(f(x))$</li></ul></li></ul></li></ul><h2 id="Loss-Risk-and-Empirical-Risk-Minimization"><a href="#Loss-Risk-and-Empirical-Risk-Minimization" class="headerlink" title="Loss, Risk and Empirical Risk Minimization"></a>Loss, Risk and Empirical Risk Minimization</h2><ul><li>Loss (Cost) Function: $L(y,f(x))$<ul><li>It measures <code>loss</code> or <code>cost</code> for the use of $f$</li><li>Regression: $y\in \mathbb{R}$<ul><li>Square: $(y-f(x))^2$</li><li>Quantile: $\rho_\tau(y-f(x)), 0&lt;\tau&lt;1$</li><li>Huber: $H_\delta(y-f(x)), \delta&gt;0$</li></ul></li><li>Classification: $y\in {-1,1}$<ul><li>Zero-One: $I[y\neq\phi]=I[yf(x)&lt;0]$</li><li>Logistic: $log{1+exp(-yf(x))}$</li><li>Exponential: $exp(-yf(x))$</li><li>Hinge: $max{0,1-yf(x)}$</li><li>$\psi$: $I[yf(x)\leq0]+max{0,1-yf(x)}I[yf(x)&gt;0]$</li></ul></li></ul></li><li>Risk Function: $R(f)=E_{(y,x)}L(y,f(x))$<ul><li>Long-Term average of losses or costs<ul><li>Square Loss: $E(y-f(x))^2$</li><li>Zero-One Loss: $EI[y\neq \phi(x)]=P[y\neq \phi(x)]$</li><li>Condition Risk: $R(f)=E_{y|x}[L(y,f(x))|x]$</li></ul></li></ul></li><li>Empirical Risk Minimization: $\hat f=argmin_{f\in \mathcal{F}}R_n(f)$<ul><li>Empirical Risk Function: $R_n(f)=\Sigma^n_{i=1}L(y_i,f(x_i))/n$<ul><li>Training Sample ($y_i,x_i$), $i\leq n$: Independent samples / observations of $(y,x)$</li><li>Linear Regression with Square Loss: $\hat \beta =argmin_\beta\Sigma^n_{i=1}(y_i-x^T_i\beta)^2/n$</li><li>Logistic Regression with Logistic Loss: $\hat\beta=argmin_\beta\Sigma^n_{i=1}{-y_ix^T_i\beta+log(1+exp(x^T_i\beta))}/n$</li></ul></li></ul></li></ul><hr><h1 id="Iterative-Algorithms"><a href="#Iterative-Algorithms" class="headerlink" title="Iterative Algorithms"></a>Iterative Algorithms</h1><ul><li>Univariate Function Minimization<ul><li>Iterative Grid Search Algorithm</li><li>Golden Section Algorithm</li></ul></li><li>Multivariate Function Minimization<ul><li>Coordinate Descent Algorithm</li><li>Gradient Descent Algorithm</li></ul></li></ul><h2 id="Univariate-Function-Minimization"><a href="#Univariate-Function-Minimization" class="headerlink" title="Univariate Function Minimization"></a>Univariate Function Minimization</h2><ul><li>Problem: find $x^*=argmin_{x\in[a,b]}f(x)$</li><li>Iterative Algorithm: for $n=1,2,…$<ul><li>$x^*\in[a_{n+1},b_{n+1}]\subset[a_n,b_n]$</li></ul></li><li>(Lemma) $f$: convex on $[a_n,b_n]$<ul><li>$<br>\begin{equation}<br>\left.<br>\begin{gathered}x^*\in[a_n,b_n]\newline \exists_C\in[a_{n+1},b_{n+1}]\subset[a_n,n_n]\newline s.t.\ \ f(a_{n+1})&gt;f(c)&lt;f(b_{n+1})<br>\end{gathered}<br>\right\rbrace\rightarrow x^\ast [a_{n+1},b_{n+1}] \notag<br>\end{equation}<br>$</li></ul></li></ul><h3 id="Grid-Search"><a href="#Grid-Search" class="headerlink" title="Grid Search"></a>Grid Search</h3><ul><li>Non-Iterative Grid Search Alhorithm: $x^*\approx argmin_{z\in z_k=a+k(b-a)/m|k=0,…,m}f(z)$</li><li>Iterative Grid Search Algorithm: for $n=1,2,…$<ul><li>$<br>\begin{equation}<br>\left\lbrace<br>\begin{gathered}<br>a_{n+1}=a_n+(k_n-1)(b_n-a_n)/m \newline<br>b_{n+1}=a_n+(k_n+1)(b_n-a_n)/m<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li><li>$k_n=argmin_{k\in{0,…,m}}f(a_n+k(b_n-a_n)/m)$</li></ul></li></ul><h3 id="Golden-Section-Algorithm"><a href="#Golden-Section-Algorithm" class="headerlink" title="Golden Section Algorithm"></a>Golden Section Algorithm</h3><ul><li>Golden Section Algorithm: for $n=1,2,…$<ul><li>Two inner points<ul><li>$<br>\begin{equation}<br>\left.<br>\begin{gathered}<br>c_n=\gamma a_n+(1-\gamma)b_n \newline<br>d_n=\gamma b_n+(1-\gamma)a_n<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li><li>Golden Ratio: $\gamma=(\sqrt{5}-1)/2\approx0.618034$</li><li>$[c_n,d_n]\subset[a_n,b_n]$</li></ul></li><li>Update Rule<ul><li>$<br>\begin{equation}<br>\left.<br>\begin{gathered}<br>f(c_n)&gt;f(d_n)\rightarrow[a_{n+1},b_{n+1}]=[c_n,b_n] \newline<br>f(c_n)&lt;f(d_n)\rightarrow[a_{n+1},b_{n+1}]=[a_n,d_n]<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li></ul></li></ul></li></ul><h2 id="Multivariate-Function-Minimization"><a href="#Multivariate-Function-Minimization" class="headerlink" title="Multivariate Function Minimization"></a>Multivariate Function Minimization</h2><ul><li>Problem: $x^*=argmin_{x\in\mathbb{R}^p}f(x)$</li><li>Iterative Algorithm: for $n=1,2,…$<ul><li>$x_{n+1}=x_n+\alpha_nd_n,\alpha_n&gt;0,f(x_{n+1})&lt;f(x_n)$</li><li>$\alpha_n\in\mathbb{R}$: Step Size or Learning Rate</li><li>$d_n\in\mathbb{R}^p$: Descent Direction Vector</li></ul></li><li>How to find $\alpha_n$ and $d_n$?<ol><li>Find a descent direction $d_n$</li><li>Find a step size $\alpha_n$<ul><li>$a_n=argmin_{t&gt;0}g_n(t),g_n(t)=f(x_n+td_n)$</li></ul></li></ol></li></ul><h3 id="Descent-Condtion-for-Direction-Vector"><a href="#Descent-Condtion-for-Direction-Vector" class="headerlink" title="Descent Condtion for Direction Vector"></a>Descent Condtion for Direction Vector</h3><ul><li>Direction Opposite to Current Gradient<ul><li>Let $x_\alpha=x+\alpha d$, then by the first order Taylor’s expansion around $x$, we have $f(x_\alpha)$<ul><li>$\begin{equation}\begin{aligned}f(x_\alpha)&amp;=f(x)+\nabla f(x)^T(x_\alpha-x)+o(||x_\alpha-x||)\newline &amp;=f(x)+\alpha\nabla f(x)^Td+o(\alpha||d||)\newline &amp;=f(x)+\alpha\nabla f(x)^Td+o(\alpha)\end{aligned}\notag\end{equation}$</li><li>$\nabla f(x)=\partial f(x)/\partial x_j,j\leq p$: Gradient vector of $f$ at $x$</li></ul></li><li>(Descent Condition) So we have, $f(x_\alpha)-f(x)&lt;\alpha\nabla f(x)^Td&lt;0$, for all sufficiently small $\alpha&gt;0$, if $\nabla f(x)^Td&lt;0$</li></ul></li></ul><h3 id="Gradient-Descent-Algorithm"><a href="#Gradient-Descent-Algorithm" class="headerlink" title="Gradient Descent Algorithm"></a>Gradient Descent Algorithm</h3><ul><li>General Form with Negative Gradient Direction<ul><li>$x_{n+1}=x_n+\alpha_nd_n=x_n-\alpha_nD_n\nabla f(x_n)$<ul><li>$D_n$: Strictly Positive Definite Matrix</li></ul></li><li>$\nabla f(x_n)^TD_n\nabla f(x_n)&gt;0$</li></ul></li><li>Various Directions Vectors<ul><li>Steepest Descent: $D_n=I_p\rightarrow x_{n+1}=x_n-\alpha_n\nabla f(x_n)$</li><li>Newton-Raphson: $D_n=\nabla^2f(x_n)^{-1},\alpha_n=1$</li><li>Modified Newton’s Method: $D_n=\nabla^2f(x_0)$ for some $x_0$</li><li>Diagonally Scaled Steepest Descent: $D_n=[diag(\nabla^2f(x_n))]^{-1}$</li></ul></li></ul><h3 id="Step-Size-of-Gradient-Descent-Algorithm"><a href="#Step-Size-of-Gradient-Descent-Algorithm" class="headerlink" title="Step Size of Gradient Descent Algorithm"></a>Step Size of Gradient Descent Algorithm</h3><ul><li>Limited Minimization Rule<ul><li>$f(x_n+\alpha_nd_n)=min_{\alpha\in[0,s]}f(x_n+\alpha d_n)$, for some $s&gt;0$</li></ul></li><li>Successive Step Size Reduction (Armijo Rule, Armijo [1996])<ul><li>Find the first integer $m\geq 0$ that satisfies the stopping rule $f(x_n+r^msd_n)-f(x_n)\leq\sigma r^ms\nabla f(x_n)^Td_n$, for some constans $s&gt;0,0&lt;r&lt;1$ and $0&lt;\sigma&lt;1$</li><li>Practical Choice: Try $\alpha_n=1,1/2,1/4,…$</li></ul></li><li>Deterministic Step Size: Small Constant (0.1, 0.01, 0.001)</li><li>A Sequence: Square summable but not summable ($\propto1/n$), nonsummable diminishing ($\propto1/\sqrt{n}$), …</li></ul><h3 id="Coordinate-Descent-Algorithm"><a href="#Coordinate-Descent-Algorithm" class="headerlink" title="Coordinate Descent Algorithm"></a>Coordinate Descent Algorithm</h3><ul><li>Successive Minimization of Univariate Functions</li><li>Iterative Algorithm: for $n=1,2,…$ repeat inner cycling below<ul><li>Inner Cycling: for $j=1,2,…,p$<ul><li>$x_{(n+1)j}argmin_{t\in\mathbb{R}}f(x_{(n+1)1},…,x_{(n+1)(j-1)},t,x_{n(j+1)},…,x_{np}$</li><li>Direction vector for the $j$th inner cycling step<ul><li>$<br>\begin{equation}<br>d_{nk}=<br>\left\lbrace<br>\begin{gathered}-sign(\partial f(\tilde x_{nj})/\partial x_j),&amp;k=j\newline 0, &amp;k\neq j<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li><li>$\tilde x_{nj}=(x_{(n+1)1},…,x_{(n+1)(j=1)},x_{nj},x_{n(j+1)},…,x_{np})$</li></ul></li></ul></li></ul></li><li>Inner Cycling Minimization<ul><li>Closed Form vs Univariate Minimization</li><li>Invariance to the order of coordinates</li><li>Individual Corrdinate vs A Block of Coordinates</li><li><code>one-at-a-time</code> not <code>all-at-once</code></li></ul></li><li>Convergence Cases<ul><li>$f$: Convex and Differentiable $\rightarrow$ Always converges to a local minimizer<ul><li>$f(x,y)=x^2+y^2+x+10y$</li></ul></li><li>$f$: Convex but Not Differentiable $\rightarrow$ May stuck in a point that is not a local minimizer<ul><li>$f(x,y)=(x-y)^2+(x+y)^2+|x-y|+20|x+y|$</li></ul></li><li>CD algorithm always converges if $f(x)=g(x)+\Sigma^p_{j=1}h_j(x_j)$, where $g$ is convex differentiable and $h_j$ is convex but may not differentiable for all $j\leq p$ [Tseng, 2001]<ul><li>$f(x,y)=x^2+y^2+|x|+10|y|$</li></ul></li></ul></li></ul><h3 id="Sub-Gradient-Descent-Algorithm"><a href="#Sub-Gradient-Descent-Algorithm" class="headerlink" title="Sub-Gradient (Descent) Algorithm"></a>Sub-Gradient (Descent) Algorithm</h3><ul><li>$u(x_0)$: Sub-gradient of $f$ at $x_0$ if $f(x)\geq f(x_0)+u(x_0)^T(x-x_0),\forall x\in B(x_0,\delta)$</li><li>Sub-Gradient Descent Algorithm: $x_{n+1}=x_n-\alpha_nu_n$<ul><li>$u_n$: Sub-gradient at $x_n$</li><li>$f$: Convex but may not differentiable</li><li>Not a descent method</li><li>Stopping rule by tracing $f^{best}_n=min{f(x_1),…,f(x_n)}$</li><li>Deterministic step size<ul><li>$\alpha_n$: Small constant, square summable but not summable ($1/n$), nonsummable diminishing ($1/\sqrt{n}$), …</li></ul></li></ul></li></ul><h3 id="Stochastic-Gradient-Descent-Algorithm"><a href="#Stochastic-Gradient-Descent-Algorithm" class="headerlink" title="Stochastic Gradient (Descent) Algorithm"></a>Stochastic Gradient (Descent) Algorithm</h3><ul><li>Minimizing Empirical Risk Function: $R_n(\beta)=\Sigma^n_{i=1}L(y_i,x_i^T\beta)$<ul><li>Batch: Whole Samples<ul><li>$\beta_{t+1}=\beta_t-\alpha_t\Sigma^n_{i=1}\nabla L(y_i,x_i^T\beta_t)$</li></ul></li><li>Stochastic: One Random Smaple $(y_i,x_i)$<ul><li>$\beta_{t+1}=\beta_t-\alpha_t\nabla L(y_i,x_i^T\beta_t)$</li></ul></li><li>Mini-Batch: A Number of Random Sample $(y_i,x_i),i\in S$<ul><li>$\beta_{t+1}=\beta_t-\alpha_t\Sigma_{i\in S}\nabla L(y_i,x_i^T\beta_t)$</li></ul></li></ul></li></ul><hr><h1 id="Learning-Methods"><a href="#Learning-Methods" class="headerlink" title="Learning Methods"></a>Learning Methods</h1><hr><h1 id="Model-Comparison"><a href="#Model-Comparison" class="headerlink" title="Model Comparison"></a>Model Comparison</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> R </category>
+          
+          <category> Feature Engineering </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Statistics </tag>
+            
+            <tag> R </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Setting Up Virtual Environment for PyTorch</title>
       <link href="/setting-up-virtual-environment-for-pytorch/"/>
       <url>/setting-up-virtual-environment-for-pytorch/</url>
@@ -80,6 +111,8 @@
       <categories>
           
           <category> Python </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -508,9 +541,9 @@
             
             <tag> Python </tag>
             
-            <tag> R </tag>
-            
             <tag> Sleep apnea </tag>
+            
+            <tag> R </tag>
             
         </tags>
       
@@ -529,6 +562,8 @@
       <categories>
           
           <category> MatLAB </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -786,6 +821,8 @@
           
           <category> R </category>
           
+          <category> Feature Engineering </category>
+          
       </categories>
       
       
@@ -838,6 +875,8 @@
           
           <category> R </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -864,6 +903,8 @@
       <categories>
           
           <category> R </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -911,6 +952,8 @@
           
           <category> R </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -937,6 +980,8 @@
       <categories>
           
           <category> R </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -965,6 +1010,8 @@
           
           <category> R </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -992,6 +1039,8 @@
           
           <category> R </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1018,6 +1067,8 @@
       <categories>
           
           <category> R </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1065,6 +1116,8 @@
           
           <category> R </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1091,6 +1144,8 @@
       <categories>
           
           <category> R </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1119,6 +1174,8 @@
           
           <category> R </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1145,6 +1202,8 @@
       <categories>
           
           <category> MatLAB </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1173,6 +1232,8 @@
           
           <category> MatLAB </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1197,6 +1258,8 @@
       <categories>
           
           <category> MatLAB </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1223,6 +1286,8 @@
           
           <category> MatLAB </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1247,6 +1312,8 @@
       <categories>
           
           <category> MatLAB </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1275,6 +1342,8 @@
           
           <category> MatLAB </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1301,6 +1370,8 @@
       <categories>
           
           <category> MatLAB </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1329,6 +1400,8 @@
           
           <category> MatLAB </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1353,6 +1426,8 @@
       <categories>
           
           <category> MatLAB </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1379,6 +1454,8 @@
           
           <category> MatLAB </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1404,6 +1481,8 @@
           
           <category> MatLAB </category>
           
+          <category> Basic </category>
+          
       </categories>
       
       
@@ -1428,6 +1507,8 @@
       <categories>
           
           <category> Python </category>
+          
+          <category> Basic </category>
           
       </categories>
       
@@ -1895,7 +1976,9 @@
       
       <categories>
           
-          <category> Etc. </category>
+          <category> C, C++ </category>
+          
+          <category> Unreal Engine </category>
           
       </categories>
       
@@ -2108,7 +2191,9 @@
       
       <categories>
           
-          <category> Etc. </category>
+          <category> C, C++ </category>
+          
+          <category> Unreal Engine </category>
           
       </categories>
       
