@@ -42,7 +42,7 @@
 <meta property="og:description" content="Theorical Background Types of Machine Learning Supervised Learning Unsupervised Learning Reinforcement Learning Self Learning Feature Learning Sparse Dictionary Learning Anomaly Detection Association">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-01T06:14:11.000Z">
-<meta property="article:modified_time" content="2021-09-02T06:31:18.493Z">
+<meta property="article:modified_time" content="2021-09-02T07:53:53.748Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Statistics">
@@ -237,7 +237,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Theorical-Background"><span class="nav-number">1.</span> <span class="nav-text">Theorical Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-amp-Classification"><span class="nav-number">1.2.</span> <span class="nav-text">Regression &amp; Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-Risk-and-Empirical-Risk-Minimization"><span class="nav-number">1.3.</span> <span class="nav-text">Loss, Risk and Empirical Risk Minimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Iterative-Algorithms"><span class="nav-number">2.</span> <span class="nav-text">Iterative Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Univariate-Function-Minimization"><span class="nav-number">2.1.</span> <span class="nav-text">Univariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Golden-Section-Algorithm"><span class="nav-number">2.1.2.</span> <span class="nav-text">Golden Section Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multivariate-Function-Minimization"><span class="nav-number">2.2.</span> <span class="nav-text">Multivariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Descent-Condtion-for-Direction-Vector"><span class="nav-number">2.2.1.</span> <span class="nav-text">Descent Condtion for Direction Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Descent-Algorithm"><span class="nav-number">2.2.2.</span> <span class="nav-text">Gradient Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Size-of-Gradient-Descent-Algorithm"><span class="nav-number">2.2.3.</span> <span class="nav-text">Step Size of Gradient Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm"><span class="nav-number">2.2.4.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sub-Gradient-Descent-Algorithm"><span class="nav-number">2.2.5.</span> <span class="nav-text">Sub-Gradient (Descent) Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-Descent-Algorithm"><span class="nav-number">2.2.6.</span> <span class="nav-text">Stochastic Gradient (Descent) Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-Methods"><span class="nav-number">3.</span> <span class="nav-text">Learning Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-and-Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Linear and Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression"><span class="nav-number">3.1.1.</span> <span class="nav-text">Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Empirical-Risk-Functions"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">Other Empirical Risk Functions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.2.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statistical-Interpretation"><span class="nav-number">3.1.3.</span> <span class="nav-text">Statistical Interpretation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Dimensional-Linear-Regression"><span class="nav-number">3.2.</span> <span class="nav-text">High-Dimensional Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penalized-Estimation"><span class="nav-number">3.2.1.</span> <span class="nav-text">Penalized Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variable-Selection-in-Linear-Regression"><span class="nav-number">3.2.2.</span> <span class="nav-text">Variable Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ridge"><span class="nav-number">3.2.3.</span> <span class="nav-text">Ridge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LASSO"><span class="nav-number">3.2.4.</span> <span class="nav-text">LASSO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCAD"><span class="nav-number">3.2.5.</span> <span class="nav-text">SCAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm-1"><span class="nav-number">3.2.6.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applications"><span class="nav-number">3.2.7.</span> <span class="nav-text">Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-Greedy-Methods"><span class="nav-number">3.3.</span> <span class="nav-text">Forward Greedy Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Selection-in-Linear-Regression"><span class="nav-number">3.3.1.</span> <span class="nav-text">Forward Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Stagewise-Regression"><span class="nav-number">3.3.2.</span> <span class="nav-text">Forward Stagewise Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Least-Angle-Regression"><span class="nav-number">3.3.3.</span> <span class="nav-text">Least Angle Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machine"><span class="nav-number">3.4.</span> <span class="nav-text">Support Vector Machine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Artificial-Neural-Network"><span class="nav-number">3.5.</span> <span class="nav-text">Artificial Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-and-Ensemble"><span class="nav-number">3.6.</span> <span class="nav-text">Tree and Ensemble</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Comparison"><span class="nav-number">4.</span> <span class="nav-text">Model Comparison</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Theorical-Background"><span class="nav-number">1.</span> <span class="nav-text">Theorical Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-amp-Classification"><span class="nav-number">1.2.</span> <span class="nav-text">Regression &amp; Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-Risk-and-Empirical-Risk-Minimization"><span class="nav-number">1.3.</span> <span class="nav-text">Loss, Risk and Empirical Risk Minimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Iterative-Algorithms"><span class="nav-number">2.</span> <span class="nav-text">Iterative Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Univariate-Function-Minimization"><span class="nav-number">2.1.</span> <span class="nav-text">Univariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Golden-Section-Algorithm"><span class="nav-number">2.1.2.</span> <span class="nav-text">Golden Section Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multivariate-Function-Minimization"><span class="nav-number">2.2.</span> <span class="nav-text">Multivariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Descent-Condtion-for-Direction-Vector"><span class="nav-number">2.2.1.</span> <span class="nav-text">Descent Condtion for Direction Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Descent-Algorithm"><span class="nav-number">2.2.2.</span> <span class="nav-text">Gradient Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Size-of-Gradient-Descent-Algorithm"><span class="nav-number">2.2.3.</span> <span class="nav-text">Step Size of Gradient Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm"><span class="nav-number">2.2.4.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sub-Gradient-Descent-Algorithm"><span class="nav-number">2.2.5.</span> <span class="nav-text">Sub-Gradient (Descent) Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-Descent-Algorithm"><span class="nav-number">2.2.6.</span> <span class="nav-text">Stochastic Gradient (Descent) Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-Methods"><span class="nav-number">3.</span> <span class="nav-text">Learning Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-and-Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Linear and Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression"><span class="nav-number">3.1.1.</span> <span class="nav-text">Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Empirical-Risk-Functions"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">Other Empirical Risk Functions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.2.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statistical-Interpretation"><span class="nav-number">3.1.3.</span> <span class="nav-text">Statistical Interpretation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Dimensional-Linear-Regression"><span class="nav-number">3.2.</span> <span class="nav-text">High-Dimensional Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penalized-Estimation"><span class="nav-number">3.2.1.</span> <span class="nav-text">Penalized Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variable-Selection-in-Linear-Regression"><span class="nav-number">3.2.2.</span> <span class="nav-text">Variable Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ridge"><span class="nav-number">3.2.3.</span> <span class="nav-text">Ridge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LASSO"><span class="nav-number">3.2.4.</span> <span class="nav-text">LASSO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCAD"><span class="nav-number">3.2.5.</span> <span class="nav-text">SCAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm-1"><span class="nav-number">3.2.6.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applications"><span class="nav-number">3.2.7.</span> <span class="nav-text">Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-Greedy-Methods"><span class="nav-number">3.3.</span> <span class="nav-text">Forward Greedy Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Selection-in-Linear-Regression"><span class="nav-number">3.3.1.</span> <span class="nav-text">Forward Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Stagewise-Regression"><span class="nav-number">3.3.2.</span> <span class="nav-text">Forward Stagewise Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Least-Angle-Regression"><span class="nav-number">3.3.3.</span> <span class="nav-text">Least Angle Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machine"><span class="nav-number">3.4.</span> <span class="nav-text">Support Vector Machine</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximizing-Margin"><span class="nav-number">3.4.1.</span> <span class="nav-text">Maximizing Margin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KKT-Conditions"><span class="nav-number">3.4.2.</span> <span class="nav-text">KKT Conditions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-Linear-Regression-Function"><span class="nav-number">3.4.3.</span> <span class="nav-text">Non-Linear Regression Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Artificial-Neural-Network"><span class="nav-number">3.5.</span> <span class="nav-text">Artificial Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-and-Ensemble"><span class="nav-number">3.6.</span> <span class="nav-text">Tree and Ensemble</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Comparison"><span class="nav-number">4.</span> <span class="nav-text">Model Comparison</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -351,7 +351,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-02 15:31:18" itemprop="dateModified" datetime="2021-09-02T15:31:18+09:00">2021-09-02</time>
+        <time title="Modified: 2021-09-02 16:53:53" itemprop="dateModified" datetime="2021-09-02T16:53:53+09:00">2021-09-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -396,14 +396,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>16k</span>
+      <span>19k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>14 mins.</span>
+      <span>17 mins.</span>
     </span>
 </div>
 
@@ -452,16 +452,16 @@
 </blockquote>
 <h2 id="Regression-amp-Classification"><a href="#Regression-amp-Classification" class="headerlink" title="Regression &amp; Classification"></a>Regression &amp; Classification</h2><ul>
 <li>Regression<ul>
-<li>$\mathcal{Y}$: Infinite and Ordered ($\mathcal{Y}=\mathbb{R},\mathbb{R}^+,\mathbb{N}\cup{0},…$)</li>
+<li>$\mathcal{Y}$: Infinite and Ordered ($\mathcal{Y}=\mathbb{R},\mathbb{R}^+,\mathbb{N}\cup\lbrace0\rbrace,…$)</li>
 <li>Linear Regression: $\mathcal{Y}=\mathbb{R}$</li>
-<li>Poisson Regression: $\mathcal{Y}=\mathbb{N}\cup{0}$</li>
+<li>Poisson Regression: $\mathcal{Y}=\mathbb{N}\cup\lbrace0\rbrace$</li>
 </ul>
 </li>
 <li>Classification<ul>
-<li>$\mathcal{Y}$: Finite and Unordered ($\mathcal{Y}={0,1},{-1,1},{1,…,k},…$)</li>
-<li>Logistic Regression: $\mathcal{Y}={0,1}$</li>
-<li>Support Vector Machine: $\mathcal{Y}={-1,1}$</li>
-<li>Multinomial Regression: $\mathcal{Y}={1,…,k}$</li>
+<li>$\mathcal{Y}$: Finite and Unordered ($\mathcal{Y}=\lbrace0,1\rbrace,\lbrace-1,1\rbrace,\lbrace1,…,k\rbrace,…$)</li>
+<li>Logistic Regression: $\mathcal{Y}=\lbrace0,1\rbrace$</li>
+<li>Support Vector Machine: $\mathcal{Y}=\lbrace-1,1\rbrace$</li>
+<li>Multinomial Regression: $\mathcal{Y}=\lbrace1,…,k\rbrace$</li>
 </ul>
 </li>
 <li>Prediction Based on $x$<ul>
@@ -485,10 +485,10 @@
 </li>
 <li>Classification: $y\in {-1,1}$<ul>
 <li>Zero-One: $I[y\neq\phi]=I[yf(x)&lt;0]$</li>
-<li>Logistic: $log{1+exp(-yf(x))}$</li>
+<li>Logistic: $log\lbrace1+exp(-yf(x))\rbrace$</li>
 <li>Exponential: $exp(-yf(x))$</li>
-<li>Hinge: $max{0,1-yf(x)}$</li>
-<li>$\psi$: $I[yf(x)\leq0]+max{0,1-yf(x)}I[yf(x)&gt;0]$</li>
+<li>Hinge: $max\lbrace0,1-yf(x)\rbrace$</li>
+<li>$\psi$: $I[yf(x)\leq0]+max\lbrace0,1-yf(x)\rbrace I[yf(x)&gt;0]$</li>
 </ul>
 </li>
 </ul>
@@ -506,7 +506,7 @@
 <li>Empirical Risk Function: $R_n(f)=\Sigma^n_{i=1}L(y_i,f(x_i))/n$<ul>
 <li>Training Sample ($y_i,x_i$), $i\leq n$: Independent samples / observations of $(y,x)$</li>
 <li>Linear Regression with Square Loss: $\hat \beta =arg\min_\beta\Sigma^n_{i=1}(y_i-x^T_i\beta)^2/n$</li>
-<li>Logistic Regression with Logistic Loss: $\hat\beta=arg\min_\beta\Sigma^n_{i=1}{-y_ix^T_i\beta+log(1+exp(x^T_i\beta))}/n$</li>
+<li>Logistic Regression with Logistic Loss: $\hat\beta=arg\min_\beta\Sigma^n_{i=1}\lbrace-y_ix^T_i\beta+log(1+exp(x^T_i\beta))\rbrace/n$</li>
 </ul>
 </li>
 </ul>
@@ -540,7 +540,7 @@
 <li>Non-Iterative Grid Search Alhorithm: $x^*\approx arg\min_{z\in z_k=a+k(b-a)/m|k=0,…,m}f(z)$</li>
 <li>Iterative Grid Search Algorithm: for $n=1,2,…$<ul>
 <li>$<br>\begin{equation}<br>\left\lbrace<br>\begin{gathered}<br>a_{n+1}=a_n+(k_n-1)(b_n-a_n)/m \newline<br>b_{n+1}=a_n+(k_n+1)(b_n-a_n)/m<br>\end{gathered}<br>\right. \notag<br>\end{equation}<br>$</li>
-<li>$k_n=arg\min_{k\in{0,…,m}}f(a_n+k(b_n-a_n)/m)$</li>
+<li>$k_n=arg\min_{k\in\lbrace0,…,m\rbrace}f(a_n+k(b_n-a_n)/m)$</li>
 </ul>
 </li>
 </ul>
@@ -660,7 +660,7 @@
 <li>$u_n$: Sub-gradient at $x_n$</li>
 <li>$f$: Convex but may not differentiable</li>
 <li>Not a descent method</li>
-<li>Stopping rule by tracing $f^{best}_n=\min{f(x_1),…,f(x_n)}$</li>
+<li>Stopping rule by tracing $f^{best}_n=\min\lbrace f(x_1),…,f(x_n)\rbrace$</li>
 <li>Deterministic step size<ul>
 <li>$\alpha_n$: Small constant, square summable but not summable ($1/n$), nonsummable diminishing ($1/\sqrt{n}$), …</li>
 </ul>
@@ -728,7 +728,7 @@
 </ul>
 </li>
 <li>Inner Cycling for Coordinate Descent<ul>
-<li>$\beta_{(t+1)j}=\Sigma^n_{i=1}x_{ij}(y_i-\Sigma_{k\neq j}x_{ik}\tilde{\beta}<em>{tk}/\Sigma^n</em>{i=1}x^2_{ij})$</li>
+<li>$\beta_{(t+1)j}=\Sigma^n_{i=1}x_{ij}(y_i-\Sigma_{k\neq j}x_{ik}\tilde{\beta}_{tk}/\Sigma^n_{i=1}x^2_{ij})$</li>
 </ul>
 </li>
 </ul>
@@ -783,7 +783,7 @@
 <li>$y_i|x_i\sim B(1,exp(f(x))/(1+exp(f(x)))),i\leq n$</li>
 </ul>
 </li>
-<li>Another Equivalent Form for $y\in {-1,1}$<ul>
+<li>Another Equivalent Form for $y\in \lbrace-1,1\rbrace$<ul>
 <li>Empirical Risk Function with Logistic Loss</li>
 <li>$R_n(\beta)=\Sigma^n_{i=1}log(1+exp(-y_ix_i^T\beta))$</li>
 </ul>
@@ -877,11 +877,11 @@
 <li>LSE<ul>
 <li>Problem: Minimize $R_n(\beta)=\Sigma^n_{i=1}(y_i-x_i^T\beta)^2/2$</li>
 <li>Coordinate Function of $\beta_j$<ul>
-<li>$R_{nj}(\beta_j)\propto{\Sigma^n_{i=1}x_{ij}^2/2}\beta_j^2-{\Sigma^n_{i=1}x_{ij}(y_i-\Sigma_{k\neq j}x_{ik}\beta_k)}\beta_j$</li>
+<li>$R_{nj}(\beta_j)\propto\lbrace\Sigma^n_{i=1}x_{ij}^2/2\rbrace\beta_j^2-\lbrace\Sigma^n_{i=1}x_{ij}(y_i-\Sigma_{k\neq j}x_{ik}\beta_k)\rbrace\beta_j$</li>
 </ul>
 </li>
 <li>Coordinate Descent Algorithm<ul>
-<li>$\tilde{\beta}<em>{(t+1)j}={\Sigma^n</em>{i=1}x_{ij}(y_i-\Sigma_{k\neq j}x_{ik}\tilde{\beta}<em>{tk})}/{\Sigma^n</em>{i=1}x_{ij}^2}$</li>
+<li>$\tilde{\beta}_{(t+1)j}=\lbrace\Sigma^n_{i=1}x_{ij}(y_i-\Sigma_{k\neq j}x_{ik}\tilde{\beta}_{tk})\rbrace/\lbrace\Sigma^n_{i=1}x_{ij}^2\rbrace$</li>
 </ul>
 </li>
 </ul>
@@ -893,9 +893,9 @@
 </ul>
 </li>
 <li>Coordinate Descent Algorithm [Friedman et al., 2007]<ul>
-<li>$\beta_{(t+1)j}=soft(\tilde{\beta}<em>{(t+1)j},\lambda/\Sigma^n</em>{i=1}x_{ij}^2)$</li>
+<li>$\beta_{(t+1)j}=soft(\tilde{\beta}_{(t+1)j},\lambda/\Sigma^n_{i=1}x_{ij}^2)$</li>
 <li>Soft-Thresholding Operator<ul>
-<li>$soft(x,\lambda)=arg\min_\beta{(\beta-x)^2/2+\lambda|\beta|}=sign(x)(|x|-\lambda)_+$</li>
+<li>$soft(x,\lambda)=arg\min_\beta\lbrace(\beta-x)^2/2+\lambda|\beta|\rbrace=sign(x)(|x|-\lambda)_+$</li>
 </ul>
 </li>
 </ul>
@@ -911,7 +911,7 @@
 </ul>
 </li>
 <li>Upper Tight Convex Function of $R_n^\lambda$ at $\beta^c$<ul>
-<li>$U^\lambda_n(\beta|\beta^c)=R_n(\beta)+\Sigma^p_{j=1}{(\nabla J^\lambda_S(|\beta^c_j|)-\lambda sign(\beta^c_j))\beta_j+\lambda|\beta_j|}$</li>
+<li>$U^\lambda_n(\beta|\beta^c)=R_n(\beta)+\Sigma^p_{j=1}\lbrace(\nabla J^\lambda_S(|\beta^c_j|)-\lambda sign(\beta^c_j))\beta_j+\lambda|\beta_j|\rbrace$</li>
 </ul>
 </li>
 </ul>
@@ -942,7 +942,7 @@
 </ul>
 </li>
 <li>Group LASSO [Yuan and Lin, 2006]<ul>
-<li>$\lambda\Sigma^K_{k=1}|\sqrt{\Sigma^{p_k}<em>{k=1}\beta^2</em>{kj}}$</li>
+<li>$\lambda\Sigma^K_{k=1}|\sqrt{\Sigma^{p_k}_{k=1}\beta^2_{kj}}$</li>
 </ul>
 </li>
 <li>Strong Heredity Interaction LASSO [Choi et al.m 2010]<ul>
@@ -999,14 +999,14 @@
 <li>Least Angle Regression (LARS) [Efron et al., 2004]<ul>
 <li>The same as the stragewise regression except that $\beta^{t+1}=\beta^t+\lambda^{LARS}sign(\beta_k)$<ul>
 <li>$\lambda^{LARS}$ makes the new residual equally correlated with all the input variables included</li>
-<li>$\lambda^{LARS}$ has easy closed from w.r.t current $\beta^t$</li>
+<li>$\lambda^{LARS}$ has easy closed from w.r.t. current $\beta^t$</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Some Connection<ul>
 <li>LARS-LASSO: LARS + Deletion Step = LASSO</li>
-<li>LARS-Stagewise: Stagewise with $\lambda^{FSW}\rightarrow0$=LARS</li>
+<li>LARS-Stagewise: Stagewise with $\lambda^{FSW}\rightarrow0=$LARS</li>
 </ul>
 </li>
 </ul>
@@ -1017,7 +1017,87 @@
 </ul>
 </li>
 <li>Pernalized Problem: Pernalized Empirical Risk Function<ul>
-<li>$R_n^\lambda(\beta)=\Sigma_{i=1}^n{1-y_if(x_i)}_++\lambda||w||^2,\ \lambda&gt;0$</li>
+<li>$R_n^\lambda(\beta)=\Sigma_{i=1}^n\lbrace1-y_if(x_i)\rbrace_++\lambda||w||^2,\ \lambda&gt;0$</li>
+<li>Hinge Loss + Ridge Penalty</li>
+<li>$x_+=\max\lbrace0,x\rbrace$</li>
+</ul>
+</li>
+<li>Stochastic: Sub-Gradient Algorithm [Shalev-Shwartz et al., 2007]<ul>
+<li>$w_{t+1}=w_t+\alpha_t\lbrace-\Sigma^n_{i=1}y_ix_iI(y_if(x_i)&lt;1)+2\lambda w_t\rbrace$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Maximizing-Margin"><a href="#Maximizing-Margin" class="headerlink" title="Maximizing Margin"></a>Maximizing Margin</h3><ul>
+<li>Primal Problem: Minimizing $||w||^2/2+\gamma\Sigma^n_{i=1}\xi_i,\gamma&gt;0$ subject to $y_if(x_i)\geq1-\xi_i,\xi_i\geq0,i\leq n$<ul>
+<li>$\xi_i$: Slack Variable for Quantifying Degree of Missclassification<ul>
+<li>$x_i$ with $\xi_i=0$: Support Vector</li>
+<li>$x_i$ with $0&lt;\xi_i\leq1$: Correctly Classified Sample</li>
+<li>$x_i$ with $1&lt;\xi_i$: Incorrectly Classified Sample</li>
+</ul>
+</li>
+<li>$2/||w||$ (Margin): Distance between $f$ and support vector</li>
+</ul>
+</li>
+<li>Equivalence between primal and penalized problem $y_if(x_i)\geq1-\xi_i,\xi_i\geq0\leftrightarrow\xi_i=\max\lbrace0,1-y_if(x_i)\rbrace$</li>
+</ul>
+<h3 id="KKT-Conditions"><a href="#KKT-Conditions" class="headerlink" title="KKT Conditions"></a>KKT Conditions</h3><ul>
+<li>Lagrange Primal Function with Multipliers: $||w||^2/2+\gamma\Sigma^n_{i=1}\xi_i-\Sigma^n_{i=1}\alpha_i\lbrace y_if(x_i)-(1-\xi_i)\rbrace-\Sigma^n_{i=1}\mu_i\xi_i$<ul>
+<li>Stationarity: $w=\Sigma^n_{i=1}\alpha_iy_ix_i,\Sigma^n_{i=1}\alpha_iy_i=0,\gamma=\alpha_i+\mu_i,i\leq n$</li>
+<li>Primal and Dual Feasibility: $y_if(x_i)-(1-\xi_i)\geq0,\xi_i\geq0,i\leq n$</li>
+<li>Complementary Slackness: $\alpha_i\lbrace y_if(x_i)-(1-\xi_i)\rbrace=0,\mu_i\xi_i=0,i\leq n$</li>
+</ul>
+</li>
+<li>Dual Problem: Minimizing lagrange dual objective function $\Sigma^n_{i=1}\Sigma^n_{j=1}y_iy_j\alpha_i\alpha_j\langle x_i,x_j\rangle-2\Sigma^n_{i=1}\alpha_i$ subject to $Sigma^n_{i=1}\alpha_iy_i=0,-\leq\alpha_i\leq\gamma,i=1,…,n$<ul>
+<li>Quadratic Programming (QP)</li>
+<li>CD Algorithm [Sequential Minimal Optimization, Platt, 1998]<ul>
+<li>Relation between $\alpha_i$ and $\alpha_j,i\neq j$<ul>
+<li>$y_i\alpha_i+y_j\alpha_j=-\Sigma_{k\neq i,j}y_k\alpha_k=c$</li>
+</ul>
+</li>
+<li>Univariate optimization from thje inequality $\alpha_i=(c-y_j\alpha_j)y_i$ under constraints $L\leq\alpha_j\leq H$ for some $0\leq L&lt;H\leq\gamma$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Slope: Linear Combination of Samples (Stationarity)<ul>
+<li>$w=\Sigma^n_{i=1}\alpha_iy_ix_i$</li>
+</ul>
+</li>
+<li>Implicity of Slope<ul>
+<li>$f(x)=x^Tw+b=\Sigma^n_{i=1}\alpha_iy_ix_i^Tx+b$</li>
+<li>Inner products are required only</li>
+<li>Classification depends on non-zero $a_i$s, i.e., support vector $x_i$s (Sparsity)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Non-Linear-Regression-Function"><a href="#Non-Linear-Regression-Function" class="headerlink" title="Non-Linear Regression Function"></a>Non-Linear Regression Function</h3><ul>
+<li>Linear Solution from Optimization<ul>
+<li>$f(x)=\Sigma^n_{i=1}\alpha_iy_i\langle x_i,x\rangle+b$</li>
+</ul>
+</li>
+<li>Non-Linear Feature Transformation<ul>
+<li>$x\rightarrow\Phi(x),f(x)=\Sigma^n_{i=1}\alpha_iy_i&lt;\Phi(x_i),\Phi(x)&gt;+b$</li>
+<li>Kernel Trick: Kernel Function $K$<ul>
+<li>$K(x,x’)=\langle\Phi(x_i),\Phi(x’)\rangle\rightarrow f(x)=\Sigma^n_{i=1}\alpha_iy_iK(x_i,x)$<ul>
+<li>Linear Kernel: $K(x,x’)=\langle x,x’\rangle$</li>
+<li>D-th Order Polynomial Kernel: $K(x,x’)=(\langle x,x’\rangle+I)^d$</li>
+<li>Gaussian Kernel: $K(x,x’)=exp(-||x-x’||^2/\sigma^2)$</li>
+<li>Sigmoid Kernel: $K(x,x’)=tanh(\kappa_1\langle x,x’\rangle+\kappa_2)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SVM as a penalized estimation $R_n^\lambda(\beta)=\Sigma^n_{i=1}(1-y_if(x_i))_++\lambda||f||^2_{\mathcal{H}_K},\lambda&gt;0$<ul>
+<li>$\mathcal{H}_K$: Reproducing kernel Hilbert space w.r.t. a kernel $K$</li>
+<li>Representation Theorem: The minimizer of $R_n$ is represented as $f(x)=\Sigma^n_{i=1}\alpha_iy_iK(x_i,x)$<ul>
+<li>Example)<ul>
+<li>$\begin{equation}\left\lbrace\begin{gathered} K(x,x’)=\langle\Phi(x),\Phi(x’)\rangle\newline\mathcal{H}_K=\lbrace\Phi(x)^Tw+b|w\in\mathbb{R}^q,b\in\mathbb{R}\rbrace\end{gathered}\right.\notag\rightarrow||f_{\mathcal(H)_K}||^2=||w||^2\end{equation}$</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1149,14 +1229,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">538k</span>
+    <span title="Symbols count total">541k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">8:09</span>
+    <span title="Reading time total">8:12</span>
   </span>
 </div>
 <div class="busuanzi-count">
