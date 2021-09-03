@@ -42,7 +42,7 @@
 <meta property="og:description" content="Theorical Background Types of Machine Learning Supervised Learning Unsupervised Learning Reinforcement Learning Self Learning Feature Learning Sparse Dictionary Learning Anomaly Detection Association">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-01T06:14:11.000Z">
-<meta property="article:modified_time" content="2021-09-02T17:18:21.192Z">
+<meta property="article:modified_time" content="2021-09-03T03:19:22.480Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Statistics">
@@ -237,7 +237,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Theorical-Background"><span class="nav-number">1.</span> <span class="nav-text">Theorical Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-amp-Classification"><span class="nav-number">1.2.</span> <span class="nav-text">Regression &amp; Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-Risk-and-Empirical-Risk-Minimization"><span class="nav-number">1.3.</span> <span class="nav-text">Loss, Risk and Empirical Risk Minimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Iterative-Algorithms"><span class="nav-number">2.</span> <span class="nav-text">Iterative Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Univariate-Function-Minimization"><span class="nav-number">2.1.</span> <span class="nav-text">Univariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Golden-Section-Algorithm"><span class="nav-number">2.1.2.</span> <span class="nav-text">Golden Section Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multivariate-Function-Minimization"><span class="nav-number">2.2.</span> <span class="nav-text">Multivariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Descent-Condtion-for-Direction-Vector"><span class="nav-number">2.2.1.</span> <span class="nav-text">Descent Condtion for Direction Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Descent-Algorithm"><span class="nav-number">2.2.2.</span> <span class="nav-text">Gradient Descent Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-Size-of-Gradient-Descent-Algorithm"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">Step Size of Gradient Descent Algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm"><span class="nav-number">2.2.3.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sub-Gradient-Descent-Algorithm"><span class="nav-number">2.2.4.</span> <span class="nav-text">Sub-Gradient (Descent) Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-Descent-Algorithm"><span class="nav-number">2.2.5.</span> <span class="nav-text">Stochastic Gradient (Descent) Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-Methods"><span class="nav-number">3.</span> <span class="nav-text">Learning Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-and-Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Linear and Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression"><span class="nav-number">3.1.1.</span> <span class="nav-text">Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Empirical-Risk-Functions"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">Other Empirical Risk Functions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.2.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statistical-Interpretation"><span class="nav-number">3.1.3.</span> <span class="nav-text">Statistical Interpretation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Dimensional-Linear-Regression"><span class="nav-number">3.2.</span> <span class="nav-text">High-Dimensional Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penalized-Estimation"><span class="nav-number">3.2.1.</span> <span class="nav-text">Penalized Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variable-Selection-in-Linear-Regression"><span class="nav-number">3.2.2.</span> <span class="nav-text">Variable Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ridge"><span class="nav-number">3.2.3.</span> <span class="nav-text">Ridge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LASSO"><span class="nav-number">3.2.4.</span> <span class="nav-text">LASSO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCAD"><span class="nav-number">3.2.5.</span> <span class="nav-text">SCAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm-1"><span class="nav-number">3.2.6.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applications"><span class="nav-number">3.2.7.</span> <span class="nav-text">Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-Greedy-Methods"><span class="nav-number">3.3.</span> <span class="nav-text">Forward Greedy Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Selection-in-Linear-Regression"><span class="nav-number">3.3.1.</span> <span class="nav-text">Forward Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Stagewise-Regression"><span class="nav-number">3.3.2.</span> <span class="nav-text">Forward Stagewise Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Least-Angle-Regression"><span class="nav-number">3.3.3.</span> <span class="nav-text">Least Angle Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machine"><span class="nav-number">3.4.</span> <span class="nav-text">Support Vector Machine</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximizing-Margin"><span class="nav-number">3.4.1.</span> <span class="nav-text">Maximizing Margin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KKT-Conditions"><span class="nav-number">3.4.2.</span> <span class="nav-text">KKT Conditions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-Linear-Regression-Function"><span class="nav-number">3.4.3.</span> <span class="nav-text">Non-Linear Regression Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Artificial-Neural-Network"><span class="nav-number">3.5.</span> <span class="nav-text">Artificial Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Empirical-Risk-Function"><span class="nav-number">3.5.1.</span> <span class="nav-text">Empirical Risk Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Calculation-Backpropagation"><span class="nav-number">3.5.2.</span> <span class="nav-text">Gradient Calculation (Backpropagation)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-and-Ensemble"><span class="nav-number">3.6.</span> <span class="nav-text">Tree and Ensemble</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Comparison"><span class="nav-number">4.</span> <span class="nav-text">Model Comparison</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Theorical-Background"><span class="nav-number">1.</span> <span class="nav-text">Theorical Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervised-Learning"><span class="nav-number">1.1.</span> <span class="nav-text">Supervised Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Regression-amp-Classification"><span class="nav-number">1.2.</span> <span class="nav-text">Regression &amp; Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-Risk-and-Empirical-Risk-Minimization"><span class="nav-number">1.3.</span> <span class="nav-text">Loss, Risk and Empirical Risk Minimization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Iterative-Algorithms"><span class="nav-number">2.</span> <span class="nav-text">Iterative Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Univariate-Function-Minimization"><span class="nav-number">2.1.</span> <span class="nav-text">Univariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.1.1.</span> <span class="nav-text">Grid Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Golden-Section-Algorithm"><span class="nav-number">2.1.2.</span> <span class="nav-text">Golden Section Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multivariate-Function-Minimization"><span class="nav-number">2.2.</span> <span class="nav-text">Multivariate Function Minimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Descent-Condtion-for-Direction-Vector"><span class="nav-number">2.2.1.</span> <span class="nav-text">Descent Condtion for Direction Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Descent-Algorithm"><span class="nav-number">2.2.2.</span> <span class="nav-text">Gradient Descent Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-Size-of-Gradient-Descent-Algorithm"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">Step Size of Gradient Descent Algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm"><span class="nav-number">2.2.3.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sub-Gradient-Descent-Algorithm"><span class="nav-number">2.2.4.</span> <span class="nav-text">Sub-Gradient (Descent) Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-Gradient-Descent-Algorithm"><span class="nav-number">2.2.5.</span> <span class="nav-text">Stochastic Gradient (Descent) Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Learning-Methods"><span class="nav-number">3.</span> <span class="nav-text">Learning Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-and-Logistic-Regression"><span class="nav-number">3.1.</span> <span class="nav-text">Linear and Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Regression"><span class="nav-number">3.1.1.</span> <span class="nav-text">Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Empirical-Risk-Functions"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">Other Empirical Risk Functions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">3.1.2.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statistical-Interpretation"><span class="nav-number">3.1.3.</span> <span class="nav-text">Statistical Interpretation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Dimensional-Linear-Regression"><span class="nav-number">3.2.</span> <span class="nav-text">High-Dimensional Linear Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Penalized-Estimation"><span class="nav-number">3.2.1.</span> <span class="nav-text">Penalized Estimation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variable-Selection-in-Linear-Regression"><span class="nav-number">3.2.2.</span> <span class="nav-text">Variable Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ridge"><span class="nav-number">3.2.3.</span> <span class="nav-text">Ridge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LASSO"><span class="nav-number">3.2.4.</span> <span class="nav-text">LASSO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SCAD"><span class="nav-number">3.2.5.</span> <span class="nav-text">SCAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coordinate-Descent-Algorithm-1"><span class="nav-number">3.2.6.</span> <span class="nav-text">Coordinate Descent Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applications"><span class="nav-number">3.2.7.</span> <span class="nav-text">Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-Greedy-Methods"><span class="nav-number">3.3.</span> <span class="nav-text">Forward Greedy Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Selection-in-Linear-Regression"><span class="nav-number">3.3.1.</span> <span class="nav-text">Forward Selection in Linear Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Stagewise-Regression"><span class="nav-number">3.3.2.</span> <span class="nav-text">Forward Stagewise Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Least-Angle-Regression"><span class="nav-number">3.3.3.</span> <span class="nav-text">Least Angle Regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Support-Vector-Machine"><span class="nav-number">3.4.</span> <span class="nav-text">Support Vector Machine</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximizing-Margin"><span class="nav-number">3.4.1.</span> <span class="nav-text">Maximizing Margin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KKT-Conditions"><span class="nav-number">3.4.2.</span> <span class="nav-text">KKT Conditions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-Linear-Regression-Function"><span class="nav-number">3.4.3.</span> <span class="nav-text">Non-Linear Regression Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Artificial-Neural-Network"><span class="nav-number">3.5.</span> <span class="nav-text">Artificial Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Empirical-Risk-Function"><span class="nav-number">3.5.1.</span> <span class="nav-text">Empirical Risk Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Calculation-Backpropagation"><span class="nav-number">3.5.2.</span> <span class="nav-text">Gradient Calculation (Backpropagation)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-and-Ensemble"><span class="nav-number">3.6.</span> <span class="nav-text">Tree and Ensemble</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Decision-Tree"><span class="nav-number">3.6.1.</span> <span class="nav-text">Decision Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Growing-Regression-Tree-by-CART"><span class="nav-number">3.6.1.1.</span> <span class="nav-text">Growing Regression Tree by CART</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ECCP"><span class="nav-number">3.6.1.2.</span> <span class="nav-text">ECCP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ensemble-Methods"><span class="nav-number">3.6.2.</span> <span class="nav-text">Ensemble Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bootstrap-Samples"><span class="nav-number">3.6.2.1.</span> <span class="nav-text">Bootstrap Samples</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bagging"><span class="nav-number">3.6.2.2.</span> <span class="nav-text">Bagging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-Forest"><span class="nav-number">3.6.2.3.</span> <span class="nav-text">Random Forest</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Comparison"><span class="nav-number">4.</span> <span class="nav-text">Model Comparison</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-Validation-Procedure"><span class="nav-number">4.1.</span> <span class="nav-text">Training-Validation Procedure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-Validation-Test-Procedure"><span class="nav-number">4.2.</span> <span class="nav-text">Training-Validation-Test Procedure</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -351,7 +351,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-03 02:18:21" itemprop="dateModified" datetime="2021-09-03T02:18:21+09:00">2021-09-03</time>
+        <time title="Modified: 2021-09-03 12:19:22" itemprop="dateModified" datetime="2021-09-03T12:19:22+09:00">2021-09-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -396,14 +396,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>21k</span>
+      <span>31k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>19 mins.</span>
+      <span>29 mins.</span>
     </span>
 </div>
 
@@ -651,9 +651,9 @@
 </ul>
 </li>
 <li>Inner Cycling Minimization<ul>
-<li>Closed Form vs Univariate Minimization</li>
+<li>Closed Form vs. Univariate Minimization</li>
 <li>Invariance to the order of coordinates</li>
-<li>Individual Corrdinate vs A Block of Coordinates</li>
+<li>Individual Corrdinate vs. A Block of Coordinates</li>
 <li><code>one-at-a-time</code> not <code>all-at-once</code></li>
 </ul>
 </li>
@@ -1179,8 +1179,306 @@
 </ul>
 </li>
 </ul>
-<h2 id="Tree-and-Ensemble"><a href="#Tree-and-Ensemble" class="headerlink" title="Tree and Ensemble"></a>Tree and Ensemble</h2><hr>
-<h1 id="Model-Comparison"><a href="#Model-Comparison" class="headerlink" title="Model Comparison"></a>Model Comparison</h1>
+<h2 id="Tree-and-Ensemble"><a href="#Tree-and-Ensemble" class="headerlink" title="Tree and Ensemble"></a>Tree and Ensemble</h2><h3 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h3><ul>
+<li>Regression Function<ul>
+<li>$f(x)=\Sigma^M_{m=1}f_m(x)I[x\in R_m]$</li>
+<li>$M$: Numbers of Rectangles</li>
+<li>$R_m,m\leq M$: Disjoint Rectangular Areas in $\mathbb{R}^p$ (Terminal Nodes)</li>
+<li>$f_m(x),m\leq M$: Local Regression Functions of Interest</li>
+</ul>
+</li>
+<li>Empirical Risk Function with A Loss $L$<ul>
+<li>$R_n(f_m,R_m,m\leq M)=\Sigma^n_{i=1}L(y_u,f(x_i))=\Sigma^M_{m=1}\Sigma_{x_i\in R_m}L(y_i,f_m(x_i))$</li>
+</ul>
+</li>
+<li>Top-Down Induction Algorithm<ul>
+<li>Set an initial Tree $f=(f_m,R_m,m\leq M)$ and repeat the followings</li>
+<li>Given a tree $f$, construct $\mathcal{F}_f$ that is the set of all possible trees that can be constructed from $f$</li>
+<li>Find a tree in $\mathcal{F}_f$ that minimizes the empirical risk</li>
+<li>Stop if there is no gain in emprical risk or some stoping rules are satisfied<ul>
+<li>The Number of Areas, The Largest Area, Depth, …</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Growing-Regression-Tree-by-CART"><a href="#Growing-Regression-Tree-by-CART" class="headerlink" title="Growing Regression Tree by CART"></a>Growing Regression Tree by CART</h4><ul>
+<li>Regression Function<ul>
+<li>Local Constant: $f_m(x)=c_m$</li>
+<li>Local Linear: $f_m(x)=x^T\beta_m$</li>
+</ul>
+</li>
+<li>Given a tree $f^t=(f_m^t,R_m^t,m\leq M^t)$<ul>
+<li>Find the set of all possible trees, say $\mathcal{F}^t$, by splitting $R_m^t,m\leq M^t$ once: $R_m^t\rightarrow R_m^t\cap[x_j\leq c]\cup R_m^t\cap [x_j&gt;c]$</li>
+<li>Find $f^{t+1}\in\mathcal{F}^t$ by minimizing $R_n(f_m,R_m,m\leq M)=\Sigma^n_{i=1}L(y_i,f(x_i))$</li>
+</ul>
+</li>
+<li>Local estimation of $f$ with square loss<ul>
+<li>$L(y,f(x))=\Sigma^M_{m=1}(y-f_m(x))^2/[x\in R_m]$</li>
+<li>Local Constant: $\hat c_m=\bar y_m$</li>
+<li>Local Linear: $\hat{\beta}_m=(X_m^TX_m)^{-1}X_m^Ty_m$</li>
+<li>$X_m$ and $y_m$: The design matrix and target vector in $R^m$</li>
+</ul>
+</li>
+<li>Regression Function: $f(x)=\Sigma^M_{m=1}f_m(x)I[x\in R_m]$<ul>
+<li>Voting: $f_m(x)=arg\max_k P(y=k|x\in R_m)$</li>
+</ul>
+</li>
+<li>$f^{t+1}\in\mathcal{F}^t$ by minimizing: $R_n(f_m,R_m,m\leq M)=\Sigma^n_{i=1}L(y_i,f(x_i))$<ul>
+<li>Impurity Measure (Loss): $L(y,f(x))=\Sigma^M_{m=1}imp_m(y,f_m(x))P(x\in R_m)$</li>
+</ul>
+</li>
+<li>Impurity Index: $imp_m(y,f_m(x))$<ul>
+<li>Miss-Classification Index: $1-\max_kP(y=k|x\in R_m)$</li>
+<li>Gini Index: $1-\Sigma_kP(y=k|x\in R_m)^2$</li>
+<li>Entropy Index: $-\Sigma_kP(y=k|x\in R_m)log_2P(y=k|x\in R_m)$</li>
+</ul>
+</li>
+<li>Local Estimation of $f$<ul>
+<li>$\hat P(x_i\in R_m)=\Sigma_iI(x_i\in R_m)/n$</li>
+<li>$\hat f_m(x)=arg\max_k\Sigma_iI(y_i=k,x_i\in R_m)/\Sigma_iI(x_i\in R_m)$</li>
+</ul>
+</li>
+</ul>
+<h4 id="ECCP"><a href="#ECCP" class="headerlink" title="ECCP"></a>ECCP</h4><ul>
+<li>Pruning a tree<ul>
+<li>Too simple regression tree may be easy to interpret but fails to have good prediction accuracy, and too complex regression tree will overfit the samples</li>
+<li>Hence, pruning process is required</li>
+<li>One popular measure for pruning is the Empirical Cost-Complexity Pruning (ECCP)</li>
+</ul>
+</li>
+<li>ECCP<ul>
+<li>Let $f$ be the tree after the growing and stopping steps</li>
+<li>Given $\alpha_0$, we find the minimizer $\hat{f}_\alpha\in\mathcal{F}$ of the ECCP, $C_{\alpha,n}(f_=\Sigma^M_{m=1}\Sigma_{x_i\in R_m}(y_i-f_m(x_i))^2+\alpha M$<ul>
+<li>$\mathcal{F}$: Set of all trees obtained by pruning $f$ once</li>
+<li>To determine $\alpha$ we may use some methods such as test error or cross validation</li>
+</ul>
+</li>
+<li>Then the final empirical tree (estimator) $\hat{f}$ is the tree after growing, stopping and pruning</li>
+</ul>
+</li>
+<li>Pros<ul>
+<li>Simple interpretation</li>
+<li>Easy handling of continuous and categorical inputs</li>
+<li>Robust to input outliers</li>
+<li>Model-free</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Low prediction accuracy</li>
+<li>Bad interpretation of large tree</li>
+<li>Unstable or high variance</li>
+<li>Bad estimation of non-squared areas</li>
+</ul>
+</li>
+</ul>
+<h3 id="Ensemble-Methods"><a href="#Ensemble-Methods" class="headerlink" title="Ensemble Methods"></a>Ensemble Methods</h3><blockquote>
+<p>Ensemble method is a supervised learning algorithm (technique) for combining many predictive models $\hat{f}_k,k\leq K$ (weak learners trained individually) into one final predictive model $\hat{f}_{ens}$ (strong learner) in the following way $\hat{f}_{env}=\Sigma^K_{k=1}w_k\hat{f}_k$ giving higher prediction accuracy</p>
+</blockquote>
+<ul>
+<li>The strong learner is known to over-fit the training data more than weak learners theoretically</li>
+<li>Some ensemble techniques such as the bagging tends to reduce problems related to over-fitting practically</li>
+<li>Bagging procedure turns out to be a variance reduction scheme, at least for some base procedures</li>
+<li>Boosting methods are primarily reducing the (model) bias of the base procedure</li>
+<li>Random forest is a very different ensemble method than bagging or boosting. From the perspective of prediction, random forests is about as good as boosting, and often better than bagging.</li>
+</ul>
+<h4 id="Bootstrap-Samples"><a href="#Bootstrap-Samples" class="headerlink" title="Bootstrap Samples"></a>Bootstrap Samples</h4><ul>
+<li>Roughly speaking, the bootstrapping is a technique of copying the triaining samples many times so that we can enrich the samples</li>
+<li>The samples from the bootstrapping are called bootstrap samples</li>
+<li>There are many bootstrapping schemes but, we only consider the bootstrap samples<ul>
+<li>Let $(y_1,x_1),…,(y_n,x_n)$ be $n$ training samples</li>
+<li>Randomly draw a sample from the training samples $m$ times with replacement, and then we have $(y_1^*,x_1^*),…,(y_m^*,x_m^*)$, the $m$ bootstrap samples</li>
+<li>We often consider $m=n$, which is like sampling an entirely new training set</li>
+</ul>
+</li>
+<li>Not all of the training samples are included in the bootstrap samples, and are included more than oce<ul>
+<li>When $m=n$, about 36.8% of the training samples are left out, for large $n$</li>
+</ul>
+</li>
+</ul>
+<h4 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h4><ul>
+<li>Bagging is the first ensemble method [Breiman, 1996]<ul>
+<li>Bagging is an abbreviation of bootstrap aggregating</li>
+<li>It stabilizes give predictive model by unifying models constructed with bootstrapped samples, enhancing unstable methods to have higher prediction accuracy<ul>
+<li>Unstable: Slightly perturbing the training set can cause signifiant changes in the estimated model</li>
+</ul>
+</li>
+<li>Among Leaarning Methods<ul>
+<li>One of the most stable methods is the 1-nearest neighbor method</li>
+<li>One of the most unstable methods is regression tree</li>
+<li>Least square estimation is less stable than Huber’s estimation</li>
+<li>Subset selection method is quite unstable</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bagging steps: Bagging constructs a unified predictive model as follows<ul>
+<li>Obtain $B$ bootstrap samples of size $m$, $(y_{b1}^*,x_{b1}^*),…,(y_{bm}^*,y_{bm}^*,b\leq B$ from the training samples, $(y_1,x_1),…,(y_n,x_n)$ of size $n$</li>
+<li>Construct $B$ weak predictive models (individually) $\hat{f}_b,b\leq B$ from the $B$ bootstrap samples</li>
+<li>Unify the models into one predictive model $\hat{f}_{bag}$<ul>
+<li>Averaging for regression: $\hat{f}_{bag}=\Sigma^B_{b=1}\hat{f}_b/B$</li>
+<li>Voting for classification: $\hat{f}_{bab}=arg\max_k\Sigma^B_{b=1}I(\hat{f}_b=k)/B$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Breiman [1996] described heuristically the performance of bagging<ul>
+<li>The model variance of the bagged estimator should be equal or smaller than that of the original estimator</li>
+<li>There can be a drastic variance reduction if the original estimator is unstable</li>
+</ul>
+</li>
+<li>Tibshirani (CMU lecture note) discussed some disadvantages of bagging:<ul>
+<li>Loss of interpretability: The final bagged classifier from trees is not a tree, and so we forfeit the clear interpretative ability of a classification tree</li>
+<li>Computational complexity: We are essentially multiplying the work of growing a single tree by B (especially if we are using the more involved implementation that prunes and validates on the original training data)</li>
+</ul>
+</li>
+<li>An example from Ryan Tibshirani (Wisdom of crowds)<ul>
+<li>Here is a simplified setup with $K=2$ classes to help understand the basic phenomenon</li>
+<li>Suppose that for a given $x$ we have $B$ independent classifies $\hat{f}_b,b\leq B$</li>
+<li>Assume each classifier has a miss-classification rate of $e=0.4$</li>
+<li>Assume w.l.o.g. that the true class at $x$ is 1 so that $P(\hat{f}_b(x)=2)=0.4$</li>
+<li>Now, we form the bagged classifier $\hat{f}_{bag}=arg\max_k\Sigma^B_{b=1}I(\hat{f}_b=k)/B$</li>
+<li>Let $B_k=\Sigma^B_{b=1}I(\hat{f}_b=k)$ be the number of votes for class $k$</li>
+<li>Notice that $B_2$ is a binomial random variable: $B_2\sim B(B,0.4)$</li>
+<li>Hence, the miss-classification rate of the bagged classifier is $E_2=P(\hat{f}_{bag}(x)=2)=P(B_2&gt;B_1)=P(B_2\geq B/2)$</li>
+<li>Easy to see $E_2\rightarrow0$ as $B\rightarrow\infty$, in other words, $\hat{f}_{bag}$ has perfect predictive accuracy as $B\rightarrow\infty$</li>
+</ul>
+</li>
+<li>What is the problem in this exaple?<ul>
+<li>Of course, the caveat here is independence</li>
+<li>The classifiers that we use in practice $\hat{f}_b,b\leq B$ are clearly not independent, because they are on very similar data sets (Bootstrap samples from the training set)</li>
+</ul>
+</li>
+<li>When will Bagging fail?<ul>
+<li>Bagging a good classifier can improve predictive accuracy</li>
+<li>Bagging a bad one can seriously degrade accuracy</li>
+</ul>
+</li>
+</ul>
+<h4 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h4><blockquote>
+<p>Random Forest [Breiman, 2001] is a way to create a final prediction model by using many decision trees randomly constructed</p>
+</blockquote>
+<ul>
+<li>It is a bagging the enforces more randomness<ul>
+<li>Better prediction than bagging</li>
+<li>Robust to input outliers</li>
+<li>Easy computation than orignal tree: No pruning, Parallel computing, …</li>
+</ul>
+</li>
+<li>Bagging from trees has a problem<ul>
+<li>The trees produced from bootstrap samples can be highly correlated<ul>
+<li>$X_i\sim(0,\sigma^2),Cor(X_i,X_j)=\rho,i,j\leq B\rightarrow Var(\bar{X}=\rho\sigma^2+(1-\rho)\sigma^2/B$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Random Forest vs. Bagging Trees<ul>
+<li>Constructing random forest<ul>
+<li>Fit a decision tree to different bootstrap samples</li>
+<li>When growing the tree, use $q&lt;p$ inputs randomly selected in each step</li>
+<li>Average the trees</li>
+</ul>
+</li>
+<li>constructing bagging from trees<ul>
+<li>Fit a decision tree to different bootstrap samples</li>
+<li>When growing the tree, use $p$ inputs in each step</li>
+<li>Average the trees</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Boosting<ul>
+<li>Boosting is similar to bagging in that we combine many weak predictive models</li>
+<li>But, boosting is quite different to bagging and sometimes can work much better<ul>
+<li>We can see that boosting uses the whole training samples but adapts weights on the training samples</li>
+</ul>
+</li>
+<li>The boosting is developed to minimize training error as fast as possible, and known to give higher prediction accuracy</li>
+</ul>
+</li>
+<li>AdaBoost: Adaptive Boost<ul>
+<li>The first boosting algorithm is the AdaBoost (Adaptive Boost) algorithm [Freund and Schapire, 1997]<ul>
+<li>Initialize weights $w_i=1/n,i\leq n$</li>
+<li>For $m\leq M$, repeat followings<ul>
+<li>Construct $\hat{f}_m(x)\in\lbrace-1,1\rbrace$ using weights $w_i,i\leq n$</li>
+<li>Calculate $err_m=\Sigma^n_{i=1}w_iI(y_i\neq\hat{f}_m(x_i))/\Sigma^n_{i=1}w_i$</li>
+<li>Set $c_m=log((1-err_m)/err_m)$</li>
+<li>Update weights $w_i$ by $w_i=w_iexp(c_mI(y_i\neq\hat{f}_m(x_i)))$</li>
+</ul>
+</li>
+<li>Construct the final model as $\hat{f}(x)=sign(\Sigma^M_{m=1}c_m\hat{f}_m(x))$</li>
+</ul>
+</li>
+<li>The most interesting part in the AdaBoost algorithm is updating the weights<ul>
+<li>If $err_m\leq 1/2$ then $exp(c_m)\geq1$</li>
+<li>If $y_i\neq\hat{f}_m(x_i)$ then $w_i$ increases, else does not change</li>
+<li>Larger weights on misclassified observations</li>
+</ul>
+</li>
+<li>Forward Stagewise Regression with Square Loss<ul>
+<li>Let $\beta^1=0$ and a small $\lambda&gt;0$</li>
+<li>For $t=1,2,…$ repeat the followings<ul>
+<li>$(k,\beta_k)=arg\min_{j,\beta_j}\Sigma_i(y_i-\Sigma_Ix_{iI}\beta^t_I-x_{ij}\beta_j)^2$</li>
+<li>$\beta^{t+1}_s=\beta^t_s+\lambda sign(\beta_k)I(s=k)$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Forward Stagewise Classification Tree with Exponential Loss<ul>
+<li>Set $M$ trees, $T_1,…,T_M$</li>
+<li>Let $\beta^1=0$ and a small $\lambda&gt;0$</li>
+<li>For $t=1,2,…$ repeat the followings<ul>
+<li>$(k,\beta_k)=arg\min_{j,\beta_j}\Sigma_iexp(-y_i\Sigma_IT_I(x_i)\beta^t_j-y_i\beta_jT_j(x_i))$</li>
+<li>$\beta^{t+1}_s=\beta^t_s+\lambda sign(\beta_k)I(s=k)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Model-Comparison"><a href="#Model-Comparison" class="headerlink" title="Model Comparison"></a>Model Comparison</h1><h2 id="Training-Validation-Procedure"><a href="#Training-Validation-Procedure" class="headerlink" title="Training-Validation Procedure"></a>Training-Validation Procedure</h2><ul>
+<li>Way of obtaining final model by selecting extra parameter, say $\lambda$, in single learning method based on given samples $\mathcal{S}$<ul>
+<li>Step 1: Preparedifferent $\lambda_s$,say $\lambda_k$, $k\leq K$</li>
+<li>Step 2: Divide $\mathcal{S}$ into $\mathcal{S}_{tr}\cup\mathcal{S}_{vd}$ at random.</li>
+<li>Step 3 (Training): Learn models $f^{\lambda_k},k\leq K$ by using $\mathcal{S}_{tr}$</li>
+<li>Step 4 (Validation): Calculate prediction errors by using $\mathcal{S}_{vd}$<ul>
+<li>$err(f^{\lambda_k}=\Sigma_{i\in\mathcal{S}_{vd}}L(y_i,f^{\lambda_k}(x_i)),k\leq K$</li>
+</ul>
+</li>
+<li>Step 5: Select optimal $\lambda=\lambda^o$<ul>
+<li>$o=arg\min_kerr(f^{\lambda_k})$</li>
+</ul>
+</li>
+<li>Step 6: Learn final model $f^{\lambda_k}$ by using the whole $\mathcal{S}$</li>
+</ul>
+</li>
+<li>Randomization<ul>
+<li>You may repeat from Step 1 to Step 4 sufficiently many times obtaining averages of validation errors</li>
+<li>When the sample size is small try cross validation error</li>
+</ul>
+</li>
+<li>Complexity Control<ul>
+<li>The training-validation procedure can sometimes be a way of avoiding over-fit although not the best way: small training error but high test error</li>
+<li>Some learning methods have their own way or empirical experience of selecting extra parameters</li>
+</ul>
+</li>
+</ul>
+<h2 id="Training-Validation-Test-Procedure"><a href="#Training-Validation-Test-Procedure" class="headerlink" title="Training-Validation-Test Procedure"></a>Training-Validation-Test Procedure</h2><ul>
+<li>way of comparing two different learning methods, say $f$ and $g$ based on given samples $\mathcal{S}$<ul>
+<li>Step 1: Divide $\mathcal{S}$ into $\mathcal{S}_{tr}\cup\mathcal{S}_{vd}\cup\mathcal{S}_{ts}$ at random</li>
+<li>Step 2: Do training-validation procedure based on $\mathcal{S}$ into $\mathcal{S}_{tr}\cup\mathcal{S}_{vd}$ for each method to obtain final models, say $f^o$ and $g^o$ </li>
+<li>Step 3 (Test): Calculate prediction errors of $f^o$ and $g^o$ by using $\mathcal{S}_{st}$</li>
+<li>Step 4: The winner is who has smaller test error</li>
+</ul>
+</li>
+<li>Randomization<ul>
+<li>You may repeat from step 1 to step 4 sufficiently many times, obtaining averages of test errors</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
@@ -1305,14 +1603,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">543k</span>
+    <span title="Symbols count total">554k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">8:14</span>
+    <span title="Reading time total">8:24</span>
   </span>
 </div>
 <div class="busuanzi-count">
