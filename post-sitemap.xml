@@ -2,723 +2,723 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://zerohertz.github.io</loc>
+        <loc>https://zerohertz.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
+
     <url>
         <loc>https://zerohertz.github.io/machine-learning/</loc>
         <lastmod>2021-09-03T03:19:22.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/unreal-engine/</loc>
         <lastmod>2021-09-01T06:11:06.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/exporting-to-unreal-engine-at-3ds-max-by-datasmith/</loc>
         <lastmod>2021-09-01T06:10:36.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-2/</loc>
         <lastmod>2021-09-01T06:07:50.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-3/</loc>
         <lastmod>2021-09-01T06:07:50.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-4/</loc>
         <lastmod>2021-09-01T06:07:48.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-5/</loc>
         <lastmod>2021-09-01T06:07:48.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-6/</loc>
         <lastmod>2021-09-01T06:07:46.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-7/</loc>
         <lastmod>2021-09-01T06:07:44.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-8/</loc>
         <lastmod>2021-09-01T06:07:42.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-9/</loc>
         <lastmod>2021-09-01T06:07:42.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-10/</loc>
         <lastmod>2021-09-01T06:07:40.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-11/</loc>
         <lastmod>2021-09-01T06:07:38.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-12/</loc>
         <lastmod>2021-09-01T06:07:38.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/matlab-1/</loc>
         <lastmod>2021-09-01T06:07:36.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/source-code-for-extracting-cis/</loc>
         <lastmod>2021-09-01T06:06:18.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/normality-test/</loc>
         <lastmod>2021-09-01T06:06:00.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/statistics/</loc>
         <lastmod>2021-09-01T06:06:00.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/python-source/</loc>
         <lastmod>2021-09-01T06:05:06.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-2/</loc>
         <lastmod>2021-09-01T06:05:04.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-3/</loc>
         <lastmod>2021-09-01T06:05:02.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-4/</loc>
         <lastmod>2021-09-01T06:05:02.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-5/</loc>
         <lastmod>2021-09-01T06:05:00.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-6/</loc>
         <lastmod>2021-09-01T06:04:58.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-final-term/</loc>
         <lastmod>2021-09-01T06:04:54.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-mid-term/</loc>
         <lastmod>2021-09-01T06:04:50.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/r-1/</loc>
         <lastmod>2021-09-01T06:04:46.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/numpy/</loc>
         <lastmod>2021-09-01T06:04:44.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/</loc>
         <lastmod>2021-09-01T05:35:10.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
         <lastmod>2021-09-01T05:09:16.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/app-designer/</loc>
         <lastmod>2021-09-01T05:09:02.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
         <lastmod>2021-09-01T05:08:42.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/tensorflow-2/</loc>
         <lastmod>2021-09-01T05:07:40.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/tensorflow-1/</loc>
         <lastmod>2021-09-01T05:07:38.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/tensorflow-3/</loc>
         <lastmod>2021-09-01T05:07:36.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/</loc>
         <lastmod>2021-09-01T04:54:56.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/word/</loc>
         <lastmod>2021-07-23T15:42:48.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/numerical-analysis-3/</loc>
         <lastmod>2021-02-26T05:05:44.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/numerical-analysis-5/</loc>
         <lastmod>2021-02-26T05:05:14.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/</loc>
         <lastmod>2021-01-20T02:47:16.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/political-science/</loc>
         <lastmod>2020-12-03T05:59:50.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2020-12-01T14:04:10.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/mass-media/</loc>
         <lastmod>2020-10-21T15:03:42.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
         <lastmod>2020-09-19T19:43:52.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</loc>
         <lastmod>2020-09-19T19:43:42.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/</loc>
         <lastmod>2020-09-18T15:58:14.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/face-recognition-by-raspberrypi/</loc>
         <lastmod>2020-09-18T11:34:16.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/line-detection/</loc>
         <lastmod>2020-09-18T11:33:44.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/labview/</loc>
         <lastmod>2020-08-26T01:50:58.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-1/</loc>
         <lastmod>2020-08-20T11:59:02.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/unreal-engine-and-c-2/</loc>
         <lastmod>2020-08-20T11:57:20.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/hexo-generator-redirect/</loc>
         <lastmod>2020-08-20T11:53:02.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/hexo-generator-alias/</loc>
         <lastmod>2020-08-20T11:41:10.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/arduino-nano-33-ble/</loc>
         <lastmod>2020-08-19T15:18:00.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/crane-and-transporter-by-arduino/</loc>
         <lastmod>2020-08-11T15:11:14.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/arduino-basic/</loc>
         <lastmod>2020-08-11T15:11:04.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/imu-sensor/</loc>
         <lastmod>2020-08-11T15:10:02.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/hexo-tag-gdemo/</loc>
         <lastmod>2020-07-28T14:11:00.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/computer-programming/</loc>
         <lastmod>2020-07-27T05:10:00.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/catia/</loc>
         <lastmod>2020-07-14T07:15:44.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/selection-and-iteration/</loc>
         <lastmod>2020-07-02T07:56:22.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/data-types-and-operations/</loc>
         <lastmod>2020-07-02T06:31:16.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/introduction-of-c/</loc>
         <lastmod>2020-07-01T07:23:28.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/manufacturing-process/</loc>
         <lastmod>2020-07-01T04:33:38.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/economics/</loc>
         <lastmod>2020-05-25T04:58:12.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/</loc>
         <lastmod>2020-05-04T04:12:32.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawling-by-selenium-2/</loc>
         <lastmod>2020-03-27T02:28:34.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/c-basic-2/</loc>
         <lastmod>2020-03-27T02:27:26.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawler-for-nlp-1/</loc>
         <lastmod>2020-02-25T07:22:52.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawler-for-nlp-2/</loc>
         <lastmod>2020-02-25T07:22:46.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawler-for-nlp-3/</loc>
         <lastmod>2020-02-25T07:22:42.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawling-by-selenium-1/</loc>
         <lastmod>2020-02-25T07:22:38.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/upload-hexo-by-git/</loc>
         <lastmod>2020-02-25T07:20:14.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/mathjax-test/</loc>
         <lastmod>2020-02-25T07:20:06.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/hexo-basic/</loc>
         <lastmod>2020-02-25T07:19:56.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/numerical-analysis-4/</loc>
         <lastmod>2020-02-25T07:09:12.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</loc>
         <lastmod>2020-02-25T07:06:48.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/c-basic-3/</loc>
         <lastmod>2020-02-25T07:04:10.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/c-basic-4/</loc>
         <lastmod>2020-02-25T07:04:06.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/emg-sensor/</loc>
         <lastmod>2020-02-25T07:03:58.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/unreal-engine-and-c-1/</loc>
         <lastmod>2020-02-25T07:03:34.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/c-basic-1/</loc>
         <lastmod>2020-02-25T07:02:50.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/venture/</loc>
         <lastmod>2020-02-25T06:56:34.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/</loc>
         <lastmod>2020-01-10T08:58:48.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawling-by-beautifulsoup-3/</loc>
         <lastmod>2020-01-10T08:58:38.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/</loc>
         <lastmod>2020-01-10T08:58:18.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/web-crawling-by-beautifulsoup-1/</loc>
         <lastmod>2020-01-10T08:58:08.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/numerical-analysis-2/</loc>
         <lastmod>2020-01-10T08:47:16.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
     <url>
         <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
         <lastmod>2020-01-10T08:47:04.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
 
     </url>
 
 </urlset>
 <!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
-
