@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/neural-network-example/</loc>
+        <lastmod>2021-09-11T07:10:26.837Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/app-designer/</loc>
         <lastmod>2021-09-08T14:39:45.590Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,7 +97,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-8/</loc>
+        <loc>https://zerohertz.github.io/matlab-9/</loc>
         <lastmod>2021-09-01T06:07:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -97,7 +105,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-9/</loc>
+        <loc>https://zerohertz.github.io/matlab-8/</loc>
         <lastmod>2021-09-01T06:07:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
