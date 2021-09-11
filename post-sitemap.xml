@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/app-designer/</loc>
+        <lastmod>2021-09-08T14:39:45.590Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/machine-learning/</loc>
         <lastmod>2021-09-03T03:19:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -243,14 +251,6 @@
     <url>
         <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
         <lastmod>2021-09-01T05:09:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/app-designer/</loc>
-        <lastmod>2021-09-01T05:09:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
