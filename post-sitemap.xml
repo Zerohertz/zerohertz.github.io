@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <lastmod>2021-09-17T06:54:53.624Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/venture/</loc>
+        <lastmod>2021-09-17T06:54:03.513Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/neural-network-example/</loc>
         <lastmod>2021-09-11T07:30:53.597Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -65,7 +81,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-5/</loc>
+        <loc>https://zerohertz.github.io/matlab-4/</loc>
         <lastmod>2021-09-01T06:07:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -73,7 +89,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-4/</loc>
+        <loc>https://zerohertz.github.io/matlab-5/</loc>
         <lastmod>2021-09-01T06:07:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -347,14 +363,6 @@
     <url>
         <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2020-12-01T14:04:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
-        <lastmod>2020-10-21T15:03:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -667,14 +675,6 @@
     <url>
         <loc>https://zerohertz.github.io/c-basic-1/</loc>
         <lastmod>2020-02-25T07:02:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/venture/</loc>
-        <lastmod>2020-02-25T06:56:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
