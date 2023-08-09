@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Model API모델 다운로드download_model.py12345678910111213141516171819202122import osfrom dotenv import load_dotenvfrom argparse import ArgumentParserimport mlflowload_dotenv()os.environ[&quot;MLFLOW_S3_ENDPO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MLOps for MLE: API Serving">
+<meta property="og:url" content="https://zerohertz.github.io/mlops-for-mle-api-serving/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Model API모델 다운로드download_model.py12345678910111213141516171819202122import osfrom dotenv import load_dotenvfrom argparse import ArgumentParserimport mlflowload_dotenv()os.environ[&quot;MLFLOW_S3_ENDPO">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/219026880-08764678-ab4b-4209-94ed-651293270a18.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/219038379-a6c92a59-868c-4b6d-9a2c-e72d162885cf.png">
+<meta property="article:published_time" content="2023-02-15T11:51:19.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="MLflow">
+<meta property="article:tag" content="FastAPI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/219026880-08764678-ab4b-4209-94ed-651293270a18.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/mlops-for-mle-api-serving/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/mlops-for-mle-api-serving/","path":"mlops-for-mle-api-serving/","title":"MLOps for MLE: API Serving"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MLOps for MLE: API Serving | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-API"><span class="nav-number">1.</span> <span class="nav-text">Model API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AA%A8%EB%8D%B8-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C"><span class="nav-number">1.1.</span> <span class="nav-text">모델 다운로드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API-%EA%B5%AC%ED%98%84"><span class="nav-number">1.2.</span> <span class="nav-text">API 구현</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API-Execution"><span class="nav-number">1.3.</span> <span class="nav-text">API Execution</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-API-on-Docker-Compose"><span class="nav-number">2.</span> <span class="nav-text">Model API on Docker Compose</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-model-registry/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-04</time>
+        <br>
+      MLOps for MLE: Model Registry
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-database/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-21</time>
+        <br>
+      MLOps for MLE: Database
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-kafka/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-27</time>
+        <br>
+      MLOps for MLE: Kafka
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-change-pytorch-model-structure-and-train-only-some-layers/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-09</time>
+        <br>
+      How to Change PyTorch Model Structure and Train Only Some Layers
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-stream/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-09</time>
+        <br>
+      MLOps for MLE: Stream
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-api-serving/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MLOps for MLE: API Serving | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MLOps for MLE: API Serving
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-02-15 20:51:19" itemprop="dateCreated datePublished" datetime="2023-02-15T20:51:19+09:00">2023-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Model-API"><a href="#Model-API" class="headerlink" title="Model API"></a>Model API</h1><h2 id="모델-다운로드"><a href="#모델-다운로드" class="headerlink" title="모델 다운로드"></a>모델 다운로드</h2><figure class="highlight python"><figcaption><span>download_model.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</span><br><span class="line"><span class="keyword">from</span> argparse <span class="keyword">import</span> ArgumentParser</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> mlflow</span><br><span class="line"></span><br><span class="line">load_dotenv()</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>] = os.environ.get(<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>] = os.environ.get(<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;AWS_ACCESS_KEY_ID&quot;</span>] = os.environ.get(<span class="string">&quot;MINIO_ROOT_USER&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;AWS_SECRET_ACCESS_KEY&quot;</span>] = os.environ.get(<span class="string">&quot;MINIO_ROOT_PASSWORD&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download_model</span>(<span class="params">args</span>):</span><br><span class="line">    mlflow.artifacts.download_artifacts(artifact_uri=<span class="string">f&quot;runs:/<span class="subst">&#123;args.run_id&#125;</span>/<span class="subst">&#123;args.model_name&#125;</span>&quot;</span>, dst_path=<span class="string">&quot;.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    parser = ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--model-name&quot;</span>, dest=<span class="string">&quot;model_name&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&quot;sk_model&quot;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--run-id&quot;</span>, dest=<span class="string">&quot;run_id&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    download_model(args)</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<ul>
+<li><code>mlflow.artifacts.download_artifacts(artifact_uri, run_id, artifact_path, dst_path, tracking_uri)</code>: Download an artifact file or directory to a local directory<ul>
+<li><code>artifact_uri</code>: URI pointing to the artifacts</li>
+<li><code>run_id</code>: ID of the MLflow Run containing the artifacts</li>
+<li><code>artifact_path</code>: (For use with <code>run_id</code>) If specified, a path relative to the MLflow </li>
+<li><code>dst_path</code>: Path of the local filesystem destination directory to which download the specified artifacts</li>
+<li><code>tracking_uri</code>: The tracking URI to be used when downloading artifacts</li>
+<li>Model artifact: MLflow에 모델이 저장될 때 함께 저장된 메타데이터와 모델 자체의 binary 파일</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/Database$ docker compose up -d</span><br><span class="line">/MLOps-Breast-Cancer/Database$ docker ps</span><br><span class="line">CONTAINER ID   IMAGE                     COMMAND                  CREATED              STATUS                        PORTS                              NAMES</span><br><span class="line">3402992a232b   database-data-generator   <span class="string">&quot;python data_generat…&quot;</span>   About a minute ago   Up About a minute                                                data-generator</span><br><span class="line">c8acce9e6021   postgres:14.0             <span class="string">&quot;docker-entrypoint.s…&quot;</span>   About a minute ago   Up About a minute (healthy)   0.0.0.0:1234-&gt;5432/tcp             postgres-server</span><br><span class="line">/MLOps-Breast-Cancer/MLflow$ docker compose up -d</span><br><span class="line">/MLOps-Breast-Cancer/MLflow$ docker ps</span><br><span class="line">CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS                    PORTS                              NAMES</span><br><span class="line">e44a64bbd401   mlflow-mlflow-server   <span class="string">&quot;/bin/sh -c &#x27;mc conf…&quot;</span>   43 seconds ago   Up 11 seconds             0.0.0.0:5001-&gt;5000/tcp             mlflow-server</span><br><span class="line">23805103885c   minio/minio            <span class="string">&quot;/usr/bin/docker-ent…&quot;</span>   43 seconds ago   Up 42 seconds (healthy)   0.0.0.0:9000-9001-&gt;9000-9001/tcp   mlflow-artifact-store</span><br><span class="line">e3a31b3fa8ee   postgres:14.0          <span class="string">&quot;docker-entrypoint.s…&quot;</span>   43 seconds ago   Up 42 seconds (healthy)   5432/tcp                           mlflow-backend-store</span><br><span class="line">/MLOps-Breast-Cancer/MLflow$ python save_model_to_registry.py --model-name <span class="string">&quot;sk_model&quot;</span></span><br><span class="line">save_model_to_registry.py:28: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.</span><br><span class="line">  <span class="built_in">df</span> = pd.read_sql(<span class="string">&quot;SELECT * FROM breast_cancer_data ORDER BY id DESC LIMIT 100&quot;</span>, db_connect)</span><br><span class="line">Train Accuracy : 0.9875</span><br><span class="line">Valid Accuracy : 0.95</span><br><span class="line">2023/02/15 21:23:37 INFO mlflow.tracking.fluent: Experiment with name <span class="string">&#x27;new-exp&#x27;</span> does not exist. Creating a new experiment.</span><br><span class="line">/Users/zerohertz/miniforge3/envs/MLOps/lib/python3.8/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.</span><br><span class="line">  warnings.warn(<span class="string">&quot;Setuptools is replacing distutils.&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/219026880-08764678-ab4b-4209-94ed-651293270a18.png" alt="Save Model to Registry"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/MLflow$ python download_model.py --model-name sk_model --run-id a8ec09bf9c4b4b5ab82ddde01a14109b</span><br><span class="line">/MLOps-Breast-Cancer/MLflow/sk_model$ <span class="built_in">ls</span></span><br><span class="line">MLmodel            conda.yaml         input_example.json model.pkl          python_env.yaml    requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="API-구현"><a href="#API-구현" class="headerlink" title="API 구현"></a>API 구현</h2><figure class="highlight python"><figcaption><span>schemas.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PredictIn</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    feature_a: <span class="built_in">float</span></span><br><span class="line">    feature_b: <span class="built_in">float</span></span><br><span class="line">    feature_c: <span class="built_in">float</span></span><br><span class="line">    feature_d: <span class="built_in">float</span></span><br><span class="line">    feature_e: <span class="built_in">float</span></span><br><span class="line">    feature_f: <span class="built_in">float</span></span><br><span class="line">    feature_g: <span class="built_in">float</span></span><br><span class="line">    feature_h: <span class="built_in">float</span></span><br><span class="line">    feature_i: <span class="built_in">float</span></span><br><span class="line">    feature_j: <span class="built_in">float</span></span><br><span class="line">    feature_k: <span class="built_in">float</span></span><br><span class="line">    feature_l: <span class="built_in">float</span></span><br><span class="line">    feature_m: <span class="built_in">float</span></span><br><span class="line">    feature_n: <span class="built_in">float</span></span><br><span class="line">    feature_o: <span class="built_in">float</span></span><br><span class="line">    feature_p: <span class="built_in">float</span></span><br><span class="line">    feature_q: <span class="built_in">float</span></span><br><span class="line">    feature_r: <span class="built_in">float</span></span><br><span class="line">    feature_s: <span class="built_in">float</span></span><br><span class="line">    feature_t: <span class="built_in">float</span></span><br><span class="line">    feature_u: <span class="built_in">float</span></span><br><span class="line">    feature_v: <span class="built_in">float</span></span><br><span class="line">    feature_w: <span class="built_in">float</span></span><br><span class="line">    feature_x: <span class="built_in">float</span></span><br><span class="line">    feature_y: <span class="built_in">float</span></span><br><span class="line">    feature_z: <span class="built_in">float</span></span><br><span class="line">    feature_aa: <span class="built_in">float</span></span><br><span class="line">    feature_bb: <span class="built_in">float</span></span><br><span class="line">    feature_cc: <span class="built_in">float</span></span><br><span class="line">    feature_dd: <span class="built_in">float</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PredictOut</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    target: <span class="built_in">int</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>app.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mlflow</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI</span><br><span class="line"><span class="keyword">from</span> schemas <span class="keyword">import</span> PredictIn, PredictOut</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_model</span>():</span><br><span class="line">    model = mlflow.sklearn.load_model(model_uri=<span class="string">&quot;../MLflow/sk_model&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> model</span><br><span class="line"></span><br><span class="line">MODEL = get_model()</span><br><span class="line">app = FastAPI()</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/predict&quot;</span>, response_model=PredictOut</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">data: PredictIn</span>) -&gt; PredictOut:</span><br><span class="line">    df = pd.DataFrame([data.<span class="built_in">dict</span>()])</span><br><span class="line">    pred = MODEL.predict(df).item()</span><br><span class="line">    <span class="keyword">return</span> PredictOut(target=pred)</span><br></pre></td></tr></table></figure>
+
+<h2 id="API-Execution"><a href="#API-Execution" class="headerlink" title="API Execution"></a>API Execution</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/FastAPI$ uvicorn app:app --reload</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/219038379-a6c92a59-868c-4b6d-9a2c-e72d162885cf.png" alt="Results"></p>
+<hr>
+<h1 id="Model-API-on-Docker-Compose"><a href="#Model-API-on-Docker-Compose" class="headerlink" title="Model API on Docker Compose"></a>Model API on Docker Compose</h1><figure class="highlight docker"><figcaption><span>FastAPI.Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> amd64/python:<span class="number">3.8</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /usr/app</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -U pip &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">    pip install mlflow==1.30.0 pandas scikit-learn <span class="string">&quot;fastapi[all]&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> schemas.py schemas.py</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> app.py app.py</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> sk_model/ sk_model/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;uvicorn&quot;</span>, <span class="string">&quot;app:app&quot;</span>, <span class="string">&quot;--host&quot;</span>, <span class="string">&quot;0.0.0.0&quot;</span>, <span class="string">&quot;--reload&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>docker-compose.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">api-with-model:</span></span><br><span class="line">    <span class="attr">build:</span></span><br><span class="line">      <span class="attr">context:</span> <span class="string">.</span></span><br><span class="line">      <span class="attr">dockerfile:</span> <span class="string">FastAPI.Dockerfile</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">api-with-model</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8000</span><span class="string">:8000</span></span><br><span class="line">    <span class="attr">healthcheck:</span></span><br><span class="line">      <span class="attr">test:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">curl</span> <span class="string">-X</span> <span class="string">POST</span> <span class="string">http://localhost:8000/predict</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">-H</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">&quot;Content-Type: application/json&quot;</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">-d</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">&#x27;&#123;&quot;feature_a&quot;: 12.77, &quot;feature_b&quot;: 29.43, &quot;feature_c&quot;: 81.35, &quot;feature_d&quot;: 507.9, &quot;feature_e&quot;: 0.08276, &quot;feature_f&quot;: 0.04234, &quot;feature_g&quot;: 0.01997, &quot;feature_h&quot;: 0.01499, &quot;feature_i&quot;: 0.1539, &quot;feature_j&quot;: 0.05637, &quot;feature_k&quot;: 0.2409, &quot;feature_l&quot;: 1.367, &quot;feature_m&quot;: 1.477, &quot;feature_n&quot;: 18.76, &quot;feature_o&quot;: 0.008835, &quot;feature_p&quot;: 0.01233, &quot;feature_q&quot;: 0.01328, &quot;feature_r&quot;: 0.009305, &quot;feature_s&quot;: 0.01897, &quot;feature_t&quot;: 0.001726, &quot;feature_u&quot;: 13.87, &quot;feature_v&quot;: 36.0, &quot;feature_w&quot;: 88.1, &quot;feature_x&quot;: 594.7, &quot;feature_y&quot;: 0.1234, &quot;feature_z&quot;: 0.1064, &quot;feature_aa&quot;: 0.08653, &quot;feature_bb&quot;: 0.06498, &quot;feature_cc&quot;: 0.2407, &quot;feature_dd&quot;: 0.06484&#125;&#x27;</span></span><br><span class="line">      <span class="attr">interval:</span> <span class="string">10s</span></span><br><span class="line">      <span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line">      <span class="attr">retries:</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">default:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">mlops-network</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/FastAPI$ docker compose up -d</span><br><span class="line">/MLOps-Breast-Cancer/FastAPI$ docker ps</span><br><span class="line">CONTAINER ID   IMAGE                    COMMAND                  CREATED             STATUS                       PORTS                              NAMES</span><br><span class="line">acd6af155bb2   fastapi-api-with-model   <span class="string">&quot;uvicorn app:app --h…&quot;</span>   8 seconds ago       Up 7 seconds                 0.0.0.0:8000-&gt;8000/tcp             api-with-model</span><br><span class="line"></span><br><span class="line">/MLOps-Breast-Cancer$ curl -X POST http://localhost:8000/predict -H <span class="string">&quot;Content-Type: application/json&quot;</span> -d <span class="string">&#x27;&#123;&quot;feature_a&quot;: 22.27, &quot;feature_b&quot;: 19.67, &quot;feature_c&quot;: 152.8, &quot;feature_d&quot;: 1509.0, &quot;feature_e&quot;: 0.1326, &quot;feature_f&quot;: 0.2768, &quot;feature_g&quot;: 0.4264, &quot;feature_h&quot;: 0.1823, &quot;feature_i&quot;: 0.2556, &quot;feature_j&quot;: 0.07039, &quot;feature_k&quot;: 1.215, &quot;feature_l&quot;: 1.545, &quot;feature_m&quot;: 10.05, &quot;feature_n&quot;: 170.0, &quot;feature_o&quot;: 0.006515, &quot;feature_p&quot;: 0.08668, &quot;feature_q&quot;: 0.104, &quot;feature_r&quot;: 0.0248, &quot;feature_s&quot;: 0.03112, &quot;feature_t&quot;: 0.005037, &quot;feature_u&quot;: 28.4, &quot;feature_v&quot;: 28.01, &quot;feature_w&quot;: 206.8, &quot;feature_x&quot;: 2360.0, &quot;feature_y&quot;: 0.1701, &quot;feature_z&quot;: 0.6997, &quot;feature_aa&quot;: 0.9608, &quot;feature_bb&quot;: 0.291, &quot;feature_cc&quot;: 0.4055, &quot;feature_dd&quot;: 0.09789&#125;&#x27;</span></span><br><span class="line">&#123;<span class="string">&quot;target&quot;</span>:0&#125;%</span><br><span class="line"></span><br><span class="line">/MLOps-Breast-Cancer$ curl -X POST http://localhost:8000/predict -H <span class="string">&quot;Content-Type: application/json&quot;</span> -d <span class="string">&#x27;&#123;&quot;feature_a&quot;: 11.14, &quot;feature_b&quot;: 14.07, &quot;feature_c&quot;: 71.24, &quot;feature_d&quot;: 384.6, &quot;feature_e&quot;: 0.07274, &quot;feature_f&quot;: 0.06064, &quot;feature_g&quot;: 0.04505, &quot;feature_h&quot;: 0.01471, &quot;feature_i&quot;: 0.169, &quot;feature_j&quot;: 0.06083, &quot;feature_k&quot;: 0.4222, &quot;feature_l&quot;: 0.8092, &quot;feature_m&quot;: 3.33, &quot;feature_n&quot;: 28.84, &quot;feature_o&quot;: 0.005541, &quot;feature_p&quot;: 0.03387, &quot;feature_q&quot;: 0.04505, &quot;feature_r&quot;: 0.01471, &quot;feature_s&quot;: 0.03102, &quot;feature_t&quot;: 0.004831, &quot;feature_u&quot;: 12.12, &quot;feature_v&quot;: 15.82, &quot;feature_w&quot;: 79.62, &quot;feature_x&quot;: 453.5, &quot;feature_y&quot;: 0.08864, &quot;feature_z&quot;: 0.1256, &quot;feature_aa&quot;: 0.1201, &quot;feature_bb&quot;: 0.03922, &quot;feature_cc&quot;: 0.2576, &quot;feature_dd&quot;: 0.07018&#125;&#x27;</span></span><br><span class="line">&#123;<span class="string">&quot;target&quot;</span>:1&#125;%</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItbWxlLmdpdGh1Yi5pby90dXRvcmlhbC9kb2NzL2NhdGVnb3J5LzA2LWFwaS1zZXJ2aW5n">MLOps for MLE: 06. API Serving<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/mlflow/" rel="tag"><i class="fa fa-tag"></i> MLflow</a>
+              <a href="/tags/fastapi/" rel="tag"><i class="fa fa-tag"></i> FastAPI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-fastapi/" rel="prev" title="MLOps for MLE: FastAPI">
+                  <i class="fa fa-chevron-left"></i> MLOps for MLE: FastAPI
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-kafka/" rel="next" title="MLOps for MLE: Kafka">
+                  MLOps for MLE: Kafka <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"33a77eeb2a4b665f0a390a68ef00de3b"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

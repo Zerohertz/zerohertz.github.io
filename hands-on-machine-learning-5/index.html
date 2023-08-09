@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Natural Language Processing 자연어 처리 (Natural Language Processing, NLP): 컴퓨터와 사람의 언어 사이의 상호작용에 대해 연구하는 컴퓨터 과학과 어학의 한 분야 문자 단위 RNN (character RNN): 문장에서 다음 글자를 예측하도록 훈련    123456789from tensorflow.compat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hands-on Machine Learning (5)">
+<meta property="og:url" content="https://zerohertz.github.io/hands-on-machine-learning-5/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Natural Language Processing 자연어 처리 (Natural Language Processing, NLP): 컴퓨터와 사람의 언어 사이의 상호작용에 대해 연구하는 컴퓨터 과학과 어학의 한 분야 문자 단위 RNN (character RNN): 문장에서 다음 글자를 예측하도록 훈련    123456789from tensorflow.compat">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/184599745-015fb1fa-e858-4e54-a2fa-58e2b37941d4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/184636570-583490a0-2e45-4921-a320-956d48f5382f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/184636736-b77cd271-1031-4e2b-8b12-0b01e4c22428.png">
+<meta property="article:published_time" content="2022-08-15T07:19:00.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="TensorFlow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/184599745-015fb1fa-e858-4e54-a2fa-58e2b37941d4.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/hands-on-machine-learning-5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/hands-on-machine-learning-5/","path":"hands-on-machine-learning-5/","title":"Hands-on Machine Learning (5)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hands-on Machine Learning (5) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Natural-Language-Processing"><span class="nav-number">1.</span> <span class="nav-text">Natural Language Processing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Autoencoder-Generative-Adversarial-Networks"><span class="nav-number">2.</span> <span class="nav-text">Autoencoder &amp; Generative Adversarial Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacked-Autoencoder"><span class="nav-number">2.1.</span> <span class="nav-text">Stacked Autoencoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-Adversarial-Networks"><span class="nav-number">2.2.</span> <span class="nav-text">Generative Adversarial Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Convolutional-GAN"><span class="nav-number">2.2.1.</span> <span class="nav-text">Deep Convolutional GAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StyleGAN"><span class="nav-number">2.2.2.</span> <span class="nav-text">StyleGAN</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/hands-on-machine-learning-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-11</time>
+        <br>
+      Hands-on Machine Learning (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/tensorflow-3/" rel="bookmark">
+        <time class="popular-posts-time">2019-08-16</time>
+        <br>
+      TensorFlow (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-5/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-08</time>
+        <br>
+      Generative Adversarial Network (5)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-06</time>
+        <br>
+      Generative Adversarial Network (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-3/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-26</time>
+        <br>
+      Generative Adversarial Network (3)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/hands-on-machine-learning-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hands-on Machine Learning (5) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hands-on Machine Learning (5)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-15 16:19:00" itemprop="dateCreated datePublished" datetime="2022-08-15T16:19:00+09:00">2022-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Natural-Language-Processing"><a href="#Natural-Language-Processing" class="headerlink" title="Natural Language Processing"></a>Natural Language Processing</h1><ul>
+<li>자연어 처리 (Natural Language Processing, NLP): 컴퓨터와 사람의 언어 사이의 상호작용에 대해 연구하는 컴퓨터 과학과 어학의 한 분야<ul>
+<li>문자 단위 RNN (character RNN): 문장에서 다음 글자를 예측하도록 훈련</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.compat.v2 <span class="keyword">import</span> keras</span><br><span class="line"></span><br><span class="line">shakespeare_url = <span class="string">&quot;https://homl.info/shakespeare&quot;</span></span><br><span class="line">filepath = keras.utils.get_file(<span class="string">&quot;shakespeare.txt&quot;</span>, shakespeare_url)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filepath) <span class="keyword">as</span> f:</span><br><span class="line">    shakespeare_text = f.read()</span><br><span class="line"></span><br><span class="line">tokenizer = keras.preprocessing.text.Tokenizer(char_level = <span class="literal">True</span>)</span><br><span class="line">tokenizer.fit_on_texts(shakespeare_text)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>셰익스피어 작품을 다운로드 이후 <code>Tokenizer</code>를 통해 모든 글자를 정수로 인코딩</li>
+</ul>
+<span id="more"></span>
+
+<blockquote>
+<p>Encoding and decoding<br><img width="480" alt="Encoding and decoding" src="https://user-images.githubusercontent.com/42334717/184599745-015fb1fa-e858-4e54-a2fa-58e2b37941d4.png"></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">max_id = <span class="built_in">len</span>(tokenizer.word_index)</span><br><span class="line">dataset_size = tokenizer.document_count</span><br><span class="line">[encoded] = np.array(tokenizer.texts_to_sequences([shakespeare_text])) - <span class="number">1</span></span><br><span class="line">train_size = dataset_size * <span class="number">90</span> // <span class="number">100</span></span><br><span class="line">dataset = tf.data.Dataset.from_tensor_slices(encoded[:train_size])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>순차 데이터셋<ul>
+<li>처음 90%: 훈련 세트</li>
+<li>이후 5%: 검증 세트</li>
+<li>이후 5%: 태스트 세트</li>
+</ul>
+</li>
+<li>RNN: 암묵적으로 과거 (훈련 세트)에서 학습하는 패턴이 미래에 등장한다고 가정</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n_steps = <span class="number">100</span></span><br><span class="line">window_length = n_steps + <span class="number">1</span></span><br><span class="line">dataset = dataset.window(window_length, shift = <span class="number">1</span>, drop_remainder = <span class="literal">True</span>)</span><br><span class="line">dataset = dataset.flat_map(<span class="keyword">lambda</span> window: window.batch(window_length))</span><br><span class="line">batch_size = <span class="number">32</span></span><br><span class="line">dataset = dataset.shuffle(<span class="number">10000</span>).batch(batch_size)</span><br><span class="line">dataset = dataset.<span class="built_in">map</span>(<span class="keyword">lambda</span> windows: (windows[:, :-<span class="number">1</span>], windows[:, <span class="number">1</span>:]))</span><br><span class="line">dataset = dataset.<span class="built_in">map</span>(<span class="keyword">lambda</span> X_batch, Y_batch: (tf.one_hot(X_batch, depth = max_id), Y_batch))</span><br><span class="line">dataset = dataset.prefetch(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>TBPTT (truncated backpropagation through time): <code>window()</code> 메서드를 이용해 긴 시퀀스를 작고 많은 윈도우로 변환<ul>
+<li><code>shift = 1</code> 가장 큰 훈련 세트 제작 가능</li>
+</ul>
+</li>
+<li>중첩 데이터셋 (nested dataset): 각각 하나의 데이터셋으로 표현되는 윈도우를 포함하는 데이터셋 제작</li>
+<li>플랫 데이터셋 (flat dataset): 중첩 데이터셋을 텐서로 변환 $\rightarrow$ <code>flat_map()</code></li>
+<li>윈도우를 섞고 배치로 변환하여 입력과 타깃 분리 후 원-핫 벡터를 사용하여 인코딩</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">model = keras.models.Sequential([</span><br><span class="line">    keras.layers.GRU(<span class="number">128</span>, return_sequences = <span class="literal">True</span>, input_shape = [<span class="literal">None</span>, max_id], dropout = <span class="number">0.2</span>, recurrent_dropout = <span class="number">0.2</span>),</span><br><span class="line">    keras.layers.GRU(<span class="number">128</span>, return_sequences = <span class="literal">True</span>, dropout = <span class="number">0.2</span>, recurrent_dropout = <span class="number">0.2</span>),</span><br><span class="line">    keras.layers.TimeDistributed(keras.layers.Dense(max_id, activation = <span class="string">&quot;softmax&quot;</span>))</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(loss = <span class="string">&quot;sparse_categorical_crossentropy&quot;</span>, optimizer = <span class="string">&quot;adam&quot;</span>)</span><br><span class="line">history = model.fit(dataset, epochs = <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이전 글자 100개를 기반으로 다음 글자를 예측하기 위해 유닛 128개의 <code>GRU</code> 층 2개와 입력 (dropout)과 은닉 상태 (recurrent_dropout)에 20% 드롭아웃 사용</li>
+<li>텍스트의 고유 글자 수인 39개 (<code>max_id</code>)로 출력층의 유닛 구성</li>
+</ul>
+<hr>
+<h1 id="Autoencoder-Generative-Adversarial-Networks"><a href="#Autoencoder-Generative-Adversarial-Networks" class="headerlink" title="Autoencoder &amp; Generative Adversarial Networks"></a>Autoencoder &amp; Generative Adversarial Networks</h1><ul>
+<li>생성 모델 (generative model): 오토인코더를 통해 훈련 데이터와 비슷한 새로운 데이터 생성</li>
+<li>생산적 적대 신경망 (Generative Adversarial Networks, GAN): 초해상도, 이미지 컬러화, 이미지 편집, 동영상 프레임 예측, 데이터 증식 등 타 모델의 취약점을 식별하고 개선<ul>
+<li>생성자 (generator): 훈련 데이터와 비슷하게 보이는 데이터 생성</li>
+<li>판별자 (discriminator): 가짜 데이터와 진짜 데이터 분류</li>
+<li>적대적 훈련 (adversarial training): 경쟁하며 신경망을 훈련</li>
+</ul>
+</li>
+<li>오토인코더 (autoencoder)<ul>
+<li>인코더 (encoder), 인지 네트워크 (recognition network): 입력을 내부 표현으로 전환</li>
+<li>디코더 (decoder), 생성 네트워크 (generative network): 내부 표현을 출력으로 전환</li>
+<li>출력: 재구성 (reconstruction)</li>
+<li>비용 함수: 재구성이 입력과 다를 때 모델에 벌점을 부과하는 재구성 손실 (reconstruction loss)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Stacked-Autoencoder"><a href="#Stacked-Autoencoder" class="headerlink" title="Stacked Autoencoder"></a>Stacked Autoencoder</h2><ul>
+<li>적층 오토인코더 (stacked autoencoder), 심층 오토인코더 (deep autoencoder): 오토인코더가 은닉층을 가지는 경우</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow.compat.v2 <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.compat.v2 <span class="keyword">import</span> keras</span><br><span class="line"></span><br><span class="line">(X_train_full, y_train_full), (X_test, y_test) = keras.datasets.fashion_mnist.load_data()</span><br><span class="line">X_train_full = X_train_full.astype(np.float32) / <span class="number">255</span></span><br><span class="line">X_test = X_test.astype(np.float32) / <span class="number">255</span></span><br><span class="line">X_train, X_valid = X_train_full[:-<span class="number">5000</span>], X_train_full[-<span class="number">5000</span>:]</span><br><span class="line">y_train, y_valid = y_train_full[:-<span class="number">5000</span>], y_train_full[-<span class="number">5000</span>:]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rounded_accuracy</span>(<span class="params">y_true, y_pred</span>):</span><br><span class="line">    <span class="keyword">return</span> keras.metrics.binary_accuracy(tf.<span class="built_in">round</span>(y_true), tf.<span class="built_in">round</span>(y_pred))</span><br><span class="line"></span><br><span class="line">tf.random.set_seed(<span class="number">42</span>)</span><br><span class="line">np.random.seed(<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">stacked_encoder = keras.models.Sequential([</span><br><span class="line">    keras.layers.Flatten(input_shape=[<span class="number">28</span>, <span class="number">28</span>]),</span><br><span class="line">    keras.layers.Dense(<span class="number">100</span>, activation=<span class="string">&quot;selu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">30</span>, activation=<span class="string">&quot;selu&quot;</span>),</span><br><span class="line">])</span><br><span class="line">stacked_decoder = keras.models.Sequential([</span><br><span class="line">    keras.layers.Dense(<span class="number">100</span>, activation=<span class="string">&quot;selu&quot;</span>, input_shape=[<span class="number">30</span>]),</span><br><span class="line">    keras.layers.Dense(<span class="number">28</span> * <span class="number">28</span>, activation=<span class="string">&quot;sigmoid&quot;</span>),</span><br><span class="line">    keras.layers.Reshape([<span class="number">28</span>, <span class="number">28</span>])</span><br><span class="line">])</span><br><span class="line">stacked_ae = keras.models.Sequential([stacked_encoder, stacked_decoder])</span><br><span class="line">stacked_ae.<span class="built_in">compile</span>(loss=<span class="string">&quot;binary_crossentropy&quot;</span>,</span><br><span class="line">                   optimizer=keras.optimizers.SGD(learning_rate=<span class="number">1.5</span>), metrics=[rounded_accuracy])</span><br><span class="line">history = stacked_ae.fit(X_train, X_train, epochs=<span class="number">20</span>,</span><br><span class="line">                         validation_data=(X_valid, X_valid))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>stacked_encoder</code><ul>
+<li>$28\times28$ 픽셀의 흑백 이미지 입력</li>
+<li>784 크기의 벡터로 <code>Flatten()</code></li>
+<li><code>Dense()</code>를 이용해 hidden layer 구성</li>
+<li>30 크기의 벡터 출력</li>
+</ul>
+</li>
+<li><code>stacked_decoder</code><ul>
+<li>30 크기의 벡터 입력</li>
+<li><code>Dense()</code>를 이용해 hidden layer 구성</li>
+<li>$28\times28$ 픽셀의 흑백 이미지로 <code>Reshape()</code></li>
+</ul>
+</li>
+<li><code>BCELoss</code> &gt; <code>MSELoss</code>: 적층 오토인코더를 컴파일하는 경우 적합</li>
+</ul>
+<blockquote>
+<p>Original images and reconstructed images<br><img width="1014" alt="Original images and reconstructed images" src="https://user-images.githubusercontent.com/42334717/184636570-583490a0-2e45-4921-a320-956d48f5382f.png"></p>
+</blockquote>
+<blockquote>
+<p>Result of t-SNE<br><img src="https://user-images.githubusercontent.com/42334717/184636736-b77cd271-1031-4e2b-8b12-0b01e4c22428.png" alt="Result of t-SNE"></p>
+</blockquote>
+<h2 id="Generative-Adversarial-Networks"><a href="#Generative-Adversarial-Networks" class="headerlink" title="Generative Adversarial Networks"></a>Generative Adversarial Networks</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">42</span>)</span><br><span class="line">tf.random.set_seed(<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">codings_size = <span class="number">30</span></span><br><span class="line"></span><br><span class="line">generator = keras.models.Sequential([</span><br><span class="line">    keras.layers.Dense(<span class="number">100</span>, activation=<span class="string">&quot;selu&quot;</span>, input_shape=[codings_size]),</span><br><span class="line">    keras.layers.Dense(<span class="number">150</span>, activation=<span class="string">&quot;selu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">28</span> * <span class="number">28</span>, activation=<span class="string">&quot;sigmoid&quot;</span>),</span><br><span class="line">    keras.layers.Reshape([<span class="number">28</span>, <span class="number">28</span>])</span><br><span class="line">])</span><br><span class="line">discriminator = keras.models.Sequential([</span><br><span class="line">    keras.layers.Flatten(input_shape=[<span class="number">28</span>, <span class="number">28</span>]),</span><br><span class="line">    keras.layers.Dense(<span class="number">150</span>, activation=<span class="string">&quot;selu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">100</span>, activation=<span class="string">&quot;selu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">1</span>, activation=<span class="string">&quot;sigmoid&quot;</span>)</span><br><span class="line">])</span><br><span class="line">gan = keras.models.Sequential([generator, discriminator])</span><br><span class="line"></span><br><span class="line">discriminator.<span class="built_in">compile</span>(loss=<span class="string">&quot;binary_crossentropy&quot;</span>, optimizer=<span class="string">&quot;rmsprop&quot;</span>)</span><br><span class="line">discriminator.trainable = <span class="literal">False</span></span><br><span class="line">gan.<span class="built_in">compile</span>(loss=<span class="string">&quot;binary_crossentropy&quot;</span>, optimizer=<span class="string">&quot;rmsprop&quot;</span>)</span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">32</span></span><br><span class="line">dataset = tf.data.Dataset.from_tensor_slices(X_train).shuffle(<span class="number">1000</span>)</span><br><span class="line">dataset = dataset.batch(batch_size, drop_remainder=<span class="literal">True</span>).prefetch(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train_gan</span>(<span class="params">gan, dataset, batch_size, codings_size, n_epochs=<span class="number">50</span></span>):</span><br><span class="line">    generator, discriminator = gan.layers</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(n_epochs):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Epoch &#123;&#125;/&#123;&#125;&quot;</span>.<span class="built_in">format</span>(epoch + <span class="number">1</span>, n_epochs))</span><br><span class="line">        <span class="keyword">for</span> X_batch <span class="keyword">in</span> dataset:</span><br><span class="line">            noise = tf.random.normal(shape=[batch_size, codings_size])</span><br><span class="line">            generated_images = generator(noise)</span><br><span class="line">            X_fake_and_real = tf.concat([generated_images, X_batch], axis=<span class="number">0</span>)</span><br><span class="line">            y1 = tf.constant([[<span class="number">0.</span>]] * batch_size + [[<span class="number">1.</span>]] * batch_size)</span><br><span class="line">            discriminator.trainable = <span class="literal">True</span></span><br><span class="line">            discriminator.train_on_batch(X_fake_and_real, y1)</span><br><span class="line">            noise = tf.random.normal(shape=[batch_size, codings_size])</span><br><span class="line">            y2 = tf.constant([[<span class="number">1.</span>]] * batch_size)</span><br><span class="line">            discriminator.trainable = <span class="literal">False</span></span><br><span class="line">            gan.train_on_batch(noise, y2)</span><br><span class="line">        plot_multiple_images(generated_images, <span class="number">8</span>)</span><br><span class="line">        plt.show()</span><br><span class="line">        </span><br><span class="line">train_gan(gan, dataset, batch_size, codings_size, n_epochs=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://zerohertz.github.io/generative-adversarial-network-4/#Training-and-Results">GAN Training Process</a></p>
+<ul>
+<li>내시 균형 (Nash equillibrium): 다른 플레이어가 전략을 수정하지 않을 것이므로 어떤 플레이어도 자신의 전략을 수정하지 않는 상태<ul>
+<li>GAN에서는 생성자가 완벽히 실제와 생성 이미지를 분류한 경우 의미</li>
+</ul>
+</li>
+<li>모드 붕괴 (mode collapse): 생성자의 출력 다양성 감소</li>
+</ul>
+<h3 id="Deep-Convolutional-GAN"><a href="#Deep-Convolutional-GAN" class="headerlink" title="Deep Convolutional GAN"></a>Deep Convolutional GAN</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">tf.random.set_seed(<span class="number">42</span>)</span><br><span class="line">np.random.seed(<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">codings_size = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">generator = keras.models.Sequential([</span><br><span class="line">    keras.layers.Dense(<span class="number">7</span> * <span class="number">7</span> * <span class="number">128</span>, input_shape=[codings_size]),</span><br><span class="line">    keras.layers.Reshape([<span class="number">7</span>, <span class="number">7</span>, <span class="number">128</span>]),</span><br><span class="line">    keras.layers.BatchNormalization(),</span><br><span class="line">    keras.layers.Conv2DTranspose(<span class="number">64</span>, kernel_size=<span class="number">5</span>, strides=<span class="number">2</span>, padding=<span class="string">&quot;SAME&quot;</span>,</span><br><span class="line">                                 activation=<span class="string">&quot;selu&quot;</span>),</span><br><span class="line">    keras.layers.BatchNormalization(),</span><br><span class="line">    keras.layers.Conv2DTranspose(<span class="number">1</span>, kernel_size=<span class="number">5</span>, strides=<span class="number">2</span>, padding=<span class="string">&quot;SAME&quot;</span>,</span><br><span class="line">                                 activation=<span class="string">&quot;tanh&quot;</span>),</span><br><span class="line">])</span><br><span class="line">discriminator = keras.models.Sequential([</span><br><span class="line">    keras.layers.Conv2D(<span class="number">64</span>, kernel_size=<span class="number">5</span>, strides=<span class="number">2</span>, padding=<span class="string">&quot;SAME&quot;</span>,</span><br><span class="line">                        activation=keras.layers.LeakyReLU(<span class="number">0.2</span>),</span><br><span class="line">                        input_shape=[<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>]),</span><br><span class="line">    keras.layers.Dropout(<span class="number">0.4</span>),</span><br><span class="line">    keras.layers.Conv2D(<span class="number">128</span>, kernel_size=<span class="number">5</span>, strides=<span class="number">2</span>, padding=<span class="string">&quot;SAME&quot;</span>,</span><br><span class="line">                        activation=keras.layers.LeakyReLU(<span class="number">0.2</span>)),</span><br><span class="line">    keras.layers.Dropout(<span class="number">0.4</span>),</span><br><span class="line">    keras.layers.Flatten(),</span><br><span class="line">    keras.layers.Dense(<span class="number">1</span>, activation=<span class="string">&quot;sigmoid&quot;</span>)</span><br><span class="line">])</span><br><span class="line">gan = keras.models.Sequential([generator, discriminator])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>생성자와 판별자에 convolution layer를 추가하여 이미지 생성 용이</li>
+</ul>
+<h3 id="StyleGAN"><a href="#StyleGAN" class="headerlink" title="StyleGAN"></a>StyleGAN</h3><ul>
+<li>StyleGAN: 생성자에 style transfer 기법을 사용해 생성된 이미지가 같은 다양한 크기의 국부적인 구조를 가지도록 구성</li>
+<li>매핑 네트워크: 코딩을 여러 스타일 벡터로 매핑<ul>
+<li>아핀 변환 (affine transformation): 잠재 표현 (코딩) $z$를 벡터 $w$로 매핑</li>
+</ul>
+</li>
+<li>합성 네트워크<ul>
+<li>입력과 모든 합성곱 층의 출력에 약간의 잡음 추가</li>
+<li>잡음이 섞인 이후 적응적 인스턴스 정규화 (Adaptive Instance Normalization, AdaIN) 추가</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/generative-adversarial-network-6/" rel="prev" title="Generative Adversarial Network (6)">
+                  <i class="fa fa-chevron-left"></i> Generative Adversarial Network (6)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/paper-review-ganilla/" rel="next" title="Paper Review: GANILLA">
+                  Paper Review: GANILLA <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"79f04e805b6b93c581994103aa639fbf"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction  Mask R-CNN?   Mask R-CNN은 Faster R-CNN에 Segmentation 네트워크를 추가한 딥러닝 알고리즘으로, 객체 검출 (Object detection)과 분할을 모두 수행할 수 있습니다.기존 Faster R-CNN은 RPN (Region Proposal Network)을 사용하여 객체의 경계 상자 (Bou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Implementing Mask R-CNN with PyTorch">
+<meta property="og:url" content="https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction  Mask R-CNN?   Mask R-CNN은 Faster R-CNN에 Segmentation 네트워크를 추가한 딥러닝 알고리즘으로, 객체 검출 (Object detection)과 분할을 모두 수행할 수 있습니다.기존 Faster R-CNN은 RPN (Region Proposal Network)을 사용하여 객체의 경계 상자 (Bou">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/229952708-4db35f2b-ce8b-4a4f-b7c4-f84a9dcaf2ae.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/230006393-06921cf0-2e20-45b5-9984-a2928a9166a2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/230010864-66dcc3dc-581d-4dec-91a7-dd536c4ab17a.png">
+<meta property="article:published_time" content="2023-04-05T12:34:10.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/229952708-4db35f2b-ce8b-4a4f-b7c4-f84a9dcaf2ae.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/","path":"implementing-mask-r-cnn-with-pytorch/","title":"Implementing Mask R-CNN with PyTorch"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Implementing Mask R-CNN with PyTorch | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Customized-Dataset"><span class="nav-number">2.</span> <span class="nav-text">Customized Dataset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Init-Model"><span class="nav-number">3.</span> <span class="nav-text">Init Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Train"><span class="nav-number">4.</span> <span class="nav-text">Train</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Test"><span class="nav-number">5.</span> <span class="nav-text">Test</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/neural-network-example/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-09</time>
+        <br>
+      Neural Network Example
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-convert-a-pytorch-model-to-tensorrt/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-14</time>
+        <br>
+      How to Convert a PyTorch Model to TensorRT
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/deep-learning-with-pytorch-1/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-17</time>
+        <br>
+      Deep Learning with PyTorch (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-3/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-26</time>
+        <br>
+      Generative Adversarial Network (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-change-pytorch-model-structure-and-train-only-some-layers/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-09</time>
+        <br>
+      How to Change PyTorch Model Structure and Train Only Some Layers
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Implementing Mask R-CNN with PyTorch | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Implementing Mask R-CNN with PyTorch
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-05 21:34:10" itemprop="dateCreated datePublished" datetime="2023-04-05T21:34:10+09:00">2023-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><details>
+<summary>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NYXNrX1ItQ05O">Mask R-CNN<i class="fa fa-external-link-alt"></i></span>?
+</summary>
+
+<p>Mask R-CNN은 Faster R-CNN에 Segmentation 네트워크를 추가한 딥러닝 알고리즘으로, 객체 검출 (Object detection)과 분할을 모두 수행할 수 있습니다.<br>기존 Faster R-CNN은 RPN (Region Proposal Network)을 사용하여 객체의 경계 상자 (Bounding box)를 추출하고, 추출된 경계 상자를 입력으로 사용하여 객체 인식을 수행합니다. 이러한 방식은 객체의 위치와 클래스 정보를 검출할 수 있지만, 객체 내부의 픽셀-레벨 Segmentation 정보는 제공하지 않습니다.<br>Mask R-CNN은 Faster R-CNN의 RPN 뿐만 아니라, RoIAlign (Rectangle of Interest Alignment)을 사용하여 추출된 경계 상자 내부의 픽셀-레벨 Segmentation 정보를 추출할 수 있는 분할 네트워크를 추가합니다. 이를 통해, 객체 검출과 동시에 객체 내부의 픽셀-레벨 Segmentation 정보를 추출할 수 있습니다.<br>또한, Mask R-CNN은 이를 위해 Faster R-CNN과 함께 사용되는 합성곱 신경망 (Convolutional Neural Network)을 미세 조정 (Fine-tuning)하여 분할 네트워크의 성능을 최적화합니다.<br>Mask R-CNN은 객체 검출과 분할 작업에서 매우 강력한 성능을 보여주며, COCO (Common Objects in Context) 데이터셋에서 현재 가장 높은 정확도를 보이고 있습니다. 따라서, 객체 검출과 분할이 모두 필요한 다양한 응용 분야에서 활용되고 있습니다.</p>
+</details>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">├── makeGT.py</span><br><span class="line">├── model</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── load_data.py</span><br><span class="line">│   ├── model.py</span><br><span class="line">│   ├── README.md</span><br><span class="line">│   ├── test.py</span><br><span class="line">│   └── train.py</span><br><span class="line">├── README.md</span><br><span class="line">├── requirements.txt</span><br><span class="line">├── test.py</span><br><span class="line">├── train.py</span><br><span class="line">└── utils</span><br><span class="line">    ├── coco_eval.py</span><br><span class="line">    ├── coco_utils.py</span><br><span class="line">    ├── engine.py</span><br><span class="line">    ├── __init__.py</span><br><span class="line">    ├── README.md</span><br><span class="line">    ├── transforms.py</span><br><span class="line">    └── utils.py</span><br></pre></td></tr></table></figure>
+
+<p>Mask R-CNN의 training, test, visualization, evaluation을 진행할 수 있게 PyTorch를 사용하여 위와 같은 구조로 개발하는 과정을 기록한다.</p>
+<p>사용될 데이터는 <span class="exturl" data-url="aHR0cHM6Ly9jaGFsbGVuZ2UuaXNpYy1hcmNoaXZlLmNvbS9sYW5kaW5nLzIwMTYvNDEv">ISIC 2016 Challenge - Task 3B: Segmented Lesion Classification<i class="fa fa-external-link-alt"></i></span>이며 예시는 아래와 같다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">├── ISBI2016_ISIC_Part3B_Test_Data</span><br><span class="line">│   ├── ISIC_0000003.jpg</span><br><span class="line">│   ├── ISIC_0000003_Segmentation.png</span><br><span class="line">│   └── ...</span><br><span class="line">├── ISBI2016_ISIC_Part3B_Training_Data</span><br><span class="line">│   ├── ISIC_0000000.jpg</span><br><span class="line">│   ├── ISIC_0000000_Segmentation.png</span><br><span class="line">│   └── ...</span><br><span class="line">├── ISBI2016_ISIC_Part3B_Test_GroundTruth.csv</span><br><span class="line">└── ISBI2016_ISIC_Part3B_Training_GroundTruth.csv</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/229952708-4db35f2b-ce8b-4a4f-b7c4-f84a9dcaf2ae.png" alt="image"></p>
+<p>이 데이터는 두 가지 클래스 (<code>benign</code>, <code>malignant</code>)로 구성되어 있고 위 사진에서 알 수 있는 것처럼 분할된 mask를 함께 제공한다.<br>Mask R-CNN이 Segmentation 정보를 학습 및 테스트할 수 있도록 <code>TrainingData</code>와 <code>TestData</code>를 구성했고, 그를 위한 코드는 아래와 같다.</p>
+<figure class="highlight python"><figcaption><span>saveData.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">initializeData</span>(<span class="params">DataStoreName</span>):</span><br><span class="line">    tmp = os.getcwd()</span><br><span class="line">    <span class="keyword">if</span> DataStoreName <span class="keyword">in</span> os.listdir():</span><br><span class="line">        shutil.rmtree(DataStoreName)</span><br><span class="line">    os.mkdir(DataStoreName)</span><br><span class="line">    os.chdir(DataStoreName)</span><br><span class="line">    os.mkdir(<span class="string">&#x27;images&#x27;</span>)</span><br><span class="line">    os.mkdir(<span class="string">&#x27;masks&#x27;</span>)</span><br><span class="line">    os.chdir(tmp)</span><br><span class="line">    <span class="keyword">return</span> (tmp + <span class="string">&#x27;/&#x27;</span> + DataStoreName + <span class="string">&#x27;/&#x27;</span> + <span class="string">&#x27;images/&#x27;</span>, tmp + <span class="string">&#x27;/&#x27;</span> + DataStoreName + <span class="string">&#x27;/&#x27;</span> + <span class="string">&#x27;masks/&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">saveData</span>(<span class="params">target, ImgDir, MaskDir, label</span>):</span><br><span class="line">    <span class="comment"># Make Target Data: IMG</span></span><br><span class="line">    shutil.copy(target, ImgDir + target)</span><br><span class="line">    <span class="comment"># Make Target Data: Mask (GT)</span></span><br><span class="line">    mask = cv2.imread(target.replace(<span class="string">&#x27;.jpg&#x27;</span>, <span class="string">&#x27;_Segmentation.png&#x27;</span>), cv2.IMREAD_UNCHANGED)</span><br><span class="line">    mask[mask == <span class="number">255</span>] = label</span><br><span class="line">    cv2.imwrite(MaskDir + target.replace(<span class="string">&#x27;jpg&#x27;</span>, <span class="string">&#x27;png&#x27;</span>), mask)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    ImgDir, MaskDir = initializeData(<span class="string">&#x27;TrainingData&#x27;</span>)</span><br><span class="line">    target = <span class="string">&#x27;ISBI2016_ISIC_Part3B_Training_Data&#x27;</span></span><br><span class="line">    GT = pd.read_csv(target.replace(<span class="string">&#x27;Data&#x27;</span>, <span class="string">&#x27;GroundTruth.csv&#x27;</span>), header=<span class="literal">None</span>, index_col=<span class="number">0</span>)</span><br><span class="line">    enc = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">enumerate</span>(GT[<span class="number">1</span>].unique()):</span><br><span class="line">        enc[j] = i + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;=&#x27;</span>*<span class="number">10</span>, enc, <span class="string">&#x27;=&#x27;</span>*<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    os.chdir(target)</span><br><span class="line">    <span class="keyword">for</span> tmp <span class="keyword">in</span> os.listdir():</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">not</span> (<span class="string">&#x27;_Segmentation&#x27;</span> <span class="keyword">in</span> tmp)) <span class="keyword">and</span> (<span class="string">&#x27;.jpg&#x27;</span> <span class="keyword">in</span> tmp):</span><br><span class="line">            saveData(tmp, ImgDir, MaskDir, enc[GT.loc[tmp[:-<span class="number">4</span>], <span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line">    os.chdir(<span class="string">&#x27;..&#x27;</span>)</span><br><span class="line">    ImgDir, MaskDir = initializeData(<span class="string">&#x27;TestData&#x27;</span>)</span><br><span class="line">    target = <span class="string">&#x27;ISBI2016_ISIC_Part3B_Test_Data&#x27;</span></span><br><span class="line">    GT = pd.read_csv(target.replace(<span class="string">&#x27;Data&#x27;</span>, <span class="string">&#x27;GroundTruth.csv&#x27;</span>), header=<span class="literal">None</span>, index_col=<span class="number">0</span>)</span><br><span class="line">    enc = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">enumerate</span>(GT[<span class="number">1</span>].unique()):</span><br><span class="line">        enc[j] = i + <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;=&#x27;</span>*<span class="number">10</span>, enc, <span class="string">&#x27;=&#x27;</span>*<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    os.chdir(target)</span><br><span class="line">    <span class="keyword">for</span> tmp <span class="keyword">in</span> os.listdir():</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">not</span> (<span class="string">&#x27;_Segmentation&#x27;</span> <span class="keyword">in</span> tmp)) <span class="keyword">and</span> (<span class="string">&#x27;.jpg&#x27;</span> <span class="keyword">in</span> tmp):</span><br><span class="line">            saveData(tmp, ImgDir, MaskDir, enc[GT.loc[tmp[:-<span class="number">4</span>], <span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드를 실행하면 아래와 같이 학습 및 테스트를 위한 데이터 디렉토리를 구성할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">├── TestData</span><br><span class="line">│   ├── images</span><br><span class="line">│   │   ├── ISIC_0000013.jpg</span><br><span class="line">│   │   ├── ISIC_0000015.jpg</span><br><span class="line">│   │   └── ...</span><br><span class="line">│   └── masks</span><br><span class="line">│       ├── ISIC_0000013.png</span><br><span class="line">│       ├── ISIC_0000015.png</span><br><span class="line">│       └── ...</span><br><span class="line">└── TrainingData</span><br><span class="line">    ├── images</span><br><span class="line">    │   ├── ISIC_0000001.jpg</span><br><span class="line">    │   ├── ISIC_0000002.jpg</span><br><span class="line">    │   └── ...</span><br><span class="line">    └── masks</span><br><span class="line">        ├── ISIC_0000001.png</span><br><span class="line">        ├── ISIC_0000002.png</span><br><span class="line">        └── ...</span><br></pre></td></tr></table></figure>
+
+<h1 id="Customized-Dataset"><a href="#Customized-Dataset" class="headerlink" title="Customized Dataset"></a>Customized Dataset</h1><p>이렇게 구성된 Dataset을 Load하기 위해 <code>CustomizedDatset</code>이라는 클래스를 개발해야한다.</p>
+<figure class="highlight python"><figcaption><span>model/load_data.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> torchvision.transforms <span class="keyword">import</span> Normalize</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CustomizedDataset</span>(torch.utils.data.Dataset):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, root, transforms=<span class="literal">None</span></span>):</span><br><span class="line">        self.root = root</span><br><span class="line">        self.transforms = transforms</span><br><span class="line">        self.imgs = <span class="built_in">list</span>(<span class="built_in">sorted</span>(os.listdir(os.path.join(root, <span class="string">&quot;images&quot;</span>))))</span><br><span class="line">        self.masks = <span class="built_in">list</span>(<span class="built_in">sorted</span>(os.listdir(os.path.join(root, <span class="string">&quot;masks&quot;</span>))))</span><br><span class="line">        self.Normalize = Normalize(mean=[<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>], std=[<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>])</span><br></pre></td></tr></table></figure>
+
+<p>PyTorch로 구성된 Mask R-CNN이 학습 및 테스트 시 사용할 수 있기 위해 <code>torch.utils.data.Dataset</code>을 상속하였다.<br>인스턴스를 생성할 때 <code>root</code>를 입력받고, <code>images</code> 디렉토리와 <code>masks</code> 디렉토리 내부의 <code>os.listdir()</code>로 이미지와 마스크의 리스트들을 프로퍼티로 입력한다.<br>또한 학습 시 데이터 증강을 위해 <code>transforms</code> 프로퍼티를, 정규화를 위한 <code>Normalize</code> 프로퍼티를 추가했다.</p>
+<figure class="highlight python"><figcaption><span>model/load_data.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CustomizedDataset</span>(torch.utils.data.Dataset):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, idx</span>):</span><br><span class="line">        img_path = os.path.join(self.root, <span class="string">&quot;images&quot;</span>, self.imgs[idx])</span><br><span class="line">        mask_path = os.path.join(self.root, <span class="string">&quot;masks&quot;</span>, self.masks[idx])</span><br><span class="line">        img = Image.<span class="built_in">open</span>(img_path).convert(<span class="string">&quot;RGB&quot;</span>)</span><br><span class="line">        mask = Image.<span class="built_in">open</span>(mask_path)</span><br><span class="line">        mask = np.array(mask)</span><br><span class="line">        obj_ids = np.unique(mask)</span><br><span class="line">        obj_ids = obj_ids[<span class="number">1</span>:]</span><br><span class="line">        masks = mask == obj_ids[:, <span class="literal">None</span>, <span class="literal">None</span>]</span><br><span class="line">        num_objs = <span class="built_in">len</span>(obj_ids)</span><br><span class="line">        boxes = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_objs):</span><br><span class="line">            pos = np.where(masks[i])</span><br><span class="line">            xmin = np.<span class="built_in">min</span>(pos[<span class="number">1</span>])</span><br><span class="line">            xmax = np.<span class="built_in">max</span>(pos[<span class="number">1</span>])</span><br><span class="line">            ymin = np.<span class="built_in">min</span>(pos[<span class="number">0</span>])</span><br><span class="line">            ymax = np.<span class="built_in">max</span>(pos[<span class="number">0</span>])</span><br><span class="line">            boxes.append([xmin, ymin, xmax, ymax])</span><br><span class="line">        boxes = torch.as_tensor(boxes, dtype=torch.float32)</span><br><span class="line">        labels = torch.as_tensor(obj_ids, dtype=torch.int64)</span><br><span class="line">        masks = torch.as_tensor(masks, dtype=torch.uint8)</span><br><span class="line">        image_id = torch.tensor([idx])</span><br><span class="line">        area = (boxes[:, <span class="number">3</span>] - boxes[:, <span class="number">1</span>]) * (boxes[:, <span class="number">2</span>] - boxes[:, <span class="number">0</span>])</span><br><span class="line">        iscrowd = torch.zeros((num_objs,), dtype=torch.int64)</span><br><span class="line"></span><br><span class="line">        target = &#123;&#125;</span><br><span class="line">        target[<span class="string">&quot;boxes&quot;</span>] = boxes</span><br><span class="line">        target[<span class="string">&quot;labels&quot;</span>] = labels</span><br><span class="line">        target[<span class="string">&quot;masks&quot;</span>] = masks</span><br><span class="line">        target[<span class="string">&quot;image_id&quot;</span>] = image_id</span><br><span class="line">        target[<span class="string">&quot;area&quot;</span>] = area</span><br><span class="line">        target[<span class="string">&quot;iscrowd&quot;</span>] = iscrowd</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.transforms <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            img, target = self.transforms(img, target)</span><br><span class="line">            img = self.Normalize(img)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> img, target</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.imgs)</span><br></pre></td></tr></table></figure>
+
+<p>가장 중요한 부분인 <code>__getitem__()</code> 메서드에서는 인덱스를 입력해주면 이미지 (<code>img</code>)와 메타 정보들 (<code>target</code>)을 출력해준다.<br>인스턴스 생성 시 정렬된 이미지와 마스크들 리스트 (<code>self.imgs</code>, <code>self.masks</code>)와 <code>self.root</code>를 통해 절대 경로 (<code>img_path</code>, <code>mask_path</code>)를 산출하고 <code>PIL.Image</code>로 각 해당하는 이미지를 불러왔다.<br>이후 Numpy로 간단한 데이터 핸들링을 거치고 <code>torch.tensor</code>로 변환 후 각 메타 정보에 해당하는 값들을 딕셔너리인 <code>target</code>에 입력해준 뒤 리턴해준다.<br>이렇게 개발된 <code>CustomizedDataset</code>의 예시는 아래와 같다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> model <span class="keyword">import</span> CustomizedDataset</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = CustomizedDataset(<span class="string">&quot;../data/TrainingData&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c[<span class="number">0</span>]</span><br><span class="line">(&lt;PIL.Image.Image image mode=RGB size=1022x767 at <span class="number">0x7F7E7DBDB5E0</span>&gt;, &#123;<span class="string">&#x27;boxes&#x27;</span>: tensor([[ <span class="number">51.</span>,  <span class="number">47.</span>, <span class="number">898.</span>, <span class="number">634.</span>]]), <span class="string">&#x27;labels&#x27;</span>: tensor([<span class="number">1</span>]), <span class="string">&#x27;masks&#x27;</span>: tensor([[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         ...,</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]]], dtype=torch.uint8), <span class="string">&#x27;image_id&#x27;</span>: tensor([<span class="number">0</span>]), <span class="string">&#x27;area&#x27;</span>: tensor([<span class="number">497189.</span>]), <span class="string">&#x27;iscrowd&#x27;</span>: tensor([<span class="number">0</span>])&#125;)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c[<span class="number">3</span>]</span><br><span class="line">(&lt;PIL.Image.Image image mode=RGB size=1022x767 at <span class="number">0x7F7E7DBDBEB0</span>&gt;, &#123;<span class="string">&#x27;boxes&#x27;</span>: tensor([[<span class="number">181.</span>,  <span class="number">57.</span>, <span class="number">718.</span>, <span class="number">717.</span>]]), <span class="string">&#x27;labels&#x27;</span>: tensor([<span class="number">2</span>]), <span class="string">&#x27;masks&#x27;</span>: tensor([[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         ...,</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">         [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,  ..., <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]]], dtype=torch.uint8), <span class="string">&#x27;image_id&#x27;</span>: tensor([<span class="number">3</span>]), <span class="string">&#x27;area&#x27;</span>: tensor([<span class="number">354420.</span>]), <span class="string">&#x27;iscrowd&#x27;</span>: tensor([<span class="number">0</span>])&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>CustomizedDataset</code>의 데이터 증강을 위한 <code>get_transform()</code> 함수는 아래와 같이 구성되어있다.</p>
+<figure class="highlight python"><figcaption><span>model/load_data.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> transforms <span class="keyword">as</span> T</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_transform</span>(<span class="params">train</span>):</span><br><span class="line">    transforms = []</span><br><span class="line">    transforms.append(T.PILToTensor())</span><br><span class="line">    <span class="keyword">if</span> train:</span><br><span class="line">        transforms.append(T.RandomHorizontalFlip(<span class="number">0.5</span>))</span><br><span class="line">    <span class="keyword">return</span> T.Compose(transforms)</span><br></pre></td></tr></table></figure>
+
+<p>마지막으로 학습 과정에서 학습과 테스트를 위한 <code>torch.utils.data.DataLoader</code>를 한번에 불러올 수 있는 <code>load_data()</code> 함수를 개발했다.</p>
+<figure class="highlight python"><figcaption><span>model/load_data.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> utils</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_data</span>(<span class="params">TrainingDir, TestDir, batch_size=<span class="number">8</span>, num_workers=<span class="number">16</span></span>):</span><br><span class="line">    TrainingDataset = CustomizedDataset(TrainingDir, get_transform(train=<span class="literal">True</span>))</span><br><span class="line">    TestDataset = CustomizedDataset(TestDir, get_transform(train=<span class="literal">False</span>))</span><br><span class="line"></span><br><span class="line">    TrainingDataset = torch.utils.data.DataLoader(</span><br><span class="line">        TrainingDataset, batch_size=batch_size, shuffle=<span class="literal">True</span>, num_workers=num_workers,</span><br><span class="line">        collate_fn=utils.collate_fn)</span><br><span class="line"></span><br><span class="line">    TestDataset = torch.utils.data.DataLoader(</span><br><span class="line">        TestDataset, batch_size=batch_size//<span class="number">2</span>, shuffle=<span class="literal">False</span>, num_workers=num_workers//<span class="number">2</span>,</span><br><span class="line">        collate_fn=utils.collate_fn)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> TrainingDataset, TestDataset</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Init-Model"><a href="#Init-Model" class="headerlink" title="Init Model"></a>Init Model</h1><p>학습 및 테스트를 위한 데이터들은 준비를 완료했으니 학습 및 테스트를 할 모델을 구축해야한다.<br>따라서 아래와 같이 <code>init_model()</code> 함수를 통해 모델을 생성해줄 수 있다.</p>
+<figure class="highlight python"><figcaption><span>model/model.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torchvision.models.detection.faster_rcnn <span class="keyword">import</span> FastRCNNPredictor</span><br><span class="line"><span class="keyword">from</span> torchvision.models.detection.mask_rcnn <span class="keyword">import</span> MaskRCNNPredictor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">init_model</span>(<span class="params">device, num_classes</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    Mask R-CNN</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    model = torchvision.models.detection.maskrcnn_resnet50_fpn(weights=<span class="string">&quot;DEFAULT&quot;</span>)</span><br><span class="line">    in_features = model.roi_heads.box_predictor.cls_score.in_features</span><br><span class="line">    model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)</span><br><span class="line">    in_features_mask = model.roi_heads.mask_predictor.conv5_mask.in_channels</span><br><span class="line">    hidden_layer = <span class="number">2048</span></span><br><span class="line">    model.roi_heads.mask_predictor = MaskRCNNPredictor(in_features_mask,</span><br><span class="line">                                                        hidden_layer,</span><br><span class="line">                                                        num_classes)</span><br><span class="line">    <span class="keyword">return</span> model.to(device)</span><br></pre></td></tr></table></figure>
+
+<p><code>maskrcnn_resnet50_fpn(weights=&quot;DEFAULT&quot;)</code> 메서드를 통해 COCO로 pre-trained 모델을 불러오고 분류기를 재정의해준다.<br>이는 bbox 및 mask 예측 모듈의 클래스 수가 변하기 때문에 신경망 구조가 필연적으로 변경되기 때문이다.<br>또한 모델의 원활한 학습과 테스트를 위해 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NYXNrX1ItQ05OL3RyZWUvbWFzdGVyL3V0aWxz">utils<i class="fa fa-external-link-alt"></i></span> 모듈을 준비한다.</p>
+<hr>
+<h1 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h1><p>학습 및 테스트를 위한 데이터를 준비했고, 모델 또한 준비를 했으니 이제는 학습을 할 수 있다.<br>학습을 아래와 같이 구성할 수 있다.</p>
+<figure class="highlight python"><figcaption><span>train.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> model <span class="keyword">import</span> init_model, prepare_training, load_data, train</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">opts</span>():</span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--batch_size&quot;</span>, default=<span class="number">8</span>, <span class="built_in">type</span>=<span class="built_in">int</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--num_workers&quot;</span>, default=<span class="number">16</span>, <span class="built_in">type</span>=<span class="built_in">int</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--epoch&quot;</span>, default=<span class="number">100</span>, <span class="built_in">type</span>=<span class="built_in">int</span>)</span><br><span class="line">    <span class="keyword">return</span> parser.parse_args()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    args = opts()</span><br><span class="line"></span><br><span class="line">    device = torch.device(<span class="string">&#x27;cuda&#x27;</span>) <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> torch.device(<span class="string">&#x27;cpu&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">##### Prepare Dataset #####</span></span><br><span class="line">    TrainingDataset, TestDataset = load_data(<span class="string">&quot;../data/TrainingData&quot;</span>,</span><br><span class="line">                                             <span class="string">&quot;../data/TestData&quot;</span>,</span><br><span class="line">                                             batch_size=args.batch_size,</span><br><span class="line">                                             num_workers=args.num_workers)</span><br><span class="line"></span><br><span class="line">    <span class="comment">##### INIT Mask R-CNN #####</span></span><br><span class="line">    num_classes = <span class="number">3</span></span><br><span class="line">    model = init_model(device, num_classes)</span><br><span class="line"></span><br><span class="line">    <span class="comment">###### Prepare Training #####</span></span><br><span class="line">    config = prepare_training(model)</span><br><span class="line">    config.update(&#123;<span class="string">&#x27;device&#x27;</span>: device,</span><br><span class="line">                <span class="string">&#x27;TrainingDataset&#x27;</span>: TrainingDataset,</span><br><span class="line">                <span class="string">&#x27;TestDataset&#x27;</span>: TestDataset,</span><br><span class="line">                <span class="string">&#x27;num_epochs&#x27;</span>: args.epoch&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">##### Training #####</span></span><br><span class="line">    train(model, **config)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>우선적으로 학습 코드를 실행시킬 때 몇가지 옵션을 간단히 수정하기 위해 <code>argparse</code> 모듈 기반 <code>opts()</code> 함수를 개발하였다.<br>이렇게 정의된 변수를 통해 학습 및 테스트 데이터, 모델, 그리고 학습을 위한 조건을 정의하였고 최종적으로 <code>model.train.train()</code> 함수로 학습을 진행한다.<br>해당 함수는 아래와 같이 구성된다.</p>
+<figure class="highlight python"><figcaption><span>model/train.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> utils.engine <span class="keyword">import</span> train_one_epoch, evaluate</span><br><span class="line"><span class="keyword">from</span> .test <span class="keyword">import</span> get_results</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">model,</span></span><br><span class="line"><span class="params">        device,</span></span><br><span class="line"><span class="params">        optimizer,</span></span><br><span class="line"><span class="params">        lr_scheduler,</span></span><br><span class="line"><span class="params">        TrainingDataset,</span></span><br><span class="line"><span class="params">        TestDataset,</span></span><br><span class="line"><span class="params">        num_epochs=<span class="number">2</span></span>):</span><br><span class="line">    writer = SummaryWriter()</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(num_epochs)):</span><br><span class="line">        lr, loss_dict, loss = train_one_epoch(model, optimizer, TrainingDataset, device, epoch, print_freq=<span class="number">10</span>)</span><br><span class="line">        writer.add_scalar(<span class="string">&#x27;lr&#x27;</span>, lr, epoch)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> loss_dict:</span><br><span class="line">            writer.add_scalar(k, loss_dict[k], epoch)</span><br><span class="line">        writer.add_scalar(<span class="string">&#x27;loss&#x27;</span>, loss, epoch)</span><br><span class="line">        lr_scheduler.step()</span><br><span class="line">        CocoEvaluator = evaluate(model, TestDataset, device=device)</span><br><span class="line">        res = get_results(CocoEvaluator)</span><br><span class="line">        <span class="keyword">for</span> i, j <span class="keyword">in</span> res:</span><br><span class="line">            writer.add_scalar(i, j, epoch)</span><br><span class="line">        <span class="keyword">if</span> epoch % <span class="number">20</span> == <span class="number">9</span>:</span><br><span class="line">            torch.save(model.state_dict(), <span class="string">&#x27;./&#x27;</span> + <span class="built_in">str</span>(epoch + <span class="number">1</span>) + <span class="string">&#x27;ep.pth&#x27;</span>)</span><br><span class="line">    torch.save(model.state_dict(), <span class="string">&#x27;./&#x27;</span> + <span class="built_in">str</span>(epoch + <span class="number">1</span>) + <span class="string">&#x27;ep.pth&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>학습 과정을 모니터링하기 위하여 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NYXNrX1ItQ05OL2lzc3Vlcy8xMg==">TensorBoard<i class="fa fa-external-link-alt"></i></span>를 기용하여 매 epoch 마다의 learning rate, 모델 내 다양한 loss, 최종 loss, precision, recall을 출력할 수 있도록 하였다.<br>TensorBoard의 시각화 예시는 아래와 같다.</p>
+<p><img src="https://user-images.githubusercontent.com/42334717/230006393-06921cf0-2e20-45b5-9984-a2928a9166a2.png" alt="TensorBoard"></p>
+<ul>
+<li><span style="color: #0000FF">SGD (lr&#x3D;0.001, step_size&#x3D;20)</span></li>
+<li><span style="color: #000000">Adam (lr&#x3D;0.001, step_size&#x3D;30)</span></li>
+<li><span style="color: #FF0000">Adam (lr&#x3D;0.001, step_size&#x3D;20)</span></li>
+<li><span style="color: #800a0a">Adam (lr&#x3D;0.001, step_size&#x3D;20, Normalize)</span></li>
+</ul>
+<p>또한 학습 과정 중 가중치를 저장하기 위해 매 20 epoch 마다 <code>torch.save()</code>를 실행할 수 있도록 개발했다.</p>
+<hr>
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><p>이제 온전히 학습된 가중치가 있으니 테스트 데이터에 대해 테스트를 진행할 수 있다.<br>테스트는 아래와 같이 진행할 수 있다.</p>
+<figure class="highlight python"><figcaption><span>test.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> model <span class="keyword">import</span> init_model, test</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">opts</span>():</span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--weights&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--exp&quot;</span>, default=<span class="string">&quot;test&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>)</span><br><span class="line">    <span class="keyword">return</span> parser.parse_args()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    args = opts()</span><br><span class="line"></span><br><span class="line">    device = torch.device(<span class="string">&#x27;cuda&#x27;</span>) <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> torch.device(<span class="string">&#x27;cpu&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">##### INIT Mask R-CNN #####</span></span><br><span class="line">    num_classes = <span class="number">3</span></span><br><span class="line">    model = init_model(device, num_classes)</span><br><span class="line"></span><br><span class="line">    model.load_state_dict(torch.load(args.weights))</span><br><span class="line">    model.cuda()</span><br><span class="line">    model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment">##### Test #####</span></span><br><span class="line">    test(<span class="string">&quot;../data/TestData&quot;</span>,</span><br><span class="line">         args.exp,</span><br><span class="line">         model,</span><br><span class="line">         device,</span><br><span class="line">         &#123;<span class="number">1</span>: <span class="string">&#x27;benign&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;malignant&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>학습 코드와 유사하게 <code>opts()</code> 함수로 테스트 시 변수들을 입력할 수 있게 개발했고, 테스트 데이터 및 모델 불러온 후 최종적으로 <code>model.test.test()</code> 함수로 테스트를 진행한다.<br>테스트 코드를 개발하기 위해서는 두 가지가 필요하다.</p>
+<ol>
+<li>모델의 출력을 시각화할 수 있는 함수</li>
+<li>모델의 출력을 정량적으로 평가할 수 있는 함수</li>
+</ol>
+<p>따라서 <code>model.test.test()</code> 함수는 아래와 같이 개발하였다.</p>
+<figure class="highlight python"><figcaption><span>model/test.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torchvision.ops <span class="keyword">import</span> nms</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> utils</span><br><span class="line"><span class="keyword">from</span> utils.engine <span class="keyword">import</span> evaluate</span><br><span class="line"><span class="keyword">from</span> .load_data <span class="keyword">import</span> get_transform, CustomizedDataset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_gt</span>(<span class="params">img_path, obj</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="string">&#x27;exp&#x27;</span> <span class="keyword">in</span> os.listdir():</span><br><span class="line">        os.mkdir(<span class="string">&#x27;exp&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="string">&#x27;Ground_Truth&#x27;</span> <span class="keyword">in</span> os.listdir(<span class="string">&#x27;exp&#x27;</span>):</span><br><span class="line">        os.mkdir(<span class="string">&#x27;exp/Ground_Truth&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        shutil.rmtree(<span class="string">&#x27;exp/Ground_Truth&#x27;</span>)</span><br><span class="line">        os.mkdir(<span class="string">&#x27;exp/Ground_Truth&#x27;</span>)</span><br><span class="line">    TestDataset = CustomizedDataset(img_path, get_transform(train=<span class="literal">False</span>))</span><br><span class="line">    <span class="keyword">for</span> i, tmp <span class="keyword">in</span> <span class="built_in">enumerate</span>(tqdm(TestDataset)):</span><br><span class="line">        img = cv2.imread(img_path + <span class="string">&#x27;/images/&#x27;</span> + TestDataset.imgs[i])</span><br><span class="line">        img = np.array(img)</span><br><span class="line">        boxes, masks, labels = tmp[<span class="number">1</span>][<span class="string">&#x27;boxes&#x27;</span>], tmp[<span class="number">1</span>][<span class="string">&#x27;masks&#x27;</span>], tmp[<span class="number">1</span>][<span class="string">&#x27;labels&#x27;</span>]</span><br><span class="line">        <span class="keyword">for</span> box, mask, label <span class="keyword">in</span> <span class="built_in">zip</span>(boxes, masks, labels):</span><br><span class="line">            box, mask, label = box.numpy(), mask.numpy(), <span class="built_in">int</span>(label)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                label = obj[label]</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                label = <span class="string">&#x27;Unknown: &#x27;</span> + <span class="built_in">str</span>(label)</span><br><span class="line">            color = (random.randrange(<span class="number">0</span>,<span class="number">256</span>),random.randrange(<span class="number">0</span>,<span class="number">256</span>),random.randrange(<span class="number">0</span>,<span class="number">256</span>))</span><br><span class="line">            thickness = <span class="number">2</span></span><br><span class="line">            x1, y1, x2, y2 = box.astype(<span class="built_in">int</span>)</span><br><span class="line">            cv2.rectangle(img, (x1, y1), (x2, y2), color, thickness)</span><br><span class="line">            label_text = <span class="string">f&quot;<span class="subst">&#123;label&#125;</span>&quot;</span></span><br><span class="line">            cv2.putText(img, label_text, (x1, y1+<span class="number">50</span>), cv2.FONT_HERSHEY_TRIPLEX, <span class="number">2</span>, (<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>), <span class="number">5</span>)</span><br><span class="line">            cv2.putText(img, label_text, (x1, y1+<span class="number">50</span>), cv2.FONT_HERSHEY_TRIPLEX, <span class="number">2</span>, color, thickness)</span><br><span class="line">            mask = (mask &gt; <span class="number">0.5</span>)</span><br><span class="line">            masked_img = cv2.bitwise_and(img, img, mask=mask.astype(np.uint8))</span><br><span class="line">            no_masked_img = cv2.bitwise_and(img, img, mask=<span class="number">255</span>-mask.astype(np.uint8))</span><br><span class="line">            masked_img[np.where((masked_img != [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]).<span class="built_in">all</span>(axis=<span class="number">2</span>))] = color</span><br><span class="line">            img = cv2.addWeighted(masked_img, <span class="number">0.5</span>, no_masked_img, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">        cv2.imwrite(<span class="string">&#x27;exp/Ground_Truth/&#x27;</span> + TestDataset.imgs[i], img)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_results</span>(<span class="params">CocoEvaluator</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    CocoEvaluator: utils.coco_eval.CocoEvaluator</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    keys = [</span><br><span class="line">        <span class="string">&quot;Precision: IoU=0.50:0.95/area=all/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Precision: IoU=0.50/area=all/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Precision: IoU=0.75/area=all/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Precision: IoU=0.50:0.95/area=small/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Precision: IoU=0.50:0.95/area=medium/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Precision: IoU=0.50:0.95/area=large/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Recall: IoU=0.50:0.95/area=all/maxDets=1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Recall: IoU=0.50:0.95/area=all/maxDets=10&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Recall: IoU=0.50:0.95/area=all/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Recall: IoU=0.50:0.95/area=small/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Recall: IoU=0.50:0.95/area=medium/maxDets=100&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Recall: IoU=0.50:0.95/area=large/maxDets=100&quot;</span></span><br><span class="line">    ]</span><br><span class="line">    res = []</span><br><span class="line">    bbox_res = CocoEvaluator.coco_eval[<span class="string">&#x27;bbox&#x27;</span>].stats</span><br><span class="line">    segm_res = CocoEvaluator.coco_eval[<span class="string">&#x27;segm&#x27;</span>].stats</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">zip</span>(keys, bbox_res):</span><br><span class="line">        res.append((<span class="string">&quot;Bbox - &quot;</span> + i, j))</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">zip</span>(keys, segm_res):</span><br><span class="line">        res.append((<span class="string">&quot;Segm - &quot;</span> + i, j))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">init_output</span>(<span class="params">output</span>):</span><br><span class="line">    idx = nms(output[<span class="number">0</span>][<span class="string">&#x27;boxes&#x27;</span>], output[<span class="number">0</span>][<span class="string">&#x27;scores&#x27;</span>], <span class="number">0.2</span>)</span><br><span class="line">    boxes = output[<span class="number">0</span>][<span class="string">&#x27;boxes&#x27;</span>].cpu().detach().numpy()</span><br><span class="line">    scores = output[<span class="number">0</span>][<span class="string">&#x27;scores&#x27;</span>].cpu().detach().numpy()</span><br><span class="line">    labels = output[<span class="number">0</span>][<span class="string">&#x27;labels&#x27;</span>].cpu().detach().numpy()</span><br><span class="line">    masks = output[<span class="number">0</span>][<span class="string">&#x27;masks&#x27;</span>].cpu().detach().numpy()</span><br><span class="line">    <span class="keyword">return</span> idx, boxes, scores, labels, masks</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_res</span>(<span class="params">img_path, img_f, tar_path, output, obj=&#123;&#125;</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    img_path: Path of Target Image</span></span><br><span class="line"><span class="string">    output: Output of Mask R-CNN (Input: Target Image)</span></span><br><span class="line"><span class="string">    obj: Actual Label According to Model Label in Dictionary</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    idx, boxes, scores, labels, masks = init_output(output)</span><br><span class="line">    img = cv2.imread(img_path + img_f)</span><br><span class="line">    img = np.array(img)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> idx:</span><br><span class="line">        box, mask, score, label = boxes[i], masks[i], scores[i], labels[i]</span><br><span class="line">        <span class="keyword">if</span> score &lt; <span class="number">0.5</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            label = obj[label]</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            label = <span class="string">&#x27;Unknown: &#x27;</span> + <span class="built_in">str</span>(label)</span><br><span class="line">        color = (random.randrange(<span class="number">0</span>,<span class="number">256</span>),random.randrange(<span class="number">0</span>,<span class="number">256</span>),random.randrange(<span class="number">0</span>,<span class="number">256</span>))</span><br><span class="line">        thickness = <span class="number">2</span></span><br><span class="line">        x1, y1, x2, y2 = box.astype(<span class="built_in">int</span>)</span><br><span class="line">        cv2.rectangle(img, (x1, y1), (x2, y2), color, thickness)</span><br><span class="line">        label_text = <span class="string">f&quot;<span class="subst">&#123;label&#125;</span>: <span class="subst">&#123;score:<span class="number">.2</span>f&#125;</span>&quot;</span></span><br><span class="line">        cv2.putText(img, label_text, (x1, y1+<span class="number">50</span>), cv2.FONT_HERSHEY_TRIPLEX, <span class="number">2</span>, (<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>), <span class="number">5</span>)</span><br><span class="line">        cv2.putText(img, label_text, (x1, y1+<span class="number">50</span>), cv2.FONT_HERSHEY_TRIPLEX, <span class="number">2</span>, color, thickness)</span><br><span class="line">        mask = (mask &gt; <span class="number">0.5</span>)</span><br><span class="line">        masked_img = cv2.bitwise_and(img, img, mask=mask[<span class="number">0</span>].astype(np.uint8))</span><br><span class="line">        no_masked_img = cv2.bitwise_and(img, img, mask=<span class="number">255</span>-mask[<span class="number">0</span>].astype(np.uint8))</span><br><span class="line">        masked_img[np.where((masked_img != [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]).<span class="built_in">all</span>(axis=<span class="number">2</span>))] = color</span><br><span class="line">        img = cv2.addWeighted(masked_img, <span class="number">0.5</span>, no_masked_img, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">    cv2.imwrite(<span class="string">&#x27;exp/&#x27;</span> + tar_path + <span class="string">&#x27;/&#x27;</span> + img_f, img)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(<span class="params">TestDataset_path, tar_path, model, device, obj=&#123;&#125;</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="string">&#x27;exp&#x27;</span> <span class="keyword">in</span> os.listdir():</span><br><span class="line">        os.mkdir(<span class="string">&#x27;exp&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> tar_path <span class="keyword">in</span> os.listdir(<span class="string">&#x27;exp&#x27;</span>):</span><br><span class="line">        os.mkdir(<span class="string">&#x27;exp/&#x27;</span> + tar_path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        shutil.rmtree(<span class="string">&#x27;exp/&#x27;</span> + tar_path)</span><br><span class="line">        os.mkdir(<span class="string">&#x27;exp/&#x27;</span> + tar_path)</span><br><span class="line">    TestDataset = CustomizedDataset(TestDataset_path, get_transform(train=<span class="literal">False</span>))</span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        <span class="keyword">for</span> i, tmp <span class="keyword">in</span> <span class="built_in">enumerate</span>(tqdm(TestDataset)):</span><br><span class="line">            output = model(tmp[<span class="number">0</span>].unsqueeze_(<span class="number">0</span>).to(device))</span><br><span class="line">            draw_res(TestDataset_path + <span class="string">&#x27;/images/&#x27;</span>,</span><br><span class="line">                     TestDataset.imgs[i],</span><br><span class="line">                     tar_path,</span><br><span class="line">                     output,</span><br><span class="line">                     obj)</span><br><span class="line">    TestDataset = torch.utils.data.DataLoader(</span><br><span class="line">        TestDataset, batch_size=<span class="number">8</span>, shuffle=<span class="literal">False</span>, num_workers=<span class="number">16</span>,</span><br><span class="line">        collate_fn=utils.collate_fn)</span><br><span class="line">    CocoEvaluator = evaluate(model, TestDataset, device=device)</span><br><span class="line">    res = get_results(CocoEvaluator)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./exp/&#x27;</span> + tar_path + <span class="string">&#x27;/res.csv&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        wr = csv.writer(f)</span><br><span class="line">        <span class="keyword">for</span> i, j <span class="keyword">in</span> res:</span><br><span class="line">            wr.writerow([i, j])</span><br></pre></td></tr></table></figure>
+
+<p>먼저 <code>draw_gt()</code> 함수는 기본적으로 모델 테스트 결과와 비교하기 위해 개발했다.<br>데이터 내의 mask와 label을 실제 사진에 입히고 시각화하는 함수다.<br>다음으로 <code>get_results()</code> 함수는 <code>CocoEvaluator</code>로 평가된 값들을 불러오고 TensorBoard에 출력할 수 있도록 데이터를 핸들링해주는 함수다.<br>입력으로 평가가 완료된 <code>utils.coco_eval.CocoEvaluator</code> 인스턴스를 받으면 내부의 결과 값들을 불러오고 해당하는 평가 지표의 이름과 함께 리턴해준다.<br><code>init_output()</code> 함수는 Mask R-CNN의 결과를 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NYXNrX1ItQ05OL2lzc3Vlcy8xNQ==">NMS<i class="fa fa-external-link-alt"></i></span>로 후처리해주고, 출력된 결과를 CPU로 이동 후 Numpy 배열로 변환하고 리턴해준다.<br><code>draw_res()</code> 함수는 <code>init_output()</code> 함수에서 정리된 결과를 토대로 시각화하는 함수다.<br><code>draw_gt()</code> 함수와 같은 양식으로 시각화할 수 있도록 개발했다.<br>최종적으로 <code>test()</code> 함수에서 테스트 데이터에 대해 결과를 산출하고, 시각화한 뒤 정량적으로 평가하여 <code>.csv</code> 형식으로 저장하는 것을 확인할 수 있다.<br><code>draw_gt()</code> 함수와 <code>draw_res()</code> 함수를 통해 출력한 결과의 예시는 아래와 같다.</p>
+<p><img src="https://user-images.githubusercontent.com/42334717/230010864-66dcc3dc-581d-4dec-91a7-dd536c4ab17a.png" alt="draw()"></p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90dXRvcmlhbHMucHl0b3JjaC5rci9pbnRlcm1lZGlhdGUvdG9yY2h2aXNpb25fdHV0b3JpYWwuaHRtbA==">PyTorch<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/how-to-convert-a-pytorch-model-to-tensorrt/" rel="prev" title="How to Convert a PyTorch Model to TensorRT">
+                  <i class="fa fa-chevron-left"></i> How to Convert a PyTorch Model to TensorRT
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/" rel="next" title="Labeling with Label Studio for Pre-labeled Data using YOLOv5">
+                  Labeling with Label Studio for Pre-labeled Data using YOLOv5 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"3bdfdc889dbc48cd511ca23f35eb9deb"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

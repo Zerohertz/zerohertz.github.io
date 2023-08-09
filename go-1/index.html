@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction Go는 구글에서 개발한 프로그래밍 언어로, 간결하고 효율적인 코드 작성을 위해 설계된 언어입니다. Go는 정적 타입 언어로, C와 유닉스 환경에서 사용되는 도구들의 장점을 결합한 언어로 개발되었습니다.  Features of Go 간결하고 가독성이 좋은 문법 C 스타일의 문법을 가지고 있으며, 불필요한 기능을 제거하여 코드를 간결하게">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go (1)">
+<meta property="og:url" content="https://zerohertz.github.io/go-1/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Go는 구글에서 개발한 프로그래밍 언어로, 간결하고 효율적인 코드 작성을 위해 설계된 언어입니다. Go는 정적 타입 언어로, C와 유닉스 환경에서 사용되는 도구들의 장점을 결합한 언어로 개발되었습니다.  Features of Go 간결하고 가독성이 좋은 문법 C 스타일의 문법을 가지고 있으며, 불필요한 기능을 제거하여 코드를 간결하게">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-03T13:15:57.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/go-1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/go-1/","path":"go-1/","title":"Go (1)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Go (1) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Features-of-Go"><span class="nav-number">1.1.</span> <span class="nav-text">Features of Go</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Setup-on-MacOS-Apple-Silicon"><span class="nav-number">1.2.</span> <span class="nav-text">Install &amp; Setup on MacOS (Apple Silicon)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Grammar"><span class="nav-number">2.</span> <span class="nav-text">Basic Grammar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Const-Variable"><span class="nav-number">2.1.</span> <span class="nav-text">Const &amp; Variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator"><span class="nav-number">2.2.</span> <span class="nav-text">Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Type-Type-Conversion"><span class="nav-number">2.3.</span> <span class="nav-text">Data Type &amp; Type Conversion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditional-Statement"><span class="nav-number">2.4.</span> <span class="nav-text">Conditional Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loop"><span class="nav-number">2.5.</span> <span class="nav-text">Loop</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#For-Algorithm"><span class="nav-number">3.</span> <span class="nav-text">For Algorithm</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/graduate-student-charter-loan-challenge-story/" rel="bookmark">
+        <time class="popular-posts-time">2022-12-06</time>
+        <br>
+      대학원생 전세 대출 도전기
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/face-recognition-by-raspberrypi/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-18</time>
+        <br>
+      Face Recognition by Raspberry Pi
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/professional-research-agent-train-review/" rel="bookmark">
+        <time class="popular-posts-time">2023-06-16</time>
+        <br>
+      전문연구요원: 훈련소 후기
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/nutrients/" rel="bookmark">
+        <time class="popular-posts-time">2023-05-01</time>
+        <br>
+      Nutrients
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/c-basic-2/" rel="bookmark">
+        <time class="popular-posts-time">2019-01-06</time>
+        <br>
+      C++ Basic (2)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/go-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Go (1) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Go (1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-07-03 22:15:57" itemprop="dateCreated datePublished" datetime="2023-07-03T22:15:57+09:00">2023-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9nby5kZXYv">Go<i class="fa fa-external-link-alt"></i></span>는 구글에서 개발한 프로그래밍 언어로, 간결하고 효율적인 코드 작성을 위해 설계된 언어입니다. Go는 정적 타입 언어로, C와 유닉스 환경에서 사용되는 도구들의 장점을 결합한 언어로 개발되었습니다.</p>
+</blockquote>
+<h2 id="Features-of-Go"><a href="#Features-of-Go" class="headerlink" title="Features of Go"></a>Features of Go</h2><ol>
+<li>간결하고 가독성이 좋은 문법<ul>
+<li>C 스타일의 문법을 가지고 있으며, 불필요한 기능을 제거하여 코드를 간결하게 작성 가능</li>
+<li>문법이 간단하고 가독성이 좋아 새로운 개발자들의 빠른 숙달</li>
+</ul>
+</li>
+<li>효율적인 동시성 지원<ul>
+<li>동시성을 위한 기능 내장 $\rightarrow$ 병렬 프로그래밍의 쉬운 구현</li>
+<li>Goroutine은 경량 스레드로, 작은 메모리 오버헤드로 수많은 고루틴을 동시에 실행 가능 $\rightarrow$ 대규모 시스템에서 효율적인 동시성 처리 구현 가능</li>
+</ul>
+</li>
+<li>빠른 컴파일과 실행 속도<ul>
+<li>정적 타입 언어지만 빠른 컴파일 속도</li>
+<li>Garbage collection을 통한 편한 메모리 관리 $\rightarrow$ 대규모 시스템에서도 빠른 실행 속도를 제공합니다.</li>
+</ul>
+</li>
+<li>강력한 표준 라이브러리<ul>
+<li>풍부한 표준 라이브러리를 제공 (네트워킹, 암호화, 웹 개발, 데이터베이스 액세스 등 다양한 작업)</li>
+</ul>
+</li>
+<li>크로스 플랫폼 지원<ul>
+<li>다양한 운영 체제와 아키텍처에서 사용할 수 있도록 크로스 플랫폼 지원 제공</li>
+<li>하나의 코드베이스로 여러 플랫폼에서 실행할 수 있는 이식성 높은 프로그램 개발 가능</li>
+</ul>
+</li>
+</ol>
+<p>Go는 웹 서버, 분산 시스템, 클라우드 서비스, 네트워크 프로그래밍 등 다양한 분야에서 사용된다.<br>특히, 동시성 처리에 강점을 가지고 있어 대규모 시스템의 성능을 향상시킬 수 있다.<br>또한, Go는 개발자들의 생산성을 높이기 위해 설계된 언어로, 간결한 문법과 강력한 도구들을 제공하여 개발자들이 효율적으로 코드를 작성할 수 있도록 도와준다.</p>
+<span id="more"></span>
+
+<h2 id="Install-Setup-on-MacOS-Apple-Silicon"><a href="#Install-Setup-on-MacOS-Apple-Silicon" class="headerlink" title="Install &amp; Setup on MacOS (Apple Silicon)"></a>Install &amp; Setup on MacOS (Apple Silicon)</h2><figure class="highlight bash"><figcaption><span>Install</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install go</span><br><span class="line">$ go version</span><br><span class="line">go version go1.20.5 darwin/arm64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>Setup</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.zshrc</span><br><span class="line"><span class="built_in">export</span> GOPATH=<span class="variable">$&#123;YOUR_GOPATH&#125;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/pkg</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin</span><br><span class="line">$ <span class="built_in">source</span> ~/.zshrc</span><br><span class="line">$ go <span class="built_in">env</span> | grep GOPATH</span><br><span class="line">GOPATH=<span class="variable">$&#123;YOUR_GOPATH&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>GOPATH</code>: Go에서 사용되는 환경 변수<ul>
+<li>소스 코드와 컴파일된 바이너리 파일을 관리하기 위해 일정한 디렉토리 구조 필요 $\rightarrow$ <code>GOPATH</code>로 설정!</li>
+<li>패키지들을 가져오고 설치하는 위치를 지정</li>
+</ul>
+</li>
+<li>기본 설정<ul>
+<li>Linux 및 MacOS: <code>$HOME/go</code></li>
+<li>Windows: <code>%USERPROFILE%\go</code></li>
+</ul>
+</li>
+<li><code>GOPATH</code> 설정 시<ul>
+<li>Go 패키지들이 해당 경로 아래 디렉토리에 설치</li>
+<li>Go 컴파일러가 해당 경로를 검색하여 패키지 모색</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">~/go $ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">│   ├── dlv</span><br><span class="line">│   ├── go-outline</span><br><span class="line">│   ├── goimports</span><br><span class="line">│   ├── gomodifytags</span><br><span class="line">│   ├── goplay</span><br><span class="line">│   ├── gopls</span><br><span class="line">│   ├── gotests</span><br><span class="line">│   ├── impl</span><br><span class="line">│   └── staticcheck</span><br><span class="line">└── pkg</span><br><span class="line">    ├── mod</span><br><span class="line">    └── sumdb</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 설치와 설정을 완료했으니,,, <code>Hello, World!</code>를 해보자!</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>package main</code><ul>
+<li>Go에서 실행 가능한 프로그램의 진입점을 정의하는 패키지 선언</li>
+<li><code>main()</code> 함수가 포함되어야 하며 프로그램의 실행 흐름은 이 함수에서 시작</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><figcaption><span>Build</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ <span class="built_in">ls</span> | grep main</span><br><span class="line">main</span><br><span class="line">main.go</span><br><span class="line">$ ./main</span><br><span class="line">Hello, World!</span><br></pre></td></tr></table></figure>
+
+<p>MacOS에서 zsh를 이용하는 <code>%</code>가 추가되어 출력되는 경우 <code>~/.zshrc</code>에 <code>export PROMPT_EOL_MARK=</code>를 추가하면 된다.</p>
+<hr>
+<h1 id="Basic-Grammar"><a href="#Basic-Grammar" class="headerlink" title="Basic Grammar"></a>Basic Grammar</h1><h2 id="Const-Variable"><a href="#Const-Variable" class="headerlink" title="Const &amp; Variable"></a>Const &amp; Variable</h2><blockquote>
+<p><code>const $&#123;변수명&#125; $&#123;자료형&#125; = $&#123;값&#125;</code></p>
+</blockquote>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">const</span> a <span class="type">bool</span> = <span class="literal">true</span></span><br><span class="line">	fmt.Println(!a)</span><br><span class="line">	<span class="keyword">const</span> b <span class="type">int</span> = <span class="number">100</span></span><br><span class="line">	fmt.Println(b)</span><br><span class="line">	<span class="keyword">const</span> c <span class="type">float64</span> = <span class="number">3.14</span></span><br><span class="line">	fmt.Println(c)</span><br><span class="line">	<span class="keyword">const</span> d <span class="type">string</span> = <span class="string">&quot;안녕하세요, 오효근입니다.&quot;</span></span><br><span class="line">	fmt.Println(d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ ./main</span><br><span class="line"><span class="literal">false</span></span><br><span class="line">100</span><br><span class="line">3.14</span><br><span class="line">안녕하세요, 오효근입니다.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>var $&#123;변수명&#125; $&#123;자료형&#125; = $&#123;값&#125;</code></p>
+</blockquote>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a <span class="type">bool</span> = <span class="literal">true</span></span><br><span class="line">	fmt.Println(!a)</span><br><span class="line">	<span class="keyword">var</span> b <span class="type">int</span> = <span class="number">100</span></span><br><span class="line">	fmt.Println(b)</span><br><span class="line">	<span class="keyword">var</span> c <span class="type">float64</span> = <span class="number">3.14</span></span><br><span class="line">	fmt.Println(c)</span><br><span class="line">	<span class="keyword">var</span> d <span class="type">string</span> = <span class="string">&quot;안녕하세요, 오효근입니다.&quot;</span></span><br><span class="line">	fmt.Println(d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ ./main</span><br><span class="line"><span class="literal">false</span></span><br><span class="line">100</span><br><span class="line">3.14</span><br><span class="line">안녕하세요, 오효근입니다.</span><br></pre></td></tr></table></figure>
+
+<h2 id="Operator"><a href="#Operator" class="headerlink" title="Operator"></a>Operator</h2><table>
+<thead>
+<tr>
+<th align="center">Type</th>
+<th align="center">Operator</th>
+<th align="center">Mean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">산술</td>
+<td align="center">+</td>
+<td align="center">덧셈</td>
+</tr>
+<tr>
+<td align="center">산술</td>
+<td align="center">-</td>
+<td align="center">뺄셈</td>
+</tr>
+<tr>
+<td align="center">산술</td>
+<td align="center">*</td>
+<td align="center">곱셈</td>
+</tr>
+<tr>
+<td align="center">산술</td>
+<td align="center">&#x2F;</td>
+<td align="center">나눗셈</td>
+</tr>
+<tr>
+<td align="center">산술</td>
+<td align="center">%</td>
+<td align="center">나머지</td>
+</tr>
+<tr>
+<td align="center">비교</td>
+<td align="center">&#x3D;&#x3D;</td>
+<td align="center">값이 같은지 비교</td>
+</tr>
+<tr>
+<td align="center">비교</td>
+<td align="center">!&#x3D;</td>
+<td align="center">값이 다른지 비교</td>
+</tr>
+<tr>
+<td align="center">비교</td>
+<td align="center">&lt;</td>
+<td align="center">미만</td>
+</tr>
+<tr>
+<td align="center">비교</td>
+<td align="center">&gt;</td>
+<td align="center">초과</td>
+</tr>
+<tr>
+<td align="center">비교</td>
+<td align="center">&lt;&#x3D;</td>
+<td align="center">이하</td>
+</tr>
+<tr>
+<td align="center">비교</td>
+<td align="center">&gt;&#x3D;</td>
+<td align="center">이상</td>
+</tr>
+<tr>
+<td align="center">논리</td>
+<td align="center">&amp;&amp;</td>
+<td align="center">논리 AND</td>
+</tr>
+<tr>
+<td align="center">논리</td>
+<td align="center">||</td>
+<td align="center">논리 OR</td>
+</tr>
+<tr>
+<td align="center">논리</td>
+<td align="center">!</td>
+<td align="center">논리 NOT</td>
+</tr>
+<tr>
+<td align="center">할당</td>
+<td align="center">&#x3D;</td>
+<td align="center">값 할당</td>
+</tr>
+<tr>
+<td align="center">할당</td>
+<td align="center">+&#x3D;</td>
+<td align="center">덧셈 후 할당</td>
+</tr>
+<tr>
+<td align="center">할당</td>
+<td align="center">-&#x3D;</td>
+<td align="center">뺄셈 후 할당</td>
+</tr>
+<tr>
+<td align="center">할당</td>
+<td align="center">*&#x3D;</td>
+<td align="center">곱셈 후 할당</td>
+</tr>
+<tr>
+<td align="center">할당</td>
+<td align="center">&#x2F;&#x3D;</td>
+<td align="center">나눗셈 후 할당</td>
+</tr>
+<tr>
+<td align="center">할당</td>
+<td align="center">%&#x3D;</td>
+<td align="center">나머지 연산 후 할당</td>
+</tr>
+<tr>
+<td align="center">증감</td>
+<td align="center">++</td>
+<td align="center">1 증가</td>
+</tr>
+<tr>
+<td align="center">증감</td>
+<td align="center">–</td>
+<td align="center">1 감소</td>
+</tr>
+<tr>
+<td align="center">비트</td>
+<td align="center">&amp;</td>
+<td align="center">비트 AND</td>
+</tr>
+<tr>
+<td align="center">비트</td>
+<td align="center">|</td>
+<td align="center">비트 OR</td>
+</tr>
+<tr>
+<td align="center">비트</td>
+<td align="center">^</td>
+<td align="center">비트 XOR</td>
+</tr>
+<tr>
+<td align="center">비트</td>
+<td align="center">&lt;&lt;</td>
+<td align="center">비트 왼쪽 시프트</td>
+</tr>
+<tr>
+<td align="center">비트</td>
+<td align="center">&gt;&gt;</td>
+<td align="center">비트 오른쪽 시프트</td>
+</tr>
+<tr>
+<td align="center">비트</td>
+<td align="center">&amp;^</td>
+<td align="center">비트 AND NOT</td>
+</tr>
+<tr>
+<td align="center">포인터</td>
+<td align="center">*</td>
+<td align="center">포인터 역참조</td>
+</tr>
+<tr>
+<td align="center">포인터</td>
+<td align="center">&amp;</td>
+<td align="center">변수의 주소</td>
+</tr>
+<tr>
+<td align="center">기타</td>
+<td align="center">.</td>
+<td align="center">구조체 필드 접근</td>
+</tr>
+<tr>
+<td align="center">기타</td>
+<td align="center">()</td>
+<td align="center">함수 호출</td>
+</tr>
+<tr>
+<td align="center">기타</td>
+<td align="center">[]</td>
+<td align="center">배열, 슬라이스, 맵 인덱스 접근</td>
+</tr>
+<tr>
+<td align="center">기타</td>
+<td align="center">:</td>
+<td align="center">맵에 값 할당 및 슬라이스 범위 지정</td>
+</tr>
+</tbody></table>
+<h2 id="Data-Type-Type-Conversion"><a href="#Data-Type-Type-Conversion" class="headerlink" title="Data Type &amp; Type Conversion"></a>Data Type &amp; Type Conversion</h2><ul>
+<li>Boolean: <code>bool</code></li>
+<li>Numeric<ul>
+<li>Integer: <code>int</code>, <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code></li>
+<li>Unsigned Integer: <code>uint</code>, <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code></li>
+<li>Float: <code>float32</code>, <code>float64</code></li>
+<li>Complex: <code>complex64</code>, <code>complex128</code></li>
+</ul>
+</li>
+<li>String: <code>string</code></li>
+</ul>
+<p>Go에서 <code>string</code>은 참 독특한 성격을 지닌다.<br><code>&#39;&#39;</code>을 사용하면 단일 문자만 변수에 저장할 수 있으며 아래와 같이 <code>int32</code>로 지정되어 <code>&quot;&quot;</code>을 사용해야한다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;reflect&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	a := <span class="string">&quot;test&quot;</span></span><br><span class="line">	<span class="comment">// b := &#x27;test&#x27; -&gt; Error</span></span><br><span class="line">	b := <span class="string">&#x27;t&#x27;</span></span><br><span class="line">	fmt.Println(reflect.TypeOf(a))</span><br><span class="line">	fmt.Println(reflect.TypeOf(b))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ ./main</span><br><span class="line">string</span><br><span class="line">int32</span><br></pre></td></tr></table></figure>
+
+<p>심지어 <code>string</code>인 변수는 바꿀 수 없다.<br>슬라이싱으로 특정 문자를 바꾸려면 아래와 같이 진행해야한다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> S <span class="type">string</span> = <span class="string">&quot;asdfqwer&quot;</span></span><br><span class="line">	<span class="keyword">var</span> L <span class="type">int</span> = <span class="built_in">len</span>(S)</span><br><span class="line">	S = S[<span class="number">0</span>:<span class="number">2</span>] + <span class="string">&quot;D&quot;</span> + S[<span class="number">3</span>:L]</span><br><span class="line">	fmt.Print(S)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ ./main</span><br><span class="line">asDfqwer</span><br></pre></td></tr></table></figure>
+
+<p>또 Go에서는 항상 명시적으로 형 변환을 진행해야하는데 <code>string</code>은 아래와 같이 진행한다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;reflect&quot;</span></span><br><span class="line">	<span class="string">&quot;strconv&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> A <span class="type">int</span> = <span class="number">10</span></span><br><span class="line">	<span class="keyword">var</span> B <span class="type">float32</span> = <span class="number">3.14</span></span><br><span class="line">	<span class="keyword">var</span> C <span class="type">string</span> = <span class="string">&quot;1234.56&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> D <span class="type">float32</span> = <span class="type">float32</span>(A)</span><br><span class="line">	<span class="keyword">var</span> E <span class="type">float64</span> = <span class="type">float64</span>(A)</span><br><span class="line">	F := <span class="type">string</span>(A)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> G <span class="type">int</span> = <span class="type">int</span>(B)</span><br><span class="line">	<span class="keyword">var</span> H <span class="type">string</span> = strconv.Itoa(<span class="type">int</span>(B))</span><br><span class="line">	<span class="keyword">var</span> I <span class="type">string</span> = strconv.FormatFloat(<span class="type">float64</span>(B), <span class="string">&#x27;f&#x27;</span>, <span class="number">-1</span>, <span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">	J, _ := strconv.Atoi(C)</span><br><span class="line">	K, _ := strconv.ParseFloat(C, <span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;A:&quot;</span>, reflect.TypeOf(A), A)</span><br><span class="line">	fmt.Println(<span class="string">&quot;B:&quot;</span>, reflect.TypeOf(B), B)</span><br><span class="line">	fmt.Println(<span class="string">&quot;C:&quot;</span>, reflect.TypeOf(C), C)</span><br><span class="line">	fmt.Println(<span class="string">&quot;D:&quot;</span>, reflect.TypeOf(D), D)</span><br><span class="line">	fmt.Println(<span class="string">&quot;E:&quot;</span>, reflect.TypeOf(E), E)</span><br><span class="line">	fmt.Println(<span class="string">&quot;F:&quot;</span>, reflect.TypeOf(F), F)</span><br><span class="line">	fmt.Println(<span class="string">&quot;G:&quot;</span>, reflect.TypeOf(G), G)</span><br><span class="line">	fmt.Println(<span class="string">&quot;H:&quot;</span>, reflect.TypeOf(H), H)</span><br><span class="line">	fmt.Println(<span class="string">&quot;I:&quot;</span>, reflect.TypeOf(I), I)</span><br><span class="line">	fmt.Println(<span class="string">&quot;J:&quot;</span>, reflect.TypeOf(J), J)</span><br><span class="line">	fmt.Println(<span class="string">&quot;K:&quot;</span>, reflect.TypeOf(K), K)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ ./main</span><br><span class="line">A: int 10</span><br><span class="line">B: float32 3.14</span><br><span class="line">C: string 1234.56</span><br><span class="line">D: float32 10</span><br><span class="line">E: float64 10</span><br><span class="line">F: string </span><br><span class="line"></span><br><span class="line">G: int 3</span><br><span class="line">H: string 3</span><br><span class="line">I: string 3.14</span><br><span class="line">J: int 0</span><br><span class="line">K: float64 1234.56005859375</span><br></pre></td></tr></table></figure>
+
+<p>정리하자면 문자열을 정수로 변환하려면 아래와 같다.</p>
+<ul>
+<li><code>string</code> $\rightarrow$ <code>int</code>: <code>strconv.Atoi()</code></li>
+<li><code>string</code> $\rightarrow$ <code>float64</code>: <code>strconv.ParseFloat()</code></li>
+<li><code>int</code> $\rightarrow$ <code>string</code>: <code>strconv.Itoa()</code></li>
+<li><code>float64</code> $\rightarrow$ <code>string</code>: <code>strconv.FormatFloat()</code></li>
+</ul>
+<h2 id="Conditional-Statement"><a href="#Conditional-Statement" class="headerlink" title="Conditional Statement"></a>Conditional Statement</h2><p>Go에서 조건문을 사용할 때 <code>else if</code> 혹은 <code>else</code>가 중괄호 <code>&#125; &#123;</code> 사이에 존재해야하고 같은 라인에 있어야한다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> A <span class="type">int</span> = <span class="number">10</span></span><br><span class="line">	<span class="keyword">if</span> A == <span class="number">10</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;Hi&quot;</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;Bye&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	A = <span class="number">20</span></span><br><span class="line">	<span class="keyword">if</span> A == <span class="number">10</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;Hi&quot;</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> A == <span class="number">12</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;Hi&quot;</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;Bye&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ ./main</span><br><span class="line">Hi</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loop"><a href="#Loop" class="headerlink" title="Loop"></a>Loop</h2><p>반복문은 C와 매우 유사하여 쉽다!</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(i, <span class="string">&quot;Hi!&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ go build main.go</span><br><span class="line">$ ./main</span><br><span class="line">0 Hi!</span><br><span class="line">1 Hi!</span><br><span class="line">2 Hi!</span><br><span class="line">3 Hi!</span><br><span class="line">4 Hi!</span><br><span class="line">5 Hi!</span><br><span class="line">6 Hi!</span><br><span class="line">7 Hi!</span><br><span class="line">8 Hi!</span><br><span class="line">9 Hi!</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="For-Algorithm"><a href="#For-Algorithm" class="headerlink" title="For Algorithm"></a>For Algorithm</h1><p>입출력 시 <code>fmt.Print</code> 및 <code>fmt.Scan</code>을 사용하면 시간 초과가 발생할 수 있다.<br>따라서 아래와 같이 입출력을 사용해야 해결할 수 있다.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;bufio&quot;</span></span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;os&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> reader *bufio.Reader = bufio.NewReader(os.Stdin)</span><br><span class="line">	<span class="keyword">var</span> writer *bufio.Writer = bufio.NewWriter(os.Stdout)</span><br><span class="line">	<span class="keyword">defer</span> writer.Flush()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> N <span class="type">int</span></span><br><span class="line">	fmt.Fscanln(reader, &amp;N)</span><br><span class="line">	fmt.Fprintln(writer, <span class="string">&quot;Hello, World&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/k8s-1/" rel="prev" title="Kubernetes 입문기 (1)">
+                  <i class="fa fa-chevron-left"></i> Kubernetes 입문기 (1)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/automating-code-formatting-with-github-actions/" rel="next" title="GitHub Actions 기반 Formatting 자동화">
+                  GitHub Actions 기반 Formatting 자동화 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"783388a275b9e7667f2414cdffda764f"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="코로나 싫어서 대출하는 프로그램. .">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web Crawler for eCampus by Selenium">
+<meta property="og:url" content="https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="코로나 싫어서 대출하는 프로그램. .">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-18T19:40:15.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.710Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="B.S. Course Work">
+<meta property="article:tag" content="Web Crawling">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/","path":"web-crawler-for-ecampus-by-selenium/","title":"Web Crawler for eCampus by Selenium"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Web Crawler for eCampus by Selenium | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%BD%94%EB%A1%9C%EB%82%98-%EC%8B%AB%EC%96%B4%EC%84%9C-%EB%8C%80%EC%B6%9C%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8"><span class="nav-number">1.</span> <span class="nav-text">코로나 싫어서 대출하는 프로그램. .</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/telegram-bot-using-web-crawler-based-on-selenium/" rel="bookmark">
+        <time class="popular-posts-time">2021-08-13</time>
+        <br>
+      Telegram Bot using Web Crawler based on Selenium
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawler-for-nlp-1/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-31</time>
+        <br>
+      Web Crawler for NLP (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawler-for-nlp-3/" rel="bookmark">
+        <time class="popular-posts-time">2018-09-20</time>
+        <br>
+      Web Crawler for NLP (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawler-for-nlp-2/" rel="bookmark">
+        <time class="popular-posts-time">2018-09-20</time>
+        <br>
+      Web Crawler for NLP (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawling-by-selenium-2/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-30</time>
+        <br>
+      Web Crawling by Selenium (2)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Web Crawler for eCampus by Selenium | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Web Crawler for eCampus by Selenium
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-04-19 04:40:15" itemprop="dateCreated datePublished" datetime="2020-04-19T04:40:15+09:00">2020-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="코로나-싫어서-대출하는-프로그램"><a href="#코로나-싫어서-대출하는-프로그램" class="headerlink" title="코로나 싫어서 대출하는 프로그램. ."></a>코로나 싫어서 대출하는 프로그램. .</h1><span id="more"></span>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_of_lec</span>():</span><br><span class="line">    num = browser.find_elements_by_xpath(<span class="string">&#x27;//*[@id=&quot;contentsIndex&quot;]/div[2]/div[2]/ol/li/em&#x27;</span>)</span><br><span class="line">    num = <span class="built_in">len</span>(num)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">        lec_path = <span class="string">&#x27;//*[@id=&quot;contentsIndex&quot;]/div[2]/div[2]/ol/li[&#x27;</span> + <span class="built_in">str</span>(i+<span class="number">2</span>) + <span class="string">&#x27;]/em&#x27;</span></span><br><span class="line">        lec_name = browser.find_elements_by_xpath(lec_path)</span><br><span class="line">        <span class="keyword">for</span> lec <span class="keyword">in</span> lec_name:</span><br><span class="line">            name = lec.text</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">str</span>(i+<span class="number">1</span>) + <span class="string">&#x27;.\t&#x27;</span> + name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start_lec</span>(<span class="params">num, week</span>): <span class="comment"># num 번째 수업, week 주차</span></span><br><span class="line">    lec_path = <span class="string">&#x27;//*[@id=&quot;contentsIndex&quot;]/div[2]/div[2]/ol/li[&#x27;</span> + <span class="built_in">str</span>(num + <span class="number">1</span>) + <span class="string">&#x27;]/em&#x27;</span></span><br><span class="line">    browser.find_element_by_xpath(lec_path).click()</span><br><span class="line">    week_path = <span class="string">&#x27;//*[@id=&quot;week-&#x27;</span> + <span class="built_in">str</span>(week) + <span class="string">&#x27;&quot;]&#x27;</span></span><br><span class="line">    browser.find_element_by_xpath(week_path).click()</span><br><span class="line">    <span class="keyword">return</span>(browser.current_url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tim_to_sec</span>(<span class="params">tim</span>):</span><br><span class="line">    tr = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">len</span>(tim)==<span class="number">7</span>):</span><br><span class="line">        tr = <span class="built_in">int</span>(tim[<span class="number">5</span>] + tim[<span class="number">6</span>]) + <span class="number">60</span> * <span class="built_in">int</span>(tim[<span class="number">2</span>] + tim[<span class="number">3</span>]) + <span class="number">60</span> * <span class="number">60</span> * <span class="built_in">int</span>(tim[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">elif</span>(<span class="built_in">len</span>(tim)==<span class="number">5</span>):</span><br><span class="line">        tr = <span class="built_in">int</span>(tim[<span class="number">3</span>] + tim[<span class="number">4</span>]) + <span class="number">60</span> * <span class="built_in">int</span>(tim[<span class="number">0</span>] + tim[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">elif</span>(<span class="built_in">len</span>(tim)==<span class="number">4</span>):</span><br><span class="line">        tr = <span class="built_in">int</span>(tim[<span class="number">2</span>] + tim[<span class="number">3</span>]) + <span class="number">60</span> * <span class="built_in">int</span>(tim[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">elif</span>(<span class="built_in">len</span>(tim)==<span class="number">2</span>):</span><br><span class="line">        tr = <span class="built_in">int</span>(tim[<span class="number">0</span>] + tim[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">elif</span>(<span class="built_in">len</span>(tim)==<span class="number">1</span>):</span><br><span class="line">        tr = <span class="built_in">int</span>(tim[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Error&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(tim)</span><br><span class="line">    tr = tr + <span class="number">100</span></span><br><span class="line">    <span class="keyword">return</span>(tr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">play_lec</span>(<span class="params">backward</span>):</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    NofLec = <span class="built_in">len</span>(browser.find_elements_by_xpath(<span class="string">&#x27;/html/body/div[3]/div[2]/div/div[2]/div[2]/div[3]/div&#x27;</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(NofLec):</span><br><span class="line">        browser.get(backward)</span><br><span class="line">        seltd_lec = <span class="string">&#x27;/html/body/div[3]/div[2]/div/div[2]/div[2]/div[3]/div[&#x27;</span> + <span class="built_in">str</span>(i + <span class="number">1</span>) + <span class="string">&#x27;]/div/ul/li[2]/img&#x27;</span></span><br><span class="line">        browser.find_element_by_xpath(seltd_lec).click()</span><br><span class="line">        time.sleep(<span class="number">2</span>)</span><br><span class="line">        browser.find_element_by_xpath(<span class="string">&#x27;/html/body&#x27;</span>).click()</span><br><span class="line">        time.sleep(<span class="number">2</span>)</span><br><span class="line">        browser.switch_to.frame(browser.find_element_by_xpath(<span class="string">&#x27;//iframe[@id=&quot;contentViewer&quot;]&#x27;</span>))</span><br><span class="line">        tim = browser.find_element_by_xpath(<span class="string">&#x27;/html/body/div[2]/div/div[4]/div[4]/span[2]&#x27;</span>)</span><br><span class="line">        tim = tim.text</span><br><span class="line">        t = tim_to_sec(tim)</span><br><span class="line">        browser.switch_to.default_content()</span><br><span class="line">        time.sleep(t)</span><br><span class="line">        noflec = <span class="built_in">len</span>(browser.find_elements_by_xpath(<span class="string">&#x27;//*[@id=&quot;naviViewer&quot;]/div[2]/ul/li&#x27;</span>))</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(noflec - <span class="number">1</span>):</span><br><span class="line">            selseltd_lec = <span class="string">&#x27;//*[@id=&quot;naviViewer&quot;]/div[2]/ul/li[&#x27;</span> + <span class="built_in">str</span>(j + <span class="number">2</span>) + <span class="string">&#x27;]/div[2]&#x27;</span></span><br><span class="line">            browser.find_element_by_xpath(selseltd_lec).click()</span><br><span class="line">            time.sleep(<span class="number">2</span>)</span><br><span class="line">            browser.find_element_by_xpath(<span class="string">&#x27;/html/body&#x27;</span>).click()</span><br><span class="line">            time.sleep(<span class="number">2</span>)</span><br><span class="line">            browser.switch_to.frame(browser.find_element_by_xpath(<span class="string">&#x27;//iframe[@id=&quot;contentViewer&quot;]&#x27;</span>))</span><br><span class="line">            tim = browser.find_element_by_xpath(<span class="string">&#x27;/html/body/div[2]/div/div[4]/div[4]/span[2]&#x27;</span>)</span><br><span class="line">            tim = tim.text</span><br><span class="line">            t = tim_to_sec(tim)</span><br><span class="line">            browser.switch_to.default_content()</span><br><span class="line">            time.sleep(t)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;/Users/zerohertz/Downloads/chromedriver&quot;</span>)  <span class="comment">#Directory지정</span></span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)  <span class="comment">#암묵적으로 3초 딜레이</span></span><br><span class="line">url = <span class="string">&#x27;http://ecampus.konkuk.ac.kr&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line"></span><br><span class="line">browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;header&quot;]/div[4]/ul/a/li&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line"><span class="built_in">id</span> = <span class="built_in">input</span>(<span class="string">&#x27;ID : &#x27;</span>)</span><br><span class="line">pwd = <span class="built_in">input</span>(<span class="string">&#x27;Password : &#x27;</span>)</span><br><span class="line"></span><br><span class="line">browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;usr_id&quot;]&#x27;</span>).send_keys(<span class="built_in">id</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;usr_pwd&quot;]&#x27;</span>).send_keys(pwd)</span><br><span class="line"></span><br><span class="line">browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;login_btn&quot;]&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">NumOfReser = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line">    mode = <span class="built_in">input</span>(<span class="string">&#x27;모드 선택!\n\n1. 예약 모드\t 2. 일반 모드\n\n1 또는 2를 입력하세요! : &#x27;</span>)</span><br><span class="line">    mode = <span class="built_in">int</span>(mode)</span><br><span class="line">    <span class="keyword">if</span> mode == <span class="number">1</span>:</span><br><span class="line">        end = <span class="number">0</span></span><br><span class="line">        No = []</span><br><span class="line">        week = []</span><br><span class="line">        <span class="keyword">while</span>(end == <span class="number">0</span>):</span><br><span class="line">            print_of_lec()</span><br><span class="line">            a = <span class="built_in">input</span>(<span class="built_in">str</span>(NumOfReser + <span class="number">1</span>) + <span class="string">&#x27;번째 예약 과목 번호 : &#x27;</span>)</span><br><span class="line">            No = No + [<span class="built_in">int</span>(a)]</span><br><span class="line">            b = <span class="built_in">input</span>(<span class="built_in">str</span>(NumOfReser + <span class="number">1</span>) + <span class="string">&#x27;번째 예약 주차 : &#x27;</span>)</span><br><span class="line">            week = week + [<span class="built_in">int</span>(b)]</span><br><span class="line">            end = <span class="built_in">input</span>(<span class="string">&#x27;예약을 계속하시려면 0을 입력해 주세요(아니면 아무거나 누르세요) : &#x27;</span>)</span><br><span class="line">            end = <span class="built_in">int</span>(end)</span><br><span class="line">            NumOfReser = NumOfReser + <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> reser <span class="keyword">in</span> <span class="built_in">range</span>(NumOfReser):</span><br><span class="line">            Ori = start_lec(No[reser], week[reser])</span><br><span class="line">            play_lec(Ori)</span><br><span class="line">            browser.get(url)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;\n\n수강 완료, 다음 강의를 선택하세용 ㅋㅋ\n\n\n&#x27;</span>)</span><br><span class="line">        NumOfReser = <span class="number">0</span></span><br><span class="line">    <span class="keyword">elif</span> mode == <span class="number">2</span>:</span><br><span class="line">        print_of_lec()</span><br><span class="line">        No = <span class="built_in">input</span>(<span class="string">&#x27;수업 번호 입력 : &#x27;</span>)</span><br><span class="line">        week = <span class="built_in">input</span>(<span class="string">&#x27;주차(Week) 입력 : &#x27;</span>)</span><br><span class="line">        No = <span class="built_in">int</span>(No)</span><br><span class="line">        week = <span class="built_in">int</span>(week)</span><br><span class="line">        Ori = start_lec(No, week)</span><br><span class="line">        play_lec(Ori)</span><br><span class="line">        browser.get(url)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;\n\n수강 완료, 다음 강의를 선택하세용 ㅋㅋ\n\n\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;\n\nError!\n\n\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/b-s-course-work/" rel="tag"><i class="fa fa-tag"></i> B.S. Course Work</a>
+              <a href="/tags/web-crawling/" rel="tag"><i class="fa fa-tag"></i> Web Crawling</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/mass-media/" rel="prev" title="Mass Media">
+                  <i class="fa fa-chevron-left"></i> Mass Media
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/introduction-of-c/" rel="next" title="Introduction of C++">
+                  Introduction of C++ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"51f9270969ab6f99e3fcebe8c17fc0db"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

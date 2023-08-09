@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Ensemble Learning and Random Forests Ensemble learning: 일련의 예측기 (ensemble)로부터 예측 수집 가장 좋은 모델 하나보다 더 좋은 예측 취득 가능 Ensemble method: 앙상블 학습 알고리즘   Random forest: 결정 트리의 앙상블 훈련 세트로부터 무작위로 각기 다른 서브셋을 만들고 일련">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hands-on Machine Learning (3)">
+<meta property="og:url" content="https://zerohertz.github.io/hands-on-machine-learning-3/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Ensemble Learning and Random Forests Ensemble learning: 일련의 예측기 (ensemble)로부터 예측 수집 가장 좋은 모델 하나보다 더 좋은 예측 취득 가능 Ensemble method: 앙상블 학습 알고리즘   Random forest: 결정 트리의 앙상블 훈련 세트로부터 무작위로 각기 다른 서브셋을 만들고 일련">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182311386-d20d1398-e1b3-47a6-9117-0f70049cc9b2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182312219-088b91a7-dd37-4339-a522-db744b15cad8.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182524012-0dc1b358-b969-4db6-9f04-b48873ea1d78.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182525619-5390854e-7498-4500-9c91-3ea3c77aa735.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182527382-8bb04117-8a51-4c4a-9c2b-312b84384f7f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182530032-00209f28-11ad-43de-8b32-920fe544d518.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182531172-6d62aeda-142e-49a3-a424-284aae79e073.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183077701-e40b942a-79b1-4504-abbe-c1016e20ac9c.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183078720-973003cd-c6f1-4343-8c18-d22ae94409df.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183081321-fab22216-bed1-47c1-aea0-babc26b23f25.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183082311-2d2d0f80-77b7-4cbb-b552-42e95e15f723.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183084216-3dd3bfdd-0383-4412-a59d-15e9cb062a7e.png">
+<meta property="article:published_time" content="2022-08-02T05:03:45.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="scikit-learn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/182311386-d20d1398-e1b3-47a6-9117-0f70049cc9b2.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/hands-on-machine-learning-3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/hands-on-machine-learning-3/","path":"hands-on-machine-learning-3/","title":"Hands-on Machine Learning (3)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hands-on Machine Learning (3) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ensemble-Learning-and-Random-Forests"><span class="nav-number">1.</span> <span class="nav-text">Ensemble Learning and Random Forests</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Voting-Classifiers"><span class="nav-number">1.1.</span> <span class="nav-text">Voting Classifiers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bagging-and-Pasting"><span class="nav-number">1.2.</span> <span class="nav-text">Bagging and Pasting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Patches-and-Random-Subspaces"><span class="nav-number">1.3.</span> <span class="nav-text">Random Patches and Random Subspaces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Forest"><span class="nav-number">1.4.</span> <span class="nav-text">Random Forest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boosting"><span class="nav-number">1.5.</span> <span class="nav-text">Boosting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacking"><span class="nav-number">1.6.</span> <span class="nav-text">Stacking</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dimensionality-Reduction"><span class="nav-number">2.</span> <span class="nav-text">Dimensionality Reduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-Approaches-for-Dimensionality-Reduction"><span class="nav-number">2.1.</span> <span class="nav-text">Main Approaches for Dimensionality Reduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PCA"><span class="nav-number">2.2.</span> <span class="nav-text">PCA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LLE"><span class="nav-number">2.3.</span> <span class="nav-text">LLE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Etc"><span class="nav-number">2.4.</span> <span class="nav-text">Etc.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unsupervised-Learning"><span class="nav-number">3.</span> <span class="nav-text">Unsupervised Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K-Means"><span class="nav-number">3.1.</span> <span class="nav-text">K-Means</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DBSCAN"><span class="nav-number">3.2.</span> <span class="nav-text">DBSCAN</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/hands-on-machine-learning-1/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-14</time>
+        <br>
+      Hands-on Machine Learning (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/hands-on-machine-learning-2/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-25</time>
+        <br>
+      Hands-on Machine Learning (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/tensorflow-1/" rel="bookmark">
+        <time class="popular-posts-time">2019-08-12</time>
+        <br>
+      TensorFlow (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-model-development/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-28</time>
+        <br>
+      MLOps for MLE: Model Development
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/machine-learning/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-01</time>
+        <br>
+      Machine Learning
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/hands-on-machine-learning-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hands-on Machine Learning (3) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hands-on Machine Learning (3)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-02 14:03:45" itemprop="dateCreated datePublished" datetime="2022-08-02T14:03:45+09:00">2022-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Ensemble-Learning-and-Random-Forests"><a href="#Ensemble-Learning-and-Random-Forests" class="headerlink" title="Ensemble Learning and Random Forests"></a>Ensemble Learning and Random Forests</h1><ul>
+<li>Ensemble learning: 일련의 예측기 (ensemble)로부터 예측 수집<ul>
+<li>가장 좋은 모델 하나보다 더 좋은 예측 취득 가능</li>
+<li>Ensemble method: 앙상블 학습 알고리즘</li>
+</ul>
+</li>
+<li>Random forest: 결정 트리의 앙상블<ul>
+<li>훈련 세트로부터 무작위로 각기 다른 서브셋을 만들고 일련의 결정 트리 분류기 훈련</li>
+<li>모든 개별 트리의 예측 중 가장 많은 선택을 받은 클래스를 예측으로 선정</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Voting-Classifiers"><a href="#Voting-Classifiers" class="headerlink" title="Voting Classifiers"></a>Voting Classifiers</h2><ul>
+<li>Hard voting (직접 투표): 각 분류기의 예측을 모아 가장 많이 선택된 클래스 예측<ul>
+<li>큰 수의 법칙 (law of large numbers)에 의해 앙상블에 포함된 개별 분류기 중 가장 뛰어난 것보다 다수결 투표 분류기의 정확도가 보통 더 높음</li>
+</ul>
+</li>
+<li>Soft voting (간접 투표): 각 분류기의 예측 확률을 평균 내어 가장 높은 확률인 클래스 예측<ul>
+<li>모든 분류기가 클래스의 확률을 예측할 수 있어야함 (<code>probability = True</code>)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Individual classifiers vs. voting classifier<br><img width="660" alt="Individual classifiers vs. voting classifier" src="https://user-images.githubusercontent.com/42334717/182311386-d20d1398-e1b3-47a6-9117-0f70049cc9b2.png"></p>
+</blockquote>
+<h2 id="Bagging-and-Pasting"><a href="#Bagging-and-Pasting" class="headerlink" title="Bagging and Pasting"></a>Bagging and Pasting</h2><ul>
+<li>같은 알고리즘 사용, 훈련 세트의 서브셋을 무작위로 구성 및 훈련<ul>
+<li>Bagging (bootstrap aggregating): 훈련 세트에서 중복을 허용하여 샘플링</li>
+<li>Pasting: 훈련 세트에서 중복을 허용하지 않고 샘플링</li>
+</ul>
+</li>
+<li>모든 예측기가 훈련을 마치면 예측을 수집하여 새로운 샘플에 대한 예측 생성<ul>
+<li>수집 함수<ul>
+<li>Classification: 통계적 최빈값 (statistical mode)</li>
+<li>Regression: 평균 (average)</li>
+</ul>
+</li>
+<li>개별 예측기는 원본 훈련 세트로 훈련시킨 것보다 편향되어 있지만 수집 함수를 통해 편향과 분산 감소</li>
+<li>일반적으로 앙상블의 결과는 원본 데이터셋으로 하나의 예측기를 훈련시킬 때와 비교하여 편향은 비슷하지만 분산 감소</li>
+</ul>
+</li>
+<li><code>BaggingClassifier</code>, <code>BaggingRegressor</code><ul>
+<li><code>bootstrap = True</code>: Bagging</li>
+<li><code>bootstrap = False</code>: Pasting</li>
+<li><code>n_jobs</code>: 훈련과 예측에 사용할 CPU 코어 수 (<code>-1</code> 지정 시 모든 가용 코어 사용)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tree_clf = DecisionTreeClassifier(random_state=<span class="number">42</span>)</span><br><span class="line">tree_clf.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">bag_clf = BaggingClassifier(</span><br><span class="line">    DecisionTreeClassifier(), n_estimators = <span class="number">500</span>,</span><br><span class="line">    max_samples = <span class="number">100</span>, bootstrap = <span class="literal">True</span>, n_jobs = -<span class="number">1</span></span><br><span class="line">)</span><br><span class="line">bag_clf.fit(X_train, y_train)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Decision tree vs. Decision trees with bagging<br><img width="626" alt="Decision tree vs. Decision trees with bagging" src="https://user-images.githubusercontent.com/42334717/182312219-088b91a7-dd37-4339-a522-db744b15cad8.png"></p>
+</blockquote>
+<ul>
+<li>oob (out-of-bag) sample: 선택되지 않은 훈련 샘플의 나머지 37%를 의미<ul>
+<li><code>BaggingClassifier(bootstrap = True)</code><ul>
+<li>중복을 허용하고 훈련 세트의 크기만큼인 m개의 샘플 선택</li>
+<li>평균적으로 각 예측기에 훈련 샘플의 63%만 샘플링</li>
+</ul>
+</li>
+<li>앙상블의 평가: 각 예측기의 oob 평가 후 평균값 이용 $\rightarrow$ <code>bag_clf.oob_score_</code><ul>
+<li><code>oob_score = True</code> 필요</li>
+<li>예측기가 훈련되는 동안에는 oob sample을 사용하지 않으므로 별도의 검증 세트를 사용하지 않고 oob sample 사용</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>oob vs. accuracy<br><img width="451" alt="oob vs. accuracy" src="https://user-images.githubusercontent.com/42334717/182524012-0dc1b358-b969-4db6-9f04-b48873ea1d78.png"></p>
+</blockquote>
+<h2 id="Random-Patches-and-Random-Subspaces"><a href="#Random-Patches-and-Random-Subspaces" class="headerlink" title="Random Patches and Random Subspaces"></a>Random Patches and Random Subspaces</h2><ul>
+<li><code>BaggingClassifier</code>의 특성 샘플링: <code>max_features</code>, <code>bootstrap_features</code>를 통해 샘플링 조절<ul>
+<li>무작위로 선택한 입력 특성의 일부분으로 각 예측기 훈련</li>
+<li>고차원 데이터셋을 다룰 때 유용</li>
+<li>더 다양한 예측기를 생성하여 편향을 늘리는 대신 분산 감소</li>
+</ul>
+</li>
+<li><code>Random patches method</code>: 훈련 특성과 샘플을 모두 샘플링</li>
+<li><code>Random subspaces method</code><ul>
+<li>훈련 샘플 모두 사용: <code>bootstrap = False</code>, <code>max_samples = 1.0</code></li>
+<li>특성 샘플링: <code>bootstrap_features = True</code>, <code>max_features &lt;= 1.0</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h2><ul>
+<li>Random forest: 배깅 혹은 페이스팅을 적용한 결정 트리의 앙상블<ul>
+<li><code>max_samples</code>: 훈련 세트의 크기 지정</li>
+<li><code>RandomForestClassifier</code>, <code>RandomForestRegressor</code> 사용</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Random forest<br><img width="512" alt="Random forest" src="https://user-images.githubusercontent.com/42334717/182525619-5390854e-7498-4500-9c91-3ea3c77aa735.png"></p>
+</blockquote>
+<ul>
+<li>Extremely randomized trees (extra-trees): 극단적으로 무작위한 트리의 랜덤 포레스트<ul>
+<li>트리의 노드: 무작위 특성의 서브셋을 만들어 분할에 사용</li>
+<li>트리를 더욱 무작위하게 만들기 위해 최적의 임계값 대신 후보 특성을 사용해 무작위로 분할 후 최상의 분할 선택</li>
+<li>편향이 증가하지만 분산 감소</li>
+<li><code>ExtraTreesClassifier</code>, <code>ExtraTreesRegressor</code> 사용</li>
+</ul>
+</li>
+<li>Feature importance: 랜덤 포레스트를 통해 특성의 상대 중요도 측정<ul>
+<li>어떤 특성을 사용한 노드가 평균적으로 불순도를 얼마나 감소시키는지 정량적 평가</li>
+<li>가중치 평균 (각 노드의 가중치는 연관된 훈련 샘플 수와 동일)</li>
+<li><code>feature_importances_</code> 사용</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Feature importance<br><img width="659" alt="Feature importance" src="https://user-images.githubusercontent.com/42334717/182527382-8bb04117-8a51-4c4a-9c2b-312b84384f7f.png"></p>
+</blockquote>
+<h2 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h2><ul>
+<li>Boosting (hypothesis boosting): 약한 학습기 다수를 연결하여 강한 학습기를 생성하는 앙상블 방법<ul>
+<li>AdaBoost (adaptive boosting): 이전 모델이 과소적합했던 훈련 샘플의 가중치를 높혀 학습하기 어려운 샘플 훈련<ol>
+<li>첫 번째 분류기를 훈련 세트에서 훈련 및 예측</li>
+<li>훈련된 분류기가 잘못 분류한 샘플의 가중치 증가</li>
+<li>두 번째 분류기는 업데이트된 가중치가 적용된 훈련 세트로 훈련</li>
+<li>반복…</li>
+</ol>
+<ul>
+<li><code>AdaBoostClassifier</code>, <code>AdaBoostRegressor</code> 사용</li>
+</ul>
+</li>
+<li>Gradient boosting: 예측기가 생성한 잔여 오차 (residual error)에 새로운 예측기 학습<ul>
+<li>Gradient tree boosting, gradient boosted regression tree (GBRT)</li>
+<li><code>GradientBoostingClassifier</code>, <code>GradientBoostingRegressor</code> 사용</li>
+<li>축소 (shrinkage): <code>learning_rate</code>를 낮게 설정하고 많은 트리를 훈련하여 예측 성능을 상승시키는 규제</li>
+<li>확률적 그레디언트 부스팅 (stochastic gradient boosting): 각 트리가 훈련할 때 훈련 샘플의 비율을 지정하여 편향 상승 및 분산 감소</li>
+<li>XGBoost (extreme gradient boosting): 최적화된 그레디언트 부스팅 라이브러리</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Decision boundaries of consecutive predictors<br><img width="810" alt="Decision boundaries of consecutive predictors" src="https://user-images.githubusercontent.com/42334717/182530032-00209f28-11ad-43de-8b32-920fe544d518.png"></p>
+</blockquote>
+<blockquote>
+<p>Gradient boosting<br><img width="782" alt="Gradient boosting" src="https://user-images.githubusercontent.com/42334717/182531172-6d62aeda-142e-49a3-a424-284aae79e073.png"></p>
+</blockquote>
+<h2 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h2><ul>
+<li>Stacking (stacked generalization): blender (meta learner)를 통해 각 모델의 예측을 취합하여 최종 예측 결정</li>
+<li>Hold-out: blender를 학습시키는 일반적 방법<ol>
+<li>훈련 세트를 두 개의 서브셋으로 분리</li>
+<li>첫 서브셋을 이용해 첫 번째 레이어의 에측 훈련</li>
+<li>첫 번째 레이어의 예측기를 사용해 두 번째 (hold-out) 세트에 대한 예측 생성</li>
+<li>생성된 예측을 blender의 훈련 세트로 사용</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h1><h2 id="Main-Approaches-for-Dimensionality-Reduction"><a href="#Main-Approaches-for-Dimensionality-Reduction" class="headerlink" title="Main Approaches for Dimensionality Reduction"></a>Main Approaches for Dimensionality Reduction</h2><ul>
+<li>Projection<ul>
+<li>고차원 공간 안의 저차원 부분 공간 (subspace)에 투영하여 차원 축소</li>
+<li>Swiss roll dataset과 같이 부분 공간이 뒤틀린 경우 뭉개질 수 있음</li>
+</ul>
+</li>
+<li>Manifold<ul>
+<li>$d$차원 매니폴드: 국부적으로 $d$차원 초평면으로 보일 수 있는 $n$차원 공간의 일부 ($d&lt;n$)<ul>
+<li>Swiss roll dataset: $d&#x3D;2,\ n&#x3D;3$</li>
+</ul>
+</li>
+<li>매니폴드 학습 (manifold learning): 훈련 샘플이 놓여있는 매니폴드를 모델링하는 과정<ul>
+<li>실제 고차원 데이터셋이 더 낮은 저차원 매니폴드에 가깝게 놓여있다는 매니폴드 가정 (manifold assumption) 또는 매니폴드 가설 (manifold hypothesis)에 근거</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>모델을 훈련시키기 전 훈련 세트의 차원을 감소시키면 훈련 속도는 빨라질 수 있지만 항상 모델의 성능이 향상되거나 간단해지는 것은 아님</li>
+</ul>
+<h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><ul>
+<li>PCA (Principal Component Analysis): 데이터에 가장 가까운 초평면 (hyperplane)을 정의하고 데이터를 투영<ul>
+<li>주성분 (principal component, PC): 훈련 세트에서 분산이 최대인 축</li>
+<li>$d$차원으로 투영: $\boldsymbol{X}_{d-proj}&#x3D;\boldsymbol{X}\boldsymbol{W}_d$</li>
+<li>설명된 분산의 비율 (explained variance ratio): <code>pca.explained_variance_ratio_</code></li>
+</ul>
+</li>
+<li>분산 보존: 저차원의 초평면에 훈련 세트를 투영하기 위한 초평면 선택 기준<ul>
+<li>분산을 최대로 보존하여 정보 손실 최소화</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"></span><br><span class="line">pca = PCA(n_components = <span class="number">2</span>)</span><br><span class="line">X2D = pca.fit_transform(X)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Visualization of explained variance along dimensions and information on desired explaine variance<br><img width="515" alt="Visualization of explained variance along dimensions and information on desired explaine variance" src="https://user-images.githubusercontent.com/42334717/183077701-e40b942a-79b1-4504-abbe-c1016e20ac9c.png"></p>
+</blockquote>
+<ul>
+<li>재구성 오차 (reconstruction error): 원본 데이터와 재구성된 데이터 사이의 평균 제곱 거리<ul>
+<li>원본의 차원 수로 되돌리는 PCA 역변환: $\boldsymbol{X}_{recovered}&#x3D;\boldsymbol{X}_{d-proj}\boldsymbol{W}_d^T$</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Original vs. Recover after compression<br><img width="820" alt="Original vs. Restore after compression" src="https://user-images.githubusercontent.com/42334717/183078720-973003cd-c6f1-4343-8c18-d22ae94409df.png"></p>
+</blockquote>
+<ul>
+<li>Random PCA: 확률적 알고리즘을 통해 처음 <code>d</code>개의 주성분에 대한 근삿값 도출<ul>
+<li><code>svd_solver</code> 매개변수를 <code>randomized</code>로 지정</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rnd_pca = PCA(n_components = <span class="number">154</span>, svd_solver = <span class="string">&quot;randomized&quot;</span>)</span><br><span class="line">X_reduced = rnd_pca.fit_transform(X_train)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Incremental PCA (IPCA): 훈련 세트를 미니배치로 나눈 뒤 IPCA 알고리즘 적용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> IncrementalPCA</span><br><span class="line"></span><br><span class="line">n_batches = <span class="number">100</span></span><br><span class="line">inc_pca = IncrementalPCA(n_components = <span class="number">154</span>)</span><br><span class="line"><span class="keyword">for</span> X_batch <span class="keyword">in</span> np.array_split(X_train, n_batches):</span><br><span class="line">    inc_pca.partial_fit(X_batch)</span><br><span class="line">    </span><br><span class="line">X_reduced = inc_pca.transform(X_train)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Kernel PCA (kPCA): kernel trick을 적용하여 차원 축소를 위한 복잡한 비선형 투영이 가능한 PCA<ul>
+<li>Kernel trick: 샘플을 매우 높은 고차원 공간인 특성 공간 (feature space)으로 매핑하는 수학적 기법</li>
+<li>투영된 뒤 샘플의 군집을 유지하거나 복잡한 매니폴드에 가까운 데이터셋을 펼칠 때 유리</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> KernelPCA</span><br><span class="line"></span><br><span class="line">rbf_pca = KernelPCA(n_components = <span class="number">2</span>, kernel = <span class="string">&quot;rbf&quot;</span>, gamma = <span class="number">0.04</span>)</span><br><span class="line">X_reduced = rbf_pca.fit_transform(X)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Dimension reduction result according to kernel type<br><img width="1011" alt="Dimension reduction result according to kernel type" src="https://user-images.githubusercontent.com/42334717/183081321-fab22216-bed1-47c1-aea0-babc26b23f25.png"></p>
+</blockquote>
+<h2 id="LLE"><a href="#LLE" class="headerlink" title="LLE"></a>LLE</h2><ul>
+<li>지역 선형 임베딩 (locally linear embedding, LLE): 각 훈련 샘플이 가장 가까운 이웃 (closest neighbor, c.n.)에 대해 선형 연관성 파악 후 국부적 관계가 보존되는 저차원 표현 모색<ul>
+<li>비선형 차원 축소 (nonlinear dimensionality reduction, NLDR)</li>
+<li>투영에 의존하지 않는 매니폴드 학습</li>
+<li>노이즈가 심하지 않은 꼬인 매니폴드에 유리</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>LLE applied to swiss roll dataset<br><img width="672" alt="LLE applied to swiss roll dataset" src="https://user-images.githubusercontent.com/42334717/183082311-2d2d0f80-77b7-4cbb-b552-42e95e15f723.png"></p>
+</blockquote>
+<h2 id="Etc"><a href="#Etc" class="headerlink" title="Etc."></a>Etc.</h2><ul>
+<li>랜덤 투영 (random projection): 랜덤 선형 투영 기반 저차원 공간 투영</li>
+<li>다차원 스케일링 (multidimensional scailing, MDS): 샘플 간 거리 보존 및 차원 축소</li>
+<li>Isomap: 가장 가까운 이웃과 연결 후 지오데식 거리 (geodesic distance)를 유지하머 차원 축소</li>
+<li>t-SNE (t-distributed stochastic neighbor embedding): 비슷한 샘플은 가까이, 비슷하지 않은 샘플은 멀도록 차원 축소</li>
+<li>선형 판별 분석 (linear discriminant analysis, LDA): 훈련 과정에서 클래스 사이를 가장 잘 구분하는 축 규명 (supervised learning: classification)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.manifold <span class="keyword">import</span> MDS</span><br><span class="line"><span class="keyword">from</span> sklearn.manifold <span class="keyword">import</span> Isomap</span><br><span class="line"><span class="keyword">from</span> sklearn.manifold <span class="keyword">import</span> TSNE</span><br><span class="line"></span><br><span class="line">mds = MDS(n_components=<span class="number">2</span>, random_state=<span class="number">42</span>)</span><br><span class="line">X_reduced_mds = mds.fit_transform(X)</span><br><span class="line"></span><br><span class="line">isomap = Isomap(n_components=<span class="number">2</span>)</span><br><span class="line">X_reduced_isomap = isomap.fit_transform(X)</span><br><span class="line"></span><br><span class="line">tsne = TSNE(n_components=<span class="number">2</span>, random_state=<span class="number">42</span>)</span><br><span class="line">X_reduced_tsne = tsne.fit_transform(X)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>MDS vs. Isomap vs. t-SNE<br><img width="755" alt="MDS vs. Isomap vs. t-SNE" src="https://user-images.githubusercontent.com/42334717/183084216-3dd3bfdd-0383-4412-a59d-15e9cb062a7e.png"></p>
+</blockquote>
+<hr>
+<h1 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h1><ul>
+<li>군집 (clustering): 비슷한 샘플을 클러스터 (cluster)로 수집<ul>
+<li>고객 분류</li>
+<li>데이터 분석</li>
+<li>차원 축소 기법</li>
+<li>이상치 탐지</li>
+<li>준지도 학습</li>
+<li>검색 엔진</li>
+<li>이미지 분할</li>
+</ul>
+</li>
+<li>이상치 탐지 (outlier detection): 정상 데이터의 경향 학습 후 비정상 샘플 감지</li>
+<li>밀도 추정 (density estimation): 데이터셋 생성 확률 과정 (random process)의 확률 밀도 함수 (probability density function, PDF) 추정</li>
+</ul>
+<h2 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h2><ul>
+<li>K-means clustering algorithm: 주어진 데이터를 $k$개의 클러스터로 군집시키는 알고리즘</li>
+<li>군집에서 각 샘플의 레이블 (label): 알고리즘이 샘플에 할당한 클러스터의 인덱스</li>
+<li>보로노이 다이어그램 (Voronoi tessellation): 클러스터의 결정 경계 시각화</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluseter <span class="keyword">import</span> KMeans</span><br><span class="line"></span><br><span class="line">kmeans = KMeans(n_clusters = k)</span><br><span class="line">y_pred = kmeans.fit_predict(X)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>하드 군집 (hard clustering): 샘플을 하나의 클러스터에 할당</li>
+<li>소프트 군집 (soft clustering): 클러스터마다 샘플에 점수 부여</li>
+</ul>
+<h2 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a>DBSCAN</h2><ul>
+<li>알고리즘이 각 샘플에서 작은 거리인 $\varepsilon$ 내에 샘플의 수를 측정하고 해당 구역을 $\varepsilon$-이웃 ($\varepsilon$-neighbor)이라 명함</li>
+<li>핵심 샘플 (core instance): $\varepsilon$-이웃 내에 적어도 <code>min_samples</code>개의 샘플이 존재할 경우 해당 샘플을 의미</li>
+<li>핵심 샘플의 이웃에 존재하는 샘플을 모두 동일 클러스터로 분류</li>
+<li>이웃에는 다른 핵심 샘플이 포함될 수 있으며 핵심 샘플의 이웃의 이웃은 동일 클러스터 형성</li>
+<li>핵심 샘플 또는 이웃에 해당하지 않을 시 이상치로 분류</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> DBSCAN</span><br><span class="line"></span><br><span class="line">dbscan = DBSCAN(eps = <span class="number">0.05</span>, min_samples = <span class="number">5</span>)</span><br><span class="line">dbscan.fit(X)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>labels_</code>: 모든 샘플의 레이블</li>
+<li><code>core_sample_indices_</code>: 핵심 샘플의 인덱스</li>
+<li><code>components_</code>: 핵심 샘플 그 자체</li>
+<li><code>predict()</code> 대신 <code>fit_predict()</code> 제공: 새로운 샘플에 대해 클러스터 예측 불가</li>
+<li><code>model.fit(dbscan.components_, dbscan.labels_[dbscan.core_sample_indices_])</code>와 같은 방식으로 분류기 훈련 후 예측 가능</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/scikit-learn/" rel="tag"><i class="fa fa-tag"></i> scikit-learn</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/generative-adversarial-network-3/" rel="prev" title="Generative Adversarial Network (3)">
+                  <i class="fa fa-chevron-left"></i> Generative Adversarial Network (3)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/generative-adversarial-network-4/" rel="next" title="Generative Adversarial Network (4)">
+                  Generative Adversarial Network (4) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"fbb7595d03a81b8a400c432019de42f8"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

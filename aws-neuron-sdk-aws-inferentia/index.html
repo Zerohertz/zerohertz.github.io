@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="IntroductionModel serving 시 모델의 입력에 대해 출력을 산출하는 과정인 순전파 (forward propagation)는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Neuron SDK &amp; AWS Inferentia">
+<meta property="og:url" content="https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="IntroductionModel serving 시 모델의 입력에 대해 출력을 산출하는 과정인 순전파 (forward propagation)는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grph">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-12T01:36:33.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Triton Inference Server">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/","path":"aws-neuron-sdk-aws-inferentia/","title":"AWS Neuron SDK & AWS Inferentia"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>AWS Neuron SDK & AWS Inferentia | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Compile"><span class="nav-number">2.</span> <span class="nav-text">Model Compile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compile-%EC%99%B8%EC%95%8A%EB%90%98"><span class="nav-number">3.</span> <span class="nav-text">Compile 외않되?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Refereces"><span class="nav-number">4.</span> <span class="nav-text">Refereces</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/serving-yolov5-segmentation-model-with-aws-ec2-inf1/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-10</time>
+        <br>
+      Serving YOLOv5 Segmentation Model with Amazon EC2 Inf1
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/serving-yolov5-object-detection-model-using-triton-server/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-21</time>
+        <br>
+      Serving YOLOv5 Object Detection Model using Triton Inference Server
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-convert-a-pytorch-model-to-tensorrt/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-14</time>
+        <br>
+      How to Convert a PyTorch Model to TensorRT
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/professional-research-agent-train-review/" rel="bookmark">
+        <time class="popular-posts-time">2023-06-16</time>
+        <br>
+      전문연구요원: 훈련소 후기
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/hands-on-machine-learning-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-11</time>
+        <br>
+      Hands-on Machine Learning (4)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="AWS Neuron SDK & AWS Inferentia | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AWS Neuron SDK & AWS Inferentia
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-05-12 10:36:33" itemprop="dateCreated datePublished" datetime="2023-05-12T10:36:33+09:00">2023-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Model serving 시 모델의 입력에 대해 출력을 산출하는 과정인 <span class="exturl" data-url="aHR0cHM6Ly8wNzY5MjMuZ2l0aHViLmlvL3Bvc3RzL0FJLTUvIyVFQyU4OCU5QyVFQyVBMCU4NCVFRCU4QyU4Q2ZvcndhcmQtcHJvcGFnYXRpb24=">순전파 (forward propagation)<i class="fa fa-external-link-alt"></i></span>는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.<br>이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grphic Processing Unit)을 많이 활용하고 있다.<br>하지만 아래와 같은 한계점이 존재한다.</p>
+<ul>
+<li>비싸다. (물리적 GPU 비용, 전력 소모, 클라우드 서비스 등 모든 측면에서)</li>
+<li>물리 코어를 가상 코어로 나눠 사용할 수 없어 자원을 낭비하기 쉽다.</li>
+<li>연산량이 적은 모델에 대해 추론할 때 CPU와 GPU 간 메모리 통신 오버헤드가 큰 경우 CPU에서 자체적 처리가 더 효율적일 수 있다.</li>
+</ul>
+<p>이러한 이유들로 다양한 회사에서 GPU에 비해 저렴하지만 효율적인 ML 연산을 할 수 있는 AI 가속기들을 아래와 같이 개발하고 있다.</p>
+<ul>
+<li>AWS Trainium, Inferentia</li>
+<li>Google TPU (Tensor Processing Unit)</li>
+<li>Apple ANE (Apple Neural Engine)</li>
+</ul>
+<span id="more"></span>
+
+<p>AI 가속기들은 ASIC (Application-Specific Integrated Circuit, 특정 용도용 집적 회로) 기반으로 개발되고 있다.<br>ASIC은 공정상의 이유로 소량 생산 시 생산 비용이 비싸고 설계 및 수정도 어려운 한계점들이 있지만, ML 연산은 대부분이 단순하고 수많은 독립적 연산을 처리하는 패턴이기 때문에 model serving을 위한 하드웨어를 생산하기 적합하다.<br>AI 가속기를 사용한 Amazon EC2 객체는 아래와 같다.</p>
+<ul>
+<li>Amazon EC2 Trn1&#x2F;Trn1n<ul>
+<li>AWS Trainium으로 구동</li>
+<li>모델 학습에 최적화 (학습 시간 단축, 저렴한 비용)</li>
+</ul>
+</li>
+<li>Amazon EC2 Inf1&#x2F;Inf2<ul>
+<li>AWS Inferentia로 구동</li>
+<li>모델 추론에 최적화 (저렴한 비용, 높은 처리량, 낮은 지연 시간)</li>
+</ul>
+</li>
+</ul>
+<p>두 인스턴스 중 모델을 serving 할 수 있는 Amazon EC2 Inf* 인스턴스에 대해 알아보겠다.<br>Amazon EC2 Inf*는 앞서 설명한 ASIC으로 구동되기 때문에 모델을 AWS Neuron SDK로 모델을 컴파일해야한다.</p>
+<ul>
+<li>AWS Neuron: AWS Trainium 및 AWS Inferentia 기반 인스턴스에서 deep learning workloads를 실행하는데 사용되는 SDK<ul>
+<li>End-to-End ML development lifecycle에서 새로운 모델 구축, 학습 및 최적화 후 배포를 위해 사용</li>
+<li>TensorFlow, PyTorch, Apache MXNet에 통합되는 deep learning compiler, runtime, tools 포함</li>
+</ul>
+</li>
+</ul>
+<p>AWS Neuron SDK를 통한 모델 컴파일은 <a href="https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/">TensorRT 변환</a>과 유사하게 진행된다.<br>변환된 모델을 Triton Inference Server로 모델을 배포하면 모델 serving에 대한 준비는 모두 완료된다.</p>
+<hr>
+<h1 id="Model-Compile"><a href="#Model-Compile" class="headerlink" title="Model Compile"></a>Model Compile</h1><p>앞서 말한 것과 같이 AWS Neuron SDK를 통해 모델을 컴파일하기 위해서는 모델의 구조를 담고 있는 deep learning framework (PyTorch, TensorFlow, …) 기반의 코드와 학습이 완료된 가중치를 준비해야한다.</p>
+<blockquote>
+<p>AWS Neuron SDK 설치</p>
+</blockquote>
+<figure class="highlight bash"><figcaption><span>Install AWS Neuron SDK for Inf1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip config <span class="built_in">set</span> global.extra-index-url https://pip.repos.neuron.amazonaws.com</span><br><span class="line">$ pip install torch-neuron neuron-cc[tensorflow] <span class="string">&quot;protobuf&quot;</span> torchvision</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>Install AWS Neuron SDK for Inf2</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install aws-neuronx-collectives=2.* -y</span><br><span class="line">$ sudo apt-get install aws-neuronx-runtime-lib=2.* -y</span><br><span class="line">$ pip config <span class="built_in">set</span> global.extra-index-url https://pip.repos.neuron.amazonaws.com</span><br><span class="line">$ pip install neuronx-cc==2.* torch-neuronx torchvision</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>AWS Neuron SDK 기반 모델 컴파일</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>PyTorch2Neuron for Inf1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.neuron</span><br><span class="line"></span><br><span class="line">pretrained_dict = torch.load(weightfile, map_location=torch.device(<span class="string">&#x27;cpu&#x27;</span>))</span><br><span class="line">model.load_state_dict(pretrained_dict)</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line">input_tensor = torch.zeros([B, C, H, W], dtype=torch.float32)</span><br><span class="line">model_neuron = torch.neuron.trace(model, [input_tensor])</span><br><span class="line"></span><br><span class="line">filename = <span class="string">&#x27;model_neuron.pt&#x27;</span></span><br><span class="line">torch.jit.save(model_neuron, filename)</span><br><span class="line">model_neuron.save(filename)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>컴파일은 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://awsdocs-neuron.readthedocs-hosted.com/en/latest/frameworks/torch/torch-neuron/api-compilation-python-api.html?highlight=torch.neuron.trace#torch_neuron.trace"><code>torch.neuron.trace()</code></a> 함수를 사용해 진행할 수 있다.</li>
+</ul>
+<blockquote>
+<p>추론을 통한 결과 비교</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>Inference.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model_neuron = torch.jit.load(<span class="string">&#x27;model_neuron.pt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">output_cpu = model(input_tensor)</span><br><span class="line">output_neuron = model_neuron(input_tensor)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Results of CPU: &quot;</span>, output_cpu)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Results of Neuron: &quot;</span>, output_neuron)</span><br></pre></td></tr></table></figure>
+
+<p>이를 응용하고 시험하기 위해 STD 모델인 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9DUkFGVC90cmVlL05ldXJvbg==">CRAFT<i class="fa fa-external-link-alt"></i></span>를 AWS Neuron SDK로 컴파일하기 위해 아래 코드를 개발했다.</p>
+<figure class="highlight python"><figcaption><span>torch2neuron.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.neuron</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> config.load_config <span class="keyword">import</span> load_yaml, DotDict</span><br><span class="line"><span class="keyword">from</span> model.craft <span class="keyword">import</span> CRAFT</span><br><span class="line"><span class="keyword">from</span> utils.util <span class="keyword">import</span> copyStateDict</span><br><span class="line"><span class="keyword">from</span> utils.craft_utils <span class="keyword">import</span> getDetBoxes</span><br><span class="line"><span class="keyword">from</span> data <span class="keyword">import</span> imgproc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    config = load_yaml(<span class="string">&quot;main&quot;</span>)</span><br><span class="line">    config = DotDict(config)</span><br><span class="line"></span><br><span class="line">    model = CRAFT()</span><br><span class="line">    model_path = config.test.trained_model</span><br><span class="line">    net_param = torch.load(model_path)</span><br><span class="line">    model.load_state_dict(copyStateDict(net_param[<span class="string">&quot;craft&quot;</span>]))</span><br><span class="line">    model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line">    image_path = config.test.custom_data.test_data_dir</span><br><span class="line">    img = cv2.imread(image_path)</span><br><span class="line">    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)</span><br><span class="line">    img_resized, target_ratio, size_heatmap = imgproc.resize_aspect_ratio(</span><br><span class="line">        img, config.test.custom_data.canvas_size, interpolation=cv2.INTER_LINEAR, mag_ratio=config.test.custom_data.mag_ratio</span><br><span class="line">    )</span><br><span class="line">    ratio_h = ratio_w = <span class="number">1</span> / target_ratio</span><br><span class="line">    input_tensor = imgproc.normalizeMeanVariance(img_resized)</span><br><span class="line">    input_tensor = torch.from_numpy(input_tensor).permute(<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">    input_tensor = torch.autograd.Variable(input_tensor.unsqueeze(<span class="number">0</span>))</span><br><span class="line">    <span class="built_in">print</span>(input_tensor.shape)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        y_cpu, feature_cpu = model(input_tensor)</span><br><span class="line">    score_text = y_cpu[<span class="number">0</span>, :, :, <span class="number">0</span>].cpu().data.numpy().astype(np.float32)</span><br><span class="line">    score_link = y_cpu[<span class="number">0</span>, :, :, <span class="number">1</span>].cpu().data.numpy().astype(np.float32)</span><br><span class="line">    score_text_cpu = score_text[: size_heatmap[<span class="number">0</span>], : size_heatmap[<span class="number">1</span>]]</span><br><span class="line">    score_link_cpu = score_link[: size_heatmap[<span class="number">0</span>], : size_heatmap[<span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line">    boxes_cpu, polys_cpu = getDetBoxes(</span><br><span class="line">        score_text_cpu, score_link_cpu,</span><br><span class="line">        config.test.custom_data.text_threshold,</span><br><span class="line">        config.test.custom_data.link_threshold,</span><br><span class="line">        config.test.custom_data.low_text,</span><br><span class="line">        config.test.custom_data.poly</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    convert_neuron = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> convert_neuron:</span><br><span class="line">        model_neuron = torch.neuron.trace(model, [input_tensor], compiler_workdir=<span class="string">&#x27;./logs&#x27;</span>)</span><br><span class="line">        filename = <span class="string">&#x27;model_neuron.pt&#x27;</span></span><br><span class="line">        model_neuron.save(filename)</span><br><span class="line"></span><br><span class="line">    validate_neuron = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> validate_neuron:</span><br><span class="line">        model_neuron = torch.jit.load(<span class="string">&#x27;model_neuron.pt&#x27;</span>)</span><br><span class="line">        y_neuron, feature_neuron = model_neuron(input_tensor)</span><br><span class="line">        score_text = y_neuron[<span class="number">0</span>, :, :, <span class="number">0</span>].cpu().data.numpy().astype(np.float32)</span><br><span class="line">        score_link = y_neuron[<span class="number">0</span>, :, :, <span class="number">1</span>].cpu().data.numpy().astype(np.float32)</span><br><span class="line">        score_text_neuron = score_text[: size_heatmap[<span class="number">0</span>], : size_heatmap[<span class="number">1</span>]]</span><br><span class="line">        score_link_neuron = score_link[: size_heatmap[<span class="number">0</span>], : size_heatmap[<span class="number">1</span>]]</span><br><span class="line">        boxes_neuron, polys_neuron = getDetBoxes(</span><br><span class="line">            score_text_neuron, score_link_neuron,</span><br><span class="line">            config.test.custom_data.text_threshold,</span><br><span class="line">            config.test.custom_data.link_threshold,</span><br><span class="line">            config.test.custom_data.low_text,</span><br><span class="line">            config.test.custom_data.poly</span><br><span class="line">        )</span><br><span class="line">        <span class="built_in">print</span>(score_text_cpu)</span><br><span class="line">        <span class="built_in">print</span>(score_text_neuron)</span><br><span class="line">        <span class="built_in">print</span>(score_link_cpu)</span><br><span class="line">        <span class="built_in">print</span>(score_link_neuron)</span><br><span class="line">        <span class="built_in">print</span>(boxes_cpu)</span><br><span class="line">        <span class="built_in">print</span>(boxes_neuron)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>Logs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ python torch2neuron.py </span><br><span class="line">torch.Size([1, 3, 2400, 2400])</span><br><span class="line">INFO:Neuron:All operators are compiled by neuron-cc (this does not guarantee that neuron-cc will successfully compile)</span><br><span class="line">INFO:Neuron:Number of arithmetic operators (pre-compilation) before = 95, fused = 95, percent fused = 100.0%</span><br><span class="line">INFO:Neuron:Compiling <span class="keyword">function</span> _NeuronGraph<span class="variable">$278</span> with neuron-cc; <span class="built_in">log</span> file is at /home/jovyan/local/1_user/hgoh@agilesoda.ai/CRAFT/logs/0/graph_def.neuron-cc.log</span><br><span class="line">INFO:Neuron:Compiling with <span class="built_in">command</span> line: <span class="string">&#x27;/opt/conda/envs/neuron/bin/neuron-cc compile /home/jovyan/local/1_user/hgoh@agilesoda.ai/CRAFT/logs/0/graph_def.pb --framework TENSORFLOW --pipeline compile SaveTemps --output /home/jovyan/local/1_user/hgoh@agilesoda.ai/CRAFT/logs/0/graph_def.neff --io-config &#123;&quot;inputs&quot;: &#123;&quot;0:0&quot;: [[1, 3, 2400, 2400], &quot;float32&quot;]&#125;, &quot;outputs&quot;: [&quot;aten_permute/transpose:0&quot;, &quot;double_conv_59/Sequential_1/BatchNorm2d_10/aten_relu/Relu:0&quot;]&#125; --verbose 35&#x27;</span></span><br><span class="line">INFO:Neuron:Number of arithmetic operators (post-compilation) before = 95, compiled = 95, percent compiled = 100.0%</span><br><span class="line">INFO:Neuron:The neuron partitioner created 1 sub-graphs</span><br><span class="line">INFO:Neuron:Neuron successfully compiled 1 sub-graphs, Total fused subgraphs = 1, Percent of model sub-graphs successfully compiled = 100.0%</span><br><span class="line">INFO:Neuron:Compiled these operators (and operator counts) to Neuron:</span><br><span class="line">INFO:Neuron: =&gt; aten::Int: 6</span><br><span class="line">INFO:Neuron: =&gt; aten::_convolution: 27</span><br><span class="line">INFO:Neuron: =&gt; aten::batch_norm: 20</span><br><span class="line">INFO:Neuron: =&gt; aten::<span class="built_in">cat</span>: 4</span><br><span class="line">INFO:Neuron: =&gt; aten::max_pool2d: 5</span><br><span class="line">INFO:Neuron: =&gt; aten::permute: 1</span><br><span class="line">INFO:Neuron: =&gt; aten::relu_: 23</span><br><span class="line">INFO:Neuron: =&gt; aten::size: 6</span><br><span class="line">INFO:Neuron: =&gt; aten::upsample_bilinear2d: 3</span><br></pre></td></tr></table></figure>
+
+<p>상세한 로그들은 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9DUkFGVC90cmVlL05ldXJvbi9sb2dzLzA=">여기<i class="fa fa-external-link-alt"></i></span>에서 확인할 수 있다.</p>
+<ul>
+<li>결과 비교를 위해서는 Amazon EC2 Inf1 인스턴스를 실행해야하지만 아직은 불가능하기 때문에 일단 여기까지! $\rightarrow$ 차후 <code>model_neuron.pt</code>를 Python backend 기반 Triton Inference Server로 모델 배포 가능!</li>
+<li>모델 컴파일 시 <span class="exturl" data-url="aHR0cHM6Ly9hd3Nkb2NzLW5ldXJvbi5yZWFkdGhlZG9jcy1ob3N0ZWQuY29tL2VuL3YyLjEwLjAvZ2VuZXJhbC9hcmNoL25ldXJvbi1mZWF0dXJlcy9keW5hbWljLXNoYXBlcy5odG1s">Dynamic Shapes<i class="fa fa-external-link-alt"></i></span>는 현재까지는 지원 X</li>
+</ul>
+<p>하지만 동적인 입력을 위해 아래와 같이 입력 텐서의 크기를 <code>torch.nn.functional.pad</code>로 조정해줄 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = torch.nn.functional.pad</span><br><span class="line">ph, pw = <span class="built_in">max</span>(<span class="number">0</span>, <span class="number">2400</span> - input_tensor.shape[<span class="number">2</span>]), <span class="built_in">max</span>(<span class="number">0</span>, <span class="number">2400</span> - input_tensor.shape[<span class="number">3</span>])</span><br><span class="line">input_tensor = p(input_tensor, (<span class="number">0</span>,pw,<span class="number">0</span>,ph))</span><br></pre></td></tr></table></figure>
+
+<p>모든 케이스에 적용이 가능하진 않지만 CNN (Convolution Neural Network)과 같은 계층으로 구성된 신경망에 대해서는 가능하다.</p>
+<hr>
+<h1 id="Compile-외않되"><a href="#Compile-외않되" class="headerlink" title="Compile 외않되?"></a>Compile 외않되?</h1><p>위에서 진행한 것과 같이 Amazon EC2 Inf1 인스턴스에 모델들을 서빙하기위해 AWS Neuron SDK로 모델들을 컴파일하는 도중 STR 모델인 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JhdWRtL3BhcnNlcQ==">PARSeq<i class="fa fa-external-link-alt"></i></span>가 컴파일 시 에러가 발생함을 확인하였다.<br>컴파일 에러에 대한 ChatGPT 선생님의 소견은 아래와 같다.</p>
+<blockquote>
+<p>이는 PyTorch의 동적 그래프 실행 방식 때문입니다. PyTorch는 실행 시에 모델의 형태를 동적으로 조정할 수 있기 때문에 오류가 발생하지 않을 수 있습니다. 그러나 Neuron은 컴파일 시에 정적인 그래프를 사용하므로 텐서 형태의 일치가 필요합니다. 그래서 Neuron 변환 과정에서 오류가 발생하는 것입니다.<br>이러한 문제를 해결하기 위해서는 모델 변환 과정에서 <code>aten::view</code> 연산을 수정해야 합니다. 현재 모델 변환에 사용된 <code>aten::view</code> 연산에서 잘못된 형태로 텐서를 변경하려고 하기 때문에 오류가 발생한 것입니다. <code>aten::view</code> 연산을 수정하여 입력 텐서의 형태를 목표 형태로 올바르게 변경하도록 해야 합니다.</p>
+</blockquote>
+<p>선생님의 말씀과 같이 Python만을 사용해 동일 모델을 순전파하여 추론하였을 때는 에러가 발생하지 않음을 확인할 수 있었고, 이는 내부에서 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JhdWRtL3BhcnNlcS9ibG9iL21haW4vLmdpdGh1Yi9zeXN0ZW0ucG5n">동적인 텐서 크기<i class="fa fa-external-link-alt"></i></span>가 존재하여 발생하였음을 추측할 수 있었다.<br>자세하게는 특정 레이어에서 텐서가 순전파될 때 텐서의 크기가 동적이기 때문에 발생하였음을 하단의 Error Logs를 살펴보면 알 수 있다.</p>
+<details>
+<summary>
+Error Logs
+</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">/opt/conda/envs/neuron/lib/python3.8/site-packages/torch/__init__.py:853: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can<span class="string">&#x27;t record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!</span></span><br><span class="line"><span class="string">  assert condition, message</span></span><br><span class="line"><span class="string">INFO:Neuron:There are 105 ops of 2 different types in the TorchScript that are not compiled by neuron-cc: aten::embedding, aten::index_put_, (For more information see https://awsdocs-neuron.readthedocs-hosted.com/en/latest/release-notes/compiler/neuron-cc/neuron-cc-ops/neuron-cc-ops-pytorch.html)</span></span><br><span class="line"><span class="string">INFO:Neuron:Number of arithmetic operators (pre-compilation) before = 8878, fused = 8295, percent fused = 93.43%</span></span><br><span class="line"><span class="string">WARNING:tensorflow:From /opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/ops/aten.py:2387: where (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.</span></span><br><span class="line"><span class="string">Instructions for updating:</span></span><br><span class="line"><span class="string">Use tf.where in 2.0, which has the same broadcast rule as np.where</span></span><br><span class="line"><span class="string">WARNING:tensorflow:From /opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/ops/aten.py:3866: The name tf.matrix_band_part is deprecated. Please use tf.linalg.band_part instead.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">INFO:Neuron:PyTorch to TF conversion failed to resolve function on aten::view with inputs [&lt;tf.Tensor &#x27;</span>Decoder_132/DecoderLayer_3/MultiheadAttention_14/aten_chunk/split:0<span class="string">&#x27; shape=(2, 1, 384) dtype=float32&gt;, [1, 12, 32]]</span></span><br><span class="line"><span class="string">INFO:Neuron:Exception = Cannot reshape a tensor with 768 elements to shape [1,12,32] (384 elements) for &#x27;</span>Decoder_132/DecoderLayer_3/MultiheadAttention_14/aten_view_1/Reshape<span class="string">&#x27; (op: &#x27;</span>Reshape<span class="string">&#x27;) with input shapes: [2,1,384], [3] and with input tensors computed as partial shapes: input[1] = [1,12,32].</span></span><br><span class="line"><span class="string">WARNING:Neuron:torch.neuron.trace failed on _NeuronGraph$4187; falling back to native python function call</span></span><br><span class="line"><span class="string">ERROR:Neuron:Cannot reshape a tensor with 768 elements to shape [1,12,32] (384 elements) for &#x27;</span>Decoder_132/DecoderLayer_3/MultiheadAttention_14/aten_view_1/Reshape<span class="string">&#x27; (op: &#x27;</span>Reshape<span class="string">&#x27;) with input shapes: [2,1,384], [3] and with input tensors computed as partial shapes: input[1] = [1,12,32].</span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/framework/ops.py&quot;, line 1607, in _create_c_op</span></span><br><span class="line"><span class="string">    c_op = c_api.TF_FinishOperation(op_desc)</span></span><br><span class="line"><span class="string">tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot reshape a tensor with 768 elements to shape [1,12,32] (384 elements) for &#x27;</span>Decoder_132/DecoderLayer_3/MultiheadAttention_14/aten_view_1/Reshape<span class="string">&#x27; (op: &#x27;</span>Reshape<span class="string">&#x27;) with input shapes: [2,1,384], [3] and with input tensors computed as partial shapes: input[1] = [1,12,32].</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">During handling of the above exception, another exception occurred:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/convert.py&quot;, line 413, in op_converter</span></span><br><span class="line"><span class="string">    neuron_function = self.subgraph_compiler(</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/decorators.py&quot;, line 81, in trace</span></span><br><span class="line"><span class="string">    transform_torch_graph_to_tensorflow(jit_trace, example_inputs, separate_weights=separate_weights, neuron_graph=func, **kwargs)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/decorators.py&quot;, line 634, in transform_torch_graph_to_tensorflow</span></span><br><span class="line"><span class="string">    raise e</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/decorators.py&quot;, line 628, in transform_torch_graph_to_tensorflow</span></span><br><span class="line"><span class="string">    tensor_outputs = local_func(op, *tensor_inputs)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/ops/aten.py&quot;, line 2540, in view</span></span><br><span class="line"><span class="string">    return reshape(op, tensor, shape)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/ops/aten.py&quot;, line 2548, in reshape</span></span><br><span class="line"><span class="string">    out = tf.reshape(tensor, shape)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/ops/array_ops.py&quot;, line 131, in reshape</span></span><br><span class="line"><span class="string">    result = gen_array_ops.reshape(tensor, shape, name)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/ops/gen_array_ops.py&quot;, line 8114, in reshape</span></span><br><span class="line"><span class="string">    _, _, _op = _op_def_lib._apply_op_helper(</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/framework/op_def_library.py&quot;, line 792, in _apply_op_helper</span></span><br><span class="line"><span class="string">    op = g.create_op(op_type_name, inputs, dtypes=None, name=scope,</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/util/deprecation.py&quot;, line 507, in new_func</span></span><br><span class="line"><span class="string">    return func(*args, **kwargs)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/framework/ops.py&quot;, line 3356, in create_op</span></span><br><span class="line"><span class="string">    return self._create_op_internal(op_type, inputs, dtypes, input_types, name,</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/framework/ops.py&quot;, line 3418, in _create_op_internal</span></span><br><span class="line"><span class="string">    ret = Operation(</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/framework/ops.py&quot;, line 1769, in __init__</span></span><br><span class="line"><span class="string">    self._c_op = _create_c_op(self._graph, node_def, grouped_inputs,</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/tensorflow_core/python/framework/ops.py&quot;, line 1610, in _create_c_op</span></span><br><span class="line"><span class="string">    raise ValueError(str(e))</span></span><br><span class="line"><span class="string">ValueError: Cannot reshape a tensor with 768 elements to shape [1,12,32] (384 elements) for &#x27;</span>Decoder_132/DecoderLayer_3/MultiheadAttention_14/aten_view_1/Reshape<span class="string">&#x27; (op: &#x27;</span>Reshape<span class="string">&#x27;) with input shapes: [2,1,384], [3] and with input tensors computed as partial shapes: input[1] = [1,12,32].</span></span><br><span class="line"><span class="string">INFO:Neuron:Number of arithmetic operators (post-compilation) before = 8878, compiled = 0, percent compiled = 0.0%</span></span><br><span class="line"><span class="string">INFO:Neuron:The neuron partitioner created 1 sub-graphs</span></span><br><span class="line"><span class="string">INFO:Neuron:Neuron successfully compiled 0 sub-graphs, Total fused subgraphs = 1, Percent of model sub-graphs successfully compiled = 0.0%</span></span><br><span class="line"><span class="string">INFO:Neuron:Compiled these operators (and operator counts) to Neuron:</span></span><br><span class="line"><span class="string">INFO:Neuron:Not compiled operators (and operator counts) to Neuron:</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::Int: 1992 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::_convolution: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::add: 233 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::argmax: 51 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::baddbmm: 52 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::bmm: 156 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::cat: 54 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::chunk: 104 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::contiguous: 416 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::cumsum: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::div: 208 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::dropout: 361 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::embedding: 104 [not supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::eq: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::expand: 2 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::fill_: 51 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::flatten: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::full: 3 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::gelu: 64 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::gt: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::index_put_: 1 [not supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::layer_norm: 285 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::linear: 516 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::masked_fill: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::matmul: 24 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::mul: 741 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::ones: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::permute: 12 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::reshape: 25 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::select: 51 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::size: 819 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::slice: 675 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::softmax: 116 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::split_with_sizes: 208 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::squeeze: 50 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::sub: 52 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::to: 1 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::transpose: 857 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::triu: 2 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::unbind: 12 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::unsqueeze: 52 [supported]</span></span><br><span class="line"><span class="string">INFO:Neuron: =&gt; aten::view: 521 [supported]</span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">  File &quot;torch2neuron.py&quot;, line 46, in &lt;module&gt;</span></span><br><span class="line"><span class="string">    model_neuron = torch.neuron.trace(model, [input_tensor])</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/convert.py&quot;, line 217, in trace</span></span><br><span class="line"><span class="string">    cu.stats_post_compiler(neuron_graph)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/envs/neuron/lib/python3.8/site-packages/torch_neuron/convert.py&quot;, line 530, in stats_post_compiler</span></span><br><span class="line"><span class="string">    raise RuntimeError(</span></span><br><span class="line"><span class="string">RuntimeError: No operations were successfully partitioned and compiled to neuron for this model - aborting trace!</span></span><br></pre></td></tr></table></figure>
+
+</details>
+
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F3cy1uZXVyb24vYXdzLW5ldXJvbi1zYW1wbGVzL2Jsb2IvbWFzdGVyL3RvcmNoLW5ldXJvbi9pbmZlcmVuY2UvZmFpcnNlcS9GYWlyc2VxLmlweW5i">비슷한 구조의 Encoder-Decoder 모델의 컴파일 과정 예제<i class="fa fa-external-link-alt"></i></span>를 기반으로 컴파일 에러를 해결해보려 했으나,,, 위에서 기술한 것과 같이 동적 그래프 방식 모델은 AWS Neuron SDK로 컴파일이 불가능하다.<br>아래와 같이 <code>PARSeq.decode()</code> 메서드에 입력되는 텐서가 슬라이싱되어 입력되기 때문에 매 반복에 따라서 크기가 변하는 것을 확인할 수 있고, 이를 해결하기 위해 동적인 입력 텐서에 대해 가장 큰 차원의 입력 텐서를 기준으로 작은 텐서를 패딩하여 텐서의 차원을 고정하려 했으나 계층의 순전파 이후 결과가 변경되기 때문에 불가능한 것으로 결론지었다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PARSeq</span>(<span class="title class_ inherited__">CrossEntropySystem</span>):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, images: Tensor, max_length: <span class="type">Optional</span>[<span class="built_in">int</span>] = <span class="literal">None</span></span>) -&gt; Tensor:</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">if</span> self.decode_ar:</span><br><span class="line">            ...</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_steps):</span><br><span class="line">                j = i + <span class="number">1</span>  <span class="comment"># next token index</span></span><br><span class="line">                <span class="comment"># Efficient decoding:</span></span><br><span class="line">                <span class="comment"># Input the context up to the ith token. We use only one query (at position = i) at a time.</span></span><br><span class="line">                <span class="comment"># This works because of the lookahead masking effect of the canonical (forward) AR context.</span></span><br><span class="line">                <span class="comment"># Past tokens have no access to future tokens, hence are fixed once computed.</span></span><br><span class="line">                tgt_out = self.decode(tgt_in[:, :j], memory, tgt_mask[:j, :j], tgt_query=pos_queries[:, i:j],</span><br><span class="line">                                      tgt_query_mask=query_mask[i:j, :j])</span><br><span class="line">                <span class="comment"># the next token probability is in the output&#x27;s ith token position</span></span><br><span class="line">                p_i = self.head(tgt_out)</span><br><span class="line">                logits.append(p_i)</span><br><span class="line">                <span class="keyword">if</span> j &lt; num_steps:</span><br><span class="line">                    <span class="comment"># greedy decode. add the next token index to the target input</span></span><br><span class="line">                    tgt_in[:, j] = p_i.squeeze().argmax(-<span class="number">1</span>)</span><br><span class="line">                    <span class="comment"># Efficient batch decoding: If all output words have at least one EOS token, end decoding.</span></span><br><span class="line">                    <span class="keyword">if</span> testing <span class="keyword">and</span> (tgt_in == self.eos_id).<span class="built_in">any</span>(dim=-<span class="number">1</span>).<span class="built_in">all</span>():</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>하지만 이러한 구조를 정적으로 변경하면 컴파일이 가능하다. (중요한 것은 꺾이지 않는 마음.)<br>모델의 성능은 감소하겠지만, Amazon EC2 Inf1의 비용이 매우 저렴하기 때문에 경우에 따라서 좋은 선택지가 될 수 있다.<br>모델을 정적으로 만들기 위해 아래와 같이 변경하였다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PARSeq</span>(nn.Module):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decode</span>(<span class="params">self, tgt: torch.Tensor, memory: torch.Tensor, tgt_mask: <span class="type">Optional</span>[Tensor] = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">               tgt_padding_mask: <span class="type">Optional</span>[Tensor] = <span class="literal">None</span>, tgt_query: <span class="type">Optional</span>[Tensor] = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">               tgt_query_mask: <span class="type">Optional</span>[Tensor] = <span class="literal">None</span></span>):</span><br><span class="line">        null_ctx = self.text_embed(tgt[:, :<span class="number">1</span>])</span><br><span class="line">        tgt_emb = self.dropout(null_ctx)</span><br><span class="line">        tgt_query = self.dropout(tgt_query)</span><br><span class="line">        <span class="keyword">return</span> self.decoder(tgt_query, tgt_emb, memory, tgt_query_mask, tgt_mask, tgt_padding_mask)</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, images: Tensor, max_length: <span class="type">Optional</span>[<span class="built_in">int</span>] = <span class="literal">None</span></span>) -&gt; Tensor:</span><br><span class="line">        max_length = <span class="number">50</span></span><br><span class="line">        bs = <span class="number">1</span></span><br><span class="line">        num_steps = max_length + <span class="number">1</span></span><br><span class="line">        memory = self.encode(images)</span><br><span class="line">        pos_queries = self.pos_queries[:, :<span class="number">51</span>].expand(<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">        tgt_in = torch.full((<span class="number">1</span>, <span class="number">1</span>), self.bos_id, dtype=torch.long)</span><br><span class="line">        tgt_out = self.decode(tgt_in, memory, tgt_query=pos_queries)</span><br><span class="line">        logits = self.head(tgt_out)</span><br><span class="line">        <span class="keyword">return</span> logits</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 정적으로 변경한 모델을 AWS Neuron SDK로 컴파일하는 코드는 아래와 같다.</p>
+<figure class="highlight python"><figcaption><span>torch2neuron.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.neuron</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> model.parseq <span class="keyword">import</span> PARSeq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_transform</span>(<span class="params">img_size</span>):</span><br><span class="line">    transforms = []</span><br><span class="line">    transforms.extend([</span><br><span class="line">        T.Resize(img_size, T.InterpolationMode.BICUBIC),</span><br><span class="line">        T.ToTensor(),</span><br><span class="line">        T.Normalize(<span class="number">0.5</span>, <span class="number">0.5</span>)</span><br><span class="line">    ])</span><br><span class="line">    <span class="keyword">return</span> T.Compose(transforms)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    loaded_dict = torch.load(<span class="string">&#x27;parseq.pth&#x27;</span>)</span><br><span class="line">    config = loaded_dict[<span class="string">&#x27;cfg&#x27;</span>]</span><br><span class="line">    model = PARSeq(**config.model)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;model&#x27;</span> <span class="keyword">in</span> loaded_dict.keys():</span><br><span class="line">        model_state_dict = loaded_dict[<span class="string">&#x27;model&#x27;</span>]</span><br><span class="line">    model.load_state_dict(model_state_dict)</span><br><span class="line">    model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line">    img_transform = get_transform(config.data.img_size)</span><br><span class="line">    img_path = <span class="string">&#x27;data/target.jpg&#x27;</span></span><br><span class="line">    img = cv2.imread(img_path)</span><br><span class="line">    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">    img = np.dstack([img, img, img])</span><br><span class="line">    img = Image.fromarray(img)</span><br><span class="line">    input_tensor = img_transform(img).unsqueeze(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        p_cpu = model(input_tensor).softmax(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    preds_cpu, probs_cpu = model.tokenizer.decode(p_cpu)</span><br><span class="line"></span><br><span class="line">    convert_neuron = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> convert_neuron:</span><br><span class="line">        ops = torch.neuron.get_supported_operations() + [<span class="string">&#x27;aten::embedding&#x27;</span>]</span><br><span class="line">        <span class="built_in">print</span>(torch.neuron.analyze_model(model, [input_tensor]))</span><br><span class="line">        model_neuron = torch.neuron.trace(model, [input_tensor], op_whitelist=ops, compiler_workdir=<span class="string">&#x27;./logs&#x27;</span>)</span><br><span class="line">        filename = <span class="string">&#x27;model_neuron.pt&#x27;</span></span><br><span class="line">        model_neuron.save(filename)</span><br><span class="line"></span><br><span class="line">    validate_neuron = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> validate_neuron:</span><br><span class="line">        model_neuron = torch.jit.load(<span class="string">&#x27;model_neuron.pt&#x27;</span>)</span><br><span class="line">        p_neuron = model_neuron(input_tensor).softmax(-<span class="number">1</span>)</span><br><span class="line">        preds_neuron, probs_neuron = model.tokenizer.decode(p_neuron)</span><br><span class="line">        <span class="built_in">print</span>(preds_cpu)</span><br><span class="line">        <span class="built_in">print</span>(probs_cpu)</span><br><span class="line">        <span class="built_in">print</span>(preds_neuron)</span><br><span class="line">        <span class="built_in">print</span>(probs_neuron)</span><br></pre></td></tr></table></figure>
+
+<p>CRAFT와 다르게 PARSeq는 모델 구조의 이해도가 상대적으로 떨어지기 때문에 컴파일에 어려움이 많았다.<br>MLOps 개발자의 길은 험난하다…</p>
+<hr>
+<h1 id="Refereces"><a href="#Refereces" class="headerlink" title="Refereces"></a>Refereces</h1><ol>
+<li>Hyperconnect: <span class="exturl" data-url="aHR0cHM6Ly9oeXBlcmNvbm5lY3QuZ2l0aHViLmlvLzIwMjIvMTIvMTMvaW5mcmEtY29zdC1vcHRpbWl6YXRpb24td2l0aC1hd3MtaW5mZXJlbnRpYS5odG1s">머신러닝 모델 서빙 비용 1&#x2F;4로 줄이기<i class="fa fa-external-link-alt"></i></span></li>
+<li>AWS: <span class="exturl" data-url="aHR0cHM6Ly9hd3Nkb2NzLW5ldXJvbi5yZWFkdGhlZG9jcy1ob3N0ZWQuY29tL2VuL2xhdGVzdC8=">Welcome to AWS Neuron<i class="fa fa-external-link-alt"></i></span><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hd3Nkb2NzLW5ldXJvbi5yZWFkdGhlZG9jcy1ob3N0ZWQuY29tL2VuL2xhdGVzdC9nZW5lcmFsL2FyY2gvbmV1cm9uLWhhcmR3YXJlL2luZmVyZW50aWEuaHRtbCNpbmZlcmVudGlhLWFyY2hpdGVjdHVyZQ==">Inferentia1 Architecture<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hd3Nkb2NzLW5ldXJvbi5yZWFkdGhlZG9jcy1ob3N0ZWQuY29tL2VuL2xhdGVzdC9nZW5lcmFsL2FyY2gvbmV1cm9uLWhhcmR3YXJlL2luZmVyZW50aWEyLmh0bWwjaW5mZXJlbnRpYTItYXJjaGl0ZWN0dXJl">Inferentia2 Architecture<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hd3Nkb2NzLW5ldXJvbi5yZWFkdGhlZG9jcy1ob3N0ZWQuY29tL2VuL2xhdGVzdC9nZW5lcmFsL2FyY2gvbW9kZWwtYXJjaGl0ZWN0dXJlLWZpdC5odG1sI21vZGVsLWFyY2hpdGVjdHVyZS1maXQ=">Model Architecture Fit Guidelines<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hd3MuYW1hem9uLmNvbS9rby9lYzIvaW5zdGFuY2UtdHlwZXMvdHJuMS8=">Amazon EC2 Trn1<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hd3MuYW1hem9uLmNvbS9rby9lYzIvaW5zdGFuY2UtdHlwZXMvaW5mMi8=">Amazon EC2 Inf2<i class="fa fa-external-link-alt"></i></span></li>
+<li>Scatter Lab<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZWNoLnNjYXR0ZXJsYWIuY28ua3IvYXdzLWluZmVyZW50aWEv">AWS Inferentia를 이용한 모델 서빙 비용 최적화: 모델 서버 비용 2배 줄이기 1탄<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZWNoLnNjYXR0ZXJsYWIuY28ua3IvYXdzLWluZmVyZW50aWEtMi8=">AWS Inferentia를 이용한 모델 서빙 비용 최적화: 모델 서버 비용 2배 줄이기 2탄<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/aws/" rel="tag"><i class="fa fa-tag"></i> AWS</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/triton-inference-server/" rel="tag"><i class="fa fa-tag"></i> Triton Inference Server</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/nutrients/" rel="prev" title="Nutrients">
+                  <i class="fa fa-chevron-left"></i> Nutrients
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/paper-review-deer/" rel="next" title="Paper Review: DEER">
+                  Paper Review: DEER <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"a5287f497d6ae75a820aae4e16f333bd"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

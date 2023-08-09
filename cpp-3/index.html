@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Day 9Polymorphism(다형성) Overloading 함수 중복 연산자 중복 Default Parameter   Overriding 함수 재정의    Function Overloading 다른 함수로 인식 함수의 이름 동일 함수의 매개변수 type, 개수 다름 return type 무관 소멸자 불가 - 매개변수 X 모호하지 않게 선언">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ (3)">
+<meta property="og:url" content="https://zerohertz.github.io/cpp-3/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Day 9Polymorphism(다형성) Overloading 함수 중복 연산자 중복 Default Parameter   Overriding 함수 재정의    Function Overloading 다른 함수로 인식 함수의 이름 동일 함수의 매개변수 type, 개수 다름 return type 무관 소멸자 불가 - 매개변수 X 모호하지 않게 선언">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-06T01:10:46.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="C, C++">
+<meta property="article:tag" content="B.S. Course Work">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/cpp-3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/cpp-3/","path":"cpp-3/","title":"C++ (3)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++ (3) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-9"><span class="nav-number">1.</span> <span class="nav-text">Day 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism-%EB%8B%A4%ED%98%95%EC%84%B1"><span class="nav-number">1.1.</span> <span class="nav-text">Polymorphism(다형성)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-Overloading"><span class="nav-number">1.2.</span> <span class="nav-text">Function Overloading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Default-Parameter"><span class="nav-number">1.3.</span> <span class="nav-text">Default Parameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Static-Non-static"><span class="nav-number">1.4.</span> <span class="nav-text">Static &amp; Non-static</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Timeline-of-Program"><span class="nav-number">1.4.1.</span> <span class="nav-text">Timeline of Program</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Access"><span class="nav-number">1.4.2.</span> <span class="nav-text">Access</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quiz"><span class="nav-number">1.5.</span> <span class="nav-text">Quiz</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-10"><span class="nav-number">2.</span> <span class="nav-text">Day 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Friend"><span class="nav-number">2.1.</span> <span class="nav-text">Friend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator-Overloading"><span class="nav-number">2.2.</span> <span class="nav-text">Operator Overloading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quiz-1"><span class="nav-number">2.3.</span> <span class="nav-text">Quiz</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-11"><span class="nav-number">3.</span> <span class="nav-text">Day 11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">3.1.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Const-Member-Const-Object"><span class="nav-number">3.2.</span> <span class="nav-text">Const Member &amp; Const Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inheritance"><span class="nav-number">3.3.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Casting"><span class="nav-number">3.4.</span> <span class="nav-text">Casting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%91%EA%B7%BC-%EC%A7%80%EC%A0%95%EC%9E%90"><span class="nav-number">3.5.</span> <span class="nav-text">접근 지정자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quiz-2"><span class="nav-number">3.6.</span> <span class="nav-text">Quiz</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/c-basic-2/" rel="bookmark">
+        <time class="popular-posts-time">2019-01-06</time>
+        <br>
+      C++ Basic (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/c-basic-4/" rel="bookmark">
+        <time class="popular-posts-time">2019-03-01</time>
+        <br>
+      C++ Basic (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/c-basic-3/" rel="bookmark">
+        <time class="popular-posts-time">2019-01-07</time>
+        <br>
+      C++ Basic (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/c-basic-1/" rel="bookmark">
+        <time class="popular-posts-time">2019-01-06</time>
+        <br>
+      C++ Basic (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/cpp-data-types-and-operations/" rel="bookmark">
+        <time class="popular-posts-time">2020-07-01</time>
+        <br>
+      C++: Data Types and Operations
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/cpp-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++ (3) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ (3)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-06 10:10:46" itemprop="dateCreated datePublished" datetime="2020-07-06T10:10:46+09:00">2020-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Day-9"><a href="#Day-9" class="headerlink" title="Day 9"></a>Day 9</h1><h2 id="Polymorphism-다형성"><a href="#Polymorphism-다형성" class="headerlink" title="Polymorphism(다형성)"></a>Polymorphism(다형성)</h2><ul>
+<li>Overloading<ul>
+<li>함수 중복</li>
+<li>연산자 중복</li>
+<li>Default Parameter</li>
+</ul>
+</li>
+<li>Overriding<ul>
+<li>함수 재정의</li>
+</ul>
+</li>
+</ul>
+<h2 id="Function-Overloading"><a href="#Function-Overloading" class="headerlink" title="Function Overloading"></a>Function Overloading</h2><ul>
+<li>다른 함수로 인식</li>
+<li>함수의 이름 동일</li>
+<li>함수의 매개변수 type, 개수 다름</li>
+<li>return type 무관</li>
+<li>소멸자 불가 - 매개변수 X</li>
+<li>모호하지 않게 선언</li>
+</ul>
+<span id="more"></span>
+
+<blockquote>
+<p>overloading.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">big</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a &gt; b) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">big</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = a[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; size; i++)</span><br><span class="line">        <span class="keyword">if</span>(res &lt; a[i]) res = a[i];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> array[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">9</span>, <span class="number">-2</span>, <span class="number">8</span>, <span class="number">6</span>&#125;;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">big</span>(<span class="number">2</span>, <span class="number">3</span>) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">big</span>(array, <span class="number">5</span>) &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Default-Parameter"><a href="#Default-Parameter" class="headerlink" title="Default Parameter"></a>Default Parameter</h2><ul>
+<li>사전에 값을 선언한 함수의 매개변수</li>
+<li>생략 가능</li>
+<li>일반 매개변수 뒤에 존재</li>
+</ul>
+<blockquote>
+<p>default_param.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">char</span> c=<span class="string">&#x27; &#x27;</span>, <span class="type">int</span> line = <span class="number">1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">f</span>();</span><br><span class="line">    <span class="built_in">f</span>(<span class="string">&#x27;%&#x27;</span>);</span><br><span class="line">    <span class="built_in">f</span>(<span class="string">&#x27;@&#x27;</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">(<span class="type">char</span> c, <span class="type">int</span> line)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; line; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)&#123;</span><br><span class="line">            cout &lt;&lt; c;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">          </span><br><span class="line">%%%%%%%%%%</span><br><span class="line">@@@@@@@@@@</span><br><span class="line">@@@@@@@@@@</span><br><span class="line">@@@@@@@@@@</span><br><span class="line">@@@@@@@@@@</span><br><span class="line">@@@@@@@@@@</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>myvec.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyVector</span>&#123;</span><br><span class="line">    <span class="type">int</span> *p;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyVector</span>(<span class="type">int</span> n = <span class="number">100</span>)&#123;p = <span class="keyword">new</span> <span class="type">int</span>[n]; size = n;&#125;</span><br><span class="line">    ~<span class="built_in">MyVector</span>()&#123;<span class="keyword">delete</span> [] p;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    MyVector *v1, *v2;</span><br><span class="line">    v1 = <span class="keyword">new</span> <span class="built_in">MyVector</span>();</span><br><span class="line">    v2 = <span class="keyword">new</span> <span class="built_in">MyVector</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> v1;</span><br><span class="line">    <span class="keyword">delete</span> v2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Static-Non-static"><a href="#Static-Non-static" class="headerlink" title="Static &amp; Non-static"></a>Static &amp; Non-static</h2><ul>
+<li><code>static</code><ul>
+<li>변수와 함수에 대한 기억 부류의 한 종류<ul>
+<li>생명 주기 : 프로그램이 시작될 때 생성, 프로그램 종료 시 소멸</li>
+<li>사용 범위 : 선언된 범위, 접근 지정에 따름</li>
+</ul>
+</li>
+<li>전역 변수나 전역변수를 클래스에 캡슐화<ul>
+<li>전역 변수나 전역 함수를 가능한 사용하지 않도록</li>
+<li>전역 변수나 전역 함수를 <code>static</code>으로 선언하여 클래스 멤버로 선언</li>
+</ul>
+</li>
+<li>객체 사이에 공유 변수를 만들고자 할 때<ul>
+<li><code>static</code> 멤버를 선언하여 모든 객체들이 공유</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>클래스의 멤버<ul>
+<li><code>static</code><ul>
+<li>프로그램이 시작할 때 생성</li>
+<li>클래스당 한번만 생성, 클래스 멤버라고 불림</li>
+<li>클래스의 모든 인스턴스(객체)들이 공유하는 멤버</li>
+</ul>
+</li>
+<li>non-<code>static</code><ul>
+<li>객체가 생성될 때 함께 생성</li>
+<li>객체마다 객체 내에 생성</li>
+<li>인스턴스 멤버라고 불림</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>person.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">double</span> money;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addMoney</span><span class="params">(<span class="type">int</span> money)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;money += money;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> sharedMoney;</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">addShared</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        sharedMoney += n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> Person::sharedMoney = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Person han;</span><br><span class="line">    han.money = <span class="number">100</span>;</span><br><span class="line">    han.sharedMoney = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">    Person lee;</span><br><span class="line">    lee.money = <span class="number">150</span>;</span><br><span class="line">    lee.<span class="built_in">addMoney</span>(<span class="number">200</span>);</span><br><span class="line">    lee.<span class="built_in">addShared</span>(<span class="number">200</span>);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; han.money &lt;&lt; <span class="string">&#x27;\t&#x27;</span> &lt;&lt; lee.money &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; han.sharedMoney &lt;&lt; <span class="string">&#x27;\t&#x27;</span> &lt;&lt; lee.sharedMoney &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    Person::sharedMoney = <span class="number">1000</span>;</span><br><span class="line">    Person::<span class="built_in">addShared</span>(<span class="number">20000</span>);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; han.money &lt;&lt; <span class="string">&#x27;\t&#x27;</span> &lt;&lt; lee.money &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; han.sharedMoney &lt;&lt; <span class="string">&#x27;\t&#x27;</span> &lt;&lt; lee.sharedMoney &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span>	<span class="number">350</span></span><br><span class="line"><span class="number">400</span>	<span class="number">400</span></span><br><span class="line"><span class="number">100</span>	<span class="number">350</span></span><br><span class="line"><span class="number">21000</span>	<span class="number">21000</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>employee.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span>&#123;</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">double</span> salary;</span><br><span class="line">    <span class="type">int</span> <span class="type">static</span> count;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Employee</span>(string name = <span class="string">&quot;&quot;</span>, <span class="type">double</span> salary = <span class="number">0</span>):<span class="built_in">name</span>(name), <span class="built_in">salary</span>(salary)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="type">static</span> <span class="title">getCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Employee</span>()&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;count--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> Employee::count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Employee <span class="title">e1</span><span class="params">(<span class="string">&quot;김철수&quot;</span>)</span></span>;</span><br><span class="line">    Employee e2;</span><br><span class="line">    <span class="function">Employee <span class="title">e3</span><span class="params">(<span class="string">&quot;김철호&quot;</span>, <span class="number">20000</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n = Employee::<span class="built_in">getCount</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;현재의 직원 수 : &quot;</span> &lt;&lt; n &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">현재의 직원 수 : <span class="number">3</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>circle.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> numOfCircles;</span><br><span class="line">    <span class="type">int</span> radius;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Circle</span>(<span class="type">int</span> r = <span class="number">1</span>):<span class="built_in">radius</span>(r)&#123;numOfCircles++;&#125;</span><br><span class="line">    ~<span class="built_in">Circle</span>()&#123;numOfCircles--;&#125;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">getArea</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">3.14</span>*radius*radius;&#125;</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">getNumOfCircles</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> numOfCircles;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> Circle::numOfCircles = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Circle *p = <span class="keyword">new</span> Circle[<span class="number">10</span>];</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;할당된 원의 개수 : &quot;</span> &lt;&lt; Circle::<span class="built_in">getNumOfCircles</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> [] p;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;할당된 원의 개수 : &quot;</span> &lt;&lt; Circle::<span class="built_in">getNumOfCircles</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    Circle a;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;할당된 원의 개수 : &quot;</span> &lt;&lt; Circle::<span class="built_in">getNumOfCircles</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    Circle b;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;할당된 원의 개수 : &quot;</span> &lt;&lt; Circle::<span class="built_in">getNumOfCircles</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">할당된 원의 개수 : <span class="number">10</span></span><br><span class="line">할당된 원의 개수 : <span class="number">0</span></span><br><span class="line">할당된 원의 개수 : <span class="number">1</span></span><br><span class="line">할당된 원의 개수 : <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Timeline-of-Program"><a href="#Timeline-of-Program" class="headerlink" title="Timeline of Program"></a>Timeline of Program</h3><ol>
+<li>프로그램 시작<ul>
+<li>전역 변수</li>
+<li><code>static</code> 멤버<ul>
+<li>멤버 변수</li>
+<li>멤버 함수</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>객체<ul>
+<li>non-<code>static</code> 멤버</li>
+</ul>
+</li>
+<li>객체 종료<ul>
+<li>non-<code>static</code> 멤버 종료</li>
+</ul>
+</li>
+<li>프로그램 끝<ul>
+<li>전역 변수 종료</li>
+<li><code>static</code> 멤버 종료</li>
+</ul>
+</li>
+</ol>
+<h3 id="Access"><a href="#Access" class="headerlink" title="Access"></a>Access</h3><ul>
+<li><code>static</code> 멤버 함수 -&gt; <code>static</code> 멤버 변수 : 가능</li>
+<li><code>static</code> 멤버 함수 -&gt; non-<code>static</code> 멤버 변수 : 불가능</li>
+<li><code>static</code> 멤버 함수 -&gt; non-<code>static</code> 멤버 함수 : 불가능</li>
+<li>non-<code>static</code> 멤버 함수 -&gt; non-<code>static</code> 멤버 변수 : 가능</li>
+<li>non-<code>static</code> 멤버 함수 -&gt; <code>static</code> 멤버 변수 : 가능</li>
+<li>non-<code>static</code> 멤버 함수 -&gt; <code>static</code> 멤버 함수 : 가능</li>
+<li><code>static</code> 멤버 함수가 접근할 수 있는 것<ul>
+<li><code>static</code> 멤버 함수</li>
+<li><code>static</code> 멤버 변수</li>
+<li>함수 내의 지역 변수</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>-&gt;sharedMoney += n; <span class="comment">// static 이후 객체 생성 - 오류</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Quiz"><a href="#Quiz" class="headerlink" title="Quiz"></a>Quiz</h2><blockquote>
+<p>quiz.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Random</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="type">static</span> <span class="title">seed</span><span class="params">()</span></span>&#123;<span class="built_in">srand</span>(<span class="built_in">time</span>(<span class="literal">NULL</span>));&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="type">static</span> <span class="title">nextInt</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">char</span> <span class="type">static</span> <span class="title">nextAlphabet</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="type">static</span> <span class="title">nextDouble</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Random::<span class="built_in">seed</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;1에서 100까지 랜덤한 정수 10개를 출력합니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) cout &lt;&lt; Random::<span class="built_in">nextInt</span>(<span class="number">1</span>, <span class="number">100</span>) &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;알파벳을 랜덤하게 10개를 출력합니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) cout &lt;&lt; Random::<span class="built_in">nextAlphabet</span>() &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;랜덤한 실수를 10개 출력합니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) cout &lt;&lt; Random::<span class="built_in">nextDouble</span>() &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) cout &lt;&lt; Random::<span class="built_in">nextDouble</span>() &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Random::nextInt</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">rand</span>() % (end - start + <span class="number">1</span>) + start;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">char</span> <span class="title">Random::nextAlphabet</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        num = <span class="built_in">nextInt</span>(<span class="number">65</span>, <span class="number">122</span>);</span><br><span class="line">        <span class="keyword">if</span>(num &gt;= <span class="number">91</span> &amp;&amp; num &lt;= <span class="number">96</span>)&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Random::nextDouble</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="type">double</span>) <span class="built_in">rand</span>() / RAND_MAX;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>에서 <span class="number">100</span>까지 랜덤한 정수 <span class="number">10</span>개를 출력합니다.</span><br><span class="line"><span class="number">47</span>	<span class="number">98</span>	<span class="number">79</span>	<span class="number">68</span>	<span class="number">45</span>	<span class="number">18</span>	<span class="number">87</span>	<span class="number">76</span>	<span class="number">88</span>	<span class="number">15</span>	</span><br><span class="line">알파벳을 랜덤하게 <span class="number">10</span>개를 출력합니다.</span><br><span class="line">l	K	W	k	d	d	y	f	X	X	</span><br><span class="line">랜덤한 실수를 <span class="number">10</span>개 출력합니다.</span><br><span class="line"><span class="number">0.891485</span>	<span class="number">0.195258</span>	<span class="number">0.707381</span>	<span class="number">0.95967</span>	<span class="number">0.167292</span>	</span><br><span class="line"><span class="number">0.673519</span>	<span class="number">0.836099</span>	<span class="number">0.318814</span>	<span class="number">0.307098</span>	<span class="number">0.397495</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Day-10"><a href="#Day-10" class="headerlink" title="Day 10"></a>Day 10</h1><h2 id="Friend"><a href="#Friend" class="headerlink" title="Friend"></a>Friend</h2><ul>
+<li>클래스의 멤버 함수가 아닌 외부 함수<ul>
+<li>전역 함수</li>
+<li>다른 클래스의 멤버 함수</li>
+</ul>
+</li>
+<li><code>friend</code>로 클래스 내에 선언된 함수<ul>
+<li>클래스의 모든 멤버를 접근할 수 있는 권한 부여</li>
+<li>프렌드 함수라고 부름</li>
+</ul>
+</li>
+<li>friend<ul>
+<li>전역 함수</li>
+<li>다른 클래스의 멤버 함수</li>
+<li>다른 클래스 전체</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>friend1.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rect</span>;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">equals</span><span class="params">(Rect r, Rect s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rect</span>&#123;</span><br><span class="line">    <span class="type">int</span> width, height;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Rect</span>(<span class="type">int</span> width, <span class="type">int</span> height):<span class="built_in">width</span>(width), <span class="built_in">height</span>(height)&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">bool</span> <span class="title">equals</span><span class="params">(Rect r, Rect s)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Rect <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">4</span>)</span>, <span class="title">b</span><span class="params">(<span class="number">4</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">equals</span>(a, b)) cout &lt;&lt; <span class="string">&quot;equal&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;not equal&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">equals</span><span class="params">(Rect r, Rect s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(r.width == s.width &amp;&amp; r.height == s.height) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>friend2.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rect</span>;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">equals</span><span class="params">(Rect r, Rect s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RectManager</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">equals</span><span class="params">(Rect r, Rect s)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rect</span>&#123;</span><br><span class="line">    <span class="type">int</span> width, height;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Rect</span>(<span class="type">int</span> width, <span class="type">int</span> height):<span class="built_in">width</span>(width), <span class="built_in">height</span>(height)&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">bool</span> <span class="title">RectManager::equals</span><span class="params">(Rect r, Rect s)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Rect <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">4</span>)</span>, <span class="title">b</span><span class="params">(<span class="number">4</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">    RectManager Man;</span><br><span class="line">    <span class="keyword">if</span>(Man.<span class="built_in">equals</span>(a, b)) cout &lt;&lt; <span class="string">&quot;equal&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;not equal&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RectManager::equals</span><span class="params">(Rect r, Rect s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(r.width == s.width &amp;&amp; r.height == s.height) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>friend3.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rect</span>;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">equals</span><span class="params">(Rect r, Rect s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RectManager</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">equals</span><span class="params">(Rect r, Rect s)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rect</span>&#123;</span><br><span class="line">    <span class="type">int</span> width, height;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Rect</span>(<span class="type">int</span> width, <span class="type">int</span> height):<span class="built_in">width</span>(width), <span class="built_in">height</span>(height)&#123;&#125;;</span><br><span class="line">    <span class="keyword">friend</span> RectManager;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Rect <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">4</span>)</span>, <span class="title">b</span><span class="params">(<span class="number">4</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">    RectManager Man;</span><br><span class="line">    <span class="keyword">if</span>(Man.<span class="built_in">equals</span>(a, b)) cout &lt;&lt; <span class="string">&quot;equal&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;not equal&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">RectManager::equals</span><span class="params">(Rect r, Rect s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(r.width == s.width &amp;&amp; r.height == s.height) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">not</span> equal</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Operator-Overloading"><a href="#Operator-Overloading" class="headerlink" title="Operator Overloading"></a>Operator Overloading</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">리턴타입 <span class="keyword">operator</span>연산자(매개변수)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>C++</code>에 본래 있는 연산자만 중복 가능</li>
+<li>피 연산자 타입이 다른 새로운 연산 정의</li>
+<li>연산자는 함수 형태로 구현 - 연산자 함수(Operator function)<ul>
+<li>클래스의 멤버 함수로 구현</li>
+<li>외부 함수로 구현하고 클래스에 프렌드 함수로 선언</li>
+</ul>
+</li>
+<li>반드시 클래스와 관계를 가짐</li>
+<li>피연산자의 개수를 바꿀 수 없음</li>
+<li>연산의 우선 순위 변경 안됨</li>
+<li>모든 연산자가 중복 가능하진 않음</li>
+</ul>
+<blockquote>
+<p>power_by_member_function.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Power</span>&#123;</span><br><span class="line">    <span class="type">int</span> kick;</span><br><span class="line">    <span class="type">int</span> punch;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Power</span>(<span class="type">int</span> kick = <span class="number">0</span>, <span class="type">int</span> punch = <span class="number">0</span>):<span class="built_in">kick</span>(kick), <span class="built_in">punch</span>(punch)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">    Power <span class="keyword">operator</span>+(Power op2);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Power <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span>, <span class="title">b</span><span class="params">(<span class="number">4</span>, <span class="number">6</span>)</span>, c</span>;</span><br><span class="line">    c = a + b; <span class="comment">// a.operator+(b)</span></span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b.<span class="built_in">show</span>();</span><br><span class="line">    c.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Power::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Kick = &quot;</span> &lt;&lt; kick &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; <span class="string">&quot; Punch = &quot;</span> &lt;&lt; punch &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">Power Power::<span class="keyword">operator</span>+(Power op2)&#123;</span><br><span class="line">    Power tmp;</span><br><span class="line">    tmp.kick = <span class="keyword">this</span>-&gt;kick + op2.kick;</span><br><span class="line">    tmp.punch = <span class="keyword">this</span>-&gt;punch + op2.punch;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>power_by_friend_function.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Power</span>&#123;</span><br><span class="line">    <span class="type">int</span> kick;</span><br><span class="line">    <span class="type">int</span> punch;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Power</span>(<span class="type">int</span> kick = <span class="number">0</span>, <span class="type">int</span> punch = <span class="number">0</span>):<span class="built_in">kick</span>(kick), <span class="built_in">punch</span>(punch)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">friend</span> Power <span class="keyword">operator</span>+(Power op1, Power op2);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Power <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span>, <span class="title">b</span><span class="params">(<span class="number">4</span>, <span class="number">6</span>)</span>, c</span>;</span><br><span class="line">    c = a + b; <span class="comment">// operator+(a, b)</span></span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b.<span class="built_in">show</span>();</span><br><span class="line">    c.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Power::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Kick = &quot;</span> &lt;&lt; kick &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; <span class="string">&quot; Punch = &quot;</span> &lt;&lt; punch &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">Power <span class="keyword">operator</span>+(Power op1, Power op2)&#123;</span><br><span class="line">    Power tmp;</span><br><span class="line">    tmp.kick = op1.kick + op2.kick;</span><br><span class="line">    tmp.punch = op1.punch + op2.punch;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Kick = <span class="number">3</span>, Punch = <span class="number">5</span></span><br><span class="line">Kick = <span class="number">4</span>, Punch = <span class="number">6</span></span><br><span class="line">Kick = <span class="number">7</span>, Punch = <span class="number">11</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>cpoint_by_member_function.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CPoint</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">CPoint</span>(<span class="type">int</span> a = <span class="number">0</span>, <span class="type">int</span> b = <span class="number">0</span>):<span class="built_in">x</span>(a), <span class="built_in">y</span>(b)&#123;&#125;</span><br><span class="line">    CPoint <span class="keyword">operator</span>-();</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">()</span></span>&#123;cout &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; y &lt;&lt; <span class="string">&#x27;)&#x27;</span> &lt;&lt; endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">CPoint <span class="title">P1</span><span class="params">(<span class="number">2</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">    CPoint P2 = -P1;</span><br><span class="line">    CPoint P3 = -(-P1);</span><br><span class="line"></span><br><span class="line">    P1.<span class="built_in">Print</span>();</span><br><span class="line">    P2.<span class="built_in">Print</span>();</span><br><span class="line">    P3.<span class="built_in">Print</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CPoint CPoint::<span class="keyword">operator</span>-()&#123;</span><br><span class="line">    <span class="keyword">return</span>(<span class="built_in">CPoint</span>(-<span class="keyword">this</span>-&gt;x, -<span class="keyword">this</span>-&gt;y));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>cpoint_by_friend_function.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CPoint</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">CPoint</span>(<span class="type">int</span> a = <span class="number">0</span>, <span class="type">int</span> b = <span class="number">0</span>):<span class="built_in">x</span>(a), <span class="built_in">y</span>(b)&#123;&#125;</span><br><span class="line">    <span class="keyword">friend</span> CPoint <span class="keyword">operator</span>-(CPoint obj);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">()</span></span>&#123;cout &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; y &lt;&lt; <span class="string">&#x27;)&#x27;</span> &lt;&lt; endl;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">CPoint <span class="title">P1</span><span class="params">(<span class="number">2</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">    CPoint P2 = -P1;</span><br><span class="line">    CPoint P3 = -(-P1);</span><br><span class="line"></span><br><span class="line">    P1.<span class="built_in">Print</span>();</span><br><span class="line">    P2.<span class="built_in">Print</span>();</span><br><span class="line">    P3.<span class="built_in">Print</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">CPoint <span class="keyword">operator</span>-(CPoint obj)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CPoint</span>(-obj.x, -obj.y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">(<span class="number">-2</span>,<span class="number">-2</span>)</span><br><span class="line">(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>prefix_by_member_function.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Power</span>&#123;</span><br><span class="line">    <span class="type">int</span> kick;</span><br><span class="line">    <span class="type">int</span> punch;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Power</span>(<span class="type">int</span> kick = <span class="number">0</span>, <span class="type">int</span> punch = <span class="number">0</span>):<span class="built_in">kick</span>(kick), <span class="built_in">punch</span>(punch)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">    Power <span class="keyword">operator</span>++(); <span class="comment">// 매개변수 존재 -&gt; postfix</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Power <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span>, b</span>;</span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b = ++a;</span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Power::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Kick = &quot;</span> &lt;&lt; kick &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; <span class="string">&quot; Punch = &quot;</span> &lt;&lt; punch &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">Power Power::<span class="keyword">operator</span>++()&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;kick++;</span><br><span class="line">    <span class="keyword">this</span>-&gt;punch++;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>postfix_by_friend_function.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Power</span>&#123;</span><br><span class="line">    <span class="type">int</span> kick;</span><br><span class="line">    <span class="type">int</span> punch;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Power</span>(<span class="type">int</span> kick = <span class="number">0</span>, <span class="type">int</span> punch = <span class="number">0</span>):<span class="built_in">kick</span>(kick), <span class="built_in">punch</span>(punch)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">friend</span> Power <span class="keyword">operator</span>++(Power &amp;p, <span class="type">int</span> x); <span class="comment">// x 삭제 -&gt; prefix</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Power <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span>, b</span>;</span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b = a++;</span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Power::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Kick = &quot;</span> &lt;&lt; kick &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; <span class="string">&quot; Punch = &quot;</span> &lt;&lt; punch &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">Power <span class="keyword">operator</span>++(Power &amp;p, <span class="type">int</span> x)&#123;</span><br><span class="line">    p.kick++;</span><br><span class="line">    p.punch++;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Kick = <span class="number">3</span>, Punch = <span class="number">5</span></span><br><span class="line">Kick = <span class="number">4</span>, Punch = <span class="number">6</span></span><br><span class="line">Kick = <span class="number">4</span>, Punch = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>pre_post.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Power</span>&#123;</span><br><span class="line">    <span class="type">int</span> kick;</span><br><span class="line">    <span class="type">int</span> punch;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Power</span>(<span class="type">int</span> kick = <span class="number">0</span>, <span class="type">int</span> punch = <span class="number">0</span>):<span class="built_in">kick</span>(kick), <span class="built_in">punch</span>(punch)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">friend</span> Power <span class="keyword">operator</span>++(Power &amp;p);</span><br><span class="line">    <span class="keyword">friend</span> Power <span class="keyword">operator</span>++(Power &amp;p, <span class="type">int</span> x);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Power <span class="title">a</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span>, b</span>;</span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b = ++a;</span><br><span class="line">    a.<span class="built_in">show</span>();</span><br><span class="line">    b.<span class="built_in">show</span>();</span><br><span class="line">    <span class="function">Power <span class="title">c</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span>, d</span>;</span><br><span class="line">    d = c++;</span><br><span class="line">    c.<span class="built_in">show</span>();</span><br><span class="line">    d.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Power::show</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Kick = &quot;</span> &lt;&lt; kick &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; <span class="string">&quot; Punch = &quot;</span> &lt;&lt; punch &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">Power <span class="keyword">operator</span>++(Power &amp;p)&#123;</span><br><span class="line">    p.kick++;</span><br><span class="line">    p.punch++;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line">Power <span class="keyword">operator</span>++(Power &amp;p, <span class="type">int</span> x)&#123;</span><br><span class="line">    p.kick++;</span><br><span class="line">    p.punch++;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Kick = <span class="number">3</span>, Punch = <span class="number">5</span></span><br><span class="line">Kick = <span class="number">4</span>, Punch = <span class="number">6</span></span><br><span class="line">Kick = <span class="number">4</span>, Punch = <span class="number">6</span></span><br><span class="line">Kick = <span class="number">4</span>, Punch = <span class="number">6</span></span><br><span class="line">Kick = <span class="number">4</span>, Punch = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>complex.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Complex</span>&#123;</span><br><span class="line">    <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span>&lt;&lt;(ostream &amp;os, <span class="type">const</span> Complex &amp;v);</span><br><span class="line">    <span class="type">double</span> x, y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Complex</span>(<span class="type">double</span> x = <span class="number">0</span>, <span class="type">double</span> y = <span class="number">0</span>):<span class="built_in">x</span>(x), <span class="built_in">y</span>(y)&#123;&#125;</span><br><span class="line">    Complex <span class="keyword">operator</span>+(<span class="type">const</span> Complex &amp;v2) <span class="type">const</span>&#123;</span><br><span class="line">        <span class="function">Complex <span class="title">v</span><span class="params">(<span class="number">0.0</span>, <span class="number">0.0</span>)</span></span>;</span><br><span class="line">        v.x = <span class="keyword">this</span>-&gt;x + v2.x;</span><br><span class="line">        v.y = <span class="keyword">this</span>-&gt;y + v2.y;</span><br><span class="line">        <span class="keyword">return</span> v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; y &lt;&lt; <span class="string">&#x27;i&#x27;</span> &lt;&lt; <span class="string">&#x27;)&#x27;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Complex <span class="title">v1</span><span class="params">(<span class="number">1.1</span>,<span class="number">2.1</span>)</span>, <span class="title">v2</span><span class="params">(<span class="number">12.12</span>, <span class="number">13.13</span>)</span>, v3</span>;</span><br><span class="line">    v3 = v1 + v2;</span><br><span class="line">    v1.<span class="built_in">display</span>();</span><br><span class="line">    v2.<span class="built_in">display</span>();</span><br><span class="line">    v3.<span class="built_in">display</span>();</span><br><span class="line">    cout &lt;&lt; v1 &lt;&lt; v2 &lt;&lt; v3;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ostream &amp;<span class="keyword">operator</span>&lt;&lt;(ostream &amp;os, <span class="type">const</span> Complex &amp;v)&#123;</span><br><span class="line">    os &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; v.x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; v.y &lt;&lt; <span class="string">&#x27;i&#x27;</span> &lt;&lt; <span class="string">&#x27;)&#x27;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1.1</span>,<span class="number">2.1</span>i)</span><br><span class="line">(<span class="number">12.12</span>,<span class="number">13.13</span>i)</span><br><span class="line">(<span class="number">13.22</span>,<span class="number">15.23</span>i)</span><br><span class="line">(<span class="number">1.1</span>,<span class="number">2.1</span>i)</span><br><span class="line">(<span class="number">12.12</span>,<span class="number">13.13</span>i)</span><br><span class="line">(<span class="number">13.22</span>,<span class="number">15.23</span>i)</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Quiz-1"><a href="#Quiz-1" class="headerlink" title="Quiz"></a>Quiz</h2><blockquote>
+<p>quiz.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Complex</span>&#123;</span><br><span class="line">    <span class="type">double</span> re, im;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Complex</span>(<span class="type">double</span> r):<span class="built_in">re</span>(r), <span class="built_in">im</span>(<span class="number">0</span>)&#123;&#125;</span><br><span class="line">    <span class="built_in">Complex</span>(<span class="type">double</span> x = <span class="number">0</span>, <span class="type">double</span> y = <span class="number">0</span>):<span class="built_in">re</span>(x),<span class="built_in">im</span>(y)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Output</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout &lt;&lt; re &lt;&lt; <span class="string">&quot; + &quot;</span> &lt;&lt; im &lt;&lt; <span class="string">&#x27;i&#x27;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    Complex &amp;<span class="keyword">operator</span>+=(Complex com);</span><br><span class="line">    Complex &amp;<span class="keyword">operator</span>-();</span><br><span class="line">    <span class="keyword">friend</span> Complex <span class="keyword">operator</span>+(Complex &amp;com1, Complex &amp;com2);</span><br><span class="line">    <span class="keyword">friend</span> Complex <span class="keyword">operator</span>++(Complex &amp;com);</span><br><span class="line">    <span class="keyword">friend</span> Complex <span class="keyword">operator</span>++(Complex &amp;com, <span class="type">int</span> x);</span><br><span class="line">    <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span>&lt;&lt;(ostream &amp;os, Complex &amp;com)&#123;</span><br><span class="line">        os &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; com.re &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; com.im &lt;&lt; <span class="string">&#x27;i&#x27;</span> &lt;&lt; <span class="string">&#x27;)&#x27;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> os;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Complex <span class="title">c1</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>)</span>, <span class="title">c2</span><span class="params">(<span class="number">3</span> ,<span class="number">4</span>)</span>, <span class="title">c</span><span class="params">(<span class="number">9</span>, <span class="number">200</span>)</span></span>;</span><br><span class="line">    c1.<span class="built_in">Output</span>(); c2.<span class="built_in">Output</span>(); c1 += c2; c1.<span class="built_in">Output</span>();</span><br><span class="line">    Complex c3 = c1 + c2;</span><br><span class="line">    Complex c4 = c1 += c2, c5, c6; c3.<span class="built_in">Output</span>();</span><br><span class="line">    c5 = ++c4; c4.<span class="built_in">Output</span>(); c5.<span class="built_in">Output</span>();</span><br><span class="line">    c6 = c4++; c4.<span class="built_in">Output</span>(); c6.<span class="built_in">Output</span>();</span><br><span class="line">    c2 = -c2; cout &lt;&lt; c2; cout &lt;&lt; c;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Complex &amp;Complex::<span class="keyword">operator</span>+=(Complex com)&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;re = <span class="keyword">this</span>-&gt;re + com.re;</span><br><span class="line">    <span class="keyword">this</span>-&gt;im = <span class="keyword">this</span>-&gt;im + com.im;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">Complex &amp;Complex::<span class="keyword">operator</span>-()&#123;</span><br><span class="line">    <span class="function">Complex <span class="title">com</span><span class="params">(-<span class="keyword">this</span>-&gt;re, -<span class="keyword">this</span>-&gt;im)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> com;</span><br><span class="line">&#125;</span><br><span class="line">Complex <span class="keyword">operator</span>+(Complex &amp;com1, Complex &amp;com2)&#123;</span><br><span class="line">    <span class="function">Complex <span class="title">com</span><span class="params">(com1.re + com2.re, com1.im + com2.im)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> com;</span><br><span class="line">&#125;</span><br><span class="line">Complex <span class="keyword">operator</span>++(Complex &amp;com)&#123;</span><br><span class="line">    com.re++;</span><br><span class="line">    com.im++;</span><br><span class="line">    <span class="keyword">return</span> com;</span><br><span class="line">&#125;</span><br><span class="line">Complex <span class="keyword">operator</span>++(Complex &amp;com, <span class="type">int</span> x)&#123;</span><br><span class="line">    com.re++;</span><br><span class="line">    com.im++;</span><br><span class="line">    <span class="keyword">return</span> com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="number">2</span>i</span><br><span class="line"><span class="number">3</span> + <span class="number">4</span>i</span><br><span class="line"><span class="number">4</span> + <span class="number">6</span>i</span><br><span class="line"><span class="number">7</span> + <span class="number">10</span>i</span><br><span class="line"><span class="number">8</span> + <span class="number">11</span>i</span><br><span class="line"><span class="number">8</span> + <span class="number">11</span>i</span><br><span class="line"><span class="number">9</span> + <span class="number">12</span>i</span><br><span class="line"><span class="number">9</span> + <span class="number">12</span>i</span><br><span class="line">(<span class="number">-3</span>,<span class="number">-4</span>i)</span><br><span class="line">(<span class="number">9</span>,<span class="number">200</span>i)</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Day-11"><a href="#Day-11" class="headerlink" title="Day 11"></a>Day 11</h1><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><blockquote>
+<p>stack.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>&#123;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    <span class="type">int</span> *mem;</span><br><span class="line">    <span class="type">int</span> tos;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Stack</span>(<span class="type">int</span> size = <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;size = size;</span><br><span class="line">        mem = <span class="keyword">new</span> <span class="type">int</span>[size];</span><br><span class="line">        tos = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Stack</span>()&#123;<span class="keyword">delete</span> [] mem;&#125;</span><br><span class="line">    Stack &amp;<span class="keyword">operator</span>&lt;&lt;(<span class="type">int</span> n);</span><br><span class="line">    Stack &amp;<span class="keyword">operator</span>&gt;&gt;(<span class="type">int</span> &amp;n);</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>!();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Stack <span class="title">stack</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">    stack &lt;&lt; <span class="number">1</span> &lt;&lt; <span class="number">2</span> &lt;&lt; <span class="number">3</span> &lt;&lt; <span class="number">4</span> &lt;&lt; <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!stack) <span class="keyword">break</span>;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        stack &gt;&gt; x;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Stack &amp;Stack::<span class="keyword">operator</span>&lt;&lt;(<span class="type">int</span> n)&#123;</span><br><span class="line">    <span class="keyword">if</span>(tos == size - <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>-&gt;tos++;</span><br><span class="line">    <span class="keyword">this</span>-&gt;mem[tos] = n;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">Stack &amp;Stack::<span class="keyword">operator</span>&gt;&gt;(<span class="type">int</span> &amp;n)&#123;</span><br><span class="line">    <span class="keyword">if</span>(tos == <span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    n = <span class="keyword">this</span>-&gt;mem[tos];</span><br><span class="line">    <span class="keyword">this</span>-&gt;tos--;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">bool</span> Stack::<span class="keyword">operator</span>!()&#123;</span><br><span class="line">    <span class="keyword">if</span>(tos == <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>	<span class="number">4</span>	<span class="number">3</span>	<span class="number">2</span>	<span class="number">1</span>	</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Const-Member-Const-Object"><a href="#Const-Member-Const-Object" class="headerlink" title="Const Member &amp; Const Object"></a>Const Member &amp; Const Object</h2><ul>
+<li><code>const</code> member variable : 객체 생성과 동시에 초기화 필요<ul>
+<li>멤버 초기화 구문 사용</li>
+</ul>
+</li>
+<li><code>const</code> member function : 멤버 변수의 값을 읽을 수 있으나 변경 불가능<ul>
+<li>멤버 변수의 주소 반환 불가</li>
+<li>비<code>const</code> 멤버 함수의 호출 불가</li>
+</ul>
+</li>
+<li><code>const</code> object<ul>
+<li>객체 생성 시 <code>const</code> 접두사 추가</li>
+<li>멤버 변수의 값 변경 불가</li>
+<li><code>const</code> 멤버 함수 이외의 멤버 함수에 대한 호출 불가</li>
+</ul>
+</li>
+</ul>
+<h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><ul>
+<li>기본 클래스(Base class) - 상속해주는 클래스, 부모 클래스</li>
+<li>파생 클래스(Derived class) - 상속받는 클래스, 자식 클래스</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base&#123; <span class="comment">//public, private, protected</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>간결한 클래스 작성</li>
+<li>클래스 간의 계층적 분류 및 관리의 용이함</li>
+<li>클래스 재사용과 확장을 통한 소프트웨어 생산성 향상</li>
+</ul>
+<blockquote>
+<p>inheritance.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">set</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>&#123;<span class="keyword">this</span>-&gt;x = x; <span class="keyword">this</span>-&gt;y = y;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">showPoint</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; y &lt;&lt; <span class="string">&#x27;)&#x27;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ColorPoint</span> : <span class="keyword">public</span> Point&#123;</span><br><span class="line">    string color;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setColor</span><span class="params">(string color)</span></span>&#123;<span class="keyword">this</span>-&gt;color = color;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">showColorPoint</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Point p;</span><br><span class="line">    ColorPoint cp;</span><br><span class="line">    cp.<span class="built_in">set</span>(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">    cp.<span class="built_in">setColor</span>(<span class="string">&quot;Red&quot;</span>);</span><br><span class="line">    cp.<span class="built_in">showColorPoint</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ColorPoint::showColorPoint</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; color &lt;&lt; <span class="string">&quot; : &quot;</span>;</span><br><span class="line">    <span class="built_in">showPoint</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Red : (<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h2><ul>
+<li>업 캐스팅(Up-casting)<ul>
+<li>파생 클래스의 객체를 기본 클래스의 포인터로 가리키는 것</li>
+<li>포인터 : 기본</li>
+<li>객체 : 파생</li>
+</ul>
+</li>
+<li>다운 캐스팅(Down-casting)<ul>
+<li>기본 클래스 포인터가 가리키는 객체를 파생 클래스의 포인터로 가리키는 것</li>
+<li>명시적 형변환 필요</li>
+<li>포인터 : 파생</li>
+<li>객체 : 기본</li>
+</ul>
+</li>
+</ul>
+<h2 id="접근-지정자"><a href="#접근-지정자" class="headerlink" title="접근 지정자"></a>접근 지정자</h2><ul>
+<li>private 멤버<ul>
+<li>선언된 클래스 내에서만 접근 가능</li>
+<li>파생 클래스에서도 기본 클래스의 private 멤버 직접 접근 불가</li>
+</ul>
+</li>
+<li>public 멤버<ul>
+<li>선언된 클래스나 외부 어떤 클래스, 모든 외부 함수에 접근 허용</li>
+<li>파생 클래스에서 기본 클래스의 public 멤버 접근 가능</li>
+</ul>
+</li>
+<li>protected 멤버<ul>
+<li>선언된 클래스에서 접근 가능</li>
+<li>파생 클래스에서만 접근 허용</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>point.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">Point</span>(<span class="type">int</span> x, <span class="type">int</span> y):<span class="built_in">x</span>(x), <span class="built_in">y</span>(y)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getX</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> x;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getY</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> y;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">move</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>&#123;<span class="keyword">this</span>-&gt;x = x; <span class="keyword">this</span>-&gt;y = y;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ColorPoint</span> : <span class="keyword">public</span> Point&#123;</span><br><span class="line">    string color;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">ColorPoint</span>():<span class="built_in">Point</span>(<span class="number">0</span>, <span class="number">0</span>)&#123;color = <span class="string">&quot;BLACK&quot;</span>;&#125;</span><br><span class="line">    <span class="built_in">ColorPoint</span>(<span class="type">int</span> x, <span class="type">int</span> y):<span class="built_in">Point</span>(x, y)&#123;&#125;</span><br><span class="line">    <span class="built_in">ColorPoint</span>(<span class="type">int</span> x, <span class="type">int</span> y, string color):<span class="built_in">Point</span>(x, y)&#123;<span class="keyword">this</span>-&gt;color = color;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setPoint</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>&#123;<span class="built_in">move</span>(x, y);&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setColor</span><span class="params">(string color)</span></span>&#123;<span class="keyword">this</span>-&gt;color = color;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">show</span><span class="params">(ColorPoint &amp;p)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ColorPoint zeroPoint;</span><br><span class="line">    <span class="built_in">show</span>(zeroPoint);</span><br><span class="line">    <span class="function">ColorPoint <span class="title">cp</span><span class="params">(<span class="number">5</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">    cp.<span class="built_in">setPoint</span>(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">    cp.<span class="built_in">setColor</span>(<span class="string">&quot;BLUE&quot;</span>);</span><br><span class="line">    <span class="built_in">show</span>(cp);</span><br><span class="line">    <span class="function">ColorPoint <span class="title">cpRed</span><span class="params">(<span class="number">23</span>, <span class="number">33</span>, <span class="string">&quot;RED&quot;</span>)</span></span>;</span><br><span class="line">    <span class="built_in">show</span>(cpRed);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">(ColorPoint &amp;p)</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; p.color &lt;&lt; <span class="string">&quot;색으로 &quot;</span> &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; p.<span class="built_in">getX</span>() &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; p.<span class="built_in">getY</span>() &lt;&lt; <span class="string">&#x27;)&#x27;</span> &lt;&lt; <span class="string">&quot;에 위치한 점입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BLACK색으로 (<span class="number">0</span>,<span class="number">0</span>)에 위치한 점입니다.</span><br><span class="line">BLUE색으로 (<span class="number">10</span>,<span class="number">20</span>)에 위치한 점입니다.</span><br><span class="line">RED색으로 (<span class="number">23</span>,<span class="number">33</span>)에 위치한 점입니다.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Quiz-2"><a href="#Quiz-2" class="headerlink" title="Quiz"></a>Quiz</h2><blockquote>
+<p>quiz.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BaseArray</span>&#123;</span><br><span class="line">    <span class="type">int</span> capacity;</span><br><span class="line">    <span class="type">int</span> *mem;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="built_in">BaseArray</span>(<span class="type">int</span> capacity = <span class="number">100</span>):<span class="built_in">capacity</span>(capacity)&#123;mem = <span class="keyword">new</span> <span class="type">int</span>[capacity];&#125;</span><br><span class="line">    ~<span class="built_in">BaseArray</span>()&#123;<span class="keyword">delete</span> [] mem;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> index, <span class="type">int</span> val)</span></span>&#123;mem[index] = val;&#125;;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> index)</span></span>&#123;<span class="keyword">return</span> mem[index];&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getCapacity</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> capacity;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyQueue</span> : BaseArray&#123;</span><br><span class="line">    <span class="type">int</span> head;</span><br><span class="line">    <span class="type">int</span> tail;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyQueue</span>(<span class="type">int</span> capacity):<span class="built_in">BaseArray</span>(capacity)&#123;head = <span class="number">0</span>; tail = <span class="number">-1</span>; size = <span class="number">0</span>;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">enqueue</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">dequeue</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">capacity</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="built_in">getCapacity</span>();&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">length</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> size;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setSize</span><span class="params">(<span class="type">int</span> S = <span class="number">0</span>)</span></span>&#123;size = S;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getSize</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> size;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MyQueue <span class="title">mQ</span><span class="params">(<span class="number">100</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> Size;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;큐의 사이즈를 입력하라&gt;&gt; &quot;</span>;</span><br><span class="line">    cin &gt;&gt; Size;</span><br><span class="line">    mQ.<span class="built_in">setSize</span>(Size);</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;큐에 삽입할 &quot;</span>&lt;&lt; mQ.<span class="built_in">getSize</span>() &lt;&lt; <span class="string">&quot;개의 정수를 입력하라&gt;&gt; &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; mQ.<span class="built_in">getSize</span>(); i++)&#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        mQ.<span class="built_in">enqueue</span>(n);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;큐의 용량 : &quot;</span> &lt;&lt; mQ.<span class="built_in">capacity</span>() &lt;&lt; <span class="string">&quot;,\t큐의 크기 : &quot;</span> &lt;&lt; mQ.<span class="built_in">length</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;큐의 원소를 순서대로 제거하여 출력한다&gt;&gt; &quot;</span>;</span><br><span class="line">    <span class="keyword">while</span>(mQ.<span class="built_in">length</span>() != <span class="number">0</span>)&#123;</span><br><span class="line">        cout &lt;&lt; mQ.<span class="built_in">dequeue</span>() &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl &lt;&lt; <span class="string">&quot;큐의 현재 크기 : &quot;</span> &lt;&lt; mQ.<span class="built_in">length</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyQueue::enqueue</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> he = head % <span class="built_in">getCapacity</span>();</span><br><span class="line">    <span class="built_in">put</span>(he, n);</span><br><span class="line">    head++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">MyQueue::dequeue</span><span class="params">()</span></span>&#123;</span><br><span class="line">    tail++;</span><br><span class="line">    <span class="type">int</span> ta = tail % <span class="built_in">getCapacity</span>();</span><br><span class="line">    size--;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">get</span>(ta);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">큐의 사이즈를 입력하라&gt;&gt; <span class="number">5</span></span><br><span class="line">큐에 삽입할 <span class="number">5</span>개의 정수를 입력하라&gt;&gt; <span class="number">12</span> <span class="number">34</span> <span class="number">44</span> <span class="number">33</span> <span class="number">22</span></span><br><span class="line">큐의 용량 : <span class="number">100</span>,	큐의 크기 : <span class="number">5</span></span><br><span class="line">큐의 원소를 순서대로 제거하여 출력한다&gt;&gt; <span class="number">12</span> <span class="number">34</span> <span class="number">44</span> <span class="number">33</span> <span class="number">22</span> </span><br><span class="line">큐의 현재 크기 : <span class="number">0</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
+              <a href="/tags/b-s-course-work/" rel="tag"><i class="fa fa-tag"></i> B.S. Course Work</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/cpp-2/" rel="prev" title="C++ (2)">
+                  <i class="fa fa-chevron-left"></i> C++ (2)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/cpp-4/" rel="next" title="C++ (4)">
+                  C++ (4) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"9e6eecc1150f82cdcf2d3f2906c39244"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

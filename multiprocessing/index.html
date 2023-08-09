@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction회사에서 약 17,000장 가량의 고화질 이미지 데이터를 처리해야하는 일이 생겼는데 총 처리 시간이 약 10시간 가량 소요됐다.너무 오랜 시간이 소요되기 때문에 이를 빠르게 바꿔보고자 병렬 처리를 해보려고 했다.먼저 생각난 키워드는 multithreading이여서 threading 라이브러리에 대해 찾아보게 되었다.하지만 python은">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python의 빠른 연산을 위한 Process 기반 병렬 처리">
+<meta property="og:url" content="https://zerohertz.github.io/multiprocessing/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction회사에서 약 17,000장 가량의 고화질 이미지 데이터를 처리해야하는 일이 생겼는데 총 처리 시간이 약 10시간 가량 소요됐다.너무 오랜 시간이 소요되기 때문에 이를 빠르게 바꿔보고자 병렬 처리를 해보려고 했다.먼저 생각난 키워드는 multithreading이여서 threading 라이브러리에 대해 찾아보게 되었다.하지만 python은">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/257830180-ea23c216-c877-4d92-bba1-7894e3140096.png">
+<meta property="article:published_time" content="2023-08-02T13:01:57.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/257830180-ea23c216-c877-4d92-bba1-7894e3140096.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/multiprocessing/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/multiprocessing/","path":"multiprocessing/","title":"Python의 빠른 연산을 위한 Process 기반 병렬 처리"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python의 빠른 연산을 위한 Process 기반 병렬 처리 | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#multiprocessing"><span class="nav-number">2.</span> <span class="nav-text">multiprocessing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Progress-Bar"><span class="nav-number">3.</span> <span class="nav-text">Progress Bar</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/nutrients/" rel="bookmark">
+        <time class="popular-posts-time">2023-05-01</time>
+        <br>
+      Nutrients
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawling-by-beautifulsoup-3/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-22</time>
+        <br>
+      Web Crawling by BeautifulSoup (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/getting-started-with-jupyter-notebook/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-11</time>
+        <br>
+      Getting Started with Jupyter Notebook
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawling-by-beautifulsoup-2/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-19</time>
+        <br>
+      Web Crawling by BeautifulSoup (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/cpp-3/" rel="bookmark">
+        <time class="popular-posts-time">2020-07-06</time>
+        <br>
+      C++ (3)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/multiprocessing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python의 빠른 연산을 위한 Process 기반 병렬 처리 | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python의 빠른 연산을 위한 Process 기반 병렬 처리
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-02 22:01:57" itemprop="dateCreated datePublished" datetime="2023-08-02T22:01:57+09:00">2023-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>회사에서 약 17,000장 가량의 고화질 이미지 데이터를 처리해야하는 일이 생겼는데 총 처리 시간이 약 10시간 가량 소요됐다.<br>너무 오랜 시간이 소요되기 때문에 이를 빠르게 바꿔보고자 병렬 처리를 해보려고 했다.<br>먼저 생각난 키워드는 multithreading이여서 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/ko/3/library/threading.html"><code>threading</code></a> 라이브러리에 대해 찾아보게 되었다.<br>하지만 python은 한 thread가 python 객체에 대한 접근을 제어하는 <span class="exturl" data-url="aHR0cHM6Ly9uYW11Lndpa2kvdy8lRUIlQUUlQTQlRUQlODUlOEQlRUMlOEElQTQ=">mutex<i class="fa fa-external-link-alt"></i></span>인 <span class="exturl" data-url="aHR0cHM6Ly9zc3VuZ2thbmcudGlzdG9yeS5jb20vZW50cnkvcHl0aG9uLUdJTC1HbG9iYWwtaW50ZXJwcmV0ZXItTG9jayVFQyU5RCU4MC0lRUIlQUMlQjQlRUMlOTclODclRUMlOUQlQkMlRUElQjklOEM=">GIL<i class="fa fa-external-link-alt"></i></span> (Global Interpreter Lock)이 존재하여 <span class="exturl" data-url="aHR0cHM6Ly9tb25rZXkzMTk5LmdpdGh1Yi5pby9kZXZlbG9wL3B5dGhvbi8yMDE4LzEyLzA0L3B5dGhvbi1wYXJhcnJlbC5odG1s">CPU 작업이 적고 I&#x2F;O 작업이 많은 처리에서 효과를 볼 수 있다<i class="fa fa-external-link-alt"></i></span>. (<del>더 이상은 너무 어려워요,,,</del>)<br>Cython에서는 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9QQU5QUC9ibG9iL2Q1MThjNjg4ZGU0NDhmOTFjOGZkNmQxOTRhYTFjYzM0OTRmYjZhYTAvbW9kZWxzL3Bvc3RfcHJvY2Vzc2luZy9ib3hnZW4vYm94Z2VuLnB5eCNMMzVDMzYtTDM1QzM2">이렇게<i class="fa fa-external-link-alt"></i></span> <code>nogil=True</code>로 정의해 GIL를 해제하고 병렬 처리를 할 수 있다.<br>그렇다면 현재 문제인 대량의 고화질 이미지 데이터를 최대한 빠르게 처리하려면 어떻게 해야할까?<br>이 경우에는 process 기반의 병렬 처리를 지원하는 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.python.org/3/library/multiprocessing.html"><code>multiprocessing</code></a> 라이브러리를 사용하면 된다.</p>
+<span id="more"></span>
+
+<hr>
+<h1 id="multiprocessing"><a href="#multiprocessing" class="headerlink" title="multiprocessing"></a>multiprocessing</h1><p>성능 비교를 위한 간단한 <code>multiprocessing</code>의 예제는 다른 글에 많아 본 글에서는 바로 어떻게 이 문제를 해결했는지 설명하겠다.<br>먼저 task를 수행할 <code>main()</code> 함수에 4가지 변수가 사용되어 <code>multiprocessing.Pool.map()</code> 메서드를 사용하지 못하여 <code>multiprocessing.Pool.starmap()</code> 메서드를 사용했다.<br><code>multiprocessing.Pool(processes=$&#123;NUM_POOL&#125;)</code>을 통해 process의 수를 정의할 수 있다. (<code>multiprocessing.cpu_count()</code> 메서드를 통해 현재 기기의 CPU 코어 수를 확인할 수 있다.)<br>마지막으로 process가 처리할 이미지를 정의하기 위해 <code>args</code>의 마지막 인덱스에 각 process가 처리할 이미지의 인덱스를 포함시켰다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing <span class="keyword">as</span> mp</span><br><span class="line">...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">org, tar, dv, ant</span>):</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>():</span><br><span class="line">    ...</span><br><span class="line">    NUM_POOL = $&#123;NUM_POOL&#125;</span><br><span class="line"></span><br><span class="line">    args = [[org, tar, dv, []] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(NUM_POOL)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(annotations)):</span><br><span class="line">        args[i % NUM_POOL][<span class="number">3</span>].append(i)</span><br><span class="line">    <span class="keyword">with</span> mp.Pool(processes=NUM_POOL) <span class="keyword">as</span> pool:</span><br><span class="line">        res = pool.starmap(main, args)</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure>
+
+<p><code>multiprocessing</code>의 성능을 확인하기 위해 이미지 100장에 대해 실험을 진행했고 결과는 아래와 같다.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ORG:</span>            <span class="number">210.292</span><span class="string">초</span></span><br><span class="line"><span class="string">processes=1:</span>    <span class="number">201.165</span><span class="string">초</span></span><br><span class="line"><span class="string">processes=25:</span>   <span class="number">116.874</span><span class="string">초</span></span><br><span class="line"><span class="string">processes=50:</span>   <span class="number">65.589</span><span class="string">초</span></span><br><span class="line"><span class="string">processes=64:</span>   <span class="number">55.173</span><span class="string">초</span></span><br><span class="line"><span class="string">processes=128:</span>  <span class="number">35.111</span><span class="string">초</span></span><br></pre></td></tr></table></figure>
+
+<p>확실히 <code>multiprocessing</code>를 사용하지 않는 것 (<code>ORG</code>)에 비해 빠름을 확인할 수 있고, process의 수를 증가시킴에 따라 처리 시간이 짧아짐을 확인할 수 있다.<br>하지만 CPU 코어 수는 아래와 같이 64개인데 process의 수를 128로 설정해도 잘 실행됐고 오히려 빨랐다. (<del>ChatGPT는 이러지 말라긴 하는데,,,</del>)</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/257830180-ea23c216-c877-4d92-bba1-7894e3140096.png" alt="CPU"></p>
+<p><del>불타는 CPU</del></p>
+<p>혹은 아래와 같이 진행해도 같다. (<del>굳이 <code>starmap</code> 메서드를 쓸 이유가 없었다…</del>)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing <span class="keyword">as</span> mp</span><br><span class="line">...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">args</span>):</span><br><span class="line">    ant, org, tar, dv = args</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>():</span><br><span class="line">    ...</span><br><span class="line">    NUM_POOL = $&#123;NUM_POOL&#125;</span><br><span class="line"></span><br><span class="line">    args = [[ant, org, tar, dv] <span class="keyword">for</span> ant <span class="keyword">in</span> annotations]</span><br><span class="line">    <span class="keyword">with</span> mp.Pool(processes=NUM_POOL) <span class="keyword">as</span> pool:</span><br><span class="line">        res = pool.<span class="built_in">map</span>(main, args)</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Progress-Bar"><a href="#Progress-Bar" class="headerlink" title="Progress Bar"></a>Progress Bar</h1><p>단일 process에서 반복문을 실행할 때 <code>tqdm</code> 라이브러리를 사용하여 진행 상황을 확인할 수 있다.<br>하지만 병렬 처리 시 확인하기 쉽지 않아 아래와 같은 방법을 찾았다.</p>
+<figure class="highlight python"><figcaption><span>1. multiprocessing</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> multiprocessing <span class="keyword">as</span> mp</span><br><span class="line"><span class="keyword">with</span> mp.Pool(processes=NUM_POOL) <span class="keyword">as</span> pool:</span><br><span class="line">    res = <span class="built_in">list</span>(tqdm(pool.imap(main, args), total=<span class="built_in">len</span>(args)))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>2. tqdm</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm.contrib.concurrent <span class="keyword">import</span> process_map</span><br><span class="line">res = process_map(main, args, max_workers=NUM_POOL)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>3. parmap</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> parmap</span><br><span class="line">res = parmap.<span class="built_in">map</span>(main, args, pm_pbar=<span class="literal">True</span>, pm_processes=NUM_POOL)</span><br></pre></td></tr></table></figure>
+
+<p>실행 시간 자체는 모두 동일한 것으로 확인했다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/boj-11004/" rel="prev" title="BOJ: 11004">
+                  <i class="fa fa-chevron-left"></i> BOJ: 11004
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/home-server-init/" rel="next" title="Home Server 구축기">
+                  Home Server 구축기 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"3e99d3e8aa9fca4550b906a08a596d97"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

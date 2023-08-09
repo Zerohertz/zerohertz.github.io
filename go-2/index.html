@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="시작에 앞선 꿀팁 빌드와 실행을 동시에?  1$ go run main.go  이렇게 실행하면 go build main.go와 .&#x2F;main을 합쳐서 실행할 수 있다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go (2)">
+<meta property="og:url" content="https://zerohertz.github.io/go-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="시작에 앞선 꿀팁 빌드와 실행을 동시에?  1$ go run main.go  이렇게 실행하면 go build main.go와 .&#x2F;main을 합쳐서 실행할 수 있다.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-17T11:51:00.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/go-2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/go-2/","path":"go-2/","title":"Go (2)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Go (2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%8B%9C%EC%9E%91%EC%97%90-%EC%95%9E%EC%84%A0-%EA%BF%80%ED%8C%81"><span class="nav-number">1.</span> <span class="nav-text">시작에 앞선 꿀팁</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">2.1.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slice"><span class="nav-number">2.2.</span> <span class="nav-text">Slice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">2.3.</span> <span class="nav-text">Map</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">3.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-By-Reference"><span class="nav-number">3.1.</span> <span class="nav-text">Pass By Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variadic-Function"><span class="nav-number">3.2.</span> <span class="nav-text">Variadic Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Return"><span class="nav-number">3.3.</span> <span class="nav-text">Return</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-2563/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-01</time>
+        <br>
+      BOJ: 2563
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/labview/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-06</time>
+        <br>
+      LabVIEW
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/numpy/" rel="bookmark">
+        <time class="popular-posts-time">2021-02-28</time>
+        <br>
+      Numpy
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mathjax-test/" rel="bookmark">
+        <time class="popular-posts-time">2020-01-09</time>
+        <br>
+      mathjax test
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/matlab-1/" rel="bookmark">
+        <time class="popular-posts-time">2019-09-18</time>
+        <br>
+      MATLAB (1)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/go-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Go (2) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Go (2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-07-17 20:51:00" itemprop="dateCreated datePublished" datetime="2023-07-17T20:51:00+09:00">2023-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="시작에-앞선-꿀팁"><a href="#시작에-앞선-꿀팁" class="headerlink" title="시작에 앞선 꿀팁"></a>시작에 앞선 꿀팁</h1><blockquote>
+<p>빌드와 실행을 동시에?</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 실행하면 <code>go build main.go</code>와 <code>./main</code>을 합쳐서 실행할 수 있다.</p>
+<span id="more"></span>
+
+<hr>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><p>배열의 선언은 <code>var $&#123;변수명&#125; [$&#123;크기&#125;]$&#123;자료형&#125;</code>으로 선언할 수 있다.<br>또한 <code>&#123;&#125;</code>를 통해 초기화를 할 수 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a [<span class="number">3</span>]<span class="type">int</span></span><br><span class="line">	a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;a:&quot;</span>, a)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> b = [<span class="number">3</span>]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;b:&quot;</span>, b)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> c = [...]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;c:&quot;</span>, c)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> d [<span class="number">2</span>][<span class="number">2</span>]<span class="type">int</span></span><br><span class="line">	d[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">7</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;d:&quot;</span>, d)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> e = [<span class="number">2</span>][<span class="number">2</span>]<span class="type">int</span>&#123;</span><br><span class="line">		&#123;<span class="number">1</span>, <span class="number">2</span>&#125;,</span><br><span class="line">		&#123;<span class="number">3</span>, <span class="number">4</span>&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;e:&quot;</span>, e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">a: [1 0 0]</span><br><span class="line">b: [1 2 3]</span><br><span class="line">c: [1 2 3]</span><br><span class="line">d: [[0 7] [0 0]]</span><br><span class="line">e: [[1 2] [3 4]]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Slice"><a href="#Slice" class="headerlink" title="Slice"></a>Slice</h2><p>하지만 Go에서 배열은 크기를 동적으로 증가할 수 없으며 부분 배열을 발췌할 수 없다.<br>그래서 Slice라는 자료형이 존재한다.<br>선언은 <code>var $&#123;변수명&#125; []$&#123;자료형&#125;</code>으로 할 수 있다.<br>혹은 <code>$&#123;변수명&#125; := []$&#123;자료형&#125;&#123;$&#123;초기화&#125;&#125;</code> 및 <code>$&#123;변수명&#125; := make([]$&#123;자료형&#125;, $&#123;길이&#125;, $&#123;용량&#125;)</code>을 사용할 수 있다. (용량에 대해서는 아래서 설명)</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> a []<span class="type">int</span></span><br><span class="line">	a = []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;a:&quot;</span>, a)</span><br><span class="line"></span><br><span class="line">	b := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">5</span>, <span class="number">10</span>)</span><br><span class="line">	fmt.Println(<span class="string">&quot;b:&quot;</span>, b)</span><br><span class="line">	fmt.Println(<span class="string">&quot;len(b):&quot;</span>, <span class="built_in">len</span>(b))</span><br><span class="line">	fmt.Println(<span class="string">&quot;cap(b):&quot;</span>, <span class="built_in">cap</span>(b))</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> c []<span class="type">int</span></span><br><span class="line">	<span class="keyword">if</span> a == <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;a == nil&quot;</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;a != nil&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> c == <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;c == nil&quot;</span>)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;c != nil&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;append(a, 100):&quot;</span>, <span class="built_in">append</span>(a, <span class="number">100</span>))</span><br><span class="line">	fmt.Println(<span class="string">&quot;a:&quot;</span>, a)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> d [][]<span class="type">int</span></span><br><span class="line">	d = [][]<span class="type">int</span>&#123;</span><br><span class="line">		&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,</span><br><span class="line">		&#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;d:&quot;</span>, d)</span><br><span class="line">	<span class="comment">// d = append(d, [7, 8, 9]) -&gt; Error</span></span><br><span class="line">	d = <span class="built_in">append</span>(d, []<span class="type">int</span>&#123;<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;)</span><br><span class="line">	fmt.Println(<span class="string">&quot;append(d, []int&#123;7, 8, 9&#125;):&quot;</span>, d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>여기서 <code>nil</code>은 zero value를 의미하는데, <code>string</code> 자료형은 예외여서 <code>&quot;&quot;</code>을 사용해야한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">a: [1 2 3]</span><br><span class="line">b: [0 0 0 0 0]</span><br><span class="line">len(b): 5</span><br><span class="line"><span class="built_in">cap</span>(b): 10</span><br><span class="line">a != nil</span><br><span class="line">c == nil</span><br><span class="line">append(a, 100): [1 2 3 100]</span><br><span class="line">a: [1 2 3]</span><br><span class="line">d: [[1 2 3] [4 5 6]]</span><br><span class="line">append(d, []int&#123;7, 8, 9&#125;): [[1 2 3] [4 5 6] [7 8 9]]</span><br></pre></td></tr></table></figure>
+
+<p>Slice는 <code>len</code>과 <code>cap</code>의 개념을 가지고 각각 길이와 용량을 의미한다.<br>이 개념은 아래 코드를 통해 쉽게 이해할 수 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> s1 []<span class="type">int</span></span><br><span class="line">	s2 := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line">	fmt.Println(</span><br><span class="line">		<span class="string">&quot;len(s1):&quot;</span>, <span class="built_in">len</span>(s1),</span><br><span class="line">		<span class="string">&quot;\tlen(s2):&quot;</span>, <span class="built_in">len</span>(s2),</span><br><span class="line">		<span class="string">&quot;\tcap(s1):&quot;</span>, <span class="built_in">cap</span>(s1),</span><br><span class="line">		<span class="string">&quot;\tcap(s2):&quot;</span>, <span class="built_in">cap</span>(s2),</span><br><span class="line">	)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">15</span>; i++ &#123;</span><br><span class="line">		s1 = <span class="built_in">append</span>(s1, i)</span><br><span class="line">		s2 = <span class="built_in">append</span>(s2, i)</span><br><span class="line">		fmt.Println(</span><br><span class="line">			<span class="string">&quot;len(s1):&quot;</span>, <span class="built_in">len</span>(s1),</span><br><span class="line">			<span class="string">&quot;\tlen(s2):&quot;</span>, <span class="built_in">len</span>(s2),</span><br><span class="line">			<span class="string">&quot;\tcap(s1):&quot;</span>, <span class="built_in">cap</span>(s1),</span><br><span class="line">			<span class="string">&quot;\tcap(s2):&quot;</span>, <span class="built_in">cap</span>(s2),</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;s1:&quot;</span>, s1)</span><br><span class="line">	fmt.Println(<span class="string">&quot;s2:&quot;</span>, s2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>용량을 지정하지 않은 slice <code>s1</code>과 길이가 <code>0</code>, 용량이 <code>2</code>인 slice <code>s2</code>에 15번 <code>append()</code>를 진행한다면?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">len(s1): 0 	len(s2): 0 	<span class="built_in">cap</span>(s1): 0 	<span class="built_in">cap</span>(s2): 3</span><br><span class="line">len(s1): 1 	len(s2): 1 	<span class="built_in">cap</span>(s1): 1 	<span class="built_in">cap</span>(s2): 3</span><br><span class="line">len(s1): 2 	len(s2): 2 	<span class="built_in">cap</span>(s1): 2 	<span class="built_in">cap</span>(s2): 3</span><br><span class="line">len(s1): 3 	len(s2): 3 	<span class="built_in">cap</span>(s1): 4 	<span class="built_in">cap</span>(s2): 3</span><br><span class="line">len(s1): 4 	len(s2): 4 	<span class="built_in">cap</span>(s1): 4 	<span class="built_in">cap</span>(s2): 6</span><br><span class="line">len(s1): 5 	len(s2): 5 	<span class="built_in">cap</span>(s1): 8 	<span class="built_in">cap</span>(s2): 6</span><br><span class="line">len(s1): 6 	len(s2): 6 	<span class="built_in">cap</span>(s1): 8 	<span class="built_in">cap</span>(s2): 6</span><br><span class="line">len(s1): 7 	len(s2): 7 	<span class="built_in">cap</span>(s1): 8 	<span class="built_in">cap</span>(s2): 12</span><br><span class="line">len(s1): 8 	len(s2): 8 	<span class="built_in">cap</span>(s1): 8 	<span class="built_in">cap</span>(s2): 12</span><br><span class="line">len(s1): 9 	len(s2): 9 	<span class="built_in">cap</span>(s1): 16 	<span class="built_in">cap</span>(s2): 12</span><br><span class="line">len(s1): 10 	len(s2): 10 	<span class="built_in">cap</span>(s1): 16 	<span class="built_in">cap</span>(s2): 12</span><br><span class="line">len(s1): 11 	len(s2): 11 	<span class="built_in">cap</span>(s1): 16 	<span class="built_in">cap</span>(s2): 12</span><br><span class="line">len(s1): 12 	len(s2): 12 	<span class="built_in">cap</span>(s1): 16 	<span class="built_in">cap</span>(s2): 12</span><br><span class="line">len(s1): 13 	len(s2): 13 	<span class="built_in">cap</span>(s1): 16 	<span class="built_in">cap</span>(s2): 24</span><br><span class="line">len(s1): 14 	len(s2): 14 	<span class="built_in">cap</span>(s1): 16 	<span class="built_in">cap</span>(s2): 24</span><br><span class="line">len(s1): 15 	len(s2): 15 	<span class="built_in">cap</span>(s1): 16 	<span class="built_in">cap</span>(s2): 24</span><br><span class="line">s1: [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]</span><br><span class="line">s2: [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]</span><br></pre></td></tr></table></figure>
+
+<p>길이의 제한을 받지 않고 늘어나는 순간마다 <code>len()</code>이 <code>s1</code>, <code>s2</code> 모두 증가하는 것을 확인할 수 있다.<br><code>s1</code>은 첫 용량이 0이기 때문에 첫 <code>append()</code>에서 1으로 증가하고 두 번째 <code>append()</code>에서는 1의 두 배인 2, 세 번째 <code>append()</code>에서는 2의 두 배인 4인 것을 확인할 수 있다.<br>Slice는 용량을 초과하는 경우 현재 용량의 2배에 해당하는 용량을 새로운 underlying array를 생성하고 기존 배열 값들을 모두 새 배열에 복제하고 다시 슬라이스를 할당한다.<br>따라서 <code>s2</code>는 첫 용량이 3이기 때문에 첫 용량 초과에 용량이 6으로 증가한 것을 확인할 수 있다.</p>
+<details>
+<summary>
+Underlying array가 뭐야?
+</summary>
+
+<p>Golang에서 슬라이스 (slice)는 underlying array (기본 배열)을 가리키는 포인터를 포함하고 있습니다. 이 underlying array는 실제 데이터가 저장되는 공간입니다.<br>슬라이스는 길이 (length)와 용량 (capacity) 정보와 함께 underlying array를 가리키는 포인터를 갖습니다. 슬라이스를 생성할 때, 기본 배열은 자동으로 할당되며, 슬라이스의 요소들은 이 기본 배열에 저장됩니다. 슬라이스는 해당 배열의 일부분을 가리키므로, 배열의 변경은 슬라이스에도 영향을 줍니다.<br>슬라이스의 일부를 수정하면 underlying array의 해당 부분도 수정됩니다. 마찬가지로, 다른 슬라이스를 생성하고 해당 슬라이스의 요소를 변경하면, 같은 underlying array를 공유하는 다른 슬라이스들도 영향을 받습니다.<br>예를 들어, 다음 코드를 살펴보겠습니다:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	array := [<span class="number">5</span>]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">	slice := array[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">	fmt.Println(<span class="string">&quot;Array:&quot;</span>, array)</span><br><span class="line">	fmt.Println(<span class="string">&quot;Slice:&quot;</span>, slice)</span><br><span class="line"></span><br><span class="line">	slice[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;Array:&quot;</span>, array)</span><br><span class="line">	fmt.Println(<span class="string">&quot;Slice:&quot;</span>, slice)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드에서 array는 길이가 5인 정수형 배열이고, slice는 array의 일부분인 슬라이스입니다. 슬라이스 slice는 array의 인덱스 1부터 2까지의 요소를 가리키고 있습니다. 결과는 다음과 같을 것입니다:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Array: [1 2 3 4 5]</span><br><span class="line">Slice: [2 3]</span><br><span class="line">Array: [1 10 3 4 5]</span><br><span class="line">Slice: [10 3]</span><br></pre></td></tr></table></figure>
+
+<p>슬라이스 slice의 첫 번째 요소를 10으로 변경한 후, array와 slice를 출력하면, array의 해당 부분도 변경된 것을 확인할 수 있습니다. 이는 slice가 array의 underlying array를 공유하기 때문입니다.<br>따라서, underlying array는 슬라이스의 데이터를 저장하는 실제 공간이며, 슬라이스의 요소들은 해당 배열에 저장됩니다. 슬라이스를 통해 배열을 조작하면 underlying array도 함께 변경됩니다.</p>
+</details>
+<br>
+
+<p>Python과 유사하게 slice를 복사할 때 단순히 <code>:=</code>를 사용하면 shallow copy된다.<br>Deep copy를 하려면 <code>copy()</code> 함수를 아래와 같이 사용해야한다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;s:&quot;</span>, s)</span><br><span class="line">	shallow := s</span><br><span class="line">	shallow[<span class="number">1</span>] = <span class="number">100</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;s:&quot;</span>, s, <span class="string">&quot;\tshallow:&quot;</span>, shallow)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// var deep []int -&gt; deep: []</span></span><br><span class="line">	deep := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="built_in">len</span>(s), <span class="built_in">cap</span>(s))</span><br><span class="line">	<span class="built_in">copy</span>(deep, s)</span><br><span class="line">	fmt.Println(<span class="string">&quot;deep:&quot;</span>, deep)</span><br><span class="line"></span><br><span class="line">	s[<span class="number">2</span>] = <span class="number">1000</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;s:&quot;</span>, s, <span class="string">&quot;\tdeep:&quot;</span>, deep)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">s: [1 2 3]</span><br><span class="line">s: [1 100 3] 	shallow: [1 100 3]</span><br><span class="line">deep: [1 100 3]</span><br><span class="line">s: [1 100 1000] 	deep: [1 100 3]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>Map은 hash table을 구현한 자료 구조로 python의 dictionary와 유사하다.<br>선언은 <code>var $&#123;변수명&#125; map[$&#123;Key_자료형&#125;]$&#123;Value_자료형&#125;</code>와 같이 할 수 있다.<br>하지만 이 상태 (nil map)에서는 어떤 값도 쓸 수 없기 때문에 <code>make(map[$&#123;Key_자료형&#125;]$&#123;Value_자료형&#125;)</code>로 변수를 초기화해야 사용할 수 있다.<br>혹은 <code>$&#123;변수명&#125; = map[$&#123;Key_자료형&#125;]$&#123;Value_자료형&#125;&#123;&#125;</code>와 같이 선언하면 초기화를 동시에 할 수 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> m1 <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;m1:&quot;</span>, m1)</span><br><span class="line">	<span class="comment">// m1[&quot;asdf&quot;] = &quot;zxcv&quot; -&gt; Error</span></span><br><span class="line">	m1 = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>)</span><br><span class="line">	m1[<span class="string">&quot;asdf&quot;</span>] = <span class="string">&quot;zxcv&quot;</span></span><br><span class="line">	m1[<span class="string">&quot;qw&quot;</span>] = <span class="string">&quot;er&quot;</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;m1:&quot;</span>, m1)</span><br><span class="line"></span><br><span class="line">	m2 := <span class="keyword">map</span>[<span class="type">int</span>]<span class="type">int</span>&#123;&#125;</span><br><span class="line">	fmt.Println(<span class="string">&quot;m2:&quot;</span>, m2)</span><br><span class="line">	m2[<span class="number">2</span>] = <span class="number">71</span></span><br><span class="line">	m2[<span class="number">3</span>] = <span class="number">14</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;m2:&quot;</span>, m2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">m1: map[]</span><br><span class="line">m1: map[asdf:zxcv qw:er]</span><br><span class="line">m2: map[]</span><br><span class="line">m2: map[2:71 3:14]</span><br></pre></td></tr></table></figure>
+
+<p><code>val := map[key]</code> 혹은 <code>val, exists := map[key]</code> 와 같이 map을 사용할 수 있다.<br>후자와 같이 사용 시 <code>exists</code>에 <code>key</code>가 존재하는지 여부를 저장한다.<br>또한 map은 반복문에서 <code>for k, v := range m</code>와 같이 사용하면 python dictionary의 <code>items()</code>와 유사하게 사용할 수 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	m := <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;</span><br><span class="line">		<span class="string">&quot;Zero&quot;</span>: <span class="string">&quot;Hertz&quot;</span>,</span><br><span class="line">		<span class="string">&quot;오&quot;</span>:    <span class="string">&quot;효근&quot;</span>,</span><br><span class="line">		<span class="string">&quot;먼지&quot;</span>:   <span class="string">&quot;cat&quot;</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	val, exists := m[<span class="string">&quot;cat&quot;</span>]</span><br><span class="line">	<span class="keyword">if</span> exists &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;m[\&quot;cat\&quot;]:&quot;</span>, val, exists)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;m[\&quot;cat\&quot;]:&quot;</span>, val, exists)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> key, val := <span class="keyword">range</span> m &#123;</span><br><span class="line">		fmt.Println(key, val)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">m[<span class="string">&quot;cat&quot;</span>]:  <span class="literal">false</span></span><br><span class="line">Zero Hertz</span><br><span class="line">오 효근</span><br><span class="line">먼지 <span class="built_in">cat</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><p>Go에서는 기본적으로 <code>func $&#123;함수명&#125;($&#123;변수명&#125; $&#123;자료형&#125;) $&#123;자료형&#125;</code>와 같이 함수를 정의할 수 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	test(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(msg <span class="type">string</span>)</span></span> &#123;</span><br><span class="line">	fmt.Println(msg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pass-By-Reference"><a href="#Pass-By-Reference" class="headerlink" title="Pass By Reference"></a>Pass By Reference</h2><p>함수의 입력은 두 가지 방법으로 정의할 수 있다.</p>
+<ul>
+<li>Pass By Value<ul>
+<li>함수에 변수 전달 시 해당 변수의 값이 복사되어 함수의 매개변수로 전달</li>
+<li>함수 내 매개변수 수정 시 원본 변수 영향 X</li>
+</ul>
+</li>
+<li>Pass By Reference<ul>
+<li>함수에 변수 전달 시 해당 변수의 메모리 주소를 함수의 매개변수로 전달</li>
+<li>함수 내 매개변수 수정 시 원본 변수 영향 O</li>
+</ul>
+</li>
+</ul>
+<p>아래 예제를 통해 차이를 알 수 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> mv, mp <span class="type">string</span></span><br><span class="line">	mv = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">	mp = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">	test(mv, &amp;mp)</span><br><span class="line">	fmt.Println(<span class="string">&quot;main():\t&quot;</span>, mv)</span><br><span class="line">	fmt.Println(<span class="string">&quot;main():\t&quot;</span>, mp)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(msg_var <span class="type">string</span>, msg_pt *<span class="type">string</span>)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;test():\t&quot;</span>, msg_var)</span><br><span class="line">	fmt.Println(<span class="string">&quot;test():\t&quot;</span>, *msg_pt)</span><br><span class="line">	msg_var = <span class="string">&quot;Changed&quot;</span></span><br><span class="line">	*msg_pt = <span class="string">&quot;Changed&quot;</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;test():\t&quot;</span>, msg_var)</span><br><span class="line">	fmt.Println(<span class="string">&quot;test():\t&quot;</span>, *msg_pt)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line"><span class="built_in">test</span>():  Hello, World!</span><br><span class="line"><span class="built_in">test</span>():  Hello, World!</span><br><span class="line"><span class="built_in">test</span>():  Changed</span><br><span class="line"><span class="built_in">test</span>():  Changed</span><br><span class="line">main():  Hello, World!</span><br><span class="line">main():  Changed</span><br></pre></td></tr></table></figure>
+
+<h2 id="Variadic-Function"><a href="#Variadic-Function" class="headerlink" title="Variadic Function"></a>Variadic Function</h2><p>가변 파라미터를 함수에 전달할 때 <code>...</code>을 사용한다.<br>하지만 <code>...</code>은 마지막 파라미터에서만 사용한다.<br>즉, <code>(x ...int, y ...string)</code>과 같이 사용할 수 없다.<br>아래 예제에서는 단일 문자열을 전달할 수도 있고 여러 문자열을 전달할 수도 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	test(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(msg ...<span class="type">string</span>)</span></span> &#123;</span><br><span class="line">	fmt.Println(msg)</span><br><span class="line">	<span class="keyword">for</span> idx, tmp := <span class="keyword">range</span> msg &#123;</span><br><span class="line">		fmt.Println(idx, tmp)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">[A B C]</span><br><span class="line">0 A</span><br><span class="line">1 B</span><br><span class="line">2 C</span><br></pre></td></tr></table></figure>
+
+<h2 id="Return"><a href="#Return" class="headerlink" title="Return"></a>Return</h2><p>함수의 출력이 2개 이상인 경우 <code>func $&#123;함수명&#125;(...)</code> 뒤에 <code>($&#123;자료형&#125;, $&#123;자료형&#125;, ...)</code>과 같이 정의할 수 있다.<br>혹은 <code>($&#123;변수명&#125; $&#123;자료형&#125;, $&#123;변수명&#125; $&#123;자료형&#125;, ...)</code>과 같이 정의할 수 있다.<br>아래 예제에서 첫 번째와 같이 정의한 함수가 <code>sum()</code> 함수이고, 두 번째와 같이 정의한 함수가 <code>sum2()</code>이다.<br><code>sum2()</code>와 같이 함수를 정의할 때 <code>return</code> 뒤에 별도의 변수가 존재하지 않더라도 꼭 <code>return</code>을 명시해야 한다.<br>결과는 동일한 것을 확인할 수 있다.</p>
+<figure class="highlight go"><figcaption><span>main.go</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	count, total := sum(<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line">	fmt.Println(count, total)</span><br><span class="line">	count2, total2 := sum2(<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line">	fmt.Println(count2, total2)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum</span><span class="params">(nums ...<span class="type">int</span>)</span></span> (<span class="type">int</span>, <span class="type">int</span>) &#123;</span><br><span class="line">	total := <span class="number">0</span></span><br><span class="line">	count := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> _, n := <span class="keyword">range</span> nums &#123;</span><br><span class="line">		total += n</span><br><span class="line">		count++</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> count, total</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum2</span><span class="params">(nums ...<span class="type">int</span>)</span></span> (count <span class="type">int</span>, total <span class="type">int</span>) &#123;</span><br><span class="line">	<span class="keyword">for</span> _, n := <span class="keyword">range</span> nums &#123;</span><br><span class="line">		total += n</span><br><span class="line">	&#125;</span><br><span class="line">	count = <span class="built_in">len</span>(nums)</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">3 9</span><br><span class="line">3 9</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/serving-yolov5-segmentation-model-with-aws-ec2-inf1/" rel="prev" title="Serving YOLOv5 Segmentation Model with Amazon EC2 Inf1">
+                  <i class="fa fa-chevron-left"></i> Serving YOLOv5 Segmentation Model with Amazon EC2 Inf1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/apache-airflow-1/" rel="next" title="Apache Airflow (1)">
+                  Apache Airflow (1) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"8775e9cf70bd145cdeb94c39f9b64499"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

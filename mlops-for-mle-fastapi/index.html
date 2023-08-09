@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction12$ conda activate MLOps$ pip install &quot;fastapi[all]&quot;  Example.py12345678from fastapi import FastAPIapp &#x3D; FastAPI()@app.get(&quot;&#x2F;&quot;)def read_root():    return &amp;#123;&quot;He">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MLOps for MLE: FastAPI">
+<meta property="og:url" content="https://zerohertz.github.io/mlops-for-mle-fastapi/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction12$ conda activate MLOps$ pip install &quot;fastapi[all]&quot;  Example.py12345678from fastapi import FastAPIapp &#x3D; FastAPI()@app.get(&quot;&#x2F;&quot;)def read_root():    return &amp;#123;&quot;He">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/218294927-b5e5265d-2176-4ff9-bc4d-57cbbce7dca5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/217262283-76fa8515-5580-4c45-a67d-b7c5304d09f2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/217262336-51ced7dd-477e-4808-9549-45b730ededd5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/217269004-676cdc8a-c1ec-43ce-af03-78d694f122cd.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/217270657-2c58f378-5dd3-46c2-a8ad-f23b6e713fa3.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/217273288-deae06db-e96d-4b10-aa78-d473302200ed.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/217275856-555c8b66-05f3-4aa7-b7c9-836b85336e8f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/218295044-2f1e25fe-d197-427c-a229-6a033da48722.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/217852672-10ca0544-83f3-4c62-ba06-587d6f126f82.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/218295137-787b256e-9999-4173-be43-761192017f0c.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/218295832-fa682e6e-05b6-425c-b856-772c842aed96.png">
+<meta property="article:published_time" content="2023-02-07T13:31:31.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="FastAPI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/218294927-b5e5265d-2176-4ff9-bc4d-57cbbce7dca5.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/mlops-for-mle-fastapi/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/mlops-for-mle-fastapi/","path":"mlops-for-mle-fastapi/","title":"MLOps for MLE: FastAPI"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MLOps for MLE: FastAPI | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Path-Parameter"><span class="nav-number">1.1.</span> <span class="nav-text">Path Parameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Query-Parameter"><span class="nav-number">1.2.</span> <span class="nav-text">Query Parameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiple-Path-and-Query-Parameters"><span class="nav-number">1.3.</span> <span class="nav-text">Multiple Path and Query Parameters</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FastAPI-CRUD"><span class="nav-number">2.</span> <span class="nav-text">FastAPI CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API-%EA%B5%AC%ED%98%84"><span class="nav-number">2.1.</span> <span class="nav-text">API 구현</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API-%ED%85%8C%EC%8A%A4%ED%8A%B8"><span class="nav-number">2.2.</span> <span class="nav-text">API 테스트</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FastAPI-CRUD-Pydantic"><span class="nav-number">3.</span> <span class="nav-text">FastAPI CRUD (Pydantic)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FastAPI-on-Docker"><span class="nav-number">4.</span> <span class="nav-text">FastAPI on Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/serving-yolov5-segmentation-model-with-aws-ec2-inf1/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-10</time>
+        <br>
+      Serving YOLOv5 Segmentation Model with Amazon EC2 Inf1
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawling-by-beautifulsoup-4/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-22</time>
+        <br>
+      Web Crawling by BeautifulSoup (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-api-serving/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-15</time>
+        <br>
+      MLOps for MLE: API Serving
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-1080/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-01</time>
+        <br>
+      BOJ: 1080
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-14503/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-28</time>
+        <br>
+      BOJ: 14503
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-fastapi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MLOps for MLE: FastAPI | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MLOps for MLE: FastAPI
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-02-07 22:31:31" itemprop="dateCreated datePublished" datetime="2023-02-07T22:31:31+09:00">2023-02-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ conda activate MLOps</span><br><span class="line">$ pip install <span class="string">&quot;fastapi[all]&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI</span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_root</span>():</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;Hello&quot;</span>: <span class="string">&quot;World&quot;</span>&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>app = FastAPI()</code>: <code>FastAPI</code> 클래스의 인스턴스 생성</li>
+<li>Path Operation Decorator: API 작업의 endpoint를 HTTP method를 통해 지정<ul>
+<li>Operation: <code>POST</code>, <code>GET</code>, <code>PUT</code>, <code>DELETE</code> 등의 HTTP method</li>
+<li>Ex. <code>@app.get(&quot;/&quot;)</code>: FastAPI가 path <code>/</code>에서 <code>GET</code> operation 수행</li>
+</ul>
+</li>
+<li>Path Operation Function: Path operation 수행 시 실행될 Python 함수<ul>
+<li>Return: <code>dict</code>, <code>list</code>, <code>str</code>, <code>int</code>, Pydantic Model, etc…</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uvicorn Example:app --reload</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>uvicorn</code>: FastAPI를 실행하는 웹 서버 실행 Command Line Tool</li>
+<li><code>Example</code>: <code>Example.py</code></li>
+<li><code>app</code>: <code>Example.py</code>에서 선언된 <code>FastAPI</code>의 객체</li>
+<li><code>--reload</code>: 코드 변경 시 서버 재시작 옵션</li>
+</ul>
+<img width="762" alt="FastAPI: example_1" src="https://user-images.githubusercontent.com/42334717/218294927-b5e5265d-2176-4ff9-bc4d-57cbbce7dca5.png">
+
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwLw==">http://localhost:8000<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<img width="1141" alt="FastAPI: example_2" src="https://user-images.githubusercontent.com/42334717/217262283-76fa8515-5580-4c45-a67d-b7c5304d09f2.png">
+
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvYw==">http://localhost:8000/doc<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<img width="1141" alt="FastAPI: example_3" src="https://user-images.githubusercontent.com/42334717/217262336-51ced7dd-477e-4808-9549-45b730ededd5.png">
+
+<h2 id="Path-Parameter"><a href="#Path-Parameter" class="headerlink" title="Path Parameter"></a>Path Parameter</h2><figure class="highlight python"><figcaption><span>Example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/items/&#123;item_id&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_item_parameter</span>(<span class="params">item_id: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;item_id&quot;</span>: item_id&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zLzIwMjE3MjI3OQ==">http://localhost:8000/items/202172279<i class="fa fa-external-link-alt"></i></span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zL2hp">http://localhost:8000/items/hi<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/42334717/217269004-676cdc8a-c1ec-43ce-af03-78d694f122cd.png" alt="Path Parameter"></p>
+<h2 id="Query-Parameter"><a href="#Query-Parameter" class="headerlink" title="Query Parameter"></a>Query Parameter</h2><figure class="highlight python"><figcaption><span>Example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/items/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_item_query</span>(<span class="params">skip: <span class="built_in">int</span> = <span class="number">0</span>, limit: <span class="built_in">int</span> = <span class="number">10</span></span>):</span><br><span class="line">    test_db = [&#123;<span class="string">&quot;item_name&quot;</span>: <span class="string">&quot;ze&quot;</span>, <span class="string">&quot;item_name&quot;</span>: <span class="string">&quot;ro&quot;</span>, <span class="string">&quot;item_name&quot;</span>: <span class="string">&quot;hertz&quot;</span>&#125;]</span><br><span class="line">    <span class="keyword">return</span> test_db[skip: skip + limit]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zLz9za2lwPTAmbGltaXQ9MTA=">http://localhost:8000/items/?skip=0&amp;limit=10<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<img width="1141" alt="Query Parameter" src="https://user-images.githubusercontent.com/42334717/217270657-2c58f378-5dd3-46c2-a8ad-f23b6e713fa3.png">
+
+<h2 id="Multiple-Path-and-Query-Parameters"><a href="#Multiple-Path-and-Query-Parameters" class="headerlink" title="Multiple Path and Query Parameters"></a>Multiple Path and Query Parameters</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Union</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/users/&#123;user_id&#125;/items/&#123;item_id&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_user_item</span>(<span class="params">user_id: <span class="built_in">int</span>, item_id: <span class="built_in">str</span>, q: <span class="type">Union</span>[<span class="built_in">str</span>, <span class="literal">None</span>] = <span class="literal">None</span>, short: <span class="built_in">bool</span> = <span class="literal">False</span></span>):</span><br><span class="line">    item = &#123;<span class="string">&quot;item_id&quot;</span>: item_id, <span class="string">&quot;owner_id&quot;</span>: user_id&#125;</span><br><span class="line">    <span class="keyword">if</span> q:</span><br><span class="line">        item.update(&#123;<span class="string">&quot;q&quot;</span>: q&#125;)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> short:</span><br><span class="line">        item.update(</span><br><span class="line">            &#123;<span class="string">&quot;description&quot;</span>: <span class="string">&quot;This is an amazing item that has a long description&quot;</span>&#125;,</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> item</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3E9aGVsbG8mc2hvcnQ9VHJ1ZQ==">http://localhost:8000/users/3/items/zerohertz?q=hello&amp;short=True<i class="fa fa-external-link-alt"></i></span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3Nob3J0PVRydWU=">http://localhost:8000/users/3/items/zerohertz?short=True<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/42334717/217273288-deae06db-e96d-4b10-aa78-d473302200ed.png" alt="Multiple Path and Query Parameters 1"></p>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3E9aGVsbG8=">http://localhost:8000/users/3/items/zerohertz?q=hello<i class="fa fa-external-link-alt"></i></span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6">http://localhost:8000/users/3/items/zerohertz<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/42334717/217275856-555c8b66-05f3-4aa7-b7c9-836b85336e8f.png" alt="Multiple Path and Query Parameters 2"></p>
+<hr>
+<h1 id="FastAPI-CRUD"><a href="#FastAPI-CRUD" class="headerlink" title="FastAPI CRUD"></a>FastAPI CRUD</h1><ul>
+<li>CRUD<ul>
+<li>C: Create<ul>
+<li>이름과 별명을 입력하여 사용자 생성</li>
+</ul>
+</li>
+<li>R: Read<ul>
+<li>이름을 입력하여 해당 이름을 가진 사용자의 별명 반환</li>
+<li>입력된 이름이 존재하지 않을 시 <code>400 status code</code> 및 <code>Name not found</code> 반환</li>
+<li><code>fastapi.HTTPException</code> 활용 가능</li>
+</ul>
+</li>
+<li>U: Update<ul>
+<li>이름과 새로운 별명을 입력하여 해당 이름을 가진 사용자의 별명 업데이트</li>
+<li>입력된 이름이 존재하지 않을 시 <code>400 status code</code> 및 <code>Name not found</code> 반환</li>
+</ul>
+</li>
+<li>D: Delete<ul>
+<li>이름을 입력하여 해당 이름을 가진 사용자 정보 삭제</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Path Paramter: API에서 사용되는 파라미터를 <code>Request Header</code>에 입력</li>
+<li>Query Parameter: API에서 사용되는 파라미터를 <code>Request Body</code>에 입력</li>
+</ul>
+<h2 id="API-구현"><a href="#API-구현" class="headerlink" title="API 구현"></a>API 구현</h2><figure class="highlight python"><figcaption><span>CRUD_Path.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI, HTTPException</span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line">USER_DB = &#123;&#125;</span><br><span class="line">NAME_NOT_FOUND = HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&quot;Name not found.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/users/name/&#123;name&#125;/nickname/&#123;nickname&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_user</span>(<span class="params">name: <span class="built_in">str</span>, nickname: <span class="built_in">str</span></span>):</span><br><span class="line">    USER_DB[name] = nickname</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/users/name/&#123;name&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_user</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;nickname&quot;</span>: USER_DB[name]&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.put(<span class="params"><span class="string">&quot;/users/name/&#123;name&#125;/nickname/&#123;nickname&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_user</span>(<span class="params">name: <span class="built_in">str</span>, nickname: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    USER_DB[name] = nickname</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.delete(<span class="params"><span class="string">&quot;/users/name/&#123;name&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_user</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    <span class="keyword">del</span> USER_DB[name]</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>CRUD_Query.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI, HTTPException</span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line">USER_DB = &#123;&#125;</span><br><span class="line">NAME_NOT_FOUND = HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&quot;Name not found.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/users&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_user</span>(<span class="params">name: <span class="built_in">str</span>, nickname: <span class="built_in">str</span></span>):</span><br><span class="line">    USER_DB[name] = nickname</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/users&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_user</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;nickname&quot;</span>: USER_DB[name]&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.put(<span class="params"><span class="string">&quot;/users&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_user</span>(<span class="params">name: <span class="built_in">str</span>, nickname: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    USER_DB[name] = nickname</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.delete(<span class="params"><span class="string">&quot;/users&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_user</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    <span class="keyword">del</span> USER_DB[name]</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/218295044-2f1e25fe-d197-427c-a229-6a033da48722.png" alt="API Execution"></p>
+<h2 id="API-테스트"><a href="#API-테스트" class="headerlink" title="API 테스트"></a>API 테스트</h2><p><img src="https://user-images.githubusercontent.com/42334717/217852672-10ca0544-83f3-4c62-ba06-587d6f126f82.png" alt="API Test"></p>
+<hr>
+<h1 id="FastAPI-CRUD-Pydantic"><a href="#FastAPI-CRUD-Pydantic" class="headerlink" title="FastAPI CRUD (Pydantic)"></a>FastAPI CRUD (Pydantic)</h1><ul>
+<li>Request Body: Client에서 API로 전송하는 데이터</li>
+<li>Response Body: API에서 Client로 전송하는 데이터</li>
+<li>Pydantic: Client와 API 사이에서 전송하는 데이터 형식을 지정하기 위한 모듈<ul>
+<li>입력 받는 파라미터와 생성 후 반환하는 파라미터를 다르게 지정 가능</li>
+<li>비밀번호와 같은 사용자가 필수 입력해야 하지만 반환되면 안되는 파라미터 지정 시 사용</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><figcaption><span>CRUD_Pydantic.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI, HTTPException</span><br><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CreateIn</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    name: <span class="built_in">str</span></span><br><span class="line">    nickname: <span class="built_in">str</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CreateOut</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    status: <span class="built_in">str</span></span><br><span class="line">    <span class="built_in">id</span>: <span class="built_in">int</span></span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line">USER_DB = &#123;&#125;</span><br><span class="line">NAME_NOT_FOUND = HTTPException(status_code=<span class="number">400</span>, detail=<span class="string">&quot;Name not found.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post(<span class="params"><span class="string">&quot;/users&quot;</span>, response_model=CreateOut</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_user</span>(<span class="params">user: CreateIn</span>) -&gt; CreateOut:</span><br><span class="line">    USER_DB[user.name] = user.nickname</span><br><span class="line">    user_dict = user.<span class="built_in">dict</span>()</span><br><span class="line">    user_dict[<span class="string">&quot;status&quot;</span>] = <span class="string">&quot;success&quot;</span></span><br><span class="line">    user_dict[<span class="string">&quot;id&quot;</span>] = <span class="built_in">len</span>(USER_DB)</span><br><span class="line">    <span class="keyword">return</span> user_dict</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/users&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_user</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;nickname&quot;</span>: USER_DB[name]&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.put(<span class="params"><span class="string">&quot;/users&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_user</span>(<span class="params">name: <span class="built_in">str</span>, nickname: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    USER_DB[name] = nickname</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.delete(<span class="params"><span class="string">&quot;/users&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_user</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> USER_DB:</span><br><span class="line">        <span class="keyword">raise</span> NAME_NOT_FOUND</span><br><span class="line">    <span class="keyword">del</span> USER_DB[name]</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/218295137-787b256e-9999-4173-be43-761192017f0c.png" alt="FastAPI: CRUD (Pydantic)"></p>
+<hr>
+<h1 id="FastAPI-on-Docker"><a href="#FastAPI-on-Docker" class="headerlink" title="FastAPI on Docker"></a>FastAPI on Docker</h1><figure class="highlight docker"><figcaption><span>CRUD_Pydantic.Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> amd64/python:<span class="number">3.9</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /usr/app</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -U pip \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; pip install <span class="string">&quot;fastapi[all]&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> CRUD_Pydantic.py CRUD_Pydantic.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;uvicorn&quot;</span>, <span class="string">&quot;CRUD_Pydantic:app&quot;</span>, <span class="string">&quot;--host&quot;</span>, <span class="string">&quot;0.0.0.0&quot;</span>, <span class="string">&quot;--reload&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>RUN</code>: <code>pip</code> 업데이트 이후 <code>fastapi[all]</code> 설치</li>
+<li><code>COPY</code>: <code>CRUD_Pydantic.py</code>를 컨테이너 내부로 복사</li>
+<li><code>CMD</code>: <code>uvicorn</code>을 통해 <code>CRUD_Pydantic.py</code>의 FastAPI 객체 <code>app</code> 실행</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ docker build -t api-server -f CRUD_Pydantic.Dockerfile .</span><br><span class="line">$ docker images</span><br><span class="line">REPOSITORY   TAG       IMAGE ID       CREATED          SIZE</span><br><span class="line">api-server   latest    b80623bd7971   37 seconds ago   201MB</span><br><span class="line">$ docker run -d \</span><br><span class="line">--name api-server \</span><br><span class="line">-p 8000:8000 \</span><br><span class="line">api-server</span><br><span class="line">$ docker ps</span><br><span class="line">CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS                    NAMES</span><br><span class="line">f3c3a5dc60f7   api-server   <span class="string">&quot;uvicorn CRUD_Pydant…&quot;</span>   18 seconds ago   Up 17 seconds   0.0.0.0:8000-&gt;8000/tcp   api-server</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/218295832-fa682e6e-05b6-425c-b856-772c842aed96.png" alt="FastAPI on Docker"></p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItbWxlLmdpdGh1Yi5pby90dXRvcmlhbC9kb2NzL2NhdGVnb3J5LzA1LWZhc3RhcGk=">MLOps for MLE: 05. FastAPI<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/fastapi/" rel="tag"><i class="fa fa-tag"></i> FastAPI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-model-registry/" rel="prev" title="MLOps for MLE: Model Registry">
+                  <i class="fa fa-chevron-left"></i> MLOps for MLE: Model Registry
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-api-serving/" rel="next" title="MLOps for MLE: API Serving">
+                  MLOps for MLE: API Serving <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"dd1de997886341b16ef7bbaa1dee3b7f"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction Apache Airflow   Definition 오픈 소스로 개발된 데이터 파이프라인 관리 도구 Workflow 자동화와 데이터 처리를 위한 플랫폼   Features 유연한 파이썬 프레임워크를 통한 쉬운 데이터 파이프라인 구축 다양한 빌딩 블록을 통한 최신 기술 연결 복잡한 데이터 처리 작업 scheduling 및 monitori">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache Airflow (1)">
+<meta property="og:url" content="https://zerohertz.github.io/apache-airflow-1/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Apache Airflow   Definition 오픈 소스로 개발된 데이터 파이프라인 관리 도구 Workflow 자동화와 데이터 처리를 위한 플랫폼   Features 유연한 파이썬 프레임워크를 통한 쉬운 데이터 파이프라인 구축 다양한 빌딩 블록을 통한 최신 기술 연결 복잡한 데이터 처리 작업 scheduling 및 monitori">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256070160-b7ddf7e2-b985-4db1-96de-c321b4581f23.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256227478-812fb0af-e1e7-49f9-b51d-32eb794114f4.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256225430-f1886551-b2f9-4a05-b5db-e9487d38f329.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256233954-f2c73f0f-9cf3-4bce-bca0-15dbfc660381.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256242312-58d01c2d-e290-4b4c-8a89-beb34a347732.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256258850-2a7ab0c1-59aa-4953-83b7-686b813c396d.png">
+<meta property="article:published_time" content="2023-07-26T11:37:10.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Airflow">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256070160-b7ddf7e2-b985-4db1-96de-c321b4581f23.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/apache-airflow-1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/apache-airflow-1/","path":"apache-airflow-1/","title":"Apache Airflow (1)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Apache Airflow (1) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Pipeline"><span class="nav-number">1.1.</span> <span class="nav-text">Data Pipeline</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ETL-vs-ELT"><span class="nav-number">1.1.1.</span> <span class="nav-text">ETL vs. ELT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-Lake-vs-Data-Warehouse"><span class="nav-number">1.1.2.</span> <span class="nav-text">Data Lake vs. Data Warehouse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-Airflow"><span class="nav-number">1.2.</span> <span class="nav-text">Apache Airflow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Anatomy-of-an-Airflow-DAG"><span class="nav-number">2.</span> <span class="nav-text">Anatomy of an Airflow DAG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scheduling-in-Airflow"><span class="nav-number">3.</span> <span class="nav-text">Scheduling in Airflow</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/apache-airflow-2/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-27</time>
+        <br>
+      Apache Airflow (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/graduate-student-charter-loan-challenge-story/" rel="bookmark">
+        <time class="popular-posts-time">2022-12-06</time>
+        <br>
+      대학원생 전세 대출 도전기
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-model-development/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-28</time>
+        <br>
+      MLOps for MLE: Model Development
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/kubeflow/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-06</time>
+        <br>
+      Kubeflow
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/professional-research-agent-train-review/" rel="bookmark">
+        <time class="popular-posts-time">2023-06-16</time>
+        <br>
+      전문연구요원: 훈련소 후기
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/apache-airflow-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Apache Airflow (1) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Apache Airflow (1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-07-26 20:37:10" itemprop="dateCreated datePublished" datetime="2023-07-26T20:37:10+09:00">2023-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcv">Apache Airflow<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<ul>
+<li>Definition<ul>
+<li>오픈 소스로 개발된 데이터 파이프라인 관리 도구</li>
+<li>Workflow 자동화와 데이터 처리를 위한 플랫폼</li>
+</ul>
+</li>
+<li>Features<ul>
+<li>유연한 파이썬 프레임워크를 통한 쉬운 데이터 파이프라인 구축</li>
+<li>다양한 빌딩 블록을 통한 최신 기술 연결</li>
+<li>복잡한 데이터 처리 작업 scheduling 및 monitoring</li>
+<li>Data engineering, ETL (Extract, Transform, Load), data migration, data analysis 등 다양한 작업에서 활용<span id="more"></span></li>
+</ul>
+</li>
+<li>Components<ul>
+<li>Webserver (Web UI, User Interface)<ul>
+<li>Gunicorn 기반의 Flask 서버</li>
+<li>Web 기반 UI를 통해 workflow를 시각적 monitoring 및 관리</li>
+<li>작업의 실행 상태, log, scheduling 등 확인 가능</li>
+</ul>
+</li>
+<li>Scheduler<ul>
+<li>Multi thread로 구성된 python process</li>
+<li>Workflow를 실행하기 위해 정의된 시간대와 주기에 따라 작업들을 scheduling</li>
+<li>정의된 순서에 따라 실행되는 schedule 생성</li>
+</ul>
+</li>
+<li>Database<ul>
+<li>모든 DAG 및 task의 metadata 저장</li>
+<li>다양한 database 지원 (SQLite, MySQL, PostgreSQL)</li>
+</ul>
+</li>
+<li>Executor<ul>
+<li>Workflow의 task 실행 방식 결정</li>
+<li>특성과 환경에 따라 선택하여 사용 (<code>LocalExecutor</code>, <code>SequentialExecutor</code>, <code>CeleryExecutor</code>)</li>
+</ul>
+</li>
+<li>Worker<ul>
+<li>Workflow의 task를 실제로 실행하는 computing source</li>
+<li>각 worker는 독립적으로 task 수행</li>
+<li>필요에 따라 workload 분산 가능</li>
+</ul>
+</li>
+<li>Triggerer<ul>
+<li>Deferrable operator를 지원하는 별도의 process</li>
+<li>사용 시 별도 실행 (선택적 사용)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Etc.<ul>
+<li>DAG (Directed Acyclic Graph)<ul>
+<li>Workflow를 정의하는 code 파일</li>
+<li>작업 및 의존성 정의</li>
+</ul>
+</li>
+<li>Task<ul>
+<li>Operators를 통해 생성된 작업 단위 (DAG에서 하나의 노드)</li>
+<li>독립적으로 실행되는 하나의 단위 작업</li>
+</ul>
+</li>
+<li>Operator<ul>
+<li>개별 작업을 나타내는 class (<code>BashOperator</code>, <code>PythonOperator</code>)</li>
+<li>특정 작업 수행 시 사용</li>
+</ul>
+</li>
+<li>Sensor<ul>
+<li>외부 조건 혹은 이벤트 발생까지 대기 후 특정 조건 만족 시 task 실행</li>
+<li>외부 시스템의 데이터 유무 확인 및 파일 생성 여부 확인 등 작업 수행</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Data-Pipeline"><a href="#Data-Pipeline" class="headerlink" title="Data Pipeline"></a>Data Pipeline</h2><p>Data pipeline을 통해 원하는 결과를 얻기 위해서는 API 호출, 데이터 전처리 등 다양한 task가 수행된다.<br>또한 각 task들은 의존성이 존재하여 정해진 순서대로 진행되어야 한다.<br>이를 간단하게 이해하기 위해 task 간 의존성을 아래 예시와 같이 directed graph (방향성 그래프)로 나타낸다.</p>
+<p>API 호출 $\rightarrow$ 데이터 전처리 $\rightarrow$ 모델 예측</p>
+<p>위와 같은 형태를 Directed Acycllic Graph, DAG (방향성 비순환 그래프)라 칭한다.<br>Task의 의존성을 나타내는 $\rightarrow$의 directed edge (끝점)의 반복 혹은 순환을 허용하지 않는다. (순환 그래프는 deadlock 발생)</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256070160-b7ddf7e2-b985-4db1-96de-c321b4581f23.png" alt="DAG"></p>
+<p>절차적 script pipeline에 비해 graph pipeline은 위와 같은 경우 task를 병렬로 실행할 수 있기 때문에 더 효율적이다.<br>또한 전체 작업을 하나의 monolithic script 또는 process로 구성하는 것이 아니라 task로 명확히 분리하기 때문에 중간의 task가 실패할 때 전체 script를 재실행하는 것이 아닌 실패한 task만 재실행한다.</p>
+<h3 id="ETL-vs-ELT"><a href="#ETL-vs-ELT" class="headerlink" title="ETL vs. ELT"></a>ETL vs. ELT</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th>ETL (Extract, Transform, Load)</th>
+<th>ELT (Extract, Load, Transform)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">정의</td>
+<td>데이터 추출 (Extract) $\rightarrow$ 변환 (Transform) $\rightarrow$ 데이터 적재 (Load)</td>
+<td>데이터 추출 (Extract) $\rightarrow$ 데이터 적재 (Load) $\rightarrow$ 변환 (Transform)</td>
+</tr>
+<tr>
+<td align="center">변환 처리 위치</td>
+<td>추출 후 변환 작업을 수행</td>
+<td>적재 후 변환 작업을 수행</td>
+</tr>
+<tr>
+<td align="center">데이터 저장 위치</td>
+<td>적재 전에 변환된 데이터를 중간 저장소에 저장</td>
+<td>적재 후에 원시 데이터를 데이터 웨어하우스에 저장</td>
+</tr>
+<tr>
+<td align="center">데이터 용량</td>
+<td>변환된 데이터 용량이 클 수 있음</td>
+<td>원시 데이터를 저장하기 때문에 용량이 큼</td>
+</tr>
+<tr>
+<td align="center">변환 시점</td>
+<td>추출 후 변환 작업을 통해 필요한 데이터만 적재</td>
+<td>적재 후 변환 작업을 통해 필요한 데이터를 추출</td>
+</tr>
+<tr>
+<td align="center">장점</td>
+<td>👍 적재 시간이 짧음<br>👍 중간 저장소를 통한 재시도 및 오류 처리 가능<br>👍 적재 시 데이터 변경 없음 (데이터 품질 유지)</td>
+<td>👍 변환 시간이 짧음<br>👍 빠른 변환 작업 가능<br>👍 변환된 데이터를 직접 활용 가능</td>
+</tr>
+<tr>
+<td align="center">단점</td>
+<td>👎 중간 저장소 관리 필요<br>👎 적재 시간이 상대적으로 길 수 있음</td>
+<td>👎 적재 시간이 상대적으로 길 수 있음<br>👎 중간 저장소가 없으므로 오류 처리에 제약이 있음</td>
+</tr>
+</tbody></table>
+<h3 id="Data-Lake-vs-Data-Warehouse"><a href="#Data-Lake-vs-Data-Warehouse" class="headerlink" title="Data Lake vs. Data Warehouse"></a>Data Lake vs. Data Warehouse</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th>Data Lake</th>
+<th>Data Warehouse</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">정의</td>
+<td>비구조적인 원시 데이터 저장소</td>
+<td>구조화된 데이터 저장소</td>
+</tr>
+<tr>
+<td align="center">데이터 유형</td>
+<td>원시 데이터 (비정형, 반정형, 정형)</td>
+<td>정형 데이터 (구조화된 테이블 형태)</td>
+</tr>
+<tr>
+<td align="center">데이터 저장 형식</td>
+<td>파일 시스템 (HDFS, AWS S3 등)</td>
+<td>관계형 데이터베이스 (RDBMS)</td>
+</tr>
+<tr>
+<td align="center">데이터 처리 접근성</td>
+<td>스키마나 스키마 변환 없이 접근 가능</td>
+<td>사전 정의된 스키마에 따라 접근</td>
+</tr>
+<tr>
+<td align="center">데이터 처리 기술</td>
+<td>빅데이터 기술 (Hadoop, Spark 등)</td>
+<td>데이터베이스 기술 (SQL, OLAP 등)</td>
+</tr>
+<tr>
+<td align="center">데이터 통합</td>
+<td>데이터 통합 없이 다양한 형태의 데이터 저장</td>
+<td>ETL 프로세스를 통한 데이터 통합</td>
+</tr>
+<tr>
+<td align="center">데이터 분석</td>
+<td>데이터를 필요할 때까지 보관하고 분석을 나중에 수행</td>
+<td>데이터를 사전에 구조화하여 분석을 수행</td>
+</tr>
+<tr>
+<td align="center">데이터 스키마</td>
+<td>스키마 없이 저장하여 유연성을 갖춤</td>
+<td>사전에 정의된 스키마를 따름</td>
+</tr>
+<tr>
+<td align="center">데이터 품질 및 보안</td>
+<td>데이터 품질 검증과 보안 강화에 어려움</td>
+<td>정형화된 데이터로 데이터 품질 및 보안 강화</td>
+</tr>
+<tr>
+<td align="center">비용</td>
+<td>저장 용량에 따른 비용 증가</td>
+<td>구조화된 데이터의 저장 비용</td>
+</tr>
+<tr>
+<td align="center">사용 사례</td>
+<td>비정형 데이터 분석, 빅데이터 처리, 머신러닝 모델 개발 등</td>
+<td>통계 분석, 비즈니스 인텔리전스, 리포팅 등</td>
+</tr>
+</tbody></table>
+<h2 id="Apache-Airflow"><a href="#Apache-Airflow" class="headerlink" title="Apache Airflow"></a>Apache Airflow</h2><p>Apache Airflow에서는 python script로 DAG의 구조를 설명하고 구성한다. (높은 유연성)<br>Python으로 정의한 DAG로 pipeline의 구조를 정의하면 Apache Airflow가 pipeline을 언제 실행할 것인지 각각의 DAG의 실행 주기를 <span class="exturl" data-url="aHR0cHM6Ly9jcm9uLmNvbS8=">Cron<i class="fa fa-external-link-alt"></i></span>과 같은 표현식으로 정의할 수 있다.<br>Scheduler는 아래와 같이 작동한다.</p>
+<ol>
+<li>정의된 DAG 파일 분석 및 각 DAG task, 의존성, 예약 주기 확인</li>
+<li>DAG의 예약 주기 경과 확인 및 예약 주기가 현재 시간 이전인 경우 실행 예약</li>
+<li>예약된 각 task의 의존성 확인 후 의존성 task가 완료되지 않을 시 execution queue에 추가</li>
+<li>대기 후 1.부터 다시 실행</li>
+</ol>
+<p>Monitoring은 아래와 같이 webserver를 통해 진행할 수 있다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256227478-812fb0af-e1e7-49f9-b51d-32eb794114f4.png" alt="webserver"></p>
+<p>Task 실패 시 재시도를 설정하여 task를 복구할 수 있다.<br>재시도 또한 실패하면 task 실패를 기록하고 log를 확인하여 debugging 할 수 있다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256225430-f1886551-b2f9-4a05-b5db-e9487d38f329.png" alt="grid_view"></p>
+<p>Schedule 기능 중 DAG에 정의된 특정 시점 trigger 가능한 것과 최종 시점과 예상되는 다음 schedule 주기를 상세히 알려주는 것이 존재한다.<br>이 기능을 통해 아래와 같은 구성이 가능하다.</p>
+<ul>
+<li>Incremental Loading<ul>
+<li>매번 전체 데이터 세트를 처리하지 않고 time slot에 대해 점진적으로 처리</li>
+<li>효율적 data pipeline 구축 가능</li>
+</ul>
+</li>
+<li>Backfill<ul>
+<li>새로 생성한 DAG를 과거 시점 및 기간에 대해 실행 가능</li>
+<li>과거 특정 기간에 대해 DAG를 실행하고 새로운 데이터 세트 생성</li>
+<li>과거 실행 결과 삭제 후 task code를 변경해 전체 데이터 세트 재구성</li>
+</ul>
+</li>
+</ul>
+<p>이러한 특성을 가진 Apache Airflow는 아래와 같은 장단점이 존재한다.</p>
+<ul>
+<li>Pros<ul>
+<li>Python script를 통해 복잡한 custom pipeline 개발</li>
+<li>쉬운 확장 (다양한 Add-on)</li>
+<li>효율적 pipeline 구축 (incremental 처리로 전체 재실행 X)</li>
+<li>Backfill로 손쉬운 재처리</li>
+<li>Open source</li>
+<li>Webserver로 monitoring 및 debugging 가능</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>실시간 데이터 처리 workflow 및 pipeline에 부적합 (반복 혹은 batch-oriented task에 초점)</li>
+<li>추가 및 삭제 task가 빈번한 dynamic pipeline에 부적합</li>
+<li>Python의 숙련 필요</li>
+<li>Pipeline의 규모가 커질 시 엄격한 관리 필요</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Anatomy-of-an-Airflow-DAG"><a href="#Anatomy-of-an-Airflow-DAG" class="headerlink" title="Anatomy of an Airflow DAG"></a>Anatomy of an Airflow DAG</h1><ol>
+<li><code>DAG</code> instance 생성을 통한 DAG 정의</li>
+</ol>
+<figure class="highlight python"><figcaption><span>test1.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">dag=DAG(</span><br><span class="line">    dag_id=<span class="string">&quot;test1&quot;</span>,</span><br><span class="line">    start_date=datetime(<span class="number">2023</span>,<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">    schedule_interval=<span class="string">&quot;@weekly&quot;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">task1</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">task2</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Bye, World...&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Bye, World...&quot;</span></span><br><span class="line"></span><br><span class="line">task_1 = PythonOperator(</span><br><span class="line">    task_id=<span class="string">&quot;task_1&quot;</span>,</span><br><span class="line">    python_callable=task1,</span><br><span class="line">    dag=dag)</span><br><span class="line"></span><br><span class="line">task_2 = PythonOperator(</span><br><span class="line">    task_id=<span class="string">&quot;task_2&quot;</span>,</span><br><span class="line">    python_callable=task2,</span><br><span class="line">    dag=dag)</span><br><span class="line"></span><br><span class="line">task_1 &gt;&gt; task_2</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>with DAG</code>를 통한 DAG 정의</li>
+</ol>
+<figure class="highlight python"><figcaption><span>test2.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">task1</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">task2</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Bye, World...&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Bye, World...&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> DAG(</span><br><span class="line">    dag_id=<span class="string">&quot;test2&quot;</span>,</span><br><span class="line">    start_date=datetime(<span class="number">2023</span>,<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">    schedule_interval=<span class="string">&quot;@weekly&quot;</span>,</span><br><span class="line">) <span class="keyword">as</span> dag:</span><br><span class="line">    task_1 = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;task_1&quot;</span>,</span><br><span class="line">        python_callable=task1,</span><br><span class="line">        dag=dag)</span><br><span class="line"></span><br><span class="line">    task_2 = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;task_2&quot;</span>,</span><br><span class="line">        python_callable=task2,</span><br><span class="line">        dag=dag)</span><br><span class="line"></span><br><span class="line">task_1 &gt;&gt; task_2</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/decorators/index.html"><code>airflow.decorator</code></a>를 통한 DAG 정의 (<span class="exturl" data-url="aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcvZG9jcy9hcGFjaGUtYWlyZmxvdy9zdGFibGUvdHV0b3JpYWwvdGFza2Zsb3cuaHRtbA==">TaskFlow API<i class="fa fa-external-link-alt"></i></span>)</li>
+</ol>
+<p>차후에 각 task에 대해 <code>@task</code> decorator를 사용하여 DAG 개발 환경을 단순화 할 수 있다. <del>(지금은 일단 받아들이기…)</del></p>
+<figure class="highlight python"><figcaption><span>test3.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> airflow.decorators <span class="keyword">import</span> dag</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    dag_id=<span class="string">&quot;test3&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    start_date=datetime(<span class="params"><span class="number">2023</span>,<span class="number">1</span>,<span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule=<span class="string">&quot;@weekly&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Examples</span>():</span><br><span class="line">    task_1 = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;task_1&quot;</span>,</span><br><span class="line">        python_callable=task1,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    task_2 = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;task_2&quot;</span>,</span><br><span class="line">        python_callable=task2,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    task_1 &gt;&gt; task_2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">task1</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">task2</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Bye, World...&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Bye, World...&quot;</span></span><br><span class="line"></span><br><span class="line">DAG = Examples()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256233954-f2c73f0f-9cf3-4bce-bca0-15dbfc660381.png" alt="test"></p>
+<p>3가지 정의 방식 모두 같은 결과를 출력함을 확인할 수 있다.<br><code>DAG</code> 혹은 <code>@dag</code>의 파라미터는 아래와 같다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Type</th>
+<th align="center">Mean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>dag_id</code></td>
+<td align="center"><code>str</code></td>
+<td align="center">DAG의 고유한 식별자</td>
+</tr>
+<tr>
+<td align="center"><code>default_args</code></td>
+<td align="center"><code>dict</code></td>
+<td align="center">DAG의 기본 실행 인수들을 담고 있는 딕셔너리</td>
+</tr>
+<tr>
+<td align="center"><code>description</code></td>
+<td align="center"><code>str</code></td>
+<td align="center">DAG에 대한 설명</td>
+</tr>
+<tr>
+<td align="center"><code>schedule_interval</code></td>
+<td align="center">Cron or <code>datetime.timedelta</code></td>
+<td align="center">DAG의 실행 주기 설정</td>
+</tr>
+<tr>
+<td align="center"><code>start_date</code></td>
+<td align="center"><code>datetime</code></td>
+<td align="center">DAG의 시작 일시</td>
+</tr>
+<tr>
+<td align="center"><code>catchup</code></td>
+<td align="center"><code>bool</code></td>
+<td align="center">True로 설정하면 시작일부터 현재까지의 Task들을 실행 (과거 작업을 catch-up)</td>
+</tr>
+<tr>
+<td align="center"><code>tags</code></td>
+<td align="center"><code>list[str]</code></td>
+<td align="center">DAG에 대한 태그들</td>
+</tr>
+<tr>
+<td align="center"><code>max_active_runs</code></td>
+<td align="center"><code>int</code></td>
+<td align="center">동시에 실행할 수 있는 최대 활성 DAG 인스턴스 수</td>
+</tr>
+</tbody></table>
+<p>각 task의 dependency는 아래와 같이 설정할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">task1.set_downstream(task2) <span class="comment"># 가독성 안좋은데</span></span><br><span class="line">task2.set_upstream(task1)   <span class="comment"># 쓰는 이유가,,?</span></span><br><span class="line">task1 &gt;&gt; task2</span><br><span class="line">task2 &lt;&lt; task1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 배열을 통한 dependency 정의</span></span><br><span class="line">task1 &gt;&gt; [task2, task3] &gt;&gt; task4</span><br></pre></td></tr></table></figure>
+
+<p>최하단과 같이 정의할 경우 아래와 같이 Graph가 구성됨을 확인할 수 있다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256242312-58d01c2d-e290-4b4c-8a89-beb34a347732.png" alt="Dependencies"></p>
+<hr>
+<h1 id="Scheduling-in-Airflow"><a href="#Scheduling-in-Airflow" class="headerlink" title="Scheduling in Airflow"></a>Scheduling in Airflow</h1><p>Preset은 실행 주기를 정의하는 사전 정의된 일련의 schedule 간격이다.<br>이러한 preset은 DAG를 scheduling 시 주기적으로 실행되는 일반적인 시나리오를 간단하게 설정한다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Preset</th>
+<th align="center">Mean</th>
+<th align="center">Cron</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>@once</code></td>
+<td align="center">한 번만 실행하고 끝남</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center"><code>@hourly</code></td>
+<td align="center">매 시간 정각마다 실행 (0분)</td>
+<td align="center"><code>0 * * * *</code></td>
+</tr>
+<tr>
+<td align="center"><code>@daily</code></td>
+<td align="center">매일 자정마다 실행 (00:00)</td>
+<td align="center"><code>0 0 * * *</code></td>
+</tr>
+<tr>
+<td align="center"><code>@weekly</code></td>
+<td align="center">매주 일요일 자정마다 실행 (00:00)</td>
+<td align="center"><code>0 0 * * 0</code></td>
+</tr>
+<tr>
+<td align="center"><code>@monthly</code></td>
+<td align="center">매월 1일 자정마다 실행 (00:00)</td>
+<td align="center"><code>0 0 1 * *</code></td>
+</tr>
+<tr>
+<td align="center"><code>@yearly</code></td>
+<td align="center">매년 1월 1일 자정마다 실행 (00:00)</td>
+<td align="center"><code>0 0 1 1 *</code></td>
+</tr>
+<tr>
+<td align="center"><code>@annually</code></td>
+<td align="center">매년 1월 1일 자정마다 실행 (00:00)</td>
+<td align="center"><code>0 0 1 1 *</code></td>
+</tr>
+</tbody></table>
+<p>이러한 preset들은 <code>DAG</code> 객체에서 <code>schedule_interval</code> 파라미터로 사용할 수 있으며, 해당 주기에 따라 DAG가 주기적으로 실행된다.<br>예를 들어, <code>schedule_interval=&quot;@daily&quot;</code>로 설정하면 해당 DAG는 매일 자정마다 실행된다.<br>Preset 외에도 직접 Cron 표현식을 입력하여 원하는 실행 주기를 정확하게 지정할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* * * * * command_to_be_executed</span><br><span class="line">- - - - -</span><br><span class="line">| | | | |</span><br><span class="line">| | | | ----- Day of the Week (0 - 7) (Sunday=0 or 7)</span><br><span class="line">| | | ------- Month (1 - 12)</span><br><span class="line">| | --------- Day of the Month (1 - 31)</span><br><span class="line">| ----------- Hour (0 - 23)</span><br><span class="line">------------- Minute (0 - 59)</span><br></pre></td></tr></table></figure>
+
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5jcm9ubWFrZXIuY29tLw==">이런 것<i class="fa fa-external-link-alt"></i></span>을 참고하면 조금 더 쉽게 개발을 진행할 수 있다.<br>마지막으로 <code>datetime.timedelta()</code>로 schedule의 간격을 설정할 수 있다.<br>예를 들어, 아래와 같이 하루에 한번 실행되도록 실행 주기를 정의할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    ...</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule_interval=datetime.timedelta(<span class="params">days=<span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Airflow에서는 앞서 말한 것과 같이 매번 전체 데이터를 처리하지 않고 점진적으로 데이터를 처리하는데 이를 위해서 실행 시간을 참조해야한다.<br>이 실행 시간 (<code>execution_date</code>)은 실제 실행되는 시간이 아닌 데이터가 실제 처리되었다고 가정한 시점이다.<br>아래의 예시는 <code>&quot;10 * * * *&quot;</code>의 주기로 실행되는데, 실제 실행 시간인 <code>Start Date</code>와 <code>End Date</code>는 사진 기준의 현재 시간임을 알 수 있다.<br>하지만 <code>Logical Date</code> (<code>execution_date</code>, <code>ts</code>)는 Cron의 schedule 간격인 1시간 전으로 명시되어있음을 알 수 있다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256258850-2a7ab0c1-59aa-4953-83b7-686b813c396d.png" alt="execution_date"></p>
+<p>이것은 <code>ts</code>가 schedule 간격의 시작 시점을 의미하기 때문이다.<br>따라서 이 점을 유의하여 개발해야한다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/airflow/" rel="tag"><i class="fa fa-tag"></i> Airflow</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/go-2/" rel="prev" title="Go (2)">
+                  <i class="fa fa-chevron-left"></i> Go (2)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/apache-airflow-2/" rel="next" title="Apache Airflow (2)">
+                  Apache Airflow (2) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"cf3cd776a82a1eb4670528d4b05fe1f7"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Import Packages1234&gt;&gt;&gt; import torch&gt;&gt;&gt; import numpy as np&gt;&gt;&gt; import matplotlib.pyplot as plt&gt;&gt;&gt; from torch.autograd import Variable  TensorScala (0-Dim Tensor)12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Network Example">
+<meta property="og:url" content="https://zerohertz.github.io/neural-network-example/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Import Packages1234&gt;&gt;&gt; import torch&gt;&gt;&gt; import numpy as np&gt;&gt;&gt; import matplotlib.pyplot as plt&gt;&gt;&gt; from torch.autograd import Variable  TensorScala (0-Dim Tensor)12345">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/132938165-531920da-bed3-4887-9bf7-1779408319be.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/132938256-46c4d5d7-8c9b-4275-ba51-983bfc3b9e14.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/132938342-e06b36c6-122c-4d7a-89e0-303567c0bec5.png">
+<meta property="article:published_time" content="2021-09-09T08:31:51.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta property="article:tag" content="scikit-learn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/132938165-531920da-bed3-4887-9bf7-1779408319be.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/neural-network-example/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/neural-network-example/","path":"neural-network-example/","title":"Neural Network Example"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Neural Network Example | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Import-Packages"><span class="nav-number">1.</span> <span class="nav-text">Import Packages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensor"><span class="nav-number">2.</span> <span class="nav-text">Tensor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scala-0-Dim-Tensor"><span class="nav-number">2.1.</span> <span class="nav-text">Scala (0-Dim Tensor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector-1-Dim-Tensor"><span class="nav-number">2.2.</span> <span class="nav-text">Vector (1-Dim Tensor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matrix-2-Dim-Tensor"><span class="nav-number">2.3.</span> <span class="nav-text">Matrix (2-Dim Tensor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Dim-Tensor"><span class="nav-number">2.4.</span> <span class="nav-text">3-Dim Tensor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tensor-Slicing"><span class="nav-number">2.5.</span> <span class="nav-text">Tensor Slicing</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Neural-Network"><span class="nav-number">3.</span> <span class="nav-text">Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Variable"><span class="nav-number">3.1.</span> <span class="nav-text">Variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-Network"><span class="nav-number">3.2.</span> <span class="nav-text">Building Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Network-Implementation"><span class="nav-number">3.3.</span> <span class="nav-text">Network Implementation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-Function"><span class="nav-number">3.4.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizer"><span class="nav-number">3.5.</span> <span class="nav-text">Optimizer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataset-implementation"><span class="nav-number">3.6.</span> <span class="nav-text">Dataset implementation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataloader"><span class="nav-number">3.7.</span> <span class="nav-text">Dataloader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-Neural-Network"><span class="nav-number">3.8.</span> <span class="nav-text">Simple Neural Network</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-convert-a-pytorch-model-to-tensorrt/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-14</time>
+        <br>
+      How to Convert a PyTorch Model to TensorRT
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-06</time>
+        <br>
+      Generative Adversarial Network (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-3/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-26</time>
+        <br>
+      Generative Adversarial Network (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/deep-learning-with-pytorch-1/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-17</time>
+        <br>
+      Deep Learning with PyTorch (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/implementing-mask-r-cnn-with-pytorch/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-05</time>
+        <br>
+      Implementing Mask R-CNN with PyTorch
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/neural-network-example/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Neural Network Example | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Neural Network Example
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-09 17:31:51" itemprop="dateCreated datePublished" datetime="2021-09-09T17:31:51+09:00">2021-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Import-Packages"><a href="#Import-Packages" class="headerlink" title="Import Packages"></a>Import Packages</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br></pre></td></tr></table></figure>
+
+<h1 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h1><h2 id="Scala-0-Dim-Tensor"><a href="#Scala-0-Dim-Tensor" class="headerlink" title="Scala (0-Dim Tensor)"></a>Scala (0-Dim Tensor)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = torch.rand(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.size()</span><br><span class="line">torch.Size([<span class="number">10</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x</span><br><span class="line">tensor([<span class="number">0.8956</span>, <span class="number">0.5085</span>, <span class="number">0.8703</span>, <span class="number">0.2497</span>, <span class="number">0.2278</span>, <span class="number">0.9197</span>, <span class="number">0.5894</span>, <span class="number">0.1974</span>, <span class="number">0.6448</span>,</span><br><span class="line">        <span class="number">0.6871</span>])</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="Vector-1-Dim-Tensor"><a href="#Vector-1-Dim-Tensor" class="headerlink" title="Vector (1-Dim Tensor)"></a>Vector (1-Dim Tensor)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>temp = torch.FloatTensor([<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">5.4</span>,<span class="number">2</span>,<span class="number">5.8</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>temp.size()</span><br><span class="line">torch.Size([<span class="number">6</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>temp</span><br><span class="line">tensor([<span class="number">2.0000</span>, <span class="number">3.0000</span>, <span class="number">1.0000</span>, <span class="number">5.4000</span>, <span class="number">2.0000</span>, <span class="number">5.8000</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Matrix-2-Dim-Tensor"><a href="#Matrix-2-Dim-Tensor" class="headerlink" title="Matrix (2-Dim Tensor)"></a>Matrix (2-Dim Tensor)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>boston = load_boston()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(boston.data.shape)</span><br><span class="line">(<span class="number">506</span>, <span class="number">13</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>boston.feature_names</span><br><span class="line">array([<span class="string">&#x27;CRIM&#x27;</span>, <span class="string">&#x27;ZN&#x27;</span>, <span class="string">&#x27;INDUS&#x27;</span>, <span class="string">&#x27;CHAS&#x27;</span>, <span class="string">&#x27;NOX&#x27;</span>, <span class="string">&#x27;RM&#x27;</span>, <span class="string">&#x27;AGE&#x27;</span>, <span class="string">&#x27;DIS&#x27;</span>, <span class="string">&#x27;RAD&#x27;</span>,</span><br><span class="line">       <span class="string">&#x27;TAX&#x27;</span>, <span class="string">&#x27;PTRATIO&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;LSTAT&#x27;</span>], dtype=<span class="string">&#x27;&lt;U7&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>boston_tensor = torch.from_numpy(boston.data)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>boston_tensor.size()</span><br><span class="line">torch.Size([<span class="number">506</span>, <span class="number">13</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>boston_tensor[:<span class="number">2</span>]</span><br><span class="line">tensor([[<span class="number">6.3200e-03</span>, <span class="number">1.8000e+01</span>, <span class="number">2.3100e+00</span>, <span class="number">0.0000e+00</span>, <span class="number">5.3800e-01</span>, <span class="number">6.5750e+00</span>,</span><br><span class="line">         <span class="number">6.5200e+01</span>, <span class="number">4.0900e+00</span>, <span class="number">1.0000e+00</span>, <span class="number">2.9600e+02</span>, <span class="number">1.5300e+01</span>, <span class="number">3.9690e+02</span>,</span><br><span class="line">         <span class="number">4.9800e+00</span>],</span><br><span class="line">        [<span class="number">2.7310e-02</span>, <span class="number">0.0000e+00</span>, <span class="number">7.0700e+00</span>, <span class="number">0.0000e+00</span>, <span class="number">4.6900e-01</span>, <span class="number">6.4210e+00</span>,</span><br><span class="line">         <span class="number">7.8900e+01</span>, <span class="number">4.9671e+00</span>, <span class="number">2.0000e+00</span>, <span class="number">2.4200e+02</span>, <span class="number">1.7800e+01</span>, <span class="number">3.9690e+02</span>,</span><br><span class="line">         <span class="number">9.1400e+00</span>]], dtype=torch.float64)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Dim-Tensor"><a href="#3-Dim-Tensor" class="headerlink" title="3-Dim Tensor"></a>3-Dim Tensor</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cat = np.array(Image.<span class="built_in">open</span>(<span class="string">&#x27;cat.jpg&#x27;</span>).resize((<span class="number">224</span>,<span class="number">224</span>)))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cat_tensor = torch.from_numpy(cat)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cat_tensor.size()</span><br><span class="line">torch.Size([<span class="number">224</span>, <span class="number">224</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.imshow(cat)</span><br><span class="line">&lt;matplotlib.image.AxesImage <span class="built_in">object</span> at <span class="number">0x7fa7481d4580</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.show()</span><br></pre></td></tr></table></figure>
+
+<img width="752" alt="cat" src="https://user-images.githubusercontent.com/42334717/132938165-531920da-bed3-4887-9bf7-1779408319be.png">
+
+<h2 id="Tensor-Slicing"><a href="#Tensor-Slicing" class="headerlink" title="Tensor Slicing"></a>Tensor Slicing</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sales = torch.FloatTensor([<span class="number">1000.0</span>,<span class="number">323.2</span>,<span class="number">333.4</span>,<span class="number">444.5</span>,<span class="number">1000.0</span>,<span class="number">323.2</span>,<span class="number">333.4</span>,<span class="number">444.5</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sales[:<span class="number">5</span>]</span><br><span class="line">tensor([<span class="number">1000.0000</span>,  <span class="number">323.2000</span>,  <span class="number">333.4000</span>,  <span class="number">444.5000</span>, <span class="number">1000.0000</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sales[:-<span class="number">5</span>]</span><br><span class="line">tensor([<span class="number">1000.0000</span>,  <span class="number">323.2000</span>,  <span class="number">333.4000</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.imshow(cat_tensor[:,:,<span class="number">0</span>].numpy())</span><br><span class="line">&lt;matplotlib.image.AxesImage <span class="built_in">object</span> at <span class="number">0x7fa74962bb20</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.show()</span><br></pre></td></tr></table></figure>
+
+<img width="752" alt="cat_tensor" src="https://user-images.githubusercontent.com/42334717/132938256-46c4d5d7-8c9b-4275-ba51-983bfc3b9e14.png">
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.imshow(cat_tensor[<span class="number">25</span>:<span class="number">175</span>,<span class="number">60</span>:<span class="number">130</span>,<span class="number">0</span>].numpy())</span><br><span class="line">&lt;matplotlib.image.AxesImage <span class="built_in">object</span> at <span class="number">0x7fc9826d85e0</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>plt.show()</span><br></pre></td></tr></table></figure>
+
+<img width="752" alt="cat_tensor_slicing" src="https://user-images.githubusercontent.com/42334717/132938342-e06b36c6-122c-4d7a-89e0-303567c0bec5.png">
+
+<hr>
+<h1 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h1><h2 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Varialbe</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = Variable(torch.ones(<span class="number">2</span>,<span class="number">2</span>),requires_grad=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = x.mean()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y.backward()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.grad</span><br><span class="line">tensor([[<span class="number">0.2500</span>, <span class="number">0.2500</span>],</span><br><span class="line">        [<span class="number">0.2500</span>, <span class="number">0.2500</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.grad_fn</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x.data</span><br><span class="line">tensor([[<span class="number">1.</span>, <span class="number">1.</span>],</span><br><span class="line">        [<span class="number">1.</span>, <span class="number">1.</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y.grad_fn</span><br><span class="line">&lt;MeanBackward0 <span class="built_in">object</span> at <span class="number">0x7fc9826cb550</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Building-Network"><a href="#Building-Network" class="headerlink" title="Building Network"></a>Building Network</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_data</span>():</span><br><span class="line">    train_X = np.asarray([<span class="number">3.3</span>,<span class="number">4.4</span>,<span class="number">5.5</span>,<span class="number">6.71</span>,<span class="number">6.93</span>,<span class="number">4.168</span>,<span class="number">9.779</span>,<span class="number">6.182</span>,<span class="number">7.59</span>,<span class="number">2.167</span>,<span class="number">7.042</span>,<span class="number">10.791</span>,<span class="number">5.313</span>,<span class="number">7.997</span>,<span class="number">5.564</span>,<span class="number">9.27</span>,<span class="number">3.1</span>])</span><br><span class="line">    train_Y = np.asarray([<span class="number">1.7</span>,<span class="number">2.76</span>,<span class="number">2.09</span>,<span class="number">3.19</span>,<span class="number">1.694</span>,<span class="number">1.573</span>,<span class="number">3.366</span>,<span class="number">3.596</span>,<span class="number">2.53</span>,<span class="number">1.221</span>,<span class="number">2.827</span>,<span class="number">3.465</span>,<span class="number">1.65</span>,<span class="number">2.904</span>,<span class="number">2.42</span>,<span class="number">2.94</span>,<span class="number">1.3</span>])</span><br><span class="line">    dtype = torch.FloatTensor</span><br><span class="line">    X = Variable(torch.from_numpy(train_X).<span class="built_in">type</span>(dtype),requires_grad=<span class="literal">False</span>).view(<span class="number">17</span>,<span class="number">1</span>)</span><br><span class="line">    y = Variable(torch.from_numpy(train_Y).<span class="built_in">type</span>(dtype),requires_grad=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">return</span> X,y</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_weights</span>():</span><br><span class="line">    w = Variable(torch.randn(<span class="number">1</span>),requires_grad=<span class="literal">True</span>)</span><br><span class="line">    b = Variable(torch.randn(<span class="number">1</span>),requires_grad=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> w,b</span><br></pre></td></tr></table></figure>
+
+<h2 id="Network-Implementation"><a href="#Network-Implementation" class="headerlink" title="Network Implementation"></a>Network Implementation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">network</span>(<span class="params">x</span>):</span><br><span class="line"><span class="meta">... </span>    y_pred = torch.matmul(x,w)+b</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> y_pred</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = nn.Linear(<span class="number">17</span>,<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f</span><br><span class="line">Linear(in_features=<span class="number">17</span>, out_features=<span class="number">1</span>, bias=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loss-Function"><a href="#Loss-Function" class="headerlink" title="Loss Function"></a>Loss Function</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">loss_fn</span>(<span class="params">y,y_pred</span>):</span><br><span class="line">    loss = (y_pred-y).<span class="built_in">pow</span>(<span class="number">2</span>).<span class="built_in">sum</span>()</span><br><span class="line">    <span class="keyword">for</span> param <span class="keyword">in</span> [w,b]:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> param.grad <span class="keyword">is</span> <span class="literal">None</span>: param.grad.data.zero_()</span><br><span class="line">    loss.backward()</span><br><span class="line">    <span class="keyword">return</span> loss.data</span><br></pre></td></tr></table></figure>
+
+<h2 id="Optimizer"><a href="#Optimizer" class="headerlink" title="Optimizer"></a>Optimizer</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">optimize</span>(<span class="params">learning_rate</span>):</span><br><span class="line">    w.data -= learning_rate * w.grad.data</span><br><span class="line">    b.data -= learning_rate * b.grad.data</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dataset-implementation"><a href="#Dataset-implementation" class="headerlink" title="Dataset implementation"></a>Dataset implementation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DogsAndCatsDataset</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.files = glob(root_dir)</span><br><span class="line">        self.size = size</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.files)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, idx</span>):</span><br><span class="line">        img = np.asarray(Image.<span class="built_in">open</span>(self.files[idx]).resize(self.size))</span><br><span class="line">        label = self.files[idx].split(<span class="string">&#x27;/&#x27;</span>)[-<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">return</span> img,label</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dataloader"><a href="#Dataloader" class="headerlink" title="Dataloader"></a>Dataloader</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> Dataset, DataLoader</span><br><span class="line"></span><br><span class="line">dataloader = DataLoader(DagsAndCatDataset,batch_size=<span class="number">32</span>,num_workers=<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> imgs,labels <span class="keyword">in</span> dataloader:</span><br><span class="line">        <span class="comment"># Training Network</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Simple-Neural-Network"><a href="#Simple-Neural-Network" class="headerlink" title="Simple Neural Network"></a>Simple Neural Network</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_data</span>():</span><br><span class="line">    train_X = np.asarray([<span class="number">3.3</span>,<span class="number">4.4</span>,<span class="number">5.5</span>,<span class="number">6.71</span>,<span class="number">6.93</span>,<span class="number">4.168</span>,<span class="number">9.779</span>,<span class="number">6.182</span>,<span class="number">7.59</span>,<span class="number">2.167</span>,<span class="number">7.042</span>,<span class="number">10.791</span>,<span class="number">5.313</span>,<span class="number">7.997</span>,<span class="number">5.564</span>,<span class="number">9.27</span>,<span class="number">3.1</span>])</span><br><span class="line">    train_Y = np.asarray([<span class="number">1.7</span>,<span class="number">2.76</span>,<span class="number">2.09</span>,<span class="number">3.19</span>,<span class="number">1.694</span>,<span class="number">1.573</span>,<span class="number">3.366</span>,<span class="number">3.596</span>,<span class="number">2.53</span>,<span class="number">1.221</span>,<span class="number">2.827</span>,<span class="number">3.465</span>,<span class="number">1.65</span>,<span class="number">2.904</span>,<span class="number">2.42</span>,<span class="number">2.94</span>,<span class="number">1.3</span>])</span><br><span class="line">    dtype = torch.FloatTensor</span><br><span class="line">    X = Variable(torch.from_numpy(train_X).<span class="built_in">type</span>(dtype),requires_grad=<span class="literal">False</span>).view(<span class="number">17</span>,<span class="number">1</span>)</span><br><span class="line">    y = Variable(torch.from_numpy(train_Y).<span class="built_in">type</span>(dtype),requires_grad=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">return</span> X,y</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_weights</span>():</span><br><span class="line">    w = Variable(torch.randn(<span class="number">1</span>),requires_grad=<span class="literal">True</span>)</span><br><span class="line">    b = Variable(torch.randn(<span class="number">1</span>),requires_grad=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> w,b</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">network</span>(<span class="params">x</span>):</span><br><span class="line">    y_pred = torch.matmul(x,w)+b</span><br><span class="line">    <span class="keyword">return</span> y_pred</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loss_fn</span>(<span class="params">y,y_pred</span>):</span><br><span class="line">    loss = (y_pred-y).<span class="built_in">pow</span>(<span class="number">2</span>).<span class="built_in">sum</span>()</span><br><span class="line">    <span class="keyword">for</span> param <span class="keyword">in</span> [w,b]:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> param.grad <span class="keyword">is</span> <span class="literal">None</span>: param.grad.data.zero_()</span><br><span class="line">    loss.backward()</span><br><span class="line">    <span class="keyword">return</span> loss.data</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">optimize</span>(<span class="params">learning_rate</span>):</span><br><span class="line">    w.data -= learning_rate * w.grad.data</span><br><span class="line">    b.data -= learning_rate * b.grad.data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">learning_rate = <span class="number">1e-4</span></span><br><span class="line">x,y = get_data()</span><br><span class="line">w,b = get_weights()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">500</span>):</span><br><span class="line">    y_pred = network(x)</span><br><span class="line">    loss = loss_fn(y,y_pred)</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">50</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(loss)</span><br><span class="line">    optimize(learning_rate)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Result</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tensor(<span class="number">42.0655</span>)</span><br><span class="line">tensor(<span class="number">11.9596</span>)</span><br><span class="line">tensor(<span class="number">11.6388</span>)</span><br><span class="line">tensor(<span class="number">11.3310</span>)</span><br><span class="line">tensor(<span class="number">11.0358</span>)</span><br><span class="line">tensor(<span class="number">10.7524</span>)</span><br><span class="line">tensor(<span class="number">10.4806</span>)</span><br><span class="line">tensor(<span class="number">10.2198</span>)</span><br><span class="line">tensor(<span class="number">9.9695</span>)</span><br><span class="line">tensor(<span class="number">9.7294</span>)</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+              <a href="/tags/scikit-learn/" rel="tag"><i class="fa fa-tag"></i> scikit-learn</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/machine-learning/" rel="prev" title="Machine Learning">
+                  <i class="fa fa-chevron-left"></i> Machine Learning
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/vision-data-acquisition-matlab-source-code-using-gige-vision-cmos-camera/" rel="next" title="Vision Data Acquisition MATLAB Source Code using GigE Vision CMOS Camera">
+                  Vision Data Acquisition MATLAB Source Code using GigE Vision CMOS Camera <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"3b172573fd5adb7da74d9b3c86903e9a"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction 한 Part의 각 Body에 상응하는 조건을 정의하고 해석하기 위해 진행     Mechanical - Engineering Data: 물질에 대한 성질 정의 Mecahnical - Geometry: 한 Part에 많은 Body 생성 (Python, SpaceClaim) Mechanical - Model: Mesh 생성 Mechani">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Analysis of Many Bodies in One Part with ANSYS ACT">
+<meta property="og:url" content="https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction 한 Part의 각 Body에 상응하는 조건을 정의하고 해석하기 위해 진행     Mechanical - Engineering Data: 물질에 대한 성질 정의 Mecahnical - Geometry: 한 Part에 많은 Body 생성 (Python, SpaceClaim) Mechanical - Model: Mesh 생성 Mechani">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/160532674-71a42534-d381-4964-99d4-d21d6adcbb17.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/160554712-5301718b-2ce9-4b8f-837d-9421d6f87964.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/160571077-35c442fd-d59c-4fc5-9364-336cb0cdda11.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/160555986-ef8502bb-ae5f-4a6f-a0af-e4a60b367f40.png">
+<meta property="article:published_time" content="2022-03-29T04:17:15.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Mechanical Engineering">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/160532674-71a42534-d381-4964-99d4-d21d6adcbb17.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/","path":"analysis-of-many-bodies-in-one-part-with-ansys-act/","title":"Analysis of Many Bodies in One Part with ANSYS ACT"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Analysis of Many Bodies in One Part with ANSYS ACT | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Generating-Many-Bodies-in-One-Part"><span class="nav-number">2.</span> <span class="nav-text">Generating Many Bodies in One Part</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Setting-Condition-in-Many-Bodies"><span class="nav-number">3.</span> <span class="nav-text">Setting Condition in Many Bodies</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/simulation-of-temperature-distribution-of-material-in-dryer/" rel="bookmark">
+        <time class="popular-posts-time">2022-04-12</time>
+        <br>
+      Simulation of Temperature Distribution of Material in Dryer
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-2096/" rel="bookmark">
+        <time class="popular-posts-time">2022-11-29</time>
+        <br>
+      BOJ: 2096
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/source-code-for-extracting-cis/" rel="bookmark">
+        <time class="popular-posts-time">2020-03-18</time>
+        <br>
+      Source Code for Extracting CIs
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-2847/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-24</time>
+        <br>
+      BOJ: 2847
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-2583/" rel="bookmark">
+        <time class="popular-posts-time">2022-11-15</time>
+        <br>
+      BOJ: 2583
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Analysis of Many Bodies in One Part with ANSYS ACT | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Analysis of Many Bodies in One Part with ANSYS ACT
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-29 13:17:15" itemprop="dateCreated datePublished" datetime="2022-03-29T13:17:15+09:00">2022-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>한 Part의 각 Body에 상응하는 조건을 정의하고 해석하기 위해 진행</p>
+</blockquote>
+<img width="600" alt="Introduction" src="https://user-images.githubusercontent.com/42334717/160532674-71a42534-d381-4964-99d4-d21d6adcbb17.png">
+
+<ol>
+<li>Mechanical - Engineering Data: 물질에 대한 성질 정의</li>
+<li>Mecahnical - Geometry: 한 Part에 많은 Body 생성 (Python, SpaceClaim)</li>
+<li>Mechanical - Model: Mesh 생성</li>
+<li>Mechanical - Setup: 각 Body에 상응하는 경계조건 정의 (Python)</li>
+<li>Mechanical - Solution: 해석</li>
+</ol>
+<span id="more"></span>
+
+<hr>
+<h1 id="Generating-Many-Bodies-in-One-Part"><a href="#Generating-Many-Bodies-in-One-Part" class="headerlink" title="Generating Many Bodies in One Part"></a>Generating Many Bodies in One Part</h1><p>위 사진과 같이 수많은 Body들을 직접 모델링하는 것은 불가능하기 때문에 <code>SpaceClaim</code> 내의 기능인 <code>Scripting</code>을 사용한다.<br><code>SpaceClaim</code>의 <code>Scripting</code> 기능은 <code>IronPython</code>을 기반으로 Coding 및 실행이 가능하다.</p>
+<figure class="highlight python"><figcaption><span>MakeManyBodiesInOnePart.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">MakeBody</span>(<span class="params">startPos, BodySize, Thickness</span>):</span><br><span class="line">    selection = Part1</span><br><span class="line">    result = ComponentHelper.CreateNewComponent(selection, Info1)</span><br><span class="line">    result = SketchHelper.StartConstraintSketching()</span><br><span class="line">    plane = Plane.PlaneXY</span><br><span class="line">    result = ViewHelper.SetSketchPlane(plane)</span><br><span class="line">    point1 = Point2D.Create(MM(startPos[<span class="number">0</span>]),MM(startPos[<span class="number">1</span>]))</span><br><span class="line">    point2 = Point2D.Create(MM(startPos[<span class="number">0</span>]+BodySize),MM(startPos[<span class="number">1</span>]))</span><br><span class="line">    point3 = Point2D.Create(MM(startPos[<span class="number">0</span>]+BodySize),MM(startPos[<span class="number">1</span>]+BodySize))</span><br><span class="line">    result = SketchRectangle.Create(point1, point2, point3)</span><br><span class="line">    baseSel = SelectionPoint.Create(CurvePoint7)</span><br><span class="line">    targetSel = SelectionPoint.Create(DatumPoint2)</span><br><span class="line">    mode = InteractionMode.Solid</span><br><span class="line">    result = ViewHelper.SetViewMode(mode, Info3)</span><br><span class="line">    selection = Face2</span><br><span class="line">    options = ExtrudeFaceOptions()</span><br><span class="line">    options.ExtrudeType = ExtrudeType.Add</span><br><span class="line">    result = ExtrudeFaces.Execute(selection, MM(Thickness), options, Info4)</span><br><span class="line">    </span><br><span class="line">BS = <span class="number">4</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, Length of Web, BS): <span class="comment">#MD</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, Width of Web, BS): <span class="comment">#CMD</span></span><br><span class="line">        MakeBody([i, j], BS, <span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+
+<img width="960" alt="Many Bodies in One Part" src="https://user-images.githubusercontent.com/42334717/160554712-5301718b-2ce9-4b8f-837d-9421d6f87964.png">
+
+<ul>
+<li><code>Share Mophology - Share</code> 필수</li>
+</ul>
+<img width="500" alt="Share Mophology - Share" src="https://user-images.githubusercontent.com/42334717/160571077-35c442fd-d59c-4fc5-9364-336cb0cdda11.png">
+
+<hr>
+<h1 id="Setting-Condition-in-Many-Bodies"><a href="#Setting-Condition-in-Many-Bodies" class="headerlink" title="Setting Condition in Many Bodies"></a>Setting Condition in Many Bodies</h1><p>수많은 Body들의 초기조건 및 경계조건을 정의하기 위해 <code>Ansys Mechanical</code> 내의 기능인 <code>Scripting</code>을 사용한다.<br><code>Ansys Mechanical</code>의 <code>Scripting</code> 기능은 <code>IronPython</code>을 기반으로 Coding 및 실행이 가능하다.</p>
+<figure class="highlight python"><figcaption><span>SetPressureCondition.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">bodies = ExtAPI.DataModel.Tree.GetObjectsByType(DataModelObjectCategory.Body)</span><br><span class="line"></span><br><span class="line">MD = <span class="number">125</span></span><br><span class="line">CMD = <span class="number">38</span></span><br><span class="line"></span><br><span class="line">Pressure = <span class="number">2.7</span>*<span class="number">9.81</span> / (<span class="number">0.1</span>*<span class="number">150</span>)</span><br><span class="line"></span><br><span class="line">pressure_condition = DataModel.AnalysisList[<span class="number">0</span>].AddPressure()</span><br><span class="line">selection = ExtAPI.SelectionManager.CreateSelectionInfo(SelectionTypeEnum.GeometryEntities)</span><br><span class="line">s1 = [bodies[<span class="number">0</span>].GetGeoBody().Faces[<span class="number">3</span>]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,CMD,<span class="number">1</span>):</span><br><span class="line">    s1.append(bodies[i].GetGeoBody().Faces[<span class="number">3</span>])</span><br><span class="line">selection.Entities = s1</span><br><span class="line">pressure_condition.Location = selection</span><br><span class="line">pressure_condition.Magnitude.Output.SetDiscreteValue(<span class="number">0</span>, Quantity(-Pressure, <span class="string">&quot;MPa&quot;</span>))</span><br><span class="line"></span><br><span class="line">pressure_condition = DataModel.AnalysisList[<span class="number">0</span>].AddPressure()</span><br><span class="line">selection = ExtAPI.SelectionManager.CreateSelectionInfo(SelectionTypeEnum.GeometryEntities)</span><br><span class="line">s2 = [bodies[MD*CMD-CMD].GetGeoBody().Faces[<span class="number">2</span>]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(MD*CMD-CMD+<span class="number">1</span>,MD*CMD,<span class="number">1</span>):</span><br><span class="line">    s2.append(bodies[i].GetGeoBody().Faces[<span class="number">3</span>])</span><br><span class="line">selection.Entities = s2</span><br><span class="line">pressure_condition.Location = selection</span><br><span class="line">pressure_condition.Magnitude.Output.SetDiscreteValue(<span class="number">0</span>, Quantity(-Pressure, <span class="string">&quot;MPa&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>SetThermalCondition.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line">bodies = ExtAPI.DataModel.Tree.GetObjectsByType(DataModelObjectCategory.Body)</span><br><span class="line"></span><br><span class="line">MD = <span class="number">125</span></span><br><span class="line">CMD = <span class="number">38</span></span><br><span class="line"></span><br><span class="line">temp_csv = csv.reader(<span class="built_in">open</span>(<span class="string">&#x27;Temp.csv&#x27;</span>,<span class="string">&#x27;r&#x27;</span>))</span><br><span class="line"></span><br><span class="line">temp = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> temp_csv:</span><br><span class="line">    tmp = <span class="built_in">float</span>(t[<span class="number">2</span>])</span><br><span class="line">    temp.append(tmp)</span><br><span class="line"></span><br><span class="line">x = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,MD,<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,CMD,<span class="number">1</span>):</span><br><span class="line">        thermal_condition = DataModel.AnalysisList[<span class="number">0</span>].AddThermalCondition()</span><br><span class="line">        selection = ExtAPI.SelectionManager.CreateSelectionInfo(SelectionTypeEnum.GeometryEntities)</span><br><span class="line">        selection.Entities = [bodies[x-<span class="number">1</span>].GetGeoBody()]</span><br><span class="line">        thermal_condition.Location = selection</span><br><span class="line">        thermal_condition.Magnitude.Output.SetDiscreteValue(<span class="number">0</span>, Quantity(temp[x-<span class="number">1</span>], <span class="string">&quot;C&quot;</span>))</span><br><span class="line">        x = x + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<img width="960" alt="Setting Thermal Condition" src="https://user-images.githubusercontent.com/42334717/160555986-ef8502bb-ae5f-4a6f-a0af-e4a60b367f40.png">
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mechanical-engineering/" rel="tag"><i class="fa fa-tag"></i> Mechanical Engineering</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/the-lateral-dynamics-of-a-moving-web/" rel="prev" title="The Lateral Dynamics of a Moving Web">
+                  <i class="fa fa-chevron-left"></i> The Lateral Dynamics of a Moving Web
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/simulation-of-temperature-distribution-of-material-in-dryer/" rel="next" title="Simulation of Temperature Distribution of Material in Dryer">
+                  Simulation of Temperature Distribution of Material in Dryer <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"2e6ca19b73e00c5dd0f33120191fc9bb"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

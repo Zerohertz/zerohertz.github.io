@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MLflow Setup MLflow: A machine learning lifecycle platform MLflow Tracking: 학습 과정에서의 매개 변수, 코드, 결과를 기록하고 대화형 UI로 비교할 수 있는 API MLflow project: ML 코드 공유를 위한 Conda 및 Docker 기반 패키지 형식 지원 MLflow Models: Do">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MLOps for MLE: Model Registry">
+<meta property="og:url" content="https://zerohertz.github.io/mlops-for-mle-model-registry/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="MLflow Setup MLflow: A machine learning lifecycle platform MLflow Tracking: 학습 과정에서의 매개 변수, 코드, 결과를 기록하고 대화형 UI로 비교할 수 있는 API MLflow project: ML 코드 공유를 위한 Conda 및 Docker 기반 패키지 형식 지원 MLflow Models: Do">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/216772172-58442c28-244e-49a7-b0d3-4fe1c3239fed.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/216772178-a27b52e3-2478-436c-a5de-e58bbea27276.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/216777098-b68fabe9-d195-4e4e-ae79-57fcc8b52acc.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/216776431-ba8f15a1-e04d-4c9d-84cf-3280908e4f61.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/216776459-3f396912-b07f-4062-bf56-d14efc9266c6.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/216776808-3f8e962d-b8bd-4170-a4a6-54ec142ed8e0.png">
+<meta property="article:published_time" content="2023-02-04T06:19:33.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="MLflow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/216772172-58442c28-244e-49a7-b0d3-4fe1c3239fed.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/mlops-for-mle-model-registry/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/mlops-for-mle-model-registry/","path":"mlops-for-mle-model-registry/","title":"MLOps for MLE: Model Registry"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MLOps for MLE: Model Registry | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MLflow-Setup"><span class="nav-number">1.</span> <span class="nav-text">MLflow Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PostgreSQL-DB-Server"><span class="nav-number">1.1.</span> <span class="nav-text">PostgreSQL DB Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MLflow-Artifact-Store"><span class="nav-number">1.2.</span> <span class="nav-text">MLflow Artifact Store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MLflow-Server"><span class="nav-number">1.3.</span> <span class="nav-text">MLflow Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Execution"><span class="nav-number">1.4.</span> <span class="nav-text">Execution</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Save-Model-to-Registry"><span class="nav-number">2.</span> <span class="nav-text">Save Model to Registry</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98-%EC%84%A4%EC%A0%95"><span class="nav-number">2.1.</span> <span class="nav-text">환경 변수 설정</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AA%A8%EB%8D%B8-%EC%A0%80%EC%9E%A5"><span class="nav-number">2.2.</span> <span class="nav-text">모델 저장</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">2.3.</span> <span class="nav-text">Result</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Load-Model-from-Registry"><span class="nav-number">3.</span> <span class="nav-text">Load Model from Registry</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98-%EC%84%A4%EC%A0%95-1"><span class="nav-number">3.1.</span> <span class="nav-text">환경 변수 설정</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AA%A8%EB%8D%B8-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><span class="nav-number">3.2.</span> <span class="nav-text">모델 불러오기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result-1"><span class="nav-number">3.3.</span> <span class="nav-text">Result</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#env%EB%A5%BC-%ED%86%B5%ED%95%9C-%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98-%EC%A0%95%EC%9D%98"><span class="nav-number">4.</span> <span class="nav-text">.env를 통한 환경 변수 정의</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-api-serving/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-15</time>
+        <br>
+      MLOps for MLE: API Serving
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-model-development/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-28</time>
+        <br>
+      MLOps for MLE: Model Development
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/setting-up-virtual-environment-for-pytorch/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-01</time>
+        <br>
+      Setting Up Virtual Environment for PyTorch
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-kafka/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-27</time>
+        <br>
+      MLOps for MLE: Kafka
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-stream/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-09</time>
+        <br>
+      MLOps for MLE: Stream
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-model-registry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MLOps for MLE: Model Registry | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MLOps for MLE: Model Registry
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-02-04 15:19:33" itemprop="dateCreated datePublished" datetime="2023-02-04T15:19:33+09:00">2023-02-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="MLflow-Setup"><a href="#MLflow-Setup" class="headerlink" title="MLflow Setup"></a>MLflow Setup</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21sZmxvdy9tbGZsb3cv">MLflow<i class="fa fa-external-link-alt"></i></span>: A machine learning lifecycle platform<ul>
+<li>MLflow Tracking: 학습 과정에서의 매개 변수, 코드, 결과를 기록하고 대화형 UI로 비교할 수 있는 API</li>
+<li>MLflow project: ML 코드 공유를 위한 Conda 및 Docker 기반 패키지 형식 지원</li>
+<li>MLflow Models: Docker, Apache Spark, Azure ML, AWS SageMaker 등의 플랫폼에 ML 코드를 배포할 수 있는 패키징 형식 및 도구</li>
+<li>MLflow Model Registry: MLflow 모델의 전체 수명 주기를 공동으로 관리하기 위한 중앙 집중식 모델 저장소, API, UI의 집합</li>
+</ul>
+</li>
+<li>Backend Store: 수치 데이터와 MLflow 서버의 정보들을 체계적으로 관리하기 위한 DB<ul>
+<li>모델 데이터<ul>
+<li>학습 결과<ul>
+<li>Accuracy</li>
+<li>F1-score</li>
+</ul>
+</li>
+<li>학습 과정의 loss</li>
+<li>모델 자체 정보 (hyperparameters)</li>
+</ul>
+</li>
+<li>MLflow의 메타 데이터<ul>
+<li>run_id</li>
+<li>run_name</li>
+<li>experiment_name</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="PostgreSQL-DB-Server"><a href="#PostgreSQL-DB-Server" class="headerlink" title="PostgreSQL DB Server"></a>PostgreSQL DB Server</h2><figure class="highlight yaml"><figcaption><span>docker-compose.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mlflow-backend-store:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:14.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mlflow-backend-store</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">POSTGRES_USER:</span> <span class="string">zerohertz</span></span><br><span class="line">      <span class="attr">POSTGRES_PASSWORD:</span> <span class="string">qwer123</span></span><br><span class="line">      <span class="attr">POSTGRES_DB:</span> <span class="string">mlflowdatabase</span></span><br><span class="line">    <span class="attr">healthcheck:</span></span><br><span class="line">      <span class="attr">test:</span> [<span class="string">&quot;CMD&quot;</span>, <span class="string">&quot;pg_isready&quot;</span>, <span class="string">&quot;-q&quot;</span>, <span class="string">&quot;-U&quot;</span>, <span class="string">&quot;zerohertz&quot;</span>, <span class="string">&quot;-d&quot;</span>, <span class="string">&quot;mlflowdatabase&quot;</span>]</span><br><span class="line">      <span class="attr">interval:</span> <span class="string">10s</span></span><br><span class="line">      <span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line">      <span class="attr">retries:</span> <span class="number">5</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>image</code>: <code>postgres:14.0</code></li>
+<li><code>environment</code><ul>
+<li><code>POSTGRES_USER</code>: DB 접근을 위한 사용자 이름</li>
+<li><code>POSTGRES_PASSWORD</code>: DB 접근을 위한 비밀번호</li>
+<li><code>POSTGRES_DB</code>: DB 이름 설정</li>
+</ul>
+</li>
+<li><code>healthcheck</code><ul>
+<li>DB 서버 상태 체크</li>
+</ul>
+</li>
+</ul>
+<h2 id="MLflow-Artifact-Store"><a href="#MLflow-Artifact-Store" class="headerlink" title="MLflow Artifact Store"></a>MLflow Artifact Store</h2><ul>
+<li>Artifact Store: MLFlow에서 학습된 모델을 저장하는 Model Registry로 이용하기 위한 스토리지 서버<ul>
+<li>기본 파일 시스템에 비해 체계적 관리 가능</li>
+<li>외부의 스토리지 서버 사용 가능</li>
+</ul>
+</li>
+<li>MinIO: AWS S3를 대체할 수 있는 오픈 소스 고성는 개체 스토리지<ul>
+<li>AWS S3의 API와 호환되어 SDK 동일 사용 가능</li>
+<li>MLflow에서는 AWS S3를 모델 저장 스토리지 사용 권장</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>docker-compose.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">  <span class="attr">mlflow-artifact-store:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">minio/minio</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mlflow-artifact-store</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">9000</span><span class="string">:9000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">9001</span><span class="string">:9001</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MINIO_ROOT_USER:</span> <span class="string">zerohertz_minio</span></span><br><span class="line">      <span class="attr">MINIO_ROOT_PASSWORD:</span> <span class="string">asdf456!</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">server</span> <span class="string">/data/minio</span> <span class="string">--console-address</span> <span class="string">:9001</span></span><br><span class="line">    <span class="attr">healthcheck:</span></span><br><span class="line">      <span class="attr">test:</span> [<span class="string">&quot;CMD&quot;</span>, <span class="string">&quot;curl&quot;</span>, <span class="string">&quot;-f&quot;</span>, <span class="string">&quot;http://localhost:9000/minio/health/live&quot;</span>]</span><br><span class="line">      <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">      <span class="attr">timeout:</span> <span class="string">20s</span></span><br><span class="line">      <span class="attr">retries:</span> <span class="number">3</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>image</code>: <code>minio/minio</code></li>
+<li><code>ports</code><ul>
+<li><code>9000</code>: MinIO의 API 포트</li>
+<li><code>9001</code>: Console 포트</li>
+</ul>
+</li>
+<li><code>environment</code><ul>
+<li><code>MINIO_ROOT_USER</code>: MinIO 접근을 위한 사용자 이름</li>
+<li><code>MINIO_ROOT_PASSWORD</code>: MinIO 접근을 위한 비밀번호</li>
+</ul>
+</li>
+<li><code>command</code><ul>
+<li>MinIO 서버 실행 명령어 추가</li>
+<li><code>--console-address</code>: <code>9001</code> 포트로 MinIO에 접근</li>
+</ul>
+</li>
+<li><code>healthcheck</code><ul>
+<li>MinIO 서버 상태 체크</li>
+</ul>
+</li>
+</ul>
+<h2 id="MLflow-Server"><a href="#MLflow-Server" class="headerlink" title="MLflow Server"></a>MLflow Server</h2><figure class="highlight docker"><figcaption><span>MLflow.Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> amd64/python:<span class="number">3.9</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y \</span></span><br><span class="line"><span class="language-bash">    git \</span></span><br><span class="line"><span class="language-bash">    wget \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">rm</span> -rf /var/lib/apt/lists/*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -U pip &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">    pip install boto3==1.26.8 mlflow==1.30.0 psycopg2-binary</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">cd</span> /tmp &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    wget https://dl.min.io/client/mc/release/linux-amd64/mc &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">chmod</span> +x mc &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">mv</span> mc /usr/bin/mc</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>FROM</code><ul>
+<li>Python 3.9가 포함된 이미지를 BASE 이미지로 설정</li>
+</ul>
+</li>
+<li><code>RUN</code><ul>
+<li><code>git</code>: MLflow 서버 내부 동작</li>
+<li><code>wget</code>: MinIO Client 설치</li>
+</ul>
+</li>
+<li><code>RUN</code><ul>
+<li>MLflow, PostgreSQL DB, AWS S3 관련 Python 패키지 설치</li>
+</ul>
+</li>
+<li><code>RUN</code><ul>
+<li><code>wget</code>을 통해 MinIO Client 설치</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>docker-compose.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">  <span class="attr">mlflow-server:</span></span><br><span class="line">    <span class="attr">build:</span></span><br><span class="line">      <span class="attr">context:</span> <span class="string">.</span></span><br><span class="line">      <span class="attr">dockerfile:</span> <span class="string">MLflow.Dockerfile</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mlflow-server</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="attr">mlflow-backend-store:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line">      <span class="attr">mlflow-artifact-store:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">5001</span><span class="string">:5000</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">AWS_ACCESS_KEY_ID:</span> <span class="string">zerohertz_minio</span></span><br><span class="line">      <span class="attr">AWS_SECRET_ACCESS_KEY:</span> <span class="string">asdf456!</span></span><br><span class="line">      <span class="attr">MLFLOW_S3_ENDPOINT_URL:</span> <span class="string">http://mlflow-artifact-store:9000</span></span><br><span class="line">    <span class="attr">command:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/bin/sh</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">-c</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">        mc config host add mlflowminio http://mlflow-artifact-store:9000 zerohertz_minio asdf456! &amp;&amp;</span></span><br><span class="line"><span class="string">        mc mb --ignore-existing mlflowminio/mlflow</span></span><br><span class="line"><span class="string">        mlflow server \</span></span><br><span class="line"><span class="string">        --backend-store-uri postgresql://zerohertz:qwer123@mlflow-backend-store/mlflowdatabase \</span></span><br><span class="line"><span class="string">        --default-artifact-root s3://mlflow/ \</span></span><br><span class="line"><span class="string">        --host 0.0.0.0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>depends_on</code><ul>
+<li><code>mlflow-server</code>의 서버 실행 전 <code>mlflow-backend-store</code>, <code>mlflow-artifact-store</code>을 먼저 실행</li>
+</ul>
+</li>
+<li><code>ports</code><ul>
+<li><code>5001:5000</code> 포트 설정</li>
+</ul>
+</li>
+<li><code>environment</code><ul>
+<li><code>AWS_ACCESS_KEY_ID</code>: AWS S3의 credential 정보 (&#x3D; <code>MINIO_ROOT_USER</code>)</li>
+<li><code>AWS_SECRET_ACCESS_KEY</code>: AWS S3의 credentail 정보 (&#x3D; <code>MINIO_ROOT_PASSWORD</code>)</li>
+<li><code>MLFLOW_S3_ENDPOINT_URL</code>: AWS S3의 주소 설정 (&#x3D; MinIO의 주소)<ul>
+<li><code>https://</code>로 정의해주면 오류 발생,,,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>command</code>: MinIO 초기 버켓 생성, MLflow 서버 실행<ul>
+<li><code>mc config ~</code>: MinIO Client 기반 MinIO 서버에 호스트 등록</li>
+<li><code>mc mb ~</code>: 등록된 호스트를 통해 초기 버켓 생성</li>
+<li><code>mlflow server</code>: MLflow 서버 실행</li>
+<li><code>--backend-store-uri</code>: PostgreSQL DB와 연결<ul>
+<li>URI에 특수문자 기용 시 오류 발생 주의</li>
+</ul>
+</li>
+<li><code>--default-artifact-root</code>: 명시된 버켓을 통해 MinIO의 초기 버켓과 연결</li>
+</ul>
+</li>
+</ul>
+<h2 id="Execution"><a href="#Execution" class="headerlink" title="Execution"></a>Execution</h2><p><img src="https://user-images.githubusercontent.com/42334717/216772172-58442c28-244e-49a7-b0d3-4fe1c3239fed.png" alt="MinIO"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/216772178-a27b52e3-2478-436c-a5de-e58bbea27276.png" alt="MLflow"></p>
+<hr>
+<h1 id="Save-Model-to-Registry"><a href="#Save-Model-to-Registry" class="headerlink" title="Save Model to Registry"></a>Save Model to Registry</h1><h2 id="환경-변수-설정"><a href="#환경-변수-설정" class="headerlink" title="환경 변수 설정"></a>환경 변수 설정</h2><figure class="highlight python"><figcaption><span>save_model_to_registry.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">...</span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>] = <span class="string">&quot;http://localhost:9000&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>] = <span class="string">&quot;http://localhost:5001&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;AWS_ACCESS_KEY_ID&quot;</span>] = <span class="string">&quot;zerohertz_minio&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;AWS_SECRET_ACCESS_KEY&quot;</span>] = <span class="string">&quot;asdf456!&quot;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>MLFLOW_S3_ENDPOINT_URL</code>: 모델을 저장할 스토리지의 주소 (MinIO API)</li>
+<li><code>MLFLOW_TRACKING_URI</code>: 정보를 저장하기 위해 연결할 MLflow 서버의 주소</li>
+<li><code>AWS_ACCESS_KEY_ID</code>: MinIO에 접근하기 위한 아이디</li>
+<li><code>AWS_SECRET_ACCESS_KEY</code>: MinIO에 접근하기 위한 비밀번호</li>
+</ul>
+<h2 id="모델-저장"><a href="#모델-저장" class="headerlink" title="모델 저장"></a>모델 저장</h2><figure class="highlight python"><figcaption><span>save_model_to_registry.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">from</span> argparse <span class="keyword">import</span> ArgumentParser</span><br><span class="line">...</span><br><span class="line">parser = ArgumentParser()</span><br><span class="line">parser.add_argument(<span class="string">&quot;--model-name&quot;</span>, dest=<span class="string">&quot;model_name&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&quot;sk_model&quot;</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">mlflow.set_experiment(<span class="string">&quot;new-exp&quot;</span>)</span><br><span class="line"></span><br><span class="line">signature = mlflow.models.signature.infer_signature(model_input=X_train, model_output=train_pred)</span><br><span class="line">input_sample = X_train.iloc[:<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> mlflow.start_run():</span><br><span class="line">    mlflow.log_metrics(&#123;<span class="string">&quot;train_acc&quot;</span>: train_acc, <span class="string">&quot;valid_acc&quot;</span>: valid_acc&#125;)</span><br><span class="line">    mlflow.sklearn.log_model(</span><br><span class="line">        sk_model=model_pipeline,</span><br><span class="line">        artifact_path=args.model_name,</span><br><span class="line">        signature=signature,</span><br><span class="line">        input_example=input_sample,</span><br><span class="line">    )</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>mlflow.set_experiment(experiment_name)</code>: <code>experiment</code>가 존재하지 않은 경우 새로 생성, 존재하는 경우 해당 <code>experiment</code> 사용</li>
+<li><code>mlflow.models.signature.infer_signature(model_input, model_output)</code>: 잘못된 데이터 입력 시 에러 발생을 위한 정보 입력</li>
+<li><code>mlflow.start_run(run_id, experiment_id, run_name, nested, tags, description)</code>: 새로운 MLflow <code>run</code> 시작</li>
+<li><code>mlflow.log_metrics(metrics, step)</code>: 모델의 결과 metrics를 <code>dictionary</code> 형태로 입력해 생성된 <code>run</code>에 저장</li>
+<li><code>mlflow.sklearn.log_model(sk_model, artifact_path, conda_env, code_paths, serialization_format, registered_model_name, signature, input_example, ...)</code>: 현재 <code>run</code>에 대해 <code>sklearn</code> 모델 기록</li>
+</ul>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ python save_model_to_registry.py --model-name <span class="string">&quot;sk_model&quot;</span></span><br><span class="line">save_model_to_registry.py:25: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.</span><br><span class="line">  <span class="built_in">df</span> = pd.read_sql(<span class="string">&quot;SELECT * FROM breast_cancer_data ORDER BY id DESC LIMIT 100&quot;</span>, db_connect)</span><br><span class="line">Train Accuracy : 0.9875</span><br><span class="line">Valid Accuracy : 0.95</span><br><span class="line">2023/02/05 00:42:10 INFO mlflow.tracking.fluent: Experiment with name <span class="string">&#x27;new-exp&#x27;</span> does not exist. Creating a new experiment.</span><br><span class="line">/Users/zerohertz/miniforge3/envs/MLOps/lib/python3.8/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.</span><br><span class="line">  warnings.warn(<span class="string">&quot;Setuptools is replacing distutils.&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/216777098-b68fabe9-d195-4e4e-ae79-57fcc8b52acc.png" alt="MiniO: Saved Model"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/216776431-ba8f15a1-e04d-4c9d-84cf-3280908e4f61.png" alt="MLflow: Saved Model 1"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/216776459-3f396912-b07f-4062-bf56-d14efc9266c6.png" alt="MLflow: Saved Model 2"></p>
+<hr>
+<h1 id="Load-Model-from-Registry"><a href="#Load-Model-from-Registry" class="headerlink" title="Load Model from Registry"></a>Load Model from Registry</h1><h2 id="환경-변수-설정-1"><a href="#환경-변수-설정-1" class="headerlink" title="환경 변수 설정"></a>환경 변수 설정</h2><figure class="highlight python"><figcaption><span>load_model_from_registry.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">...</span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>] = <span class="string">&quot;http://localhost:9000&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>] = <span class="string">&quot;http://localhost:5001&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;AWS_ACCESS_KEY_ID&quot;</span>] = <span class="string">&quot;zerohertz_minio&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;AWS_SECRET_ACCESS_KEY&quot;</span>] = <span class="string">&quot;asdf456!&quot;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="모델-불러오기"><a href="#모델-불러오기" class="headerlink" title="모델 불러오기"></a>모델 불러오기</h2><figure class="highlight python"><figcaption><span>load_model_from_registry.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">from</span> argparse <span class="keyword">import</span> ArgumentParser</span><br><span class="line">...</span><br><span class="line">parser = ArgumentParser()</span><br><span class="line">parser.add_argument(<span class="string">&quot;--model-name&quot;</span>, dest=<span class="string">&quot;model_name&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&quot;sk_model&quot;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&quot;--run-id&quot;</span>, dest=<span class="string">&quot;run_id&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">model_pipeline = mlflow.sklearn.load_model(<span class="string">f&quot;runs:/<span class="subst">&#123;args.run_id&#125;</span>/<span class="subst">&#123;args.model_name&#125;</span>&quot;</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/216776808-3f8e962d-b8bd-4170-a4a6-54ec142ed8e0.png" alt="MLflow: RUN ID"></p>
+<ul>
+<li><code>mlflow.sklearn.load_model(model_uri, dst_path)</code>: 로컬 파일 또는 <code>run</code>에서 <code>sklearn</code> 모델 load</li>
+<li><code>mlflow.pyfunc.load_model(model_uri, suppress_warnings, dst_path)</code>: Python 함수 형태로 저장된 모델 load</li>
+</ul>
+<h2 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ python load_model_from_registry.py --model-name <span class="string">&quot;sk_model&quot;</span> --run-id 12abbfc176364e198849473c83783070</span><br><span class="line">Train Accuracy : 0.9875</span><br><span class="line">Valid Accuracy : 0.95</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="env를-통한-환경-변수-정의"><a href="#env를-통한-환경-변수-정의" class="headerlink" title=".env를 통한 환경 변수 정의"></a><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NTE9wcy1CcmVhc3QtQ2FuY2VyL2NvbW1pdC9lZGM1OWQ2ZGE2NzNmMDRjNDI3Mjg2OTNiMjgwODhjZjNmMmNlMmM1">.env를 통한 환경 변수 정의<i class="fa fa-external-link-alt"></i></span></h1><figure class="highlight bash"><figcaption><span>.env</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POSTGRES_USER=zerohertz_postgres</span><br><span class="line">POSTGRES_PASSWORD=qwer123!</span><br><span class="line">POSTGRES_DB=mlflowdatabase</span><br><span class="line">MINIO_ROOT_USER=zerohertz_minio</span><br><span class="line">MINIO_ROOT_PASSWORD=asdf456!</span><br><span class="line">MLFLOW_S3_ENDPOINT_URL=http://localhost:9000</span><br><span class="line">MLFLOW_TRACKING_URI=http://localhost:5001</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>docker-compose.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mlflow-backend-store:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">POSTGRES_USER:</span> <span class="string">$&#123;POSTGRES_USER&#125;</span></span><br><span class="line">      <span class="attr">POSTGRES_PASSWORD:</span> <span class="string">$&#123;POSTGRES_PASSWORD&#125;</span></span><br><span class="line">      <span class="attr">POSTGRES_DB:</span> <span class="string">$&#123;POSTGRES_DB&#125;</span></span><br><span class="line">    <span class="attr">healthcheck:</span></span><br><span class="line">      <span class="attr">test:</span> [<span class="string">&quot;CMD&quot;</span>, <span class="string">&quot;pg_isready&quot;</span>, <span class="string">&quot;-q&quot;</span>, <span class="string">&quot;-U&quot;</span>, <span class="string">&quot;$&#123;POSTGRES_USER&#125;&quot;</span>, <span class="string">&quot;-d&quot;</span>, <span class="string">&quot;$&#123;POSTGRES_DB&#125;&quot;</span>]</span><br><span class="line"><span class="string">...</span></span><br><span class="line">  <span class="attr">mlflow-artifact-store:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MINIO_ROOT_USER:</span> <span class="string">$&#123;MINIO_ROOT_USER&#125;</span></span><br><span class="line">      <span class="attr">MINIO_ROOT_PASSWORD:</span> <span class="string">$&#123;MINIO_ROOT_PASSWORD&#125;</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">  <span class="attr">mlflow-server:</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">AWS_ACCESS_KEY_ID:</span> <span class="string">$&#123;MINIO_ROOT_USER&#125;</span></span><br><span class="line">      <span class="attr">AWS_SECRET_ACCESS_KEY:</span> <span class="string">$&#123;MINIO_ROOT_PASSWORD&#125;</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">    <span class="attr">command:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">        <span class="string">mc</span> <span class="string">config</span> <span class="string">host</span> <span class="string">add</span> <span class="string">mlflowminio</span> <span class="string">http://mlflow-artifact-store:9000</span> <span class="string">$&#123;MINIO_ROOT_USER&#125;</span> <span class="string">$&#123;MINIO_ROOT_PASSWORD&#125;</span> <span class="string">&amp;&amp;</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">        <span class="string">--backend-store-uri</span> <span class="string">postgresql://$&#123;POSTGRES_USER&#125;:$&#123;POSTGRES_PASSWORD&#125;@mlflow-backend-store/$&#123;POSTGRES_DB&#125;</span> <span class="string">\</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>save_model_registry.py & load_model_from_registry.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</span><br><span class="line"></span><br><span class="line">load_dotenv()</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>] = os.environ.get(<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>] = os.environ.get(<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;AWS_ACCESS_KEY_ID&quot;</span>] = os.environ.get(<span class="string">&quot;MINIO_ROOT_USER&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;AWS_SECRET_ACCESS_KEY&quot;</span>] = os.environ.get(<span class="string">&quot;MINIO_ROOT_PASSWORD&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItbWxlLmdpdGh1Yi5pby90dXRvcmlhbC9kb2NzL2NhdGVnb3J5LzAzLW1vZGVsLXJlZ2lzdHJ5">MLOps for MLE: 03. Model Registry<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/mlflow/" rel="tag"><i class="fa fa-tag"></i> MLflow</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/programmers-60059/" rel="prev" title="Programmers: 자물쇠와 열쇠">
+                  <i class="fa fa-chevron-left"></i> Programmers: 자물쇠와 열쇠
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-fastapi/" rel="next" title="MLOps for MLE: FastAPI">
+                  MLOps for MLE: FastAPI <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"08f729a23f77afb54c1af671c54c93e9"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

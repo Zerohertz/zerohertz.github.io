@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Least squares regression for a straight line Process   Residual의 합 Sr을 구하여 미분 각각의 Parameter에 대한 편미분 값이 0이 되도록 계산 구한 a(0)와 a(1)의 값으로 식 구하기 The standard error of the estimate - S(y&#x2F;x) The correlati">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numerical Analysis (4)">
+<meta property="og:url" content="https://zerohertz.github.io/numerical-analysis-4/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Least squares regression for a straight line Process   Residual의 합 Sr을 구하여 미분 각각의 Parameter에 대한 편미분 값이 0이 되도록 계산 구한 a(0)와 a(1)의 값으로 식 구하기 The standard error of the estimate - S(y&#x2F;x) The correlati">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/48669574-dfd22a80-eb4a-11e8-86b9-144604fd4f9f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/48669580-f11b3700-eb4a-11e8-88ae-35c47aee9707.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/48674789-79252f00-eb93-11e8-9291-3b69dfbcc9d7.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/48674790-7a565c00-eb93-11e8-9903-c2d6bb300f5f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/48674792-7aeef280-eb93-11e8-81cb-10353bac5a88.png">
+<meta property="article:published_time" content="2018-11-18T03:32:25.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="B.S. Course Work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/48669574-dfd22a80-eb4a-11e8-86b9-144604fd4f9f.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/numerical-analysis-4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/numerical-analysis-4/","path":"numerical-analysis-4/","title":"Numerical Analysis (4)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Numerical Analysis (4) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Least-squares-regression-for-a-straight-line"><span class="nav-number">1.</span> <span class="nav-text">Least squares regression for a straight line</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9B%90%EB%9E%98%EC%9D%98-Data-point%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Regression"><span class="nav-number">2.</span> <span class="nav-text">원래의 Data point를 이용한 Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-5-Data-point-%EC%B6%94%EA%B0%80%ED%95%9C-Regression"><span class="nav-number">3.</span> <span class="nav-text">(5, 5) Data point 추가한 Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/numerical-analysis-5/" rel="bookmark">
+        <time class="popular-posts-time">2018-12-06</time>
+        <br>
+      Numerical Analysis (5)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/numerical-analysis-2/" rel="bookmark">
+        <time class="popular-posts-time">2018-10-01</time>
+        <br>
+      Numerical Analysis (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/numerical-analysis-1/" rel="bookmark">
+        <time class="popular-posts-time">2018-09-10</time>
+        <br>
+      Numerical Analysis (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-2096/" rel="bookmark">
+        <time class="popular-posts-time">2022-11-29</time>
+        <br>
+      BOJ: 2096
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/statistics/" rel="bookmark">
+        <time class="popular-posts-time">2020-01-07</time>
+        <br>
+      Statistics
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/numerical-analysis-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Numerical Analysis (4) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Numerical Analysis (4)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-11-18 12:32:25" itemprop="dateCreated datePublished" datetime="2018-11-18T12:32:25+09:00">2018-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Least-squares-regression-for-a-straight-line"><a href="#Least-squares-regression-for-a-straight-line" class="headerlink" title="Least squares regression for a straight line"></a>Least squares regression for a straight line</h1><blockquote>
+<p>Process</p>
+</blockquote>
+<ul>
+<li>Residual의 합 Sr을 구하여 미분</li>
+<li>각각의 Parameter에 대한 편미분 값이 0이 되도록 계산</li>
+<li>구한 a(0)와 a(1)의 값으로 식 구하기</li>
+<li>The standard error of the estimate - S(y&#x2F;x)</li>
+<li>The correlation coefficient - r</li>
+<li>(5, 5)라는 Data point가 주어질때, 유효한가?</li>
+</ul>
+<span id="more"></span>
+<hr>
+<h1 id="원래의-Data-point를-이용한-Regression"><a href="#원래의-Data-point를-이용한-Regression" class="headerlink" title="원래의 Data point를 이용한 Regression"></a>원래의 Data point를 이용한 Regression</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> plotly</span><br><span class="line"><span class="keyword">from</span> plotly.graph_objs <span class="keyword">import</span> Scatter, Layout</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigma</span>(<span class="params">a</span>): <span class="comment">#Defining sigma</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + a[b]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">doublesigma</span>(<span class="params">a, c</span>): <span class="comment">#Defining doublesigma</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + a[b] * c[b]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">squaresigma</span>(<span class="params">a</span>): <span class="comment">#Defining squaresigma</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + a[b]**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reg</span>(<span class="params">var</span>): <span class="comment">#Defining regression function</span></span><br><span class="line">    <span class="keyword">return</span> a0 + a1 * x[var]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Sr</span>(): <span class="comment">#Defining deviation of residual Sr</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(y)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + (y[b] - reg(b))**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">St</span>(): <span class="comment">#Defining deviation of measurement St</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(y)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + (y[b] - sigma(y) / <span class="built_in">len</span>(y))**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line">x = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">10</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">20</span>, <span class="number">22</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">36</span>, <span class="number">38</span>] <span class="comment">#Defining data point of x</span></span><br><span class="line">y = [<span class="number">30</span>, <span class="number">22</span>, <span class="number">28</span>, <span class="number">14</span>, <span class="number">22</span>, <span class="number">16</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">14</span>, <span class="number">0</span>, <span class="number">4</span>] <span class="comment">#Defineing data point of y</span></span><br><span class="line"></span><br><span class="line">a1 = (<span class="built_in">len</span>(x) * doublesigma(x, y) - sigma(x) * sigma(y)) / (<span class="built_in">len</span>(x) * squaresigma(x) - sigma(x)**<span class="number">2</span>) <span class="comment">#Determining a1</span></span><br><span class="line">a0 = sigma(y) / <span class="built_in">len</span>(y) - a1 * sigma(x) / <span class="built_in">len</span>(x) <span class="comment">#Determining a0</span></span><br><span class="line">Sr = Sr()</span><br><span class="line">St = St()</span><br><span class="line">Syunderx = math.sqrt(Sr / (<span class="built_in">len</span>(x)-<span class="number">2</span>)) <span class="comment">#Determining The standard error of the estimate S(y/x)</span></span><br><span class="line">r = (<span class="built_in">len</span>(x) * doublesigma(x, y) - sigma(x) * sigma(y)) / (math.sqrt(<span class="built_in">len</span>(x) * squaresigma(x) - sigma(x)**<span class="number">2</span>) * math.sqrt(<span class="built_in">len</span>(y) * squaresigma(y) - sigma(y)**<span class="number">2</span>)) <span class="comment">#Determining The correlation coefficient r</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a0 = %f, a1 = %f&quot;</span> %(a0, a1))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sr = %f&quot;</span> %Sr)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Syunderx = %f&quot;</span> %Syunderx)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;St = %f&quot;</span> %St)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;r = %f&quot;</span> %<span class="built_in">abs</span>(r))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;r = %f&quot;</span> %math.sqrt((St - Sr) / St))</span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123; <span class="comment">#Data ploting</span></span><br><span class="line">    <span class="string">&quot;data&quot;</span>: [Scatter(x=x, y=y)],</span><br><span class="line">    <span class="string">&quot;layout&quot;</span>: Layout(title=<span class="string">&quot;Data point&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Users\s_oh3417\PycharmProjects\수치 Proj3\venv\Scripts\python.exe&quot;</span> <span class="string">&quot;C:/Users/s_oh3417/PycharmProjects/수치 Proj3/Main.py&quot;</span></span><br><span class="line">a0 = <span class="number">30.739629</span>, a1 = -<span class="number">0.771910</span></span><br><span class="line">Sr = <span class="number">173.735806</span></span><br><span class="line">Syunderx = <span class="number">4.393629</span></span><br><span class="line">St = <span class="number">938.909091</span></span><br><span class="line">r = <span class="number">0.902751</span></span><br><span class="line">r = <span class="number">0.902751</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/48669574-dfd22a80-eb4a-11e8-86b9-144604fd4f9f.png" alt="Data point"><br><img src="https://user-images.githubusercontent.com/42334717/48669580-f11b3700-eb4a-11e8-88ae-35c47aee9707.png" alt="실행결과"><br><img src="https://user-images.githubusercontent.com/42334717/48674789-79252f00-eb93-11e8-9291-3b69dfbcc9d7.png" alt="Regression"></p>
+<hr>
+<h1 id="5-5-Data-point-추가한-Regression"><a href="#5-5-Data-point-추가한-Regression" class="headerlink" title="(5, 5) Data point 추가한 Regression"></a>(5, 5) Data point 추가한 Regression</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> plotly</span><br><span class="line"><span class="keyword">from</span> plotly.graph_objs <span class="keyword">import</span> Scatter, Layout</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigma</span>(<span class="params">a</span>): <span class="comment">#Defining sigma</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + a[b]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">doublesigma</span>(<span class="params">a, c</span>): <span class="comment">#Defining doublesigma</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + a[b] * c[b]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">squaresigma</span>(<span class="params">a</span>): <span class="comment">#Defining squaresigma</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(a)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + a[b]**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reg</span>(<span class="params">var</span>): <span class="comment">#Defining regression function</span></span><br><span class="line">    <span class="keyword">return</span> a0 + a1 * x[var]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Sr</span>(): <span class="comment">#Defining deviation of residual Sr</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(y)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + (y[b] - reg(b))**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">St</span>(): <span class="comment">#Defining deviation of measurement St</span></span><br><span class="line">    <span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(y)):</span><br><span class="line">        <span class="built_in">sum</span> = <span class="built_in">sum</span> + (y[b] - sigma(y) / <span class="built_in">len</span>(y))**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span></span><br><span class="line"></span><br><span class="line">x = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">10</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">20</span>, <span class="number">22</span>, <span class="number">28</span>, <span class="number">28</span>, <span class="number">36</span>, <span class="number">38</span>, <span class="number">5</span>] <span class="comment">#Defining data point of x</span></span><br><span class="line">y = [<span class="number">30</span>, <span class="number">22</span>, <span class="number">28</span>, <span class="number">14</span>, <span class="number">22</span>, <span class="number">16</span>, <span class="number">8</span>, <span class="number">8</span>, <span class="number">14</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">5</span>] <span class="comment">#Defineing data point of y</span></span><br><span class="line"></span><br><span class="line">a1 = (<span class="built_in">len</span>(x) * doublesigma(x, y) - sigma(x) * sigma(y)) / (<span class="built_in">len</span>(x) * squaresigma(x) - sigma(x)**<span class="number">2</span>) <span class="comment">#Determining a1</span></span><br><span class="line">a0 = sigma(y) / <span class="built_in">len</span>(y) - a1 * sigma(x) / <span class="built_in">len</span>(x) <span class="comment">#Determining a0</span></span><br><span class="line">Sr = Sr()</span><br><span class="line">St = St()</span><br><span class="line">Syunderx = math.sqrt(Sr / (<span class="built_in">len</span>(x)-<span class="number">2</span>)) <span class="comment">#Determining The standard error of the estimate S(y/x)</span></span><br><span class="line">r = (<span class="built_in">len</span>(x) * doublesigma(x, y) - sigma(x) * sigma(y)) / (math.sqrt(<span class="built_in">len</span>(x) * squaresigma(x) - sigma(x)**<span class="number">2</span>) * math.sqrt(<span class="built_in">len</span>(y) * squaresigma(y) - sigma(y)**<span class="number">2</span>)) <span class="comment">#Determining The correlation coefficient r</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a0 = %f, a1 = %f&quot;</span> %(a0, a1))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Sr = %f&quot;</span> %Sr)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Syunderx = %f&quot;</span> %Syunderx)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;St = %f&quot;</span> %St)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;r = %f&quot;</span> %<span class="built_in">abs</span>(r))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;r = %f&quot;</span> %math.sqrt((St - Sr) / St))</span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123; <span class="comment">#Data ploting</span></span><br><span class="line">    <span class="string">&quot;data&quot;</span>: [Scatter(x=x, y=y)],</span><br><span class="line">    <span class="string">&quot;layout&quot;</span>: Layout(title=<span class="string">&quot;Data point&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Users\s_oh3417\PycharmProjects\수치 Proj3\venv\Scripts\python.exe&quot;</span> <span class="string">&quot;C:/Users/s_oh3417/PycharmProjects/수치 Proj3-1/Main.py&quot;</span></span><br><span class="line">a0 = <span class="number">25.031041</span>, a1 = -<span class="number">0.567423</span></span><br><span class="line">Sr = <span class="number">549.940254</span></span><br><span class="line">Syunderx = <span class="number">7.415796</span></span><br><span class="line">St = <span class="number">1032.250000</span></span><br><span class="line">r = <span class="number">0.683550</span></span><br><span class="line">r = <span class="number">0.683550</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/48674790-7a565c00-eb93-11e8-9903-c2d6bb300f5f.png" alt="(5, 5)를 추가하기 전의 Regression"><br><img src="https://user-images.githubusercontent.com/42334717/48674792-7aeef280-eb93-11e8-81cb-10353bac5a88.png" alt="(5, 5)를 추가한 후의 Regression"></p>
+<hr>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>따라서 (5, 5)는 Visual assessment로 적절치 않으며, <code>Sr</code>의 값이 3배 가량 증가했으므로 오류가 매우 커짐을 알 수 있으므로 유효하지 않다고 볼 수 있다</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/b-s-course-work/" rel="tag"><i class="fa fa-tag"></i> B.S. Course Work</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/exporting-to-unreal-engine-at-3ds-max-by-datasmith/" rel="prev" title="Exporting to Unreal Engine at 3ds Max by Datasmith">
+                  <i class="fa fa-chevron-left"></i> Exporting to Unreal Engine at 3ds Max by Datasmith
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/numerical-analysis-5/" rel="next" title="Numerical Analysis (5)">
+                  Numerical Analysis (5) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"5db296f0ececb838034361adba81c1fb"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

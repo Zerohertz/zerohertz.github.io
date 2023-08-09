@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction Kubernetes$_{^{\ [1]}}$: Container화된 application을 자동화하고 관리하기 위한 open source container orchestration 플랫폼$_{^{\ [2,3]}}$ MLOps에서 왜 Kubernetes가 필요할까?$_{^{\ [4]}}$ 수많은 머신러닝 모델의 학습 요청을 차례대로 실행">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes 입문기 (1)">
+<meta property="og:url" content="https://zerohertz.github.io/k8s-1/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Kubernetes$_{^{\ [1]}}$: Container화된 application을 자동화하고 관리하기 위한 open source container orchestration 플랫폼$_{^{\ [2,3]}}$ MLOps에서 왜 Kubernetes가 필요할까?$_{^{\ [4]}}$ 수많은 머신러닝 모델의 학습 요청을 차례대로 실행">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/2b13f1ed-ed99-49c5-9b49-152ec76e2b2a">
+<meta property="article:published_time" content="2023-06-18T06:11:10.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Kubernetes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/2b13f1ed-ed99-49c5-9b49-152ec76e2b2a">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/k8s-1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/k8s-1/","path":"k8s-1/","title":"Kubernetes 입문기 (1)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubernetes 입문기 (1) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Minikube-K3s-K8s"><span class="nav-number">2.</span> <span class="nav-text">Minikube, K3s, K8s?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Minikube"><span class="nav-number">3.</span> <span class="nav-text">Minikube</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create"><span class="nav-number">3.1.</span> <span class="nav-text">Create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Read"><span class="nav-number">3.2.</span> <span class="nav-text">Read</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update"><span class="nav-number">3.3.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Delete"><span class="nav-number">3.4.</span> <span class="nav-text">Delete</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K3s"><span class="nav-number">4.</span> <span class="nav-text">K3s</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k9s/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-08</time>
+        <br>
+      K9s
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/face-recognition-by-raspberrypi/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-18</time>
+        <br>
+      Face Recognition by Raspberry Pi
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/kubeflow/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-06</time>
+        <br>
+      Kubeflow
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/labview/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-06</time>
+        <br>
+      LabVIEW
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k8s-ingress/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-08</time>
+        <br>
+      Kubernetes: Ingress
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/k8s-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubernetes 입문기 (1) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes 입문기 (1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-06-18 15:11:10" itemprop="dateCreated datePublished" datetime="2023-06-18T15:11:10+09:00">2023-06-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li>Kubernetes$_{^{\ [1]}}$: Container화된 application을 자동화하고 관리하기 위한 open source container orchestration 플랫폼$_{^{\ [2,3]}}$<ul>
+<li>MLOps에서 왜 Kubernetes가 필요할까?$_{^{\ [4]}}$<ul>
+<li>수많은 머신러닝 모델의 학습 요청을 차례대로 실행하는 것</li>
+<li>다른 작업 공간에서도 같은 실행 환경을 보장해야 하는 것</li>
+<li>배포된 서비스에 장애가 생겼을 때 빠르게 대응해야 하는 것</li>
+<li>Etc.</li>
+</ul>
+</li>
+<li>Cluster: Container화된 application을 실행하는 node라고 하는 worker machine의 집합<ul>
+<li>모든 cluster는 최소 한 개의 worker node를 가짐</li>
+</ul>
+</li>
+<li>Kubectl: Kubernetes의 cluster와 통신하여 다양한 object들의 상태 확인 또는 CRUD 작업 등을 위해 사용되는 CLI 도구$_{^{\ [5]}}$<ul>
+<li>CRUD: Create (생성), Read (읽기), Update (갱신), Delete (삭제)</li>
+</ul>
+</li>
+<li>Node: Cluster 내에서 workload를 실행할 수 있는 하드웨어 또는 가상 머신 인스턴스$_{^{\ [6]}}$<ul>
+<li>Cluster에 따라 가상 또는 물리적 머신일 수 있음</li>
+<li>Control plane에 의해 관리되며 pod를 실행하는 데 필요한 서비스를 포함</li>
+</ul>
+</li>
+<li>Pod: Cluster의 가장 작은 배포 단위<ul>
+<li>한 개 이상의 container로 구성</li>
+<li>Storage 및 network를 공유하고 함께 batch 및 scheduling (공유 context)</li>
+</ul>
+</li>
+<li>etcd: Cluster의 데이터를 저장하는 key-value 기반 DB</li>
+<li>Namespace: Cluster 내의 논리적 분리 단위<ul>
+<li>Resource를 논리적으로 나누기 위한 방법</li>
+<li>사용자별 접근 권한 부여 가능</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Minikube$_{^{\ [7]}}$: 로컬 개발 환경에서 단일 node Kubernetes cluster를 실행하기 위한 도구</li>
+</ul>
+<span id="more"></span>
+
+<hr>
+<h1 id="Minikube-K3s-K8s"><a href="#Minikube-K3s-K8s" class="headerlink" title="Minikube, K3s, K8s?"></a>Minikube, K3s, K8s?</h1><table>
+<thead>
+<tr>
+<th align="center">Feature</th>
+<th align="center">Minikube</th>
+<th align="center">K3s</th>
+<th align="center">K8s (기본 Kubernetes)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">설치의 용이성</td>
+<td align="center">로컬 개발에 최적화, 쉽게 설치 가능</td>
+<td align="center">단일 바이너리로 빠르고 간단한 설치</td>
+<td align="center">복잡한 설정과 배포 요구</td>
+</tr>
+<tr>
+<td align="center">메모리 사용량</td>
+<td align="center">일반적으로 더 많은 메모리 사용</td>
+<td align="center">경량화, 적은 메모리 사용</td>
+<td align="center">메모리 사용량은 설정에 따라 다름</td>
+</tr>
+<tr>
+<td align="center">운영 체제 지원</td>
+<td align="center">대부분의 주요 OS 지원</td>
+<td align="center">대부분의 Linux 배포판 지원</td>
+<td align="center">광범위한 OS 및 플랫폼 지원</td>
+</tr>
+<tr>
+<td align="center">클러스터 구성</td>
+<td align="center">주로 단일 노드 클러스터</td>
+<td align="center">멀티 노드 클러스터 지원 가능</td>
+<td align="center">다양한 멀티 노드 클러스터 구성 가능</td>
+</tr>
+<tr>
+<td align="center">확장성</td>
+<td align="center">주로 개발 및 테스팅 목적</td>
+<td align="center">소규모에서 중규모 규모까지 확장 가능</td>
+<td align="center">대규모 클러스터를 위한 확장성</td>
+</tr>
+<tr>
+<td align="center">추가 기능</td>
+<td align="center">로컬 개발에 특화된 추가 도구 및 기능 제공</td>
+<td align="center">IoT, 엣지 컴퓨팅 등에 특화</td>
+<td align="center">광범위한 플러그인 및 확장 지원</td>
+</tr>
+<tr>
+<td align="center">관리 복잡성</td>
+<td align="center">적음</td>
+<td align="center">중간</td>
+<td align="center">높음</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h1><p>Minikube는 아래와 같이 시작할 수 있다.</p>
+<figure class="highlight bash"><figcaption><span>Cluster 시작</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ minikube start --kubernetes-version=v1.26.3</span><br><span class="line">😄  Darwin 13.4 (arm64) 의 minikube v1.30.1</span><br><span class="line">✨  자동적으로 docker 드라이버가 선택되었습니다</span><br><span class="line">📌  Using Docker Desktop driver with root privileges</span><br><span class="line">👍  minikube 클러스터의 minikube 컨트롤 플레인 노드를 시작하는 중</span><br><span class="line">🚜  베이스 이미지를 다운받는 중 ...</span><br><span class="line">💾  쿠버네티스 v1.26.3 을 다운로드 중 ...</span><br><span class="line">    &gt; preloaded-images-k8s-v18-v1...:  330.52 MiB / 330.52 MiB  100.00% 26.59 M</span><br><span class="line">    &gt; gcr.io/k8s-minikube/kicbase...:  336.39 MiB / 336.39 MiB  100.00% 8.08 Mi</span><br><span class="line">🔥  Creating docker container (CPUs=2, Memory=4000MB) ...</span><br><span class="line">🐳  쿠버네티스 v1.26.3 을 Docker 23.0.2 런타임으로 설치하는 중</span><br><span class="line">    ▪ 인증서 및 키를 생성하는 중 ...</span><br><span class="line">    ▪ 컨트롤 플레인이 부팅...</span><br><span class="line">    ▪ RBAC 규칙을 구성하는 중 ...</span><br><span class="line">🔗  Configuring bridge CNI (Container Networking Interface) ...</span><br><span class="line">    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5</span><br><span class="line">🔎  Kubernetes 구성 요소를 확인...</span><br><span class="line">🌟  애드온 활성화 : storage-provisioner, default-storageclass</span><br><span class="line">🏄  끝났습니다! kubectl이 <span class="string">&quot;minikube&quot;</span> 클러스터와 <span class="string">&quot;default&quot;</span> 네임스페이스를 기본적으로 사용하도록 구성되었습니다.</span><br><span class="line">$ docker ps</span><br><span class="line">CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS          PORTS                                                                                                                                  NAMES</span><br><span class="line">0051d46b67a8   gcr.io/k8s-minikube/kicbase:v0.0.39   <span class="string">&quot;/usr/local/bin/entr…&quot;</span>   38 seconds ago   Up 37 seconds   127.0.0.1:51959-&gt;22/tcp, 127.0.0.1:51955-&gt;2376/tcp, 127.0.0.1:51957-&gt;5000/tcp, 127.0.0.1:51958-&gt;8443/tcp, 127.0.0.1:51956-&gt;32443/tcp   minikube</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>Cluster 일시정지</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ minikube pause</span><br><span class="line">⏸️  Pausing node minikube ...</span><br><span class="line">⏯️  Paused 18 containers <span class="keyword">in</span>: kube-system, kubernetes-dashboard, storage-gluster, istio-operator</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>Cluster 재가동</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ minikube unpause</span><br><span class="line">⏸️  Unpausing node minikube ...</span><br><span class="line">⏸️  Unpaused 18 containers <span class="keyword">in</span>: kube-system, kubernetes-dashboard, storage-gluster, istio-operator</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>Cluster 종료</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ minikube stop</span><br><span class="line">✋  <span class="string">&quot;minikube&quot;</span> 노드를 중지하는 중 ...</span><br><span class="line">🛑  <span class="string">&quot;minikube&quot;</span>를 SSH로 전원을 끕니다 ...</span><br><span class="line">🛑  1개의 노드가 중지되었습니다.</span><br></pre></td></tr></table></figure>
+
+<p>자 그럼 Pod CRUD (<strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete)에 대해서 알아보자!</p>
+<h2 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h2><blockquote>
+<p>Imperative (명령형)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl run k8s-is-so-hard-name --image=nginx</span><br><span class="line">pod/k8s-is-so-hard-name created</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>Declarative (선언형)</p>
+<figure class="highlight yaml"><figcaption><span>pod.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"> <span class="attr">name:</span> <span class="string">k8s-is-so-hard-name2</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"> <span class="attr">containers:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nginx</span></span><br><span class="line">   <span class="attr">image:</span> <span class="string">nginx:1.14.2</span></span><br><span class="line">   <span class="attr">ports:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f pod.yaml</span><br><span class="line">pod/k8s-is-so-hard-name2 created</span><br></pre></td></tr></table></figure>
+</blockquote>
+<details>
+<summary>
+Kubernetes는 _를 싫어해요,,,
+</summary>
+
+<p>The Pod “k8s_is_so_hard_name” is invalid: metadata.name: Invalid value: “k8s_is_so_hard_name”: a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, ‘-‘ or ‘.’, and must start and end with an alphanumeric character (e.g. ‘example.com’, regex used for validation is ‘<a href="%5B-a-z0-9%5D*%5Ba-z0-9%5D">a-z0-9</a>?(.<a href="%5B-a-z0-9%5D*%5Ba-z0-9%5D">a-z0-9</a>?)*’)</p>
+</details>
+
+<h2 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl describe pods k8s-is-so-hard-name2</span><br><span class="line">Name:             k8s-is-so-hard-name2</span><br><span class="line">Namespace:        default</span><br><span class="line">Priority:         0</span><br><span class="line">Service Account:  default</span><br><span class="line">Node:             minikube/192.168.49.2</span><br><span class="line">Start Time:       Mon, 26 Jun 2023 19:55:03 +0900</span><br><span class="line">Labels:           &lt;none&gt;</span><br><span class="line">Annotations:      &lt;none&gt;</span><br><span class="line">Status:           Running</span><br><span class="line">IP:               10.244.0.13</span><br><span class="line">IPs:</span><br><span class="line">  IP:  10.244.0.13</span><br><span class="line">Containers:</span><br><span class="line">  nginx:</span><br><span class="line">    Container ID:   docker://3d48d61d20790d8df10bee2876b302e8d24cc2867e3d05682f100ccdc03e6e0c</span><br><span class="line">    Image:          nginx:1.14.2</span><br><span class="line">    Image ID:       docker-pullable://nginx@sha256:f7988fb6c02e0ce69257d9bd9cf37ae20a60f1df7563c3a2a6abe24160306b8d</span><br><span class="line">    Port:           80/TCP</span><br><span class="line">    Host Port:      0/TCP</span><br><span class="line">    State:          Running</span><br><span class="line">      Started:      Mon, 26 Jun 2023 19:55:03 +0900</span><br><span class="line">    Ready:          True</span><br><span class="line">    Restart Count:  0</span><br><span class="line">    Environment:    &lt;none&gt;</span><br><span class="line">    Mounts:</span><br><span class="line">      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-b59qj (ro)</span><br><span class="line">Conditions:</span><br><span class="line">  Type              Status</span><br><span class="line">  Initialized       True</span><br><span class="line">  Ready             True</span><br><span class="line">  ContainersReady   True</span><br><span class="line">  PodScheduled      True</span><br><span class="line">Volumes:</span><br><span class="line">  kube-api-access-b59qj:</span><br><span class="line">    Type:                    Projected (a volume that contains injected data from multiple sources)</span><br><span class="line">    TokenExpirationSeconds:  3607</span><br><span class="line">    ConfigMapName:           kube-root-ca.crt</span><br><span class="line">    ConfigMapOptional:       &lt;nil&gt;</span><br><span class="line">    DownwardAPI:             <span class="literal">true</span></span><br><span class="line">QoS Class:                   BestEffort</span><br><span class="line">Node-Selectors:              &lt;none&gt;</span><br><span class="line">Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">                             node.kubernetes.io/unreachable:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">Events:</span><br><span class="line">  Type    Reason     Age   From               Message</span><br><span class="line">  ----    ------     ----  ----               -------</span><br><span class="line">  Normal  Scheduled  3m2s  default-scheduler  Successfully assigned default/k8s-is-so-hard-name2 to minikube</span><br><span class="line">  Normal  Pulled     3m2s  kubelet            Container image <span class="string">&quot;nginx:1.14.2&quot;</span> already present on machine</span><br><span class="line">  Normal  Created    3m2s  kubelet            Created container nginx</span><br><span class="line">  Normal  Started    3m2s  kubelet            Started container nginx</span><br></pre></td></tr></table></figure>
+
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl edit pods k8s-is-so-hard-name2</span><br></pre></td></tr></table></figure>
+
+<img width="1082" alt="Update" src="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/2b13f1ed-ed99-49c5-9b49-152ec76e2b2a">
+
+<p>vi editor를 통한 실행 중인 pod 수정 가능</p>
+<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><blockquote>
+<p>Imperative (명령형)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete pods k8s-is-so-hard-name</span><br><span class="line">pod <span class="string">&quot;k8s-is-so-hard-name&quot;</span> deleted</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>Declarative (선언형)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete -f pod.yaml</span><br><span class="line">pod <span class="string">&quot;k8s-is-so-hard-name2&quot;</span> deleted</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h1 id="K3s"><a href="#K3s" class="headerlink" title="K3s"></a>K3s</h1><p><span class="exturl" data-url="aHR0cHM6Ly9rM3MuaW8v">K3s<i class="fa fa-external-link-alt"></i></span>는 매우 쉽게 설치하고 삭제할 수 있다.</p>
+<figure class="highlight bash"><figcaption><span>install_k3s.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -s - --docker</span><br><span class="line">sudo <span class="built_in">cat</span> /etc/rancher/k3s/k3s.yaml</span><br><span class="line"><span class="built_in">rm</span> -rf ~/.kube</span><br><span class="line"><span class="built_in">mkdir</span> ~/.kube</span><br><span class="line">sudo <span class="built_in">cp</span> /etc/rancher/k3s/k3s.yaml ~/.kube/config</span><br><span class="line">sudo <span class="built_in">chown</span> <span class="variable">$USER</span>:<span class="variable">$USER</span> ~/.kube/config</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>remove_k3s.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/k3s-uninstall.sh</span><br></pre></td></tr></table></figure>
+
+<p>실행, 상태 확인, 종료는 아래와 같다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl start k3s</span><br><span class="line">$ sudo systemctl status k3s</span><br><span class="line">● k3s.service - Lightweight Kubernetes</span><br><span class="line">     Loaded: loaded (/etc/systemd/system/k3s.service; enabled; vendor preset: enabled)</span><br><span class="line">     Active: active (running) since Mon 2023-08-07 23:27:59 KST; 24h ago</span><br><span class="line">       Docs: https://k3s.io</span><br><span class="line">    Process: 588152 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --quiet nm-cloud-setup.service (code=exited, status=0/SUCCESS)</span><br><span class="line">    Process: 588154 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status=0/SUCCESS)</span><br><span class="line">    Process: 588155 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SUCCESS)</span><br><span class="line">   Main PID: 588156 (k3s-server)</span><br><span class="line">      Tasks: 26</span><br><span class="line">     Memory: 649.0M</span><br><span class="line">        CPU: 1h 46min 41.000s</span><br><span class="line">     CGroup: /system.slice/k3s.service</span><br><span class="line">             └─588156 <span class="string">&quot;/usr/local/bin/k3s server&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span> <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">Aug 08 23:47:57 0hz k3s[588156]: I0808 23:47:57.051554  588156 handler.go:232] Adding GroupVersion helm.cattle.io v1 to ResourceManager</span><br><span class="line">Aug 08 23:47:57 0hz k3s[588156]: I0808 23:47:57.051643  588156 handler.go:232] Adding GroupVersion k3s.cattle.io v1 to ResourceManager</span><br><span class="line">Aug 08 23:47:57 0hz k3s[588156]: I0808 23:47:57.051729  588156 handler.go:232] Adding GroupVersion traefik.containo.us v1alpha1 to ResourceManager</span><br><span class="line">Aug 08 23:47:57 0hz k3s[588156]: I0808 23:47:57.051841  588156 handler.go:232] Adding GroupVersion helm.cattle.io v1 to ResourceManager</span><br><span class="line">$ sudo systemctl stop k3s</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMva3ViZXJuZXRlcw==">GitHub: kubernetes&#x2F;kubernetes<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvY29uY2VwdHMvb3ZlcnZpZXcv">Kubernetes: 쿠버네티스란 무엇인가?<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucmVkaGF0LmNvbS9rby90b3BpY3MvY29udGFpbmVycy9rdWJlcm5ldGVzLWFyY2hpdGVjdHVyZQ==">Red Hat: 쿠버네티스 아키텍처 소개<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItYWxsLmdpdGh1Yi5pby9kb2NzL2ludHJvZHVjdGlvbi93aHlfa3ViZXJuZXRlcy8jbWxvcHMtLWt1YmVybmV0ZXM=">모두의 MLOps: Why Kubernetes?&#x2F;MLOps &amp; Kubernetes<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvdG9vbHMvI2t1YmVjdGw=">Kubernetes: kubectl<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvY29uY2VwdHMvYXJjaGl0ZWN0dXJlL25vZGVzLw==">Kubernetes: 노드<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvbWluaWt1YmU=">GitHub: kubernetes&#x2F;minikube<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kubernetes/" rel="tag"><i class="fa fa-tag"></i> Kubernetes</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/professional-research-agent-train-review/" rel="prev" title="전문연구요원: 훈련소 후기">
+                  <i class="fa fa-chevron-left"></i> 전문연구요원: 훈련소 후기
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/go-1/" rel="next" title="Go (1)">
+                  Go (1) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"b7572efcc55881c0a71aafa8d86f24cf"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

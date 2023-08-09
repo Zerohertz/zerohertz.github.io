@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="GAN (Generative Adversarial Network)Image Generation Traditional neural network: 정보를 감소, 정제, 축약 Ex) $28\times28\rightarrow784\ (input)\rightarrow10\rightarrow1\ (output)$   Backquery: 기존의 신경망을 반대로 뒤집어">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generative Adversarial Network (2)">
+<meta property="og:url" content="https://zerohertz.github.io/generative-adversarial-network-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="GAN (Generative Adversarial Network)Image Generation Traditional neural network: 정보를 감소, 정제, 축약 Ex) $28\times28\rightarrow784\ (input)\rightarrow10\rightarrow1\ (output)$   Backquery: 기존의 신경망을 반대로 뒤집어">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/180653460-44f175ba-fe22-4432-b7a7-ec68feaf8193.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/180654877-d226b1b0-333e-4828-a457-d32eaa3da51d.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/180659175-5a817c42-4154-4bae-818f-90d4a43b8d84.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/180659184-9694252e-46f3-4543-a80d-2b91821ed258.png">
+<meta property="article:published_time" content="2022-07-20T05:59:06.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.702Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/180653460-44f175ba-fe22-4432-b7a7-ec68feaf8193.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/generative-adversarial-network-2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/generative-adversarial-network-2/","path":"generative-adversarial-network-2/","title":"Generative Adversarial Network (2)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Generative Adversarial Network (2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GAN-Generative-Adversarial-Network"><span class="nav-number">1.</span> <span class="nav-text">GAN (Generative Adversarial Network)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Generation"><span class="nav-number">1.1.</span> <span class="nav-text">Image Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adversarial-Training"><span class="nav-number">1.2.</span> <span class="nav-text">Adversarial Training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAN-Training"><span class="nav-number">1.3.</span> <span class="nav-text">GAN Training</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Simple-Pattern"><span class="nav-number">2.</span> <span class="nav-text">Simple Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Real-Data-Source"><span class="nav-number">2.1.</span> <span class="nav-text">Real Data Source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discriminator"><span class="nav-number">2.2.</span> <span class="nav-text">Discriminator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">2.3.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAN-Training-1"><span class="nav-number">2.4.</span> <span class="nav-text">GAN Training</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-3/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-26</time>
+        <br>
+      Generative Adversarial Network (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-1213/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-24</time>
+        <br>
+      BOJ: 1213
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-06</time>
+        <br>
+      Generative Adversarial Network (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/neural-network-example/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-09</time>
+        <br>
+      Neural Network Example
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-5/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-08</time>
+        <br>
+      Generative Adversarial Network (5)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/generative-adversarial-network-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Generative Adversarial Network (2) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Generative Adversarial Network (2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-20 14:59:06" itemprop="dateCreated datePublished" datetime="2022-07-20T14:59:06+09:00">2022-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="GAN-Generative-Adversarial-Network"><a href="#GAN-Generative-Adversarial-Network" class="headerlink" title="GAN (Generative Adversarial Network)"></a>GAN (Generative Adversarial Network)</h1><h2 id="Image-Generation"><a href="#Image-Generation" class="headerlink" title="Image Generation"></a>Image Generation</h2><ul>
+<li>Traditional neural network: 정보를 감소, 정제, 축약<ul>
+<li>Ex) $28\times28\rightarrow784\ (input)\rightarrow10\rightarrow1\ (output)$</li>
+</ul>
+</li>
+<li>Backquery: 기존의 신경망을 반대로 뒤집어 레이블을 통해 이미지 생성 (원핫 인코딩 벡터를 훈련된 네트워크에 넣어 레이블에 맞는 이상적 이미지 생성)<ul>
+<li>Ex) $1\ (input)\rightarrow10\rightarrow784\ (output)\rightarrow28\times28$</li>
+<li>같은 원핫 인코딩 벡터인 경우 같은 결과 출력</li>
+<li>각 레이블을 나타내는 모든 훈련 데이터의 평균적 이미지 도출 $\rightarrow$ 한계점 (훈련 샘플로 사용 불가)</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training"></a>Adversarial Training</h2><blockquote>
+<p>생산적 적대 신경망 (Generative Adversarial Network, GAN)의 기본 개념</p>
+</blockquote>
+<ul>
+<li>Generator (생성기): 허구의 이미지를 생성하는 신경망<ul>
+<li>판별기를 속이는 경우 보상</li>
+<li>판별기에게 적발될 경우 벌</li>
+</ul>
+</li>
+<li>Discriminator (판별기): 실제 이미지와 허구 이미지를 분류하는 신경망<ul>
+<li>생성기를 통해 생성된 이미지를 허구 이미지로 분류한 경우 보상</li>
+<li>생성기를 통해 생성된 이미지를 실제 이미지로 분류한 경우 벌</li>
+</ul>
+</li>
+</ul>
+<h2 id="GAN-Training"><a href="#GAN-Training" class="headerlink" title="GAN Training"></a>GAN Training</h2><ol>
+<li>실제 데이터를 판별기가 <code>1</code>로 분류할 수 있도록 판별기 업데이트</li>
+<li>생성기를 통해 생성된 데이터를 <code>0</code>으로 분류할 수 있도록 판별기만을 업데이트 (생성기 업데이트 X)</li>
+<li>판별기가 생성기를 통해 생성된 데이터를 <code>1</code>로 분류하도록 생성기만을 업데이트 (판별기 업데이트 X)</li>
+</ol>
+<ul>
+<li>생성기와 판별기가 서로 적대적인 (두 모델의 성능이 비슷) 경우 적절한 훈련 가능</li>
+<li>생성기 혹은 판별기 중 한 모델만 성능이 개선될 경우 최종 성능의 큰 하락 발생</li>
+</ul>
+<hr>
+<h1 id="Simple-Pattern"><a href="#Simple-Pattern" class="headerlink" title="Simple Pattern"></a>Simple Pattern</h1><h2 id="Real-Data-Source"><a href="#Real-Data-Source" class="headerlink" title="Real Data Source"></a>Real Data Source</h2><blockquote>
+<p>Real data generation function<br><img src="https://user-images.githubusercontent.com/42334717/180653460-44f175ba-fe22-4432-b7a7-ec68feaf8193.png" alt="Real data generation function"></p>
+</blockquote>
+<h2 id="Discriminator"><a href="#Discriminator" class="headerlink" title="Discriminator"></a>Discriminator</h2><blockquote>
+<p>Discriminator</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Discriminator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">6</span>, <span class="number">3</span>),</span><br><span class="line">            nn.Sigmoid(),</span><br><span class="line">            nn.LayerNorm(<span class="number">3</span>),</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.02),</span></span><br><span class="line">            nn.Linear(<span class="number">3</span>, <span class="number">3</span>),</span><br><span class="line">            nn.Sigmoid(),</span><br><span class="line"><span class="comment">#             nn.LayerNorm(3),</span></span><br><span class="line"><span class="comment">#             nn.Linear(3, 3),</span></span><br><span class="line"><span class="comment">#             nn.Sigmoid(),</span></span><br><span class="line">            nn.LayerNorm(<span class="number">3</span>),</span><br><span class="line">            nn.Linear(<span class="number">3</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.02)</span></span><br><span class="line">        )</span><br><span class="line"><span class="comment">#         self.loss_function = nn.MSELoss()</span></span><br><span class="line">        self.loss_function = nn.BCELoss()</span><br><span class="line"><span class="comment">#         self.optimiser = torch.optim.SGD(self.parameters(), lr = 0.005)</span></span><br><span class="line">        self.optimiser = torch.optim.Adam(self.parameters(), lr = <span class="number">0.001</span>)</span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, inputs, targets</span>):</span><br><span class="line">        outputs = self.forward(inputs)</span><br><span class="line">        loss = self.loss_function(outputs, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10000</span> == <span class="number">0</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;counter = &quot;</span>, self.counter)</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns = [<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim = (<span class="number">0</span>, <span class="number">1.0</span>), figsize = (<span class="number">16</span>, <span class="number">8</span>), alpha = <span class="number">0.1</span>, marker = <span class="string">&#x27;.&#x27;</span>, grid = <span class="literal">True</span>, yticks = (<span class="number">0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Training discriminator<br><img src="https://user-images.githubusercontent.com/42334717/180654877-d226b1b0-333e-4828-a457-d32eaa3da51d.png" alt="Training discriminator"></p>
+</blockquote>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><blockquote>
+<p>Generator</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Generator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">1</span>, <span class="number">3</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>),</span><br><span class="line">            nn.LayerNorm(<span class="number">3</span>),</span><br><span class="line">            nn.Linear(<span class="number">3</span>, <span class="number">3</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>),</span><br><span class="line">            nn.LayerNorm(<span class="number">3</span>),</span><br><span class="line">            nn.Linear(<span class="number">3</span>, <span class="number">3</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>),</span><br><span class="line">            nn.LayerNorm(<span class="number">3</span>),</span><br><span class="line">            nn.Linear(<span class="number">3</span>, <span class="number">6</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>)</span><br><span class="line">        )</span><br><span class="line"><span class="comment">#         self.optimiser = torch.optim.SGD(self.parameters(), lr = 0.01)</span></span><br><span class="line">        self.optimiser = torch.optim.Adam(self.parameters(), lr = <span class="number">0.01</span>)</span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, D, inputs, targets</span>):</span><br><span class="line">        g_output = self.forward(inputs)</span><br><span class="line">        d_output = D.forward(g_output)</span><br><span class="line">        loss = D.loss_function(d_output, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns = [<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim = (<span class="number">0</span>, <span class="number">1.0</span>), figsize = (<span class="number">16</span>, <span class="number">8</span>), alpha = <span class="number">0.1</span>, marker = <span class="string">&#x27;.&#x27;</span>, grid = <span class="literal">True</span>, yticks = (<span class="number">0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>self.loss</code>: 생성기는 판별기로부터 입력된 기울기 오차를 통해 업데이트되므로 생성기의 손실 함수는 정의되지 않음</li>
+<li><code>self.train()</code>: 생성기 훈련 시 판별기의 결과로 계산된 손실의 역전파 값 필요<ol>
+<li>입력값 $\rightarrow$ <code>self.forward(inputs)</code> $\rightarrow$ <code>g_output</code></li>
+<li><code>D.forward(g_output)</code> $\rightarrow$ <code>d_output</code></li>
+</ol>
+<ul>
+<li>손실은 <code>d_output</code>과 목푯값 간의 차이로 산출</li>
+<li>손실로부터 오차 역전파 $\rightarrow$ <code>self.optimiser</code> (<code>D.optimiser</code> X)</li>
+</ul>
+</li>
+</ul>
+<h2 id="GAN-Training-1"><a href="#GAN-Training-1" class="headerlink" title="GAN Training"></a>GAN Training</h2><blockquote>
+<p>GAN Training</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D = Discriminator()</span><br><span class="line">G = Generator()</span><br><span class="line"></span><br><span class="line">image_list = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100000</span>):</span><br><span class="line">    D.train(generate_real(), torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    D.train(G.forward(torch.FloatTensor([<span class="number">0.5</span>])).detach(), torch.FloatTensor([<span class="number">0.0</span>]))</span><br><span class="line">    G.train(D, torch.FloatTensor([<span class="number">0.5</span>]), torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    <span class="keyword">if</span> (i % <span class="number">100</span> == <span class="number">0</span>):</span><br><span class="line">        image_list.append(G.forward(torch.FloatTensor([<span class="number">0.5</span>])).detach().numpy())</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>판별기 및 생성기의 객체 생성</li>
+<li>실제 데이터에 대해 판별기 훈련</li>
+<li>생성기에서 생성된 데이터를 판별기에 훈련<ul>
+<li><code>detach()</code>: 생성기의 출력에 적용되어 계산에서 생성기 분리<ul>
+<li>생성기의 출력에 적용</li>
+<li>효율적이고 빠른 결과 도출을 위해 사용</li>
+</ul>
+</li>
+<li><code>backwards()</code>: 판별기의 손실에서 기울기 오차를 계산의 전 과정에 걸쳐 계산<ul>
+<li>판별기의 손실, 판별기, 생성기까지 모두 전해짐</li>
+<li>이 단계에서는 판별기를 훈련하는 것이므로 생성기의 기울기를 계산할 필요 X</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>생성기 훈련 및 입력값을 0.5로 설정하여 판별기 객체에 전달<ul>
+<li><code>detach()</code> X: 오차가 판별기로부터 생성기까지 전달돼야함</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Loss of discriminator and generator<br><img src="https://user-images.githubusercontent.com/42334717/180659175-5a817c42-4154-4bae-818f-90d4a43b8d84.png" alt="Loss of discriminator and generator"></p>
+</blockquote>
+<ul>
+<li>판별기와 생성기의 손실: 0.69에 수렴<ul>
+<li>이진 교차 엔트로피 (<code>BCELoss()</code>)에서의 $ln(2)$<ul>
+<li>판별기가 실제 데이터와 생성된 데이터를 잘 판별하지 못함</li>
+<li>생성기가 판별기를 속일 수 있는 성능</li>
+</ul>
+</li>
+<li>평균제곱오차 (<code>MSELoss()</code>): 0.25<ul>
+<li>판별기가 실제 이미지와 생성 이미지를 잘 판별하지 못한 경우 $\rightarrow$ 출력: <code>0.5</code></li>
+<li>$0.5^2 &#x3D; 0.25$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Pattern of generator as training progresses<br><img src="https://user-images.githubusercontent.com/42334717/180659184-9694252e-46f3-4543-a80d-2b91821ed258.png" alt="Pattern of generator as training progresses"></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/generative-adversarial-network-1/" rel="prev" title="Generative Adversarial Network (1)">
+                  <i class="fa fa-chevron-left"></i> Generative Adversarial Network (1)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/queue-and-stack/" rel="next" title="Queue and Stack">
+                  Queue and Stack <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"e728ef969953ac34ecaf58c2329fe785"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

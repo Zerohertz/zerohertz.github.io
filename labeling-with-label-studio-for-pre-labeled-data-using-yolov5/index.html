@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/6a124715-2329-4654-944f-45efb101baa2">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction Label Studio  Label Studio는 오픈 소스 데이터 라벨링 툴로, 기계 학습 및 데이터 분석 작업을 위해 데이터에 레이블을 부착하는 데 사용되는 도구입니다. Label Studio를 사용하면 이미지, 텍스트, 오디오, 비디오 등 다양한 유형의 데이터에 대해 레이블을 지정하고, 데이터를 분류, 개체 감지, 개체 분류,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Labeling with Label Studio for Pre-labeled Data using YOLOv5">
+<meta property="og:url" content="https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Label Studio  Label Studio는 오픈 소스 데이터 라벨링 툴로, 기계 학습 및 데이터 분석 작업을 위해 데이터에 레이블을 부착하는 데 사용되는 도구입니다. Label Studio를 사용하면 이미지, 텍스트, 오디오, 비디오 등 다양한 유형의 데이터에 대해 레이블을 지정하고, 데이터를 분류, 개체 감지, 개체 분류,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/231914244-163c8e3b-c6f3-48e9-85da-a7f87fbb2002.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/231919586-7aed66ca-e643-4d65-972a-c7656e2f7cfc.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/231921155-0dc7c02c-7fdc-4d5e-bfd0-450f453b5157.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/231982165-6551757b-11bf-4cc7-9bc7-2a384cbb95d5.png">
+<meta property="article:published_time" content="2023-04-14T14:44:46.000Z">
+<meta property="article:modified_time" content="2023-08-09T00:06:07.706Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/231914244-163c8e3b-c6f3-48e9-85da-a7f87fbb2002.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/","path":"labeling-with-label-studio-for-pre-labeled-data-using-yolov5/","title":"Labeling with Label Studio for Pre-labeled Data using YOLOv5"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Labeling with Label Studio for Pre-labeled Data using YOLOv5 | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#From-YOLOv5-to-Label-Studio"><span class="nav-number">2.</span> <span class="nav-text">From YOLOv5 to Label Studio</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Upload-to-Label-Studio"><span class="nav-number">3.</span> <span class="nav-text">Upload to Label Studio</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Etc"><span class="nav-number">4.</span> <span class="nav-text">Etc.</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/exporting-to-unreal-engine-at-3ds-max-by-datasmith/" rel="bookmark">
+        <time class="popular-posts-time">2018-10-25</time>
+        <br>
+      Exporting to Unreal Engine at 3ds Max by Datasmith
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/r-1/" rel="bookmark">
+        <time class="popular-posts-time">2019-12-24</time>
+        <br>
+      R (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-06</time>
+        <br>
+      Generative Adversarial Network (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/serving-yolov5-object-detection-model-using-triton-server/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-21</time>
+        <br>
+      Serving YOLOv5 Object Detection Model using Triton Inference Server
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/exporting-ai-model-to-c-from-matlab/" rel="bookmark">
+        <time class="popular-posts-time">2021-02-26</time>
+        <br>
+      Exporting AI Model to C++ from MATLAB
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Labeling with Label Studio for Pre-labeled Data using YOLOv5 | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Labeling with Label Studio for Pre-labeled Data using YOLOv5
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-14 23:44:46" itemprop="dateCreated datePublished" datetime="2023-04-14T23:44:46+09:00">2023-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Label Studio</p>
+</blockquote>
+<p>Label Studio는 오픈 소스 데이터 라벨링 툴로, 기계 학습 및 데이터 분석 작업을 위해 데이터에 레이블을 부착하는 데 사용되는 도구입니다. Label Studio를 사용하면 이미지, 텍스트, 오디오, 비디오 등 다양한 유형의 데이터에 대해 레이블을 지정하고, 데이터를 분류, 개체 감지, 개체 분류, 개체 추출, 텍스트 분석 등의 작업을 수행할 수 있습니다.<br>Label Studio는 다양한 데이터 형식 및 레이블링 작업에 대한 다양한 템플릿을 제공하며, 커스텀 레이블링 작업을 설정할 수 있습니다. 또한, 데이터 라벨링 작업을 위해 다양한 작업자를 관리하고, 작업 상태를 추적하며, 결과를 검토하고 승인할 수 있는 기능들을 제공합니다.<br>Label Studio는 웹 기반 인터페이스를 제공하여 다양한 사용자가 쉽게 접근하고 사용할 수 있습니다. 또한, API를 통해 레이블링 작업을 자동화하고, 다양한 형식의 데이터를 가져와 레이블링을 수행할 수 있습니다.<br>Label Studio는 머신러닝, 딥러닝, 자연어 처리, 컴퓨터 비전 등 다양한 분야에서 데이터 라벨링 작업을 수행하는 데 유용하게 사용될 수 있습니다. 오픈 소스로 제공되기 때문에, 사용자들은 커스터마이징이 가능하고 개발자들은 소스 코드를 수정하여 자신의 요구에 맞게 확장할 수 있습니다.</p>
+<span id="more"></span>
+
+<p>본 글에서는 1200장의 데이터에 대해 Detection을 위한 Bbox Annotation을 손쉽게 하기위해 Pre-labeling 방법을 사용할 것이다.</p>
+<blockquote>
+<p>Pre-labeling</p>
+</blockquote>
+<p>Pre-labeling은 데이터 라벨링 작업을 수행하기 전에, 초기 레이블 또는 예비 레이블을 데이터에 부착하는 작업을 의미합니다. 이는 라벨링 작업의 효율성을 높이고, 라벨링 작업자의 작업 부담을 줄이는 데 도움이 됩니다.<br>데이터 라벨링은 기계 학습 및 딥러닝 모델을 훈련시키기 위해 필요한 작업으로, 데이터에 레이블 또는 태그를 부착하여 모델이 원하는 결과를 예측하도록 하는 과정입니다. 그러나 라벨링 작업은 보통 시간과 노력이 많이 소요되며, 대량의 데이터에 대해 레이블을 부착하는 작업은 번거로울 수 있습니다.<br>이에 따라, pre-labeling은 초기 레이블 또는 예비 레이블을 데이터에 자동으로 부착하는 방법으로, 인공지능 기술을 활용하여 데이터에 대한 예비 레이블을 생성하거나, 이미지 처리, 텍스트 처리, 오디오 처리 등의 기술을 사용하여 초기 레이블을 부착합니다. 이렇게 부착된 초기 레이블은 라벨링 작업자에게 제공되어, 라벨링 작업을 수행할 때 참고하거나 수정할 수 있습니다.<br>pre-labeling은 라벨링 작업의 효율성을 향상시키고, 라벨링 작업자의 작업 부담을 줄이는 장점이 있습니다. 초기 레이블 또는 예비 레이블은 라벨링 작업의 출발점으로 활용되며, 라벨링 작업자는 이를 기반으로 추가적인 레이블링을 수행하여 최종 레이블을 완성할 수 있습니다. 또한, pre-labeling은 라벨링 작업의 일관성과 품질을 향상시키는 데도 도움이 될 수 있습니다.</p>
+<p>요약하자면 아래와 같은 순서로 진행된다.</p>
+<ol>
+<li>다량의 데이터 중 소수만을 Annotation</li>
+<li>최종적으로 학습할 모델을 Annotation이 완료된 데이터로 학습</li>
+<li>나머지 데이터에 대해 학습된 모델로 Inference</li>
+<li>Inference 값들을 더욱 정확하게 수정하여 다량의 데이터에 대해 최종 Annotation</li>
+<li>완성된 데이터로 최종 모델 학습!</li>
+</ol>
+<p>본 글에서는 모델은 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3VsdHJhbHl0aWNzL3lvbG92NQ==">YOLOv5<i class="fa fa-external-link-alt"></i></span>를 사용했으며 <code>3.</code>과 <code>4.</code> 사이에서 어떻게 Inference 데이터를 Label Studio에 업로드하기 위해 변환하는지, 그리고 Label Studio 상에서 어떻게 수정할 수 있게 설정하는지를 다뤄볼 예정이다.</p>
+<hr>
+<h1 id="From-YOLOv5-to-Label-Studio"><a href="#From-YOLOv5-to-Label-Studio" class="headerlink" title="From YOLOv5 to Label Studio"></a>From YOLOv5 to Label Studio</h1><p>학습된 YOLOv5 모델의 출력은 아래 예시와 같다.</p>
+<figure class="highlight json"><figcaption><span>YOLOv5_Inference_Example.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> <span class="number">0.525805</span> <span class="number">0.49504</span> <span class="number">0.561043</span> <span class="number">0.990079</span></span><br></pre></td></tr></table></figure>
+
+<p>좌에서 우로 <code>label</code>, <code>x</code>, <code>y</code>, <code>w</code>, <code>h</code>를 의미한다.<br>하지만 소량의 데이터로 학습된 모델로 생성한 데이터이기 때문에 간혹 어떤 대상도 Detection 하지 못하는 경우가 발생한다.<br>그렇기 때문에 아래의 코드를 통해 보완해줄 수 있다.</p>
+<figure class="highlight python"><figcaption><span>bin.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ORG = os.getcwd()</span><br><span class="line"><span class="keyword">for</span> tmp <span class="keyword">in</span> [<span class="string">&quot;train&quot;</span>, <span class="string">&quot;val&quot;</span>, <span class="string">&quot;test&quot;</span>]:</span><br><span class="line">    os.chdir(ORG + <span class="string">&#x27;/detect/&#x27;</span> + tmp)</span><br><span class="line">    IMG = os.listdir()</span><br><span class="line">    TXT = os.listdir(<span class="string">&#x27;labels&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> IMG:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;.png&quot;</span> <span class="keyword">in</span> I:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> I.replace(<span class="string">&#x27;png&#x27;</span>, <span class="string">&#x27;txt&#x27;</span>) <span class="keyword">in</span> TXT:</span><br><span class="line">                <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;labels/&#x27;</span> + I.replace(<span class="string">&#x27;png&#x27;</span>, <span class="string">&#x27;txt&#x27;</span>), <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(<span class="string">&quot;0 0.5 0.5 1 1&quot;</span>)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;ON&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(IMG))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(TXT))</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 Pre-labeling이 완료된 <code>.txt</code> 파일을 가지고 있으면 이를 <code>.json</code>으로 규칙에 맞춰 변화시켜야 Label Studio에서 사용할 수 있다.</p>
+<figure class="highlight python"><figcaption><span>yolo2ls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">yolo2ls</span>(<span class="params">home</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    home: path (str)</span></span><br><span class="line"><span class="string">    ├── test</span></span><br><span class="line"><span class="string">    │   └── labels</span></span><br><span class="line"><span class="string">    ├── train</span></span><br><span class="line"><span class="string">    │   └── labels</span></span><br><span class="line"><span class="string">    └── val</span></span><br><span class="line"><span class="string">        └── labels</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    tmp = os.getcwd()</span><br><span class="line">    os.chdir(home)</span><br><span class="line">    <span class="keyword">for</span> status <span class="keyword">in</span> [<span class="string">&quot;train&quot;</span>, <span class="string">&quot;val&quot;</span>, <span class="string">&quot;test&quot;</span>]:</span><br><span class="line">        res = []</span><br><span class="line">        os.chdir(home)</span><br><span class="line">        os.chdir(status)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir():</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;.png&quot;</span> <span class="keyword">in</span> i:</span><br><span class="line">                <span class="comment">#----------- JSON -----------#</span></span><br><span class="line">                obj = &#123;<span class="string">&quot;data&quot;</span>: &#123;<span class="string">&quot;image&quot;</span>: <span class="string">f&quot;/data/local-files/?d=<span class="subst">&#123;status&#125;</span>/<span class="subst">&#123;i&#125;</span>&quot;</span>&#125;&#125;</span><br><span class="line">                <span class="comment">#----------- IMG META -----------#</span></span><br><span class="line">                img = io.imread(i)</span><br><span class="line">                original_height, original_width, c = img.shape</span><br><span class="line">                <span class="comment">#----------- Pre-labeling -----------#</span></span><br><span class="line">                gtf = <span class="string">&quot;labels/&quot;</span> + i.replace(<span class="string">&quot;png&quot;</span>, <span class="string">&quot;txt&quot;</span>)</span><br><span class="line">                <span class="keyword">with</span> <span class="built_in">open</span>(gtf, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    gt = f.readlines()</span><br><span class="line">                result_list = []</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> gt:</span><br><span class="line">                    cx, cy, w, h = [<span class="built_in">float</span>(k) <span class="keyword">for</span> k <span class="keyword">in</span> j.strip().split(<span class="string">&quot; &quot;</span>)[<span class="number">1</span>:]]</span><br><span class="line">                    xmin = <span class="built_in">max</span>(<span class="number">0.0</span>, <span class="built_in">round</span>(<span class="number">100.0</span> * (cx - w / <span class="number">2</span>), <span class="number">2</span>))</span><br><span class="line">                    ymin = <span class="built_in">max</span>(<span class="number">0.0</span>, <span class="built_in">round</span>(<span class="number">100.0</span> * (cy - h / <span class="number">2</span>)))</span><br><span class="line">                    xmax = <span class="built_in">min</span>(<span class="number">100.0</span>, <span class="built_in">round</span>(<span class="number">100.0</span> * (cx + w / <span class="number">2</span>)))</span><br><span class="line">                    ymax = <span class="built_in">min</span>(<span class="number">100.0</span>, <span class="built_in">round</span>(<span class="number">100.0</span> * (cy + h / <span class="number">2</span>)))</span><br><span class="line">                    points = [[xmin, ymin], [xmax, ymin], [xmax, ymax], [xmin, ymax]]</span><br><span class="line">                    result_list.append(</span><br><span class="line">                            &#123;<span class="string">&quot;original_width&quot;</span>: original_width,</span><br><span class="line">                            <span class="string">&quot;original_height&quot;</span>: original_height,</span><br><span class="line">                            <span class="string">&quot;image_rotation&quot;</span>: <span class="number">0</span>,</span><br><span class="line">                            <span class="string">&quot;value&quot;</span>: &#123;</span><br><span class="line">                                <span class="string">&quot;points&quot;</span>: points,</span><br><span class="line">                                <span class="string">&quot;closed&quot;</span>: <span class="literal">True</span>,</span><br><span class="line">                                <span class="string">&quot;polygonlabels&quot;</span>: [<span class="string">&quot;receipt&quot;</span>]</span><br><span class="line">                            &#125;,</span><br><span class="line">                            <span class="string">&quot;from_name&quot;</span>: <span class="string">&quot;label&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;to_name&quot;</span>: <span class="string">&quot;image&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;type&quot;</span>: <span class="string">&quot;polygonlabels&quot;</span>,</span><br><span class="line">                            <span class="string">&quot;origin&quot;</span>: <span class="string">&quot;manual&quot;</span>&#125;</span><br><span class="line">                        )</span><br><span class="line">                pred = [&#123;</span><br><span class="line">                    <span class="string">&quot;result&quot;</span>: result_list</span><br><span class="line">                &#125;]</span><br><span class="line">                obj.update(&#123;<span class="string">&quot;annotations&quot;</span>: pred&#125;)</span><br><span class="line">                res.append(obj)</span><br><span class="line">        os.chdir(tmp)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&quot;./pre-labeling-<span class="subst">&#123;status&#125;</span>.json&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            json.dump(res, f, indent=<span class="number">2</span>, ensure_ascii=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    home = $&#123;home&#125;</span><br><span class="line">    yolo2ls(home)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Upload-to-Label-Studio"><a href="#Upload-to-Label-Studio" class="headerlink" title="Upload to Label Studio"></a>Upload to Label Studio</h1><figure class="highlight docker"><figcaption><span>Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> heartexlabs/<span class="keyword">label</span><span class="language-bash">-studio</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true</span><br><span class="line"><span class="keyword">ENV</span> LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/home/<span class="keyword">user</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>build.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker build -t <span class="variable">$&#123;image_name&#125;</span> .</span><br><span class="line">docker run \</span><br><span class="line">    --name <span class="variable">$&#123;container_name&#125;</span> \</span><br><span class="line">    -p 8080:8080 \</span><br><span class="line">    -v <span class="variable">$&#123;DS_ROOT&#125;</span>/data:/label-studio/data \</span><br><span class="line">    -v <span class="variable">$&#123;DS_ROOT&#125;</span>/files:/home/user \</span><br><span class="line">    <span class="variable">$&#123;image_name&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/231914244-163c8e3b-c6f3-48e9-85da-a7f87fbb2002.png" alt="Local files 1"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/231919586-7aed66ca-e643-4d65-972a-c7656e2f7cfc.png" alt="Local files 2"></p>
+<p>이렇게 설정을 마치고 <code>yolo2ls.py</code>에서 생성된 <code>.json</code> 파일을 업로드해주면 아래와 같이 Pre-labeling이 완료된 Repository를 확인할 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/42334717/231921155-0dc7c02c-7fdc-4d5e-bfd0-450f453b5157.png" alt="Pre-labeling 1"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/231982165-6551757b-11bf-4cc7-9bc7-2a384cbb95d5.png" alt="Pre-labeling 2"></p>
+<hr>
+<h1 id="Etc"><a href="#Etc" class="headerlink" title="Etc."></a>Etc.</h1><details>
+<summary>
+이미지가 메타 데이터에 의해 회전된 경우
+</summary>
+
+<figure class="highlight python"><figcaption><span>rot2org.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">isRot</span>(<span class="params">home, imgpath</span>):</span><br><span class="line">    img = Image.<span class="built_in">open</span>(imgpath)</span><br><span class="line">    meta = img._getexif()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">if</span> meta[<span class="number">274</span>] == <span class="number">6</span>:</span><br><span class="line">            img = img.rotate(-<span class="number">90</span>)</span><br><span class="line">        img.save(home.replace(<span class="string">&quot;rot&quot;</span>, <span class="string">&quot;DS&quot;</span>) + <span class="string">&#x27;/&#x27;</span> + imgpath)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        shutil.copy(imgpath, home.replace(<span class="string">&quot;rot&quot;</span>, <span class="string">&quot;DS&quot;</span>) + <span class="string">&#x27;/&#x27;</span> + imgpath)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    h = [<span class="string">&#x27;datasets/rot/train&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;datasets/rot/val&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;datasets/rot/test&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> home <span class="keyword">in</span> h:</span><br><span class="line">        os.chdir(home)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> tqdm(os.listdir()):</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;png&quot;</span> <span class="keyword">in</span> i:</span><br><span class="line">                isRot(home, i)</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<p><span class="exturl" data-url="aHR0cHM6Ly9sYWJlbHN0dWQuaW8vZ3VpZGUvc3RvcmFnZS5odG1sI1NldC11cC1jb25uZWN0aW9uLWluLXRoZS1MYWJlbC1TdHVkaW8tVUktNA==">Set up connection in the Label Studio UI<i class="fa fa-external-link-alt"></i></span></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/implementing-mask-r-cnn-with-pytorch/" rel="prev" title="Implementing Mask R-CNN with PyTorch">
+                  <i class="fa fa-chevron-left"></i> Implementing Mask R-CNN with PyTorch
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/serving-yolov5-object-detection-model-using-triton-server/" rel="next" title="Serving YOLOv5 Object Detection Model using Triton Inference Server">
+                  Serving YOLOv5 Object Detection Model using Triton Inference Server <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"821e42b5a9f0a8183591fb1876a809cd"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
