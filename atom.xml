@@ -43,7 +43,7 @@
     <link href="https://zerohertz.github.io/k8s-ingress/"/>
     <id>https://zerohertz.github.io/k8s-ingress/</id>
     <published>2023-08-08T14:43:40.000Z</published>
-    <updated>2023-08-09T00:06:07.706Z</updated>
+    <updated>2023-08-09T05:04:56.375Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
@@ -91,7 +91,7 @@
     <link href="https://zerohertz.github.io/k9s/"/>
     <id>https://zerohertz.github.io/k9s/</id>
     <published>2023-08-08T14:14:04.000Z</published>
-    <updated>2023-08-09T00:06:07.706Z</updated>
+    <updated>2023-08-09T03:11:13.307Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
