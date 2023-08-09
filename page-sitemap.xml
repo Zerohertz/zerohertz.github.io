@@ -19,7 +19,7 @@
     
     
     <url>
-        <loc>https://zerohertz.github.io/categories/</loc>
+        <loc>https://zerohertz.github.io/tags/</loc>
         <lastmod>2023-08-09T00:06:07.710Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -28,7 +28,7 @@
     
     
     <url>
-        <loc>https://zerohertz.github.io/tags/</loc>
+        <loc>https://zerohertz.github.io/categories/</loc>
         <lastmod>2023-08-09T00:06:07.710Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

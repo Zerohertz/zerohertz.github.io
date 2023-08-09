@@ -43,7 +43,7 @@
     <link href="https://zerohertz.github.io/k8s-ingress/"/>
     <id>https://zerohertz.github.io/k8s-ingress/</id>
     <published>2023-08-08T14:43:40.000Z</published>
-    <updated>2023-08-09T05:12:52.347Z</updated>
+    <updated>2023-08-09T07:35:09.950Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
@@ -91,7 +91,7 @@
     <link href="https://zerohertz.github.io/k9s/"/>
     <id>https://zerohertz.github.io/k9s/</id>
     <published>2023-08-08T14:14:04.000Z</published>
-    <updated>2023-08-09T03:11:13.307Z</updated>
+    <updated>2023-08-09T07:29:54.490Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
@@ -130,7 +130,7 @@
     <link href="https://zerohertz.github.io/home-server-monitoring/"/>
     <id>https://zerohertz.github.io/home-server-monitoring/</id>
     <published>2023-08-07T13:09:42.000Z</published>
-    <updated>2023-08-09T02:07:38.812Z</updated>
+    <updated>2023-08-09T07:53:53.365Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Node exporter의 system metric들을 Prometheus로 수집하고 Grafana로 시각화!&lt;/p&gt;
@@ -1929,29 +1929,6 @@
   </entry>
   
   <entry>
-    <title>BOJ: 1058</title>
-    <link href="https://zerohertz.github.io/boj-1058/"/>
-    <id>https://zerohertz.github.io/boj-1058/</id>
-    <published>2022-11-03T01:30:15.000Z</published>
-    <updated>2023-08-09T00:06:07.702Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="3. Algorithm" scheme="https://zerohertz.github.io/categories/3-algorithm/"/>
-    
-    
-    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
-    
-    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
-    
-  </entry>
-  
-  <entry>
     <title>BOJ: 1059</title>
     <link href="https://zerohertz.github.io/boj-1059/"/>
     <id>https://zerohertz.github.io/boj-1059/</id>
@@ -1973,6 +1950,29 @@
 &lt;li&gt;집합 S에 포함된 모든 정수는 1보다 크거나 같고, 1,000보다 작거나 같다.&lt;/li&gt;
 &lt;li&gt;1 ≤ n ≤ (집합 S에서 가장 큰 정수)&lt;/li&gt;
 &lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="3. Algorithm" scheme="https://zerohertz.github.io/categories/3-algorithm/"/>
+    
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BOJ: 1058</title>
+    <link href="https://zerohertz.github.io/boj-1058/"/>
+    <id>https://zerohertz.github.io/boj-1058/</id>
+    <published>2022-11-03T01:30:15.000Z</published>
+    <updated>2023-08-09T00:06:07.702Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</summary>
     
     
     
