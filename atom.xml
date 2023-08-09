@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-08-09T00:06:07.706Z</updated>
+  <updated>2023-08-09T02:25:54.413Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub: Verified Signature</title>
+    <link href="https://zerohertz.github.io/github-verified-signature/"/>
+    <id>https://zerohertz.github.io/github-verified-signature/</id>
+    <published>2023-08-09T01:53:58.000Z</published>
+    <updated>2023-08-09T02:25:54.413Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;GitHub에 commit을 push하고 log에 &lt;code&gt;Verified&lt;/code&gt;를 남기는 방법!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259277614-e08c3c6f-c7d6-4557-92a1-23a060e9453f.png&quot; alt=&quot;Verfied&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Etc." scheme="https://zerohertz.github.io/categories/etc/"/>
+    
+    
+    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>Kubernetes: Ingress</title>
@@ -108,7 +130,7 @@
     <link href="https://zerohertz.github.io/home-server-monitoring/"/>
     <id>https://zerohertz.github.io/home-server-monitoring/</id>
     <published>2023-08-07T13:09:42.000Z</published>
-    <updated>2023-08-09T00:06:07.702Z</updated>
+    <updated>2023-08-09T02:07:38.812Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Node exporter의 system metric들을 Prometheus로 수집하고 Grafana로 시각화!&lt;/p&gt;
@@ -120,6 +142,8 @@
     
     
     <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
     <category term="Grafana" scheme="https://zerohertz.github.io/tags/grafana/"/>
     
@@ -381,9 +405,9 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
-    <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
-    
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
     
   </entry>
   
@@ -415,9 +439,9 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
-    <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
-    
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
     
   </entry>
   
@@ -479,7 +503,7 @@
     <link href="https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/"/>
     <id>https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/</id>
     <published>2023-07-07T07:13:43.000Z</published>
-    <updated>2023-08-09T00:06:07.702Z</updated>
+    <updated>2023-08-09T02:01:22.170Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84&quot;&gt;저번&lt;/a&gt;에 이어서 python code들의 formatting을 조금 더 간편하게 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=&quot;&gt;Git Hooks&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 통해 도전한다.&lt;/p&gt;
@@ -499,6 +523,8 @@
     
     <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
     
+    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
+    
   </entry>
   
   <entry>
@@ -506,7 +532,7 @@
     <link href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/"/>
     <id>https://zerohertz.github.io/automating-code-formatting-with-github-actions/</id>
     <published>2023-07-04T23:58:00.000Z</published>
-    <updated>2023-08-09T00:06:07.702Z</updated>
+    <updated>2023-08-09T02:01:06.586Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Algorithm 문제를 풀고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9BbGdvcml0aG0=&quot;&gt;GitHub&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 관리하고 있었는데, 문제를 해결할 때 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9yZXBsaXQuY29tL2xhbmd1YWdlcy9weXRob24z&quot;&gt;replit&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 초기에 많이 사용했었다.&lt;br&gt;하지만 현재 사용하고 있는 Visual Studio Code와 indentation의 규칙이 달라서 GitHub Actions로 모두 동일한 format을 가지도록 자동화하겠다.&lt;/p&gt;
@@ -522,7 +548,7 @@
     
     <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
     
-    <category term="GitHub Actions" scheme="https://zerohertz.github.io/tags/github-actions/"/>
+    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
     
   </entry>
   
@@ -1450,7 +1476,7 @@
     <link href="https://zerohertz.github.io/update-hexo-next-blog/"/>
     <id>https://zerohertz.github.io/update-hexo-next-blog/</id>
     <published>2022-12-06T12:51:11.000Z</published>
-    <updated>2023-08-09T01:27:54.992Z</updated>
+    <updated>2023-08-09T02:02:17.387Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Update-npm&quot;&gt;&lt;a href=&quot;#Update-npm&quot; class=&quot;headerlink&quot; title=&quot;Update npm&quot;&gt;&lt;/a&gt;Update npm&lt;/h1&gt;&lt;p&gt;&lt;code&gt;node.js&lt;/code&gt;와 &lt;code&gt;npm&lt;/code&gt;을 업데이트하기 전 삭제를 해야하는 경우 아래의 글을 참고하면 됩니다.&lt;/p&gt;
@@ -1467,6 +1493,8 @@
     
     <category term="Etc." scheme="https://zerohertz.github.io/categories/etc/"/>
     
+    
+    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
     
     <category term="Hexo" scheme="https://zerohertz.github.io/tags/hexo/"/>
     
@@ -3043,9 +3071,9 @@ new GDemo(&#39;#python&#39;)
     <category term="1. Machine Learning" scheme="https://zerohertz.github.io/categories/1-machine-learning/"/>
     
     
-    <category term="C, C++" scheme="https://zerohertz.github.io/tags/c-c/"/>
-    
     <category term="MATLAB" scheme="https://zerohertz.github.io/tags/matlab/"/>
+    
+    <category term="C, C++" scheme="https://zerohertz.github.io/tags/c-c/"/>
     
     <category term="Statistics" scheme="https://zerohertz.github.io/tags/statistics/"/>
     
@@ -5113,7 +5141,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawling-by-selenium-2/"/>
     <id>https://zerohertz.github.io/web-crawling-by-selenium-2/</id>
     <published>2018-08-30T13:58:37.000Z</published>
-    <updated>2023-08-09T00:06:07.710Z</updated>
+    <updated>2023-08-09T02:04:55.785Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt;로 부서진 멘탈을 복구시키고…&lt;/p&gt;
@@ -5230,7 +5258,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/upload-hexo-by-git/"/>
     <id>https://zerohertz.github.io/upload-hexo-by-git/</id>
     <published>2018-08-19T11:03:41.000Z</published>
-    <updated>2023-08-09T00:06:07.706Z</updated>
+    <updated>2023-08-09T02:02:49.675Z</updated>
     
     
       
@@ -5243,7 +5271,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <category term="Etc." scheme="https://zerohertz.github.io/categories/etc/"/>
     
     
-    <category term="Hexo" scheme="https://zerohertz.github.io/tags/hexo/"/>
+    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
     
   </entry>
   
@@ -5381,11 +5409,11 @@ new GDemo(&#39;#demo-teriminal1&#39;)
   </entry>
   
   <entry>
-    <title>Hexo Basic</title>
+    <title>Hexo (Markdown) Basic</title>
     <link href="https://zerohertz.github.io/hexo-basic/"/>
     <id>https://zerohertz.github.io/hexo-basic/</id>
     <published>2018-08-15T16:48:11.000Z</published>
-    <updated>2023-08-09T00:06:07.702Z</updated>
+    <updated>2023-08-09T02:03:20.896Z</updated>
     
     
     <summary type="html">&lt;ul&gt;

@@ -9,8 +9,32 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Wed, 09 Aug 2023 00:06:07 GMT</pubDate>
+    <pubDate>Wed, 09 Aug 2023 02:25:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>GitHub: Verified Signature</title>
+      <link>https://zerohertz.github.io/github-verified-signature/</link>
+      <guid>https://zerohertz.github.io/github-verified-signature/</guid>
+      <pubDate>Wed, 09 Aug 2023 01:53:58 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;GitHub에 commit을 push하고 log에 &lt;code&gt;Verified&lt;/code&gt;를 남기는 방법!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259277614-e08c3c6f-c7d6-4557-92a1-23a060e9453f.png&quot; alt=&quot;Verfied&quot;&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      
+      <comments>https://zerohertz.github.io/github-verified-signature/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Kubernetes: Ingress</title>
@@ -119,6 +143,8 @@
       
       
       <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
       
       <category domain="https://zerohertz.github.io/tags/grafana/">Grafana</category>
       
@@ -398,9 +424,9 @@
       <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
-      
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
       
       
       <comments>https://zerohertz.github.io/apache-airflow-2/#disqus_thread</comments>
@@ -434,9 +460,9 @@
       <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
-      
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
       
       
       <comments>https://zerohertz.github.io/apache-airflow-1/#disqus_thread</comments>
@@ -524,6 +550,8 @@
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
       
       <comments>https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/#disqus_thread</comments>
       
@@ -549,7 +577,7 @@
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
-      <category domain="https://zerohertz.github.io/tags/github-actions/">GitHub Actions</category>
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
       
       
       <comments>https://zerohertz.github.io/automating-code-formatting-with-github-actions/#disqus_thread</comments>
@@ -1554,6 +1582,8 @@
       
       <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
       
+      
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
       
       <category domain="https://zerohertz.github.io/tags/hexo/">Hexo</category>
       
@@ -3238,9 +3268,9 @@ new GDemo(&#39;#python&#39;)
       <category domain="https://zerohertz.github.io/categories/1-machine-learning/">1. Machine Learning</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
       <category domain="https://zerohertz.github.io/tags/matlab/">MATLAB</category>
+      
+      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
       
@@ -5596,7 +5626,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/hexo/">Hexo</category>
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
       
       
       <comments>https://zerohertz.github.io/upload-hexo-by-git/#disqus_thread</comments>
@@ -5749,7 +5779,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     </item>
     
     <item>
-      <title>Hexo Basic</title>
+      <title>Hexo (Markdown) Basic</title>
       <link>https://zerohertz.github.io/hexo-basic/</link>
       <guid>https://zerohertz.github.io/hexo-basic/</guid>
       <pubDate>Wed, 15 Aug 2018 16:48:11 GMT</pubDate>
