@@ -39,8 +39,9 @@
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290320-6a9d7306-bfed-4f31-b426-2ab2df5a37d3.png">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290194-2b3bdd57-5380-47a2-99e5-97ad240a3773.png">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259301406-e7fa8b64-373c-46b3-9249-3fade6def649.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259375588-d8935f4b-1c94-4e84-a940-fb768738df95.png">
 <meta property="article:published_time" content="2023-08-08T14:43:40.000Z">
-<meta property="article:modified_time" content="2023-08-09T07:35:09.950Z">
+<meta property="article:modified_time" content="2023-08-10T14:56:46.555Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Kubernetes">
 <meta name="twitter:card" content="summary">
@@ -173,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">188</span>
+          <span class="site-state-item-count">189</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -227,6 +228,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k8s-airflow/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-09</time>
+        <br>
+      Apache Airflow Setup on Kubernetes
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/matlab-5/" rel="bookmark">
         <time class="popular-posts-time">2019-11-06</time>
         <br>
@@ -245,13 +253,6 @@
         <time class="popular-posts-time">2023-06-18</time>
         <br>
       Kubernetes 입문기 (1)
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/hexo-generator-redirect/" rel="bookmark">
-        <time class="popular-posts-time">2020-08-20</time>
-        <br>
-      hexo-generator-redirect
       </a>
     </li>
   </ul>
@@ -464,12 +465,16 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f ingress-example-https-cert.yaml</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259301406-e7fa8b64-373c-46b3-9249-3fade6def649.png" alt="HTTPS-2"></p>
-<p>성공 !!<br>만약 path를 변경하고 싶다면 <code>spec.routes.match</code>를 <code>Host(`$&#123;DDNS&#125;`) &amp;&amp; PathPrefix(`/somepath`)</code>와 같이 지정해주면 된다.</p>
+<p>성공 !!<br>만약 path를 변경하고 싶다면 <code>spec.routes.match</code>를 <code>Host(`$&#123;DDNS&#125;`) &amp;&amp; PathPrefix(`/$&#123;PATH&#125;`)</code>와 같이 지정해주면 된다.</p>
 <hr>
 <h1 id="Traefik-Dashboard"><a href="#Traefik-Dashboard" class="headerlink" title="Traefik Dashboard"></a>Traefik Dashboard</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;ID&#125;</span>:<span class="subst">$(openssl passwd -apr1 $&#123;PASSWD&#125;)</span>&quot;</span> | <span class="built_in">base64</span></span><br></pre></td></tr></table></figure>
 
-<p>여기서 출력된 값을 아래 <code>$&#123;Base64&#125;</code>에 입력하면 된다.</p>
+<p>위 명령어를 통해 encoding된 ID와 비밀번호를 얻을 수 있고, 여기서 출력된 값을 아래 <code>$&#123;Base64&#125;</code>에 입력하면 접속 시 사용자에게 ID와 비밀번호를 요구하게된다.</p>
 <figure class="highlight yaml"><figcaption><span>traefik.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Secret</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">dashboard-auth-secret</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">users:</span> <span class="string">$&#123;Base64&#125;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">traefik.containo.us/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Middleware</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">traefik-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">basicAuth:</span></span><br><span class="line">    <span class="attr">secret:</span> <span class="string">dashboard-auth-secret</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">traefik.containo.us/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">IngressRoute</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">traefik-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">entryPoints:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">websecure</span></span><br><span class="line">  <span class="attr">routes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">match:</span> <span class="string">Host(`$&#123;DDNS&#125;`)</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">Rule</span></span><br><span class="line">    <span class="attr">middlewares:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">traefik-dashboard</span></span><br><span class="line">    <span class="attr">services:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">api@internal</span></span><br><span class="line">      <span class="attr">kind:</span> <span class="string">TraefikService</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="attr">certResolver:</span> <span class="string">myresolver</span></span><br></pre></td></tr></table></figure>
+
+<p>아래와 같이 접속하면 ID와 비밀번호를 묻고 로그인하면 Traefik의 dashboard를 확인할 수 있다!</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259375588-d8935f4b-1c94-4e84-a940-fb768738df95.png" alt="traefik-dashboard"></p>
+
     </div>
 
     

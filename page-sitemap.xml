@@ -10,17 +10,8 @@
     
     
     <url>
-        <loc>https://zerohertz.github.io/about/</loc>
-        <lastmod>2023-08-09T00:06:07.710Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://zerohertz.github.io/tags/</loc>
-        <lastmod>2023-08-09T00:06:07.710Z</lastmod>
+        <lastmod>2023-08-10T14:56:46.648Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -29,7 +20,16 @@
     
     <url>
         <loc>https://zerohertz.github.io/categories/</loc>
-        <lastmod>2023-08-09T00:06:07.710Z</lastmod>
+        <lastmod>2023-08-10T14:56:46.435Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://zerohertz.github.io/about/</loc>
+        <lastmod>2023-08-10T14:56:46.423Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -38,7 +38,7 @@
     
     <url>
         <loc>https://zerohertz.github.io/404.html</loc>
-        <lastmod>2023-08-09T00:06:07.702Z</lastmod>
+        <lastmod>2023-08-10T14:56:42.756Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
