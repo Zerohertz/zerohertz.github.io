@@ -369,14 +369,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/political-science/</loc>
-        <lastmod>2023-08-11T10:15:01.234Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/professional-research-agent-init/</loc>
         <lastmod>2023-08-11T10:15:01.234Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -402,6 +394,14 @@
 
     <url>
         <loc>https://zerohertz.github.io/programmers-60059/</loc>
+        <lastmod>2023-08-11T10:15:01.234Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/political-science/</loc>
         <lastmod>2023-08-11T10:15:01.234Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -481,7 +481,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
+        <loc>https://zerohertz.github.io/normality-test/</loc>
         <lastmod>2023-08-11T10:15:01.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -489,7 +489,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/normality-test/</loc>
+        <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
         <lastmod>2023-08-11T10:15:01.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -649,14 +649,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mathjax-test/</loc>
-        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/manufacturing-process/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -665,7 +657,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <loc>https://zerohertz.github.io/mathjax-test/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -674,6 +666,14 @@
 
     <url>
         <loc>https://zerohertz.github.io/matlab-1/</loc>
+        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1121,7 +1121,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/catia/</loc>
+        <loc>https://zerohertz.github.io/cpp-1/</loc>
         <lastmod>2023-08-11T10:15:01.134Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1129,7 +1129,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cpp-1/</loc>
+        <loc>https://zerohertz.github.io/catia/</loc>
         <lastmod>2023-08-11T10:15:01.134Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
