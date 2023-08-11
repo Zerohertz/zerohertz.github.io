@@ -36,8 +36,8 @@
 <meta property="og:site_name" content="Zerohertz">
 <meta property="og:description" content="Introduction열심히 구축한 home server을 더 다양하게 활용하기 위해 설치가 매우 간편한 K3s를 통해 Apache Airflow를 설치하고 배포해보겠다.https:&#x2F;&#x2F;$&amp;#123;DDNS&amp;#125;&#x2F;airflow에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-08-09T10:47:04.000Z">
-<meta property="article:modified_time" content="2023-08-10T15:26:17.547Z">
+<meta property="article:published_time" content="2023-08-09T19:47:04.000Z">
+<meta property="article:modified_time" content="2023-08-11T10:15:01.190Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Airflow">
 <meta property="article:tag" content="Kubernetes">
@@ -300,7 +300,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-08-09 19:47:04" itemprop="dateCreated datePublished" datetime="2023-08-09T19:47:04+09:00">2023-08-09</time>
+      <time title="Created: 2023-08-09 19:47:04" itemprop="dateCreated datePublished" datetime="2023-08-09T19:47:04+00:00">2023-08-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -425,6 +425,11 @@ Helm에 대해 좀 더 자세한 설명
 <td align="center"><code>false</code></td>
 </tr>
 </tbody></table>
+<details>
+<summary>
+삽질 !~
+</summary>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: INSTALLATION FAILED: failed post-install: 1 error occurred:</span><br><span class="line">        * timed out waiting <span class="keyword">for</span> the condition</span><br></pre></td></tr></table></figure>
 
 <p>는 위와 같이 설치가 자꾸 안돼서 다른 버전을 선택해보려고 한다.</p>
@@ -441,6 +446,18 @@ Helm에 대해 좀 더 자세한 설명
 <li>Ubuntu:22.04 $\rightarrow$ Ubuntu:20.04</li>
 </ul>
 <p>위의 시도로 해결하려했으나,,, 모두 원점이다.</p>
+</details>
+
+<p><span class="exturl" data-url="aHR0cHM6Ly9raW5kLnNpZ3MuazhzLmlvLw==">Kind<i class="fa fa-external-link-alt"></i></span>나 <span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdHV0b3JpYWxzL2hlbGxvLW1pbmlrdWJlLw==">Minikube<i class="fa fa-external-link-alt"></i></span>로 설치하면 잘 되는 것을 확인할 수 있었다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64</span><br><span class="line">$ <span class="built_in">chmod</span> +x ./kind</span><br><span class="line">$ sudo <span class="built_in">mv</span> ./kind /usr/local/bin/kind</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">        kind: JoinConfiguration</span></span><br><span class="line"><span class="string">        nodeRegistration:</span></span><br><span class="line"><span class="string">          kubeletExtraArgs:</span></span><br><span class="line"><span class="string">            node-labels: &quot;node=worker_0&quot;</span></span><br><span class="line"><span class="string"></span>  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">        kind: JoinConfiguration</span></span><br><span class="line"><span class="string">        nodeRegistration:</span></span><br><span class="line"><span class="string">          kubeletExtraArgs:</span></span><br><span class="line"><span class="string">            node-labels: &quot;node=worker_1&quot;</span></span><br><span class="line"><span class="string"></span>    <span class="attr">extraMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">hostPath:</span> <span class="string">./data</span></span><br><span class="line">        <span class="attr">containerPath:</span> <span class="string">/tmp/data</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">        kind: JoinConfiguration</span></span><br><span class="line"><span class="string">        nodeRegistration:</span></span><br><span class="line"><span class="string">          kubeletExtraArgs:</span></span><br><span class="line"><span class="string">          node-labels: &quot;node=worker_2&quot;</span></span><br><span class="line"><span class="string"></span>    <span class="attr">extraMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">hostPath:</span> <span class="string">./data</span></span><br><span class="line">        <span class="attr">containerPath:</span> <span class="string">/tmp/data</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kind create cluster --config kind.yaml --name airflow</span><br><span class="line">$ helm install airflow apache-airflow/airflow -n airflow --create-namespace</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kind delete cluster --name=airflow</span><br><span class="line">$ sudo <span class="built_in">rm</span> /usr/local/bin/kind</span><br></pre></td></tr></table></figure>
+
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2lzc3Vlcy8yOTk2OSNpc3N1ZWNvbW1lbnQtMTU0MDk3MzU2NA==">https://github.com/apache/airflow/issues/29969#issuecomment-1540973564<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 

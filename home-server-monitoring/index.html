@@ -43,8 +43,8 @@
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258822274-e70803d6-19e8-4626-b369-4f8a1a9d584f.png">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258820862-78d15f77-7366-4e91-a4f4-ad638b54df77.png">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259379473-47a797e9-e546-4bc6-ae21-5e70f17fdb6c.png">
-<meta property="article:published_time" content="2023-08-07T13:09:42.000Z">
-<meta property="article:modified_time" content="2023-08-10T14:56:46.543Z">
+<meta property="article:published_time" content="2023-08-07T22:09:42.000Z">
+<meta property="article:modified_time" content="2023-08-11T10:15:01.174Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Home Server">
 <meta property="article:tag" content="Kubernetes">
@@ -310,7 +310,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-08-07 22:09:42" itemprop="dateCreated datePublished" datetime="2023-08-07T22:09:42+09:00">2023-08-07</time>
+      <time title="Created: 2023-08-07 22:09:42" itemprop="dateCreated datePublished" datetime="2023-08-07T22:09:42+00:00">2023-08-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -337,7 +337,7 @@
 <span id="more"></span>
 
 <hr>
-<h1 id="Node-Exporter"><a href="#Node-Exporter" class="headerlink" title="Node Exporter"></a>Node Exporter</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz</span><br><span class="line">$ tar xvfz node_exporter-1.6.1.linux-amd64.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> node_exporter-1.6.1.linux-amd64</span><br><span class="line">$ sudo <span class="built_in">mv</span> node_exporter-1.6.1.linux-amd64/node_exporter /usr/local/bin/node_exporter</span><br></pre></td></tr></table></figure>
+<h1 id="Node-Exporter"><a href="#Node-Exporter" class="headerlink" title="Node Exporter"></a>Node Exporter</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz</span><br><span class="line">$ tar xvfz node_exporter-1.6.1.linux-amd64.tar.gz</span><br><span class="line">$ sudo <span class="built_in">mv</span> node_exporter-1.6.1.linux-amd64/node_exporter /usr/local/bin/node_exporter</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight yaml"><figcaption><span>/etc/systemd/system/node_exporter.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">Unit</span>]</span><br><span class="line"><span class="string">Description=Node</span> <span class="string">Exporter</span></span><br><span class="line"><span class="string">Wants=network-online.target</span></span><br><span class="line"><span class="string">After=network-online.target</span></span><br><span class="line"></span><br><span class="line">[<span class="string">Service</span>]</span><br><span class="line"><span class="string">User=root</span></span><br><span class="line"><span class="string">Group=root</span></span><br><span class="line"><span class="string">Type=simple</span></span><br><span class="line"><span class="string">ExecStart=/usr/local/bin/node_exporter</span></span><br><span class="line"></span><br><span class="line">[<span class="string">Install</span>]</span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br></pre></td></tr></table></figure>
 
