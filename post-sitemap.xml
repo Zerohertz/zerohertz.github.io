@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/home-server-init/</loc>
+        <lastmod>2023-08-12T19:38:05.343Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/k9s/</loc>
         <lastmod>2023-08-12T19:09:28.771Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -289,6 +297,14 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
+        <lastmod>2023-08-11T10:15:01.254Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/r-final-term/</loc>
         <lastmod>2023-08-11T10:15:01.254Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -298,14 +314,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/r-mid-term/</loc>
-        <lastmod>2023-08-11T10:15:01.254Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
         <lastmod>2023-08-11T10:15:01.254Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -713,7 +721,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/labview/</loc>
+        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -721,7 +729,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
+        <loc>https://zerohertz.github.io/labview/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -809,14 +817,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/home-server-init/</loc>
-        <lastmod>2023-08-11T10:15:01.174Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/</loc>
         <lastmod>2023-08-11T10:15:01.174Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -857,7 +857,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/graduate-student-charter-loan-challenge-story/</loc>
+        <loc>https://zerohertz.github.io/hands-on-machine-learning-1/</loc>
         <lastmod>2023-08-11T10:15:01.166Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -865,7 +865,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/hands-on-machine-learning-1/</loc>
+        <loc>https://zerohertz.github.io/graduate-student-charter-loan-challenge-story/</loc>
         <lastmod>2023-08-11T10:15:01.166Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
