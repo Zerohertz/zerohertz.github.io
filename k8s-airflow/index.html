@@ -36,12 +36,19 @@
 <meta property="og:site_name" content="Zerohertz">
 <meta property="og:description" content="Introduction열심히 구축한 home server을 더 다양하게 활용하기 위해 설치가 매우 간편한 K3s를 통해 Apache Airflow를 설치하고 배포해보겠다.https:&#x2F;&#x2F;$&amp;#123;DDNS&amp;#125;&#x2F;airflow에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-08-09T19:47:04.000Z">
-<meta property="article:modified_time" content="2023-08-11T10:15:01.190Z">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260209901-0ed8fa25-1a60-40d8-8e04-c1a208082dcc.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260214073-1652586e-9149-41d0-adea-e761d0f9f6a6.gif">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260240585-e995c1c1-037f-48a1-8e26-b2e8cb3ef66d.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260254339-dcf92f50-7989-4b0e-b6b8-3a83cac62027.png">
+<meta property="article:published_time" content="2023-08-09T10:47:04.000Z">
+<meta property="article:modified_time" content="2023-08-12T19:09:11.030Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Airflow">
+<meta property="article:tag" content="Home Server">
 <meta property="article:tag" content="Kubernetes">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260209901-0ed8fa25-1a60-40d8-8e04-c1a208082dcc.png">
 
 
 <link rel="canonical" href="https://zerohertz.github.io/k8s-airflow/">
@@ -156,7 +163,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-Airflow"><span class="nav-number">2.</span> <span class="nav-text">Apache Airflow</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-Airflow"><span class="nav-number">2.</span> <span class="nav-text">Apache Airflow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%82%BD%EC%A7%88-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%82%BD%EC%A7%88%E2%80%A6"><span class="nav-number">2.1.</span> <span class="nav-text">삽질 그리고 삽질…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Minikube-Kind"><span class="nav-number">2.2.</span> <span class="nav-text">Minikube? Kind?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%B0%EA%B5%AD-%ED%95%B4%EB%82%B8-%EB%B0%A9%EB%B2%95"><span class="nav-number">2.3.</span> <span class="nav-text">결국 해낸 방법</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ingress"><span class="nav-number">3.</span> <span class="nav-text">Ingress</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Etc"><span class="nav-number">4.</span> <span class="nav-text">Etc</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,13 +231,6 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/apache-airflow-1/" rel="bookmark">
-        <time class="popular-posts-time">2023-07-26</time>
-        <br>
-      Apache Airflow (1)
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/k8s-ingress/" rel="bookmark">
         <time class="popular-posts-time">2023-08-08</time>
         <br>
@@ -238,17 +238,24 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/graduate-student-charter-loan-challenge-story/" rel="bookmark">
-        <time class="popular-posts-time">2022-12-06</time>
+      <a class="popular-posts-link" href="/apache-airflow-1/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-26</time>
         <br>
-      대학원생 전세 대출 도전기
+      Apache Airflow (1)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/nutrients/" rel="bookmark">
-        <time class="popular-posts-time">2023-05-01</time>
+      <a class="popular-posts-link" href="/k8s-1/" rel="bookmark">
+        <time class="popular-posts-time">2023-06-18</time>
         <br>
-      Nutrients
+      Kubernetes 입문기 (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/home-server-monitoring/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-07</time>
+        <br>
+      Home Server: Monitoring
       </a>
     </li>
   </ul>
@@ -300,7 +307,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-08-09 19:47:04" itemprop="dateCreated datePublished" datetime="2023-08-09T19:47:04+00:00">2023-08-09</time>
+      <time title="Created: 2023-08-09 19:47:04" itemprop="dateCreated datePublished" datetime="2023-08-09T19:47:04+09:00">2023-08-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -425,7 +432,7 @@ Helm에 대해 좀 더 자세한 설명
 <td align="center"><code>false</code></td>
 </tr>
 </tbody></table>
-<details>
+<h2 id="삽질-그리고-삽질…"><a href="#삽질-그리고-삽질…" class="headerlink" title="삽질 그리고 삽질…"></a>삽질 그리고 삽질…</h2><details>
 <summary>
 삽질 !~
 </summary>
@@ -448,16 +455,112 @@ Helm에 대해 좀 더 자세한 설명
 <p>위의 시도로 해결하려했으나,,, 모두 원점이다.</p>
 </details>
 
-<p><span class="exturl" data-url="aHR0cHM6Ly9raW5kLnNpZ3MuazhzLmlvLw==">Kind<i class="fa fa-external-link-alt"></i></span>나 <span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdHV0b3JpYWxzL2hlbGxvLW1pbmlrdWJlLw==">Minikube<i class="fa fa-external-link-alt"></i></span>로 설치하면 잘 되는 것을 확인할 수 있었다.</p>
+<h2 id="Minikube-Kind"><a href="#Minikube-Kind" class="headerlink" title="Minikube? Kind?"></a>Minikube? Kind?</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2lzc3Vlcy8yOTk2OSNpc3N1ZWNvbW1lbnQtMTU0MDk3MzU2NA==">이 issue<i class="fa fa-external-link-alt"></i></span>를 보면 K8s 1.23+ 버전에서 위 오류가 지속적으로 발생한다는 의견이 있어서, K3s를 제외한 여러 환경에서 테스트해봤다.<br><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdHV0b3JpYWxzL2hlbGxvLW1pbmlrdWJlLw==">Minikube<i class="fa fa-external-link-alt"></i></span>나 <span class="exturl" data-url="aHR0cHM6Ly9raW5kLnNpZ3MuazhzLmlvLw==">Kind<i class="fa fa-external-link-alt"></i></span>로 설치하면 잘 되는 것을 확인할 수 있었다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64</span><br><span class="line">$ <span class="built_in">chmod</span> +x ./kind</span><br><span class="line">$ sudo <span class="built_in">mv</span> ./kind /usr/local/bin/kind</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">        kind: JoinConfiguration</span></span><br><span class="line"><span class="string">        nodeRegistration:</span></span><br><span class="line"><span class="string">          kubeletExtraArgs:</span></span><br><span class="line"><span class="string">            node-labels: &quot;node=worker_0&quot;</span></span><br><span class="line"><span class="string"></span>  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">        kind: JoinConfiguration</span></span><br><span class="line"><span class="string">        nodeRegistration:</span></span><br><span class="line"><span class="string">          kubeletExtraArgs:</span></span><br><span class="line"><span class="string">            node-labels: &quot;node=worker_1&quot;</span></span><br><span class="line"><span class="string"></span>    <span class="attr">extraMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">hostPath:</span> <span class="string">./data</span></span><br><span class="line">        <span class="attr">containerPath:</span> <span class="string">/tmp/data</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">        kind: JoinConfiguration</span></span><br><span class="line"><span class="string">        nodeRegistration:</span></span><br><span class="line"><span class="string">          kubeletExtraArgs:</span></span><br><span class="line"><span class="string">          node-labels: &quot;node=worker_2&quot;</span></span><br><span class="line"><span class="string"></span>    <span class="attr">extraMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">hostPath:</span> <span class="string">./data</span></span><br><span class="line">        <span class="attr">containerPath:</span> <span class="string">/tmp/data</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="string">-|</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">JoinConfiguration</span></span><br><span class="line">        <span class="attr">nodeRegistration:</span></span><br><span class="line">          <span class="attr">kubeletExtraArgs:</span></span><br><span class="line">            <span class="attr">node-labels:</span> <span class="string">&quot;node=worker_0&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="string">-|</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">JoinConfiguration</span></span><br><span class="line">        <span class="attr">nodeRegistration:</span></span><br><span class="line">          <span class="attr">kubeletExtraArgs:</span></span><br><span class="line">            <span class="attr">node-labels:</span> <span class="string">&quot;node=worker_1&quot;</span></span><br><span class="line">    <span class="attr">extraMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">hostPath:</span> <span class="string">./data</span></span><br><span class="line">        <span class="attr">containerPath:</span> <span class="string">/tmp/data</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">    <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">      <span class="string">-|</span></span><br><span class="line">        <span class="attr">kind:</span> <span class="string">JoinConfiguration</span></span><br><span class="line">        <span class="attr">nodeRegistration:</span></span><br><span class="line">          <span class="attr">kubeletExtraArgs:</span></span><br><span class="line">          <span class="attr">node-labels:</span> <span class="string">&quot;node=worker_2&quot;</span></span><br><span class="line">    <span class="attr">extraMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">hostPath:</span> <span class="string">./data</span></span><br><span class="line">        <span class="attr">containerPath:</span> <span class="string">/tmp/data</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kind create cluster --config kind.yaml --name airflow</span><br><span class="line">$ helm install airflow apache-airflow/airflow -n airflow --create-namespace</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kind delete cluster --name=airflow</span><br><span class="line">$ sudo <span class="built_in">rm</span> /usr/local/bin/kind</span><br></pre></td></tr></table></figure>
 
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2lzc3Vlcy8yOTk2OSNpc3N1ZWNvbW1lbnQtMTU0MDk3MzU2NA==">https://github.com/apache/airflow/issues/29969#issuecomment-1540973564<i class="fa fa-external-link-alt"></i></span></p>
+<p>하지만 Minikube와 Kind는 내가 원하는 환경 구축에 적절하지 않아 Kubeadm을 이용해 구축하려 했다.<br>하지만… Ubuntu 22.04 LTS에 호완이 되지 않는 것으로 보였다. (<del>아닐 수 있음…</del>)<br>따라서 Ubuntu 20.04 LTS로 downgrade 후 1.22.8의 K8s를 설치했다.</p>
+<h2 id="결국-해낸-방법"><a href="#결국-해낸-방법" class="headerlink" title="결국 해낸 방법"></a>결국 해낸 방법</h2><p>Minikue, K3s, Kind와는 다르게 K8s를 사용하여 바로 <code>helm</code>으로 Airflow를 설치하려고 시도한다면 아래와 같은 이슈가 발생한다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260209901-0ed8fa25-1a60-40d8-8e04-c1a208082dcc.png" alt="Pending"></p>
+<p>이 이유는 Pod가 bound할 <code>PersistentVolumeClaims</code>가 존재하지 않기 때문이다.<br>설명하기 앞서 <code>PVC</code>가 무엇인지 알아보자.</p>
+<ul>
+<li><code>PersistentVolume</code> (<code>PV</code>)<ul>
+<li>Cluster 내에 provisioning 된 저장 공간</li>
+<li>특정 저장 용량과 접근 모드 (<code>ReadWriteOnce</code>, <code>ReadOnlyMany</code>, <code>ReadWriteMany</code>) 존재</li>
+<li>수동으로 관리자에 의해 생성되거나, <code>StorageClass</code>를 사용하여 동적 provisioning 가능</li>
+</ul>
+</li>
+<li><code>PersistentVolumeClaim</code> (<code>PVC</code>)<ul>
+<li>사용자의 요청에 의해 생성, <code>PV</code>의 저장 용량과 같은 특정 양의 저장 공간을 요청하는 방법 제공</li>
+<li>사용자는 특정 저장 시스템이나 세부 구현에 대해 걱정할 필요 없이 저장 공간 요청</li>
+<li>일반적으로 특정 크기와 접근 모드를 요구하며, 이를 만족하는 PV가 연결</li>
+<li>적절한 <code>PV</code>가 없는 경우, <code>StorageClass</code>를 사용하여 동적으로 <code>PV</code>를 생성 가능</li>
+</ul>
+</li>
+<li><code>StorageClass</code><ul>
+<li>동적 volume provisioning을 위한 정의</li>
+<li><code>PVC</code>가 생성되었을 때, 그에 맞는 <code>PV</code>가 없다면 <code>StorageClass</code>를 사용하여 자동으로 <code>PV</code> 생성</li>
+<li>이를 통해 특정 종류의 storage (AWS의 EBS, Google Cloud의 Persistent Disk, Azure의 Azure Disk Storage 등)를 provisioning 할 수 있는 방법과 파라미터 정의</li>
+</ul>
+</li>
+</ul>
+<p>쉽게 말해 위 오류는 <code>helm</code>으로 Airflow를 배포할 때 동적 provisioning이 되지 않기 때문에 발생한 현상이다.<br>따라서 적절한 <code>StorageClass</code>를 정의해야하며, 이를 위해 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JhbmNoZXIvbG9jYWwtcGF0aC1wcm92aXNpb25lcg==">local-path-provisioner<i class="fa fa-external-link-alt"></i></span>를 사용했다.<br>설치와 setup은 아래와 같다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>storage.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">storage.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">StorageClass</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">local-path</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">storageclass.kubernetes.io/is-default-class:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line"><span class="attr">provisioner:</span> <span class="string">rancher.io/local-path</span></span><br><span class="line"><span class="attr">volumeBindingMode:</span> <span class="string">WaitForFirstConsumer</span></span><br><span class="line"><span class="attr">reclaimPolicy:</span> <span class="string">Delete</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif" alt="tada"></p>
+<p>이렇게 설치가 아주 잘 되는 것을 확인할 수 있다.<br>하지만 <code>dags</code> 폴더를 따로 연결하지 않아 DAG를 사용할 수 없는 상태이기 때문에 아래와 같은 <code>StorageClass</code>, <code>PV</code>, <code>PVC</code>를 생성한다.</p>
+<figure class="highlight yaml"><figcaption><span>storage.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">storage.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">StorageClass</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">local-storage</span></span><br><span class="line"><span class="attr">provisioner:</span> <span class="string">kubernetes.io/no-provisioner</span></span><br><span class="line"><span class="attr">volumeBindingMode:</span> <span class="string">WaitForFirstConsumer</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">airflow-local-dags-pv</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">local</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">storageClassName:</span> <span class="string">local-storage</span></span><br><span class="line">  <span class="attr">capacity:</span></span><br><span class="line">    <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">hostPath:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">&quot;$&#123;PATH&#125;/dags&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">airflow-local-dags-folder</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">airflow</span></span><br><span class="line">  <span class="attr">annotations:</span> &#123;&#125;</span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">storageClassName:</span> <span class="string">local-storage</span></span><br><span class="line">  <span class="attr">accessModes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">requests:</span></span><br><span class="line">      <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">type:</span> <span class="string">local</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f storageclass.yaml</span><br><span class="line">$ k get pv,pvc,storageclass -A</span><br><span class="line">NAME                                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS     CLAIM                               STORAGECLASS    REASON   AGE</span><br><span class="line">persistentvolume/airflow-local-dags-pv   1Gi        RWO            Retain           Released   airflow/airflow-local-dags-folder   local-storage            77m</span><br><span class="line"></span><br><span class="line">NAMESPACE   NAME                                              STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS    AGE</span><br><span class="line">airflow     persistentvolumeclaim/airflow-local-dags-folder   Pending                                      local-storage   26s</span><br><span class="line"></span><br><span class="line">NAMESPACE   NAME                                               PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE</span><br><span class="line">            storageclass.storage.k8s.io/local-path (default)   rancher.io/local-path          Delete          WaitForFirstConsumer   <span class="literal">false</span>                  32s</span><br><span class="line">            storageclass.storage.k8s.io/local-storage          kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   <span class="literal">false</span>                  26s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260214073-1652586e-9149-41d0-adea-e761d0f9f6a6.gif" alt="dags"></p>
+<p>이렇게 <code>dags</code> 폴더도 잘 연결된다!</p>
+<hr>
+<h1 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h1><p>외부에 서비스를 배포하기 전 보안을 위해 아래와 같이 <code>values.yaml</code>을 수정한다.</p>
+<figure class="highlight yaml"><figcaption><span>values.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ----------------------- WEBSERVER ----------------------- #</span></span><br><span class="line"><span class="attr">webserver:</span></span><br><span class="line">  <span class="attr">defaultUser:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">role:</span> <span class="string">Admin</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">$&#123;USERNAME&#125;</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">$&#123;EMAIL&#125;</span></span><br><span class="line">    <span class="attr">firstName:</span> <span class="string">$&#123;FIRSTNAME&#125;</span></span><br><span class="line">    <span class="attr">lastName:</span> <span class="string">$&#123;LASTNAME&#125;</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">$&#123;PASSWORD&#125;</span></span><br><span class="line"><span class="comment"># ----------------------- POSTGRESQL ----------------------- #</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">metadataConnection:</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">$&#123;USERNAME&#125;</span></span><br><span class="line">    <span class="attr">pass:</span> <span class="string">$&#123;PASSWORD&#125;</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">postgresql</span></span><br><span class="line">    <span class="attr">host:</span> <span class="string">~</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">5432</span></span><br><span class="line">    <span class="attr">db:</span> <span class="string">postgres</span></span><br><span class="line">    <span class="attr">sslmode:</span> <span class="string">disable</span></span><br><span class="line"><span class="attr">postgresql:</span></span><br><span class="line">  <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">image:</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="string">&quot;11&quot;</span></span><br><span class="line">  <span class="attr">auth:</span></span><br><span class="line">    <span class="attr">enablePostgresUser:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">postgresPassword:</span> <span class="string">$&#123;POSTGRESPASSWORD&#125;</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">$&#123;USERNAME&#125;</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">$&#123;PASSWORD&#125;</span></span><br></pre></td></tr></table></figure>
+
+<img width="271" alt="404" src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260240585-e995c1c1-037f-48a1-8e26-b2e8cb3ef66d.png">
+
+<p><code>values.yaml</code>에 존재하는 <code>ingress.web.enabled</code>를 단순히 <code>true</code>로 설정하면 잘 실행되지만 목표인 <code>$&#123;DDNS&#125;/airflow</code>를 달성하기 위해서 <code>false</code>로 설정하고 아래 <code>IngressRoute</code>를 추가한다! (<del>위 사진은 무한한 삽질의 증거…</del>)</p>
+<figure class="highlight yaml"><figcaption><span>traefik.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">traefik.containo.us/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Middleware</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">airflow-webserver</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">airflow</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">stripPrefix:</span></span><br><span class="line">    <span class="attr">prefixes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;/airflow&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">traefik.containo.us/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">IngressRoute</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">airflow-webserver</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">airflow</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">entryPoints:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">websecure</span></span><br><span class="line">  <span class="attr">routes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">match:</span> <span class="string">Host(`$&#123;DDNS&#125;`)</span> <span class="string">&amp;&amp;</span> <span class="string">PathPrefix(`/airflow`)</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">Rule</span></span><br><span class="line">    <span class="attr">middlewares:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">airflow-webserver</span></span><br><span class="line">    <span class="attr">services:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">airflow-webserver</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="attr">certResolver:</span> <span class="string">$&#123;RESOLVER&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260254339-dcf92f50-7989-4b0e-b6b8-3a83cac62027.png" alt="ingress"></p>
+<p>짜자잔~ 성공… HTTPS가 빨간색인 이유는 일주일에 5번을 초과하게 인증서를 발급받아 생긴 현상이다… (<del>무한 삽질</del>)</p>
+<hr>
+<h1 id="Etc"><a href="#Etc" class="headerlink" title="Etc"></a>Etc</h1><p>K8s로 설치를 완료했으니 여러 executor 또한 사용할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Definition</th>
+<th align="left">Pros</th>
+<th align="left">Cons</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>SequentialExecutor</code></td>
+<td align="center">로컬에서 순차적 실행</td>
+<td align="left">👍 설정 간단<br>👍 디버깅에 적합</td>
+<td align="left">👎 병렬 처리 미지원</td>
+</tr>
+<tr>
+<td align="center"><code>LocalExecutor</code></td>
+<td align="center">로컬 별도 프로세스에서 병렬 실행</td>
+<td align="left">👍 로컬에서 병렬 처리 지원</td>
+<td align="left">👎 분산 환경 미지원</td>
+</tr>
+<tr>
+<td align="center"><code>CeleryExecutor</code></td>
+<td align="center">Celery로 워커 노드에 분산 실행</td>
+<td align="left">👍 대규모 워크플로우와 병렬 처리 적합</td>
+<td align="left">👎 Celery 및 브로커 설정 필요</td>
+</tr>
+<tr>
+<td align="center"><code>DaskExecutor</code></td>
+<td align="center">Dask로 작업 실행</td>
+<td align="left">👍 동적 워커 확장 가능</td>
+<td align="left">👎 Dask 설정 필요</td>
+</tr>
+<tr>
+<td align="center"><code>KubernetesExecutor</code></td>
+<td align="center">작업을 Kubernetes 파드로 실행</td>
+<td align="left">👍 동적 리소스 할당<br>👍 독립적 환경 제공</td>
+<td align="left">👎 Kubernetes 설정 필요</td>
+</tr>
+<tr>
+<td align="center"><code>CeleryKubernetesExecutor</code></td>
+<td align="center">Celery와 Kubernetes의 조합</td>
+<td align="left">👍 두 실행기의 장점 병합</td>
+<td align="left">👎 두 실행기 설정 및 유지 관리 필요</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -468,6 +571,7 @@ Helm에 대해 좀 더 자세한 설명
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/airflow/" rel="tag"><i class="fa fa-tag"></i> Airflow</a>
+              <a href="/tags/home-server/" rel="tag"><i class="fa fa-tag"></i> Home Server</a>
               <a href="/tags/kubernetes/" rel="tag"><i class="fa fa-tag"></i> Kubernetes</a>
           </div>
 

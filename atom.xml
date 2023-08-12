@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-08-11T10:15:01.190Z</updated>
+  <updated>2023-08-12T19:09:11.030Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Apache Airflow Setup on Kubernetes</title>
     <link href="https://zerohertz.github.io/k8s-airflow/"/>
     <id>https://zerohertz.github.io/k8s-airflow/</id>
-    <published>2023-08-09T19:47:04.000Z</published>
-    <updated>2023-08-11T10:15:01.190Z</updated>
+    <published>2023-08-09T10:47:04.000Z</published>
+    <updated>2023-08-12T19:09:11.030Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;열심히 구축한 &lt;a href=&quot;https://zerohertz.github.io/home-server-init/&quot;&gt;home server&lt;/a&gt;을 더 다양하게 활용하기 위해 설치가 매우 간편한 K3s를 통해 Apache Airflow를 설치하고 배포해보겠다.&lt;br&gt;&lt;code&gt;https://$&amp;#123;DDNS&amp;#125;/airflow&lt;/code&gt;에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.&lt;/p&gt;</summary>
@@ -33,6 +33,8 @@
     
     <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
     
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
   </entry>
@@ -41,7 +43,7 @@
     <title>GitHub: Verified Signature</title>
     <link href="https://zerohertz.github.io/github-verified-signature/"/>
     <id>https://zerohertz.github.io/github-verified-signature/</id>
-    <published>2023-08-09T10:53:58.000Z</published>
+    <published>2023-08-09T01:53:58.000Z</published>
     <updated>2023-08-11T11:39:03.372Z</updated>
     
     
@@ -63,8 +65,8 @@
     <title>Kubernetes: Ingress</title>
     <link href="https://zerohertz.github.io/k8s-ingress/"/>
     <id>https://zerohertz.github.io/k8s-ingress/</id>
-    <published>2023-08-08T23:43:40.000Z</published>
-    <updated>2023-08-11T16:18:15.890Z</updated>
+    <published>2023-08-08T14:43:40.000Z</published>
+    <updated>2023-08-12T19:09:25.640Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
@@ -103,6 +105,8 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
   </entry>
@@ -111,8 +115,8 @@
     <title>K9s</title>
     <link href="https://zerohertz.github.io/k9s/"/>
     <id>https://zerohertz.github.io/k9s/</id>
-    <published>2023-08-08T23:14:04.000Z</published>
-    <updated>2023-08-11T10:15:01.190Z</updated>
+    <published>2023-08-08T14:14:04.000Z</published>
+    <updated>2023-08-12T19:09:28.771Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
@@ -142,6 +146,8 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
   </entry>
@@ -150,8 +156,8 @@
     <title>Home Server: Monitoring</title>
     <link href="https://zerohertz.github.io/home-server-monitoring/"/>
     <id>https://zerohertz.github.io/home-server-monitoring/</id>
-    <published>2023-08-07T22:09:42.000Z</published>
-    <updated>2023-08-11T10:15:01.174Z</updated>
+    <published>2023-08-07T13:09:42.000Z</published>
+    <updated>2023-08-12T18:34:12.212Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Node exporter의 system metric들을 Prometheus로 수집하고 Grafana로 시각화!&lt;/p&gt;
@@ -176,7 +182,7 @@
     <title>Kubeflow</title>
     <link href="https://zerohertz.github.io/kubeflow/"/>
     <id>https://zerohertz.github.io/kubeflow/</id>
-    <published>2023-08-06T01:55:21.000Z</published>
+    <published>2023-08-05T16:55:21.000Z</published>
     <updated>2023-08-11T10:15:01.190Z</updated>
     
     
@@ -221,7 +227,7 @@
     <title>BOJ: 1024</title>
     <link href="https://zerohertz.github.io/boj-1024/"/>
     <id>https://zerohertz.github.io/boj-1024/</id>
-    <published>2023-08-04T22:10:23.000Z</published>
+    <published>2023-08-04T13:10:23.000Z</published>
     <updated>2023-08-11T10:15:01.074Z</updated>
     
     
@@ -244,7 +250,7 @@
     <title>Home Server 구축기</title>
     <link href="https://zerohertz.github.io/home-server-init/"/>
     <id>https://zerohertz.github.io/home-server-init/</id>
-    <published>2023-08-03T22:19:31.000Z</published>
+    <published>2023-08-03T13:19:31.000Z</published>
     <updated>2023-08-11T10:15:01.174Z</updated>
     
     
@@ -298,7 +304,7 @@
     <title>Python의 빠른 연산을 위한 Process 기반 병렬 처리</title>
     <link href="https://zerohertz.github.io/multiprocessing/"/>
     <id>https://zerohertz.github.io/multiprocessing/</id>
-    <published>2023-08-02T22:01:57.000Z</published>
+    <published>2023-08-02T13:01:57.000Z</published>
     <updated>2023-08-11T10:15:01.222Z</updated>
     
     
@@ -317,7 +323,7 @@
     <title>BOJ: 11004</title>
     <link href="https://zerohertz.github.io/boj-11004/"/>
     <id>https://zerohertz.github.io/boj-11004/</id>
-    <published>2023-08-01T23:10:42.000Z</published>
+    <published>2023-08-01T14:10:42.000Z</published>
     <updated>2023-08-11T10:15:01.078Z</updated>
     
     
@@ -340,7 +346,7 @@
     <title>BOJ: 10815</title>
     <link href="https://zerohertz.github.io/boj-10815/"/>
     <id>https://zerohertz.github.io/boj-10815/</id>
-    <published>2023-08-01T22:59:41.000Z</published>
+    <published>2023-08-01T13:59:41.000Z</published>
     <updated>2023-08-11T10:15:01.078Z</updated>
     
     
@@ -363,7 +369,7 @@
     <title>BOJ: 2563</title>
     <link href="https://zerohertz.github.io/boj-2563/"/>
     <id>https://zerohertz.github.io/boj-2563/</id>
-    <published>2023-08-01T22:55:41.000Z</published>
+    <published>2023-08-01T13:55:41.000Z</published>
     <updated>2023-08-11T10:15:01.094Z</updated>
     
     
@@ -386,7 +392,7 @@
     <title>BOJ: 1439</title>
     <link href="https://zerohertz.github.io/boj-1439/"/>
     <id>https://zerohertz.github.io/boj-1439/</id>
-    <published>2023-08-01T22:46:23.000Z</published>
+    <published>2023-08-01T13:46:23.000Z</published>
     <updated>2023-08-11T10:15:01.082Z</updated>
     
     
@@ -414,7 +420,7 @@
     <title>Apache Airflow (2)</title>
     <link href="https://zerohertz.github.io/apache-airflow-2/"/>
     <id>https://zerohertz.github.io/apache-airflow-2/</id>
-    <published>2023-07-27T21:11:41.000Z</published>
+    <published>2023-07-27T12:11:41.000Z</published>
     <updated>2023-08-11T10:15:01.066Z</updated>
     
     
@@ -436,7 +442,7 @@
     <title>Apache Airflow (1)</title>
     <link href="https://zerohertz.github.io/apache-airflow-1/"/>
     <id>https://zerohertz.github.io/apache-airflow-1/</id>
-    <published>2023-07-26T20:37:10.000Z</published>
+    <published>2023-07-26T11:37:10.000Z</published>
     <updated>2023-08-11T10:15:01.062Z</updated>
     
     
@@ -470,7 +476,7 @@
     <title>Go (2)</title>
     <link href="https://zerohertz.github.io/go-2/"/>
     <id>https://zerohertz.github.io/go-2/</id>
-    <published>2023-07-17T20:51:00.000Z</published>
+    <published>2023-07-17T11:51:00.000Z</published>
     <updated>2023-08-11T10:15:01.158Z</updated>
     
     
@@ -494,7 +500,7 @@
     <title>Serving YOLOv5 Segmentation Model with Amazon EC2 Inf1</title>
     <link href="https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/"/>
     <id>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</id>
-    <published>2023-07-10T18:52:58.000Z</published>
+    <published>2023-07-10T09:52:58.000Z</published>
     <updated>2023-08-11T10:15:01.258Z</updated>
     
     
@@ -523,7 +529,7 @@
     <title>Git Hooks 기반 Python Code Formatting</title>
     <link href="https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/"/>
     <id>https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/</id>
-    <published>2023-07-07T16:13:43.000Z</published>
+    <published>2023-07-07T07:13:43.000Z</published>
     <updated>2023-08-11T10:15:01.150Z</updated>
     
     
@@ -552,7 +558,7 @@
     <title>GitHub Actions 기반 Formatting 자동화</title>
     <link href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/"/>
     <id>https://zerohertz.github.io/automating-code-formatting-with-github-actions/</id>
-    <published>2023-07-05T08:58:00.000Z</published>
+    <published>2023-07-04T23:58:00.000Z</published>
     <updated>2023-08-11T10:15:01.066Z</updated>
     
     
@@ -577,7 +583,7 @@
     <title>Go (1)</title>
     <link href="https://zerohertz.github.io/go-1/"/>
     <id>https://zerohertz.github.io/go-1/</id>
-    <published>2023-07-03T22:15:57.000Z</published>
+    <published>2023-07-03T13:15:57.000Z</published>
     <updated>2023-08-11T10:15:01.158Z</updated>
     
     
@@ -625,8 +631,8 @@
     <title>Kubernetes 입문기 (1)</title>
     <link href="https://zerohertz.github.io/k8s-1/"/>
     <id>https://zerohertz.github.io/k8s-1/</id>
-    <published>2023-06-18T15:11:10.000Z</published>
-    <updated>2023-08-11T10:36:12.135Z</updated>
+    <published>2023-06-18T06:11:10.000Z</published>
+    <updated>2023-08-12T01:02:24.865Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;ul&gt;
@@ -680,7 +686,7 @@
     <title>전문연구요원: 훈련소 후기</title>
     <link href="https://zerohertz.github.io/professional-research-agent-train-review/"/>
     <id>https://zerohertz.github.io/professional-research-agent-train-review/</id>
-    <published>2023-06-16T19:43:37.000Z</published>
+    <published>2023-06-16T10:43:37.000Z</published>
     <updated>2023-08-11T10:15:01.234Z</updated>
     
     
@@ -702,7 +708,7 @@
     <title>Paper Review: DEER</title>
     <link href="https://zerohertz.github.io/paper-review-deer/"/>
     <id>https://zerohertz.github.io/paper-review-deer/</id>
-    <published>2023-05-24T23:14:40.000Z</published>
+    <published>2023-05-24T14:14:40.000Z</published>
     <updated>2023-08-11T10:15:01.226Z</updated>
     
     
@@ -731,7 +737,7 @@
     <title>AWS Neuron SDK &amp; AWS Inferentia</title>
     <link href="https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/"/>
     <id>https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/</id>
-    <published>2023-05-12T10:36:33.000Z</published>
+    <published>2023-05-12T01:36:33.000Z</published>
     <updated>2023-08-11T10:15:01.066Z</updated>
     
     
@@ -767,7 +773,7 @@
     <title>Nutrients</title>
     <link href="https://zerohertz.github.io/nutrients/"/>
     <id>https://zerohertz.github.io/nutrients/</id>
-    <published>2023-05-01T23:41:14.000Z</published>
+    <published>2023-05-01T14:41:14.000Z</published>
     <updated>2023-08-11T10:15:01.226Z</updated>
     
     
@@ -784,7 +790,7 @@
     <title>Serving YOLOv5 Object Detection Model using Triton Inference Server</title>
     <link href="https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/"/>
     <id>https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/</id>
-    <published>2023-04-21T08:07:51.000Z</published>
+    <published>2023-04-20T23:07:51.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -817,7 +823,7 @@
     <title>Labeling with Label Studio for Pre-labeled Data using YOLOv5</title>
     <link href="https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/"/>
     <id>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</id>
-    <published>2023-04-14T23:44:46.000Z</published>
+    <published>2023-04-14T14:44:46.000Z</published>
     <updated>2023-08-11T10:15:01.190Z</updated>
     
     
@@ -841,7 +847,7 @@
     <title>Implementing Mask R-CNN with PyTorch</title>
     <link href="https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/"/>
     <id>https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/</id>
-    <published>2023-04-05T21:34:10.000Z</published>
+    <published>2023-04-05T12:34:10.000Z</published>
     <updated>2023-08-11T10:15:01.178Z</updated>
     
     
@@ -874,7 +880,7 @@
     <title>How to Convert a PyTorch Model to TensorRT</title>
     <link href="https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/"/>
     <id>https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/</id>
-    <published>2023-03-14T13:24:00.000Z</published>
+    <published>2023-03-14T04:24:00.000Z</published>
     <updated>2023-08-11T10:15:01.178Z</updated>
     
     
@@ -915,7 +921,7 @@
     <title>MLOps for MLE: Stream</title>
     <link href="https://zerohertz.github.io/mlops-for-mle-stream/"/>
     <id>https://zerohertz.github.io/mlops-for-mle-stream/</id>
-    <published>2023-03-09T13:31:03.000Z</published>
+    <published>2023-03-09T04:31:03.000Z</published>
     <updated>2023-08-11T10:15:01.218Z</updated>
     
     
@@ -942,7 +948,7 @@
     <title>How to Change PyTorch Model Structure and Train Only Some Layers</title>
     <link href="https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/"/>
     <id>https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/</id>
-    <published>2023-03-09T10:15:22.000Z</published>
+    <published>2023-03-09T01:15:22.000Z</published>
     <updated>2023-08-11T10:15:01.174Z</updated>
     
     
@@ -996,7 +1002,7 @@
     <title>전문연구요원: 훈련소 준비</title>
     <link href="https://zerohertz.github.io/professional-research-agent-train-init/"/>
     <id>https://zerohertz.github.io/professional-research-agent-train-init/</id>
-    <published>2023-03-03T11:36:58.000Z</published>
+    <published>2023-03-03T02:36:58.000Z</published>
     <updated>2023-08-11T10:15:01.234Z</updated>
     
     
@@ -1019,7 +1025,7 @@
     <title>전문연구요원: 시작</title>
     <link href="https://zerohertz.github.io/professional-research-agent-init/"/>
     <id>https://zerohertz.github.io/professional-research-agent-init/</id>
-    <published>2023-02-28T15:35:20.000Z</published>
+    <published>2023-02-28T06:35:20.000Z</published>
     <updated>2023-08-11T10:15:01.234Z</updated>
     
     
@@ -1042,7 +1048,7 @@
     <title>MLOps for MLE: Kafka</title>
     <link href="https://zerohertz.github.io/mlops-for-mle-kafka/"/>
     <id>https://zerohertz.github.io/mlops-for-mle-kafka/</id>
-    <published>2023-02-27T11:11:14.000Z</published>
+    <published>2023-02-27T02:11:14.000Z</published>
     <updated>2023-08-11T10:15:01.218Z</updated>
     
     
@@ -1065,7 +1071,7 @@
     <title>MLOps for MLE: API Serving</title>
     <link href="https://zerohertz.github.io/mlops-for-mle-api-serving/"/>
     <id>https://zerohertz.github.io/mlops-for-mle-api-serving/</id>
-    <published>2023-02-15T20:51:19.000Z</published>
+    <published>2023-02-15T11:51:19.000Z</published>
     <updated>2023-08-11T10:15:01.210Z</updated>
     
     
@@ -1090,7 +1096,7 @@
     <title>MLOps for MLE: FastAPI</title>
     <link href="https://zerohertz.github.io/mlops-for-mle-fastapi/"/>
     <id>https://zerohertz.github.io/mlops-for-mle-fastapi/</id>
-    <published>2023-02-07T22:31:31.000Z</published>
+    <published>2023-02-07T13:31:31.000Z</published>
     <updated>2023-08-11T10:15:01.218Z</updated>
     
     
@@ -1128,7 +1134,7 @@
     <title>MLOps for MLE: Model Registry</title>
     <link href="https://zerohertz.github.io/mlops-for-mle-model-registry/"/>
     <id>https://zerohertz.github.io/mlops-for-mle-model-registry/</id>
-    <published>2023-02-04T15:19:33.000Z</published>
+    <published>2023-02-04T06:19:33.000Z</published>
     <updated>2023-08-11T10:15:01.218Z</updated>
     
     
@@ -1178,7 +1184,7 @@
     <title>Programmers: 자물쇠와 열쇠</title>
     <link href="https://zerohertz.github.io/programmers-60059/"/>
     <id>https://zerohertz.github.io/programmers-60059/</id>
-    <published>2023-01-31T23:38:08.000Z</published>
+    <published>2023-01-31T14:38:08.000Z</published>
     <updated>2023-08-11T10:15:01.234Z</updated>
     
     
@@ -1202,7 +1208,7 @@
     <title>Programmers: 파괴되지 않은 건물</title>
     <link href="https://zerohertz.github.io/programmers-92344/"/>
     <id>https://zerohertz.github.io/programmers-92344/</id>
-    <published>2023-01-30T02:23:53.000Z</published>
+    <published>2023-01-29T17:23:53.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -1226,7 +1232,7 @@
     <title>Programmers: 합승 택시 요금</title>
     <link href="https://zerohertz.github.io/programmers-72413/"/>
     <id>https://zerohertz.github.io/programmers-72413/</id>
-    <published>2023-01-30T02:21:44.000Z</published>
+    <published>2023-01-29T17:21:44.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -1250,7 +1256,7 @@
     <title>BOJ: 14503</title>
     <link href="https://zerohertz.github.io/boj-14503/"/>
     <id>https://zerohertz.github.io/boj-14503/</id>
-    <published>2023-01-28T01:58:46.000Z</published>
+    <published>2023-01-27T16:58:46.000Z</published>
     <updated>2023-08-11T10:15:01.082Z</updated>
     
     
@@ -1284,7 +1290,7 @@
     <title>MLOps for MLE: Model Development</title>
     <link href="https://zerohertz.github.io/mlops-for-mle-model-development/"/>
     <id>https://zerohertz.github.io/mlops-for-mle-model-development/</id>
-    <published>2023-01-28T01:01:35.000Z</published>
+    <published>2023-01-27T16:01:35.000Z</published>
     <updated>2023-08-11T10:15:01.218Z</updated>
     
     
@@ -1320,7 +1326,7 @@
     <title>BOJ: 12100</title>
     <link href="https://zerohertz.github.io/boj-12100/"/>
     <id>https://zerohertz.github.io/boj-12100/</id>
-    <published>2023-01-24T02:22:18.000Z</published>
+    <published>2023-01-23T17:22:18.000Z</published>
     <updated>2023-08-11T10:15:01.078Z</updated>
     
     
@@ -1343,7 +1349,7 @@
     <title>BOJ: 3190</title>
     <link href="https://zerohertz.github.io/boj-3190/"/>
     <id>https://zerohertz.github.io/boj-3190/</id>
-    <published>2023-01-24T02:17:18.000Z</published>
+    <published>2023-01-23T17:17:18.000Z</published>
     <updated>2023-08-11T10:15:01.102Z</updated>
     
     
@@ -1372,7 +1378,7 @@
     <title>MLOps for MLE: Database</title>
     <link href="https://zerohertz.github.io/mlops-for-mle-database/"/>
     <id>https://zerohertz.github.io/mlops-for-mle-database/</id>
-    <published>2023-01-21T16:56:36.000Z</published>
+    <published>2023-01-21T07:56:36.000Z</published>
     <updated>2023-08-11T10:15:01.210Z</updated>
     
     
@@ -1406,7 +1412,7 @@
     <title>Deep Learning with PyTorch (1)</title>
     <link href="https://zerohertz.github.io/deep-learning-with-pytorch-1/"/>
     <id>https://zerohertz.github.io/deep-learning-with-pytorch-1/</id>
-    <published>2023-01-17T18:07:18.000Z</published>
+    <published>2023-01-17T09:07:18.000Z</published>
     <updated>2023-08-11T10:15:01.138Z</updated>
     
     
@@ -1433,7 +1439,7 @@
     <title>Building a Windows Server Infrastructure for Data Analysis</title>
     <link href="https://zerohertz.github.io/building-a-windows-server-infrastructure-for-data-analysis/"/>
     <id>https://zerohertz.github.io/building-a-windows-server-infrastructure-for-data-analysis/</id>
-    <published>2023-01-11T02:38:19.000Z</published>
+    <published>2023-01-10T17:38:19.000Z</published>
     <updated>2023-08-11T10:15:01.102Z</updated>
     
     
@@ -1462,7 +1468,7 @@
     <title>BOJ: 18185, 18186</title>
     <link href="https://zerohertz.github.io/boj-18185-18186/"/>
     <id>https://zerohertz.github.io/boj-18185-18186/</id>
-    <published>2022-12-28T15:14:52.000Z</published>
+    <published>2022-12-28T06:14:52.000Z</published>
     <updated>2023-08-11T10:15:01.090Z</updated>
     
     
@@ -1496,7 +1502,7 @@
     <title>Update Hexo NexT Blog</title>
     <link href="https://zerohertz.github.io/update-hexo-next-blog/"/>
     <id>https://zerohertz.github.io/update-hexo-next-blog/</id>
-    <published>2022-12-06T21:51:11.000Z</published>
+    <published>2022-12-06T12:51:11.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -1525,7 +1531,7 @@
     <title>대학원생 전세 대출 도전기</title>
     <link href="https://zerohertz.github.io/graduate-student-charter-loan-challenge-story/"/>
     <id>https://zerohertz.github.io/graduate-student-charter-loan-challenge-story/</id>
-    <published>2022-12-06T19:59:02.000Z</published>
+    <published>2022-12-06T10:59:02.000Z</published>
     <updated>2023-08-11T10:15:01.166Z</updated>
     
     
@@ -1569,7 +1575,7 @@
     <title>BOJ: 1005</title>
     <link href="https://zerohertz.github.io/boj-1005/"/>
     <id>https://zerohertz.github.io/boj-1005/</id>
-    <published>2022-11-29T22:05:49.000Z</published>
+    <published>2022-11-29T13:05:49.000Z</published>
     <updated>2023-08-11T10:15:01.074Z</updated>
     
     
@@ -1598,7 +1604,7 @@
     <title>BOJ: 2096</title>
     <link href="https://zerohertz.github.io/boj-2096/"/>
     <id>https://zerohertz.github.io/boj-2096/</id>
-    <published>2022-11-29T22:00:35.000Z</published>
+    <published>2022-11-29T13:00:35.000Z</published>
     <updated>2023-08-11T10:15:01.090Z</updated>
     
     
@@ -1621,7 +1627,7 @@
     <title>BOJ: 13460</title>
     <link href="https://zerohertz.github.io/boj-13460/"/>
     <id>https://zerohertz.github.io/boj-13460/</id>
-    <published>2022-11-15T20:02:29.000Z</published>
+    <published>2022-11-15T11:02:29.000Z</published>
     <updated>2023-08-11T10:15:01.082Z</updated>
     
     
@@ -1644,7 +1650,7 @@
     <title>BOJ: 1389</title>
     <link href="https://zerohertz.github.io/boj-1389/"/>
     <id>https://zerohertz.github.io/boj-1389/</id>
-    <published>2022-11-15T20:02:29.000Z</published>
+    <published>2022-11-15T11:02:29.000Z</published>
     <updated>2023-08-11T10:15:01.082Z</updated>
     
     
@@ -1667,7 +1673,7 @@
     <title>BOJ: 1707</title>
     <link href="https://zerohertz.github.io/boj-1707/"/>
     <id>https://zerohertz.github.io/boj-1707/</id>
-    <published>2022-11-15T20:02:29.000Z</published>
+    <published>2022-11-15T11:02:29.000Z</published>
     <updated>2023-08-11T10:15:01.090Z</updated>
     
     
@@ -1695,7 +1701,7 @@
     <title>BOJ: 2583</title>
     <link href="https://zerohertz.github.io/boj-2583/"/>
     <id>https://zerohertz.github.io/boj-2583/</id>
-    <published>2022-11-15T20:02:29.000Z</published>
+    <published>2022-11-15T11:02:29.000Z</published>
     <updated>2023-08-11T10:15:01.102Z</updated>
     
     
@@ -1718,7 +1724,7 @@
     <title>BOJ: 2644</title>
     <link href="https://zerohertz.github.io/boj-2644/"/>
     <id>https://zerohertz.github.io/boj-2644/</id>
-    <published>2022-11-15T20:02:29.000Z</published>
+    <published>2022-11-15T11:02:29.000Z</published>
     <updated>2023-08-11T10:15:01.102Z</updated>
     
     
@@ -1741,7 +1747,7 @@
     <title>BOJ: 1182</title>
     <link href="https://zerohertz.github.io/boj-1182/"/>
     <id>https://zerohertz.github.io/boj-1182/</id>
-    <published>2022-11-07T16:09:57.000Z</published>
+    <published>2022-11-07T07:09:57.000Z</published>
     <updated>2023-08-11T10:15:01.078Z</updated>
     
     
@@ -1764,7 +1770,7 @@
     <title>BOJ: 14889</title>
     <link href="https://zerohertz.github.io/boj-14889/"/>
     <id>https://zerohertz.github.io/boj-14889/</id>
-    <published>2022-11-07T16:09:57.000Z</published>
+    <published>2022-11-07T07:09:57.000Z</published>
     <updated>2023-08-11T10:15:01.082Z</updated>
     
     
@@ -1787,7 +1793,7 @@
     <title>BOJ: 15686</title>
     <link href="https://zerohertz.github.io/boj-15686/"/>
     <id>https://zerohertz.github.io/boj-15686/</id>
-    <published>2022-11-07T16:09:57.000Z</published>
+    <published>2022-11-07T07:09:57.000Z</published>
     <updated>2023-08-11T10:15:01.090Z</updated>
     
     
@@ -1810,7 +1816,7 @@
     <title>BOJ: 1759</title>
     <link href="https://zerohertz.github.io/boj-1759/"/>
     <id>https://zerohertz.github.io/boj-1759/</id>
-    <published>2022-11-07T16:09:57.000Z</published>
+    <published>2022-11-07T07:09:57.000Z</published>
     <updated>2023-08-11T10:15:01.090Z</updated>
     
     
@@ -1833,7 +1839,7 @@
     <title>BOJ: 2468</title>
     <link href="https://zerohertz.github.io/boj-2468/"/>
     <id>https://zerohertz.github.io/boj-2468/</id>
-    <published>2022-11-07T16:09:57.000Z</published>
+    <published>2022-11-07T07:09:57.000Z</published>
     <updated>2023-08-11T10:15:01.102Z</updated>
     
     
@@ -1856,7 +1862,7 @@
     <title>DFS and BFS</title>
     <link href="https://zerohertz.github.io/dfs-and-bfs/"/>
     <id>https://zerohertz.github.io/dfs-and-bfs/</id>
-    <published>2022-11-07T15:17:10.000Z</published>
+    <published>2022-11-07T06:17:10.000Z</published>
     <updated>2023-08-11T10:15:01.150Z</updated>
     
     
@@ -1900,7 +1906,7 @@
     <title>BOJ: 1053</title>
     <link href="https://zerohertz.github.io/boj-1053/"/>
     <id>https://zerohertz.github.io/boj-1053/</id>
-    <published>2022-11-03T10:30:15.000Z</published>
+    <published>2022-11-03T01:30:15.000Z</published>
     <updated>2023-08-11T10:15:01.074Z</updated>
     
     
@@ -1930,7 +1936,7 @@
     <title>BOJ: 1057</title>
     <link href="https://zerohertz.github.io/boj-1057/"/>
     <id>https://zerohertz.github.io/boj-1057/</id>
-    <published>2022-11-03T10:30:15.000Z</published>
+    <published>2022-11-03T01:30:15.000Z</published>
     <updated>2023-08-11T10:15:01.074Z</updated>
     
     
@@ -1953,7 +1959,7 @@
     <title>BOJ: 1058</title>
     <link href="https://zerohertz.github.io/boj-1058/"/>
     <id>https://zerohertz.github.io/boj-1058/</id>
-    <published>2022-11-03T10:30:15.000Z</published>
+    <published>2022-11-03T01:30:15.000Z</published>
     <updated>2023-08-11T10:15:01.074Z</updated>
     
     
@@ -1973,33 +1979,10 @@
   </entry>
   
   <entry>
-    <title>BOJ: 1062</title>
-    <link href="https://zerohertz.github.io/boj-1062/"/>
-    <id>https://zerohertz.github.io/boj-1062/</id>
-    <published>2022-11-03T10:30:15.000Z</published>
-    <updated>2023-08-11T10:15:01.078Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;남극에 사는 김지민 선생님은 학생들이 되도록이면 많은 단어를 읽을 수 있도록 하려고 한다. 그러나 지구온난화로 인해 얼음이 녹아서 곧 학교가 무너지기 때문에, 김지민은 K개의 글자를 가르칠 시간 밖에 없다. 김지민이 가르치고 난 후에는, 학생들은 그 K개의 글자로만 이루어진 단어만을 읽을 수 있다. 김지민은 어떤 K개의 글자를 가르쳐야 학생들이 읽을 수 있는 단어의 개수가 최대가 되는지 고민에 빠졌다.&lt;br&gt;남극언어의 모든 단어는 “anta”로 시작되고, “tica”로 끝난다. 남극언어에 단어는 N개 밖에 없다고 가정한다. 학생들이 읽을 수 있는 단어의 최댓값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 단어의 개수 N과 K가 주어진다. N은 50보다 작거나 같은 자연수이고, K는 26보다 작거나 같은 자연수 또는 0이다. 둘째 줄부터 N개의 줄에 남극 언어의 단어가 주어진다. 단어는 영어 소문자로만 이루어져 있고, 길이가 8보다 크거나 같고, 15보다 작거나 같다. 모든 단어는 중복되지 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민이 K개의 글자를 가르칠 때, 학생들이 읽을 수 있는 단어 개수의 최댓값을 출력한다.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="3. Algorithm" scheme="https://zerohertz.github.io/categories/3-algorithm/"/>
-    
-    
-    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
-    
-    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
-    
-  </entry>
-  
-  <entry>
     <title>BOJ: 1059</title>
     <link href="https://zerohertz.github.io/boj-1059/"/>
     <id>https://zerohertz.github.io/boj-1059/</id>
-    <published>2022-11-03T10:30:15.000Z</published>
+    <published>2022-11-03T01:30:15.000Z</published>
     <updated>2023-08-11T10:15:01.074Z</updated>
     
     
@@ -2030,10 +2013,33 @@
   </entry>
   
   <entry>
+    <title>BOJ: 1062</title>
+    <link href="https://zerohertz.github.io/boj-1062/"/>
+    <id>https://zerohertz.github.io/boj-1062/</id>
+    <published>2022-11-03T01:30:15.000Z</published>
+    <updated>2023-08-11T10:15:01.078Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;남극에 사는 김지민 선생님은 학생들이 되도록이면 많은 단어를 읽을 수 있도록 하려고 한다. 그러나 지구온난화로 인해 얼음이 녹아서 곧 학교가 무너지기 때문에, 김지민은 K개의 글자를 가르칠 시간 밖에 없다. 김지민이 가르치고 난 후에는, 학생들은 그 K개의 글자로만 이루어진 단어만을 읽을 수 있다. 김지민은 어떤 K개의 글자를 가르쳐야 학생들이 읽을 수 있는 단어의 개수가 최대가 되는지 고민에 빠졌다.&lt;br&gt;남극언어의 모든 단어는 “anta”로 시작되고, “tica”로 끝난다. 남극언어에 단어는 N개 밖에 없다고 가정한다. 학생들이 읽을 수 있는 단어의 최댓값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 단어의 개수 N과 K가 주어진다. N은 50보다 작거나 같은 자연수이고, K는 26보다 작거나 같은 자연수 또는 0이다. 둘째 줄부터 N개의 줄에 남극 언어의 단어가 주어진다. 단어는 영어 소문자로만 이루어져 있고, 길이가 8보다 크거나 같고, 15보다 작거나 같다. 모든 단어는 중복되지 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민이 K개의 글자를 가르칠 때, 학생들이 읽을 수 있는 단어 개수의 최댓값을 출력한다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="3. Algorithm" scheme="https://zerohertz.github.io/categories/3-algorithm/"/>
+    
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BOJ: 1213</title>
     <link href="https://zerohertz.github.io/boj-1213/"/>
     <id>https://zerohertz.github.io/boj-1213/</id>
-    <published>2022-10-24T23:24:10.000Z</published>
+    <published>2022-10-24T14:24:10.000Z</published>
     <updated>2023-08-11T10:15:01.078Z</updated>
     
     
@@ -2056,7 +2062,7 @@
     <title>BOJ: 1700</title>
     <link href="https://zerohertz.github.io/boj-1700/"/>
     <id>https://zerohertz.github.io/boj-1700/</id>
-    <published>2022-10-24T23:24:10.000Z</published>
+    <published>2022-10-24T14:24:10.000Z</published>
     <updated>2023-08-11T10:15:01.090Z</updated>
     
     
@@ -2088,7 +2094,7 @@
     <title>BOJ: 1783</title>
     <link href="https://zerohertz.github.io/boj-1783/"/>
     <id>https://zerohertz.github.io/boj-1783/</id>
-    <published>2022-10-24T23:24:10.000Z</published>
+    <published>2022-10-24T14:24:10.000Z</published>
     <updated>2023-08-11T10:15:01.090Z</updated>
     
     
@@ -2118,7 +2124,7 @@
     <title>BOJ: 2847</title>
     <link href="https://zerohertz.github.io/boj-2847/"/>
     <id>https://zerohertz.github.io/boj-2847/</id>
-    <published>2022-10-24T23:24:10.000Z</published>
+    <published>2022-10-24T14:24:10.000Z</published>
     <updated>2023-08-11T10:15:01.102Z</updated>
     
     
@@ -2141,7 +2147,7 @@
     <title>BOJ: 3109</title>
     <link href="https://zerohertz.github.io/boj-3109/"/>
     <id>https://zerohertz.github.io/boj-3109/</id>
-    <published>2022-10-24T23:24:10.000Z</published>
+    <published>2022-10-24T14:24:10.000Z</published>
     <updated>2023-08-11T10:15:01.102Z</updated>
     
     
@@ -2164,7 +2170,7 @@
     <title>BOJ: 1080</title>
     <link href="https://zerohertz.github.io/boj-1080/"/>
     <id>https://zerohertz.github.io/boj-1080/</id>
-    <published>2022-10-01T15:46:57.000Z</published>
+    <published>2022-10-01T06:46:57.000Z</published>
     <updated>2023-08-11T10:15:01.078Z</updated>
     
     
@@ -2187,7 +2193,7 @@
     <title>BOJ: 11000</title>
     <link href="https://zerohertz.github.io/boj-11000/"/>
     <id>https://zerohertz.github.io/boj-11000/</id>
-    <published>2022-10-01T15:46:57.000Z</published>
+    <published>2022-10-01T06:46:57.000Z</published>
     <updated>2023-08-11T10:15:01.078Z</updated>
     
     
@@ -2210,7 +2216,7 @@
     <title>BOJ: 1449</title>
     <link href="https://zerohertz.github.io/boj-1449/"/>
     <id>https://zerohertz.github.io/boj-1449/</id>
-    <published>2022-10-01T15:46:57.000Z</published>
+    <published>2022-10-01T06:46:57.000Z</published>
     <updated>2023-08-11T10:15:01.082Z</updated>
     
     
@@ -2233,7 +2239,7 @@
     <title>BOJ: 1543</title>
     <link href="https://zerohertz.github.io/boj-1543/"/>
     <id>https://zerohertz.github.io/boj-1543/</id>
-    <published>2022-10-01T15:46:57.000Z</published>
+    <published>2022-10-01T06:46:57.000Z</published>
     <updated>2023-08-11T10:15:01.082Z</updated>
     
     
@@ -2256,7 +2262,7 @@
     <title>BOJ: 2473</title>
     <link href="https://zerohertz.github.io/boj-2473/"/>
     <id>https://zerohertz.github.io/boj-2473/</id>
-    <published>2022-10-01T15:46:57.000Z</published>
+    <published>2022-10-01T06:46:57.000Z</published>
     <updated>2023-08-11T10:15:01.094Z</updated>
     
     
@@ -2279,7 +2285,7 @@
     <title>Paper Review: GANILLA</title>
     <link href="https://zerohertz.github.io/paper-review-ganilla/"/>
     <id>https://zerohertz.github.io/paper-review-ganilla/</id>
-    <published>2022-08-21T16:24:40.000Z</published>
+    <published>2022-08-21T07:24:40.000Z</published>
     <updated>2023-08-11T10:15:01.230Z</updated>
     
     
@@ -2333,7 +2339,7 @@
     <title>Hands-on Machine Learning (5)</title>
     <link href="https://zerohertz.github.io/hands-on-machine-learning-5/"/>
     <id>https://zerohertz.github.io/hands-on-machine-learning-5/</id>
-    <published>2022-08-15T16:19:00.000Z</published>
+    <published>2022-08-15T07:19:00.000Z</published>
     <updated>2023-08-11T10:15:01.170Z</updated>
     
     
@@ -2364,7 +2370,7 @@
     <title>Generative Adversarial Network (6)</title>
     <link href="https://zerohertz.github.io/generative-adversarial-network-6/"/>
     <id>https://zerohertz.github.io/generative-adversarial-network-6/</id>
-    <published>2022-08-14T02:03:59.000Z</published>
+    <published>2022-08-13T17:03:59.000Z</published>
     <updated>2023-08-11T10:15:01.154Z</updated>
     
     
@@ -2404,7 +2410,7 @@
     <title>Hands-on Machine Learning (4)</title>
     <link href="https://zerohertz.github.io/hands-on-machine-learning-4/"/>
     <id>https://zerohertz.github.io/hands-on-machine-learning-4/</id>
-    <published>2022-08-11T15:33:19.000Z</published>
+    <published>2022-08-11T06:33:19.000Z</published>
     <updated>2023-08-11T10:15:01.166Z</updated>
     
     
@@ -2437,7 +2443,7 @@
     <title>Generative Adversarial Network (5)</title>
     <link href="https://zerohertz.github.io/generative-adversarial-network-5/"/>
     <id>https://zerohertz.github.io/generative-adversarial-network-5/</id>
-    <published>2022-08-08T23:29:52.000Z</published>
+    <published>2022-08-08T14:29:52.000Z</published>
     <updated>2023-08-11T10:15:01.158Z</updated>
     
     
@@ -2464,7 +2470,7 @@
     <title>Generative Adversarial Network (4)</title>
     <link href="https://zerohertz.github.io/generative-adversarial-network-4/"/>
     <id>https://zerohertz.github.io/generative-adversarial-network-4/</id>
-    <published>2022-08-06T18:35:21.000Z</published>
+    <published>2022-08-06T09:35:21.000Z</published>
     <updated>2023-08-11T10:15:01.154Z</updated>
     
     
@@ -2503,7 +2509,7 @@
     <title>Hands-on Machine Learning (3)</title>
     <link href="https://zerohertz.github.io/hands-on-machine-learning-3/"/>
     <id>https://zerohertz.github.io/hands-on-machine-learning-3/</id>
-    <published>2022-08-02T14:03:45.000Z</published>
+    <published>2022-08-02T05:03:45.000Z</published>
     <updated>2023-08-11T10:15:01.170Z</updated>
     
     
@@ -2535,7 +2541,7 @@
     <title>Generative Adversarial Network (3)</title>
     <link href="https://zerohertz.github.io/generative-adversarial-network-3/"/>
     <id>https://zerohertz.github.io/generative-adversarial-network-3/</id>
-    <published>2022-07-26T23:17:37.000Z</published>
+    <published>2022-07-26T14:17:37.000Z</published>
     <updated>2023-08-11T10:15:01.154Z</updated>
     
     
@@ -2567,7 +2573,7 @@
     <title>Hands-on Machine Learning (2)</title>
     <link href="https://zerohertz.github.io/hands-on-machine-learning-2/"/>
     <id>https://zerohertz.github.io/hands-on-machine-learning-2/</id>
-    <published>2022-07-25T19:30:55.000Z</published>
+    <published>2022-07-25T10:30:55.000Z</published>
     <updated>2023-08-11T10:15:01.166Z</updated>
     
     
@@ -2599,7 +2605,7 @@
     <title>Queue and Stack</title>
     <link href="https://zerohertz.github.io/queue-and-stack/"/>
     <id>https://zerohertz.github.io/queue-and-stack/</id>
-    <published>2022-07-21T15:20:14.000Z</published>
+    <published>2022-07-21T06:20:14.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -2647,7 +2653,7 @@
     <title>Generative Adversarial Network (2)</title>
     <link href="https://zerohertz.github.io/generative-adversarial-network-2/"/>
     <id>https://zerohertz.github.io/generative-adversarial-network-2/</id>
-    <published>2022-07-20T14:59:06.000Z</published>
+    <published>2022-07-20T05:59:06.000Z</published>
     <updated>2023-08-11T10:15:01.154Z</updated>
     
     
@@ -2679,7 +2685,7 @@
     <title>Generative Adversarial Network (1)</title>
     <link href="https://zerohertz.github.io/generative-adversarial-network-1/"/>
     <id>https://zerohertz.github.io/generative-adversarial-network-1/</id>
-    <published>2022-07-19T18:51:06.000Z</published>
+    <published>2022-07-19T09:51:06.000Z</published>
     <updated>2023-08-11T10:15:01.154Z</updated>
     
     
@@ -2713,7 +2719,7 @@
     <title>Hands-on Machine Learning (1)</title>
     <link href="https://zerohertz.github.io/hands-on-machine-learning-1/"/>
     <id>https://zerohertz.github.io/hands-on-machine-learning-1/</id>
-    <published>2022-07-14T16:11:21.000Z</published>
+    <published>2022-07-14T07:11:21.000Z</published>
     <updated>2023-08-11T10:15:01.166Z</updated>
     
     
@@ -2735,7 +2741,7 @@
     <title>Getting Started with Jupyter Notebook</title>
     <link href="https://zerohertz.github.io/getting-started-with-jupyter-notebook/"/>
     <id>https://zerohertz.github.io/getting-started-with-jupyter-notebook/</id>
-    <published>2022-07-11T22:20:58.000Z</published>
+    <published>2022-07-11T13:20:58.000Z</published>
     <updated>2023-08-11T10:15:01.158Z</updated>
     
     
@@ -2758,7 +2764,7 @@
     <title>Simulation of Temperature Distribution of Material in Dryer</title>
     <link href="https://zerohertz.github.io/simulation-of-temperature-distribution-of-material-in-dryer/"/>
     <id>https://zerohertz.github.io/simulation-of-temperature-distribution-of-material-in-dryer/</id>
-    <published>2022-04-12T17:00:27.000Z</published>
+    <published>2022-04-12T08:00:27.000Z</published>
     <updated>2023-08-11T10:15:01.258Z</updated>
     
     
@@ -2788,7 +2794,7 @@
     <title>Analysis of Many Bodies in One Part with ANSYS ACT</title>
     <link href="https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/"/>
     <id>https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/</id>
-    <published>2022-03-29T13:17:15.000Z</published>
+    <published>2022-03-29T04:17:15.000Z</published>
     <updated>2023-08-11T10:15:01.062Z</updated>
     
     
@@ -2820,7 +2826,7 @@
     <title>The Lateral Dynamics of a Moving Web</title>
     <link href="https://zerohertz.github.io/the-lateral-dynamics-of-a-moving-web/"/>
     <id>https://zerohertz.github.io/the-lateral-dynamics-of-a-moving-web/</id>
-    <published>2022-02-17T13:58:40.000Z</published>
+    <published>2022-02-17T04:58:40.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -2841,7 +2847,7 @@
     <title>A Review of Existing Study on the Geometric Quality Prognosis in Roll-to-Roll Slot-die Coating Process</title>
     <link href="https://zerohertz.github.io/a-review-of-existing-studies-on-the-geometric-quality-prognosis-in-roll-to-roll-slot-die-coating-process/"/>
     <id>https://zerohertz.github.io/a-review-of-existing-studies-on-the-geometric-quality-prognosis-in-roll-to-roll-slot-die-coating-process/</id>
-    <published>2022-02-16T14:22:48.000Z</published>
+    <published>2022-02-16T05:22:48.000Z</published>
     <updated>2023-08-11T10:15:01.062Z</updated>
     
     
@@ -2864,7 +2870,7 @@
     <title>Vision Data Acquisition MATLAB Source Code using GigE Vision CMOS Camera</title>
     <link href="https://zerohertz.github.io/vision-data-acquisition-matlab-source-code-using-gige-vision-cmos-camera/"/>
     <id>https://zerohertz.github.io/vision-data-acquisition-matlab-source-code-using-gige-vision-cmos-camera/</id>
-    <published>2022-01-04T23:39:26.000Z</published>
+    <published>2022-01-04T14:39:26.000Z</published>
     <updated>2023-08-11T10:15:01.278Z</updated>
     
     
@@ -2907,7 +2913,7 @@
     <title>Neural Network Example</title>
     <link href="https://zerohertz.github.io/neural-network-example/"/>
     <id>https://zerohertz.github.io/neural-network-example/</id>
-    <published>2021-09-09T17:31:51.000Z</published>
+    <published>2021-09-09T08:31:51.000Z</published>
     <updated>2023-08-11T10:15:01.222Z</updated>
     
     
@@ -2932,7 +2938,7 @@
     <title>Machine Learning</title>
     <link href="https://zerohertz.github.io/machine-learning/"/>
     <id>https://zerohertz.github.io/machine-learning/</id>
-    <published>2021-09-01T15:14:11.000Z</published>
+    <published>2021-09-01T06:14:11.000Z</published>
     <updated>2023-08-11T10:15:01.190Z</updated>
     
     
@@ -2973,7 +2979,7 @@
     <title>Setting Up Virtual Environment for PyTorch</title>
     <link href="https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/"/>
     <id>https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/</id>
-    <published>2021-09-01T14:04:31.000Z</published>
+    <published>2021-09-01T05:04:31.000Z</published>
     <updated>2023-08-11T10:15:01.254Z</updated>
     
     
@@ -3004,7 +3010,7 @@ new GDemo(&#39;#terminal&#39;)
     <title>Telegram Bot using Web Crawler based on Selenium</title>
     <link href="https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/"/>
     <id>https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/</id>
-    <published>2021-08-13T11:31:38.000Z</published>
+    <published>2021-08-13T02:31:38.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -3028,7 +3034,7 @@ new GDemo(&#39;#terminal&#39;)
     <title>Numpy</title>
     <link href="https://zerohertz.github.io/numpy/"/>
     <id>https://zerohertz.github.io/numpy/</id>
-    <published>2021-02-28T16:12:55.000Z</published>
+    <published>2021-02-28T07:12:55.000Z</published>
     <updated>2023-08-11T10:15:01.226Z</updated>
     
     
@@ -3059,7 +3065,7 @@ new GDemo(&#39;#python&#39;)
     <title>Exporting AI Model to C++ from MATLAB</title>
     <link href="https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/"/>
     <id>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</id>
-    <published>2021-02-26T13:15:06.000Z</published>
+    <published>2021-02-26T04:15:06.000Z</published>
     <updated>2023-08-11T10:15:01.150Z</updated>
     
     
@@ -3104,7 +3110,7 @@ new GDemo(&#39;#python&#39;)
     <title>App Designer</title>
     <link href="https://zerohertz.github.io/app-designer/"/>
     <id>https://zerohertz.github.io/app-designer/</id>
-    <published>2021-01-20T11:39:36.000Z</published>
+    <published>2021-01-20T02:39:36.000Z</published>
     <updated>2023-08-11T10:15:01.062Z</updated>
     
     
@@ -3127,7 +3133,7 @@ new GDemo(&#39;#python&#39;)
     <title>Development of a Obstructive Sleep Apnea Diagnosis Algorithm using HRV</title>
     <link href="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/"/>
     <id>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</id>
-    <published>2021-01-14T11:28:10.000Z</published>
+    <published>2021-01-14T02:28:10.000Z</published>
     <updated>2023-08-11T10:15:01.142Z</updated>
     
     
@@ -3156,7 +3162,7 @@ new GDemo(&#39;#python&#39;)
     <title>Jupyter Notebook in Raspberry Pi</title>
     <link href="https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/"/>
     <id>https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</id>
-    <published>2020-09-19T12:38:28.000Z</published>
+    <published>2020-09-19T03:38:28.000Z</published>
     <updated>2023-08-11T10:15:01.186Z</updated>
     
     
@@ -3177,7 +3183,7 @@ new GDemo(&#39;#python&#39;)
     <title>라즈베리파이로 간단한 서버 만들기</title>
     <link href="https://zerohertz.github.io/raspberry-pi-server/"/>
     <id>https://zerohertz.github.io/raspberry-pi-server/</id>
-    <published>2020-09-18T20:29:40.000Z</published>
+    <published>2020-09-18T11:29:40.000Z</published>
     <updated>2023-08-11T10:15:01.254Z</updated>
     
     
@@ -3200,7 +3206,7 @@ new GDemo(&#39;#python&#39;)
     <title>CAM and CNC</title>
     <link href="https://zerohertz.github.io/cam-and-cnc/"/>
     <id>https://zerohertz.github.io/cam-and-cnc/</id>
-    <published>2020-09-02T13:19:07.000Z</published>
+    <published>2020-09-02T04:19:07.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -3265,7 +3271,7 @@ new GDemo(&#39;#python&#39;)
     <title>Political Science</title>
     <link href="https://zerohertz.github.io/political-science/"/>
     <id>https://zerohertz.github.io/political-science/</id>
-    <published>2020-09-02T13:18:06.000Z</published>
+    <published>2020-09-02T04:18:06.000Z</published>
     <updated>2023-08-11T10:15:01.234Z</updated>
     
     
@@ -3296,7 +3302,7 @@ new GDemo(&#39;#python&#39;)
     <title>hexo-generator-redirect</title>
     <link href="https://zerohertz.github.io/hexo-generator-redirect/"/>
     <id>https://zerohertz.github.io/hexo-generator-redirect/</id>
-    <published>2020-08-20T20:46:01.000Z</published>
+    <published>2020-08-20T11:46:01.000Z</published>
     <updated>2023-08-11T10:15:01.170Z</updated>
     
     
@@ -3326,7 +3332,7 @@ new GDemo(&#39;#zerohertz2&#39;)
     <title>hexo-generator-alias</title>
     <link href="https://zerohertz.github.io/hexo-generator-alias/"/>
     <id>https://zerohertz.github.io/hexo-generator-alias/</id>
-    <published>2020-08-20T12:04:41.000Z</published>
+    <published>2020-08-20T03:04:41.000Z</published>
     <updated>2023-08-11T10:15:01.170Z</updated>
     
     
@@ -3356,7 +3362,7 @@ new GDemo(&#39;#zerohertz1&#39;)
     <title>Serial Communication (Arduino to RaspberryPi)</title>
     <link href="https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/"/>
     <id>https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/</id>
-    <published>2020-08-18T13:24:03.000Z</published>
+    <published>2020-08-18T04:24:03.000Z</published>
     <updated>2023-08-11T10:15:01.254Z</updated>
     
     
@@ -3392,7 +3398,7 @@ new GDemo(&#39;#zerohertz&#39;)
     <title>Arduino Nano 33 BLE</title>
     <link href="https://zerohertz.github.io/arduino-nano-33-ble/"/>
     <id>https://zerohertz.github.io/arduino-nano-33-ble/</id>
-    <published>2020-08-12T00:08:38.000Z</published>
+    <published>2020-08-11T15:08:38.000Z</published>
     <updated>2023-08-11T10:15:01.074Z</updated>
     
     
@@ -3441,7 +3447,7 @@ new GDemo(&#39;#zerohertz&#39;)
     <title>LabVIEW</title>
     <link href="https://zerohertz.github.io/labview/"/>
     <id>https://zerohertz.github.io/labview/</id>
-    <published>2020-08-06T14:03:22.000Z</published>
+    <published>2020-08-06T05:03:22.000Z</published>
     <updated>2023-08-11T10:15:01.190Z</updated>
     
     
@@ -3466,7 +3472,7 @@ new GDemo(&#39;#zerohertz&#39;)
     <title>hexo-tag-gdemo</title>
     <link href="https://zerohertz.github.io/hexo-tag-gdemo/"/>
     <id>https://zerohertz.github.io/hexo-tag-gdemo/</id>
-    <published>2020-07-28T22:01:03.000Z</published>
+    <published>2020-07-28T13:01:03.000Z</published>
     <updated>2023-08-11T10:15:01.174Z</updated>
     
     
@@ -3495,7 +3501,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration</title>
     <link href="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/"/>
     <id>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/</id>
-    <published>2020-07-27T18:27:01.000Z</published>
+    <published>2020-07-27T09:27:01.000Z</published>
     <updated>2023-08-11T10:15:01.142Z</updated>
     
     
@@ -3524,7 +3530,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (12)</title>
     <link href="https://zerohertz.github.io/matlab-12/"/>
     <id>https://zerohertz.github.io/matlab-12/</id>
-    <published>2020-07-17T16:07:02.000Z</published>
+    <published>2020-07-17T07:07:02.000Z</published>
     <updated>2023-08-11T10:15:01.206Z</updated>
     
     
@@ -3547,7 +3553,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Catia</title>
     <link href="https://zerohertz.github.io/catia/"/>
     <id>https://zerohertz.github.io/catia/</id>
-    <published>2020-07-07T14:26:44.000Z</published>
+    <published>2020-07-07T05:26:44.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -3580,7 +3586,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ (4)</title>
     <link href="https://zerohertz.github.io/cpp-4/"/>
     <id>https://zerohertz.github.io/cpp-4/</id>
-    <published>2020-07-06T10:10:47.000Z</published>
+    <published>2020-07-06T01:10:47.000Z</published>
     <updated>2023-08-11T10:15:01.138Z</updated>
     
     
@@ -3604,7 +3610,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ (3)</title>
     <link href="https://zerohertz.github.io/cpp-3/"/>
     <id>https://zerohertz.github.io/cpp-3/</id>
-    <published>2020-07-06T10:10:46.000Z</published>
+    <published>2020-07-06T01:10:46.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -3644,7 +3650,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ (2)</title>
     <link href="https://zerohertz.github.io/cpp-2/"/>
     <id>https://zerohertz.github.io/cpp-2/</id>
-    <published>2020-07-06T10:10:45.000Z</published>
+    <published>2020-07-06T01:10:45.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -3668,7 +3674,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ (1)</title>
     <link href="https://zerohertz.github.io/cpp-1/"/>
     <id>https://zerohertz.github.io/cpp-1/</id>
-    <published>2020-07-06T10:10:44.000Z</published>
+    <published>2020-07-06T01:10:44.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -3726,7 +3732,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++: Selection and Iteration</title>
     <link href="https://zerohertz.github.io/cpp-selection-and-iteration/"/>
     <id>https://zerohertz.github.io/cpp-selection-and-iteration/</id>
-    <published>2020-07-02T15:30:43.000Z</published>
+    <published>2020-07-02T06:30:43.000Z</published>
     <updated>2023-08-11T10:15:01.138Z</updated>
     
     
@@ -3759,7 +3765,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++: Data Types and Operations</title>
     <link href="https://zerohertz.github.io/cpp-data-types-and-operations/"/>
     <id>https://zerohertz.github.io/cpp-data-types-and-operations/</id>
-    <published>2020-07-01T16:24:22.000Z</published>
+    <published>2020-07-01T07:24:22.000Z</published>
     <updated>2023-08-11T10:15:01.138Z</updated>
     
     
@@ -3794,7 +3800,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Introduction of C++</title>
     <link href="https://zerohertz.github.io/introduction-of-c/"/>
     <id>https://zerohertz.github.io/introduction-of-c/</id>
-    <published>2020-07-01T13:32:51.000Z</published>
+    <published>2020-07-01T04:32:51.000Z</published>
     <updated>2023-08-11T10:15:01.186Z</updated>
     
     
@@ -3818,7 +3824,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawler for eCampus by Selenium</title>
     <link href="https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/"/>
     <id>https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/</id>
-    <published>2020-04-19T04:40:15.000Z</published>
+    <published>2020-04-18T19:40:15.000Z</published>
     <updated>2023-08-11T10:15:01.278Z</updated>
     
     
@@ -3841,7 +3847,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Mass Media</title>
     <link href="https://zerohertz.github.io/mass-media/"/>
     <id>https://zerohertz.github.io/mass-media/</id>
-    <published>2020-03-27T13:33:14.000Z</published>
+    <published>2020-03-27T04:33:14.000Z</published>
     <updated>2023-08-11T10:15:01.194Z</updated>
     
     
@@ -3878,7 +3884,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Economics</title>
     <link href="https://zerohertz.github.io/economics/"/>
     <id>https://zerohertz.github.io/economics/</id>
-    <published>2020-03-27T13:32:46.000Z</published>
+    <published>2020-03-27T04:32:46.000Z</published>
     <updated>2023-08-11T10:15:01.142Z</updated>
     
     
@@ -3908,7 +3914,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Manufacturing Process</title>
     <link href="https://zerohertz.github.io/manufacturing-process/"/>
     <id>https://zerohertz.github.io/manufacturing-process/</id>
-    <published>2020-03-27T11:12:34.000Z</published>
+    <published>2020-03-27T02:12:34.000Z</published>
     <updated>2023-08-11T10:15:01.194Z</updated>
     
     
@@ -3959,7 +3965,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Source Code for Extracting CIs</title>
     <link href="https://zerohertz.github.io/source-code-for-extracting-cis/"/>
     <id>https://zerohertz.github.io/source-code-for-extracting-cis/</id>
-    <published>2020-03-18T12:14:38.000Z</published>
+    <published>2020-03-18T03:14:38.000Z</published>
     <updated>2023-08-11T10:15:01.258Z</updated>
     
     
@@ -3982,7 +3988,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Word</title>
     <link href="https://zerohertz.github.io/word/"/>
     <id>https://zerohertz.github.io/word/</id>
-    <published>2020-01-29T14:32:05.000Z</published>
+    <published>2020-01-29T05:32:05.000Z</published>
     <updated>2023-08-11T10:15:01.282Z</updated>
     
     
@@ -3999,7 +4005,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R Final-term</title>
     <link href="https://zerohertz.github.io/r-final-term/"/>
     <id>https://zerohertz.github.io/r-final-term/</id>
-    <published>2020-01-16T12:36:15.000Z</published>
+    <published>2020-01-16T03:36:15.000Z</published>
     <updated>2023-08-11T10:15:01.254Z</updated>
     
     
@@ -4029,7 +4035,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Normality Test</title>
     <link href="https://zerohertz.github.io/normality-test/"/>
     <id>https://zerohertz.github.io/normality-test/</id>
-    <published>2020-01-10T13:57:42.000Z</published>
+    <published>2020-01-10T04:57:42.000Z</published>
     <updated>2023-08-11T10:15:01.222Z</updated>
     
     
@@ -4052,7 +4058,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>mathjax test</title>
     <link href="https://zerohertz.github.io/mathjax-test/"/>
     <id>https://zerohertz.github.io/mathjax-test/</id>
-    <published>2020-01-09T17:29:09.000Z</published>
+    <published>2020-01-09T08:29:09.000Z</published>
     <updated>2023-08-11T10:15:01.194Z</updated>
     
     
@@ -4080,7 +4086,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Statistics</title>
     <link href="https://zerohertz.github.io/statistics/"/>
     <id>https://zerohertz.github.io/statistics/</id>
-    <published>2020-01-07T14:03:55.000Z</published>
+    <published>2020-01-07T05:03:55.000Z</published>
     <updated>2023-08-11T10:15:01.258Z</updated>
     
     
@@ -4110,7 +4116,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R Mid-term</title>
     <link href="https://zerohertz.github.io/r-mid-term/"/>
     <id>https://zerohertz.github.io/r-mid-term/</id>
-    <published>2020-01-06T01:06:20.000Z</published>
+    <published>2020-01-05T16:06:20.000Z</published>
     <updated>2023-08-11T10:15:01.254Z</updated>
     
     
@@ -4133,7 +4139,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R (6)</title>
     <link href="https://zerohertz.github.io/r-6/"/>
     <id>https://zerohertz.github.io/r-6/</id>
-    <published>2020-01-02T13:49:34.000Z</published>
+    <published>2020-01-02T04:49:34.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -4156,7 +4162,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R (5)</title>
     <link href="https://zerohertz.github.io/r-5/"/>
     <id>https://zerohertz.github.io/r-5/</id>
-    <published>2019-12-31T13:54:29.000Z</published>
+    <published>2019-12-31T04:54:29.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -4179,7 +4185,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R (4)</title>
     <link href="https://zerohertz.github.io/r-4/"/>
     <id>https://zerohertz.github.io/r-4/</id>
-    <published>2019-12-30T13:22:49.000Z</published>
+    <published>2019-12-30T04:22:49.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -4202,7 +4208,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Venture</title>
     <link href="https://zerohertz.github.io/venture/"/>
     <id>https://zerohertz.github.io/venture/</id>
-    <published>2019-12-30T12:45:47.000Z</published>
+    <published>2019-12-30T03:45:47.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -4237,7 +4243,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R (3)</title>
     <link href="https://zerohertz.github.io/r-3/"/>
     <id>https://zerohertz.github.io/r-3/</id>
-    <published>2019-12-27T12:00:00.000Z</published>
+    <published>2019-12-27T03:00:00.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -4260,7 +4266,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R (2)</title>
     <link href="https://zerohertz.github.io/r-2/"/>
     <id>https://zerohertz.github.io/r-2/</id>
-    <published>2019-12-26T13:32:56.000Z</published>
+    <published>2019-12-26T04:32:56.000Z</published>
     <updated>2023-08-11T10:15:01.242Z</updated>
     
     
@@ -4287,7 +4293,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>R (1)</title>
     <link href="https://zerohertz.github.io/r-1/"/>
     <id>https://zerohertz.github.io/r-1/</id>
-    <published>2019-12-24T16:09:20.000Z</published>
+    <published>2019-12-24T07:09:20.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -4310,7 +4316,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (11)</title>
     <link href="https://zerohertz.github.io/matlab-11/"/>
     <id>https://zerohertz.github.io/matlab-11/</id>
-    <published>2019-12-24T16:09:01.000Z</published>
+    <published>2019-12-24T07:09:01.000Z</published>
     <updated>2023-08-11T10:15:01.202Z</updated>
     
     
@@ -4331,7 +4337,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (10)</title>
     <link href="https://zerohertz.github.io/matlab-10/"/>
     <id>https://zerohertz.github.io/matlab-10/</id>
-    <published>2019-12-04T15:10:01.000Z</published>
+    <published>2019-12-04T06:10:01.000Z</published>
     <updated>2023-08-11T10:15:01.206Z</updated>
     
     
@@ -4352,7 +4358,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (9)</title>
     <link href="https://zerohertz.github.io/matlab-9/"/>
     <id>https://zerohertz.github.io/matlab-9/</id>
-    <published>2019-11-27T14:59:48.000Z</published>
+    <published>2019-11-27T05:59:48.000Z</published>
     <updated>2023-08-11T10:15:01.210Z</updated>
     
     
@@ -4377,7 +4383,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (8)</title>
     <link href="https://zerohertz.github.io/matlab-8/"/>
     <id>https://zerohertz.github.io/matlab-8/</id>
-    <published>2019-11-27T14:09:33.000Z</published>
+    <published>2019-11-27T05:09:33.000Z</published>
     <updated>2023-08-11T10:15:01.210Z</updated>
     
     
@@ -4398,7 +4404,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (7)</title>
     <link href="https://zerohertz.github.io/matlab-7/"/>
     <id>https://zerohertz.github.io/matlab-7/</id>
-    <published>2019-11-24T22:19:10.000Z</published>
+    <published>2019-11-24T13:19:10.000Z</published>
     <updated>2023-08-11T10:15:01.210Z</updated>
     
     
@@ -4419,7 +4425,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (6)</title>
     <link href="https://zerohertz.github.io/matlab-6/"/>
     <id>https://zerohertz.github.io/matlab-6/</id>
-    <published>2019-11-13T14:54:38.000Z</published>
+    <published>2019-11-13T05:54:38.000Z</published>
     <updated>2023-08-11T10:15:01.206Z</updated>
     
     
@@ -4440,7 +4446,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (5)</title>
     <link href="https://zerohertz.github.io/matlab-5/"/>
     <id>https://zerohertz.github.io/matlab-5/</id>
-    <published>2019-11-06T15:00:04.000Z</published>
+    <published>2019-11-06T06:00:04.000Z</published>
     <updated>2023-08-11T10:15:01.206Z</updated>
     
     
@@ -4464,7 +4470,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (4)</title>
     <link href="https://zerohertz.github.io/matlab-4/"/>
     <id>https://zerohertz.github.io/matlab-4/</id>
-    <published>2019-10-16T15:07:36.000Z</published>
+    <published>2019-10-16T06:07:36.000Z</published>
     <updated>2023-08-11T10:15:01.206Z</updated>
     
     
@@ -4488,7 +4494,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (3)</title>
     <link href="https://zerohertz.github.io/matlab-3/"/>
     <id>https://zerohertz.github.io/matlab-3/</id>
-    <published>2019-10-02T14:44:52.000Z</published>
+    <published>2019-10-02T05:44:52.000Z</published>
     <updated>2023-08-11T10:15:01.206Z</updated>
     
     
@@ -4509,7 +4515,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (2)</title>
     <link href="https://zerohertz.github.io/matlab-2/"/>
     <id>https://zerohertz.github.io/matlab-2/</id>
-    <published>2019-10-02T14:35:16.000Z</published>
+    <published>2019-10-02T05:35:16.000Z</published>
     <updated>2023-08-11T10:15:01.206Z</updated>
     
     
@@ -4532,7 +4538,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>MATLAB (1)</title>
     <link href="https://zerohertz.github.io/matlab-1/"/>
     <id>https://zerohertz.github.io/matlab-1/</id>
-    <published>2019-09-18T14:54:14.000Z</published>
+    <published>2019-09-18T05:54:14.000Z</published>
     <updated>2023-08-11T10:15:01.194Z</updated>
     
     
@@ -4556,7 +4562,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>TensorFlow (3)</title>
     <link href="https://zerohertz.github.io/tensorflow-3/"/>
     <id>https://zerohertz.github.io/tensorflow-3/</id>
-    <published>2019-08-16T14:20:29.000Z</published>
+    <published>2019-08-16T05:20:29.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -4584,7 +4590,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>TensorFlow (2)</title>
     <link href="https://zerohertz.github.io/tensorflow-2/"/>
     <id>https://zerohertz.github.io/tensorflow-2/</id>
-    <published>2019-08-14T13:46:25.000Z</published>
+    <published>2019-08-14T04:46:25.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -4618,7 +4624,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>TensorFlow (1)</title>
     <link href="https://zerohertz.github.io/tensorflow-1/"/>
     <id>https://zerohertz.github.io/tensorflow-1/</id>
-    <published>2019-08-12T11:21:44.000Z</published>
+    <published>2019-08-12T02:21:44.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -4639,7 +4645,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Inverse Kinematics in Unreal Engine (2)</title>
     <link href="https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/"/>
     <id>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</id>
-    <published>2019-06-02T15:55:01.000Z</published>
+    <published>2019-06-02T06:55:01.000Z</published>
     <updated>2023-08-11T10:15:01.186Z</updated>
     
     
@@ -4662,7 +4668,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Inverse Kinematics in Unreal Engine (1)</title>
     <link href="https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-1/"/>
     <id>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-1/</id>
-    <published>2019-05-29T15:54:57.000Z</published>
+    <published>2019-05-29T06:54:57.000Z</published>
     <updated>2023-08-11T10:15:01.186Z</updated>
     
     
@@ -4685,7 +4691,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>EMG Sensor</title>
     <link href="https://zerohertz.github.io/emg-sensor/"/>
     <id>https://zerohertz.github.io/emg-sensor/</id>
-    <published>2019-05-24T15:58:34.000Z</published>
+    <published>2019-05-24T06:58:34.000Z</published>
     <updated>2023-08-11T10:15:01.150Z</updated>
     
     
@@ -4718,7 +4724,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>IMU Sensor</title>
     <link href="https://zerohertz.github.io/imu-sensor/"/>
     <id>https://zerohertz.github.io/imu-sensor/</id>
-    <published>2019-05-02T08:04:32.000Z</published>
+    <published>2019-05-01T23:04:32.000Z</published>
     <updated>2023-08-11T10:15:01.178Z</updated>
     
     
@@ -4744,7 +4750,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ Basic (4)</title>
     <link href="https://zerohertz.github.io/c-basic-4/"/>
     <id>https://zerohertz.github.io/c-basic-4/</id>
-    <published>2019-03-01T20:21:50.000Z</published>
+    <published>2019-03-01T11:21:50.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -4769,7 +4775,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Unreal Engine and C++ (2)</title>
     <link href="https://zerohertz.github.io/unreal-engine-and-c-2/"/>
     <id>https://zerohertz.github.io/unreal-engine-and-c-2/</id>
-    <published>2019-02-11T17:20:12.000Z</published>
+    <published>2019-02-11T08:20:12.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -4790,7 +4796,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ Basic (3)</title>
     <link href="https://zerohertz.github.io/c-basic-3/"/>
     <id>https://zerohertz.github.io/c-basic-3/</id>
-    <published>2019-01-07T20:23:44.000Z</published>
+    <published>2019-01-07T11:23:44.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -4815,7 +4821,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ Basic (2)</title>
     <link href="https://zerohertz.github.io/c-basic-2/"/>
     <id>https://zerohertz.github.io/c-basic-2/</id>
-    <published>2019-01-06T15:34:50.000Z</published>
+    <published>2019-01-06T06:34:50.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -4849,7 +4855,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>C++ Basic (1)</title>
     <link href="https://zerohertz.github.io/c-basic-1/"/>
     <id>https://zerohertz.github.io/c-basic-1/</id>
-    <published>2019-01-06T00:29:57.000Z</published>
+    <published>2019-01-05T15:29:57.000Z</published>
     <updated>2023-08-11T10:15:01.134Z</updated>
     
     
@@ -4879,7 +4885,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Unreal Engine and C++ (1)</title>
     <link href="https://zerohertz.github.io/unreal-engine-and-c-1/"/>
     <id>https://zerohertz.github.io/unreal-engine-and-c-1/</id>
-    <published>2019-01-05T23:18:07.000Z</published>
+    <published>2019-01-05T14:18:07.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -4902,7 +4908,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Numerical Analysis (5)</title>
     <link href="https://zerohertz.github.io/numerical-analysis-5/"/>
     <id>https://zerohertz.github.io/numerical-analysis-5/</id>
-    <published>2018-12-06T20:30:17.000Z</published>
+    <published>2018-12-06T11:30:17.000Z</published>
     <updated>2023-08-11T10:15:01.226Z</updated>
     
     
@@ -4934,7 +4940,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Numerical Analysis (4)</title>
     <link href="https://zerohertz.github.io/numerical-analysis-4/"/>
     <id>https://zerohertz.github.io/numerical-analysis-4/</id>
-    <published>2018-11-18T12:32:25.000Z</published>
+    <published>2018-11-18T03:32:25.000Z</published>
     <updated>2023-08-11T10:15:01.226Z</updated>
     
     
@@ -4965,7 +4971,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Exporting to Unreal Engine at 3ds Max by Datasmith</title>
     <link href="https://zerohertz.github.io/exporting-to-unreal-engine-at-3ds-max-by-datasmith/"/>
     <id>https://zerohertz.github.io/exporting-to-unreal-engine-at-3ds-max-by-datasmith/</id>
-    <published>2018-10-25T13:26:50.000Z</published>
+    <published>2018-10-25T04:26:50.000Z</published>
     <updated>2023-08-11T10:15:01.150Z</updated>
     
     
@@ -4991,7 +4997,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Numerical Analysis (3)</title>
     <link href="https://zerohertz.github.io/numerical-analysis-3/"/>
     <id>https://zerohertz.github.io/numerical-analysis-3/</id>
-    <published>2018-10-13T12:51:42.000Z</published>
+    <published>2018-10-13T03:51:42.000Z</published>
     <updated>2023-08-11T10:15:01.226Z</updated>
     
     
@@ -5012,7 +5018,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Numerical Analysis (2)</title>
     <link href="https://zerohertz.github.io/numerical-analysis-2/"/>
     <id>https://zerohertz.github.io/numerical-analysis-2/</id>
-    <published>2018-10-01T20:07:02.000Z</published>
+    <published>2018-10-01T11:07:02.000Z</published>
     <updated>2023-08-11T10:15:01.222Z</updated>
     
     
@@ -5033,7 +5039,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawler for NLP (3)</title>
     <link href="https://zerohertz.github.io/web-crawler-for-nlp-3/"/>
     <id>https://zerohertz.github.io/web-crawler-for-nlp-3/</id>
-    <published>2018-09-20T15:01:38.000Z</published>
+    <published>2018-09-20T06:01:38.000Z</published>
     <updated>2023-08-11T10:15:01.278Z</updated>
     
     
@@ -5062,7 +5068,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawler for NLP (2)</title>
     <link href="https://zerohertz.github.io/web-crawler-for-nlp-2/"/>
     <id>https://zerohertz.github.io/web-crawler-for-nlp-2/</id>
-    <published>2018-09-20T13:01:41.000Z</published>
+    <published>2018-09-20T04:01:41.000Z</published>
     <updated>2023-08-11T10:15:01.278Z</updated>
     
     
@@ -5084,7 +5090,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Numerical Analysis (1)</title>
     <link href="https://zerohertz.github.io/numerical-analysis-1/"/>
     <id>https://zerohertz.github.io/numerical-analysis-1/</id>
-    <published>2018-09-10T18:36:00.000Z</published>
+    <published>2018-09-10T09:36:00.000Z</published>
     <updated>2023-08-11T10:15:01.222Z</updated>
     
     
@@ -5107,7 +5113,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawler for NLP (1)</title>
     <link href="https://zerohertz.github.io/web-crawler-for-nlp-1/"/>
     <id>https://zerohertz.github.io/web-crawler-for-nlp-1/</id>
-    <published>2018-08-31T14:32:15.000Z</published>
+    <published>2018-08-31T05:32:15.000Z</published>
     <updated>2023-08-11T10:15:01.278Z</updated>
     
     
@@ -5128,7 +5134,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Unreal Engine</title>
     <link href="https://zerohertz.github.io/unreal-engine/"/>
     <id>https://zerohertz.github.io/unreal-engine/</id>
-    <published>2018-08-31T12:03:30.000Z</published>
+    <published>2018-08-31T03:03:30.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -5161,7 +5167,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawling by Selenium (2)</title>
     <link href="https://zerohertz.github.io/web-crawling-by-selenium-2/"/>
     <id>https://zerohertz.github.io/web-crawling-by-selenium-2/</id>
-    <published>2018-08-30T22:58:37.000Z</published>
+    <published>2018-08-30T13:58:37.000Z</published>
     <updated>2023-08-11T10:15:01.282Z</updated>
     
     
@@ -5194,7 +5200,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawling by Selenium (1)</title>
     <link href="https://zerohertz.github.io/web-crawling-by-selenium-1/"/>
     <id>https://zerohertz.github.io/web-crawling-by-selenium-1/</id>
-    <published>2018-08-30T10:36:35.000Z</published>
+    <published>2018-08-30T01:36:35.000Z</published>
     <updated>2023-08-11T10:15:01.282Z</updated>
     
     
@@ -5225,7 +5231,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawling by BeautifulSoup (4)</title>
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/</id>
-    <published>2018-08-22T16:46:04.000Z</published>
+    <published>2018-08-22T07:46:04.000Z</published>
     <updated>2023-08-11T10:15:01.282Z</updated>
     
     
@@ -5255,7 +5261,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawling by BeautifulSoup (3)</title>
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-3/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-3/</id>
-    <published>2018-08-22T14:14:09.000Z</published>
+    <published>2018-08-22T05:14:09.000Z</published>
     <updated>2023-08-11T10:15:01.282Z</updated>
     
     
@@ -5278,7 +5284,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Upload Hexo by git</title>
     <link href="https://zerohertz.github.io/upload-hexo-by-git/"/>
     <id>https://zerohertz.github.io/upload-hexo-by-git/</id>
-    <published>2018-08-19T20:03:41.000Z</published>
+    <published>2018-08-19T11:03:41.000Z</published>
     <updated>2023-08-11T10:15:01.262Z</updated>
     
     
@@ -5300,7 +5306,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawling by BeautifulSoup (2)</title>
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/</id>
-    <published>2018-08-19T16:33:02.000Z</published>
+    <published>2018-08-19T07:33:02.000Z</published>
     <updated>2023-08-11T10:15:01.278Z</updated>
     
     
@@ -5321,7 +5327,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Face Recognition by Raspberry Pi</title>
     <link href="https://zerohertz.github.io/face-recognition-by-raspberrypi/"/>
     <id>https://zerohertz.github.io/face-recognition-by-raspberrypi/</id>
-    <published>2018-08-18T22:39:03.000Z</published>
+    <published>2018-08-18T13:39:03.000Z</published>
     <updated>2023-08-11T10:15:01.150Z</updated>
     
     
@@ -5345,7 +5351,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Crane and Transporter by Arduino</title>
     <link href="https://zerohertz.github.io/crane-and-transporter-by-arduino/"/>
     <id>https://zerohertz.github.io/crane-and-transporter-by-arduino/</id>
-    <published>2018-08-17T17:01:52.000Z</published>
+    <published>2018-08-17T08:01:52.000Z</published>
     <updated>2023-08-11T10:15:01.138Z</updated>
     
     
@@ -5366,7 +5372,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Arduino Basic</title>
     <link href="https://zerohertz.github.io/arduino-basic/"/>
     <id>https://zerohertz.github.io/arduino-basic/</id>
-    <published>2018-08-17T17:01:00.000Z</published>
+    <published>2018-08-17T08:01:00.000Z</published>
     <updated>2023-08-11T10:15:01.066Z</updated>
     
     
@@ -5387,7 +5393,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Line Detection</title>
     <link href="https://zerohertz.github.io/line-detection/"/>
     <id>https://zerohertz.github.io/line-detection/</id>
-    <published>2018-08-16T04:17:00.000Z</published>
+    <published>2018-08-15T19:17:00.000Z</published>
     <updated>2023-08-11T10:15:01.190Z</updated>
     
     
@@ -5409,7 +5415,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Web Crawling by BeautifulSoup (1)</title>
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-1/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-1/</id>
-    <published>2018-08-16T03:42:19.000Z</published>
+    <published>2018-08-15T18:42:19.000Z</published>
     <updated>2023-08-11T10:15:01.278Z</updated>
     
     
@@ -5433,7 +5439,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <title>Hexo (Markdown) Basic</title>
     <link href="https://zerohertz.github.io/hexo-basic/"/>
     <id>https://zerohertz.github.io/hexo-basic/</id>
-    <published>2018-08-16T01:48:11.000Z</published>
+    <published>2018-08-15T16:48:11.000Z</published>
     <updated>2023-08-11T10:15:01.166Z</updated>
     
     

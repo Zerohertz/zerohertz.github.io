@@ -9,8 +9,40 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/k9s/</loc>
+        <lastmod>2023-08-12T19:09:28.771Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/k8s-ingress/</loc>
-        <lastmod>2023-08-11T16:18:15.890Z</lastmod>
+        <lastmod>2023-08-12T19:09:25.640Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/k8s-airflow/</loc>
+        <lastmod>2023-08-12T19:09:11.030Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/home-server-monitoring/</loc>
+        <lastmod>2023-08-12T18:34:12.212Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/k8s-1/</loc>
+        <lastmod>2023-08-12T01:02:24.865Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -19,14 +51,6 @@
     <url>
         <loc>https://zerohertz.github.io/github-verified-signature/</loc>
         <lastmod>2023-08-11T11:39:03.372Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/k8s-1/</loc>
-        <lastmod>2023-08-11T10:36:12.135Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -649,14 +673,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
-        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/mathjax-test/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -673,7 +689,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -681,16 +697,8 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/k8s-airflow/</loc>
-        <lastmod>2023-08-11T10:15:01.190Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/k9s/</loc>
-        <lastmod>2023-08-11T10:15:01.190Z</lastmod>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -705,7 +713,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
+        <loc>https://zerohertz.github.io/labview/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -713,7 +721,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/labview/</loc>
+        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -802,14 +810,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/home-server-init/</loc>
-        <lastmod>2023-08-11T10:15:01.174Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/home-server-monitoring/</loc>
         <lastmod>2023-08-11T10:15:01.174Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1121,7 +1121,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cpp-1/</loc>
+        <loc>https://zerohertz.github.io/catia/</loc>
         <lastmod>2023-08-11T10:15:01.134Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1129,7 +1129,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/catia/</loc>
+        <loc>https://zerohertz.github.io/cpp-1/</loc>
         <lastmod>2023-08-11T10:15:01.134Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
