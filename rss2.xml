@@ -9,7 +9,7 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Sat, 12 Aug 2023 19:09:11 GMT</pubDate>
+    <pubDate>Sat, 12 Aug 2023 19:51:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,7 +18,9 @@
       <guid>https://zerohertz.github.io/k8s-airflow/</guid>
       <pubDate>Wed, 09 Aug 2023 10:47:04 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;열심히 구축한 &lt;a href=&quot;https://zerohertz.github.io/home-server-init/&quot;&gt;home server&lt;/a&gt;을 더 다양하게 활용하기 위해 설치가 매우 간편한 K3s를 통해 Apache Airflow를 설치하고 배포해보겠다.&lt;br&gt;&lt;code&gt;https://$&amp;#123;DDNS&amp;#125;/airflow&lt;/code&gt;에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;열심히 구축한 &lt;a href=&quot;https://zerohertz.github.io/home-server-init/&quot;&gt;home server&lt;/a&gt;을 더 다양하게 활용하기 위해 설치가 매우 간편한 K8s (&lt;del&gt;K3s&lt;/del&gt;)를 통해 Apache Airflow를 설치하고 배포해보겠다.&lt;br&gt;&lt;code&gt;https://$&amp;#123;DDNS&amp;#125;/airflow&lt;/code&gt;에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif&quot; alt=&quot;tada&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;삽질 끝에 복이 온다!&lt;/del&gt;&lt;/p&gt;</description>
       
       
       
