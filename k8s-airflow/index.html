@@ -29,12 +29,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Introduction열심히 구축한 home server을 더 다양하게 활용하기 위해 설치가 매우 간편한 K8s (K3s)를 통해 Apache Airflow를 설치하고 배포해보겠다.https:&#x2F;&#x2F;$&amp;#123;DDNS&amp;#125;&#x2F;airflow에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.  삽질 끝에 복이 온다!">
+    <meta name="description" content="Introduction열심히 구축한 home server을 더 다양하게 활용하기 위해 (설치가 매우 간편한 K3s $\rightarrow$ 많은 시행착오 끝에 K8s로,,,) K8s를 통해 Apache Airflow를 설치하고 배포해보겠다.https:&#x2F;&#x2F;$&amp;#123;DDNS&amp;#125;&#x2F;airflow에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache Airflow Setup on Kubernetes">
 <meta property="og:url" content="https://zerohertz.github.io/k8s-airflow/index.html">
 <meta property="og:site_name" content="Zerohertz">
-<meta property="og:description" content="Introduction열심히 구축한 home server을 더 다양하게 활용하기 위해 설치가 매우 간편한 K8s (K3s)를 통해 Apache Airflow를 설치하고 배포해보겠다.https:&#x2F;&#x2F;$&amp;#123;DDNS&amp;#125;&#x2F;airflow에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.  삽질 끝에 복이 온다!">
+<meta property="og:description" content="Introduction열심히 구축한 home server을 더 다양하게 활용하기 위해 (설치가 매우 간편한 K3s $\rightarrow$ 많은 시행착오 끝에 K8s로,,,) K8s를 통해 Apache Airflow를 설치하고 배포해보겠다.https:&#x2F;&#x2F;$&amp;#123;DDNS&amp;#125;&#x2F;airflow에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260209901-0ed8fa25-1a60-40d8-8e04-c1a208082dcc.png">
@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260254339-dcf92f50-7989-4b0e-b6b8-3a83cac62027.png">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260274063-0ce33604-b019-4600-aa35-b20c14284947.gif">
 <meta property="article:published_time" content="2023-08-09T10:47:04.000Z">
-<meta property="article:modified_time" content="2023-08-13T02:27:54.586Z">
+<meta property="article:modified_time" content="2023-08-13T02:35:08.459Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Airflow">
 <meta property="article:tag" content="Home Server">
@@ -331,7 +331,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>열심히 구축한 <a href="https://zerohertz.github.io/home-server-init/">home server</a>을 더 다양하게 활용하기 위해 설치가 매우 간편한 K8s (<del>K3s</del>)를 통해 Apache Airflow를 설치하고 배포해보겠다.<br><code>https://$&#123;DDNS&#125;/airflow</code>에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>열심히 구축한 <a href="https://zerohertz.github.io/home-server-init/">home server</a>을 더 다양하게 활용하기 위해 (<del>설치가 매우 간편한 K3s</del> $\rightarrow$ 많은 시행착오 끝에 K8s로,,,) K8s를 통해 Apache Airflow를 설치하고 배포해보겠다.<br><code>https://$&#123;DDNS&#125;/airflow</code>에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.</p>
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif" alt="tada"></p>
 <p><del>삽질 끝에 복이 온다!</del></p>
 <span id="more"></span>
