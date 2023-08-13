@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-08-13T02:35:08.459Z</updated>
+  <updated>2023-08-13T10:38:29.583Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://zerohertz.github.io/k8s-airflow/"/>
     <id>https://zerohertz.github.io/k8s-airflow/</id>
     <published>2023-08-09T10:47:04.000Z</published>
-    <updated>2023-08-13T02:35:08.459Z</updated>
+    <updated>2023-08-13T10:38:29.583Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;열심히 구축한 &lt;a href=&quot;https://zerohertz.github.io/home-server-init/&quot;&gt;home server&lt;/a&gt;을 더 다양하게 활용하기 위해 (&lt;del&gt;설치가 매우 간편한 K3s&lt;/del&gt; $&#92;rightarrow$ 많은 시행착오 끝에 K8s로,,,) K8s를 통해 Apache Airflow를 설치하고 배포해보겠다.&lt;br&gt;&lt;code&gt;https://$&amp;#123;DDNS&amp;#125;/airflow&lt;/code&gt;에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif&quot; alt=&quot;tada&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260274063-0ce33604-b019-4600-aa35-b20c14284947.gif&quot; alt=&quot;thumbnail&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;삽질 끝에 복이 온다!&lt;/del&gt;&lt;/p&gt;</summary>
     
     
@@ -434,9 +434,9 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
-    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
-    
     <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
   </entry>
   
@@ -468,9 +468,9 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
-    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
-    
     <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
   </entry>
   
