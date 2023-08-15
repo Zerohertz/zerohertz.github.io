@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-08-14T11:33:19.667Z</updated>
+  <updated>2023-08-15T14:57:30.220Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kubernetes Dashboard</title>
+    <link href="https://zerohertz.github.io/k8s-dashboard/"/>
+    <id>https://zerohertz.github.io/k8s-dashboard/</id>
+    <published>2023-08-15T02:49:52.000Z</published>
+    <updated>2023-08-15T14:57:30.220Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Web 기반 사용자 interface &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvYWNjZXNzLWFwcGxpY2F0aW9uLWNsdXN0ZXIvd2ViLXVpLWRhc2hib2FyZC8=&quot;&gt;Kubernetes Dashboard&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 구축해보자!&lt;br&gt;이를 통해 사용자는 container화 된 application을 Kubernetes cluster 내에 배포하고, 문제를 진단하며, 클러스터 자원을 관리할 수 있다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
+    
+    
+    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+    <category term="Traefik" scheme="https://zerohertz.github.io/tags/traefik/"/>
+    
+  </entry>
   
   <entry>
     <title>Apache Airflow 기반 Discord Webhook 개발</title>
@@ -55,7 +78,7 @@
     <link href="https://zerohertz.github.io/k8s-airflow/"/>
     <id>https://zerohertz.github.io/k8s-airflow/</id>
     <published>2023-08-09T10:47:04.000Z</published>
-    <updated>2023-08-14T00:52:27.350Z</updated>
+    <updated>2023-08-15T02:56:30.599Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;열심히 구축한 &lt;a href=&quot;https://zerohertz.github.io/home-server-init/&quot;&gt;home server&lt;/a&gt;을 더 다양하게 활용하기 위해 (&lt;del&gt;설치가 매우 간편한 K3s&lt;/del&gt; $&#92;rightarrow$ 많은 시행착오 끝에 K8s로,,,) K8s를 통해 Apache Airflow를 설치하고 배포해보겠다.&lt;br&gt;&lt;code&gt;https://$&amp;#123;DDNS&amp;#125;/airflow&lt;/code&gt;에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.&lt;/p&gt;
@@ -72,6 +95,8 @@
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
     <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+    <category term="Traefik" scheme="https://zerohertz.github.io/tags/traefik/"/>
     
   </entry>
   
@@ -102,7 +127,7 @@
     <link href="https://zerohertz.github.io/k8s-ingress/"/>
     <id>https://zerohertz.github.io/k8s-ingress/</id>
     <published>2023-08-08T14:43:40.000Z</published>
-    <updated>2023-08-14T03:15:01.580Z</updated>
+    <updated>2023-08-15T02:52:26.025Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
@@ -144,6 +169,8 @@
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
     <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+    <category term="Traefik" scheme="https://zerohertz.github.io/tags/traefik/"/>
     
   </entry>
   
@@ -193,7 +220,7 @@
     <link href="https://zerohertz.github.io/home-server-monitoring/"/>
     <id>https://zerohertz.github.io/home-server-monitoring/</id>
     <published>2023-08-07T13:09:42.000Z</published>
-    <updated>2023-08-12T18:34:12.212Z</updated>
+    <updated>2023-08-15T02:55:56.447Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Node exporter의 system metric들을 Prometheus로 수집하고 Grafana로 시각화!&lt;/p&gt;
@@ -211,6 +238,8 @@
     <category term="Grafana" scheme="https://zerohertz.github.io/tags/grafana/"/>
     
     <category term="Prometheus" scheme="https://zerohertz.github.io/tags/prometheus/"/>
+    
+    <category term="Traefik" scheme="https://zerohertz.github.io/tags/traefik/"/>
     
   </entry>
   
@@ -664,11 +693,11 @@
   </entry>
   
   <entry>
-    <title>Kubernetes 입문기 (1)</title>
-    <link href="https://zerohertz.github.io/k8s-1/"/>
-    <id>https://zerohertz.github.io/k8s-1/</id>
+    <title>Kubernetes 입문기</title>
+    <link href="https://zerohertz.github.io/k8s/"/>
+    <id>https://zerohertz.github.io/k8s/</id>
     <published>2023-06-18T06:11:10.000Z</published>
-    <updated>2023-08-12T01:02:24.865Z</updated>
+    <updated>2023-08-15T02:51:28.957Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;ul&gt;
