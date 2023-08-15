@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">189</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -211,6 +211,98 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/airflow-discord/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/airflow-discord/" class="post-title-link" itemprop="url">Apache Airflow 기반 Discord Webhook 개발</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-13 21:03:10" itemprop="dateCreated datePublished" datetime="2023-08-13T21:03:10+09:00">2023-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/home-server-init/#Fail2Ban">Fail2Ban</a>의 명령어 중 <code>sudo fail2ban-client status sshd</code>을 사용하면 아래와 같은 결과가 나온다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260302422-589245b2-4509-4711-be99-fbc844a11ad3.gif" alt="jail"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fail2ban-client status sshd</span><br><span class="line">Status <span class="keyword">for</span> the jail: sshd                                           <span class="comment"># Service에 대한 보호 규칙</span></span><br><span class="line">|- Filter                                                           <span class="comment"># 악의적인 활동 정보</span></span><br><span class="line">|  |- Currently failed: 2                                           <span class="comment"># 2개 기기의 잘못된 로그인 시도</span></span><br><span class="line">|  |- Total failed:     7                                           <span class="comment"># 시작된 이후 총 7번의 잘못된 로그인 시도</span></span><br><span class="line">|  `- Journal matches:  _SYSTEMD_UNIT=sshd.service + _COMM=sshd     <span class="comment"># Fail2Ban의 시스템 로그를 감시 방법</span></span><br><span class="line">`- Actions                                                          <span class="comment"># 악의적인 활동을 감지했을 때 취하는 조치에 대한 정보</span></span><br><span class="line">   |- Currently banned: 1                                           <span class="comment"># 현재 차단된 IP 주소의 수</span></span><br><span class="line">   |- Total banned:     1                                           <span class="comment"># 총 차단된 IP 주소의 수</span></span><br><span class="line">   `- Banned IP list:   XXX.XXX.XXX.XXX                             <span class="comment"># 차단된 IP</span></span><br></pre></td></tr></table></figure>
+
+<p>차단된 기기에서 SSH를 연결하려 시도하면 아래와 같이 실패하게 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh <span class="variable">$&#123;USER&#125;</span>@<span class="variable">$&#123;IP&#125;</span> -p <span class="variable">$&#123;PORT&#125;</span></span><br><span class="line">ssh: connect to host <span class="variable">$&#123;IP&#125;</span> port <span class="variable">$&#123;PORT&#125;</span>: Connection refused</span><br></pre></td></tr></table></figure>
+
+<p>이걸 매번 확인할 수는 없기 때문에 의문의 중국 해커가 공격하면 알람을 받을 수 있게 Apache Airflow와 Discord를 사용해보겠다!<br><del>사실 그거 안다해도 포맷 말고 할 수 있는게 없긴 한…</del></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/airflow-discord/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1517,104 +1609,6 @@
         
       
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/apache-airflow-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/apache-airflow-1/" class="post-title-link" itemprop="url">Apache Airflow (1)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-26 20:37:10" itemprop="dateCreated datePublished" datetime="2023-07-26T20:37:10+09:00">2023-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcv">Apache Airflow<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<ul>
-<li>Definition<ul>
-<li>오픈 소스로 개발된 데이터 파이프라인 관리 도구</li>
-<li>Workflow 자동화와 데이터 처리를 위한 플랫폼</li>
-</ul>
-</li>
-<li>Features<ul>
-<li>유연한 파이썬 프레임워크를 통한 쉬운 데이터 파이프라인 구축</li>
-<li>다양한 빌딩 블록을 통한 최신 기술 연결</li>
-<li>복잡한 데이터 처리 작업 scheduling 및 monitoring</li>
-<li>Data engineering, ETL (Extract, Transform, Load), data migration, data analysis 등 다양한 작업에서 활용
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/apache-airflow-1/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </li></ul></li></ul></div>
 
     
     

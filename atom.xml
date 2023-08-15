@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-08-13T10:38:29.583Z</updated>
+  <updated>2023-08-14T11:33:19.667Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Apache Airflow 기반 Discord Webhook 개발</title>
+    <link href="https://zerohertz.github.io/airflow-discord/"/>
+    <id>https://zerohertz.github.io/airflow-discord/</id>
+    <published>2023-08-13T12:03:10.000Z</published>
+    <updated>2023-08-14T11:33:19.667Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/home-server-init/#Fail2Ban&quot;&gt;Fail2Ban&lt;/a&gt;의 명령어 중 &lt;code&gt;sudo fail2ban-client status sshd&lt;/code&gt;을 사용하면 아래와 같은 결과가 나온다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260302422-589245b2-4509-4711-be99-fbc844a11ad3.gif&quot; alt=&quot;jail&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo fail2ban-client status sshd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Status &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; the jail: sshd                                           &lt;span class=&quot;comment&quot;&gt;# Service에 대한 보호 규칙&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|- Filter                                                           &lt;span class=&quot;comment&quot;&gt;# 악의적인 활동 정보&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|  |- Currently failed: 2                                           &lt;span class=&quot;comment&quot;&gt;# 2개 기기의 잘못된 로그인 시도&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|  |- Total failed:     7                                           &lt;span class=&quot;comment&quot;&gt;# 시작된 이후 총 7번의 잘못된 로그인 시도&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|  `- Journal matches:  _SYSTEMD_UNIT=sshd.service + _COMM=sshd     &lt;span class=&quot;comment&quot;&gt;# Fail2Ban의 시스템 로그를 감시 방법&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;`- Actions                                                          &lt;span class=&quot;comment&quot;&gt;# 악의적인 활동을 감지했을 때 취하는 조치에 대한 정보&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   |- Currently banned: 1                                           &lt;span class=&quot;comment&quot;&gt;# 현재 차단된 IP 주소의 수&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   |- Total banned:     1                                           &lt;span class=&quot;comment&quot;&gt;# 총 차단된 IP 주소의 수&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   `- Banned IP list:   XXX.XXX.XXX.XXX                             &lt;span class=&quot;comment&quot;&gt;# 차단된 IP&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;차단된 기기에서 SSH를 연결하려 시도하면 아래와 같이 실패하게 된다.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ssh &lt;span class=&quot;variable&quot;&gt;$&amp;#123;USER&amp;#125;&lt;/span&gt;@&lt;span class=&quot;variable&quot;&gt;$&amp;#123;IP&amp;#125;&lt;/span&gt; -p &lt;span class=&quot;variable&quot;&gt;$&amp;#123;PORT&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ssh: connect to host &lt;span class=&quot;variable&quot;&gt;$&amp;#123;IP&amp;#125;&lt;/span&gt; port &lt;span class=&quot;variable&quot;&gt;$&amp;#123;PORT&amp;#125;&lt;/span&gt;: Connection refused&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;이걸 매번 확인할 수는 없기 때문에 의문의 중국 해커가 공격하면 알람을 받을 수 있게 Apache Airflow와 Discord를 사용해보겠다!&lt;br&gt;&lt;del&gt;사실 그거 안다해도 포맷 말고 할 수 있는게 없긴 한…&lt;/del&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
+    
+    
+    <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
+    
+    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Apache Airflow Setup on Kubernetes</title>
     <link href="https://zerohertz.github.io/k8s-airflow/"/>
     <id>https://zerohertz.github.io/k8s-airflow/</id>
     <published>2023-08-09T10:47:04.000Z</published>
-    <updated>2023-08-13T10:38:29.583Z</updated>
+    <updated>2023-08-14T00:52:27.350Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;열심히 구축한 &lt;a href=&quot;https://zerohertz.github.io/home-server-init/&quot;&gt;home server&lt;/a&gt;을 더 다양하게 활용하기 위해 (&lt;del&gt;설치가 매우 간편한 K3s&lt;/del&gt; $&#92;rightarrow$ 많은 시행착오 끝에 K8s로,,,) K8s를 통해 Apache Airflow를 설치하고 배포해보겠다.&lt;br&gt;&lt;code&gt;https://$&amp;#123;DDNS&amp;#125;/airflow&lt;/code&gt;에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.&lt;/p&gt;
@@ -35,9 +69,9 @@
     
     <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
     
-    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
-    
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
     
   </entry>
   
@@ -68,7 +102,7 @@
     <link href="https://zerohertz.github.io/k8s-ingress/"/>
     <id>https://zerohertz.github.io/k8s-ingress/</id>
     <published>2023-08-08T14:43:40.000Z</published>
-    <updated>2023-08-12T19:09:25.640Z</updated>
+    <updated>2023-08-14T03:15:01.580Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
@@ -107,9 +141,9 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
-    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
-    
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
     
   </entry>
   
@@ -148,9 +182,9 @@
     <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
     
     
-    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
-    
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
     
   </entry>
   
@@ -170,9 +204,9 @@
     <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
     
     
-    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
-    
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
     
     <category term="Grafana" scheme="https://zerohertz.github.io/tags/grafana/"/>
     
@@ -253,7 +287,7 @@
     <link href="https://zerohertz.github.io/home-server-init/"/>
     <id>https://zerohertz.github.io/home-server-init/</id>
     <published>2023-08-03T13:19:31.000Z</published>
-    <updated>2023-08-12T19:38:54.829Z</updated>
+    <updated>2023-08-14T10:33:14.584Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1KRlRVempXMGZzSSZhYl9jaGFubmVsPUlUU3ViJUVDJTlFJTg3JUVDJTg0JUFE&quot;&gt;이 영상&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 보며 뽐뿌가 온 나머지,,, 홈 서버로 사용하기 위해 아래와 같은 스펙으로 주문했다!!!&lt;/p&gt;
@@ -517,9 +551,9 @@
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="AWS" scheme="https://zerohertz.github.io/tags/aws/"/>
-    
     <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
+    
+    <category term="AWS" scheme="https://zerohertz.github.io/tags/aws/"/>
     
     <category term="Triton Inference Server" scheme="https://zerohertz.github.io/tags/triton-inference-server/"/>
     
@@ -763,9 +797,9 @@
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="AWS" scheme="https://zerohertz.github.io/tags/aws/"/>
-    
     <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
+    
+    <category term="AWS" scheme="https://zerohertz.github.io/tags/aws/"/>
     
     <category term="Triton Inference Server" scheme="https://zerohertz.github.io/tags/triton-inference-server/"/>
     

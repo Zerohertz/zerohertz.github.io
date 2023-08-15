@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258623263-a3f3aeb7-560d-4762-9d61-8f7492e96c7c.gif">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258618231-7256b609-298f-45bd-a21b-f3e0167549bf.png">
 <meta property="article:published_time" content="2023-08-03T13:19:31.000Z">
-<meta property="article:modified_time" content="2023-08-12T19:38:54.829Z">
+<meta property="article:modified_time" content="2023-08-14T10:33:14.584Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Home Server">
 <meta name="twitter:card" content="summary">
@@ -179,7 +179,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">189</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -226,6 +226,13 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-discord/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-13</time>
+        <br>
+      Apache Airflow 기반 Discord Webhook 개발
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/nutrients/" rel="bookmark">
         <time class="popular-posts-time">2023-05-01</time>
         <br>
@@ -251,13 +258,6 @@
         <time class="popular-posts-time">2023-08-07</time>
         <br>
       Home Server: Monitoring
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/k8s-ingress/" rel="bookmark">
-        <time class="popular-posts-time">2023-08-08</time>
-        <br>
-      Kubernetes: Ingress
       </a>
     </li>
   </ul>
@@ -500,7 +500,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install fail2ban</span><br><span class="line">$ sudo service fail2ban status</span><br><span class="line">○ fail2ban.service - Fail2Ban Service</span><br><span class="line">     Loaded: loaded (/lib/systemd/system/fail2ban.service; disabled; vendor preset: enabled)</span><br><span class="line">     Active: inactive (dead)</span><br><span class="line">       Docs: man:fail2ban(1)</span><br><span class="line">$ sudo systemctl <span class="built_in">enable</span> fail2ban</span><br><span class="line">$ sudo systemctl start fail2ban</span><br><span class="line">$ sudo service fail2ban status</span><br><span class="line">● fail2ban.service - Fail2Ban Service</span><br><span class="line">     Loaded: loaded (/lib/systemd/system/fail2ban.service; enabled; vendor preset: enabled)</span><br><span class="line">     Active: active (running) since Sat 2023-08-05 19:26:30 KST; 19s ago</span><br><span class="line">       Docs: man:fail2ban(1)</span><br><span class="line">   Main PID: 1343 (fail2ban-server)</span><br><span class="line">      Tasks: 5 (<span class="built_in">limit</span>: 33386)</span><br><span class="line">     Memory: 15.4M</span><br><span class="line">        CPU: 96ms</span><br><span class="line">     CGroup: /system.slice/fail2ban.service</span><br><span class="line">             └─1343 /usr/bin/python3 /usr/bin/fail2ban-server -xf start</span><br><span class="line"></span><br><span class="line">Aug 05 19:26:30 0hz systemd[1]: Started Fail2Ban Service.</span><br><span class="line">Aug 05 19:26:30 0hz fail2ban-server[1343]: Server ready</span><br></pre></td></tr></table></figure>
 
-<p>설정을 변경하려면 아래와 같이 진행한다. (<span class="exturl" data-url="aHR0cHM6Ly9uaXRyMC50aXN0b3J5LmNvbS8zMjg=">여기<i class="fa fa-external-link-alt"></i></span> 참고!)</p>
+<p>설정을 변경하려면 아래와 같이 진행한다. (<span class="exturl" data-url="aHR0cHM6Ly9uaXRyMC50aXN0b3J5LmNvbS8zMjg=">여기<i class="fa fa-external-link-alt"></i></span> 참고!)<br><code>cat /etc/fail2ban/jail.conf</code>을 통해 설정에 대한 설명을 확인할 수 있다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/fail2ban/jail.local</span><br><span class="line">$ service fail2ban restart</span><br></pre></td></tr></table></figure>
 
 <ul>
