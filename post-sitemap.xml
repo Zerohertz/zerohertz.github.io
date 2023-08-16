@@ -10,7 +10,7 @@
 
     <url>
         <loc>https://zerohertz.github.io/traefik-oauth/</loc>
-        <lastmod>2023-08-16T06:14:44.084Z</lastmod>
+        <lastmod>2023-08-16T12:05:40.412Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -649,7 +649,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-12/</loc>
+        <loc>https://zerohertz.github.io/matlab-2/</loc>
         <lastmod>2023-08-11T10:15:01.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -657,7 +657,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-2/</loc>
+        <loc>https://zerohertz.github.io/matlab-12/</loc>
         <lastmod>2023-08-11T10:15:01.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -705,7 +705,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -721,7 +721,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-1/</loc>
+        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -729,7 +729,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <loc>https://zerohertz.github.io/matlab-1/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -793,7 +793,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</loc>
+        <loc>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</loc>
         <lastmod>2023-08-11T10:15:01.186Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -801,7 +801,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</loc>
+        <loc>https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</loc>
         <lastmod>2023-08-11T10:15:01.186Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
