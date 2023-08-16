@@ -9,8 +9,39 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Tue, 15 Aug 2023 14:57:30 GMT</pubDate>
+    <pubDate>Wed, 16 Aug 2023 06:14:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Traefik: OAuth</title>
+      <link>https://zerohertz.github.io/traefik-oauth/</link>
+      <guid>https://zerohertz.github.io/traefik-oauth/</guid>
+      <pubDate>Wed, 16 Aug 2023 03:41:02 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Google-OAuth&quot;&gt;&lt;a href=&quot;#Google-OAuth&quot; class=&quot;headerlink&quot; title=&quot;Google OAuth&quot;&gt;&lt;/a&gt;Google OAuth&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jb25zb2xlLmNsb3VkLmdvb2dsZS5jb20v&quot;&gt;여기&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에 접속해 아래의 과정을 수행한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;프로젝트 생성&lt;/li&gt;
+&lt;li&gt;OAuth 동의 화면 생성&lt;/li&gt;
+&lt;li&gt;OAuth 클라이언트 ID 생성&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260895821-80479252-91a7-4521-a86f-9bc770f96ab4.png&quot; alt=&quot;OAuth&quot;&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/traefik/">Traefik</category>
+      
+      
+      <comments>https://zerohertz.github.io/traefik-oauth/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Kubernetes Dashboard</title>
@@ -18,7 +49,13 @@
       <guid>https://zerohertz.github.io/k8s-dashboard/</guid>
       <pubDate>Tue, 15 Aug 2023 02:49:52 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Web 기반 사용자 interface &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvYWNjZXNzLWFwcGxpY2F0aW9uLWNsdXN0ZXIvd2ViLXVpLWRhc2hib2FyZC8=&quot;&gt;Kubernetes Dashboard&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 구축해보자!&lt;br&gt;이를 통해 사용자는 container화 된 application을 Kubernetes cluster 내에 배포하고, 문제를 진단하며, 클러스터 자원을 관리할 수 있다.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Web 기반 사용자 interface &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvYWNjZXNzLWFwcGxpY2F0aW9uLWNsdXN0ZXIvd2ViLXVpLWRhc2hib2FyZC8=&quot;&gt;Kubernetes Dashboard&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 구축해보자!&lt;br&gt;이를 통해 사용자는 container화 된 application을 Kubernetes cluster 내에 배포하고, 문제를 진단하며, 클러스터 자원을 관리할 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Resource Monitoring: 라이브 node 정보, CPU 및 memory 사용량과 같은 cluster의 핵심 지표 모니터링&lt;/li&gt;
+&lt;li&gt;Application 배포: Web interface를 사용하여 application 배포 및 관리&lt;/li&gt;
+&lt;li&gt;문제 진단: Log, event 및 cluster resource 정보를 확인하여 application의 문제 파악 및 진단&lt;/li&gt;
+&lt;li&gt;Object 관리: Deployments, Jobs, DaemonSets 등과 같은 Kubernetes object의 생성, 수정 및 삭제&lt;/li&gt;
+&lt;/ul&gt;</description>
       
       
       
