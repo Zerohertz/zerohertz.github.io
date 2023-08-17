@@ -9,8 +9,29 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Wed, 16 Aug 2023 12:05:40 GMT</pubDate>
+    <pubDate>Thu, 17 Aug 2023 06:45:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Home Server: External IP 변동 감지 Service</title>
+      <link>https://zerohertz.github.io/home-server-external-ip/</link>
+      <guid>https://zerohertz.github.io/home-server-external-ip/</guid>
+      <pubDate>Thu, 17 Aug 2023 06:12:50 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Subdomain을 생성하기 위해 새 domain을 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rci5nb2RhZGR5LmNvbS8=&quot;&gt;GoDaddy&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 구매했다.&lt;br&gt;하지만 구매한 domain은 DDNS (Dynamic Domain Name System)가 아닌 DNS (Domain Name System)이므로 공유기에 할당된 external IP가 변경되면 새로 바꿔줘야한다.&lt;br&gt;물론 DDNS service를 연결할 수 있지만 무료로 이용하려면 제약되는 것들이 많아서 IP가 변경되는 순간 Discord Webhook로 메시지가 전달되도록 구성해보겠다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      
+      <comments>https://zerohertz.github.io/home-server-external-ip/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Traefik: OAuth</title>

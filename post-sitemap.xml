@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/home-server-external-ip/</loc>
+        <lastmod>2023-08-17T06:45:07.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/traefik-oauth/</loc>
         <lastmod>2023-08-16T12:05:40.412Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -289,14 +297,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</loc>
-        <lastmod>2023-08-11T10:15:01.258Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/simulation-of-temperature-distribution-of-material-in-dryer/</loc>
         <lastmod>2023-08-11T10:15:01.258Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -321,7 +321,15 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/r-final-term/</loc>
+        <loc>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</loc>
+        <lastmod>2023-08-11T10:15:01.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
         <lastmod>2023-08-11T10:15:01.254Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -330,14 +338,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/r-mid-term/</loc>
-        <lastmod>2023-08-11T10:15:01.254Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
         <lastmod>2023-08-11T10:15:01.254Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -354,6 +354,14 @@
 
     <url>
         <loc>https://zerohertz.github.io/setting-up-virtual-environment-for-pytorch/</loc>
+        <lastmod>2023-08-11T10:15:01.254Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/r-final-term/</loc>
         <lastmod>2023-08-11T10:15:01.254Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -537,7 +545,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/normality-test/</loc>
+        <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
         <lastmod>2023-08-11T10:15:01.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -545,7 +553,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
+        <loc>https://zerohertz.github.io/normality-test/</loc>
         <lastmod>2023-08-11T10:15:01.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -649,7 +657,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-2/</loc>
+        <loc>https://zerohertz.github.io/matlab-12/</loc>
         <lastmod>2023-08-11T10:15:01.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -657,7 +665,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-12/</loc>
+        <loc>https://zerohertz.github.io/matlab-2/</loc>
         <lastmod>2023-08-11T10:15:01.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -705,7 +713,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -721,7 +729,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
