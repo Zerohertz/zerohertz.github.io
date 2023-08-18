@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">193</span>
+          <span class="site-state-item-count">194</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -211,6 +211,83 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/telegram-bot-using-web-crawler-based-on-selenium/" class="post-title-link" itemprop="url">Telegram Bot using Web Crawler based on Selenium</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-13 11:31:38" itemprop="dateCreated datePublished" datetime="2021-08-13T11:31:38+09:00">2021-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">updateStatus</span>():</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;paramInvcNo&quot;]&#x27;</span>).send_keys(num)</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;btnSubmit&quot;]&#x27;</span>).click()</span><br><span class="line">    status = browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;statusDetail&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> status.text</span><br><span class="line"></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;headless&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&#x27;window-size=1920x1080&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&quot;disable-gpu&quot;</span>)</span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;Location of Chrome Driver&quot;</span>, options = options)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.cjlogistics.com/ko/tool/parcel/tracking&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line">myToken = <span class="string">&#x27;TelegramToken&#x27;</span></span><br><span class="line">bot = telegram.Bot(token = myToken)</span><br><span class="line">chat_id = ID<span class="comment">#bot.getUpdates()[-1].message.chat.id #가장 최근에 온 메세지의 chat id를 가져옵니다</span></span><br><span class="line">num = 운송장 번호</span><br><span class="line">statusArr = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    status = updateStatus()</span><br><span class="line">    statusArr[i%<span class="number">2</span>] = <span class="built_in">str</span>(status)</span><br><span class="line">    <span class="keyword">if</span> statusArr[<span class="number">0</span>] != statusArr[<span class="number">1</span>]:</span><br><span class="line">        bot.sendMessage(chat_id=chat_id, text=statusArr[i%<span class="number">2</span>])</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Different&#x27;</span>)</span><br><span class="line">    browser.refresh()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    i = i+<span class="number">1</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1561,91 +1638,6 @@ new GDemo('#demo-teriminal1')
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/hexo-tag-gdemo/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/" class="post-title-link" itemprop="url">Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-07-27 18:27:01" itemprop="dateCreated datePublished" datetime="2020-07-27T18:27:01+09:00">2020-07-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Prototype-1-Arduino-Computer"><a href="#Prototype-1-Arduino-Computer" class="headerlink" title="Prototype 1(Arduino, Computer)"></a>Prototype 1(Arduino, Computer)</h1><h2 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a>Arduino</h2><figure class="highlight c++"><figcaption><span>Senosr.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">2000000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> x_val = <span class="built_in">analogRead</span>(A0);</span><br><span class="line">  <span class="type">int</span> y_val = <span class="built_in">analogRead</span>(A1);</span><br><span class="line">  <span class="type">int</span> z_val = <span class="built_in">analogRead</span>(A2);</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> AE = <span class="built_in">analogRead</span>(A7);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(AE &gt;= <span class="number">500</span>)&#123;</span><br><span class="line">    AE = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    AE = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  Serial.<span class="built_in">print</span>(x_val);</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">print</span>(y_val);</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">print</span>(z_val);</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">print</span>(AE);</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">20</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/" rel="contents">
                 Read more &raquo;
               </a>
             </div>

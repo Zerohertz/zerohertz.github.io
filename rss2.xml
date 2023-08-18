@@ -9,8 +9,43 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Thu, 17 Aug 2023 06:45:07 GMT</pubDate>
+    <pubDate>Fri, 18 Aug 2023 13:36:21 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Apache Airflow 기반 자동결제 DAG 개발</title>
+      <link>https://zerohertz.github.io/airflow-auto-payment/</link>
+      <guid>https://zerohertz.github.io/airflow-auto-payment/</guid>
+      <pubDate>Fri, 18 Aug 2023 06:26:28 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;신용카드 중 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuc2hpbmhhbmNhcmQuY29tL3Bjb250cy9odG1sL2NhcmQvYXBwbHkvY3JlZGl0LzExOTg5NDJfMjIwNy5odG1s&quot;&gt;The More&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;는 5,000원 이상의 결제 금액에 대해 1,000원 미만의 포인트가 적립된다.&lt;br&gt;이를 통신비와 같은 서비스에 분할결제로 적용하면 약 16.65%의 이득을 볼 수 있다. ($&#92;because&#92;frac{999}{5999}&#92;times100$)&lt;br&gt;하지만 아래와 같은 제약이 존재한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;동일한 가맹점의 경우 1일 1회에 한하여 포인트 적립이 되며, …&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;따라서 하루에 한 번만 The More 카드로 5,999원이 결제되도록 Apache Airflow의 DAG를 구성한다.&lt;br&gt;물론 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9uYW11Lndpa2kvdy8lRUMlOEIlQTAlRUQlOTUlOUMlRUMlQjklQjQlRUIlOTMlOUMlMjAlRUIlQjYlODQlRUQlOTUlQTAlRUElQjIlQjAlRUMlQTAlOUMlMjAlRUMlQTAlOUMlRUQlOTUlOUMlMjAlRUMlODIlQUMlRUElQjElQjQ=&quot;&gt;논란&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;은 많지만 개발도 연습하기 좋은 예제였다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/docker/">Docker</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      
+      <comments>https://zerohertz.github.io/airflow-auto-payment/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Home Server: External IP 변동 감지 Service</title>
@@ -3348,7 +3383,7 @@ new GDemo(&#39;#terminal&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
       
       
       <comments>https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/#disqus_thread</comments>
@@ -4209,9 +4244,9 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/b-s-course-work/">B.S. Course Work</category>
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/b-s-course-work/">B.S. Course Work</category>
       
       
       <comments>https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/#disqus_thread</comments>
@@ -5526,7 +5561,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
       
       
       <comments>https://zerohertz.github.io/web-crawler-for-nlp-3/#disqus_thread</comments>
@@ -5550,7 +5585,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
       
       
       <comments>https://zerohertz.github.io/web-crawler-for-nlp-2/#disqus_thread</comments>
@@ -5598,7 +5633,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
       
       
       <comments>https://zerohertz.github.io/web-crawler-for-nlp-1/#disqus_thread</comments>
@@ -5668,7 +5703,9 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
+      
+      <category domain="https://zerohertz.github.io/tags/beautifulsoup/">BeautifulSoup</category>
       
       
       <comments>https://zerohertz.github.io/web-crawling-by-selenium-2/#disqus_thread</comments>
@@ -5701,7 +5738,9 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
+      
+      <category domain="https://zerohertz.github.io/tags/beautifulsoup/">BeautifulSoup</category>
       
       
       <comments>https://zerohertz.github.io/web-crawling-by-selenium-1/#disqus_thread</comments>
@@ -5733,7 +5772,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/beautifulsoup/">BeautifulSoup</category>
       
       
       <comments>https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/#disqus_thread</comments>
@@ -5758,7 +5797,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/beautifulsoup/">BeautifulSoup</category>
       
       
       <comments>https://zerohertz.github.io/web-crawling-by-beautifulsoup-3/#disqus_thread</comments>
@@ -5805,7 +5844,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/beautifulsoup/">BeautifulSoup</category>
       
       
       <comments>https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/#disqus_thread</comments>
@@ -5927,7 +5966,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/web-crawling/">Web Crawling</category>
+      <category domain="https://zerohertz.github.io/tags/beautifulsoup/">BeautifulSoup</category>
       
       
       <comments>https://zerohertz.github.io/web-crawling-by-beautifulsoup-1/#disqus_thread</comments>

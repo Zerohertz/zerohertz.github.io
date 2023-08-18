@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-08-17T06:45:07.498Z</updated>
+  <updated>2023-08-18T13:36:21.597Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Apache Airflow 기반 자동결제 DAG 개발</title>
+    <link href="https://zerohertz.github.io/airflow-auto-payment/"/>
+    <id>https://zerohertz.github.io/airflow-auto-payment/</id>
+    <published>2023-08-18T06:26:28.000Z</published>
+    <updated>2023-08-18T13:36:21.597Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;신용카드 중 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuc2hpbmhhbmNhcmQuY29tL3Bjb250cy9odG1sL2NhcmQvYXBwbHkvY3JlZGl0LzExOTg5NDJfMjIwNy5odG1s&quot;&gt;The More&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;는 5,000원 이상의 결제 금액에 대해 1,000원 미만의 포인트가 적립된다.&lt;br&gt;이를 통신비와 같은 서비스에 분할결제로 적용하면 약 16.65%의 이득을 볼 수 있다. ($&#92;because&#92;frac{999}{5999}&#92;times100$)&lt;br&gt;하지만 아래와 같은 제약이 존재한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;동일한 가맹점의 경우 1일 1회에 한하여 포인트 적립이 되며, …&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;따라서 하루에 한 번만 The More 카드로 5,999원이 결제되도록 Apache Airflow의 DAG를 구성한다.&lt;br&gt;물론 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9uYW11Lndpa2kvdy8lRUMlOEIlQTAlRUQlOTUlOUMlRUMlQjklQjQlRUIlOTMlOUMlMjAlRUIlQjYlODQlRUQlOTUlQTAlRUElQjIlQjAlRUMlQTAlOUMlMjAlRUMlQTAlOUMlRUQlOTUlOUMlMjAlRUMlODIlQUMlRUElQjElQjQ=&quot;&gt;논란&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;은 많지만 개발도 연습하기 좋은 예제였다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
+    
+    
+    <category term="Airflow" scheme="https://zerohertz.github.io/tags/airflow/"/>
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
+    
+    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+  </entry>
   
   <entry>
     <title>Home Server: External IP 변동 감지 Service</title>
@@ -3130,7 +3163,7 @@ new GDemo(&#39;#terminal&#39;)
     <link href="https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/"/>
     <id>https://zerohertz.github.io/telegram-bot-using-web-crawler-based-on-selenium/</id>
     <published>2021-08-13T02:31:38.000Z</published>
-    <updated>2023-08-11T10:15:01.262Z</updated>
+    <updated>2023-08-18T07:44:42.740Z</updated>
     
     
       
@@ -3145,7 +3178,7 @@ new GDemo(&#39;#terminal&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
     
   </entry>
   
@@ -3944,7 +3977,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/"/>
     <id>https://zerohertz.github.io/web-crawler-for-ecampus-by-selenium/</id>
     <published>2020-04-18T19:40:15.000Z</published>
-    <updated>2023-08-11T10:15:01.278Z</updated>
+    <updated>2023-08-18T07:44:42.896Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;코로나-싫어서-대출하는-프로그램&quot;&gt;&lt;a href=&quot;#코로나-싫어서-대출하는-프로그램&quot; class=&quot;headerlink&quot; title=&quot;코로나 싫어서 대출하는 프로그램. .&quot;&gt;&lt;/a&gt;코로나 싫어서 대출하는 프로그램. .&lt;/h1&gt;</summary>
@@ -3956,9 +3989,9 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="B.S. Course Work" scheme="https://zerohertz.github.io/tags/b-s-course-work/"/>
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="B.S. Course Work" scheme="https://zerohertz.github.io/tags/b-s-course-work/"/>
     
   </entry>
   
@@ -5159,7 +5192,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawler-for-nlp-3/"/>
     <id>https://zerohertz.github.io/web-crawler-for-nlp-3/</id>
     <published>2018-09-20T06:01:38.000Z</published>
-    <updated>2023-08-11T10:15:01.278Z</updated>
+    <updated>2023-08-18T07:44:43.716Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;YouTube에서-JTBC로-가기&quot;&gt;&lt;a href=&quot;#YouTube에서-JTBC로-가기&quot; class=&quot;headerlink&quot; title=&quot;YouTube에서 JTBC로 가기&quot;&gt;&lt;/a&gt;YouTube에서 JTBC로 가기&lt;/h1&gt;&lt;blockquote&gt;
@@ -5179,7 +5212,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
     
   </entry>
   
@@ -5188,7 +5221,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawler-for-nlp-2/"/>
     <id>https://zerohertz.github.io/web-crawler-for-nlp-2/</id>
     <published>2018-09-20T04:01:41.000Z</published>
-    <updated>2023-08-11T10:15:01.278Z</updated>
+    <updated>2023-08-18T07:44:43.476Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Pytube&quot;&gt;&lt;a href=&quot;#Pytube&quot; class=&quot;headerlink&quot; title=&quot;Pytube&quot;&gt;&lt;/a&gt;Pytube&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Python &lt;span class=&quot;number&quot;&gt;3.7&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt; (v3&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;:1bf9cc5093, Jun &lt;span class=&quot;number&quot;&gt;27&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2018&lt;/span&gt;, 04:&lt;span class=&quot;number&quot;&gt;59&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;51&lt;/span&gt;) [MSC v&lt;span class=&quot;number&quot;&gt;.1914&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;64&lt;/span&gt; bit (AMD64)] on win32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;help&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;copyright&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;credits&amp;quot;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;license&amp;quot;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; more information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; pytube&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;yt = pytube.YouTube(&lt;span class=&quot;string&quot;&gt;&amp;quot;https://www.youtube.com/watch?v=94YwFIJ-yR0&amp;amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&amp;amp;index=1&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;vids = yt.streams.&lt;span class=&quot;built_in&quot;&gt;all&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;range&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;len&lt;/span&gt;(vids)):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(i,&lt;span class=&quot;string&quot;&gt;&amp;#x27;:&amp;#x27;&lt;/span&gt;,vids[i])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;22&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;720p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;avc1.64001F&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;mp4a.40.2&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;43&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/webm&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;360p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vp8.0&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vorbis&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;18&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;360p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;avc1.42001E&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;mp4a.40.2&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;36&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/3gpp&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;240p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;mp4v.20.3&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;mp4a.40.2&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;17&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/3gpp&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;144p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;mp4v.20.3&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;mp4a.40.2&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;136&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;720p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;avc1.4d401f&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;247&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/webm&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;720p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vp9&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;135&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;480p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;avc1.4d401f&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;8&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;244&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/webm&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;480p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vp9&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;134&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;360p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;avc1.4d401e&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;243&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/webm&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;360p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vp9&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;133&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;240p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;avc1.4d4015&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;12&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;242&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/webm&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;240p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vp9&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;13&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;160&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/mp4&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;144p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;avc1.4d400c&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;14&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;278&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;video/webm&amp;quot;&lt;/span&gt; res=&lt;span class=&quot;string&quot;&gt;&amp;quot;144p&amp;quot;&lt;/span&gt; fps=&lt;span class=&quot;string&quot;&gt;&amp;quot;30fps&amp;quot;&lt;/span&gt; vcodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vp9&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;140&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;audio/mp4&amp;quot;&lt;/span&gt; abr=&lt;span class=&quot;string&quot;&gt;&amp;quot;128kbps&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;mp4a.40.2&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;171&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;audio/webm&amp;quot;&lt;/span&gt; abr=&lt;span class=&quot;string&quot;&gt;&amp;quot;128kbps&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;vorbis&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;17&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;249&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;audio/webm&amp;quot;&lt;/span&gt; abr=&lt;span class=&quot;string&quot;&gt;&amp;quot;50kbps&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;opus&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;18&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;250&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;audio/webm&amp;quot;&lt;/span&gt; abr=&lt;span class=&quot;string&quot;&gt;&amp;quot;70kbps&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;opus&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;19&lt;/span&gt; : &amp;lt;Stream: itag=&lt;span class=&quot;string&quot;&gt;&amp;quot;251&amp;quot;&lt;/span&gt; mime_type=&lt;span class=&quot;string&quot;&gt;&amp;quot;audio/webm&amp;quot;&lt;/span&gt; abr=&lt;span class=&quot;string&quot;&gt;&amp;quot;160kbps&amp;quot;&lt;/span&gt; acodec=&lt;span class=&quot;string&quot;&gt;&amp;quot;opus&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -5201,7 +5234,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
     
   </entry>
   
@@ -5233,7 +5266,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawler-for-nlp-1/"/>
     <id>https://zerohertz.github.io/web-crawler-for-nlp-1/</id>
     <published>2018-08-31T05:32:15.000Z</published>
-    <updated>2023-08-11T10:15:01.278Z</updated>
+    <updated>2023-08-18T07:44:43.032Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;데이터-가공&quot;&gt;&lt;a href=&quot;#데이터-가공&quot; class=&quot;headerlink&quot; title=&quot;데이터 가공&quot;&gt;&lt;/a&gt;데이터 가공&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; selenium &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; webdriver&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; os&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;browser = webdriver.Chrome(&lt;span class=&quot;string&quot;&gt;&amp;#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&amp;#x27;&lt;/span&gt;)  &lt;span class=&quot;comment&quot;&gt;#Directory지정&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;browser.implicitly_wait(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)  &lt;span class=&quot;comment&quot;&gt;#암묵적으로 3초 딜레이&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url = &lt;span class=&quot;string&quot;&gt;&amp;quot;https://www.youtube.com/watch?v=94YwFIJ-yR0&amp;amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&amp;amp;index=1&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;browser.get(url)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; a &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;range&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;): &lt;span class=&quot;comment&quot;&gt;#url의 개수&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        b = &lt;span class=&quot;built_in&quot;&gt;str&lt;/span&gt;(a)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        os.mkdir(b + &lt;span class=&quot;string&quot;&gt;&amp;quot;번째 기사&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        os.chdir(b + &lt;span class=&quot;string&quot;&gt;&amp;quot;번째 기사&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(a, &lt;span class=&quot;string&quot;&gt;&amp;quot;번째 url open&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        products = browser.find_elements_by_css_selector(&lt;span class=&quot;string&quot;&gt;&amp;#x27;#description &amp;gt; yt-formatted-string&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        f = &lt;span class=&quot;built_in&quot;&gt;open&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;기사 대본.txt&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;w&amp;#x27;&lt;/span&gt;)  &lt;span class=&quot;comment&quot;&gt;#txt적기&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; product &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; products:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                Z = product.text&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        f.write(Z[:-&lt;span class=&quot;number&quot;&gt;117&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        browser.save_screenshot(&lt;span class=&quot;string&quot;&gt;&amp;quot;Website.png&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        os.chdir(&lt;span class=&quot;string&quot;&gt;&amp;quot;..&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;browser.quit()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
@@ -5245,7 +5278,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
     
   </entry>
   
@@ -5287,7 +5320,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawling-by-selenium-2/"/>
     <id>https://zerohertz.github.io/web-crawling-by-selenium-2/</id>
     <published>2018-08-30T13:58:37.000Z</published>
-    <updated>2023-08-11T10:15:01.282Z</updated>
+    <updated>2023-08-18T07:47:36.499Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt;로 부서진 멘탈을 복구시키고…&lt;/p&gt;
@@ -5311,7 +5344,9 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
+    
+    <category term="BeautifulSoup" scheme="https://zerohertz.github.io/tags/beautifulsoup/"/>
     
   </entry>
   
@@ -5320,7 +5355,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawling-by-selenium-1/"/>
     <id>https://zerohertz.github.io/web-crawling-by-selenium-1/</id>
     <published>2018-08-30T01:36:35.000Z</published>
-    <updated>2023-08-11T10:15:01.282Z</updated>
+    <updated>2023-08-18T07:47:36.395Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Selenium&quot;&gt;&lt;a href=&quot;#Selenium&quot; class=&quot;headerlink&quot; title=&quot;Selenium&quot;&gt;&lt;/a&gt;Selenium&lt;/h1&gt;&lt;blockquote&gt;
@@ -5342,7 +5377,9 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
+    
+    <category term="BeautifulSoup" scheme="https://zerohertz.github.io/tags/beautifulsoup/"/>
     
   </entry>
   
@@ -5351,7 +5388,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/</id>
     <published>2018-08-22T07:46:04.000Z</published>
-    <updated>2023-08-11T10:15:01.282Z</updated>
+    <updated>2023-08-18T07:47:36.243Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;HTTP-통신&quot;&gt;&lt;a href=&quot;#HTTP-통신&quot; class=&quot;headerlink&quot; title=&quot;HTTP 통신&quot;&gt;&lt;/a&gt;HTTP 통신&lt;/h1&gt;&lt;blockquote&gt;
@@ -5372,7 +5409,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="BeautifulSoup" scheme="https://zerohertz.github.io/tags/beautifulsoup/"/>
     
   </entry>
   
@@ -5381,7 +5418,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-3/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-3/</id>
     <published>2018-08-22T05:14:09.000Z</published>
-    <updated>2023-08-11T10:15:01.282Z</updated>
+    <updated>2023-08-18T07:47:35.963Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;새로운-파이썬-파일에-bs4-추가하기-PyCharm&quot;&gt;&lt;a href=&quot;#새로운-파이썬-파일에-bs4-추가하기-PyCharm&quot; class=&quot;headerlink&quot; title=&quot;새로운 파이썬 파일에 bs4 추가하기(PyCharm)&quot;&gt;&lt;/a&gt;새로운 파이썬 파일에 bs4 추가하기(PyCharm)&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42334717/44445278-49f63480-a61b-11e8-8342-11e95c0503cc.png&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42334717/44445290-58dce700-a61b-11e8-86ca-4b3f82165e38.png&quot;&gt;&lt;br&gt;&lt;code&gt;bs4&lt;/code&gt;를 검색하여 찾은 후 install한다.&lt;/p&gt;
@@ -5395,7 +5432,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="BeautifulSoup" scheme="https://zerohertz.github.io/tags/beautifulsoup/"/>
     
   </entry>
   
@@ -5426,7 +5463,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/</id>
     <published>2018-08-19T07:33:02.000Z</published>
-    <updated>2023-08-11T10:15:01.278Z</updated>
+    <updated>2023-08-18T07:47:35.815Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;DOM-요소의-속성-추출&quot;&gt;&lt;a href=&quot;#DOM-요소의-속성-추출&quot; class=&quot;headerlink&quot; title=&quot;DOM 요소의 속성 추출&quot;&gt;&lt;/a&gt;DOM 요소의 속성 추출&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;C:&#92;Users&#92;OHG&amp;gt;python&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Python &lt;span class=&quot;number&quot;&gt;3.7&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt; (v3&lt;span class=&quot;number&quot;&gt;.7&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.0&lt;/span&gt;:1bf9cc5093, Jun &lt;span class=&quot;number&quot;&gt;27&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2018&lt;/span&gt;, 04:&lt;span class=&quot;number&quot;&gt;59&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;51&lt;/span&gt;) [MSC v&lt;span class=&quot;number&quot;&gt;.1914&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;64&lt;/span&gt; bit (AMD64)] on win32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;help&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;copyright&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;credits&amp;quot;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;license&amp;quot;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; more information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; bs4 &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; BeautifulSoup&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;soup=BeautifulSoup(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;&amp;lt;p&amp;gt;&amp;lt;a href=&amp;#x27;a.html&amp;#x27;&amp;gt;test&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;... &lt;/span&gt;    &lt;span class=&quot;string&quot;&gt;&amp;quot;html.parser&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;soup.prettify()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;#x27;&amp;lt;p&amp;gt;&#92;n &amp;lt;a href=&amp;quot;a.html&amp;quot;&amp;gt;&#92;n  test&#92;n &amp;lt;/a&amp;gt;&#92;n&amp;lt;/p&amp;gt;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a=soup.p.a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;built_in&quot;&gt;type&lt;/span&gt;(a.attrs)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;#x27;dict&amp;#x27;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&amp;#x27;href&amp;#x27;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; a.attrs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;literal&quot;&gt;True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a[&lt;span class=&quot;string&quot;&gt;&amp;#x27;href&amp;#x27;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;#x27;a.html&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
@@ -5438,7 +5475,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="BeautifulSoup" scheme="https://zerohertz.github.io/tags/beautifulsoup/"/>
     
   </entry>
   
@@ -5535,7 +5572,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     <link href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-1/"/>
     <id>https://zerohertz.github.io/web-crawling-by-beautifulsoup-1/</id>
     <published>2018-08-15T18:42:19.000Z</published>
-    <updated>2023-08-11T10:15:01.278Z</updated>
+    <updated>2023-08-18T07:47:35.607Z</updated>
     
     
       
@@ -5550,7 +5587,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Web Crawling" scheme="https://zerohertz.github.io/tags/web-crawling/"/>
+    <category term="BeautifulSoup" scheme="https://zerohertz.github.io/tags/beautifulsoup/"/>
     
   </entry>
   
