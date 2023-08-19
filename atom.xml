@@ -43,9 +43,9 @@
     
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
-    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
-    
     <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
     
   </entry>
   
@@ -102,7 +102,7 @@
     <link href="https://zerohertz.github.io/k8s-dashboard/"/>
     <id>https://zerohertz.github.io/k8s-dashboard/</id>
     <published>2023-08-15T02:49:52.000Z</published>
-    <updated>2023-08-15T23:13:35.391Z</updated>
+    <updated>2023-08-19T08:12:55.276Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Web 기반 사용자 interface &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvYWNjZXNzLWFwcGxpY2F0aW9uLWNsdXN0ZXIvd2ViLXVpLWRhc2hib2FyZC8=&quot;&gt;Kubernetes Dashboard&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 구축해보자!&lt;br&gt;이를 통해 사용자는 container화 된 application을 Kubernetes cluster 내에 배포하고, 문제를 진단하며, 클러스터 자원을 관리할 수 있다.&lt;/p&gt;
@@ -214,7 +214,7 @@
     <link href="https://zerohertz.github.io/k8s-ingress/"/>
     <id>https://zerohertz.github.io/k8s-ingress/</id>
     <published>2023-08-08T14:43:40.000Z</published>
-    <updated>2023-08-15T02:52:26.025Z</updated>
+    <updated>2023-08-19T08:12:16.560Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
@@ -250,7 +250,7 @@
     
     
     
-    <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
+    <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
     
     
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
@@ -711,7 +711,7 @@
     <link href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/"/>
     <id>https://zerohertz.github.io/automating-code-formatting-with-github-actions/</id>
     <published>2023-07-04T23:58:00.000Z</published>
-    <updated>2023-08-11T10:15:01.066Z</updated>
+    <updated>2023-08-19T08:09:41.821Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Algorithm 문제를 풀고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9BbGdvcml0aG0=&quot;&gt;GitHub&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 관리하고 있었는데, 문제를 해결할 때 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9yZXBsaXQuY29tL2xhbmd1YWdlcy9weXRob24z&quot;&gt;replit&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 초기에 많이 사용했었다.&lt;br&gt;하지만 현재 사용하고 있는 Visual Studio Code와 indentation의 규칙이 달라서 GitHub Actions로 모두 동일한 format을 가지도록 자동화하겠다.&lt;/p&gt;
@@ -720,7 +720,7 @@
     
     
     
-    <category term="2. MLOps" scheme="https://zerohertz.github.io/categories/2-mlops/"/>
+    <category term="Etc." scheme="https://zerohertz.github.io/categories/etc/"/>
     
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>

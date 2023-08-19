@@ -38,9 +38,9 @@
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
       
-      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
-      
       <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
       
       
       <comments>https://zerohertz.github.io/airflow-auto-payment/#disqus_thread</comments>
@@ -259,7 +259,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -761,7 +761,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
