@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-count">195</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -211,6 +211,106 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/airflow-ga4-api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/airflow-ga4-api/" class="post-title-link" itemprop="url">Google Analytics 4의 API를 통한 블로그 사용자 정보 전달 자동화</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-20 20:44:22" itemprop="dateCreated datePublished" datetime="2023-08-20T20:44:22+09:00">2023-08-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Google Analytics 4 (GA4): Google의 최신 웹 및 앱 분석 플랫폼으로 GA4는 이전 버전인 Universal Analytics (UA)와 여러 가지 중요한 차이점이 있으며, 이는 기능, 보고서 구조, 데이터 모델링 및 추적 방법에 큰 변화를 불러왔습니다.</p>
+</blockquote>
+<ul>
+<li>이벤트 중심의 모델: 대부분의 상호작용이 이벤트로 처리되며 사용자 정의 이벤트 구현 간소화</li>
+<li>기계 학습 및 예측: 사용자 행동 분석과 예측에 기계 학습 알고리즘을 활용, 이탈률이 높거나 구매 가능성이 있는 사용자 예측</li>
+<li>세분화된 사용자 분석: 사용자의 전체 수명 주기에 기반한 분석 제공. ‘사용자’, ‘세션’, ‘액티베이션’, ‘이벤트’ 등의 보고서 확인 가능</li>
+<li>코드 없는 이벤트 추적: 인터페이스를 통해 코드 변경 없이 이벤트 생성 및 수정 가능</li>
+<li>향상된 크로스 플랫폼 추적: 웹과 앱 간 사용자 경험 추적 개선</li>
+<li>데이터 보존 및 삭제: 데이터 보존 기간 설정 및 자동 삭제 기능 제공</li>
+<li>Audiences와 Segments: ‘세그먼트’ 대신 ‘Audiences’를 사용하여 사용자 그룹 정의</li>
+<li>향상된 사용자 프라이버시: GDPR, CCPA 등의 규정 대응을 위한 데이터 제거 및 조정 기능 강화</li>
+<li>BigQuery 통합: 모든 속성에 대한 무료 BigQuery 연동, 원시 데이터 분석 용이</li>
+<li>새로운 보고서 및 인터페이스: 보고서와 인터페이스의 구조 변경</li>
+</ul>
+<p>하지만 GA4는 여러 정보를 내포하고 있다보니 매 페이지의 로딩 시간이 매우 길다.<br>따라서 Apache Airflow를 통해 정기적으로 GA4의 API를 호출하고 Discord로 메시지를 보내는 DAG를 구성해보자!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/airflow-ga4-api/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1519,93 +1619,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/multiprocessing/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/boj-11004/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/boj-11004/" class="post-title-link" itemprop="url">BOJ: 11004</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-08-01 23:10:42" itemprop="dateCreated datePublished" datetime="2023-08-01T23:10:42+09:00">2023-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-algorithm/" itemprop="url" rel="index"><span itemprop="name">3. Algorithm</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h1><p>수 N개 $A_1$, $A_2$, …, $A_N$이 주어진다. A를 오름차순 정렬했을 때, 앞에서부터 K번째 있는 수를 구하는 프로그램을 작성하시오.</p>
-<h2 id="입력"><a href="#입력" class="headerlink" title="입력"></a>입력</h2><p>첫째 줄에 N(1 ≤ N ≤ 5,000,000)과 K (1 ≤ K ≤ N)이 주어진다.<br>둘째에는 $A_1$, $A_2$, …, $A_N$이 주어진다. ($-10^9$ ≤ $A_i$ ≤ $10^9$)</p>
-<h2 id="출력"><a href="#출력" class="headerlink" title="출력"></a>출력</h2><p>첫째 줄에 입력으로 주어진 M개의 수에 대해서, 각 수가 적힌 숫자 카드를 상근이가 가지고 있으면 1을, 아니면 0을 공백으로 구분해 출력한다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/boj-11004/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
