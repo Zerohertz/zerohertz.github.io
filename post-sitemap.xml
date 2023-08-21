@@ -273,7 +273,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/unreal-engine-and-c-2/</loc>
+        <loc>https://zerohertz.github.io/unreal-engine-and-c-1/</loc>
         <lastmod>2023-08-11T10:15:01.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -281,7 +281,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/unreal-engine-and-c-1/</loc>
+        <loc>https://zerohertz.github.io/unreal-engine-and-c-2/</loc>
         <lastmod>2023-08-11T10:15:01.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -465,7 +465,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/professional-research-agent-train-init/</loc>
+        <loc>https://zerohertz.github.io/political-science/</loc>
         <lastmod>2023-08-11T10:15:01.234Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -473,7 +473,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/political-science/</loc>
+        <loc>https://zerohertz.github.io/professional-research-agent-train-init/</loc>
         <lastmod>2023-08-11T10:15:01.234Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -505,14 +505,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-4/</loc>
-        <lastmod>2023-08-11T10:15:01.226Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/numerical-analysis-3/</loc>
         <lastmod>2023-08-11T10:15:01.226Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -521,7 +513,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numpy/</loc>
+        <loc>https://zerohertz.github.io/numerical-analysis-4/</loc>
         <lastmod>2023-08-11T10:15:01.226Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -537,7 +529,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/paper-review-deer/</loc>
+        <loc>https://zerohertz.github.io/numpy/</loc>
         <lastmod>2023-08-11T10:15:01.226Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -546,6 +538,14 @@
 
     <url>
         <loc>https://zerohertz.github.io/nutrients/</loc>
+        <lastmod>2023-08-11T10:15:01.226Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/paper-review-deer/</loc>
         <lastmod>2023-08-11T10:15:01.226Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -569,6 +569,14 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/normality-test/</loc>
+        <lastmod>2023-08-11T10:15:01.222Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
         <lastmod>2023-08-11T10:15:01.222Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -585,14 +593,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/normality-test/</loc>
-        <lastmod>2023-08-11T10:15:01.222Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/mlops-for-mle-fastapi/</loc>
         <lastmod>2023-08-11T10:15:01.218Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -601,7 +601,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mlops-for-mle-model-development/</loc>
+        <loc>https://zerohertz.github.io/mlops-for-mle-kafka/</loc>
         <lastmod>2023-08-11T10:15:01.218Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -609,7 +609,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mlops-for-mle-kafka/</loc>
+        <loc>https://zerohertz.github.io/mlops-for-mle-model-development/</loc>
         <lastmod>2023-08-11T10:15:01.218Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -737,7 +737,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -753,6 +753,14 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/manufacturing-process/</loc>
+        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/matlab-1/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -761,15 +769,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
-        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
+        <loc>https://zerohertz.github.io/kubeflow/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -777,7 +777,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/kubeflow/</loc>
+        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -825,14 +825,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</loc>
-        <lastmod>2023-08-11T10:15:01.186Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</loc>
         <lastmod>2023-08-11T10:15:01.186Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -841,8 +833,8 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/</loc>
-        <lastmod>2023-08-11T10:15:01.178Z</lastmod>
+        <loc>https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</loc>
+        <lastmod>2023-08-11T10:15:01.186Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -850,6 +842,14 @@
 
     <url>
         <loc>https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/</loc>
+        <lastmod>2023-08-11T10:15:01.178Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/implementing-mask-r-cnn-with-pytorch/</loc>
         <lastmod>2023-08-11T10:15:01.178Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1097,7 +1097,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cpp-data-types-and-operations/</loc>
+        <loc>https://zerohertz.github.io/cpp-4/</loc>
         <lastmod>2023-08-11T10:15:01.138Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1105,7 +1105,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cpp-4/</loc>
+        <loc>https://zerohertz.github.io/cpp-data-types-and-operations/</loc>
         <lastmod>2023-08-11T10:15:01.138Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1121,7 +1121,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/deep-learning-with-pytorch-1/</loc>
+        <loc>https://zerohertz.github.io/crane-and-transporter-by-arduino/</loc>
         <lastmod>2023-08-11T10:15:01.138Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1129,7 +1129,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/crane-and-transporter-by-arduino/</loc>
+        <loc>https://zerohertz.github.io/deep-learning-with-pytorch-1/</loc>
         <lastmod>2023-08-11T10:15:01.138Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1297,7 +1297,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-1707/</loc>
+        <loc>https://zerohertz.github.io/boj-1759/</loc>
         <lastmod>2023-08-11T10:15:01.090Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1305,7 +1305,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-1759/</loc>
+        <loc>https://zerohertz.github.io/boj-1707/</loc>
         <lastmod>2023-08-11T10:15:01.090Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1369,6 +1369,14 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/boj-14503/</loc>
+        <lastmod>2023-08-11T10:15:01.082Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/boj-14889/</loc>
         <lastmod>2023-08-11T10:15:01.082Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1378,14 +1386,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/boj-1543/</loc>
-        <lastmod>2023-08-11T10:15:01.082Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/boj-14503/</loc>
         <lastmod>2023-08-11T10:15:01.082Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1481,6 +1481,14 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/boj-1053/</loc>
+        <lastmod>2023-08-11T10:15:01.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/boj-1057/</loc>
         <lastmod>2023-08-11T10:15:01.074Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1490,14 +1498,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/boj-1058/</loc>
-        <lastmod>2023-08-11T10:15:01.074Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/boj-1053/</loc>
         <lastmod>2023-08-11T10:15:01.074Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
