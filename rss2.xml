@@ -9,8 +9,34 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Sun, 20 Aug 2023 15:36:54 GMT</pubDate>
+    <pubDate>Tue, 22 Aug 2023 15:29:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Home Server: Cloud</title>
+      <link>https://zerohertz.github.io/home-server-cloud/</link>
+      <guid>https://zerohertz.github.io/home-server-cloud/</guid>
+      <pubDate>Tue, 22 Aug 2023 14:53:49 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuZHJvcGJveC5jb20v&quot;&gt;Dropbox&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;와 같은 cloud storage service를 Kubernetes로 배포하기 위해 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL25leHRjbG91ZA==&quot;&gt;Nextcloud&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 사용한다!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262398322-65cec9f6-d359-422a-8735-e5db355e4fb7.png&quot; alt=&quot;Nextcloud&quot;&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/traefik/">Traefik</category>
+      
+      
+      <comments>https://zerohertz.github.io/home-server-cloud/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Apache Airflow 기반 Google Analytics 4 API를 통한 블로그 사용자 정보 전달 자동화</title>
@@ -379,11 +405,11 @@
       
       <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
       
+      <category domain="https://zerohertz.github.io/tags/traefik/">Traefik</category>
+      
       <category domain="https://zerohertz.github.io/tags/grafana/">Grafana</category>
       
       <category domain="https://zerohertz.github.io/tags/prometheus/">Prometheus</category>
-      
-      <category domain="https://zerohertz.github.io/tags/traefik/">Traefik</category>
       
       
       <comments>https://zerohertz.github.io/home-server-monitoring/#disqus_thread</comments>
