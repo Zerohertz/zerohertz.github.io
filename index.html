@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">196</span>
+          <span class="site-state-item-count">197</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -211,6 +211,115 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/cicd-init/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/cicd-init/" class="post-title-link" itemprop="url">GitHub Actions와 ArgoCD 기반 CI/CD 도전기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-23 08:42:58" itemprop="dateCreated datePublished" datetime="2023-08-23T08:42:58+09:00">2023-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li>CI&#x2F;CD<ul>
+<li>CI (Continuous Integration)<ul>
+<li>개발자들이 자주 (일반적으로 하루에 여러 번) 자신의 코드 변경 사항을 메인 브랜치에 통합하는 프로세스</li>
+<li>이는 코드의 통합 문제를 조기에 견하고 해결하는 데 도움이 됩니다.</li>
+</ul>
+</li>
+<li>CD (Continuous Deployment&#x2F;Delivery)<ul>
+<li>자동화된 테스트를 통과한 모든 코드 변경 사항이 자동으로 프로덕션 환경에 배포되는 프로세스 (Continuous Deployment) 또는 프로덕션 환경에 배포될 준비가 되면 수동으로 배포될 수 있게 하는 프로세스 (Continuous Delivery).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GitHub Actions: GitHub에서 제공하는 CI&#x2F;CD 플랫폼<ul>
+<li>Workflow를 <code>.yml</code> 또는 <code>.yaml</code> 파일로 정의하여 코드의 빌드, 테스트, 배포 등 다양한 자동화 작업 수행</li>
+</ul>
+</li>
+<li>Argo CD: Kubernetes를 위한 선언적, GitOps 연속 배포 도구<ul>
+<li>Git 저장소에 정의된 Kubernetes 명세를 cluster와 동기화하는 데 사용</li>
+<li>Application의 배포 상태, 구성 차이 및 동기화 상태 시각화 대시보드 제공</li>
+</ul>
+</li>
+</ul>
+<p>이러한 GitHub Actions와 Argo CD를 통해 아래와 같은 CI&#x2F;CD를 도전해본다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262577036-f2ad5f3b-6f45-4f52-8368-20e3fa97f22c.png" alt="cicd"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/cicd-init/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1500,126 +1609,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/boj-1024/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/home-server-init/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/home-server-init/" class="post-title-link" itemprop="url">Home Server 구축기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-08-03 22:19:31" itemprop="dateCreated datePublished" datetime="2023-08-03T22:19:31+09:00">2023-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1KRlRVempXMGZzSSZhYl9jaGFubmVsPUlUU3ViJUVDJTlFJTg3JUVDJTg0JUFE">이 영상<i class="fa fa-external-link-alt"></i></span>을 보며 뽐뿌가 온 나머지,,, 홈 서버로 사용하기 위해 아래와 같은 스펙으로 주문했다!!!</p>
-<table>
-<thead>
-<tr>
-<th align="center">Type</th>
-<th align="center">Link</th>
-<th align="center">Price</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Case</td>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9saW5rLmNvdXBhbmcuY29tL2EvNU1ZbGM=">ASRock DeskMini X300 120W<i class="fa fa-external-link-alt"></i></span></td>
-<td align="center">215,000원</td>
-</tr>
-<tr>
-<td align="center">CPU</td>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9zbWFydHN0b3JlLm5hdmVyLmNvbS9zanN5cy9wcm9kdWN0cy84ODQ4ODU4MDI0P05hUG09Y3Q9bGt2NndrMmclN0NjaT1jaGVja291dCU3Q3RyPXBwYyU3Q3RyeD1udWxsJTdDaGs9NTA4NDRjM2FhYmVkNGNjYjI0NTAxNmE3NTM3NmE0MDVlNjJlZGM0Yw==">AMD Ryzen 5 5600G<i class="fa fa-external-link-alt"></i></span> + Thermal grease</td>
-<td align="center">166,500원</td>
-</tr>
-<tr>
-<td align="center">Fan</td>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9saW5rLmNvdXBhbmcuY29tL2EvNU1ZRGw=">Noctua NH-L9a-AM4<i class="fa fa-external-link-alt"></i></span></td>
-<td align="center">75,990원</td>
-</tr>
-<tr>
-<td align="center">RAM</td>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9zaG9wcGluZy5pbnRlcnBhcmsuY29tL3Byb2R1Y3QvcHJvZHVjdEluZm8uZG8/cHJkTm89MTEzNTAwNDUxNzA=">SAMSUNG Notebook DDR4 16GB PC4-25600<i class="fa fa-external-link-alt"></i></span> $\times$ 2</td>
-<td align="center">77,860원</td>
-</tr>
-<tr>
-<td align="center">SSD</td>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9zbWFydHN0b3JlLm5hdmVyLmNvbS9tb2RlaXQvcHJvZHVjdHMvNTM1NjY2MTIxNj9OYVBtPWN0PWxrdjZ5MGozJTdDY2k9Y2hlY2tvdXQlN0N0cj1wcGMlN0N0cng9bnVsbCU3Q2hrPWE1ZmI1ZDc5N2NjOTc5YTFmY2ViZTQ4NzYyZmY2ZGU5YTNhYTI2ZjE=">SK Hynix GOLD P31 NVMe SSD M.2 NVMe 1TB<i class="fa fa-external-link-alt"></i></span></td>
-<td align="center">87,500원</td>
-</tr>
-</tbody></table>
-<p>총 622,850원으로 구성할 수 있었다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/home-server-init/" rel="contents">
                 Read more &raquo;
               </a>
             </div>

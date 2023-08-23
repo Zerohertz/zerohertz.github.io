@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">196</span>
+          <span class="site-state-item-count">197</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -211,6 +211,101 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/paper-review-deer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/paper-review-deer/" class="post-title-link" itemprop="url">Paper Review: DEER</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-05-24 23:14:40" itemprop="dateCreated datePublished" datetime="2023-05-24T23:14:40+09:00">2023-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIyMDMuMDUxMjIucGRm">DEER: Detection-agnostic End-to-End Recognizer for Scene Text Spotting<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>이 논문은 NAVER Clova 팀에서 개발한 end-to-end text spotting 모델을 제안한다.<br>End-to-end text spotting 모델은 text detector와 recognizer로 구성되어있다.<br>해당 논문의 저자들은 기존 text spotting 모델들은 detector와 recognizer 사이에 다소 밀접하게 결합되어있다고 아래와 같이 주장한다.</p>
+<ol>
+<li>Detector에서 잘라낸 이미지는 recognizer에 입력되기 때문에 필연적으로 detector의 성능에 따라 recognizer의 성능이 결정된다.</li>
+<li>Detctor에서 crop된 영역의 localized features를 recognzier에 전달하여 detector의 종속성을 감소시킬 수 있지만 여전히 존재하는 detector의 오류 누적으로 인해 recognition 실패가 발생할 수 있다.</li>
+<li>Feature pooling과 masking은 end-to-end text spotting 모델을 학습하기 위해 bounding boxes 데이터가 여전히 필요하다.</li>
+</ol>
+<p>이에 대한 자세한 설명은 <span class="exturl" data-url="aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=">발표자료<i class="fa fa-external-link-alt"></i></span>의 6, 7, 8페이지에서 확인할 수 있다.</p>
+<p>Object detection 분야에서는 end-to-end Transformer 기반 접근 방식이 발전함에 따라 이미지의 개별 객체를 엄격하게 recognize하기 위해 정확한 영역 정보, 정교한 ground truth 할당 및 feature pooling이 필요하지 않다는 것이 분명해지고 있다.<br>그렇기에 저자들은 detection 결과의 정확성에 대한 의존성을 완화할 수 있는 DEER (Detection-agnostic end-to-end Recognizer)를 제안한다.<br>DEER는 정확한 text 영역을 추출하기 위해 detector에 의존하지 않고 detector가 각 text instance에 대한 single reference point를 localize하도록 한다.<br>Reference point 주위의 text를 포괄적으로 recognize하는 text decoder는 text sequence를 decoding하는 동안 특정 text instance의 attending region을 결정하는 방법을 학습한다.<br>DEER는 기존 모델들과 다르게 detecotr의 역할이 single reference point를 localize하는 것 뿐이기 때문에 훨씬 더 다양한 검출 알고리즘과 주석을 사용할 수 있다.<br>이러한 접근 방식을 통해 pooling operations와 polygon-type 주석 없이 회전 및 곡선 text instance를 자연스럽게 처리할 수 있다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/paper-review-deer/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1515,94 +1610,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/mlops-for-mle-model-registry/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/programmers-60059/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/programmers-60059/" class="post-title-link" itemprop="url">Programmers: 자물쇠와 열쇠</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-01-31 23:38:08" itemprop="dateCreated datePublished" datetime="2023-01-31T23:38:08+09:00">2023-01-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-algorithm/" itemprop="url" rel="index"><span itemprop="name">3. Algorithm</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzYwMDU5">Programmers 60059: 자물쇠와 열쇠<i class="fa fa-external-link-alt"></i></span></p>
-</blockquote>
-<p>새로운 <code>key</code>를 만들어서 이동하고 회전하면 시간 복잡도가 너무 커질 것 같아서 <code>key</code>의 좌표를 회전된 것처럼 맵핑해줄 수 있는 <code>convert_func</code> 함수를 개발했다. <del>는 행렬 다시 만들고 이동 및 회전해도 풀 수 있음;</del><br><code>key</code>와 <code>lock</code>이 겹쳐지는 순간 겹쳐지지 않은 <code>key</code>의 부분을 쉽게 고려하기 위해 <code>for</code>문을 <code>M</code> (<code>len(key)</code>)에 대해 개발하였고, 해당 부분을 위해 <code>key</code>를 회전하는 것은 <code>lock</code>을 회전하는 것과 같은 성질을 이용해 <code>lock</code>을 회전했다.<br>또한 <code>lock</code>의 모든 부분에 일일히 <code>key</code>를 넣어보며 확인하면 시간 복잡도가 커질 것 같아서 <code>key</code>의 삽입이 필요한 구간을 <code>idx_i_1</code>, <code>idx_j_1</code>, <code>idx_i_2</code>, <code>idx_j_2</code>로 정의했다. <del>는 이것도 그냥 풀 수 있음;</del><br>최종적으로 꼭 <code>key</code>의 삽입이 필요한 구간에 대해서만 완벽히 일치하는지에 대한 여부 확인을 위한 함수 <code>match</code>를 수행했다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/programmers-60059/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
