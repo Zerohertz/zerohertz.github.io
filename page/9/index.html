@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -211,6 +211,104 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/serial-communication-arduino-to-raspberrypi/" class="post-title-link" itemprop="url">Serial Communication (Arduino to RaspberryPi)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-18 13:24:03" itemprop="dateCreated datePublished" datetime="2020-08-18T13:24:03+09:00">2020-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="CMD를-통한-Serial-통신"><a href="#CMD를-통한-Serial-통신" class="headerlink" title="CMD를 통한 Serial 통신"></a>CMD를 통한 Serial 통신</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.12/dist/gdemo.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+<script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.12/dist/gdemo.min.js"></script>
+<div id="zerohertz" style="height: 130px"></div>
+<script>
+new GDemo('#zerohertz')
+  .openApp('terminal', {minHeight: '130px', windowTitle: 'pi@raspberrypi: ~', promptString: 'pi@raspberrypi:~ $'})
+  .command(`sudo usermod <span class="token operator">-</span>a <span class="token operator">-</span>G tty pi`, {onCompleteDelay: 300})
+  .command(`sudo usermod <span class="token operator">-</span>a <span class="token operator">-</span>G dialout pi`, {onCompleteDelay: 300})
+  .command(`stty <span class="token operator">-</span>F <span class="token operator">/</span>dev<span class="token operator">/</span>ttyACM0 raw <span class="token number">115200</span> cs8 clocal <span class="token operator">-</span>cstopb`, {onCompleteDelay: 300})
+  .command(`cat <span class="token operator">/</span>dev<span class="token operator">/</span>ttyACM0`, {onCompleteDelay: 300})
+  .respond(``)
+  .end();
+</script>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/serial-communication-arduino-to-raspberrypi/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2409,109 +2507,6 @@ new GDemo('#demo-teriminal1')
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/web-crawler-for-ecampus-by-selenium/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mass-media/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/mass-media/" class="post-title-link" itemprop="url">Mass Media</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-03-27 13:33:14" itemprop="dateCreated datePublished" datetime="2020-03-27T13:33:14+09:00">2020-03-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Media-Mass-Media"><a href="#Media-Mass-Media" class="headerlink" title="Media? Mass Media?"></a>Media? Mass Media?</h2><ul>
-<li>Media<ul>
-<li>매체(Medium) : 어떤 작용을 한 쪽에서 다른 쪽으로 전달 하는 물체, 또는 그런 수단</li>
-<li>메세지를 수용자에게 전달하기 위한 물체 또는 수단</li>
-</ul>
-</li>
-<li>Mass media<ul>
-<li>대중매체</li>
-<li>많은 사람들에게 대량으로 (정보와 사상 등을) 전달하는 것</li>
-</ul>
-</li>
-</ul>
-<h2 id="프레임-효과-Framing-Effect"><a href="#프레임-효과-Framing-Effect" class="headerlink" title="프레임 효과(Framing Effect)"></a>프레임 효과(Framing Effect)</h2><ul>
-<li>1978년, Tuchman의 편집국 참여관찰 연구</li>
-<li>뉴스 생산자인 뉴스 조직이 현실의 사건을 선택, 가공, 편집하여 수용자에게 현실을 바라보는 하나의 틀(frame)을 제공</li>
-</ul>
-<blockquote>
-<p>정치적 사안들에 대한 수용자들의 인식이 그 사안에 대한 매스미디어의 해석적 관점에 영향을 받는 현상</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/mass-media/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
