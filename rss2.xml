@@ -9,8 +9,44 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Sat, 26 Aug 2023 15:13:37 GMT</pubDate>
+    <pubDate>Mon, 28 Aug 2023 12:28:54 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>airflow-ct</title>
+      <link>https://zerohertz.github.io/airflow-ct/</link>
+      <guid>https://zerohertz.github.io/airflow-ct/</guid>
+      <pubDate>Sun, 27 Aug 2023 13:41:03 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Data 기반 의사결정의 시대에 진입하며, machine learning model은 다양한 비즈니스 application의 중심 요소로 부상하고 있다.&lt;br&gt;그렇지만 다른 기술과 마찬가지로, model의 효과와 신뢰도는 주로 어떤 data로 훈련받았는가에 큰 영향을 받는다.&lt;br&gt;이에 따라 data shift 문제를 필연적으로 고려해야한다.&lt;br&gt;Data shift는 특정 model이 훈련을 받은 data의 분포와 실제 세계에서 접하는 data의 분포 사이에 차이가 생길 때 나타난다.&lt;br&gt;이로 인해 모델의 성능이 크게 저하되거나 예측이 왜곡될 수 있다.&lt;br&gt;실제 세계의 데이터는 계절 변화, 시장 동향과 같은 다양한 요인들로 지속적으로 변화하므로, 단순히 모델을 생성하는 것만으로는 그 변화에 대응하기 어렵다.&lt;br&gt;이 때문에 model이 지속적으로 데이터의 변화에 적응하면서 관련성을 유지할 수 있도록 지원하는 mechanism이 필요하다는 인식이 생겼고, continuous learning이 주목받게 되었다.&lt;br&gt;Continuous learning은 최근의 데이터 변화를 포착하고 적응하면서 model을 주기적으로 갱신하는 체계다.&lt;br&gt;그러나 이런 체계를 구축하는 것은 복잡하며 여러 요소를 고려해야 한다.&lt;br&gt;따라서 이번 글에서는, data shift가 시간에 따라 발생하는 예제 데이터를 생성해 볼 것이며, 그 data를 기반으로 Apache Airflow를 이용해 아래와 같이 continuous training하는 DAG를 만들어 continuous learning에 대한 이해를 조금이나 얻어보려고한다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/263691542-78b3f9b0-815c-4fe4-bb22-b85747e2e0f1.gif&quot; alt=&quot;result&quot;&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/docker/">Docker</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/scikit-learn/">scikit-learn</category>
+      
+      <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
+      
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      
+      <comments>https://zerohertz.github.io/airflow-ct/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Apache Airflow: Theme</title>
@@ -3426,9 +3462,9 @@
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/pytorch/">PyTorch</category>
-      
       <category domain="https://zerohertz.github.io/tags/scikit-learn/">scikit-learn</category>
+      
+      <category domain="https://zerohertz.github.io/tags/pytorch/">PyTorch</category>
       
       
       <comments>https://zerohertz.github.io/neural-network-example/#disqus_thread</comments>

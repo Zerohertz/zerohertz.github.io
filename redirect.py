@@ -5,6 +5,7 @@ from glob import glob
 import requests
 from tqdm import tqdm
 
+
 def redirect(url):
     try:
         response = requests.get(url, allow_redirects=True)
