@@ -36,17 +36,17 @@
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="scikit-learn" scheme="https://zerohertz.github.io/tags/scikit-learn/"/>
-    
     <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
-    
-    <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
-    
-    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
     
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
     <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+    <category term="scikit-learn" scheme="https://zerohertz.github.io/tags/scikit-learn/"/>
+    
+    <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
+    
+    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
     
   </entry>
   
@@ -113,11 +113,11 @@
     <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
     
     
+    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
     <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
     
     <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
-    
-    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
     <category term="Argo CD" scheme="https://zerohertz.github.io/tags/argo-cd/"/>
     
@@ -216,9 +216,9 @@
     
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
-    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
-    
     <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
     
   </entry>
   
@@ -576,7 +576,7 @@
     <link href="https://zerohertz.github.io/home-server-init/"/>
     <id>https://zerohertz.github.io/home-server-init/</id>
     <published>2023-08-03T13:19:31.000Z</published>
-    <updated>2023-08-31T02:36:37.620Z</updated>
+    <updated>2023-08-31T02:38:56.010Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1KRlRVempXMGZzSSZhYl9jaGFubmVsPUlUU3ViJUVDJTlFJTg3JUVDJTg0JUFE&quot;&gt;이 영상&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 보며 뽐뿌가 온 나머지,,, 홈 서버로 사용하기 위해 아래와 같은 스펙으로 주문했다!!!&lt;/p&gt;
@@ -2281,29 +2281,6 @@
   </entry>
   
   <entry>
-    <title>BOJ: 1058</title>
-    <link href="https://zerohertz.github.io/boj-1058/"/>
-    <id>https://zerohertz.github.io/boj-1058/</id>
-    <published>2022-11-03T01:30:15.000Z</published>
-    <updated>2023-08-11T10:15:01.074Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="3. Algorithm" scheme="https://zerohertz.github.io/categories/3-algorithm/"/>
-    
-    
-    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
-    
-    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
-    
-  </entry>
-  
-  <entry>
     <title>BOJ: 1059</title>
     <link href="https://zerohertz.github.io/boj-1059/"/>
     <id>https://zerohertz.github.io/boj-1059/</id>
@@ -2325,6 +2302,29 @@
 &lt;li&gt;집합 S에 포함된 모든 정수는 1보다 크거나 같고, 1,000보다 작거나 같다.&lt;/li&gt;
 &lt;li&gt;1 ≤ n ≤ (집합 S에서 가장 큰 정수)&lt;/li&gt;
 &lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="3. Algorithm" scheme="https://zerohertz.github.io/categories/3-algorithm/"/>
+    
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BOJ: 1058</title>
+    <link href="https://zerohertz.github.io/boj-1058/"/>
+    <id>https://zerohertz.github.io/boj-1058/</id>
+    <published>2022-11-03T01:30:15.000Z</published>
+    <updated>2023-08-11T10:15:01.074Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</summary>
     
     
     
