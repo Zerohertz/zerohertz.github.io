@@ -31,17 +31,17 @@
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
-      <category domain="https://zerohertz.github.io/tags/docker/">Docker</category>
-      
-      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
-      
-      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
-      
       <category domain="https://zerohertz.github.io/tags/scikit-learn/">scikit-learn</category>
+      
+      <category domain="https://zerohertz.github.io/tags/docker/">Docker</category>
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
       <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
       
       
       <comments>https://zerohertz.github.io/airflow-ct/#disqus_thread</comments>
@@ -112,11 +112,11 @@
       <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
-      
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
       <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
       
       <category domain="https://zerohertz.github.io/tags/argo-cd/">Argo CD</category>
       
@@ -221,9 +221,9 @@
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
       
-      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
-      
       <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
       
       
       <comments>https://zerohertz.github.io/airflow-auto-payment/#disqus_thread</comments>

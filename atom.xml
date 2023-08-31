@@ -36,17 +36,17 @@
     
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
-    <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
-    
-    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
-    
-    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
-    
     <category term="scikit-learn" scheme="https://zerohertz.github.io/tags/scikit-learn/"/>
+    
+    <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
     
     <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
     
     <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
+    
+    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
+    
+    <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
     
   </entry>
   
@@ -113,11 +113,11 @@
     <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
     
     
-    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
-    
     <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
     
     <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
+    
+    <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
     <category term="Argo CD" scheme="https://zerohertz.github.io/tags/argo-cd/"/>
     
@@ -216,9 +216,9 @@
     
     <category term="Kubernetes" scheme="https://zerohertz.github.io/tags/kubernetes/"/>
     
-    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
-    
     <category term="Home Server" scheme="https://zerohertz.github.io/tags/home-server/"/>
+    
+    <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
     
   </entry>
   
@@ -576,7 +576,7 @@
     <link href="https://zerohertz.github.io/home-server-init/"/>
     <id>https://zerohertz.github.io/home-server-init/</id>
     <published>2023-08-03T13:19:31.000Z</published>
-    <updated>2023-08-14T10:33:14.584Z</updated>
+    <updated>2023-08-31T02:36:37.620Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1KRlRVempXMGZzSSZhYl9jaGFubmVsPUlUU3ViJUVDJTlFJTg3JUVDJTg0JUFE&quot;&gt;이 영상&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 보며 뽐뿌가 온 나머지,,, 홈 서버로 사용하기 위해 아래와 같은 스펙으로 주문했다!!!&lt;/p&gt;
