@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">199</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -211,6 +211,91 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-api-serving/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/mlops-for-mle-api-serving/" class="post-title-link" itemprop="url">MLOps for MLE: API Serving</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-02-15 20:51:19" itemprop="dateCreated datePublished" datetime="2023-02-15T20:51:19+09:00">2023-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Model-API"><a href="#Model-API" class="headerlink" title="Model API"></a>Model API</h1><h2 id="모델-다운로드"><a href="#모델-다운로드" class="headerlink" title="모델 다운로드"></a>모델 다운로드</h2><figure class="highlight python"><figcaption><span>download_model.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</span><br><span class="line"><span class="keyword">from</span> argparse <span class="keyword">import</span> ArgumentParser</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> mlflow</span><br><span class="line"></span><br><span class="line">load_dotenv()</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>] = os.environ.get(<span class="string">&quot;MLFLOW_S3_ENDPOINT_URL&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>] = os.environ.get(<span class="string">&quot;MLFLOW_TRACKING_URI&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;AWS_ACCESS_KEY_ID&quot;</span>] = os.environ.get(<span class="string">&quot;MINIO_ROOT_USER&quot;</span>)</span><br><span class="line">os.environ[<span class="string">&quot;AWS_SECRET_ACCESS_KEY&quot;</span>] = os.environ.get(<span class="string">&quot;MINIO_ROOT_PASSWORD&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download_model</span>(<span class="params">args</span>):</span><br><span class="line">    mlflow.artifacts.download_artifacts(artifact_uri=<span class="string">f&quot;runs:/<span class="subst">&#123;args.run_id&#125;</span>/<span class="subst">&#123;args.model_name&#125;</span>&quot;</span>, dst_path=<span class="string">&quot;.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    parser = ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--model-name&quot;</span>, dest=<span class="string">&quot;model_name&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&quot;sk_model&quot;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&quot;--run-id&quot;</span>, dest=<span class="string">&quot;run_id&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    download_model(args)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/mlops-for-mle-api-serving/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1515,118 +1600,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/update-hexo-next-blog/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/graduate-student-charter-loan-challenge-story/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/graduate-student-charter-loan-challenge-story/" class="post-title-link" itemprop="url">대학원생 전세 대출 도전기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-12-06 19:59:02" itemprop="dateCreated datePublished" datetime="2022-12-06T19:59:02+09:00">2022-12-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>안녕하세요, 저는 건국대학교 기계설계학과에서 석사과정 중이며 2023년 2월 22일 학위 수여를 앞두고 있습니다.<br>내년부터 석사 전문연구요원을 통해 병역을 이행할 예정이고, 학위과정 그리고 전문연구요원 사이에서 이사할 계획입니다.<br>저와 같은 고민을 하고있을 분들이 있으리라 생각해 정보 공유를 위해 현재 글을 시작하게 되었습니다.<br>제 현재 상황은 아래와 같습니다.</p>
-<ul>
-<li>주거<ul>
-<li>위치: 건국대학교 근방</li>
-<li>주거형태: 빌라 (원룸)</li>
-<li>주택 임대차 유형: 월세</li>
-</ul>
-</li>
-<li>내 정보…<ul>
-<li>기타소득 O (4대보험 X, 근로소득 X) $\rightarrow$ 무직자 ^~^</li>
-<li>신용카드 O</li>
-<li>만24세 (전세 대출에 있어 나이의 영향도 존재하여…)</li>
-</ul>
-</li>
-</ul>
-<p>또한, 석사 전문연구요원을 진행할 회사가 선릉 부근에 위치하여 제 계획은 아래와 같습니다.</p>
-<ul>
-<li>위치: 왕십리</li>
-<li>주거형태: 빌라 (원룸)<ul>
-<li>고양이 거주 가능 (<strong>먼지</strong>) $\rightarrow$ 오피스텔 불가</li>
-</ul>
-</li>
-<li>주택 임대차 유형: 전세<ul>
-<li>보증금 2억 이하</li>
-</ul>
-</li>
-</ul>
-<p>대략적인 현재 상황과 계획을 설명드렸으니 청년 전세자금대출에 대해 공부해보아요 ^^,,,</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/graduate-student-charter-loan-challenge-story/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
