@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction개발을 하다보면 이런 페이지를 한번쯤 들어가본적 있을 것이다.위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sphinx 기반 Python Package 문서화">
+<meta property="og:url" content="https://zerohertz.github.io/sphinx/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction개발을 하다보면 이런 페이지를 한번쯤 들어가본적 있을 것이다.위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274485563-880d97fb-c5b6-4178-898f-28c3c94dcf69.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274756106-c1553d5b-041f-4739-a4b9-670a67db45ea.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274760103-e7b50f3f-1c44-44e3-adc0-4933fbf96fdc.png">
+<meta property="article:published_time" content="2023-10-12T09:57:39.000Z">
+<meta property="article:modified_time" content="2023-10-13T04:07:49.645Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274485563-880d97fb-c5b6-4178-898f-28c3c94dcf69.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/sphinx/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/sphinx/","path":"sphinx/","title":"Sphinx 기반 Python Package 문서화"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Sphinx 기반 Python Package 문서화 | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sphinx"><span class="nav-number">2.</span> <span class="nav-text">Sphinx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/traefik-oauth/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-16</time>
+        <br>
+      Traefik: OAuth
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-6/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-14</time>
+        <br>
+      Generative Adversarial Network (6)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-ga4-api/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-20</time>
+        <br>
+      Apache Airflow 기반 Google Analytics 4 API를 통한 블로그 사용자 정보 전달 자동화
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-theme/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-26</time>
+        <br>
+      Apache Airflow: Theme
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/getting-started-with-jupyter-notebook/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-11</time>
+        <br>
+      Getting Started with Jupyter Notebook
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/sphinx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Sphinx 기반 Python Package 문서화 | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Sphinx 기반 Python Package 문서화
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-12 18:57:39" itemprop="dateCreated datePublished" datetime="2023-10-12T18:57:39+09:00">2023-10-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>개발을 하다보면 <span class="exturl" data-url="aHR0cHM6Ly9vcGVuY3YtcHl0aG9uLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j">이런<i class="fa fa-external-link-alt"></i></span> 페이지를 한번쯤 들어가본적 있을 것이다.<br>위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.<br>특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.<br>문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄 뿐만 아니라, 코드의 유지 및 관리도 훨씬 쉬워진다.</p>
+<p>Python은 그 자체로 간결하고 읽기 쉬운 언어이지만, 복잡한 패키지나 프로젝트를 다루게 되면 적절한 문서화 없이는 그 구조와 기능을 파악하기가 어려울 수 있다.<br>이때 필요한 것이 바로 문서화 도구다.<br>그 중에서도 Python 커뮤니티에서 널리 사용되는 도구가 바로 <code>Sphinx</code>다.</p>
+<p><code>Sphinx</code>는 Python 문서화를 위한 강력한 도구로, 간단한 마크다운 형식의 문서를 정교한 HTML, PDF, ePub 등의 형식으로 변환해준다.<br>또한, 다양한 플러그인과 확장 기능을 지원하여 문서의 내용뿐만 아니라 디자인, 구조, 그리고 상호 작용까지도 사용자의 필요에 맞게 커스터마이즈할 수 있다.</p>
+<p>따라서 이 글에서는 <code>Sphinx</code>를 사용하여 Python 패키지를 어떻게 문서화하는지 간략히 알아본다.</p>
+<span id="more"></span>
+
+<hr>
+<h1 id="Sphinx"><a href="#Sphinx" class="headerlink" title="Sphinx"></a>Sphinx</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~$ pip install sphinx sphinx-rtd-theme</span><br><span class="line">~$ <span class="built_in">mkdir</span> docs</span><br><span class="line">~$ <span class="built_in">cd</span> docs</span><br><span class="line">~/docs$ sphinx-quickstart</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 필요한 라이브러리를 설치 하고 설정을 진행할 수 있다.<br><code>sphinx-rtd-theme</code>는 위에서 언급한 페이지의 테마로 널리 쓰이고 있다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274485563-880d97fb-c5b6-4178-898f-28c3c94dcf69.png" alt="sphinx-quickstart"></p>
+<p>설정 시 프로젝트의 이름, 저자의 이름 등 몇가지 정보를 입력하면 아래와 같이 초기 디렉토리가 구성된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">~$ tree</span><br><span class="line">.</span><br><span class="line">├── build</span><br><span class="line">├── make.bat</span><br><span class="line">├── Makefile</span><br><span class="line">└── <span class="built_in">source</span></span><br><span class="line">    ├── conf.py</span><br><span class="line">    ├── index.rst</span><br><span class="line">    ├── _static</span><br><span class="line">    └── _templates</span><br></pre></td></tr></table></figure>
+
+<p>그 중 <code>source/conf.py</code>의 <code>extensions</code>에 아래와 같은 변수들을 추가하고 앞서 설치한 <code>sphinx_rtd_theme</code> 테마도 설정해준다.</p>
+<figure class="highlight python"><figcaption><span>source/conf.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Configuration file for the Sphinx documentation builder.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># For the full list of built-in configuration values, see the documentation:</span></span><br><span class="line"><span class="comment"># https://www.sphinx-doc.org/en/master/usage/configuration.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -- Project information -----------------------------------------------------</span></span><br><span class="line"><span class="comment"># https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information</span></span><br><span class="line"></span><br><span class="line">project = <span class="string">&quot;PROJECT_NAME&quot;</span></span><br><span class="line">copyright = <span class="string">&quot;2023, Thomas&quot;</span></span><br><span class="line">author = <span class="string">&quot;Thomas&quot;</span></span><br><span class="line">release = <span class="string">&quot;1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -- General configuration ---------------------------------------------------</span></span><br><span class="line"><span class="comment"># https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration</span></span><br><span class="line"></span><br><span class="line">extensions = [</span><br><span class="line">    <span class="string">&quot;sphinx.ext.autodoc&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sphinx.ext.napoleon&quot;</span>,  <span class="comment"># Google Style Python Docstrings 사용 시 추가</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">templates_path = [<span class="string">&quot;_templates&quot;</span>]</span><br><span class="line">exclude_patterns = []</span><br><span class="line"></span><br><span class="line">language = <span class="string">&quot;ko&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -- Options for HTML output -------------------------------------------------</span></span><br><span class="line"><span class="comment"># https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output</span></span><br><span class="line"></span><br><span class="line">html_theme = <span class="string">&quot;sphinx_rtd_theme&quot;</span>  <span class="comment"># 다양한 문서에서 사용하는 테마</span></span><br><span class="line">html_static_path = [<span class="string">&quot;_static&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>아래와 같은 명령어로 빌드 및 테스트를 진행할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~$ sphinx-apidoc -f -o docs/source/ <span class="variable">$&#123;PACKAGE_NAME&#125;</span></span><br><span class="line">~$ sed -i <span class="string">&#x27;/.. automodule::/a\   :private-members:&#x27;</span> docs/source/*.rst  <span class="comment"># _으로 시작하는 private members를 문서화 하려면 해당 라인 실행</span></span><br><span class="line">~$ <span class="built_in">cd</span> docs</span><br><span class="line">~/docs$ make html</span><br><span class="line">~/docs$ <span class="built_in">cd</span> build/html</span><br><span class="line">~/docs/build/html$ python -m http.server</span><br></pre></td></tr></table></figure>
+
+<p>여기서 문서화할 패키지 내 클래스 및 함수의 정의 부분 하단에 아래의 양식에 맞춰 주석을 작성해야 올바른 문서가 작성된다.<br>아래의 양식은 <span class="exturl" data-url="aHR0cHM6Ly93d3cuc3BoaW54LWRvYy5vcmcvZW4vbWFzdGVyL3VzYWdlL2V4dGVuc2lvbnMvZXhhbXBsZV9nb29nbGUuaHRtbA==">Google Style Python Docstrings<i class="fa fa-external-link-alt"></i></span>를 사용하는 것이고, 이 외에도 여러 양식이 존재한다.</p>
+<details>
+<summary>
+여러 양식들
+</summary>
+
+<ol>
+<li><p><strong>reStructuredText (reST)</strong>: Sphinx의 기본 문서 포맷입니다. reST는 문서와 주석에서 사용할 수 있는 가볍고 읽기 쉬운 마크업 언어입니다.</p>
+</li>
+<li><p><strong>Numpydoc&#x2F;NumPy Style</strong>: Numpy 프로젝트에서 시작된 스타일로, 데이터 사이언스와 관련된 프로젝트에서 널리 사용됩니다. NumPy, SciPy, Matplotlib 등의 프로젝트에서 이 스타일을 볼 수 있습니다.</p>
+<p>예:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">function_with_types_in_docstring</span>(<span class="params">param1, param2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Example function with types documented in the docstring.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    `PEP 484`_ type annotations are supported. If attribute, parameter, and</span></span><br><span class="line"><span class="string">    return types are annotated according to `PEP 484`_, they do not need to be</span></span><br><span class="line"><span class="string">    included in the docstring:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Parameters</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    param1 : int</span></span><br><span class="line"><span class="string">        The first parameter.</span></span><br><span class="line"><span class="string">    param2 : str</span></span><br><span class="line"><span class="string">        The second parameter.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">    -------</span></span><br><span class="line"><span class="string">    bool</span></span><br><span class="line"><span class="string">        True if successful, False otherwise.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Google Style Python Docstrings</strong>: Google에서 사용하는 스타일로, 코드의 가독성을 높이기 위해 설계되었습니다. Google의 Python 스타일 가이드에 따르면 이 스타일로 주석을 작성하게 됩니다.</p>
+<p>예:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sample_function</span>(<span class="params">param1, param2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Summary line.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Extended description of function.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">    param1 (int): Description of param1.</span></span><br><span class="line"><span class="string">    param2 (str): Description of param2.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    bool: Description of return value.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Epytext Style</strong>: Epydoc에서 사용하는 스타일로, <code>@</code> 기호를 사용하여 인수, 반환 타입, 예외 등을 주석에 기술합니다.</p>
+</li>
+</ol>
+</details>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;This is a function example with Google style docstrings.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">The main description of the function is written here and provides</span></span><br><span class="line"><span class="string">a brief overview of what the function does.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Args:</span></span><br><span class="line"><span class="string">    param1 (int): The first parameter used for ...</span></span><br><span class="line"><span class="string">    param2 (str): The second parameter used for ...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Returns:</span></span><br><span class="line"><span class="string">    bool: True if successful, False otherwise.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Raises:</span></span><br><span class="line"><span class="string">    TypeError: If `param1` is not an integer.</span></span><br><span class="line"><span class="string">    ValueError: If `param2` is an empty string.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Notes:</span></span><br><span class="line"><span class="string">    This is an additional note or a set of notes that provide extra</span></span><br><span class="line"><span class="string">    information about the function, but are not part of the main description.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Examples:</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; example_function(5, &quot;hello&quot;)</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; example_function(10, &quot;&quot;)</span></span><br><span class="line"><span class="string">    ValueError: param2 should not be an empty string.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>첫 번째 줄<ul>
+<li>클래스 또는 메서드의 짧고 간결한 요약 제공 (한 줄 요약)</li>
+<li>함수 또는 메서드의 리스트를 보여줄 때 사용</li>
+<li>짧고 간결해야 하며, 종종 도트(.)로 끝나기도 함</li>
+</ul>
+</li>
+<li>두 번째 줄 이후<ul>
+<li>클래스 또는 메서드에 대한 보다 상세한 설명 제공</li>
+<li>이 섹션은 함수의 작동 방식, 내부 로직, 사용 사례 등에 대한 추가적인 상세 정보를 포함할 수 있습니다.</li>
+<li>여러 문장이나 단락으로 구성될 수 있습니다.</li>
+</ul>
+</li>
+<li><code>Args</code><ul>
+<li>함수의 인수를 설명</li>
+<li>각 인수는 이름, 유형 및 설명으로 구성</li>
+</ul>
+</li>
+<li><code>Returns</code><ul>
+<li>함수의 반환 값 설명</li>
+</ul>
+</li>
+<li><code>Raises</code><ul>
+<li>함수가 발생시킬 수 있는 예외 나열</li>
+</ul>
+</li>
+<li><code>Notes</code><ul>
+<li>추가 정보나 설명 제공</li>
+</ul>
+</li>
+<li><code>Examples</code><ul>
+<li>함수의 사용 예</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><figure class="highlight python"><figcaption><span>sum.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum</span>(<span class="params">arg1, arg2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    This is sum function.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        arg1 (int): Description of arg1.</span></span><br><span class="line"><span class="string">        arg2 (int): Description of arg2.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        int: Description of return value</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Examples:</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; a=1</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; b=2</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; sum(a, b)</span></span><br><span class="line"><span class="string">        3</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> arg1 + arg2</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274756106-c1553d5b-041f-4739-a4b9-670a67db45ea.png" alt="sum"></p>
+<figure class="highlight python"><figcaption><span>example_function.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">example_function</span>(<span class="params">param1, param2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;This is a function example with Google style docstrings.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The main description of the function is written here and provides</span></span><br><span class="line"><span class="string">    a brief overview of what the function does.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        param1 (int): The first parameter used for ...</span></span><br><span class="line"><span class="string">        param2 (str): The second parameter used for ...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        bool: True if successful, False otherwise.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Raises:</span></span><br><span class="line"><span class="string">        TypeError: If `param1` is not an integer.</span></span><br><span class="line"><span class="string">        ValueError: If `param2` is an empty string.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Notes:</span></span><br><span class="line"><span class="string">        This is an additional note or a set of notes that provide extra</span></span><br><span class="line"><span class="string">        information about the function, but are not part of the main description.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Examples:</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; example_function(5, &quot;hello&quot;)</span></span><br><span class="line"><span class="string">        True</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; example_function(10, &quot;&quot;)</span></span><br><span class="line"><span class="string">        ValueError: param2 should not be an empty string.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(param1, <span class="built_in">int</span>):</span><br><span class="line">        <span class="keyword">raise</span> TypeError(<span class="string">&quot;param1 should be of type int&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> param2:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;param2 should not be an empty string&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Function&#x27;s logic here</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274760103-e7b50f3f-1c44-44e3-adc0-4933fbf96fdc.png" alt="example_function"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/awesome-jmy/" rel="prev" title="전문연구요원: 업체 정보">
+                  <i class="fa fa-chevron-left"></i> 전문연구요원: 업체 정보
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"208b5169306c32efb0477c18f13b7405"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

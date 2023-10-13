@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -211,6 +211,126 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/paper-review-ganilla/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/paper-review-ganilla/" class="post-title-link" itemprop="url">Paper Review: GANILLA</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-21 16:24:40" itemprop="dateCreated datePublished" datetime="2022-08-21T16:24:40+09:00">2022-08-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIwMDIuMDU2MzgucGRm">Hicsonmez, Samet, et al. “GANILLA: Generative adversarial networks for image to illustration translation.” Image and Vision Computing 95 (2020): 103886.<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li>생산적 적대 신경망 (Generative Adversarial Network, GAN) 기반 아동도서의 삽화 (illustration) 스타일 이미지 변환<ul>
+<li>일반적인 그림과 만화와 다르게 사물이 포함되지만 추상화 수준이 매우 높음</li>
+<li>기존 모델 (CycleGAN, DualGAN)을 통해 추상화 스타일과 삽화의 내용 간 균형을 다루는데 한계점 존재</li>
+</ul>
+</li>
+<li>Goal: 주어진 일러스트 작가의 스타일을 전달하며 주어진 이미지의 콘텐츠를 보존하는 생성기 개발<ul>
+<li>정렬되지 않은 두 개의 개별 image dataset $\rightarrow$ Unpaired approach<ul>
+<li>Source domain (natural images)</li>
+<li>Target (illustrations)</li>
+</ul>
+</li>
+<li>스타일과 콘텐츠의 불균형 문제<ul>
+<li>Residual layer에서 특징 맵을 다운 샘플링하여 새로운 생성기 네트워크 제시</li>
+<li>콘텐츠를 더 잘 전송하기 위해 skip connection 및 upsampling 사용 $\rightarrow$ 낮은 수준의 feature을 높은 수준의 feature와 병합</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unpaired style transfer approach의 evaluation<ul>
+<li>일반적으로 image-to-image translation 모델의 평가는 정성적</li>
+<li>생성된 이미지에 대해 짝지어진 ground-truth가 존재하지 않아 직접적으로 정량적 평가 불가</li>
+<li>콘텐츠 및 스타일 분류기 기반 정량적 평가 프레임워크 제안</li>
+</ul>
+</li>
+<li>Highlights<ul>
+<li>Image-to-image style and content transfer의 새로운 연구</li>
+<li>24명의 아티스트에 대한 약 9500개의 illustration으로 구성된 dataset 제공</li>
+<li>스타일과 콘텐츠의 균형이 맞는 새로운 generator network 제안</li>
+<li>콘텐츠와 스타일 측면에서 이미지 생성 모델의 새로운 정량적 평가 프레임워크 제안</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/paper-review-ganilla/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1545,102 +1665,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/simulation-of-temperature-distribution-of-material-in-dryer/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/analysis-of-many-bodies-in-one-part-with-ansys-act/" class="post-title-link" itemprop="url">Analysis of Many Bodies in One Part with ANSYS ACT</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-03-29 13:17:15" itemprop="dateCreated datePublished" datetime="2022-03-29T13:17:15+09:00">2022-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<p>한 Part의 각 Body에 상응하는 조건을 정의하고 해석하기 위해 진행</p>
-</blockquote>
-<img width="600" alt="Introduction" src="https://user-images.githubusercontent.com/42334717/160532674-71a42534-d381-4964-99d4-d21d6adcbb17.png">
-
-<ol>
-<li>Mechanical - Engineering Data: 물질에 대한 성질 정의</li>
-<li>Mecahnical - Geometry: 한 Part에 많은 Body 생성 (Python, SpaceClaim)</li>
-<li>Mechanical - Model: Mesh 생성</li>
-<li>Mechanical - Setup: 각 Body에 상응하는 경계조건 정의 (Python)</li>
-<li>Mechanical - Solution: 해석</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/analysis-of-many-bodies-in-one-part-with-ansys-act/" rel="contents">
                 Read more &raquo;
               </a>
             </div>

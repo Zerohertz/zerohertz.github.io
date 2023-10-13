@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">200</span>
+          <span class="site-state-item-count">201</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -211,6 +211,91 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-kafka/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/mlops-for-mle-kafka/" class="post-title-link" itemprop="url">MLOps for MLE: Kafka</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-02-27 11:11:14" itemprop="dateCreated datePublished" datetime="2023-02-27T11:11:14+09:00">2023-02-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-mlops/" itemprop="url" rel="index"><span itemprop="name">2. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Kafka-System"><a href="#Kafka-System" class="headerlink" title="Kafka System"></a>Kafka System</h1><figure class="highlight dockerfile"><figcaption><span>connect.Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> confluentinc/cp-kafka-connect:<span class="number">7.3</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> CONNECT_PLUGIN_PATH=<span class="string">&quot;/usr/share/java,/usr/share/confluent-hub-components&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> confluent-hub install --no-prompt snowflakeinc/snowflake-kafka-connector:1.5.5 &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">  confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:10.2.2 &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">  confluent-hub install --no-prompt confluentinc/kafka-connect-json-schema-converter:7.3.0</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/mlops-for-mle-kafka/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1507,99 +1592,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/boj-18185-18186/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/update-hexo-next-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/update-hexo-next-blog/" class="post-title-link" itemprop="url">Update Hexo NexT Blog</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-12-06 21:51:11" itemprop="dateCreated datePublished" datetime="2022-12-06T21:51:11+09:00">2022-12-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Update-npm"><a href="#Update-npm" class="headerlink" title="Update npm"></a>Update npm</h1><p><code>node.js</code>와 <code>npm</code>을 업데이트하기 전 삭제를 해야하는 경우 아래의 글을 참고하면 됩니다.</p>
-<h2 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZG9vbmdtYXVzZS5ibG9nc3BvdC5jb20vMjAyMS8wMi9icmV3Lmh0bWw=">Uninstall homebrew<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9jbG9sZWUudGlzdG9yeS5jb20vODU=">Uninstall node &amp; npm<i class="fa fa-external-link-alt"></i></span></p>
-<img width="762" alt="npm error" src="https://user-images.githubusercontent.com/42334717/205918079-9c278225-b2a5-4fdd-831b-f006bdadf55c.png">
-
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br><span class="line">brew install yarn <span class="comment">--ignore-dependencies</span></span><br><span class="line">yarn <span class="keyword">set</span> <span class="built_in">version</span> stable</span><br></pre></td></tr></table></figure>
-
-<img width="762" alt="Reinstalled node & npm" src="https://user-images.githubusercontent.com/42334717/205923445-75f8b856-29f3-4847-bfc6-b84def76d57b.png">
-
-<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -sL https://deb.nodesource.com/setup_18.x — Node.js 18 LTS <span class="string">&quot;Hydrogen&quot;</span> | sudo bash -</span><br><span class="line">$ sudo apt -y install nodejs</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/update-hexo-next-blog/" rel="contents">
                 Read more &raquo;
               </a>
             </div>

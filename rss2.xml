@@ -9,8 +9,32 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 04 Sep 2023 06:52:56 GMT</pubDate>
+    <pubDate>Fri, 13 Oct 2023 04:07:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Sphinx 기반 Python Package 문서화</title>
+      <link>https://zerohertz.github.io/sphinx/</link>
+      <guid>https://zerohertz.github.io/sphinx/</guid>
+      <pubDate>Thu, 12 Oct 2023 09:57:39 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;개발을 하다보면 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9vcGVuY3YtcHl0aG9uLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j&quot;&gt;이런&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 페이지를 한번쯤 들어가본적 있을 것이다.&lt;br&gt;위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.&lt;br&gt;특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.&lt;br&gt;문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄 뿐만 아니라, 코드의 유지 및 관리도 훨씬 쉬워진다.&lt;/p&gt;
+&lt;p&gt;Python은 그 자체로 간결하고 읽기 쉬운 언어이지만, 복잡한 패키지나 프로젝트를 다루게 되면 적절한 문서화 없이는 그 구조와 기능을 파악하기가 어려울 수 있다.&lt;br&gt;이때 필요한 것이 바로 문서화 도구다.&lt;br&gt;그 중에서도 Python 커뮤니티에서 널리 사용되는 도구가 바로 &lt;code&gt;Sphinx&lt;/code&gt;다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Sphinx&lt;/code&gt;는 Python 문서화를 위한 강력한 도구로, 간단한 마크다운 형식의 문서를 정교한 HTML, PDF, ePub 등의 형식으로 변환해준다.&lt;br&gt;또한, 다양한 플러그인과 확장 기능을 지원하여 문서의 내용뿐만 아니라 디자인, 구조, 그리고 상호 작용까지도 사용자의 필요에 맞게 커스터마이즈할 수 있다.&lt;/p&gt;
+&lt;p&gt;따라서 이 글에서는 &lt;code&gt;Sphinx&lt;/code&gt;를 사용하여 Python 패키지를 어떻게 문서화하는지 간략히 알아본다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      
+      <comments>https://zerohertz.github.io/sphinx/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>전문연구요원: 업체 정보</title>
@@ -37,6 +61,8 @@
       
       <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
       
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
       
       <category domain="https://zerohertz.github.io/tags/selenium/">Selenium</category>
       

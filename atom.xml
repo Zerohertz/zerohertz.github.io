@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-09-04T06:52:56.013Z</updated>
+  <updated>2023-10-13T04:07:49.645Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Sphinx 기반 Python Package 문서화</title>
+    <link href="https://zerohertz.github.io/sphinx/"/>
+    <id>https://zerohertz.github.io/sphinx/</id>
+    <published>2023-10-12T09:57:39.000Z</published>
+    <updated>2023-10-13T04:07:49.645Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;개발을 하다보면 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9vcGVuY3YtcHl0aG9uLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j&quot;&gt;이런&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 페이지를 한번쯤 들어가본적 있을 것이다.&lt;br&gt;위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.&lt;br&gt;특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.&lt;br&gt;문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄 뿐만 아니라, 코드의 유지 및 관리도 훨씬 쉬워진다.&lt;/p&gt;
+&lt;p&gt;Python은 그 자체로 간결하고 읽기 쉬운 언어이지만, 복잡한 패키지나 프로젝트를 다루게 되면 적절한 문서화 없이는 그 구조와 기능을 파악하기가 어려울 수 있다.&lt;br&gt;이때 필요한 것이 바로 문서화 도구다.&lt;br&gt;그 중에서도 Python 커뮤니티에서 널리 사용되는 도구가 바로 &lt;code&gt;Sphinx&lt;/code&gt;다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Sphinx&lt;/code&gt;는 Python 문서화를 위한 강력한 도구로, 간단한 마크다운 형식의 문서를 정교한 HTML, PDF, ePub 등의 형식으로 변환해준다.&lt;br&gt;또한, 다양한 플러그인과 확장 기능을 지원하여 문서의 내용뿐만 아니라 디자인, 구조, 그리고 상호 작용까지도 사용자의 필요에 맞게 커스터마이즈할 수 있다.&lt;/p&gt;
+&lt;p&gt;따라서 이 글에서는 &lt;code&gt;Sphinx&lt;/code&gt;를 사용하여 Python 패키지를 어떻게 문서화하는지 간략히 알아본다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Etc." scheme="https://zerohertz.github.io/categories/etc/"/>
+    
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>전문연구요원: 업체 정보</title>
     <link href="https://zerohertz.github.io/awesome-jmy/"/>
     <id>https://zerohertz.github.io/awesome-jmy/</id>
     <published>2023-09-04T05:19:23.000Z</published>
-    <updated>2023-09-04T06:52:56.013Z</updated>
+    <updated>2023-10-13T02:13:03.243Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;박사 전문연구요원은 TEPS와 한국사능력검정시험을 응시하고 점수에 따라 자신의 학교에서 복무하면 된다.&lt;br&gt;하지만 석사 전문연구요원은 편입 과정이 박사 전문연구요원과는 다르게 별도의 시험을 응시하는 것이 아닌, 일반 취업과 같다.&lt;br&gt;물론 TO를 가지고 있는 기업만 편입이 가능하다.&lt;br&gt;아마 석사를 갓 졸업한 대학원생이고, 주위에 전문연구요원으로 재직하고 있는 선배 혹은 지인이 없다면 매우 막막할 것이라 생각한다.&lt;br&gt;편입을 위해 업체를 찾아볼 때 전문연구요원을 채용할 수 있는지, 자신의 분야와 맞는지, 복지는 어떤지, 연봉은 어떤지 등 고려할 것이 너무 많아 더욱 어려울 것이다.&lt;br&gt;회사 공식 페이지에는 구인 글이 존재하지만 사람인이나 wanted와 같은 플랫폼에 구인글이 올라오지 않아 접근성이 떨어지는 경우 TO를 보유한 기업 혹은 전문연구요원 복무자가 존재하는 업체 리스트를 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93b3JrLm1tYS5nby5rci9jYWlzQllJUy9zZWFyY2gvYnlqamVjZ2VvbXNhZWsuZG8/bWVudV9pZD1tX202XzE=&quot;&gt;산업지원 병역일터&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 확인할 수 있지만, 매번 다운로드하고 엑셀에서 일일히 찾아볼 수 없는 일이다.&lt;br&gt;그래서 아래와 같이 전문연구요원 TO를 가지고 있는 업체의 통계적 시각화와 시간에 따른 복무 인원 변화를 제공하는 프로젝트를 진행하게 됐다.&lt;br&gt;GitHub Actions로 자동화되어 10일에 한번 데이터 및 시각화 자료가 갱신된다.&lt;/p&gt;
@@ -42,6 +64,8 @@
     
     <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
     
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
     <category term="Selenium" scheme="https://zerohertz.github.io/tags/selenium/"/>
     
