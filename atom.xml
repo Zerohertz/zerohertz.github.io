@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-10-13T09:08:43.637Z</updated>
+  <updated>2023-10-15T07:53:02.682Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zerohertz.github.io/sphinx/"/>
     <id>https://zerohertz.github.io/sphinx/</id>
     <published>2023-10-12T09:57:39.000Z</published>
-    <updated>2023-10-13T09:08:43.637Z</updated>
+    <updated>2023-10-15T07:53:02.682Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;개발을 하다보면 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9vcGVuY3YtcHl0aG9uLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j&quot;&gt;이런&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 페이지를 한번쯤 들어가본적 있을 것이다.&lt;br&gt;위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.&lt;br&gt;특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.&lt;br&gt;문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄 뿐만 아니라, 코드의 유지 및 관리도 훨씬 쉬워진다.&lt;/p&gt;
