@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">202</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -211,6 +211,120 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/k8s-ingress/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/k8s-ingress/" class="post-title-link" itemprop="url">Kubernetes: Ingress</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-08 23:43:40" itemprop="dateCreated datePublished" datetime="2023-08-08T23:43:40+09:00">2023-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.<br>쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.</p>
+<p><del>GPT-4 좋네</del></p>
+<blockquote>
+<p>Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 kubernetes의 API 객체</p>
+</blockquote>
+<p>Kubernetes의 ingress는 host 이름과 경로를 포함한 일련의 규칙을 기반으로 HTTP와 HTTPS routing을 제공하여 client 요청을 적절한 backend service로 연결하는 장점이 있다.<br>Ingress의 주요 구성 요소는 아래와 같다.</p>
+<ol>
+<li>Ingress Resource<ul>
+<li>Traffic routing 규칙 정의</li>
+<li>Host, 경로 및 traffic 흐름을 제어하는 다양한 기타 매개변수 포함</li>
+</ul>
+</li>
+<li>Ingress Controller<ul>
+<li>Ingress 리소스의 규칙을 읽고 실제 traffic routing 처리</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvaW5ncmVzcy1uZ2lueA==">NGINX Ingress Controller<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYWVmaWsvdHJhZWZpaw==">Traefik<i class="fa fa-external-link-alt"></i></span>, …</li>
+</ul>
+</li>
+<li>Backend Service<ul>
+<li>Cluster 내에서 요청을 처리하는 실제 service</li>
+<li>Ingress resource에서 정의한 대로 다양한 경로와 도메인을 통해 노출 가능</li>
+</ul>
+</li>
+</ol>
+<p>또한 사용하는 이유는 아래와 같다.</p>
+<ol>
+<li>간소화된 routing: Routing 규칙을 한 곳에서 집중 관리하여 관리 및 유지 보수 명료화</li>
+<li>SSL&#x2F;TLS 종료: SSL&#x2F;TLS 인증서를 한 곳에서 처리</li>
+<li>경로 기반 routing: URL 경로를 기반으로 요청을 다른 서비스로 연결함으로써 보다 체계적인 구조 구축</li>
+<li>비용 효율: Routing 규칙을 통합함으로써 여러 load balancer의 필요 감소</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/k8s-ingress/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1496,97 +1610,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/serving-yolov5-segmentation-model-with-aws-ec2-inf1/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/formatting-python-code-based-on-git-hooks/" class="post-title-link" itemprop="url">Git Hooks 기반 Python Code Formatting</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-07 16:13:43" itemprop="dateCreated datePublished" datetime="2023-07-07T16:13:43+09:00">2023-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84">저번</a>에 이어서 python code들의 formatting을 조금 더 간편하게 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=">Git Hooks<i class="fa fa-external-link-alt"></i></span>를 통해 도전한다.</p>
-<h2 id="Git-Hooks"><a href="#Git-Hooks" class="headerlink" title="Git Hooks"></a>Git Hooks</h2><p>Git Hooks는 Git 작업의 특정 지점에서 실행되는 스크립트다.<br>사용자 정의 작업을 수행하거나 작업의 유효성을 검사하기 위해 사용되며 git repository 내부에 설정되어 해당 이벤트가 발생할 때마다 실행된다.</p>
-<h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><p>pre-commit은 Git Hooks을 활용하여 코드 commit 전에 자동으로 실행되는 도구다.<br>코드의 품질을 유지하고 일관성을 강제하기 위해 사용되며 일반적으로 코드 스타일 체크, 정적 분석, 테스트 실행 등의 작업을 수행한다.<br>또한 commit 하기 전에 코드에 대한 일련의 검사를 수행하여 품질을 향상시키고, 잠재적인 오류나 스타일 가이드 위반을 방지한다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pre-commit</span><br></pre></td></tr></table></figure>
-
-<p>pre-commit은 위와 같이 설치할 수 있으며, <code>.pre-commit-config.yaml</code> 파일을 사용하여 구성한다.<br>이 파일에는 사용할 Git Hooks 스크립트, 훅을 실행할 리포지토리 경로, 특정 파일에 대한 훅의 적용 여부 등의 설정이 포함된다.</p>
-<p>pre-commit은 다양한 Git Hooks (코드 포맷팅, 정적 분석, 린팅, 테스트 실행 등)를 지원하며을 수행할 수 있다.<br><code>.pre-commit-config.yaml</code> 파일에서 필요한 훅을 구성하고 해당 훅이 실행될 때 어떤 작업을 수행할지 결정할 수 있다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/formatting-python-code-based-on-git-hooks/" rel="contents">
                 Read more &raquo;
               </a>
             </div>

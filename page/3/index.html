@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-count">202</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -211,6 +211,97 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/formatting-python-code-based-on-git-hooks/" class="post-title-link" itemprop="url">Git Hooks 기반 Python Code Formatting</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-07-07 16:13:43" itemprop="dateCreated datePublished" datetime="2023-07-07T16:13:43+09:00">2023-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84">저번</a>에 이어서 python code들의 formatting을 조금 더 간편하게 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=">Git Hooks<i class="fa fa-external-link-alt"></i></span>를 통해 도전한다.</p>
+<h2 id="Git-Hooks"><a href="#Git-Hooks" class="headerlink" title="Git Hooks"></a>Git Hooks</h2><p>Git Hooks는 Git 작업의 특정 지점에서 실행되는 스크립트다.<br>사용자 정의 작업을 수행하거나 작업의 유효성을 검사하기 위해 사용되며 git repository 내부에 설정되어 해당 이벤트가 발생할 때마다 실행된다.</p>
+<h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><p>pre-commit은 Git Hooks을 활용하여 코드 commit 전에 자동으로 실행되는 도구다.<br>코드의 품질을 유지하고 일관성을 강제하기 위해 사용되며 일반적으로 코드 스타일 체크, 정적 분석, 테스트 실행 등의 작업을 수행한다.<br>또한 commit 하기 전에 코드에 대한 일련의 검사를 수행하여 품질을 향상시키고, 잠재적인 오류나 스타일 가이드 위반을 방지한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pre-commit</span><br></pre></td></tr></table></figure>
+
+<p>pre-commit은 위와 같이 설치할 수 있으며, <code>.pre-commit-config.yaml</code> 파일을 사용하여 구성한다.<br>이 파일에는 사용할 Git Hooks 스크립트, 훅을 실행할 리포지토리 경로, 특정 파일에 대한 훅의 적용 여부 등의 설정이 포함된다.</p>
+<p>pre-commit은 다양한 Git Hooks (코드 포맷팅, 정적 분석, 린팅, 테스트 실행 등)를 지원하며을 수행할 수 있다.<br><code>.pre-commit-config.yaml</code> 파일에서 필요한 훅을 구성하고 해당 훅이 실행될 때 어떤 작업을 수행할지 결정할 수 있다.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/formatting-python-code-based-on-git-hooks/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1549,95 +1640,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/professional-research-agent-train-init/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/professional-research-agent-init/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/professional-research-agent-init/" class="post-title-link" itemprop="url">전문연구요원: 시작</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-02-28 15:35:20" itemprop="dateCreated datePublished" datetime="2023-02-28T15:35:20+09:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>킹받는 호돌이</p>
-</blockquote>
-<p><img src="https://user-images.githubusercontent.com/42334717/221774607-92a8c8fd-9990-45da-b561-c5ea441bb304.png" alt="Received King"></p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>안녕하세요, 저는 2023년 2월 22일에 건국대학교 기계설계학과에서 석사학위를 취득했고 2023년 2월 1일에 전문연구요원으로 편입하기 위해 AgileSoDA에 입사하였습니다.<br>학위과정을 거친 모든 연구자 분들이 공식 문서나 복잡한 서류들을 자주 읽어서 헤메는 분들이 많진 않겠지만, 제 블로그를 통해 전문연구요원을 준비하시는 석, 박사과정 분들과 현재 재직 중이신 전문연구요원 분들에게 작은 도움이 됐으면 합니다.<br>먼저 본격적인 전문연구요원 편입 과정에 앞서 학위 수여 전 유의해야할 사항에 대해 알려드리겠습니다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/professional-research-agent-init/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
