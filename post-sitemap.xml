@@ -385,7 +385,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/simulation-of-temperature-distribution-of-material-in-dryer/</loc>
+        <loc>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</loc>
         <lastmod>2023-08-11T10:15:01.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -393,7 +393,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</loc>
+        <loc>https://zerohertz.github.io/simulation-of-temperature-distribution-of-material-in-dryer/</loc>
         <lastmod>2023-08-11T10:15:01.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -505,14 +505,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/r-5/</loc>
-        <lastmod>2023-08-11T10:15:01.242Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/r-6/</loc>
         <lastmod>2023-08-11T10:15:01.242Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -521,8 +513,8 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/political-science/</loc>
-        <lastmod>2023-08-11T10:15:01.234Z</lastmod>
+        <loc>https://zerohertz.github.io/r-5/</loc>
+        <lastmod>2023-08-11T10:15:01.242Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -530,6 +522,14 @@
 
     <url>
         <loc>https://zerohertz.github.io/professional-research-agent-init/</loc>
+        <lastmod>2023-08-11T10:15:01.234Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/political-science/</loc>
         <lastmod>2023-08-11T10:15:01.234Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -633,7 +633,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/normality-test/</loc>
+        <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
         <lastmod>2023-08-11T10:15:01.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -641,7 +641,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
+        <loc>https://zerohertz.github.io/normality-test/</loc>
         <lastmod>2023-08-11T10:15:01.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -705,7 +705,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-9/</loc>
+        <loc>https://zerohertz.github.io/matlab-8/</loc>
         <lastmod>2023-08-11T10:15:01.210Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -713,7 +713,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-8/</loc>
+        <loc>https://zerohertz.github.io/matlab-9/</loc>
         <lastmod>2023-08-11T10:15:01.210Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -761,7 +761,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-3/</loc>
+        <loc>https://zerohertz.github.io/matlab-4/</loc>
         <lastmod>2023-08-11T10:15:01.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -769,7 +769,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-4/</loc>
+        <loc>https://zerohertz.github.io/matlab-3/</loc>
         <lastmod>2023-08-11T10:15:01.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -809,14 +809,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
-        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/mathjax-test/</loc>
         <lastmod>2023-08-11T10:15:01.194Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -833,6 +825,14 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <lastmod>2023-08-11T10:15:01.194Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/kubeflow/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -841,7 +841,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
+        <loc>https://zerohertz.github.io/labview/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -849,7 +849,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/labview/</loc>
+        <loc>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</loc>
         <lastmod>2023-08-11T10:15:01.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1153,7 +1153,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cpp-data-types-and-operations/</loc>
+        <loc>https://zerohertz.github.io/cpp-4/</loc>
         <lastmod>2023-08-11T10:15:01.138Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1161,7 +1161,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cpp-4/</loc>
+        <loc>https://zerohertz.github.io/cpp-data-types-and-operations/</loc>
         <lastmod>2023-08-11T10:15:01.138Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1225,7 +1225,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/catia/</loc>
+        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2023-08-11T10:15:01.134Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1233,7 +1233,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
+        <loc>https://zerohertz.github.io/catia/</loc>
         <lastmod>2023-08-11T10:15:01.134Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1273,7 +1273,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-2583/</loc>
+        <loc>https://zerohertz.github.io/boj-2644/</loc>
         <lastmod>2023-08-11T10:15:01.102Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1281,7 +1281,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-2644/</loc>
+        <loc>https://zerohertz.github.io/boj-2583/</loc>
         <lastmod>2023-08-11T10:15:01.102Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1377,7 +1377,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-18185-18186/</loc>
+        <loc>https://zerohertz.github.io/boj-2096/</loc>
         <lastmod>2023-08-11T10:15:01.090Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1385,7 +1385,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-2096/</loc>
+        <loc>https://zerohertz.github.io/boj-18185-18186/</loc>
         <lastmod>2023-08-11T10:15:01.090Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -2237,31 +2237,6 @@
     </item>
     
     <item>
-      <title>BOJ: 2583</title>
-      <link>https://zerohertz.github.io/boj-2583/</link>
-      <guid>https://zerohertz.github.io/boj-2583/</guid>
-      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;눈금의 간격이 1인 M×N(M,N≤100)크기의 모눈종이가 있다. 이 모눈종이 위에 눈금에 맞추어 K개의 직사각형을 그릴 때, 이들 K개의 직사각형의 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어진다.&lt;br&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 분리되어 나누어지는 영역의 개수를 출력한다. 둘째 줄에는 각 영역의 넓이를 오름차순으로 정렬하여 빈칸을 사이에 두고 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-2583/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>BOJ: 2644</title>
       <link>https://zerohertz.github.io/boj-2644/</link>
       <guid>https://zerohertz.github.io/boj-2644/</guid>
@@ -2283,6 +2258,31 @@
       
       
       <comments>https://zerohertz.github.io/boj-2644/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>BOJ: 2583</title>
+      <link>https://zerohertz.github.io/boj-2583/</link>
+      <guid>https://zerohertz.github.io/boj-2583/</guid>
+      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;눈금의 간격이 1인 M×N(M,N≤100)크기의 모눈종이가 있다. 이 모눈종이 위에 눈금에 맞추어 K개의 직사각형을 그릴 때, 이들 K개의 직사각형의 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어진다.&lt;br&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 분리되어 나누어지는 영역의 개수를 출력한다. 둘째 줄에는 각 영역의 넓이를 오름차순으로 정렬하여 빈칸을 사이에 두고 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-2583/#disqus_thread</comments>
       
     </item>
     
