@@ -9,11 +9,11 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Wed, 01 Nov 2023 12:06:47 GMT</pubDate>
+    <pubDate>Wed, 01 Nov 2023 12:10:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>jenkins-init</title>
+      <title>Jenkins Installation and Initial Setup on Kubernetes</title>
       <link>https://zerohertz.github.io/jenkins-init/</link>
       <guid>https://zerohertz.github.io/jenkins-init/</guid>
       <pubDate>Wed, 01 Nov 2023 10:39:01 GMT</pubDate>

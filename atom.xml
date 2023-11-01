@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-11-01T12:06:47.018Z</updated>
+  <updated>2023-11-01T12:10:31.426Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jenkins-init</title>
+    <title>Jenkins Installation and Initial Setup on Kubernetes</title>
     <link href="https://zerohertz.github.io/jenkins-init/"/>
     <id>https://zerohertz.github.io/jenkins-init/</id>
     <published>2023-11-01T10:39:01.000Z</published>
-    <updated>2023-11-01T12:06:47.018Z</updated>
+    <updated>2023-11-01T12:10:31.426Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Installation-Helm&quot;&gt;&lt;a href=&quot;#Installation-Helm&quot; class=&quot;headerlink&quot; title=&quot;Installation (Helm)&quot;&gt;&lt;/a&gt;Installation (Helm)&lt;/h1&gt;&lt;p&gt;Argo CD로 Jenkins를 배포하기 위해 Helm으로 아래와 같이 helm chart를 받는다.&lt;/p&gt;
