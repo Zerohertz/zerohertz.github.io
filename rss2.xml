@@ -9,8 +9,41 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 23 Oct 2023 05:56:20 GMT</pubDate>
+    <pubDate>Wed, 01 Nov 2023 12:06:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>jenkins-init</title>
+      <link>https://zerohertz.github.io/jenkins-init/</link>
+      <guid>https://zerohertz.github.io/jenkins-init/</guid>
+      <pubDate>Wed, 01 Nov 2023 10:39:01 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Installation-Helm&quot;&gt;&lt;a href=&quot;#Installation-Helm&quot; class=&quot;headerlink&quot; title=&quot;Installation (Helm)&quot;&gt;&lt;/a&gt;Installation (Helm)&lt;/h1&gt;&lt;p&gt;Argo CD로 Jenkins를 배포하기 위해 Helm으로 아래와 같이 helm chart를 받는다.&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ helm repo add jenkins https://charts.jenkins.io&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ helm repo update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ helm pull jenkins/jenkins&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ tar -xvf jenkins-4.8.2.tgz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Traefik을 통해 ingress 설정을 &lt;code&gt;https://jenkins.zerohertz.xyz&lt;/code&gt;로 정의했다.&lt;br&gt;따라서 &lt;code&gt;values.yaml&lt;/code&gt; 파일을 아래와 같이 수정하고 배포했다.&lt;/p&gt;
+&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;figcaption&gt;&lt;span&gt;values.yaml&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;controller:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;jenkinsUrlProtocol:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;https&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;jenkinsUrl:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;jenkins.zerohertz.xyz&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;JCasC:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;securityRealm:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;|-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;      local:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;        allowsSignup: false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;        enableCaptcha: false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;        users:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;        - id: &amp;quot;$&amp;#123;chart-admin-username&amp;#125;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;          name: &amp;quot;Jenkins Admin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;          password: &amp;quot;$&amp;#123;chart-admin-password&amp;#125;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/279327132-2a933f66-cf3e-4302-97f7-74f7bc7e267c.png&quot; alt=&quot;tada&quot;&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
+      
+      <category domain="https://zerohertz.github.io/tags/jenkins/">Jenkins</category>
+      
+      
+      <comments>https://zerohertz.github.io/jenkins-init/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Java (1)</title>

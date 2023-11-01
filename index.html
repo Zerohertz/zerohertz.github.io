@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">202</span>
+          <span class="site-state-item-count">203</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -211,6 +211,97 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/jenkins-init/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/jenkins-init/" class="post-title-link" itemprop="url">jenkins-init</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-01 19:39:01" itemprop="dateCreated datePublished" datetime="2023-11-01T19:39:01+09:00">2023-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Installation-Helm"><a href="#Installation-Helm" class="headerlink" title="Installation (Helm)"></a>Installation (Helm)</h1><p>Argo CD로 Jenkins를 배포하기 위해 Helm으로 아래와 같이 helm chart를 받는다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ helm repo add jenkins https://charts.jenkins.io</span><br><span class="line">$ helm repo update</span><br><span class="line">$ helm pull jenkins/jenkins</span><br><span class="line">$ tar -xvf jenkins-4.8.2.tgz</span><br></pre></td></tr></table></figure>
+
+<p>Traefik을 통해 ingress 설정을 <code>https://jenkins.zerohertz.xyz</code>로 정의했다.<br>따라서 <code>values.yaml</code> 파일을 아래와 같이 수정하고 배포했다.</p>
+<figure class="highlight yaml"><figcaption><span>values.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">controller:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">jenkinsUrlProtocol:</span> <span class="string">&quot;https&quot;</span></span><br><span class="line">  <span class="attr">jenkinsUrl:</span> <span class="string">&quot;jenkins.zerohertz.xyz&quot;</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">JCasC:</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">securityRealm:</span> <span class="string">|-</span></span><br><span class="line"><span class="string">      local:</span></span><br><span class="line"><span class="string">        allowsSignup: false</span></span><br><span class="line"><span class="string">        enableCaptcha: false</span></span><br><span class="line"><span class="string">        users:</span></span><br><span class="line"><span class="string">        - id: &quot;$&#123;chart-admin-username&#125;&quot;</span></span><br><span class="line"><span class="string">          name: &quot;Jenkins Admin&quot;</span></span><br><span class="line"><span class="string">          password: &quot;$&#123;chart-admin-password&#125;&quot;</span></span><br><span class="line"><span class="string"></span><span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/279327132-2a933f66-cf3e-4302-97f7-74f7bc7e267c.png" alt="tada"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/jenkins-init/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1464,94 +1555,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/k8s-airflow/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/github-verified-signature/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/github-verified-signature/" class="post-title-link" itemprop="url">GitHub: Verified Signature</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-08-09 10:53:58" itemprop="dateCreated datePublished" datetime="2023-08-09T10:53:58+09:00">2023-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<p>GitHub에 commit을 push하고 log에 <code>Verified</code>를 남기는 방법!</p>
-</blockquote>
-<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259277614-e08c3c6f-c7d6-4557-92a1-23a060e9453f.png" alt="Verfied"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/github-verified-signature/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
