@@ -19,6 +19,6 @@ def convert(post, tar):
 
 if __name__ == "__main__":
     posts = glob("_posts/*.md")
-    tar = ("~~~shell", "~~~bash")
+    tar = ("- 2. MLOps", "- 3. MLOps")
     for post in posts:
         convert(post, tar)

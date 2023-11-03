@@ -9,8 +9,65 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Wed, 01 Nov 2023 12:10:31 GMT</pubDate>
+    <pubDate>Fri, 03 Nov 2023 15:37:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Constructing a CI/CD Pipeline for Python Packages Using Jenkins</title>
+      <link>https://zerohertz.github.io/python-pkg-cicd/</link>
+      <guid>https://zerohertz.github.io/python-pkg-cicd/</guid>
+      <pubDate>Fri, 03 Nov 2023 09:28:05 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;자주 사용하는 Python 함수들을 package로 생성하고 CI&amp;#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!&lt;br&gt;배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9weXBpLm9yZy8=&quot;&gt;PyPI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; (Python Package Index)에 업로드하여 &lt;code&gt;pip&lt;/code&gt;로 설치할 수 있게 해볼 것이다.&lt;br&gt;CI&amp;#x2F;CD 계획은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dev Branch Push&lt;ol&gt;
+&lt;li&gt;Lint&lt;/li&gt;
+&lt;li&gt;Build&lt;/li&gt;
+&lt;li&gt;Test&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Master Branch PR&lt;ol&gt;
+&lt;li&gt;Lint&lt;/li&gt;
+&lt;li&gt;Build&lt;/li&gt;
+&lt;li&gt;Test&lt;/li&gt;
+&lt;li&gt;Docs&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Master Branch Puah&lt;ol&gt;
+&lt;li&gt;Build&lt;/li&gt;
+&lt;li&gt;Deploy&lt;ol&gt;
+&lt;li&gt;PyPI&lt;/li&gt;
+&lt;li&gt;GitHub&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 사항들을 &lt;code&gt;Jenkinsfile&lt;/code&gt;로 개발하면 아래와 같다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/280279733-fd755f7d-5133-4104-92e0-592623b31bb1.png&quot; alt=&quot;jenkinsfile&quot;&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
+      
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      <category domain="https://zerohertz.github.io/tags/jenkins/">Jenkins</category>
+      
+      <category domain="https://zerohertz.github.io/tags/github-actions/">GitHub Actions</category>
+      
+      
+      <comments>https://zerohertz.github.io/python-pkg-cicd/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Jenkins Installation and Initial Setup on Kubernetes</title>
@@ -29,7 +86,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -58,7 +115,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/java/">Java</category>
@@ -145,7 +202,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -161,8 +218,6 @@
       <category domain="https://zerohertz.github.io/tags/scikit-learn/">scikit-learn</category>
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
-      
-      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
       
       
       <comments>https://zerohertz.github.io/airflow-ct/#disqus_thread</comments>
@@ -181,7 +236,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -196,7 +251,7 @@
     </item>
     
     <item>
-      <title>GitHub Actions와 ArgoCD 기반 CI/CD 도전기</title>
+      <title>GitHub Actions와 Argo CD 기반 CI/CD 도전기</title>
       <link>https://zerohertz.github.io/cicd-init/</link>
       <guid>https://zerohertz.github.io/cicd-init/</guid>
       <pubDate>Tue, 22 Aug 2023 23:42:58 GMT</pubDate>
@@ -230,10 +285,12 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
@@ -298,7 +355,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -331,7 +388,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -389,7 +446,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -420,7 +477,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -452,7 +509,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -483,7 +540,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -563,7 +620,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -608,7 +665,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -632,7 +689,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/0-daily/">0. Daily</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -685,7 +742,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -710,7 +767,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
@@ -812,7 +869,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
@@ -837,7 +894,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
@@ -862,7 +919,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
@@ -892,7 +949,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
@@ -916,7 +973,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -952,7 +1009,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
@@ -980,7 +1037,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/go/">Go</category>
@@ -1003,7 +1060,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1038,7 +1095,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1065,7 +1122,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1119,7 +1176,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/go/">Go</category>
@@ -1176,7 +1233,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
@@ -1263,7 +1320,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1317,7 +1374,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1347,7 +1404,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1448,7 +1505,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1583,7 +1640,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1608,7 +1665,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1650,7 +1707,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1702,7 +1759,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1730,7 +1787,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1756,7 +1813,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1782,7 +1839,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1818,7 +1875,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1856,7 +1913,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1881,7 +1938,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1912,7 +1969,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -1948,7 +2005,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/2-mlops/">2. MLOps</category>
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2044,7 +2101,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2152,7 +2209,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2177,7 +2234,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2202,7 +2259,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2227,7 +2284,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2257,7 +2314,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2266,31 +2323,6 @@
       
       
       <comments>https://zerohertz.github.io/boj-1707/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>BOJ: 2583</title>
-      <link>https://zerohertz.github.io/boj-2583/</link>
-      <guid>https://zerohertz.github.io/boj-2583/</guid>
-      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;눈금의 간격이 1인 M×N(M,N≤100)크기의 모눈종이가 있다. 이 모눈종이 위에 눈금에 맞추어 K개의 직사각형을 그릴 때, 이들 K개의 직사각형의 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어진다.&lt;br&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 분리되어 나누어지는 영역의 개수를 출력한다. 둘째 줄에는 각 영역의 넓이를 오름차순으로 정렬하여 빈칸을 사이에 두고 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-2583/#disqus_thread</comments>
       
     </item>
     
@@ -2307,7 +2339,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2316,6 +2348,31 @@
       
       
       <comments>https://zerohertz.github.io/boj-2644/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>BOJ: 2583</title>
+      <link>https://zerohertz.github.io/boj-2583/</link>
+      <guid>https://zerohertz.github.io/boj-2583/</guid>
+      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;눈금의 간격이 1인 M×N(M,N≤100)크기의 모눈종이가 있다. 이 모눈종이 위에 눈금에 맞추어 K개의 직사각형을 그릴 때, 이들 K개의 직사각형의 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어진다.&lt;br&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;M, N과 K 그리고 K개의 직사각형의 좌표가 주어질 때, K개의 직사각형 내부를 제외한 나머지 부분이 몇 개의 분리된 영역으로 나누어지는지, 그리고 분리된 각 영역의 넓이가 얼마인지를 구하여 이를 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 분리되어 나누어지는 영역의 개수를 출력한다. 둘째 줄에는 각 영역의 넓이를 오름차순으로 정렬하여 빈칸을 사이에 두고 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-2583/#disqus_thread</comments>
       
     </item>
     
@@ -2332,7 +2389,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2357,7 +2414,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2382,7 +2439,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2407,7 +2464,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2432,7 +2489,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2480,7 +2537,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2510,7 +2567,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2535,7 +2592,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2560,7 +2617,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2596,7 +2653,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2621,7 +2678,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2646,7 +2703,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2680,7 +2737,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2712,7 +2769,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2737,7 +2794,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2762,7 +2819,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2787,7 +2844,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2812,7 +2869,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2837,7 +2894,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2862,7 +2919,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -2887,7 +2944,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -3277,7 +3334,7 @@
       
       
       
-      <category domain="https://zerohertz.github.io/categories/3-algorithm/">3. Algorithm</category>
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
       
       
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
@@ -3763,9 +3820,9 @@ new GDemo(&#39;#python&#39;)
       <category domain="https://zerohertz.github.io/categories/1-machine-learning/">1. Machine Learning</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/matlab/">MATLAB</category>
-      
       <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
+      
+      <category domain="https://zerohertz.github.io/tags/matlab/">MATLAB</category>
       
       <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
       

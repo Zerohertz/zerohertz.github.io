@@ -31,7 +31,7 @@
 
     <meta name="description" content="Introduction CI&#x2F;CD CI (Continuous Integration) 개발자들이 자주 (일반적으로 하루에 여러 번) 자신의 코드 변경 사항을 메인 브랜치에 통합하는 프로세스 이는 코드의 통합 문제를 조기에 견하고 해결하는 데 도움이 됩니다.   CD (Continuous Deployment&#x2F;Delivery) 자동화된 테스트를">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub Actions와 ArgoCD 기반 CI&#x2F;CD 도전기">
+<meta property="og:title" content="GitHub Actions와 Argo CD 기반 CI&#x2F;CD 도전기">
 <meta property="og:url" content="https://zerohertz.github.io/cicd-init/index.html">
 <meta property="og:site_name" content="Zerohertz">
 <meta property="og:description" content="Introduction CI&#x2F;CD CI (Continuous Integration) 개발자들이 자주 (일반적으로 하루에 여러 번) 자신의 코드 변경 사항을 메인 브랜치에 통합하는 프로세스 이는 코드의 통합 문제를 조기에 견하고 해결하는 데 도움이 됩니다.   CD (Continuous Deployment&#x2F;Delivery) 자동화된 테스트를">
@@ -45,9 +45,10 @@
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262684482-ac3f0e8a-a426-4b4d-be76-04783395fc2c.gif">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262684467-c1ece4a8-0b6e-4ac7-909b-4acd22878eec.gif">
 <meta property="article:published_time" content="2023-08-22T23:42:58.000Z">
-<meta property="article:modified_time" content="2023-08-23T13:31:46.086Z">
+<meta property="article:modified_time" content="2023-11-03T10:06:22.804Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Kubernetes">
+<meta property="article:tag" content="Home Server">
 <meta property="article:tag" content="CI&#x2F;CD">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="Argo CD">
@@ -59,10 +60,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/cicd-init/","path":"cicd-init/","title":"GitHub Actions와 ArgoCD 기반 CI/CD 도전기"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/cicd-init/","path":"cicd-init/","title":"GitHub Actions와 Argo CD 기반 CI/CD 도전기"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>GitHub Actions와 ArgoCD 기반 CI/CD 도전기 | Zerohertz</title>
+<title>GitHub Actions와 Argo CD 기반 CI/CD 도전기 | Zerohertz</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
@@ -181,18 +182,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -242,6 +243,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/python-pkg-cicd/" rel="bookmark">
+        <time class="popular-posts-time">2023-11-03</time>
+        <br>
+      Constructing a CI/CD Pipeline for Python Packages Using Jenkins
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/upload-hexo-by-git/" rel="bookmark">
         <time class="popular-posts-time">2018-08-19</time>
         <br>
@@ -253,13 +261,6 @@
         <time class="popular-posts-time">2020-07-02</time>
         <br>
       C++: Selection and Iteration
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/airflow-auto-payment/" rel="bookmark">
-        <time class="popular-posts-time">2023-08-18</time>
-        <br>
-      Apache Airflow 기반 자동결제 DAG 개발
       </a>
     </li>
   </ul>
@@ -295,12 +296,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="GitHub Actions와 ArgoCD 기반 CI/CD 도전기 | Zerohertz">
+      <meta itemprop="name" content="GitHub Actions와 Argo CD 기반 CI/CD 도전기 | Zerohertz">
       <meta itemprop="description" content>
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GitHub Actions와 ArgoCD 기반 CI/CD 도전기
+          GitHub Actions와 Argo CD 기반 CI/CD 도전기
         </h1>
 
         <div class="post-meta-container">
@@ -319,7 +320,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-daily/" itemprop="url" rel="index"><span itemprop="name">0. Daily</span></a>
+          <a href="/categories/2-devops/" itemprop="url" rel="index"><span itemprop="name">2. DevOps</span></a>
         </span>
     </span>
 
@@ -408,6 +409,7 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/kubernetes/" rel="tag"><i class="fa fa-tag"></i> Kubernetes</a>
+              <a href="/tags/home-server/" rel="tag"><i class="fa fa-tag"></i> Home Server</a>
               <a href="/tags/ci-cd/" rel="tag"><i class="fa fa-tag"></i> CI/CD</a>
               <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
               <a href="/tags/argo-cd/" rel="tag"><i class="fa fa-tag"></i> Argo CD</a>
