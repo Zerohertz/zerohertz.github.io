@@ -9,7 +9,7 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 06 Nov 2023 13:08:04 GMT</pubDate>
+    <pubDate>Mon, 06 Nov 2023 14:23:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -2247,31 +2247,6 @@
     </item>
     
     <item>
-      <title>BOJ: 1389</title>
-      <link>https://zerohertz.github.io/boj-1389/</link>
-      <guid>https://zerohertz.github.io/boj-1389/</guid>
-      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;케빈 베이컨의 6단계 법칙에 의하면 지구에 있는 모든 사람들은 최대 6단계 이내에서 서로 아는 사람으로 연결될 수 있다. 케빈 베이컨 게임은 임의의 두 사람이 최소 몇 단계 만에 이어질 수 있는지 계산하는 게임이다.&lt;br&gt;예를 들면, 전혀 상관없을 것 같은 인하대학교의 이강호와 서강대학교의 민세희는 몇 단계만에 이어질 수 있을까?&lt;br&gt;천민호는 이강호와 같은 학교에 다니는 사이이다. 천민호와 최백준은 Baekjoon Online Judge를 통해 알게 되었다. 최백준과 김선영은 같이 Startlink를 창업했다. 김선영과 김도현은 같은 학교 동아리 소속이다. 김도현과 민세희는 같은 학교에 다니는 사이로 서로 알고 있다. 즉, 이강호-천민호-최백준-김선영-김도현-민세희 와 같이 5단계만 거치면 된다.&lt;br&gt;케빈 베이컨은 미국 헐리우드 영화배우들 끼리 케빈 베이컨 게임을 했을때 나오는 단계의 총 합이 가장 적은 사람이라고 한다.&lt;br&gt;오늘은 Baekjoon Online Judge의 유저 중에서 케빈 베이컨의 수가 가장 작은 사람을 찾으려고 한다. 케빈 베이컨 수는 모든 사람과 케빈 베이컨 게임을 했을 때, 나오는 단계의 합이다.&lt;br&gt;예를 들어, BOJ의 유저가 5명이고, 1과 3, 1과 4, 2와 3, 3과 4, 4와 5가 친구인 경우를 생각해보자.&lt;br&gt;1은 2까지 3을 통해 2단계 만에, 3까지 1단계, 4까지 1단계, 5까지 4를 통해서 2단계 만에 알 수 있다. 따라서, 케빈 베이컨의 수는 2+1+1+2 &amp;#x3D; 6이다.&lt;br&gt;2는 1까지 3을 통해서 2단계 만에, 3까지 1단계 만에, 4까지 3을 통해서 2단계 만에, 5까지 3과 4를 통해서 3단계 만에 알 수 있다. 따라서, 케빈 베이컨의 수는 2+1+2+3 &amp;#x3D; 8이다.&lt;br&gt;3은 1까지 1단계, 2까지 1단계, 4까지 1단계, 5까지 4를 통해 2단계 만에 알 수 있다. 따라서, 케빈 베이컨의 수는 1+1+1+2 &amp;#x3D; 5이다.&lt;br&gt;4는 1까지 1단계, 2까지 3을 통해 2단계, 3까지 1단계, 5까지 1단계 만에 알 수 있다. 4의 케빈 베이컨의 수는 1+2+1+1 &amp;#x3D; 5가 된다.&lt;br&gt;마지막으로 5는 1까지 4를 통해 2단계, 2까지 4와 3을 통해 3단계, 3까지 4를 통해 2단계, 4까지 1단계 만에 알 수 있다. 5의 케빈 베이컨의 수는 2+3+2+1 &amp;#x3D; 8이다.&lt;br&gt;5명의 유저 중에서 케빈 베이컨의 수가 가장 작은 사람은 3과 4이다.&lt;br&gt;BOJ 유저의 수와 친구 관계가 입력으로 주어졌을 때, 케빈 베이컨의 수가 가장 작은 사람을 구하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 유저의 수 N (2 ≤ N ≤ 100)과 친구 관계의 수 M (1 ≤ M ≤ 5,000)이 주어진다. 둘째 줄부터 M개의 줄에는 친구 관계가 주어진다. 친구 관계는 A와 B로 이루어져 있으며, A와 B가 친구라는 뜻이다. A와 B가 친구이면, B와 A도 친구이며, A와 B가 같은 경우는 없다. 친구 관계는 중복되어 들어올 수도 있으며, 친구가 한 명도 없는 사람은 없다. 또, 모든 사람은 친구 관계로 연결되어져 있다. 사람의 번호는 1부터 N까지이며, 두 사람이 같은 번호를 갖는 경우는 없다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 BOJ의 유저 중에서 케빈 베이컨의 수가 가장 작은 사람을 출력한다. 그런 사람이 여러 명일 경우에는 번호가 가장 작은 사람을 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-1389/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>BOJ: 13460</title>
       <link>https://zerohertz.github.io/boj-13460/</link>
       <guid>https://zerohertz.github.io/boj-13460/</guid>
@@ -2293,6 +2268,31 @@
       
       
       <comments>https://zerohertz.github.io/boj-13460/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>BOJ: 1389</title>
+      <link>https://zerohertz.github.io/boj-1389/</link>
+      <guid>https://zerohertz.github.io/boj-1389/</guid>
+      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;케빈 베이컨의 6단계 법칙에 의하면 지구에 있는 모든 사람들은 최대 6단계 이내에서 서로 아는 사람으로 연결될 수 있다. 케빈 베이컨 게임은 임의의 두 사람이 최소 몇 단계 만에 이어질 수 있는지 계산하는 게임이다.&lt;br&gt;예를 들면, 전혀 상관없을 것 같은 인하대학교의 이강호와 서강대학교의 민세희는 몇 단계만에 이어질 수 있을까?&lt;br&gt;천민호는 이강호와 같은 학교에 다니는 사이이다. 천민호와 최백준은 Baekjoon Online Judge를 통해 알게 되었다. 최백준과 김선영은 같이 Startlink를 창업했다. 김선영과 김도현은 같은 학교 동아리 소속이다. 김도현과 민세희는 같은 학교에 다니는 사이로 서로 알고 있다. 즉, 이강호-천민호-최백준-김선영-김도현-민세희 와 같이 5단계만 거치면 된다.&lt;br&gt;케빈 베이컨은 미국 헐리우드 영화배우들 끼리 케빈 베이컨 게임을 했을때 나오는 단계의 총 합이 가장 적은 사람이라고 한다.&lt;br&gt;오늘은 Baekjoon Online Judge의 유저 중에서 케빈 베이컨의 수가 가장 작은 사람을 찾으려고 한다. 케빈 베이컨 수는 모든 사람과 케빈 베이컨 게임을 했을 때, 나오는 단계의 합이다.&lt;br&gt;예를 들어, BOJ의 유저가 5명이고, 1과 3, 1과 4, 2와 3, 3과 4, 4와 5가 친구인 경우를 생각해보자.&lt;br&gt;1은 2까지 3을 통해 2단계 만에, 3까지 1단계, 4까지 1단계, 5까지 4를 통해서 2단계 만에 알 수 있다. 따라서, 케빈 베이컨의 수는 2+1+1+2 &amp;#x3D; 6이다.&lt;br&gt;2는 1까지 3을 통해서 2단계 만에, 3까지 1단계 만에, 4까지 3을 통해서 2단계 만에, 5까지 3과 4를 통해서 3단계 만에 알 수 있다. 따라서, 케빈 베이컨의 수는 2+1+2+3 &amp;#x3D; 8이다.&lt;br&gt;3은 1까지 1단계, 2까지 1단계, 4까지 1단계, 5까지 4를 통해 2단계 만에 알 수 있다. 따라서, 케빈 베이컨의 수는 1+1+1+2 &amp;#x3D; 5이다.&lt;br&gt;4는 1까지 1단계, 2까지 3을 통해 2단계, 3까지 1단계, 5까지 1단계 만에 알 수 있다. 4의 케빈 베이컨의 수는 1+2+1+1 &amp;#x3D; 5가 된다.&lt;br&gt;마지막으로 5는 1까지 4를 통해 2단계, 2까지 4와 3을 통해 3단계, 3까지 4를 통해 2단계, 4까지 1단계 만에 알 수 있다. 5의 케빈 베이컨의 수는 2+3+2+1 &amp;#x3D; 8이다.&lt;br&gt;5명의 유저 중에서 케빈 베이컨의 수가 가장 작은 사람은 3과 4이다.&lt;br&gt;BOJ 유저의 수와 친구 관계가 입력으로 주어졌을 때, 케빈 베이컨의 수가 가장 작은 사람을 구하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 유저의 수 N (2 ≤ N ≤ 100)과 친구 관계의 수 M (1 ≤ M ≤ 5,000)이 주어진다. 둘째 줄부터 M개의 줄에는 친구 관계가 주어진다. 친구 관계는 A와 B로 이루어져 있으며, A와 B가 친구라는 뜻이다. A와 B가 친구이면, B와 A도 친구이며, A와 B가 같은 경우는 없다. 친구 관계는 중복되어 들어올 수도 있으며, 친구가 한 명도 없는 사람은 없다. 또, 모든 사람은 친구 관계로 연결되어져 있다. 사람의 번호는 1부터 N까지이며, 두 사람이 같은 번호를 갖는 경우는 없다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 BOJ의 유저 중에서 케빈 베이컨의 수가 가장 작은 사람을 출력한다. 그런 사람이 여러 명일 경우에는 번호가 가장 작은 사람을 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-1389/#disqus_thread</comments>
       
     </item>
     
@@ -2548,6 +2548,31 @@
     </item>
     
     <item>
+      <title>BOJ: 1057</title>
+      <link>https://zerohertz.github.io/boj-1057/</link>
+      <guid>https://zerohertz.github.io/boj-1057/</guid>
+      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를 한다. 이긴 사람은 다음 라운드에 진출하고, 진 사람은 그 라운드에서 떨어진다. 만약 그 라운드의 참가자가 홀수명이라면, 마지막 번호를 가진 참가자는 다음 라운드로 자동 진출한다. 다음 라운드에선 다시 참가자의 번호를 1번부터 매긴다. 이때, 번호를 매기는 순서는 처음 번호의 순서를 유지하면서 1번부터 매긴다. 이 말은 1번과 2번이 스타를 해서 1번이 진출하고, 3번과 4번이 스타를 해서 4번이 진출했다면, 4번은 다음 라운드에서 번호 2번을 배정받는다. 번호를 다시 배정받은 후에 한 명만 남을 때까지 라운드를 계속 한다.&lt;br&gt;마침 이 스타 대회에 임한수도 참가했다. 김지민은 갑자기 스타 대회에서 우승하는 욕심은 없어지고, 몇 라운드에서 임한수와 대결하는지 궁금해졌다. 일단 김지민과 임한수는 서로 대결하기 전까지 항상 이긴다고 가정한다. 1 라운드에서 김지민의 번호와 임한수의 번호가 주어질 때, 과연 김지민과 임한수가 몇 라운드에서 대결하는지 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 참가자의 수 N과 1 라운드에서 김지민의 번호와 임한수의 번호가 순서대로 주어진다. N은 2보다 크거나 같고, 100,000보다 작거나 같은 자연수이고, 김지민의 번호와 임한수의 번호는 N보다 작거나 같은 자연수이고, 서로 다르다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민과 임한수가 대결하는 라운드 번호를 출력한다. 만약 서로 대결하지 않을 때는 -1을 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-1057/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>BOJ: 1053</title>
       <link>https://zerohertz.github.io/boj-1053/</link>
       <guid>https://zerohertz.github.io/boj-1053/</guid>
@@ -2576,31 +2601,6 @@
       
       
       <comments>https://zerohertz.github.io/boj-1053/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>BOJ: 1057</title>
-      <link>https://zerohertz.github.io/boj-1057/</link>
-      <guid>https://zerohertz.github.io/boj-1057/</guid>
-      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를 한다. 이긴 사람은 다음 라운드에 진출하고, 진 사람은 그 라운드에서 떨어진다. 만약 그 라운드의 참가자가 홀수명이라면, 마지막 번호를 가진 참가자는 다음 라운드로 자동 진출한다. 다음 라운드에선 다시 참가자의 번호를 1번부터 매긴다. 이때, 번호를 매기는 순서는 처음 번호의 순서를 유지하면서 1번부터 매긴다. 이 말은 1번과 2번이 스타를 해서 1번이 진출하고, 3번과 4번이 스타를 해서 4번이 진출했다면, 4번은 다음 라운드에서 번호 2번을 배정받는다. 번호를 다시 배정받은 후에 한 명만 남을 때까지 라운드를 계속 한다.&lt;br&gt;마침 이 스타 대회에 임한수도 참가했다. 김지민은 갑자기 스타 대회에서 우승하는 욕심은 없어지고, 몇 라운드에서 임한수와 대결하는지 궁금해졌다. 일단 김지민과 임한수는 서로 대결하기 전까지 항상 이긴다고 가정한다. 1 라운드에서 김지민의 번호와 임한수의 번호가 주어질 때, 과연 김지민과 임한수가 몇 라운드에서 대결하는지 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 참가자의 수 N과 1 라운드에서 김지민의 번호와 임한수의 번호가 순서대로 주어진다. N은 2보다 크거나 같고, 100,000보다 작거나 같은 자연수이고, 김지민의 번호와 임한수의 번호는 N보다 작거나 같은 자연수이고, 서로 다르다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민과 임한수가 대결하는 라운드 번호를 출력한다. 만약 서로 대결하지 않을 때는 -1을 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-1057/#disqus_thread</comments>
       
     </item>
     
