@@ -181,9 +181,9 @@
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
-      <category domain="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/">전문연구요원</category>
-      
       <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      <category domain="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/">전문연구요원</category>
       
       
       <comments>https://zerohertz.github.io/awesome-jmy/#disqus_thread</comments>
@@ -3820,9 +3820,9 @@ new GDemo(&#39;#python&#39;)
       <category domain="https://zerohertz.github.io/categories/1-machine-learning/">1. Machine Learning</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/matlab/">MATLAB</category>
-      
       <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
+      
+      <category domain="https://zerohertz.github.io/tags/matlab/">MATLAB</category>
       
       <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
       

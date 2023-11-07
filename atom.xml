@@ -178,9 +178,9 @@
     
     <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
     
-    <category term="전문연구요원" scheme="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/"/>
-    
     <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
+    
+    <category term="전문연구요원" scheme="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/"/>
     
   </entry>
   
@@ -3591,9 +3591,9 @@ new GDemo(&#39;#python&#39;)
     <category term="1. Machine Learning" scheme="https://zerohertz.github.io/categories/1-machine-learning/"/>
     
     
-    <category term="MATLAB" scheme="https://zerohertz.github.io/tags/matlab/"/>
-    
     <category term="C, C++" scheme="https://zerohertz.github.io/tags/c-c/"/>
+    
+    <category term="MATLAB" scheme="https://zerohertz.github.io/tags/matlab/"/>
     
     <category term="Statistics" scheme="https://zerohertz.github.io/tags/statistics/"/>
     
