@@ -3591,9 +3591,9 @@ new GDemo(&#39;#python&#39;)
     <category term="1. Machine Learning" scheme="https://zerohertz.github.io/categories/1-machine-learning/"/>
     
     
-    <category term="C, C++" scheme="https://zerohertz.github.io/tags/c-c/"/>
-    
     <category term="MATLAB" scheme="https://zerohertz.github.io/tags/matlab/"/>
+    
+    <category term="C, C++" scheme="https://zerohertz.github.io/tags/c-c/"/>
     
     <category term="Statistics" scheme="https://zerohertz.github.io/tags/statistics/"/>
     
