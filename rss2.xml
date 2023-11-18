@@ -9,7 +9,7 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 06 Nov 2023 14:23:17 GMT</pubDate>
+    <pubDate>Sat, 18 Nov 2023 06:45:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -181,9 +181,9 @@
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
-      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
-      
       <category domain="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/">전문연구요원</category>
+      
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
       
       
       <comments>https://zerohertz.github.io/awesome-jmy/#disqus_thread</comments>
@@ -2548,38 +2548,6 @@
     </item>
     
     <item>
-      <title>BOJ: 1053</title>
-      <link>https://zerohertz.github.io/boj-1053/</link>
-      <guid>https://zerohertz.github.io/boj-1053/</guid>
-      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;팰린드롬이란, 앞에서부터 읽었을 때와, 뒤에서부터 읽었을 때가 같은 문자열이다.&lt;br&gt;모든 문자열이 팰린드롬이 아니기 때문에 다음과 같은 4가지 연산으로 보통 문자열을 팰린드롬으로 만든다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;문자열의 어떤 위치에 어떤 문자를 삽입 (시작과 끝도 가능)&lt;/li&gt;
-&lt;li&gt;어떤 위치에 있는 문자를 삭제&lt;/li&gt;
-&lt;li&gt;어떤 위치에 있는 문자를 교환&lt;/li&gt;
-&lt;li&gt;서로 다른 문자를 교환&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;1, 2, 3번 연산은 마음껏 사용할 수 있지만, 마지막 연산은 많아야 한 번 사용할 수 있다.&lt;br&gt;문자열이 주어졌을 때, 팰린드롬으로 만들기 위해 필요한 연산의 최솟값을 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문자열이 주어진다. 영어 소문자로만 이루어져 있고, 길이는 최대 50이다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문제의 정답을 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-1053/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>BOJ: 1057</title>
       <link>https://zerohertz.github.io/boj-1057/</link>
       <guid>https://zerohertz.github.io/boj-1057/</guid>
@@ -2626,6 +2594,38 @@
       
       
       <comments>https://zerohertz.github.io/boj-1058/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>BOJ: 1053</title>
+      <link>https://zerohertz.github.io/boj-1053/</link>
+      <guid>https://zerohertz.github.io/boj-1053/</guid>
+      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;팰린드롬이란, 앞에서부터 읽었을 때와, 뒤에서부터 읽었을 때가 같은 문자열이다.&lt;br&gt;모든 문자열이 팰린드롬이 아니기 때문에 다음과 같은 4가지 연산으로 보통 문자열을 팰린드롬으로 만든다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;문자열의 어떤 위치에 어떤 문자를 삽입 (시작과 끝도 가능)&lt;/li&gt;
+&lt;li&gt;어떤 위치에 있는 문자를 삭제&lt;/li&gt;
+&lt;li&gt;어떤 위치에 있는 문자를 교환&lt;/li&gt;
+&lt;li&gt;서로 다른 문자를 교환&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1, 2, 3번 연산은 마음껏 사용할 수 있지만, 마지막 연산은 많아야 한 번 사용할 수 있다.&lt;br&gt;문자열이 주어졌을 때, 팰린드롬으로 만들기 위해 필요한 연산의 최솟값을 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문자열이 주어진다. 영어 소문자로만 이루어져 있고, 길이는 최대 50이다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문제의 정답을 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-1053/#disqus_thread</comments>
       
     </item>
     

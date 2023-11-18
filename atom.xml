@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-11-06T14:23:17.007Z</updated>
+  <updated>2023-11-18T06:45:45.258Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zerohertz.github.io/python-pkg-cicd/"/>
     <id>https://zerohertz.github.io/python-pkg-cicd/</id>
     <published>2023-11-03T09:28:05.000Z</published>
-    <updated>2023-11-06T14:23:17.007Z</updated>
+    <updated>2023-11-18T06:45:45.258Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;자주 사용하는 Python 함수들을 package로 생성하고 CI&amp;#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!&lt;br&gt;배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9weXBpLm9yZy8=&quot;&gt;PyPI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; (Python Package Index)에 업로드하여 &lt;code&gt;pip&lt;/code&gt;로 설치할 수 있게 해볼 것이다.&lt;br&gt;CI&amp;#x2F;CD 계획은 아래와 같다.&lt;/p&gt;
@@ -128,7 +128,7 @@
     <link href="https://zerohertz.github.io/sphinx/"/>
     <id>https://zerohertz.github.io/sphinx/</id>
     <published>2023-10-12T09:57:39.000Z</published>
-    <updated>2023-11-03T09:49:35.237Z</updated>
+    <updated>2023-11-18T06:13:39.385Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;개발을 하다보면 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9vcGVuY3YtcHl0aG9uLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j&quot;&gt;이런&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 페이지를 한번쯤 들어가본적 있을 것이다.&lt;br&gt;위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.&lt;br&gt;특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.&lt;br&gt;문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄 뿐만 아니라, 코드의 유지 및 관리도 훨씬 쉬워진다.&lt;/p&gt;
@@ -178,9 +178,9 @@
     
     <category term="CI/CD" scheme="https://zerohertz.github.io/tags/ci-cd/"/>
     
-    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
-    
     <category term="전문연구요원" scheme="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/"/>
+    
+    <category term="GitHub" scheme="https://zerohertz.github.io/tags/github/"/>
     
   </entry>
   
@@ -2396,36 +2396,6 @@
   </entry>
   
   <entry>
-    <title>BOJ: 1053</title>
-    <link href="https://zerohertz.github.io/boj-1053/"/>
-    <id>https://zerohertz.github.io/boj-1053/</id>
-    <published>2022-11-03T01:30:15.000Z</published>
-    <updated>2023-11-03T09:49:35.225Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;팰린드롬이란, 앞에서부터 읽었을 때와, 뒤에서부터 읽었을 때가 같은 문자열이다.&lt;br&gt;모든 문자열이 팰린드롬이 아니기 때문에 다음과 같은 4가지 연산으로 보통 문자열을 팰린드롬으로 만든다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;문자열의 어떤 위치에 어떤 문자를 삽입 (시작과 끝도 가능)&lt;/li&gt;
-&lt;li&gt;어떤 위치에 있는 문자를 삭제&lt;/li&gt;
-&lt;li&gt;어떤 위치에 있는 문자를 교환&lt;/li&gt;
-&lt;li&gt;서로 다른 문자를 교환&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;1, 2, 3번 연산은 마음껏 사용할 수 있지만, 마지막 연산은 많아야 한 번 사용할 수 있다.&lt;br&gt;문자열이 주어졌을 때, 팰린드롬으로 만들기 위해 필요한 연산의 최솟값을 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문자열이 주어진다. 영어 소문자로만 이루어져 있고, 길이는 최대 50이다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문제의 정답을 출력한다.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="4. Algorithm" scheme="https://zerohertz.github.io/categories/4-algorithm/"/>
-    
-    
-    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
-    
-    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
-    
-  </entry>
-  
-  <entry>
     <title>BOJ: 1057</title>
     <link href="https://zerohertz.github.io/boj-1057/"/>
     <id>https://zerohertz.github.io/boj-1057/</id>
@@ -2459,6 +2429,36 @@
     <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
 &lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
 &lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="4. Algorithm" scheme="https://zerohertz.github.io/categories/4-algorithm/"/>
+    
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BOJ: 1053</title>
+    <link href="https://zerohertz.github.io/boj-1053/"/>
+    <id>https://zerohertz.github.io/boj-1053/</id>
+    <published>2022-11-03T01:30:15.000Z</published>
+    <updated>2023-11-03T09:49:35.225Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;팰린드롬이란, 앞에서부터 읽었을 때와, 뒤에서부터 읽었을 때가 같은 문자열이다.&lt;br&gt;모든 문자열이 팰린드롬이 아니기 때문에 다음과 같은 4가지 연산으로 보통 문자열을 팰린드롬으로 만든다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;문자열의 어떤 위치에 어떤 문자를 삽입 (시작과 끝도 가능)&lt;/li&gt;
+&lt;li&gt;어떤 위치에 있는 문자를 삭제&lt;/li&gt;
+&lt;li&gt;어떤 위치에 있는 문자를 교환&lt;/li&gt;
+&lt;li&gt;서로 다른 문자를 교환&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1, 2, 3번 연산은 마음껏 사용할 수 있지만, 마지막 연산은 많아야 한 번 사용할 수 있다.&lt;br&gt;문자열이 주어졌을 때, 팰린드롬으로 만들기 위해 필요한 연산의 최솟값을 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문자열이 주어진다. 영어 소문자로만 이루어져 있고, 길이는 최대 50이다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문제의 정답을 출력한다.&lt;/p&gt;</summary>
     
     
     

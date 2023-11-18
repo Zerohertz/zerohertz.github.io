@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274756106-c1553d5b-041f-4739-a4b9-670a67db45ea.png">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274760103-e7b50f3f-1c44-44e3-adc0-4933fbf96fdc.png">
 <meta property="article:published_time" content="2023-10-12T09:57:39.000Z">
-<meta property="article:modified_time" content="2023-11-03T09:49:35.237Z">
+<meta property="article:modified_time" content="2023-11-18T06:13:39.385Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sphinx"><span class="nav-number">2.</span> <span class="nav-text">Sphinx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sphinx"><span class="nav-number">2.</span> <span class="nav-text">Sphinx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Plugins"><span class="nav-number">4.</span> <span class="nav-text">Plugins</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,10 +221,17 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/traefik-oauth/" rel="bookmark">
-        <time class="popular-posts-time">2023-08-16</time>
+      <a class="popular-posts-link" href="/python-pkg-cicd/" rel="bookmark">
+        <time class="popular-posts-time">2023-11-03</time>
         <br>
-      Traefik: OAuth
+      Constructing a CI/CD Pipeline for Python Packages Using Jenkins
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/jenkins-init/" rel="bookmark">
+        <time class="popular-posts-time">2023-11-01</time>
+        <br>
+      Jenkins Installation and Initial Setup on Kubernetes
       </a>
     </li>
     <li class="popular-posts-item">
@@ -235,10 +242,10 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/airflow-theme/" rel="bookmark">
-        <time class="popular-posts-time">2023-08-26</time>
+      <a class="popular-posts-link" href="/traefik-oauth/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-16</time>
         <br>
-      Apache Airflow: Theme
+      Traefik: OAuth
       </a>
     </li>
     <li class="popular-posts-item">
@@ -246,13 +253,6 @@
         <time class="popular-posts-time">2023-08-20</time>
         <br>
       Apache Airflow 기반 Google Analytics 4 API를 통한 블로그 사용자 정보 전달 자동화
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/nutrients/" rel="bookmark">
-        <time class="popular-posts-time">2023-05-01</time>
-        <br>
-      Nutrients
       </a>
     </li>
   </ul>
@@ -412,6 +412,79 @@
 <figure class="highlight python"><figcaption><span>example_function.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">example_function</span>(<span class="params">param1, param2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;This is a function example with Google style docstrings.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    The main description of the function is written here and provides</span></span><br><span class="line"><span class="string">    a brief overview of what the function does.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        param1 (int): The first parameter used for ...</span></span><br><span class="line"><span class="string">        param2 (str): The second parameter used for ...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        bool: True if successful, False otherwise.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Raises:</span></span><br><span class="line"><span class="string">        TypeError: If `param1` is not an integer.</span></span><br><span class="line"><span class="string">        ValueError: If `param2` is an empty string.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Notes:</span></span><br><span class="line"><span class="string">        This is an additional note or a set of notes that provide extra</span></span><br><span class="line"><span class="string">        information about the function, but are not part of the main description.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Examples:</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; example_function(5, &quot;hello&quot;)</span></span><br><span class="line"><span class="string">        True</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; example_function(10, &quot;&quot;)</span></span><br><span class="line"><span class="string">        ValueError: param2 should not be an empty string.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(param1, <span class="built_in">int</span>):</span><br><span class="line">        <span class="keyword">raise</span> TypeError(<span class="string">&quot;param1 should be of type int&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> param2:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;param2 should not be an empty string&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Function&#x27;s logic here</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/274760103-e7b50f3f-1c44-44e3-adc0-4933fbf96fdc.png" alt="example_function"></p>
+<hr>
+<h1 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h1><table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Features</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>sphinx.ext.autodoc</code></td>
+<td align="center">소스 코드에서 문서화된 주석을 자동으로 추출하여 문서를 생성합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.coverage</code></td>
+<td align="center">문서화가 필요한 코드가 얼마나 문서화되었는지 검사합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.doctest</code></td>
+<td align="center">문서 내에 포함된 doctest 테스트를 실행합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.duration</code></td>
+<td align="center">문서 생성 시간을 추적하고 보고합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.githubpages</code></td>
+<td align="center">GitHub Pages 호환성을 위한 HTML 파일을 생성합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.intersphinx</code></td>
+<td align="center">다른 Sphinx 문서와의 링크를 용이하게 합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.mathjax</code></td>
+<td align="center">문서 내의 수학 표현을 렌더링합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.napoleon</code></td>
+<td align="center">Google과 NumPy 스타일의 docstrings를 지원합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx.ext.todo</code></td>
+<td align="center">문서 내에서 할 일 목록을 관리합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinxcontrib.jquery</code></td>
+<td align="center">문서에 jQuery 지원을 추가합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinxcontrib.gtagjs</code></td>
+<td align="center">Google Analytics와 같은 gtag.js 서비스를 문서에 통합합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinxext.opengraph</code></td>
+<td align="center">문서에 Open Graph 메타 데이터를 추가하여 소셜 미디어 공유를 개선합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx_favicon</code></td>
+<td align="center">웹사이트의 파비콘(favicon)을 설정합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx_copybutton</code></td>
+<td align="center">코드 블록에 복사 버튼을 추가하여 사용자가 코드를 쉽게 복사할 수 있게 합니다.</td>
+</tr>
+<tr>
+<td align="center"><code>sphinx_paramlinks</code></td>
+<td align="center">Python 문서 내의 <code>:param:</code> 지시어를 링크 가능하게 만듭니다.</td>
+</tr>
+<tr>
+<td align="center"><code>myst_parser</code></td>
+<td align="center">Markedly Structured Text(MYST) 마크다운 문법을 지원합니다.</td>
+</tr>
+</tbody></table>
 
     </div>
 
