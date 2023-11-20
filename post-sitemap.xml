@@ -9,16 +9,16 @@
 
 
     <url>
-        <loc>https://zerohertz.github.io/sphinx/</loc>
-        <lastmod>2023-11-18T07:51:34.577Z</lastmod>
+        <loc>https://zerohertz.github.io/python-pkg-cicd/</loc>
+        <lastmod>2023-11-20T06:59:36.732Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/python-pkg-cicd/</loc>
-        <lastmod>2023-11-18T06:45:45.258Z</lastmod>
+        <loc>https://zerohertz.github.io/sphinx/</loc>
+        <lastmod>2023-11-18T07:51:34.577Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -497,7 +497,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/professional-research-agent-train-init/</loc>
+        <loc>https://zerohertz.github.io/programmers-60059/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -505,7 +505,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/programmers-60059/</loc>
+        <loc>https://zerohertz.github.io/professional-research-agent-train-init/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1129,7 +1129,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/</loc>
+        <loc>https://zerohertz.github.io/imu-sensor/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1137,7 +1137,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/imu-sensor/</loc>
+        <loc>https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1409,7 +1409,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
+        <loc>https://zerohertz.github.io/catia/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1417,7 +1417,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/catia/</loc>
+        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
