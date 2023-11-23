@@ -9,7 +9,7 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 20 Nov 2023 06:59:36 GMT</pubDate>
+    <pubDate>Thu, 23 Nov 2023 12:35:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -181,9 +181,9 @@
       
       <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
       
-      <category domain="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/">전문연구요원</category>
-      
       <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      <category domain="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/">전문연구요원</category>
       
       
       <comments>https://zerohertz.github.io/awesome-jmy/#disqus_thread</comments>
