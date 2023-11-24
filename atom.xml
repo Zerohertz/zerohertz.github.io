@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-11-23T12:35:52.771Z</updated>
+  <updated>2023-11-24T05:45:00.507Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zerohertz.github.io/python-pkg-cicd/"/>
     <id>https://zerohertz.github.io/python-pkg-cicd/</id>
     <published>2023-11-03T09:28:05.000Z</published>
-    <updated>2023-11-23T12:35:52.771Z</updated>
+    <updated>2023-11-24T05:45:00.507Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;자주 사용하는 Python 함수들을 package로 생성하고 CI&amp;#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!&lt;br&gt;배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9weXBpLm9yZy8=&quot;&gt;PyPI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; (Python Package Index)에 업로드하여 &lt;code&gt;pip&lt;/code&gt;로 설치할 수 있게 해볼 것이다.&lt;br&gt;CI&amp;#x2F;CD 계획은 아래와 같다.&lt;/p&gt;
@@ -49,7 +49,7 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;이 사항들을 &lt;code&gt;Jenkinsfile&lt;/code&gt;로 개발하면 아래와 같다.&lt;/p&gt;
+&lt;p&gt;이 사항들을 Jenkins로 개발하고 blue ocean으로 확인해보면 아래와 같이 구성된다.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/280279733-fd755f7d-5133-4104-92e0-592623b31bb1.png&quot; alt=&quot;jenkinsfile&quot;&gt;&lt;/p&gt;</summary>
     
     
