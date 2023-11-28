@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-11-24T05:45:00.507Z</updated>
+  <updated>2023-11-27T01:32:27.483Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zerohertz.github.io/python-pkg-cicd/"/>
     <id>https://zerohertz.github.io/python-pkg-cicd/</id>
     <published>2023-11-03T09:28:05.000Z</published>
-    <updated>2023-11-24T05:45:00.507Z</updated>
+    <updated>2023-11-27T01:32:27.483Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;자주 사용하는 Python 함수들을 package로 생성하고 CI&amp;#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!&lt;br&gt;배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9weXBpLm9yZy8=&quot;&gt;PyPI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; (Python Package Index)에 업로드하여 &lt;code&gt;pip&lt;/code&gt;로 설치할 수 있게 해볼 것이다.&lt;br&gt;CI&amp;#x2F;CD 계획은 아래와 같다.&lt;/p&gt;
@@ -395,7 +395,7 @@
     <link href="https://zerohertz.github.io/home-server-external-ip/"/>
     <id>https://zerohertz.github.io/home-server-external-ip/</id>
     <published>2023-08-17T06:12:50.000Z</published>
-    <updated>2023-11-03T09:49:35.213Z</updated>
+    <updated>2023-11-28T14:59:49.278Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Subdomain을 생성하기 위해 새 domain을 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rci5nb2RhZGR5LmNvbS8=&quot;&gt;GoDaddy&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 구매했다.&lt;br&gt;하지만 구매한 domain은 DDNS (Dynamic Domain Name System)가 아닌 DNS (Domain Name System)이므로 공유기에 할당된 external IP가 변경되면 새로 바꿔줘야한다.&lt;br&gt;물론 DDNS service를 연결할 수 있지만 무료로 이용하려면 제약되는 것들이 많아서 IP가 변경되는 순간 Discord Webhook로 메시지가 전달되도록 구성해보겠다.&lt;/p&gt;</summary>
@@ -472,7 +472,7 @@
     <link href="https://zerohertz.github.io/airflow-discord/"/>
     <id>https://zerohertz.github.io/airflow-discord/</id>
     <published>2023-08-13T12:03:10.000Z</published>
-    <updated>2023-11-03T09:51:00.826Z</updated>
+    <updated>2023-11-28T14:58:34.010Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/home-server-init/#Fail2Ban&quot;&gt;Fail2Ban&lt;/a&gt;의 명령어 중 &lt;code&gt;sudo fail2ban-client status sshd&lt;/code&gt;을 사용하면 아래와 같은 결과가 나온다.&lt;/p&gt;
@@ -2426,16 +2426,16 @@
   </entry>
   
   <entry>
-    <title>BOJ: 1057</title>
-    <link href="https://zerohertz.github.io/boj-1057/"/>
-    <id>https://zerohertz.github.io/boj-1057/</id>
+    <title>BOJ: 1058</title>
+    <link href="https://zerohertz.github.io/boj-1058/"/>
+    <id>https://zerohertz.github.io/boj-1058/</id>
     <published>2022-11-03T01:30:15.000Z</published>
-    <updated>2023-11-03T09:49:35.225Z</updated>
+    <updated>2023-11-03T09:49:35.233Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를 한다. 이긴 사람은 다음 라운드에 진출하고, 진 사람은 그 라운드에서 떨어진다. 만약 그 라운드의 참가자가 홀수명이라면, 마지막 번호를 가진 참가자는 다음 라운드로 자동 진출한다. 다음 라운드에선 다시 참가자의 번호를 1번부터 매긴다. 이때, 번호를 매기는 순서는 처음 번호의 순서를 유지하면서 1번부터 매긴다. 이 말은 1번과 2번이 스타를 해서 1번이 진출하고, 3번과 4번이 스타를 해서 4번이 진출했다면, 4번은 다음 라운드에서 번호 2번을 배정받는다. 번호를 다시 배정받은 후에 한 명만 남을 때까지 라운드를 계속 한다.&lt;br&gt;마침 이 스타 대회에 임한수도 참가했다. 김지민은 갑자기 스타 대회에서 우승하는 욕심은 없어지고, 몇 라운드에서 임한수와 대결하는지 궁금해졌다. 일단 김지민과 임한수는 서로 대결하기 전까지 항상 이긴다고 가정한다. 1 라운드에서 김지민의 번호와 임한수의 번호가 주어질 때, 과연 김지민과 임한수가 몇 라운드에서 대결하는지 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 참가자의 수 N과 1 라운드에서 김지민의 번호와 임한수의 번호가 순서대로 주어진다. N은 2보다 크거나 같고, 100,000보다 작거나 같은 자연수이고, 김지민의 번호와 임한수의 번호는 N보다 작거나 같은 자연수이고, 서로 다르다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민과 임한수가 대결하는 라운드 번호를 출력한다. 만약 서로 대결하지 않을 때는 -1을 출력한다.&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</summary>
     
     
     
@@ -2449,16 +2449,16 @@
   </entry>
   
   <entry>
-    <title>BOJ: 1058</title>
-    <link href="https://zerohertz.github.io/boj-1058/"/>
-    <id>https://zerohertz.github.io/boj-1058/</id>
+    <title>BOJ: 1057</title>
+    <link href="https://zerohertz.github.io/boj-1057/"/>
+    <id>https://zerohertz.github.io/boj-1057/</id>
     <published>2022-11-03T01:30:15.000Z</published>
-    <updated>2023-11-03T09:49:35.233Z</updated>
+    <updated>2023-11-03T09:49:35.225Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를 한다. 이긴 사람은 다음 라운드에 진출하고, 진 사람은 그 라운드에서 떨어진다. 만약 그 라운드의 참가자가 홀수명이라면, 마지막 번호를 가진 참가자는 다음 라운드로 자동 진출한다. 다음 라운드에선 다시 참가자의 번호를 1번부터 매긴다. 이때, 번호를 매기는 순서는 처음 번호의 순서를 유지하면서 1번부터 매긴다. 이 말은 1번과 2번이 스타를 해서 1번이 진출하고, 3번과 4번이 스타를 해서 4번이 진출했다면, 4번은 다음 라운드에서 번호 2번을 배정받는다. 번호를 다시 배정받은 후에 한 명만 남을 때까지 라운드를 계속 한다.&lt;br&gt;마침 이 스타 대회에 임한수도 참가했다. 김지민은 갑자기 스타 대회에서 우승하는 욕심은 없어지고, 몇 라운드에서 임한수와 대결하는지 궁금해졌다. 일단 김지민과 임한수는 서로 대결하기 전까지 항상 이긴다고 가정한다. 1 라운드에서 김지민의 번호와 임한수의 번호가 주어질 때, 과연 김지민과 임한수가 몇 라운드에서 대결하는지 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 참가자의 수 N과 1 라운드에서 김지민의 번호와 임한수의 번호가 순서대로 주어진다. N은 2보다 크거나 같고, 100,000보다 작거나 같은 자연수이고, 김지민의 번호와 임한수의 번호는 N보다 작거나 같은 자연수이고, 서로 다르다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민과 임한수가 대결하는 라운드 번호를 출력한다. 만약 서로 대결하지 않을 때는 -1을 출력한다.&lt;/p&gt;</summary>
     
     
     

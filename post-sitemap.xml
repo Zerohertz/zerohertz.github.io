@@ -9,8 +9,24 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/home-server-external-ip/</loc>
+        <lastmod>2023-11-28T14:59:49.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/airflow-discord/</loc>
+        <lastmod>2023-11-28T14:58:34.010Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/python-pkg-cicd/</loc>
-        <lastmod>2023-11-24T05:45:00.507Z</lastmod>
+        <lastmod>2023-11-27T01:32:27.483Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -171,14 +187,6 @@
     <url>
         <loc>https://zerohertz.github.io/airflow-ga4-api/</loc>
         <lastmod>2023-11-03T09:51:08.682Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/airflow-discord/</loc>
-        <lastmod>2023-11-03T09:51:00.826Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1305,7 +1313,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/multiprocessing/</loc>
+        <loc>https://zerohertz.github.io/neural-network-example/</loc>
         <lastmod>2023-11-03T09:49:35.217Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1313,7 +1321,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/neural-network-example/</loc>
+        <loc>https://zerohertz.github.io/multiprocessing/</loc>
         <lastmod>2023-11-03T09:49:35.217Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1426,14 +1434,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/dfs-and-bfs/</loc>
-        <lastmod>2023-11-03T09:49:35.213Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/home-server-external-ip/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
