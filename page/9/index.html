@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-count">205</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -212,6 +212,99 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" class="post-title-link" itemprop="url">Development of a Obstructive Sleep Apnea Diagnosis Algorithm using HRV</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-14 11:28:10" itemprop="dateCreated datePublished" datetime="2021-01-14T11:28:10+09:00">2021-01-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9EZXZlbG9wbWVudC1vZi1hLU9ic3RydWN0aXZlLVNsZWVwLUFwbmVhLURpYWdub3Npcy1BbGdvcml0aG0tVXNpbmctSFJW">Source in Github<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="HRV-Heart-Rate-Variability"><a href="#HRV-Heart-Rate-Variability" class="headerlink" title="HRV(Heart Rate Variability)"></a>HRV(Heart Rate Variability)</h1><h2 id="Detecting-R-R-Interval"><a href="#Detecting-R-R-Interval" class="headerlink" title="Detecting R-R Interval"></a>Detecting R-R Interval</h2><figure class="highlight matlab"><figcaption><span>rrInterval.mat</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[qrspeaks, locs, y]</span> = <span class="title">rrInterval</span><span class="params">(time, ecg)</span></span></span><br><span class="line">t = time;</span><br><span class="line">wt = modwt(ecg, <span class="number">5</span>);</span><br><span class="line">wtrec = <span class="built_in">zeros</span>(<span class="built_in">size</span>(wt));</span><br><span class="line">wtrec(<span class="number">4</span>:<span class="number">5</span>, :) = wt(<span class="number">4</span>:<span class="number">5</span>, :);</span><br><span class="line">y = imodwt(wtrec, <span class="string">&#x27;sym4&#x27;</span>);</span><br><span class="line">y = <span class="built_in">abs</span>(y).^<span class="number">2</span>;</span><br><span class="line">[qrspeaks, locs] = findpeaks(y, t, <span class="string">&#x27;MinPeakHeight&#x27;</span>, <span class="number">0.1</span>, <span class="string">&#x27;MinPeakDistance&#x27;</span>, <span class="number">0.450</span>); <span class="comment">%time과 y에 대한 그래프를 해석 후 파라미터 결정</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ECG</p>
+</blockquote>
+<img width="672" alt="ECG" src="https://user-images.githubusercontent.com/42334717/103261452-fbc07f80-49e4-11eb-8181-4251df1a5af5.png">
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; load mit200</span><br><span class="line">&gt;&gt; <span class="built_in">plot</span>(tm, ecgsig)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1921,110 +2014,6 @@ new GDemo('#demo-teriminal1')
 </blockquote>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">모든 원소를 출력한다.&gt;&gt;waffle   pizza   donut   pizzaLarge</span><br><span class="line">모든 원소를 출력한다.&gt;&gt;donut    waffle  pizza   pizzaLarge</span><br><span class="line"></span><br><span class="line">프렌드함수 <span class="keyword">operator</span>&lt;&lt;로 출력하는 경우</span><br><span class="line">모든 원소를 출력한다.&gt;&gt;donut    waffle  pizza   pizzaLarge</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/cpp-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/cpp-3/" class="post-title-link" itemprop="url">C++ (3)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-07-06 10:10:46" itemprop="dateCreated datePublished" datetime="2020-07-06T10:10:46+09:00">2020-07-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Day-9"><a href="#Day-9" class="headerlink" title="Day 9"></a>Day 9</h1><h2 id="Polymorphism-다형성"><a href="#Polymorphism-다형성" class="headerlink" title="Polymorphism(다형성)"></a>Polymorphism(다형성)</h2><ul>
-<li>Overloading<ul>
-<li>함수 중복</li>
-<li>연산자 중복</li>
-<li>Default Parameter</li>
-</ul>
-</li>
-<li>Overriding<ul>
-<li>함수 재정의</li>
-</ul>
-</li>
-</ul>
-<h2 id="Function-Overloading"><a href="#Function-Overloading" class="headerlink" title="Function Overloading"></a>Function Overloading</h2><ul>
-<li>다른 함수로 인식</li>
-<li>함수의 이름 동일</li>
-<li>함수의 매개변수 type, 개수 다름</li>
-<li>return type 무관</li>
-<li>소멸자 불가 - 매개변수 X</li>
-<li>모호하지 않게 선언</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/cpp-3/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

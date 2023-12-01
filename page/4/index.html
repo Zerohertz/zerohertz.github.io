@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-count">205</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -212,6 +212,91 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-stream/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/mlops-for-mle-stream/" class="post-title-link" itemprop="url">MLOps for MLE: Stream</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-09 13:31:03" itemprop="dateCreated datePublished" datetime="2023-03-09T13:31:03+09:00">2023-03-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-mlops/" itemprop="url" rel="index"><span itemprop="name">3. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Stream-Serving"><a href="#Stream-Serving" class="headerlink" title="Stream Serving"></a>Stream Serving</h1><h2 id="Data-Subscriber"><a href="#Data-Subscriber" class="headerlink" title="Data Subscriber"></a>Data Subscriber</h2><figure class="highlight python"><figcaption><span>data_subscriber.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> json <span class="keyword">import</span> loads</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> psycopg2</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaConsumer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_table</span>(<span class="params">db_connect</span>):</span><br><span class="line">    create_table_query = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    CREATE TABLE IF NOT EXISTS breast_cancer_prediction (</span></span><br><span class="line"><span class="string">        id SERIAL PRIMARY KEY,</span></span><br><span class="line"><span class="string">        timestamp timestamp,</span></span><br><span class="line"><span class="string">        breast_cancer_class int</span></span><br><span class="line"><span class="string">    );&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(create_table_query)</span><br><span class="line">    <span class="keyword">with</span> db_connect.cursor() <span class="keyword">as</span> cur:</span><br><span class="line">        cur.execute(create_table_query)</span><br><span class="line">        db_connect.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert_data</span>(<span class="params">db_connect, data</span>):</span><br><span class="line">    insert_row_query = <span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    INSERT INTO breast_cancer_prediction</span></span><br><span class="line"><span class="string">        (timestamp, breast_cancer_class)</span></span><br><span class="line"><span class="string">        VALUES (</span></span><br><span class="line"><span class="string">            &#x27;<span class="subst">&#123;data[<span class="string">&quot;timestamp&quot;</span>]&#125;</span>&#x27;,</span></span><br><span class="line"><span class="string">            <span class="subst">&#123;data[<span class="string">&quot;target&quot;</span>]&#125;</span></span></span><br><span class="line"><span class="string">        );&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(insert_row_query)</span><br><span class="line">    <span class="keyword">with</span> db_connect.cursor() <span class="keyword">as</span> cur:</span><br><span class="line">        cur.execute(insert_row_query)</span><br><span class="line">        db_connect.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">subscribe_data</span>(<span class="params">db_connect, consumer</span>):</span><br><span class="line">    <span class="keyword">for</span> msg <span class="keyword">in</span> consumer:</span><br><span class="line">        <span class="built_in">print</span>(</span><br><span class="line">            <span class="string">f&quot;Topic : <span class="subst">&#123;msg.topic&#125;</span>\n&quot;</span></span><br><span class="line">            <span class="string">f&quot;Partition : <span class="subst">&#123;msg.partition&#125;</span>\n&quot;</span></span><br><span class="line">            <span class="string">f&quot;Offset : <span class="subst">&#123;msg.offset&#125;</span>\n&quot;</span></span><br><span class="line">            <span class="string">f&quot;Key : <span class="subst">&#123;msg.key&#125;</span>\n&quot;</span></span><br><span class="line">            <span class="string">f&quot;Value : <span class="subst">&#123;msg.value&#125;</span>\n&quot;</span>,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        msg.value[<span class="string">&quot;payload&quot;</span>].pop(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">        msg.value[<span class="string">&quot;payload&quot;</span>].pop(<span class="string">&quot;target&quot;</span>)</span><br><span class="line">        ts = msg.value[<span class="string">&quot;payload&quot;</span>].pop(<span class="string">&quot;timestamp&quot;</span>)</span><br><span class="line"></span><br><span class="line">        response = requests.post(</span><br><span class="line">            url=<span class="string">&quot;http://api-with-model:8000/predict&quot;</span>,</span><br><span class="line">            json=msg.value[<span class="string">&quot;payload&quot;</span>],</span><br><span class="line">            headers=&#123;<span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>&#125;,</span><br><span class="line">        ).json()</span><br><span class="line">        response[<span class="string">&quot;timestamp&quot;</span>] = ts</span><br><span class="line">        insert_data(db_connect, response)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    load_dotenv()</span><br><span class="line">    db_connect = psycopg2.connect(</span><br><span class="line">        user=os.environ.get(<span class="string">&quot;POSTGRES_USER&quot;</span>),</span><br><span class="line">        password=os.environ.get(<span class="string">&quot;POSTGRES_PASSWORD&quot;</span>),</span><br><span class="line">        host=os.environ.get(<span class="string">&quot;POSTGRES_HOST&quot;</span>),</span><br><span class="line">        port=<span class="number">5432</span>,</span><br><span class="line">        database=os.environ.get(<span class="string">&quot;POSTGRES_DB&quot;</span>),</span><br><span class="line">    )</span><br><span class="line">    create_table(db_connect)</span><br><span class="line"></span><br><span class="line">    consumer = KafkaConsumer(</span><br><span class="line">        <span class="string">&quot;postgres-source-breast_cancer_data&quot;</span>,</span><br><span class="line">        bootstrap_servers=<span class="string">&quot;broker:29092&quot;</span>,</span><br><span class="line">        auto_offset_reset=<span class="string">&quot;earliest&quot;</span>,</span><br><span class="line">        group_id=<span class="string">&quot;breast_cancer_data-consumer-group&quot;</span>,</span><br><span class="line">        value_deserializer=<span class="keyword">lambda</span> x: loads(x),</span><br><span class="line">    )</span><br><span class="line">    subscribe_data(db_connect, consumer)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/mlops-for-mle-stream/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1511,104 +1596,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/boj-3190/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-database/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/mlops-for-mle-database/" class="post-title-link" itemprop="url">MLOps for MLE: Database</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-01-21 16:56:36" itemprop="dateCreated datePublished" datetime="2023-01-21T16:56:36+09:00">2023-01-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-mlops/" itemprop="url" rel="index"><span itemprop="name">3. MLOps</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="DB-Server-Creation"><a href="#DB-Server-Creation" class="headerlink" title="DB Server Creation"></a>DB Server Creation</h1><h2 id="DB-서버-생성"><a href="#DB-서버-생성" class="headerlink" title="DB 서버 생성"></a>DB 서버 생성</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d \</span><br><span class="line">  --name postgres-server \</span><br><span class="line">  -p 5432:5432 \</span><br><span class="line">  -e POSTGRES_USER=myuser \</span><br><span class="line">  -e POSTGRES_PASSWORD=mypassword \</span><br><span class="line">  -e POSTGRES_DB=mydatabase \</span><br><span class="line">  postgres:14.0</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-d</code>: 컨테이너 detached 모드 실행</li>
-<li><code>--name</code>: 컨테이너의 이름 정의</li>
-<li><code>-p</code>: Port forwarding 설정 $\rightarrow$ <code>host:container</code></li>
-<li><code>-e</code>: 환경 변수 설정<ul>
-<li><code>POSTGRES_USER</code>: 유저 이름 설정</li>
-<li><code>POSTGRES_PASSWORD</code>: 유저 비밀번호 설정</li>
-<li><code>POSTGRES_DB</code>: DB의 이름 설정</li>
-</ul>
-</li>
-<li><code>postgres:14.0</code>: 사용 이미지 지정</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/mlops-for-mle-database/" rel="contents">
                 Read more &raquo;
               </a>
             </div>

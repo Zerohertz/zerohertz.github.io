@@ -9,8 +9,85 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 27 Nov 2023 01:32:27 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 05:20:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker Builds in Jenkins using Kaniko for CI/CD Pipelines</title>
+      <link>https://zerohertz.github.io/jenkins-kaniko/</link>
+      <guid>https://zerohertz.github.io/jenkins-kaniko/</guid>
+      <pubDate>Thu, 30 Nov 2023 14:18:22 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Jenkins를 통해 GitOps 기반으로 Docker image가 빌드되고 Docker Hub에 push 되게 하려면 아래와 같은 여러 방식이 존재한다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Docker-in-Docker (DinD)&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Docker Outside of Docker (DooD)&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Kaniko&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Definition&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Container 내부에 별도의 Docker daemon 실행&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Host의 Docker daemon을 사용&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Docker daemon 없이 container image 빌드&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Security&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;더 높은 격리 제공, 하지만 보안상의 우려도 존재&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Host Docker와 직접적인 상호작용으로 보안상 취약할 수 있음&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Docker daemon 없이 작동하여 보안 강화&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Performance&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;성능 overhead 가능성&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;일반적으로 더 나은 성능&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Docker daemon을 사용하지 않기 때문에 성능이 최적화될 수 있음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Complexity&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;설정과 관리가 더 복잡&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;상대적으로 간단한 설정&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;환경 설정에 따라 다르나, 일반적으로 설정이 간단함&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Used Tools&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Jib, Buildah&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Docker CLI, Docker Compose&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Kaniko CLI, Kubernetes와의 통합&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Suitable Use Cases&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;격리된 환경에서의 독립적인 container 관리&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;간단한 CI&amp;#x2F;CD pipeline 구성&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;Cloud 환경 및 Kubernetes에서의 image build&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/docker/">Docker</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/ci-cd/">CI/CD</category>
+      
+      <category domain="https://zerohertz.github.io/tags/github/">GitHub</category>
+      
+      <category domain="https://zerohertz.github.io/tags/jenkins/">Jenkins</category>
+      
+      
+      <comments>https://zerohertz.github.io/jenkins-kaniko/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Constructing a CI/CD Pipeline for Python Packages Using Jenkins</title>
@@ -2247,31 +2324,6 @@
     </item>
     
     <item>
-      <title>BOJ: 13460</title>
-      <link>https://zerohertz.github.io/boj-13460/</link>
-      <guid>https://zerohertz.github.io/boj-13460/</guid>
-      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;스타트링크에서 판매하는 어린이용 장난감 중에서 가장 인기가 많은 제품은 구슬 탈출이다. 구슬 탈출은 직사각형 보드에 빨간 구슬과 파란 구슬을 하나씩 넣은 다음, 빨간 구슬을 구멍을 통해 빼내는 게임이다.&lt;br&gt;보드의 세로 크기는 N, 가로 크기는 M이고, 편의상 1×1크기의 칸으로 나누어져 있다. 가장 바깥 행과 열은 모두 막혀져 있고, 보드에는 구멍이 하나 있다. 빨간 구슬과 파란 구슬의 크기는 보드에서 1×1크기의 칸을 가득 채우는 사이즈이고, 각각 하나씩 들어가 있다. 게임의 목표는 빨간 구슬을 구멍을 통해서 빼내는 것이다. 이때, 파란 구슬이 구멍에 들어가면 안 된다.&lt;br&gt;이때, 구슬을 손으로 건드릴 수는 없고, 중력을 이용해서 이리 저리 굴려야 한다. 왼쪽으로 기울이기, 오른쪽으로 기울이기, 위쪽으로 기울이기, 아래쪽으로 기울이기와 같은 네 가지 동작이 가능하다.&lt;br&gt;각각의 동작에서 공은 동시에 움직인다. 빨간 구슬이 구멍에 빠지면 성공이지만, 파란 구슬이 구멍에 빠지면 실패이다. 빨간 구슬과 파란 구슬이 동시에 구멍에 빠져도 실패이다. 빨간 구슬과 파란 구슬은 동시에 같은 칸에 있을 수 없다. 또, 빨간 구슬과 파란 구슬의 크기는 한 칸을 모두 차지한다. 기울이는 동작을 그만하는 것은 더 이상 구슬이 움직이지 않을 때 까지이다.&lt;br&gt;보드의 상태가 주어졌을 때, 최소 몇 번 만에 빨간 구슬을 구멍을 통해 빼낼 수 있는지 구하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫 번째 줄에는 보드의 세로, 가로 크기를 의미하는 두 정수 N, M (3 ≤ N, M ≤ 10)이 주어진다. 다음 N개의 줄에 보드의 모양을 나타내는 길이 M의 문자열이 주어진다. 이 문자열은 ‘.’, ‘#’, ‘O’, ‘R’, ‘B’ 로 이루어져 있다. ‘.’은 빈 칸을 의미하고, ‘#’은 공이 이동할 수 없는 장애물 또는 벽을 의미하며, ‘O’는 구멍의 위치를 의미한다. ‘R’은 빨간 구슬의 위치, ‘B’는 파란 구슬의 위치이다.&lt;br&gt;입력되는 모든 보드의 가장자리에는 모두 ‘#’이 있다. 구멍의 개수는 한 개 이며, 빨간 구슬과 파란 구슬은 항상 1개가 주어진다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;최소 몇 번 만에 빨간 구슬을 구멍을 통해 빼낼 수 있는지 출력한다. 만약, 10번 이하로 움직여서 빨간 구슬을 구멍을 통해 빼낼 수 없으면 -1을 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-13460/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>BOJ: 1389</title>
       <link>https://zerohertz.github.io/boj-1389/</link>
       <guid>https://zerohertz.github.io/boj-1389/</guid>
@@ -2293,6 +2345,31 @@
       
       
       <comments>https://zerohertz.github.io/boj-1389/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>BOJ: 13460</title>
+      <link>https://zerohertz.github.io/boj-13460/</link>
+      <guid>https://zerohertz.github.io/boj-13460/</guid>
+      <pubDate>Tue, 15 Nov 2022 11:02:29 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;스타트링크에서 판매하는 어린이용 장난감 중에서 가장 인기가 많은 제품은 구슬 탈출이다. 구슬 탈출은 직사각형 보드에 빨간 구슬과 파란 구슬을 하나씩 넣은 다음, 빨간 구슬을 구멍을 통해 빼내는 게임이다.&lt;br&gt;보드의 세로 크기는 N, 가로 크기는 M이고, 편의상 1×1크기의 칸으로 나누어져 있다. 가장 바깥 행과 열은 모두 막혀져 있고, 보드에는 구멍이 하나 있다. 빨간 구슬과 파란 구슬의 크기는 보드에서 1×1크기의 칸을 가득 채우는 사이즈이고, 각각 하나씩 들어가 있다. 게임의 목표는 빨간 구슬을 구멍을 통해서 빼내는 것이다. 이때, 파란 구슬이 구멍에 들어가면 안 된다.&lt;br&gt;이때, 구슬을 손으로 건드릴 수는 없고, 중력을 이용해서 이리 저리 굴려야 한다. 왼쪽으로 기울이기, 오른쪽으로 기울이기, 위쪽으로 기울이기, 아래쪽으로 기울이기와 같은 네 가지 동작이 가능하다.&lt;br&gt;각각의 동작에서 공은 동시에 움직인다. 빨간 구슬이 구멍에 빠지면 성공이지만, 파란 구슬이 구멍에 빠지면 실패이다. 빨간 구슬과 파란 구슬이 동시에 구멍에 빠져도 실패이다. 빨간 구슬과 파란 구슬은 동시에 같은 칸에 있을 수 없다. 또, 빨간 구슬과 파란 구슬의 크기는 한 칸을 모두 차지한다. 기울이는 동작을 그만하는 것은 더 이상 구슬이 움직이지 않을 때 까지이다.&lt;br&gt;보드의 상태가 주어졌을 때, 최소 몇 번 만에 빨간 구슬을 구멍을 통해 빼낼 수 있는지 구하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫 번째 줄에는 보드의 세로, 가로 크기를 의미하는 두 정수 N, M (3 ≤ N, M ≤ 10)이 주어진다. 다음 N개의 줄에 보드의 모양을 나타내는 길이 M의 문자열이 주어진다. 이 문자열은 ‘.’, ‘#’, ‘O’, ‘R’, ‘B’ 로 이루어져 있다. ‘.’은 빈 칸을 의미하고, ‘#’은 공이 이동할 수 없는 장애물 또는 벽을 의미하며, ‘O’는 구멍의 위치를 의미한다. ‘R’은 빨간 구슬의 위치, ‘B’는 파란 구슬의 위치이다.&lt;br&gt;입력되는 모든 보드의 가장자리에는 모두 ‘#’이 있다. 구멍의 개수는 한 개 이며, 빨간 구슬과 파란 구슬은 항상 1개가 주어진다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;최소 몇 번 만에 빨간 구슬을 구멍을 통해 빼낼 수 있는지 출력한다. 만약, 10번 이하로 움직여서 빨간 구슬을 구멍을 통해 빼낼 수 없으면 -1을 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-13460/#disqus_thread</comments>
       
     </item>
     
@@ -2580,31 +2657,6 @@
     </item>
     
     <item>
-      <title>BOJ: 1058</title>
-      <link>https://zerohertz.github.io/boj-1058/</link>
-      <guid>https://zerohertz.github.io/boj-1058/</guid>
-      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-1058/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>BOJ: 1057</title>
       <link>https://zerohertz.github.io/boj-1057/</link>
       <guid>https://zerohertz.github.io/boj-1057/</guid>
@@ -2626,6 +2678,31 @@
       
       
       <comments>https://zerohertz.github.io/boj-1057/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>BOJ: 1058</title>
+      <link>https://zerohertz.github.io/boj-1058/</link>
+      <guid>https://zerohertz.github.io/boj-1058/</guid>
+      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-1058/#disqus_thread</comments>
       
     </item>
     

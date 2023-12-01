@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">204</span>
+          <span class="site-state-item-count">205</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -212,6 +212,106 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/c-basic-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/c-basic-2/" class="post-title-link" itemprop="url">C++ Basic (2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-06 15:34:50" itemprop="dateCreated datePublished" datetime="2019-01-06T15:34:50+09:00">2019-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h1><blockquote>
+<p>배열의 선언</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> grad[<span class="number">10</span>]; <span class="comment">// 자료형, 배열 이름, 배열 크기</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>배열의 초기화</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> grade[<span class="number">5</span>] = &#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>만약 배열의 크기가 초기값의 개수보다 크다면 나머지는 <code>0</code>으로 초기화 된다.</li>
+<li>배열의 크기를 선언하지 않으면 초기값의 개수에 맞춰서 선언된다.</li>
+</ul>
+<blockquote>
+<p>배열의 복사</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> SIZE = <span class="number">5</span>;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="type">int</span> a[SIZE] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">	<span class="type">int</span> b[SIZE];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE; i++)</span><br><span class="line">		b[i] = a[i];</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; SIZE; i++)</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;b[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; b[i] &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/c-basic-2/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1467,100 +1567,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/web-crawling-by-selenium-1/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/web-crawling-by-beautifulsoup-4/" class="post-title-link" itemprop="url">Web Crawling by BeautifulSoup (4)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-08-22 16:46:04" itemprop="dateCreated datePublished" datetime="2018-08-22T16:46:04+09:00">2018-08-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="HTTP-통신"><a href="#HTTP-통신" class="headerlink" title="HTTP 통신"></a>HTTP 통신</h1><blockquote>
-<p>웹 브라우저와 웹 서버는 HTTP라는 통신규약(<code>프로토콜</code>)을 사용해서 통신한다.</p>
-</blockquote>
-<p>브라우저에서 서버로 요청(<code>request</code>), 서버에서 브라우저로 응답(<code>response</code>)할 때 어떻게 할지를 나타낸 규약이다.</p>
-<hr>
-<h1 id="쿠키"><a href="#쿠키" class="headerlink" title="쿠키"></a>쿠키</h1><p>무상태(<code>stateless</code>) <code>HTTP 통신</code>으로는 회원제 사이트를 만들 수 없다.(<code>stateless</code> : 이전에 어떤 데이터를 가져갔는지 등에 대한 정보(상태 : <code>state</code>)를 전혀 저장하지 않는 통신)</p>
-<blockquote>
-<p>방문하는 사람의 컴퓨터에 일시적으로 데이터를 저장하는 기능</p>
-</blockquote>
-<p>하지만 1개의 <code>쿠키</code>엔 <code>4096byte</code>의 데이터 크기 제한이 있다.<br>또한 <code>쿠키</code>는 <code>HTTP 통신</code> 헤더를 통해 읽고 쓸 수 있다. 따라서 방문자 혹은 확인자가 원하는 대로 변경할 수 있다.<br>하지만 위의 말대로 쉽게 변경이 가능하기에 비밀번호 등의 비밀 정보는 <code>세션</code>을 통해 다뤄진다.<br><code>새션</code>도 <code>쿠키</code>를 사용해 데이터를 저장하는 점은 같다. 하지만, 방문자 고유 ID만을 저장하고, 실제로 모든 데이터는 웹 서버에 저장하므로 <code>쿠키</code>와는 다르게 저장할 수 있는 데이터에 제한이 없다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/web-crawling-by-beautifulsoup-4/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
