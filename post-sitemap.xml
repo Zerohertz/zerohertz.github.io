@@ -10,7 +10,7 @@
 
     <url>
         <loc>https://zerohertz.github.io/jenkins-kaniko/</loc>
-        <lastmod>2023-12-26T11:26:27.795Z</lastmod>
+        <lastmod>2023-12-26T13:19:42.923Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -249,14 +249,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-1439/</loc>
-        <lastmod>2023-11-03T09:49:35.241Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/boj-1389/</loc>
         <lastmod>2023-11-03T09:49:35.241Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -265,7 +257,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-15686/</loc>
+        <loc>https://zerohertz.github.io/boj-1439/</loc>
         <lastmod>2023-11-03T09:49:35.241Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -274,6 +266,14 @@
 
     <url>
         <loc>https://zerohertz.github.io/boj-1543/</loc>
+        <lastmod>2023-11-03T09:49:35.241Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/boj-15686/</loc>
         <lastmod>2023-11-03T09:49:35.241Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -705,7 +705,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
+        <loc>https://zerohertz.github.io/exporting-to-unreal-engine-at-3ds-max-by-datasmith/</loc>
         <lastmod>2023-11-03T09:49:35.229Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -713,7 +713,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/exporting-to-unreal-engine-at-3ds-max-by-datasmith/</loc>
+        <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
         <lastmod>2023-11-03T09:49:35.229Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1169,7 +1169,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-2/</loc>
+        <loc>https://zerohertz.github.io/normality-test/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1177,7 +1177,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/normality-test/</loc>
+        <loc>https://zerohertz.github.io/numerical-analysis-2/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1425,7 +1425,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/catia/</loc>
+        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1433,7 +1433,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
+        <loc>https://zerohertz.github.io/catia/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

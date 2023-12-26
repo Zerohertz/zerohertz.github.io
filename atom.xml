@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2023-12-26T11:26:27.795Z</updated>
+  <updated>2023-12-26T13:19:42.923Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zerohertz.github.io/jenkins-kaniko/"/>
     <id>https://zerohertz.github.io/jenkins-kaniko/</id>
     <published>2023-11-30T14:18:22.000Z</published>
-    <updated>2023-12-26T11:26:27.795Z</updated>
+    <updated>2023-12-26T13:19:42.923Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Jenkins를 통해 GitOps 기반으로 Docker image가 빌드되고 Docker Hub에 push 되게 하려면 아래와 같은 여러 방식이 존재한다.&lt;/p&gt;
