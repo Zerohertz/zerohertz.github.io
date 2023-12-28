@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/the-lateral-dynamics-of-a-moving-web/</loc>
+        <lastmod>2023-12-28T01:01:23.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/jenkins-kaniko/</loc>
         <lastmod>2023-12-26T13:19:42.923Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -705,7 +713,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/exporting-to-unreal-engine-at-3ds-max-by-datasmith/</loc>
+        <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
         <lastmod>2023-11-03T09:49:35.229Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -713,7 +721,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/exporting-ai-model-to-c-from-matlab/</loc>
+        <loc>https://zerohertz.github.io/exporting-to-unreal-engine-at-3ds-max-by-datasmith/</loc>
         <lastmod>2023-11-03T09:49:35.229Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1321,7 +1329,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/multiprocessing/</loc>
+        <loc>https://zerohertz.github.io/neural-network-example/</loc>
         <lastmod>2023-11-03T09:49:35.217Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1329,7 +1337,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/neural-network-example/</loc>
+        <loc>https://zerohertz.github.io/multiprocessing/</loc>
         <lastmod>2023-11-03T09:49:35.217Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1393,7 +1401,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-10815/</loc>
+        <loc>https://zerohertz.github.io/boj-11000/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1401,7 +1409,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-11000/</loc>
+        <loc>https://zerohertz.github.io/boj-10815/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1530,14 +1538,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/</loc>
-        <lastmod>2023-11-03T09:49:35.213Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/the-lateral-dynamics-of-a-moving-web/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

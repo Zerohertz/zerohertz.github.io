@@ -2404,6 +2404,9 @@ mjx-container[jax='CHTML'][display='true'],
 mjx-container[display='true'] + br {
   display: none;
 }
+mjx-container {
+  font-size: 18px !important;
+}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
