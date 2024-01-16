@@ -3597,9 +3597,9 @@
       <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/mechanical-engineering/">Mechanical Engineering</category>
-      
       <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/mechanical-engineering/">Mechanical Engineering</category>
       
       
       <comments>https://zerohertz.github.io/analysis-of-many-bodies-in-one-part-with-ansys-act/#disqus_thread</comments>
@@ -3630,14 +3630,18 @@
     </item>
     
     <item>
-      <title>A Review of Existing Study on the Geometric Quality Prognosis in Roll-to-Roll Slot-die Coating Process</title>
-      <link>https://zerohertz.github.io/a-review-of-existing-studies-on-the-geometric-quality-prognosis-in-roll-to-roll-slot-die-coating-process/</link>
-      <guid>https://zerohertz.github.io/a-review-of-existing-studies-on-the-geometric-quality-prognosis-in-roll-to-roll-slot-die-coating-process/</guid>
+      <title>Paper Review: Geometric Quality Prognosis in Roll-to-Roll Slot-die Coating Process</title>
+      <link>https://zerohertz.github.io/paper-review-geometric-quality-in-r2r/</link>
+      <guid>https://zerohertz.github.io/paper-review-geometric-quality-in-r2r/</guid>
       <pubDate>Wed, 16 Feb 2022 05:22:48 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;롤투롤 슬롯 다이 코팅 공정의 코팅층 두께 예측을 위한 리뷰&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>&lt;h1 id=&quot;Lee-et-al-2019&quot;&gt;&lt;a href=&quot;#Lee-et-al-2019&quot; class=&quot;headerlink&quot; title=&quot;Lee et al., 2019&quot;&gt;&lt;/a&gt;Lee et al., 2019&lt;/h1&gt;&lt;p&gt;본 논문에서는 $th_{m,w}$와 $th_{e,w}$의 비교를 통해 롤투롤 슬롯 다이 코팅에서의 소재와 잉크 사이의 계면에서 잉크의 역학을 분석하고 잉크 점도, 유속 및 코팅 갭에 따른 안정적 공정 조건을 정의했다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$th_{m,w}$: The minimum permissible coated layer thickness&lt;/li&gt;
+&lt;li&gt;$th_{i,w}$ The ideal wet thickness of the coated layer&lt;/li&gt;
+&lt;li&gt;$th_{e,w}$ The estimated wet thickness in the steady state&lt;/li&gt;
+&lt;li&gt;$th_{e,d}$ The estimated thickness of the coated layer after drying&lt;/li&gt;
+&lt;/ul&gt;</description>
       
       
       
@@ -3645,12 +3649,12 @@
       <category domain="https://zerohertz.github.io/categories/etc/">Etc.</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/paper-review/">Paper Review</category>
-      
       <category domain="https://zerohertz.github.io/tags/mechanical-engineering/">Mechanical Engineering</category>
       
+      <category domain="https://zerohertz.github.io/tags/paper-review/">Paper Review</category>
       
-      <comments>https://zerohertz.github.io/a-review-of-existing-studies-on-the-geometric-quality-prognosis-in-roll-to-roll-slot-die-coating-process/#disqus_thread</comments>
+      
+      <comments>https://zerohertz.github.io/paper-review-geometric-quality-in-r2r/#disqus_thread</comments>
       
     </item>
     

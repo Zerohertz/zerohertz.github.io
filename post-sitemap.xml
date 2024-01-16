@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/paper-review-geometric-quality-in-r2r/</loc>
+        <lastmod>2024-01-16T12:03:07.149Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/the-lateral-dynamics-of-a-moving-web/</loc>
         <lastmod>2023-12-28T01:01:23.412Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -393,14 +401,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/a-review-of-existing-studies-on-the-geometric-quality-prognosis-in-roll-to-roll-slot-die-coating-process/</loc>
-        <lastmod>2023-11-03T09:49:35.237Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/app-designer/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -417,7 +417,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-14503/</loc>
+        <loc>https://zerohertz.github.io/boj-14889/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -425,7 +425,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-14889/</loc>
+        <loc>https://zerohertz.github.io/boj-14503/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -497,7 +497,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mlops-for-mle-api-serving/</loc>
+        <loc>https://zerohertz.github.io/mlops-for-mle-database/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -505,7 +505,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/mlops-for-mle-database/</loc>
+        <loc>https://zerohertz.github.io/mlops-for-mle-api-serving/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1329,7 +1329,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/neural-network-example/</loc>
+        <loc>https://zerohertz.github.io/multiprocessing/</loc>
         <lastmod>2023-11-03T09:49:35.217Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1337,7 +1337,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/multiprocessing/</loc>
+        <loc>https://zerohertz.github.io/neural-network-example/</loc>
         <lastmod>2023-11-03T09:49:35.217Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1401,7 +1401,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-11000/</loc>
+        <loc>https://zerohertz.github.io/boj-10815/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1409,7 +1409,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-10815/</loc>
+        <loc>https://zerohertz.github.io/boj-11000/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
