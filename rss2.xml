@@ -9,8 +9,31 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Tue, 26 Dec 2023 13:19:42 GMT</pubDate>
+    <pubDate>Fri, 19 Jan 2024 09:15:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)</title>
+      <link>https://zerohertz.github.io/upstage-udemy/</link>
+      <guid>https://zerohertz.github.io/upstage-udemy/</guid>
+      <pubDate>Thu, 18 Jan 2024 23:45:19 GMT</pubDate>
+      
+      <description>&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297024102-028740af-f0a1-401b-8629-52069c9831da.png&quot; width=600&gt;
+
+&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Upstage에서 진행하는 “&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9iaXQubHkvdXAtYW1iLWp1bXAtaW50by10aGUtYWktd29ybGQ=&quot;&gt;Jump into the AI World - AI Production Lifecycle&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;“ 강의의 홍보대사로 선발되어 해당 강의를 수강할 수 있는 감사한 기회를 얻게되었습니다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/3-mlops/">3. MLOps</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/lecture-review/">Lecture Review</category>
+      
+      
+      <comments>https://zerohertz.github.io/upstage-udemy/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker Builds in Jenkins using Kaniko for CI/CD Pipelines</title>

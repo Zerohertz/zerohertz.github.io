@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="IntroductionUpstage에서 진행하는 “Jump into the AI World - AI Production Lifecycle“ 강의의 홍보대사로 선발되어 해당 강의를 수강할 수 있는 감사한 기회를 얻게되었습니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)">
+<meta property="og:url" content="https://zerohertz.github.io/upstage-udemy/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="IntroductionUpstage에서 진행하는 “Jump into the AI World - AI Production Lifecycle“ 강의의 홍보대사로 선발되어 해당 강의를 수강할 수 있는 감사한 기회를 얻게되었습니다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297024102-028740af-f0a1-401b-8629-52069c9831da.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297023908-e2176ebc-6122-4015-85c3-763b4bd08a9b.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953208-ebd773c6-e399-4ba0-94c1-66d1a392506e.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953215-1f603186-6584-4dbc-97f2-f5db711993c6.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953238-441b58dc-90ef-4def-9dd6-f78188cf1575.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953241-28679034-7ff5-480e-9b91-f8e45b9a5703.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297964938-f48fd3a8-19dd-4625-ae3a-b76390f623ea.png">
+<meta property="article:published_time" content="2024-01-18T23:45:19.000Z">
+<meta property="article:modified_time" content="2024-01-19T09:15:57.789Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Lecture Review">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297024102-028740af-f0a1-401b-8629-52069c9831da.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/upstage-udemy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/upstage-udemy/","path":"upstage-udemy/","title":"Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-resume"><a href="/resume/" rel="section"><i class="fa fa-file-pen fa-fw"></i>Resume</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Review"><span class="nav-number">2.</span> <span class="nav-text">Review</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Orientations"><span class="nav-number">2.1.</span> <span class="nav-text">Orientations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI-%EA%B8%B0%EC%88%A0%EC%9D%98-%ED%9D%90%EB%A6%84%EA%B3%BC-%EC%9B%90%EB%A6%AC"><span class="nav-number">2.2.</span> <span class="nav-text">AI 기술의 흐름과 원리</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%9C%ED%92%88-%EA%B0%9C%EB%B0%9C-A-to-Z"><span class="nav-number">2.3.</span> <span class="nav-text">제품 개발 A to Z</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EB%B0%9C-%EC%83%9D%ED%83%9C%EA%B3%84"><span class="nav-number">2.4.</span> <span class="nav-text">AI 서비스 개발 생태계</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wrap-Up"><span class="nav-number">2.5.</span> <span class="nav-text">Wrap Up</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">3.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">206</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawler-for-nlp-1/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-31</time>
+        <br>
+      Web Crawler for NLP (1)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/introduction-of-c/" rel="bookmark">
+        <time class="popular-posts-time">2020-07-01</time>
+        <br>
+      Introduction of C++
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawling-by-selenium-2/" rel="bookmark">
+        <time class="popular-posts-time">2018-08-30</time>
+        <br>
+      Web Crawling by Selenium (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/web-crawler-for-nlp-2/" rel="bookmark">
+        <time class="popular-posts-time">2018-09-20</time>
+        <br>
+      Web Crawler for NLP (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-ct/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-27</time>
+        <br>
+      Apache Airflow: Continuous Training
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/upstage-udemy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-19 08:45:19" itemprop="dateCreated datePublished" datetime="2024-01-19T08:45:19+09:00">2024-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-mlops/" itemprop="url" rel="index"><span itemprop="name">3. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297024102-028740af-f0a1-401b-8629-52069c9831da.png" width="600">
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Upstage에서 진행하는 “<span class="exturl" data-url="aHR0cHM6Ly9iaXQubHkvdXAtYW1iLWp1bXAtaW50by10aGUtYWktd29ybGQ=">Jump into the AI World - AI Production Lifecycle<i class="fa fa-external-link-alt"></i></span>“ 강의의 홍보대사로 선발되어 해당 강의를 수강할 수 있는 감사한 기회를 얻게되었습니다.</p>
+<span id="more"></span>
+
+<p>강의를 살펴보기 전에 Upstage에 대해 간단히 알아봅시다!</p>
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297023908-e2176ebc-6122-4015-85c3-763b4bd08a9b.png" width="300">
+
+<p>Upstage는 2020년에 전 Naver CLOVA AI head이자 홍콩과학기술대학교 교수이신 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2h1bmtpbQ==">Sung Kim<i class="fa fa-external-link-alt"></i></span>님을 필두로 이활석 CTO 님과 박은정 CSO 님이 함께 뜻을 함께하여 창립되었습니다.<br>주요한 product 및 buisness model은 <span class="exturl" data-url="aHR0cHM6Ly93d3cudXBzdGFnZS5haS9mZWVkL3Byb2R1Y3QvZG9jdW1lbnQtYWktb2NyLWZvci1sbG0=">Document AI<i class="fa fa-external-link-alt"></i></span> (<span class="exturl" data-url="aHR0cHM6Ly95b3V0dS5iZS9vMUE5cVZUY192cz9mZWF0dXJlPXNoYXJlZA==">전 AI pack (AI OCR, RecSys)<i class="fa fa-external-link-alt"></i></span>), 자체 개발 LLM model <span class="exturl" data-url="aHR0cHM6Ly9odWdnaW5nZmFjZS5jby91cHN0YWdlL1NPTEFSLTEwLjdCLUluc3RydWN0LXYxLjA=">Solar (10.7B)<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly93d3cuY29udGVudC51cHN0YWdlLmFpL2VkdXN0YWdl">Edu stage<i class="fa fa-external-link-alt"></i></span> (AI 교육) 등이 존재합니다.<br>ChatGPT의 등장 이후 시작된 LLM 시대에서 <span class="exturl" data-url="aHR0cHM6Ly93d3cudXBzdGFnZS5haS9mZWVkL2NvbXBhbnkvaHVnZ2luZ2ZhY2UtbGxtLW5vMS1pbnRlcnZpZXc=">Llama 2 (70B)를 fine tuning<i class="fa fa-external-link-alt"></i></span>하고 <span class="exturl" data-url="aHR0cHM6Ly93d3cudXBzdGFnZS5haS9mZWVkL2luc2lnaHQvdG9wLW9wZW4tc291cmNlLWxsbXMtMjAyNA==">자체 개발 LLM model Solar<i class="fa fa-external-link-alt"></i></span>를 개발하여 hugging face에서 1위를 달성해 기술력을 드러내고 있습니다.</p>
+<p>Upstage에서 CTO (최고 기술 경영자)인 이활석님이 Udemy에서 진행한 강의의 제목은 “Jump into the AI World - AI Production Lifecycle”이고 포함되는 내용들은 아래와 같습니다.</p>
+<ul>
+<li>‘AI 기술을 제대로 활용할 수 있는가’에 대한 제대로 된 고민을 통해 AI 기술과 생태계, 비즈니스에 대한 지식을 학습할 수 있습니다.</li>
+<li>AI 제품 기획을 위한 A to Z 과정의 이해도를 높여, AI 비즈니스 Use case 발굴 및 제안할 수 있는 역량을 강화할 수 있습니다.</li>
+<li>AI 기술이 서비스와 비즈니스에 활용되는 사례를 이해하고, AI&#x2F;ML기반의 서비스 기획 역량을 향상시킬 수 있습니다.</li>
+<li>AI 서비스 개발부터 배포 후 관리까지 과정별 필요한 역할을 이해함으로써 실무에 바로 적용할 수 있는 핵심 기술을 익힐 수 있습니다.</li>
+<li>AI 비즈니스에 적합한 서비스 기획과 시뮬레이션 경험을 통해 실무 감각을 배양할 수 있습니다.</li>
+</ul>
+<p>해당 강의의 대상은 아래와 같습니다.</p>
+<ul>
+<li>AI 분야에서 커리어를 시작하고 싶거나 AI 생태계가 어떻게 돌아가는지 궁금하신 분</li>
+<li>AI 기술을 활용한 제품과 서비스 아이디어를 내기 위해 필요한 기초 지식을 얻고 싶으신 분</li>
+<li>제품과 서비스에 AI 기술을 도입하고 싶은 실무 담당자 (기획자, 마케터, 사업개발 담당자, 엔지니어 등)</li>
+<li>‘AI 원리가 무엇인지’, ‘AI 기술을 우리 회사 혹은 서비스에 어떻게 적용할 수 있을지’, ‘AI 개발자들과 소통을 잘하기 위해 그들은 어떻게 일하고 고민하는지’를 알고 싶으신 분</li>
+</ul>
+<hr>
+<h1 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h1><h2 id="Orientations"><a href="#Orientations" class="headerlink" title="Orientations"></a>Orientations</h2><p>강의는 아래와 같은 특징들을 설명하며 시작합니다.</p>
+<blockquote>
+<p>“우리 강의는 인공지능 기술 및 비즈니스 세계에 첫 걸음을 내딛고 싶으신 모든 분들을 위한 강의입니다.”</p>
+</blockquote>
+<ul>
+<li>강의 목표<ul>
+<li>“AI 기술을 제대로 활용할 수 있는가”에 대한 고민에서 그치지 않고 AI 기술 및 생태계, 비즈니스에 대한 지식 학습</li>
+<li>AI 제품 및 서비스 기획을 위한 전체 과정의 이해도 향상을 통한 AI buisness use case 발굴 및 제안 역량 강화</li>
+</ul>
+</li>
+<li>추가 정보<ul>
+<li>강의 시간: 8시간</li>
+<li>수강생 사전 지식: 선수과정이 요구되지 않음</li>
+</ul>
+</li>
+</ul>
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953208-ebd773c6-e399-4ba0-94c1-66d1a392506e.png" width="300">
+
+<p>강의의 목표는 위의 quiz와 같이 “어떤 layer를 사용해서 SOTA를 달성하는지”와 같은 researcher 관점이 아닌 “AI product를 기획 및 개발”을 이해하는 것입니다.</p>
+<h2 id="AI-기술의-흐름과-원리"><a href="#AI-기술의-흐름과-원리" class="headerlink" title="AI 기술의 흐름과 원리"></a>AI 기술의 흐름과 원리</h2><p><code>Session 1</code>은 AI의 기본 원리와 AI product의 life cycle을 이해하는 것을 목표로 합니다.</p>
+<p>번역기, 이미지 생성 및 ChatGPT와 같은 대중들에게 잘 알려진 AI product부터 AI 관련 개발자가 아니라면 알기 어려운 use cases까지 다양한 예제를 설명하며 적재적소의 AI product가 어떤 효과를 불러올 수 있는지 알려줍니다.<br>AI product가 어떻게 구성되고 개발되는지 알아보기 전 software program의 이해를 높히기 위해 아래와 같이 간단한 program부터 실생활에서 사용하는 예제들을 설명하는데 단순한 software program이 어떻게 AI product로 확장되는지 간략한 기술적 부분을 함께 설명합니다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953215-1f603186-6584-4dbc-97f2-f5db711993c6.png" alt="upstage-udemy-2"></p>
+<p>그리고 이러한 software program의 SW 1.0, SW 2.0, SW 3.0 방식에 대해 아래와 같이 정의가 무엇인지, 어떤 단계로 진행하는지 비교 분석합니다.<br>이러한 방법론의 차이를 빵 제조에 비유하여 어떤 차이점이 중요한지 상세하면서 이해하기 쉽게 강조합니다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953238-441b58dc-90ef-4def-9dd6-f78188cf1575.png" alt="upstage-udemy-3"></p>
+<p>SW 1.0, 2.0, 3.0 방법의 차이를 알았으니 AI 기본 원리를 알아보기 위해 SW 2.0 방법인 deep learning의 학습 방법을 설명하는데 수학적인 부분이 많지 않지만 아주 핵심적인 방법론을 명쾌하게 정의합니다.<br>예를 들어, pretraining과 fine tuning의 차이점과 필요성을 구체적인 예시와 함께 설명합니다.<br>또한 SW 3.0 방법의 초거대 model과 zero-shot, few-shot에 대해 이것이 왜 가능한지 기술적인 부분과 함께 SW 2.0 방법의 deep learning과 어떤 차이가 존재하는지 알려줍니다.</p>
+<p>마지막으로 구체적인 sample case를 통해 AI prodcut를 개발하는데 있어 어떤 단계로 진행해야하는지 전체적인 운영 관점에서 설명합니다.</p>
+<h2 id="제품-개발-A-to-Z"><a href="#제품-개발-A-to-Z" class="headerlink" title="제품 개발 A to Z"></a>제품 개발 A to Z</h2><p><code>Session 2</code>는 AI 제품 개발에 대한 기본적 개념과 process를 이해하는 것을 목표로 합니다.</p>
+<p>첫 번째로 제품 기획을 언제 어떻게 진행해야하는지 알려줍니다.<br>이 부분에서 AI가 만능은 아니기 때문에 왜 AI를 적용하고자 하는지에 대한 검증의 필요성을 언급하며 개발팀과의 의사소통을 강조합니다.<br>Product에 AI를 적용하기 전 해당 product의 아래와 같은 특성과 상황에 따라 적용 여부를 결정할 수 있습니다.</p>
+<ul>
+<li>Heuristics, SW 1.0 (AI가 적합하지 않은 상황)<ul>
+<li>출력에 대한 설명과 error의 예측 요구</li>
+<li>제한된 정보 제공</li>
+<li>기술의 중요성 &lt; 시장 출시 시기의 중요성</li>
+<li>새로운 기술을 원하지 않는 경우</li>
+</ul>
+</li>
+<li>AI, SW 2.0 (AI가 적합한 상황)<ul>
+<li>자동화를 통한 효율 개선</li>
+<li>미래 사건 예측</li>
+<li>맞춤형 추천 및 개인화</li>
+<li>비정형 data 분석 및 처리</li>
+</ul>
+</li>
+</ul>
+<p>위의 조건들 중 AI가 적합한 상황들이 직접적으로 이해하기 어려울 수 있기에 현재 산업에서 어떤 적용들이 왜 적합했는지 그리고 어떤 효과가 있었는지 설명합니다.<br>상세하고 구체적인 다양한 예제를 통해 실전에서 수강자들이 실제 product 기획 시 어떤 조건들을 살펴보고 판단해야하는지 알려줍니다.</p>
+<p>만약 AI를 product에 적용하기로 했다면 개발자에게 요구사항을 전달해야하는데 어떤 방법으로 기획을 진행하는지 그리고 체계적 기획이 왜 필요한지 알려줍니다.<br>AI product 기획 및 개발을 위한 서비스 기획 &#x2F; 사업 담당, AI 기술팀 manager, 개발자로 나누어진 다양한 communication 상황의 예제를 제시하며 효율적인 communication이 이뤄지지 않는 이유와 해결책을 상세히 설명합니다.<br>AI product 기획 시 효율적인 communication을 위해 고려해야할 사항들을 명확히 분류하고 각 직무에 따라 어떤 관점을 가지고 있는지 설명합니다.<br>특히 해결책을 설명할 때 이활석 CTO 님의 다양한 경험을 통한 insight를 볼 수 있습니다.<br>예를 들어, AI model의 개발을 위한 data를 준비할 때 data 수집과 labeling guide를 준비해야하고 어떤 관점에서 어떻게 준비해야하는지 근거와 함께 설명합니다.<br>그리고 각 고려야할 사항에 대해 아주 세부적으로 어떤 점들을 고민해야하고 어떠한 선택들이 존재하는지 정리합니다.</p>
+<p>세부적으로 data의 품질을 강조하며 아래와 같이 해당 업무가 왜 어려운지 그리고 왜 중요한지 구체적인 예제와 함께 설명합니다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297953241-28679034-7ff5-480e-9b91-f8e45b9a5703.png" alt="upstage-udemy-4"></p>
+<p>이러한 점들을 고려하여 어떻게 data를 준비하는지 각 단계인 data design, 원천 data 조사 및 수집, data scheme 정의 및 설계, data 준비, model training 및 data refine, 배포에 대해 상세히 설명합니다.<br>또한 AI product 관점에서 data의 윤리에 대해 알려줍니다.</p>
+<p>Data를 모두 준비했다면 model 개발을 진행하는데, 그 전 미리 정의해야하는 부분들인 test 방법, 정량평가 metric가 존재합니다.<br>해당 부분들에 대해 실무적으로 어떤 점들을 유의해야하고 어떤 차이가 있는지 설명합니다.</p>
+<p>Model 개발을 완료하면 product에 배포하는데, serving system을 어떻게 구성하고 고려해야하는 것들은 어떤게 있는지 아래와 같은 항목들을 정리합니다.</p>
+<ul>
+<li>Cloud AI vs. Edge AI</li>
+<li>Offline learning vs. Online learning</li>
+<li>Batch inference vs. Online inference</li>
+</ul>
+<p>모든 개발이 완료되어 product를 배포했을 때 아래와 같은 이유로 품질이 저조할 수 있음을 알려줍니다.</p>
+<ul>
+<li>Model accuracy: 시간에 따라 model 성능 감소</li>
+<li>Data drift: Model이 학습 시점과 적용 시점의 data의 특성 상이</li>
+<li>Concept drift: 예측하고자 하는 대상의 속성, 관계 또는 pattern이 시간에 따라 변화</li>
+<li>model drift: 학습 data에 없는 새로운 입력</li>
+</ul>
+<p>각 원인에 대해 상세한 예제와 함께 설명 후 지속적인 monitoring의 중요성과 각 원인에 따른 monitoring 방법을 설명합니다.</p>
+<p>지속가능한 AI product를 만들기 위해 지속적으로 올바른 mental model을 형성할 수 있도록 개발해야합니다. (Mental model: 특정 기술 혹은 service가 어떻게 작동할 것이라고 믿는 사고 과정)<br>올바른 mental model 형성을 위해 준비할 수 있는 부분인 적절한 설명, 오류 대응, feedback 수집 등 다양한 방법을 설명합니다.</p>
+<h2 id="AI-서비스-개발-생태계"><a href="#AI-서비스-개발-생태계" class="headerlink" title="AI 서비스 개발 생태계"></a>AI 서비스 개발 생태계</h2><p><code>Session 3</code>는 AI 생태계와 AI product가 나오기까지의 직무 간 역할을 이해하는 것을 목표로 합니다.</p>
+<p>급변하는 AI 기술 및 시장의 생태계와 AI product를 개발하기 위한 product owner, data managing operation manager, AI research scientist, machine learning engineer, legal, QA, infra, security, MLOps software engineer, DevOps software engineer, data engineer, software engineer 등 다양한 직무를 설명합니다.<br>아래와 같이 한 사람이 덜 깊지만 다양한 직무의 일을 하는 경우, 한 사람이 한 직무의 일을 매우 깊게 하는 경우 등 engineering team의 세부적인 직무를 회사 규모에 따른 예시를 통해 상세하게 알려줍니다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297964938-f48fd3a8-19dd-4625-ae3a-b76390f623ea.png" alt="upstage-udemy-5"></p>
+<h2 id="Wrap-Up"><a href="#Wrap-Up" class="headerlink" title="Wrap Up"></a>Wrap Up</h2><p>최종적으로 모든 강의의 매우 중요한 부분을 요약하며 마무리됩니다.<br>AI product를 기획, 개발, 유지보수하기 위해 AI product lifecycle (AI 제품 생애주기)를 거치는 과정에서 고려해야할 수많은 부분이 존재하고, 이 부분들을 이활석 CTO 님의 insight로 일목요연하게 이해할 수 있습니다.</p>
+<hr>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Machine learning research engineer로 1년을 겨우 채워가는 신입으로써 일하며 보고 배웠던 점들도 많았지만, CTO 혹은 제품을 기획하고 운영하는 입장에서 바라보는 AI를 배우며 시야가 넓어짐을 느꼈습니다.<br>회사 내에서 협업을 하거나 스스로 어떤 부분을 개선할 때 더욱 넓은 부분에서 다양한 것들을 고려하고 확인할 수 있는 지식이 쌓인 것이 만족스럽습니다.<br>또한 최근 개발자로의 덕목 중 communication 능력이 중요하다고 생각되는데, 강의를 통해 AI product를 개발하는 다양한 인력의 R&amp;R을 이해하고 어떻게 소통하는 것이 좋은지 알 수 있었습니다.</p>
+<p>개발자라면 AI product의 필수적인 주기를 이해하여 능동적인 생각을 할 수 있는 기폭제가 될 것이고, 비개발자라면 AI의 전반적인 이해를 높히고 engineering team과의 효율적인 소통이 가능할 것이라 생각합니다.<br>Upstage에서 진행하는 “<span class="exturl" data-url="aHR0cHM6Ly9iaXQubHkvdXAtYW1iLWp1bXAtaW50by10aGUtYWktd29ybGQ=">Jump into the AI World - AI Production Lifecycle<i class="fa fa-external-link-alt"></i></span>“를 꼭 수강해보는 것을 추천드립니다.</p>
+<blockquote>
+<p><code>#Jump_into_the_AI_World</code>, <code>#AI_Production_Lifecycle</code>, <code>#Upstage</code>, <code>#업스테이지</code>, <code>#AI교육</code>, <code>#PM</code>, <code>#서비스기획</code>, <code>#인공지능입문</code></p>
+</blockquote>
+<blockquote>
+<p>본 글은 <span class="exturl" data-url="aHR0cHM6Ly93d3cudXBzdGFnZS5haS8=">Upstage<i class="fa fa-external-link-alt"></i></span>에서 진행한 “Jump into the AI World 강의 홍보대사 (Ambassador)” 활동을 통해 작성된 글입니다.</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/lecture-review/" rel="tag"><i class="fa fa-tag"></i> Lecture Review</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/jenkins-kaniko/" rel="prev" title="Docker Builds in Jenkins using Kaniko for CI/CD Pipelines">
+                  <i class="fa fa-chevron-left"></i> Docker Builds in Jenkins using Kaniko for CI/CD Pipelines
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"bb6f1c8c8a5729b650d886610aaecfb1"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
