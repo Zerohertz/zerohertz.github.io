@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/queue-and-stack/</loc>
+        <lastmod>2024-02-15T00:42:15.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/upstage-udemy/</loc>
         <lastmod>2024-01-29T23:46:40.289Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -538,14 +546,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/programmers-60059/</loc>
-        <lastmod>2023-11-03T09:49:35.237Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/queue-and-stack/</loc>
         <lastmod>2023-11-03T09:49:35.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1089,7 +1089,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-2644/</loc>
+        <loc>https://zerohertz.github.io/boj-2583/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1097,7 +1097,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-2583/</loc>
+        <loc>https://zerohertz.github.io/boj-2644/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1185,7 +1185,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-2/</loc>
+        <loc>https://zerohertz.github.io/normality-test/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1193,7 +1193,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/normality-test/</loc>
+        <loc>https://zerohertz.github.io/numerical-analysis-2/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
