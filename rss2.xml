@@ -9,8 +9,32 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 29 Jan 2024 23:46:40 GMT</pubDate>
+    <pubDate>Sat, 17 Feb 2024 09:45:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Paper Review: SOLAR</title>
+      <link>https://zerohertz.github.io/paper-review-solar/</link>
+      <guid>https://zerohertz.github.io/paper-review-solar/</guid>
+      <pubDate>Fri, 16 Feb 2024 23:27:57 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTIuMTUxNjY=&quot;&gt;SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;NLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.&lt;br&gt;이러한 발전은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIwMDEuMDgzNjE=&quot;&gt;performance scaling law&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에 의해 더욱 큰 model 학습의 필요를 증대시켰다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE3MDEuMDY1Mzg=&quot;&gt;Mixture of experts (MoE)&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;와 같은 방법을 통해 효율적이고 효과적이게 LLM을 scale-up을 할 수 있지만 종종 특별한 변화가 필요하여 광범위한 적용이 어려운 한계점이 존재한다.&lt;br&gt;따라서 효과적이고 효율적이게 LLM을 scaling up하며 사용 편의성을 위한 단순성을 유지하는 것은 매우 중요하다.&lt;br&gt;본 논문의 저자들은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIyMTIuMDUwNTU=&quot;&gt;sparse upcycling&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에 영감을 받아 효과적이고 효율적이며 단순한 LLM up-scale 방법인 depth up-scaling (DUS)를 제안한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/1-machine-learning/">1. Machine Learning</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/paper-review/">Paper Review</category>
+      
+      
+      <comments>https://zerohertz.github.io/paper-review-solar/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)</title>

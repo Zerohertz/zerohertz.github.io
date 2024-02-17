@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Do+Hyeon:300,300italic,400,400italic,700,700italic%7CNanum+Gothic+Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling  IntroductionNLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.이러한 발전은 performance scaling law에 의해 더욱 큰 model">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paper Review: SOLAR">
+<meta property="og:url" content="https://zerohertz.github.io/paper-review-solar/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling  IntroductionNLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.이러한 발전은 performance scaling law에 의해 더욱 큰 model">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/Zerohertz/Zerohertz/assets/42334717/8edd5073-8fdb-4a93-982d-735176073d2b">
+<meta property="article:published_time" content="2024-02-16T23:27:57.000Z">
+<meta property="article:modified_time" content="2024-02-17T09:45:37.128Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Paper Review">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/Zerohertz/Zerohertz/assets/42334717/8edd5073-8fdb-4a93-982d-735176073d2b">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/paper-review-solar/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/paper-review-solar/","path":"paper-review-solar/","title":"Paper Review: SOLAR"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Paper Review: SOLAR | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Depth-Up-Scaling"><span class="nav-number">2.</span> <span class="nav-text">Depth Up-Scaling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Base-Model"><span class="nav-number">2.1.</span> <span class="nav-text">Base Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Depthwise-Scaling"><span class="nav-number">2.2.</span> <span class="nav-text">Depthwise Scaling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Continued-Pretraining"><span class="nav-number">2.3.</span> <span class="nav-text">Continued Pretraining</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparison-to-Other-Up-scaling-Methods"><span class="nav-number">2.4.</span> <span class="nav-text">Comparison to Other Up-scaling Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Training-Details"><span class="nav-number">3.</span> <span class="nav-text">Training Details</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Instruction-Tuning"><span class="nav-number">3.1.</span> <span class="nav-text">Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alignment-Tuning"><span class="nav-number">3.2.</span> <span class="nav-text">Alignment Tuning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Results"><span class="nav-number">4.</span> <span class="nav-text">Results</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Experimental-Details"><span class="nav-number">4.1.</span> <span class="nav-text">Experimental Details</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-Datasets"><span class="nav-number">4.1.1.</span> <span class="nav-text">Training Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluation"><span class="nav-number">4.1.2.</span> <span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-Merging"><span class="nav-number">4.1.3.</span> <span class="nav-text">Model Merging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-Results"><span class="nav-number">4.2.</span> <span class="nav-text">Main Results</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ablation-Studies"><span class="nav-number">4.3.</span> <span class="nav-text">Ablation Studies</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Instruction-Tuning-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">Instruction Tuning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Alignment-Tuning-1"><span class="nav-number">4.3.2.</span> <span class="nav-text">Alignment Tuning</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">5.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">207</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-change-pytorch-model-structure-and-train-only-some-layers/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-09</time>
+        <br>
+      How to Change PyTorch Model Structure and Train Only Some Layers
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/hands-on-machine-learning-5/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-15</time>
+        <br>
+      Hands-on Machine Learning (5)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/upstage-udemy/" rel="bookmark">
+        <time class="popular-posts-time">2024-01-19</time>
+        <br>
+      Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/hands-on-machine-learning-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-11</time>
+        <br>
+      Hands-on Machine Learning (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/implementing-mask-r-cnn-with-pytorch/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-05</time>
+        <br>
+      Implementing Mask R-CNN with PyTorch
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/paper-review-solar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Paper Review: SOLAR | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Paper Review: SOLAR
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-17 08:27:57" itemprop="dateCreated datePublished" datetime="2024-02-17T08:27:57+09:00">2024-02-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTIuMTUxNjY=">SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>NLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.<br>이러한 발전은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIwMDEuMDgzNjE=">performance scaling law<i class="fa fa-external-link-alt"></i></span>에 의해 더욱 큰 model 학습의 필요를 증대시켰다.<br><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE3MDEuMDY1Mzg=">Mixture of experts (MoE)<i class="fa fa-external-link-alt"></i></span>와 같은 방법을 통해 효율적이고 효과적이게 LLM을 scale-up을 할 수 있지만 종종 특별한 변화가 필요하여 광범위한 적용이 어려운 한계점이 존재한다.<br>따라서 효과적이고 효율적이게 LLM을 scaling up하며 사용 편의성을 위한 단순성을 유지하는 것은 매우 중요하다.<br>본 논문의 저자들은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIyMTIuMDUwNTU=">sparse upcycling<i class="fa fa-external-link-alt"></i></span>에 영감을 받아 효과적이고 효율적이며 단순한 LLM up-scale 방법인 depth up-scaling (DUS)를 제안한다.</p>
+<span id="more"></span>
+
+<p>DUS는 깊이 차원에 따라 base model을 scaling하고 지속적으로 scaled model을 pretraining하는 것으로 구성된다.<br>하지만 MoE를 통해 scaling하는 sparse upcycling과 다르게 DUS는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDUuMTE5NDY=">EfficientNet<i class="fa fa-external-link-alt"></i></span>에서 사용한 방법과 유사한 depthwise scaling 방법을 LLM 구조에 적용했다.<br>DUS는 MoE와 같은 추가적인 module이 없으므로 학습 또는 추론 framework를 변경하지 않고도 사용하기 쉬운 Hugging Face와 같은 LLM framework에 즉시 호환된다.<br>모든 transformer 구조에 적용 가능한 DUS를 통해 저자들은 다양한 benchmark에서 기존 LLM model들 (<span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDcuMDkyODg=">Llama 2<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMDY4MjU=">Mistral 7B<i class="fa fa-external-link-alt"></i></span>)을 뛰어넘는 성능을 보여준 107억개의 parameter를 갖춘 SOLAR 10.7B를 출시했다.<br>복잡한 지침들을 엄격히 지켜야하는 task들을 수행하기 위해 저자들은 SOLAR 10.7B-Instruct를 개발했으며 Mixtral-8x7B-Instruct model을 크게 능가하고 더 큰 모델에 비해 더 효과적인 것을 benchmark performance를 통해 확인했다.</p>
+<hr>
+<h1 id="Depth-Up-Scaling"><a href="#Depth-Up-Scaling" class="headerlink" title="Depth Up-Scaling"></a>Depth Up-Scaling</h1><p>효율적인 LLM의 scale-up을 위해 base model의 pretrain 가중치를 사용한다.<br>Sparse upcycling와 같이 기존의 LLM model 구조를 확장하는 방법은 MoE를 사용하지만 저자들은 EfficientNet에서 영감을 받은 방법으로 다른 depthwise scaling 전략을 사용하여 확장 후 성능이 저하되므로 지속적 pretraining을 수행한다.</p>
+<h2 id="Base-Model"><a href="#Base-Model" class="headerlink" title="Base Model"></a>Base Model</h2><p>DUS가 어떠한 $n$-layer transformer 구조에서도 사용할 수 있지만 저자들은 32-layer Llama 2 구조를 base model로 선정했다.<br>Llama 2 구조에 호환되는 최고의 성능 중 하나인 Mistral 7B의 pretrained 가중치를 사용했다.</p>
+<h2 id="Depthwise-Scaling"><a href="#Depthwise-Scaling" class="headerlink" title="Depthwise Scaling"></a>Depthwise Scaling</h2><ul>
+<li>$n$: Base model의 layer 수</li>
+<li>$m$: Base model에서 제거할 layer 수</li>
+<li>$s$: Scaled model의 layer 수 (Hardware의 사양에 따라 결정)</li>
+</ul>
+<p><img src="https://github.com/Zerohertz/Zerohertz/assets/42334717/8edd5073-8fdb-4a93-982d-735176073d2b" alt="DUS"></p>
+<ol>
+<li>$n$ layer들을 복제</li>
+<li>원본 model에서 최종의 $m$ layer들을 삭제</li>
+<li>복제 model에서 초기의 $m$ layer들을 삭제</li>
+<li>두 model을 연결하여 $s&#x3D;2\times(n-m)$ layer로 구성하여 확장 model 구성</li>
+</ol>
+<p>저자들은 hardware의 제약과 확장된 model의 효율성을 위해 $m&#x3D;8$ layer를 제거하여 $s&#x3D;48$로 설정하였다. ($\because$ Parameter 수: 7 ~ 13B)<br>또한 Hugging Face에서 동시에 비슷한 방법으로 개발된 <span class="exturl" data-url="aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9VbmRpOTUvTWlzdHJhbC0xMUItdjAuMQ==">Mistral 11B<i class="fa fa-external-link-alt"></i></span>를 함께 수록했다.</p>
+<h2 id="Continued-Pretraining"><a href="#Continued-Pretraining" class="headerlink" title="Continued Pretraining"></a>Continued Pretraining</h2><p>Depthwise scaled model은 처음에 base model의 성능보다 떨어지기 때문에 지속적 pretraining을 수행한다.<br>저자들은 실험을 통해 sparse upcycling에서 관측된 현상과 같이 scaled model의 지속적 pretraing 동안 급속한 성능 회복을 관측했다.<br>Depthwise scaling의 간단한 대안은 layer를 단순히 반복하여 $n$ layer에서 $2n$ layer로 확장하는 것인데 해당 방법은 이음새 layer ($n$ layer, $n+1$ layer)의 불일치가 발생하며 이를 지속적 pretraining으로 해결하기 어려울 수 있다.<br>반면 depthwise scaling은 $2m$의 중간 layer를 삭제하기 때문에 이음새 layer의 불일치를 감소시키며 지속적 pretraining으로 이를 해결할 수 있다.</p>
+<h2 id="Comparison-to-Other-Up-scaling-Methods"><a href="#Comparison-to-Other-Up-scaling-Methods" class="headerlink" title="Comparison to Other Up-scaling Methods"></a>Comparison to Other Up-scaling Methods</h2><p>Sparse upcycling과 다르게 DUS를 통해 확장된 model은 최적의 훈련 효율성을 위한 training framework, 빠른 추론을 위한 특수 CUDA kernel, gating network 또는 dynamic expert selection과 같은 module이 별도로 필요하지 않다.<br>따라서 DUS를 통해 확장된 model은 높은 효율성을 유지하며 기존 학습 및 추론 framework에 원활히 통합될 수 있다.</p>
+<hr>
+<h1 id="Training-Details"><a href="#Training-Details" class="headerlink" title="Training Details"></a>Training Details</h1><p>DUS를 마치고 저자들은 instruction tuning과 alignment tuning을 수행하여 SOLAR 10.7B를 fine-tuning했다.</p>
+<h2 id="Instruction-Tuning"><a href="#Instruction-Tuning" class="headerlink" title="Instruction Tuning"></a>Instruction Tuning</h2><p>Instruction tuning 단계에서는 QA format의 설명으로 model을 학습했다.<br>Open-source dataset를 주로 사용했으며 수학적 기능을 향상시키기 위해 math QA dataset를 합성했다.<br>저자들은 dataset을 구축하기 위해 아래 절차를 수행했다.</p>
+<ol>
+<li>Seed math data는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMTAuMTQxNjg=">GSM8K<i class="fa fa-external-link-alt"></i></span>와 같은 benchmark dataset과의 오염을 피하기 위해 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDMuMDM4NzQ=">Math dataset<i class="fa fa-external-link-alt"></i></span>에서만 수집</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDkuMTIyODQ=">MetaMath<i class="fa fa-external-link-alt"></i></span>와 유사한 process를 통해 seed math data의 질문과 답변을 rephrase</li>
+</ol>
+<p>저자들은 이렇게 구축한 질문과 답변 쌍을 QA dataset으로 사용했으며 이를 <code>Synth. Math-Instruct</code>라고 명명했다.</p>
+<h2 id="Alignment-Tuning"><a href="#Alignment-Tuning" class="headerlink" title="Alignment Tuning"></a>Alignment Tuning</h2><p>Alignment tuning 단계에서는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDUuMTgyOTA=">direct preference optimization (DPO)<i class="fa fa-external-link-alt"></i></span>를 사용하여 사람 또는 GPT4와 같은 강력한 AI의 선호도로 fine-tuning된다.<br>Instruction tuning 단계와 유사하게 저자들은 open-source dataset과 <code>Synth. Math-Instruct</code> dataset을 사용했다.<br>Alignment data를 합성하기 위한 절차는 아래와 같다.</p>
+<ol>
+<li>Rephrase된 질문을 prompt로, rephrase된 답변을 chosen response로 설정 ($\because$ <code>Synth. Math-Instruct</code> data의 수학적 기능 향상 효과)</li>
+<li>기존의 답변은 rejected respnse로 설정</li>
+<li><code>&#123;prompt, chosen, rejected&#125;</code> DPO tuple 생성</li>
+</ol>
+<p>저자들은 rephrase된 질문과 답변 쌍의 tuple들을 합쳐서 이를 <code>Synth. Math-Alignment</code>라고 명명했다.</p>
+<hr>
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><h2 id="Experimental-Details"><a href="#Experimental-Details" class="headerlink" title="Experimental Details"></a>Experimental Details</h2><h3 id="Training-Datasets"><a href="#Training-Datasets" class="headerlink" title="Training Datasets"></a>Training Datasets</h3><p>저자들이 instruction tuning 단계와 alignment tuning 단계에 사용한 학습 dataset들은 아래 표와 같다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Properties</th>
+<th align="center">Alphaca-GPT4<br>(Instruction)</th>
+<th align="center">OpenOrca<br>(Instruction)</th>
+<th align="center">Synth. Math-Instruct<br>(Instruction)</th>
+<th align="center">Orca DPO Pairs<br>(Alignment)</th>
+<th align="center">Ultrafeedback Cleaned<br>(Alignment)</th>
+<th align="center">Synth. Math-Alignment<br>(Alignment)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Total # Samples</td>
+<td align="center">52K</td>
+<td align="center">2.91M</td>
+<td align="center">126K</td>
+<td align="center">12.9K</td>
+<td align="center">60.8K</td>
+<td align="center">126K</td>
+</tr>
+<tr>
+<td align="center">Maximum # Samples Used</td>
+<td align="center">52K</td>
+<td align="center">100K</td>
+<td align="center">52K</td>
+<td align="center">12.9K</td>
+<td align="center">60.8K</td>
+<td align="center">20.1K</td>
+</tr>
+<tr>
+<td align="center">Open Source</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">X</td>
+</tr>
+</tbody></table>
+<p>특정 dataset은 전체 dataset을 사용하진 않았으며 정해진 양을 subsample하여 사용했다.<br>Open-source가 아닌 dataset은 MetaMathQA dataset와 같은 open-source dataset으로 대체할 수 있다.<br>Dataset 구축을 위한 기타 정보는 아래와 같다.</p>
+<ul>
+<li>Instruction dataset: Alpaca-styled chat template을 사용해 reformat</li>
+<li>OpenOrca와 같은 dataset: Benchmark dataset과 겹치는 data를 filtering ($\because$ Derived from <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDEuMTM2ODg=">FLAN<i class="fa fa-external-link-alt"></i></span>)</li>
+<li>Alignment dataset: <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMTY5NDQ=">Zephyr<i class="fa fa-external-link-alt"></i></span>를 따라 전처리 (<code>&#123;prompt, chosen, rejected&#125;</code> triplet format)</li>
+</ul>
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h3><p><span class="exturl" data-url="aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9zcGFjZXMvSHVnZ2luZ0ZhY2VINC9vcGVuX2xsbV9sZWFkZXJib2FyZA==">Hugging Face Open LLM Leaderboard<i class="fa fa-external-link-alt"></i></span>는 아래와 같이 여섯 종류의 평가 방법을 제공한다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Evaluation Method</th>
+<th align="center">Description</th>
+<th align="center">Assessment Content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/1803.05457">ARC<br>(AI2 Reasoning Challenge)</a></td>
+<td align="center">과학 문제 해결을 위한 질문과 답변</td>
+<td align="center">자연 과학의 다양한 분야에서 추론 능력 평가</td>
+</tr>
+<tr>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDUuMDc4MzA=">HellaSWAG<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center">상황에 맞는 문장 완성 문제</td>
+<td align="center">일상 생활, 교육 자료 등에서 추출한 시나리오를 바탕으로 상황 인식 및 언어 이해 능력 평가</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2009.03300">MMLUC<br>(Massive Multitask Language Understanding)</a></td>
+<td align="center">광범위한 주제에 대한 질문과 답변</td>
+<td align="center">문학, 역사, 과학, 수학 등 다양한 분야의 질문에 대한 이해</td>
+</tr>
+<tr>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDkuMDc5NTg=">TruthfulQA<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center">진실성을 평가하는 질문과 답변</td>
+<td align="center">진실성, 정확성, 신뢰성 있는 정보 제공 능력 평가</td>
+</tr>
+<tr>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDcuMTA2NDE=">Winogrande<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center">상황 기반 선택형 질문</td>
+<td align="center">상황에 따른 적절한 대명사 선택을 통해 언어 이해력 평가</td>
+</tr>
+<tr>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMTAuMTQxNjg=">GSM8K<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center">초등학교 수준의 수학 문제</td>
+<td align="center">다양한 수학 문제 해결을 통한 계산 능력 및 수학적 추론 평가</td>
+</tr>
+</tbody></table>
+<p>저자들은 6가지 task로 model을 평가했다.</p>
+<h3 id="Model-Merging"><a href="#Model-Merging" class="headerlink" title="Model Merging"></a>Model Merging</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDYuMDE3MDg=">TIES-Merging<i class="fa fa-external-link-alt"></i></span>과 같은 model merging 방법으로 추가 학습 없이 model의 성능을 향상시킬 수 있다.<br>저자들은 instruction tuning 단계와 alignment tuning 단계에서 학습한 model의 일부분을 merge했다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FyY2VlLWFpL21lcmdla2l0">MergeKit<i class="fa fa-external-link-alt"></i></span>와 같이 유명한 open source도 존재하지만 저자들은 그들만의 merging 방법을 구현했다.</p>
+<h2 id="Main-Results"><a href="#Main-Results" class="headerlink" title="Main Results"></a>Main Results</h2><p>저자들은 SOLAR 10.7B model과 SOLAR 10.7B-Instruct model에 대해 평가를 진행했고 Qwen 14B와 Mistral 7B와 같이 비슷한 크기의 pretrained model에 비해 뛰어난 성능을 보인다고 주장한다.<br>또한 최고 성능의 open-source LLM Mixtral 8x7-Instruct-v0.1 또는 Qwen 72B에 비해 크기가 더 작음에도 불구하고 SOLAR 10.7B-Instruct model은 H6 기준 가장 높은 점수를 기록했다.<br>따라서 저자들은 이 결과를 통해 DUS가 fine-tuning 시 SOTA 성능을 달성할 수 있는 model을 확장할 수 있다고 주장한다.</p>
+<h2 id="Ablation-Studies"><a href="#Ablation-Studies" class="headerlink" title="Ablation Studies"></a>Ablation Studies</h2><p>저자들은 instruction tuning 단계와 alignment tuning 단계에 대해 ablation study를 제공한다.</p>
+<h3 id="Instruction-Tuning-1"><a href="#Instruction-Tuning-1" class="headerlink" title="Instruction Tuning"></a>Instruction Tuning</h3><blockquote>
+<p>Ablation on the training datasets.<br>SFT: Supervised fine-tuning</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">Model</th>
+<th align="center">Alpaca-GPT4</th>
+<th align="center">OpenOrca</th>
+<th align="center"><code>Synth. Math-Instruct</code></th>
+<th align="center">H6 (Avg.)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SFT v1</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">69.15</td>
+</tr>
+<tr>
+<td align="center">SFT v2</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">69.21</td>
+</tr>
+<tr>
+<td align="center">SFT v3</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">70.03</td>
+</tr>
+<tr>
+<td align="center">SFT v4</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">O</td>
+<td align="center">70.88</td>
+</tr>
+<tr>
+<td align="center">SFT v3+v4<br>(Merged)</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">71.11</td>
+</tr>
+</tbody></table>
+<ul>
+<li>SFT v1 vs. SFT v2: OpenOrca dataset의 활용 여부에 따라 동작 방식 변화</li>
+<li>SFT v1 vs. SFT v4: <code>Synth. Math-Instruct</code> dataset을 활용하여 GSM8K score 향상</li>
+<li>SFT v3, SFT v4 vs. SFT v3+v4: 동작 방식이 다른 두 model의 merging을 통해 성능 향상</li>
+</ul>
+<h3 id="Alignment-Tuning-1"><a href="#Alignment-Tuning-1" class="headerlink" title="Alignment Tuning"></a>Alignment Tuning</h3><blockquote>
+<p>Ablation on the training datasets.<br>SFT v3를 DPO의 SFT base model로 사용</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">Model</th>
+<th align="center">Ultrafeedback Clean</th>
+<th align="center"><code>Synth. Math-Alignment</code></th>
+<th align="center">H6 (Avg.)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DPO v1</td>
+<td align="center">O</td>
+<td align="center">X</td>
+<td align="center">73.06</td>
+</tr>
+<tr>
+<td align="center">DPO v2</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">73.42</td>
+</tr>
+<tr>
+<td align="center">DPO v1+v2<br>(Merged)</td>
+<td align="center">O</td>
+<td align="center">O</td>
+<td align="center">73.21</td>
+</tr>
+</tbody></table>
+<ul>
+<li>SFT base model (SFT v3) vs. DPO v1<ul>
+<li>H6 3.03 상승</li>
+<li>대부분의 task에 대해 개선되었지만 GSM8K에 대해서 성능 감소</li>
+</ul>
+</li>
+<li>DPO v2<ul>
+<li><code>Synth. Math-Alignment</code> dataset의 추가로 GSM8K에 대한 성능이 SFT v3에 비해 낮지만 DPO v1에 비해 향상</li>
+<li>다른 task에 대해 약간의 성능 변화 존재 (부정적 영향 X)</li>
+</ul>
+</li>
+<li>DPO v1+v2<ul>
+<li>DPO v2에 비해 성능 감소</li>
+<li>SFT v3, SFT v4 vs. SFT v3+v4: Model의 장단점이 서로 다른 병합으로 성능 향상</li>
+<li>DPO v1, DPO v2 vs. DPO v1+v2: DPO v2는 DPO v1보다 더욱 엄격히 개선되어 성능 하락</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Ablation on the SFT base models.<br>Ultrafeedback Clean과 <code>Synth. Math-Alignment</code> dataset 사용</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">Model</th>
+<th align="center">Base SFT Model</th>
+<th align="center">H6 (Avg.)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DPO v2</td>
+<td align="center">SFT v3</td>
+<td align="center">73.42</td>
+</tr>
+<tr>
+<td align="center">DPO v3</td>
+<td align="center">SFT v3+v4<br>(Merged)</td>
+<td align="center">73.58</td>
+</tr>
+</tbody></table>
+<ul>
+<li>SFT v3 vs. SFT v3+v4: 모든 task에 대해 더 높은 성능</li>
+<li>DPO v2 vs. DPO v3<ul>
+<li>GSM8K에 대한 약간의 성능 차이를 제외하면 거의 성능 변화가 없음</li>
+<li>항상 SFT base model의 성능 차이가 alignment-tuned model로 이어지진 않음</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Ablation on different merge methods.<br>동일한 학습 dataset과 SFT base model (DPO v2, DPO v3) 사용<br>각 model의 장점을 최대화하기 위해 서로 다른 hyper-parameter 사용</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">Model</th>
+<th align="center">H6 (Avg.)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Cand. 1</td>
+<td align="center">73.73</td>
+</tr>
+<tr>
+<td align="center">Cand. 2</td>
+<td align="center">73.28</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Cand. 1 vs. Cand. 2<ul>
+<li>GSM8K에 대해 Cand. 1의 성능 우위</li>
+<li>나머지 task에 대해 Cand. 2의 성능 우위</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Model</th>
+<th align="center">Merge Method</th>
+<th align="center">H6 (Avg.)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Merge v1</td>
+<td align="center">Average (0.5, 0.5)</td>
+<td align="center">74.00</td>
+</tr>
+<tr>
+<td align="center">Merge v2</td>
+<td align="center">Average (0.4, 0.6)</td>
+<td align="center">73.93</td>
+</tr>
+<tr>
+<td align="center">Merge v3</td>
+<td align="center">Average (0.6, 0.4)</td>
+<td align="center">74.05</td>
+</tr>
+<tr>
+<td align="center">Merge v4</td>
+<td align="center">SLERP</td>
+<td align="center">73.96</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Merge methods<ul>
+<li>Average (a, b): Model의 가중치 평균화<ul>
+<li>a: Cand. 1의 가중치</li>
+<li>b: Cand. 2의 가중치</li>
+</ul>
+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kbC5hY20ub3JnL2RvaS8xMC4xMTQ1LzMyNTMzNC4zMjUyNDI=">SLERP<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li>서로 다른 merge 방법이 H6 score에 큰 영향을 주지 않음</li>
+<li>Merge될 각 model들의 충분히 다른 강점이 존재한다면 merge 방법은 중요히자 않을 수 있음</li>
+</ul>
+<p>최종적으로 저자들은 Merge v1 model을 SOLAR 10.7B-Instruct model로 선택했다.</p>
+<hr>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>저자들은 depth up-scaled (DUS)을 통해 107억 개의 parameter를 가진 SOLAR 10.7B model과 SOLAR 10.7B-Instruct model을 개발했다.<br>다양한 NLP task에 대해 계산 효율성을 유지하며 Llama 2, Mistral 7B 및 Mistral-7B-Instruct와 같은 model들에 비해 우수한 성능을 확인했다.<br>따라서 DUS는 소규모 LLM에서 고성능 LLM으로 확장하는데 효과적이다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/paper-review/" rel="tag"><i class="fa fa-tag"></i> Paper Review</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/upstage-udemy/" rel="prev" title="Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)">
+                  <i class="fa fa-chevron-left"></i> Lecture Review: 실전 AI 서비스 기획 (Jump into the AI World - AI Product Lifecycle)
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"1bf1746b563279735cd97cd8976a5dfb"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
