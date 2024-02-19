@@ -10,7 +10,7 @@
 
     <url>
         <loc>https://zerohertz.github.io/paper-review-ictc/</loc>
-        <lastmod>2024-02-19T14:22:39.644Z</lastmod>
+        <lastmod>2024-02-19T14:30:28.416Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1177,7 +1177,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/</loc>
+        <loc>https://zerohertz.github.io/imu-sensor/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1185,7 +1185,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/imu-sensor/</loc>
+        <loc>https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/</loc>
         <lastmod>2023-11-03T09:49:35.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1457,7 +1457,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
+        <loc>https://zerohertz.github.io/catia/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1465,7 +1465,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/catia/</loc>
+        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
