@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">207</span>
+          <span class="site-state-item-count">208</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -212,6 +212,102 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/hands-on-machine-learning-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/hands-on-machine-learning-2/" class="post-title-link" itemprop="url">Hands-on Machine Learning (2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-25 19:30:55" itemprop="dateCreated datePublished" datetime="2022-07-25T19:30:55+09:00">2022-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Support-Vector-Machine-SVM"><a href="#Support-Vector-Machine-SVM" class="headerlink" title="Support Vector Machine (SVM)"></a>Support Vector Machine (SVM)</h1><ul>
+<li>Linear, nonlinear classification</li>
+<li>Regression</li>
+<li>Outlier detection</li>
+</ul>
+<h2 id="Linear-SVM-Classification"><a href="#Linear-SVM-Classification" class="headerlink" title="Linear SVM Classification"></a>Linear SVM Classification</h2><ul>
+<li>SVM Classifier: 각 클래스 사이에 가장 폭이 넓은 경계 정의 (large margin classification)</li>
+<li>Support vector: 분류기의 경계에 위치한 훈련 데이터<ul>
+<li>분류기의 경계 밖에 훈련 샘플을 더 추가해도 경계가 변화하지 않음</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/hands-on-machine-learning-2/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1520,101 +1616,6 @@ new GDemo('#terminal')
     
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">updateStatus</span>():</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;paramInvcNo&quot;]&#x27;</span>).send_keys(num)</span><br><span class="line">    browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;btnSubmit&quot;]&#x27;</span>).click()</span><br><span class="line">    status = browser.find_element_by_xpath(<span class="string">&#x27;//*[@id=&quot;statusDetail&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> status.text</span><br><span class="line"></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">&#x27;headless&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&#x27;window-size=1920x1080&#x27;</span>)</span><br><span class="line">options.add_argument(<span class="string">&quot;disable-gpu&quot;</span>)</span><br><span class="line">browser = webdriver.Chrome(<span class="string">&quot;Location of Chrome Driver&quot;</span>, options = options)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>)</span><br><span class="line">url = <span class="string">&#x27;https://www.cjlogistics.com/ko/tool/parcel/tracking&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line">myToken = <span class="string">&#x27;TelegramToken&#x27;</span></span><br><span class="line">bot = telegram.Bot(token = myToken)</span><br><span class="line">chat_id = ID<span class="comment">#bot.getUpdates()[-1].message.chat.id #가장 최근에 온 메세지의 chat id를 가져옵니다</span></span><br><span class="line">num = 운송장 번호</span><br><span class="line">statusArr = [<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    status = updateStatus()</span><br><span class="line">    statusArr[i%<span class="number">2</span>] = <span class="built_in">str</span>(status)</span><br><span class="line">    <span class="keyword">if</span> statusArr[<span class="number">0</span>] != statusArr[<span class="number">1</span>]:</span><br><span class="line">        bot.sendMessage(chat_id=chat_id, text=statusArr[i%<span class="number">2</span>])</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Different&#x27;</span>)</span><br><span class="line">    browser.refresh()</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    i = i+<span class="number">1</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/numpy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/numpy/" class="post-title-link" itemprop="url">Numpy</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-02-28 16:12:55" itemprop="dateCreated datePublished" datetime="2021-02-28T16:12:55+09:00">2021-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/1-machine-learning/" itemprop="url" rel="index"><span itemprop="name">1. Machine Learning</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.12/dist/gdemo.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
-<script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.12/dist/gdemo.min.js"></script>
-<div id="python" style="height: 60px"></div>
-<script>
-new GDemo('#python')
-  .openApp('terminal', {minHeight: '60px', windowTitle: 'python', promptString: '>'})
-  .command(`<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np`, {onCompleteDelay: 300})
-  .respond(``)
-  .end();
-</script>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/numpy/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

@@ -9,8 +9,16 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/paper-review-ictc/</loc>
+        <lastmod>2024-02-19T13:44:39.134Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/paper-review-solar/</loc>
-        <lastmod>2024-02-18T13:41:22.625Z</lastmod>
+        <lastmod>2024-02-19T13:40:42.933Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -305,7 +313,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-15686/</loc>
+        <loc>https://zerohertz.github.io/boj-1543/</loc>
         <lastmod>2023-11-03T09:49:35.241Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -313,7 +321,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-1543/</loc>
+        <loc>https://zerohertz.github.io/boj-15686/</loc>
         <lastmod>2023-11-03T09:49:35.241Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -849,7 +857,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-1057/</loc>
+        <loc>https://zerohertz.github.io/boj-1053/</loc>
         <lastmod>2023-11-03T09:49:35.225Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -857,7 +865,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-1053/</loc>
+        <loc>https://zerohertz.github.io/boj-1057/</loc>
         <lastmod>2023-11-03T09:49:35.225Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1409,7 +1417,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-1080/</loc>
+        <loc>https://zerohertz.github.io/boj-10815/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1417,7 +1425,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/boj-10815/</loc>
+        <loc>https://zerohertz.github.io/boj-1080/</loc>
         <lastmod>2023-11-03T09:49:35.213Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2024-02-18T13:41:22.625Z</updated>
+  <updated>2024-02-19T13:44:39.134Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Paper Review: IC|TC</title>
+    <link href="https://zerohertz.github.io/paper-review-ictc/"/>
+    <id>https://zerohertz.github.io/paper-review-ictc/</id>
+    <published>2024-02-18T23:24:37.000Z</published>
+    <updated>2024-02-19T13:44:39.134Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMTgyOTc=&quot;&gt;Image Clustering Conditioned on Text Criteria&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Image clustering은 unsupervised learning task으로 연구되어 왔으며 대량의 visual data 구축, label이 없는 image dataset의 labeling 비용 감소, image 검색 system 성능 향상에 사용되었다.&lt;br&gt;최신의 deep image clustering 방법들은 ground truth로 간주되는 dataset의 사전 정의된 class label으로 종종 평가된다.&lt;/p&gt;
+&lt;p&gt;하지만 실제로는 각 사용자들이 동일한 dataset에 대해 clustering할 때 서로 다른 기준에 따라 여러 결과를 원할 수 있다.&lt;br&gt;그럼에도 기존 clustering 방법은 사용자가 clustering 기준을 제어할 수 있는 직접적인 mechanism을 제공하지 않는다. (기존 clustering 방법의 기준은 neural network의 inductive bias, loss function, data augmentation, feature extractor에 의해 결정될 가능성이 높다.)&lt;br&gt;따라서 저자들은 이러한 한계점을 개선하기 위해 사용자가 지정한 기준을 기반으로 단일 dataset에서 다양한 결과를 가능하게 하고 기존의 암묵적으로 지시된 clustering process를 혁신한다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="1. Machine Learning" scheme="https://zerohertz.github.io/categories/1-machine-learning/"/>
+    
+    
+    <category term="Paper Review" scheme="https://zerohertz.github.io/tags/paper-review/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Paper Review: SOLAR</title>
     <link href="https://zerohertz.github.io/paper-review-solar/"/>
     <id>https://zerohertz.github.io/paper-review-solar/</id>
     <published>2024-02-16T23:27:57.000Z</published>
-    <updated>2024-02-18T13:41:22.625Z</updated>
+    <updated>2024-02-19T13:40:42.933Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -2514,29 +2537,6 @@
   </entry>
   
   <entry>
-    <title>BOJ: 1057</title>
-    <link href="https://zerohertz.github.io/boj-1057/"/>
-    <id>https://zerohertz.github.io/boj-1057/</id>
-    <published>2022-11-03T01:30:15.000Z</published>
-    <updated>2023-11-03T09:49:35.225Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를 한다. 이긴 사람은 다음 라운드에 진출하고, 진 사람은 그 라운드에서 떨어진다. 만약 그 라운드의 참가자가 홀수명이라면, 마지막 번호를 가진 참가자는 다음 라운드로 자동 진출한다. 다음 라운드에선 다시 참가자의 번호를 1번부터 매긴다. 이때, 번호를 매기는 순서는 처음 번호의 순서를 유지하면서 1번부터 매긴다. 이 말은 1번과 2번이 스타를 해서 1번이 진출하고, 3번과 4번이 스타를 해서 4번이 진출했다면, 4번은 다음 라운드에서 번호 2번을 배정받는다. 번호를 다시 배정받은 후에 한 명만 남을 때까지 라운드를 계속 한다.&lt;br&gt;마침 이 스타 대회에 임한수도 참가했다. 김지민은 갑자기 스타 대회에서 우승하는 욕심은 없어지고, 몇 라운드에서 임한수와 대결하는지 궁금해졌다. 일단 김지민과 임한수는 서로 대결하기 전까지 항상 이긴다고 가정한다. 1 라운드에서 김지민의 번호와 임한수의 번호가 주어질 때, 과연 김지민과 임한수가 몇 라운드에서 대결하는지 출력하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 참가자의 수 N과 1 라운드에서 김지민의 번호와 임한수의 번호가 순서대로 주어진다. N은 2보다 크거나 같고, 100,000보다 작거나 같은 자연수이고, 김지민의 번호와 임한수의 번호는 N보다 작거나 같은 자연수이고, 서로 다르다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민과 임한수가 대결하는 라운드 번호를 출력한다. 만약 서로 대결하지 않을 때는 -1을 출력한다.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="4. Algorithm" scheme="https://zerohertz.github.io/categories/4-algorithm/"/>
-    
-    
-    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
-    
-    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
-    
-  </entry>
-  
-  <entry>
     <title>BOJ: 1053</title>
     <link href="https://zerohertz.github.io/boj-1053/"/>
     <id>https://zerohertz.github.io/boj-1053/</id>
@@ -2554,6 +2554,29 @@
 &lt;p&gt;1, 2, 3번 연산은 마음껏 사용할 수 있지만, 마지막 연산은 많아야 한 번 사용할 수 있다.&lt;br&gt;문자열이 주어졌을 때, 팰린드롬으로 만들기 위해 필요한 연산의 최솟값을 출력하는 프로그램을 작성하시오.&lt;/p&gt;
 &lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문자열이 주어진다. 영어 소문자로만 이루어져 있고, 길이는 최대 50이다.&lt;/p&gt;
 &lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 문제의 정답을 출력한다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="4. Algorithm" scheme="https://zerohertz.github.io/categories/4-algorithm/"/>
+    
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="BOJ" scheme="https://zerohertz.github.io/tags/boj/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BOJ: 1057</title>
+    <link href="https://zerohertz.github.io/boj-1057/"/>
+    <id>https://zerohertz.github.io/boj-1057/</id>
+    <published>2022-11-03T01:30:15.000Z</published>
+    <updated>2023-11-03T09:49:35.225Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;김지민은 N명이 참가하는 스타 토너먼트에 진출했다. 토너먼트는 다음과 같이 진행된다. 일단 N명의 참가자는 번호가 1번부터 N번까지 배정받는다. 그러고 난 후에 서로 인접한 번호끼리 스타를 한다. 이긴 사람은 다음 라운드에 진출하고, 진 사람은 그 라운드에서 떨어진다. 만약 그 라운드의 참가자가 홀수명이라면, 마지막 번호를 가진 참가자는 다음 라운드로 자동 진출한다. 다음 라운드에선 다시 참가자의 번호를 1번부터 매긴다. 이때, 번호를 매기는 순서는 처음 번호의 순서를 유지하면서 1번부터 매긴다. 이 말은 1번과 2번이 스타를 해서 1번이 진출하고, 3번과 4번이 스타를 해서 4번이 진출했다면, 4번은 다음 라운드에서 번호 2번을 배정받는다. 번호를 다시 배정받은 후에 한 명만 남을 때까지 라운드를 계속 한다.&lt;br&gt;마침 이 스타 대회에 임한수도 참가했다. 김지민은 갑자기 스타 대회에서 우승하는 욕심은 없어지고, 몇 라운드에서 임한수와 대결하는지 궁금해졌다. 일단 김지민과 임한수는 서로 대결하기 전까지 항상 이긴다고 가정한다. 1 라운드에서 김지민의 번호와 임한수의 번호가 주어질 때, 과연 김지민과 임한수가 몇 라운드에서 대결하는지 출력하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 참가자의 수 N과 1 라운드에서 김지민의 번호와 임한수의 번호가 순서대로 주어진다. N은 2보다 크거나 같고, 100,000보다 작거나 같은 자연수이고, 김지민의 번호와 임한수의 번호는 N보다 작거나 같은 자연수이고, 서로 다르다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민과 임한수가 대결하는 라운드 번호를 출력한다. 만약 서로 대결하지 않을 때는 -1을 출력한다.&lt;/p&gt;</summary>
     
     
     
