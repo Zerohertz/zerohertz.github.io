@@ -38,7 +38,7 @@
 <meta property="og:description" content="Image Clustering Conditioned on Text Criteria  IntroductionImage clustering은 unsupervised learning task으로 연구되어 왔으며 대량의 visual data 구축, label이 없는 image dataset의 labeling 비용 감소, image 검색 system 성능 향상에">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-18T23:24:37.000Z">
-<meta property="article:modified_time" content="2024-02-19T13:44:39.134Z">
+<meta property="article:modified_time" content="2024-02-19T14:22:39.644Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Paper Review">
 <meta name="twitter:card" content="summary">
@@ -341,7 +341,13 @@
 <h2 id="Comparison-with-Zero-shot-Classification"><a href="#Comparison-with-Zero-shot-Classification" class="headerlink" title="Comparison with Zero-shot Classification"></a>Comparison with Zero-shot Classification</h2><p>사전 정의된 class가 필요하고 단순히 image를 이러한 class에 할당하는 zero-shot classification과 cluster를 찾고 image를 cluster에 할당하는 본 논문에서 제시하는 방식은 다르다.<br>Zero-shot classification은 사용자가 모든 $K$ cluster의 기준을 명시적이고 정확하게 설명할 때 저자들이 언급하는 task의 instance로 간주될 수 있다.</p>
 <hr>
 <h1 id="IC-TC-Image-Clustering-Conditioned-on-Text-Criteria"><a href="#IC-TC-Image-Clustering-Conditioned-on-Text-Criteria" class="headerlink" title="IC|TC: Image Clustering Conditioned on Text Criteria"></a>IC|TC: Image Clustering Conditioned on Text Criteria</h1><p>IC|TC는 선택적 반복 외부 loop가 존재하는 3가지 단계로 구성된다.<br>$\boldsymbol{\mathrm{TC}}$ (text criterion)는 아래와 같은 text prompt를 통해 3단계로 통합된다.</p>
-<p>$\mathrm{P}_{\text{step1}}(\boldsymbol{\mathrm{TC}})&#x3D;\text{“Chracterize the image using a well-detailed description”}+\boldsymbol{\mathrm{TC}}$<br>$\mathrm{P}_{\text{step2a}}(\boldsymbol{\mathrm{TC}})&#x3D;\text{“Given a description of an image, label the image”}+\boldsymbol{\mathrm{TC}}$<br>$\mathrm{P}_{\text{step2b}}(\boldsymbol{\mathrm{TC}},N,K)&#x3D;\text{“Given a list of }\{\mathrm{N}\}\text{ labels, cluster them into }\{\mathrm{K}\}\text{ words”}+\boldsymbol{\mathrm{TC}}$<br>$\mathrm{P}_{\text{step3}}(\boldsymbol{\mathrm{TC}})&#x3D;\text{“Based on the image description, determine the most appropriate cluster”}+\boldsymbol{\mathrm{TC}}$</p>
+<div style="overflow: auto;">
+$\mathrm{P}\_{\text{step1}}(\boldsymbol{\mathrm{TC}})=\text{"Chracterize the image using a well-detailed description"}+\boldsymbol{\mathrm{TC}}$
+$\mathrm{P}\_{\text{step2a}}(\boldsymbol{\mathrm{TC}})=\text{"Given a description of an image, label the image"}+\boldsymbol{\mathrm{TC}}$
+$\mathrm{P}\_{\text{step2b}}(\boldsymbol{\mathrm{TC}},N,K)=\text{"Given a list of }\\{\mathrm{N}\\}\text{ labels, cluster them into }\\{\mathrm{K}\\}\text{ words"}+\boldsymbol{\mathrm{TC}}$
+$\mathrm{P}\_{\text{step3}}(\boldsymbol{\mathrm{TC}})=\text{"Based on the image description, determine the most appropriate cluster"}+\boldsymbol{\mathrm{TC}}$
+</div>
+
 <h2 id="Step-1-Extract-Salient-Features-from-The-Image"><a href="#Step-1-Extract-Salient-Features-from-The-Image" class="headerlink" title="Step 1: Extract Salient Features from The Image"></a>Step 1: Extract Salient Features from The Image</h2><p>Image에서 VLM을 통해 핵심 feature를 text 설명 형태로 추출한다.</p>
 <blockquote>
 <p>Step 1: Vision-language model (VLM) extracts salient features</p>
