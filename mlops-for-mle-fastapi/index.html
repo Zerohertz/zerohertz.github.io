@@ -365,36 +365,36 @@
 <img width="762" alt="FastAPI: example_1" src="https://user-images.githubusercontent.com/42334717/218294927-b5e5265d-2176-4ff9-bc4d-57cbbce7dca5.png">
 
 <blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwLw==">http://localhost:8000<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwLw==">http://localhost:8000</span></p>
 </blockquote>
 <img width="1141" alt="FastAPI: example_2" src="https://user-images.githubusercontent.com/42334717/217262283-76fa8515-5580-4c45-a67d-b7c5304d09f2.png">
 
 <blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvYw==">http://localhost:8000/doc<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2RvYw==">http://localhost:8000/doc</span></p>
 </blockquote>
 <img width="1141" alt="FastAPI: example_3" src="https://user-images.githubusercontent.com/42334717/217262336-51ced7dd-477e-4808-9549-45b730ededd5.png">
 
 <h2 id="Path-Parameter"><a href="#Path-Parameter" class="headerlink" title="Path Parameter"></a>Path Parameter</h2><figure class="highlight python"><figcaption><span>Example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/items/&#123;item_id&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_item_parameter</span>(<span class="params">item_id: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;item_id&quot;</span>: item_id&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zLzIwMjE3MjI3OQ==">http://localhost:8000/items/202172279<i class="fa fa-external-link-alt"></i></span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zL2hp">http://localhost:8000/items/hi<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zLzIwMjE3MjI3OQ==">http://localhost:8000/items/202172279</span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zL2hp">http://localhost:8000/items/hi</span></p>
 </blockquote>
 <p><img src="https://user-images.githubusercontent.com/42334717/217269004-676cdc8a-c1ec-43ce-af03-78d694f122cd.png" alt="Path Parameter"></p>
 <h2 id="Query-Parameter"><a href="#Query-Parameter" class="headerlink" title="Query Parameter"></a>Query Parameter</h2><figure class="highlight python"><figcaption><span>Example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/items/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_item_query</span>(<span class="params">skip: <span class="built_in">int</span> = <span class="number">0</span>, limit: <span class="built_in">int</span> = <span class="number">10</span></span>):</span><br><span class="line">    test_db = [&#123;<span class="string">&quot;item_name&quot;</span>: <span class="string">&quot;ze&quot;</span>, <span class="string">&quot;item_name&quot;</span>: <span class="string">&quot;ro&quot;</span>, <span class="string">&quot;item_name&quot;</span>: <span class="string">&quot;hertz&quot;</span>&#125;]</span><br><span class="line">    <span class="keyword">return</span> test_db[skip: skip + limit]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zLz9za2lwPTAmbGltaXQ9MTA=">http://localhost:8000/items/?skip=0&amp;limit=10<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL2l0ZW1zLz9za2lwPTAmbGltaXQ9MTA=">http://localhost:8000/items/?skip=0&amp;limit=10</span></p>
 </blockquote>
 <img width="1141" alt="Query Parameter" src="https://user-images.githubusercontent.com/42334717/217270657-2c58f378-5dd3-46c2-a8ad-f23b6e713fa3.png">
 
 <h2 id="Multiple-Path-and-Query-Parameters"><a href="#Multiple-Path-and-Query-Parameters" class="headerlink" title="Multiple Path and Query Parameters"></a>Multiple Path and Query Parameters</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Union</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/users/&#123;user_id&#125;/items/&#123;item_id&#125;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_user_item</span>(<span class="params">user_id: <span class="built_in">int</span>, item_id: <span class="built_in">str</span>, q: <span class="type">Union</span>[<span class="built_in">str</span>, <span class="literal">None</span>] = <span class="literal">None</span>, short: <span class="built_in">bool</span> = <span class="literal">False</span></span>):</span><br><span class="line">    item = &#123;<span class="string">&quot;item_id&quot;</span>: item_id, <span class="string">&quot;owner_id&quot;</span>: user_id&#125;</span><br><span class="line">    <span class="keyword">if</span> q:</span><br><span class="line">        item.update(&#123;<span class="string">&quot;q&quot;</span>: q&#125;)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> short:</span><br><span class="line">        item.update(</span><br><span class="line">            &#123;<span class="string">&quot;description&quot;</span>: <span class="string">&quot;This is an amazing item that has a long description&quot;</span>&#125;,</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> item</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3E9aGVsbG8mc2hvcnQ9VHJ1ZQ==">http://localhost:8000/users/3/items/zerohertz?q=hello&amp;short=True<i class="fa fa-external-link-alt"></i></span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3Nob3J0PVRydWU=">http://localhost:8000/users/3/items/zerohertz?short=True<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3E9aGVsbG8mc2hvcnQ9VHJ1ZQ==">http://localhost:8000/users/3/items/zerohertz?q=hello&amp;short=True</span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3Nob3J0PVRydWU=">http://localhost:8000/users/3/items/zerohertz?short=True</span></p>
 </blockquote>
 <p><img src="https://user-images.githubusercontent.com/42334717/217273288-deae06db-e96d-4b10-aa78-d473302200ed.png" alt="Multiple Path and Query Parameters 1"></p>
 <blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3E9aGVsbG8=">http://localhost:8000/users/3/items/zerohertz?q=hello<i class="fa fa-external-link-alt"></i></span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6">http://localhost:8000/users/3/items/zerohertz<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6P3E9aGVsbG8=">http://localhost:8000/users/3/items/zerohertz?q=hello</span> &amp; <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3VzZXJzLzMvaXRlbXMvemVyb2hlcnR6">http://localhost:8000/users/3/items/zerohertz</span></p>
 </blockquote>
 <p><img src="https://user-images.githubusercontent.com/42334717/217275856-555c8b66-05f3-4aa7-b7c9-836b85336e8f.png" alt="Multiple Path and Query Parameters 2"></p>
 <hr>
@@ -456,7 +456,7 @@
 <p><img src="https://user-images.githubusercontent.com/42334717/218295832-fa682e6e-05b6-425c-b856-772c842aed96.png" alt="FastAPI on Docker"></p>
 <hr>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItbWxlLmdpdGh1Yi5pby90dXRvcmlhbC9kb2NzL2NhdGVnb3J5LzA1LWZhc3RhcGk=">MLOps for MLE: 05. FastAPI<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItbWxlLmdpdGh1Yi5pby90dXRvcmlhbC9kb2NzL2NhdGVnb3J5LzA1LWZhc3RhcGk=">MLOps for MLE: 05. FastAPI</span></li>
 </ul>
 
     </div>

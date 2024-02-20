@@ -323,7 +323,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIyMDMuMDUxMjIucGRm">DEER: Detection-agnostic End-to-End Recognizer for Scene Text Spotting<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIyMDMuMDUxMjIucGRm">DEER: Detection-agnostic End-to-End Recognizer for Scene Text Spotting</span></p>
 </blockquote>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>이 논문은 NAVER Clova 팀에서 개발한 end-to-end text spotting 모델을 제안한다.<br>End-to-end text spotting 모델은 text detector와 recognizer로 구성되어있다.<br>해당 논문의 저자들은 기존 text spotting 모델들은 detector와 recognizer 사이에 다소 밀접하게 결합되어있다고 아래와 같이 주장한다.</p>
 <ol>
@@ -331,7 +331,7 @@
 <li>Detctor에서 crop된 영역의 localized features를 recognzier에 전달하여 detector의 종속성을 감소시킬 수 있지만 여전히 존재하는 detector의 오류 누적으로 인해 recognition 실패가 발생할 수 있다.</li>
 <li>Feature pooling과 masking은 end-to-end text spotting 모델을 학습하기 위해 bounding boxes 데이터가 여전히 필요하다.</li>
 </ol>
-<p>이에 대한 자세한 설명은 <span class="exturl" data-url="aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=">발표자료<i class="fa fa-external-link-alt"></i></span>의 6, 7, 8페이지에서 확인할 수 있다.</p>
+<p>이에 대한 자세한 설명은 <span class="exturl" data-url="aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=">발표자료</span>의 6, 7, 8페이지에서 확인할 수 있다.</p>
 <p>Object detection 분야에서는 end-to-end Transformer 기반 접근 방식이 발전함에 따라 이미지의 개별 객체를 엄격하게 recognize하기 위해 정확한 영역 정보, 정교한 ground truth 할당 및 feature pooling이 필요하지 않다는 것이 분명해지고 있다.<br>그렇기에 저자들은 detection 결과의 정확성에 대한 의존성을 완화할 수 있는 DEER (Detection-agnostic end-to-end Recognizer)를 제안한다.<br>DEER는 정확한 text 영역을 추출하기 위해 detector에 의존하지 않고 detector가 각 text instance에 대한 single reference point를 localize하도록 한다.<br>Reference point 주위의 text를 포괄적으로 recognize하는 text decoder는 text sequence를 decoding하는 동안 특정 text instance의 attending region을 결정하는 방법을 학습한다.<br>DEER는 기존 모델들과 다르게 detecotr의 역할이 single reference point를 localize하는 것 뿐이기 때문에 훨씬 더 다양한 검출 알고리즘과 주석을 사용할 수 있다.<br>이러한 접근 방식을 통해 pooling operations와 polygon-type 주석 없이 회전 및 곡선 text instance를 자연스럽게 처리할 수 있다.</p>
 <span id="more"></span>
 
@@ -411,7 +411,7 @@
 <li>$p_{\mathrm{ref}}$: Reference points<ul>
 <li>Query features에 linear projections 적용</li>
 <li>Encoder에서 $[0,1]\times[0,1]$로 정규화된 좌표와 함께 고정된 reference points 사용</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDQuMDEzMTg=">Efficient DETR<i class="fa fa-external-link-alt"></i></span>와 같이 미리 정의된 reference points 대신 이미지에 따른 reference points를 사용하여 모델의 학습을 가속화</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDQuMDEzMTg=">Efficient DETR</span>와 같이 미리 정의된 reference points 대신 이미지에 따른 reference points를 사용하여 모델의 학습을 가속화</li>
 <li>각 object에 위치한 reference points를 이용하여 특정 text instances를 decoding</li>
 </ul>
 </li>
@@ -425,7 +425,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="Location-Head"><a href="#Location-Head" class="headerlink" title="Location Head"></a>Location Head</h2><p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDkuMDM4MTQ=">Panoptic SegFormer<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDQuMDEzMTg=">Efficient DETR<i class="fa fa-external-link-alt"></i></span>의 접근 방식을 통해 location head를 사용하여 text decoder의 reference points (i.e., text instance의 중심 위치)를 예측하고 이러한 정보를 토대로 물체를 recognize하고 구별하는데 도움을 준다.<br>또한 evaluation metrics를 계산하기 위해 text instances의 bounding polygon을 추출하기 위한 segmentation map을 제공한다.<br>저자들은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDg5NDc=">differentiable binarization (DB)<i class="fa fa-external-link-alt"></i></span>을 채택하여 평가에 필요한 text instances의 bounding polygon을 추출하였다.<br>구체적으로는 아래와 같이 진행된다.</p>
+<h2 id="Location-Head"><a href="#Location-Head" class="headerlink" title="Location Head"></a>Location Head</h2><p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDkuMDM4MTQ=">Panoptic SegFormer</span>, <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDQuMDEzMTg=">Efficient DETR</span>의 접근 방식을 통해 location head를 사용하여 text decoder의 reference points (i.e., text instance의 중심 위치)를 예측하고 이러한 정보를 토대로 물체를 recognize하고 구별하는데 도움을 준다.<br>또한 evaluation metrics를 계산하기 위해 text instances의 bounding polygon을 추출하기 위한 segmentation map을 제공한다.<br>저자들은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MTEuMDg5NDc=">differentiable binarization (DB)</span>을 채택하여 평가에 필요한 text instances의 bounding polygon을 추출하였다.<br>구체적으로는 아래와 같이 진행된다.</p>
 <ol>
 <li>$F$에서 $C_2$에 해당하는 $L_2$ 크기의 feature tokens를 추출하여 $(H&#x2F;4,W&#x2F;4)$로 reshape한다.</li>
 <li>Transposed convolution, group normalization, relu로 구성된 separated segmentation head로 binary map과 threshold map을 출력한다.</li>
@@ -437,7 +437,7 @@
 <li>$K$: Text decoder의 keys $\leftarrow$ Transformer encoder의 출력인 feature tokens $F$</li>
 <li>$V$: Text decoder의 values $\leftarrow$ Transformer encoder의 출력인 feature tokens $F$</li>
 </ul>
-<p>Self-attention, deformable attention, feed-forward layers를 통해 queries를 전달한다.<br><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDkuMDM4MTQ=">Panoptic SegFormer<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDQuMDU4NzM=">Spatial Attention Mechanism<i class="fa fa-external-link-alt"></i></span>으로부터 영감을 받아 저자들은 $F$에 deformable attention 대신 regular cross attention을 교대로 추가하였다.<br>학습 단계 동안 $N_t$ text boxes가 샘플링되어 계산된 중심 좌표가 decoder의 reference points로 사용되며 이를 통해 location head와 text decoder의 독립적 학습이 가능하다.<br>학습 단계에서는 ground truth regions에서 계산한 points를 text decoder의 reference points으로 사용<br>평가 단계에서는 detection branch의 중심 좌표가 reference point로 사용된다.<br>Ground truth (학습)와 model prediction (평가)의 차이를 줄이기 위해 아래 방정식을 사용해 학습 단계에서 중심 좌표가 교란된다.</p>
+<p>Self-attention, deformable attention, feed-forward layers를 통해 queries를 전달한다.<br><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDkuMDM4MTQ=">Panoptic SegFormer</span>, <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDQuMDU4NzM=">Spatial Attention Mechanism</span>으로부터 영감을 받아 저자들은 $F$에 deformable attention 대신 regular cross attention을 교대로 추가하였다.<br>학습 단계 동안 $N_t$ text boxes가 샘플링되어 계산된 중심 좌표가 decoder의 reference points로 사용되며 이를 통해 location head와 text decoder의 독립적 학습이 가능하다.<br>학습 단계에서는 ground truth regions에서 계산한 points를 text decoder의 reference points으로 사용<br>평가 단계에서는 detection branch의 중심 좌표가 reference point로 사용된다.<br>Ground truth (학습)와 model prediction (평가)의 차이를 줄이기 위해 아래 방정식을 사용해 학습 단계에서 중심 좌표가 교란된다.</p>
 <div style="overflow: auto;">
 
 <p>$$<br>p_{\mathrm{ref}}&#x3D;p_c+\frac{\eta}{2}\min{(||p_{tl}-p_{tr}||,||p_{tl}-p_{bl}||)}, \<br>\eta\sim \mathrm{Uniform}(-1,1)<br>$$</p>
@@ -476,7 +476,7 @@
 <p>DEER는 추론 시 location head의 probability 만을 사용한다.<br>Probability map은 특정된 threshold에 의해 이진화되어 있고, 연결된 component들은 binary map에 의해 추출된다.<br>추출된 영역의 size는 실제 text region보다 작으므로 Vatti clipping algorithm을 사용한다. ($D&#x3D;\frac{A\times r}{L}$)<br>이렇게 확장된 각 영역에서 polygon을 추출하고 중심 좌표를 계산하여 decoder에 reference point로 전달한다.<br>마지막으로, decoder은 해당 text region의 character sequences들을 greedily predict한다.</p>
 <hr>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=">검출과 인식 모델을 하나로?: challenge 우승 OCR 서비스 모델 새 출시!<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=">검출과 인식 모델을 하나로?: challenge 우승 OCR 서비스 모델 새 출시!</span></li>
 </ul>
 <hr>
 <p>그런데 논문에서 $p_{\mathrm{ref}}$, $q_{\mathrm{ref}}$ 이렇게 두 변수가 나오는데,, 오타일까요?</p>

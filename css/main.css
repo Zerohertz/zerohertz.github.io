@@ -9,7 +9,7 @@
   --brand-color: #fff;
   --brand-hover-color: #800a0a;
   --table-row-odd-bg-color: #f9f9f9;
-  --table-row-hover-bg-color: #800a0a;
+  --table-row-hover-bg-color: #ff8080;
   --menu-item-bg-color: #f5f5f5;
   --theme-color: #000;
   --btn-default-bg: #fff;
@@ -185,7 +185,7 @@ body {
   box-sizing: border-box;
   color: var(--text-color);
   font-family: NotoSerifKR, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 1.15em;
+  font-size: 1em;
   line-height: 2;
   min-height: 100%;
   position: relative;
@@ -295,6 +295,8 @@ caption,
 th,
 td {
   padding: 8px;
+  white-space: nowrap;
+  word-break: normal;
 }
 th,
 td {
@@ -2399,13 +2401,10 @@ mark.search-keyword {
 }
 mjx-container[jax='CHTML'][display='true'],
 .has-jax {
-  overflow: auto hidden;
+  overflow: hidden hidden;
 }
 mjx-container[display='true'] + br {
   display: none;
-}
-mjx-container {
-  font-size: 18px !important;
 }
 .use-motion .animated {
   animation-fill-mode: none;

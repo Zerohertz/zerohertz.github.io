@@ -327,7 +327,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="SSH-설정-및-포트포워딩"><a href="#SSH-설정-및-포트포워딩" class="headerlink" title="SSH 설정 및 포트포워딩"></a>SSH 설정 및 포트포워딩</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGFpbnl6aW5lLmNvbS9rby9hcnRpY2xlL2hvdy10by1ydW4tb3BlbnNzaC1zZXJ2ZXItYW5kLWNvbm5lY3Qtd2l0aC1zc2gtb24td2luZG93cy0xMC8=">SSH Setup<i class="fa fa-external-link-alt"></i></span></p>
+        <h1 id="SSH-설정-및-포트포워딩"><a href="#SSH-설정-및-포트포워딩" class="headerlink" title="SSH 설정 및 포트포워딩"></a>SSH 설정 및 포트포워딩</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubGFpbnl6aW5lLmNvbS9rby9hcnRpY2xlL2hvdy10by1ydW4tb3BlbnNzaC1zZXJ2ZXItYW5kLWNvbm5lY3Qtd2l0aC1zc2gtb24td2luZG93cy0xMC8=">SSH Setup</span></p>
 <p>윈도우 컴퓨터에서 위 설정을 모두 마쳤다면 컴퓨터와 연결된 공유기의 gateway에 접속하여 포트포워딩 진행</p>
 <p><img src="https://user-images.githubusercontent.com/42334717/211633483-58d6a388-3a49-41c6-9da7-0041e0483ec4.png" alt="Port forwarding"></p>
 <ul>
@@ -338,7 +338,7 @@
 <span id="more"></span>
 
 <hr>
-<h1 id="Anaconda-설치"><a href="#Anaconda-설치" class="headerlink" title="Anaconda 설치"></a>Anaconda 설치</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tLw==">Anaconda<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="Anaconda-설치"><a href="#Anaconda-설치" class="headerlink" title="Anaconda 설치"></a>Anaconda 설치</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYW5hY29uZGEuY29tLw==">Anaconda</span></p>
 <p>위의 홈페이지에서 anaconda 설치 후 아래 환경 변수 추가 (ssh에서 <code>conda</code> 명령어를 쓰기 위함)</p>
 <blockquote>
 <p>환경 변수 설정 (Path)</p>
@@ -356,8 +356,8 @@
 <figure class="highlight python"><figcaption><span>tensorflow_env</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">conda install -y jupyter</span><br><span class="line">conda install -y scikit-learn</span><br><span class="line">conda install -y pandas</span><br><span class="line">conda install -y numpy</span><br><span class="line">conda install -y matplotlib</span><br><span class="line">conda install -y seaborn</span><br><span class="line">conda install -c conda-forge cudatoolkit=<span class="number">11.2</span> cudnn=<span class="number">8.1</span><span class="number">.0</span></span><br><span class="line">python -m pip install <span class="string">&quot;tensorflow==2.10&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9jdWRhLXRvb2xraXQtYXJjaGl2ZQ==">CUDA<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9yZHAvY3Vkbm4tZG93bmxvYWQ=">cuDNN<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9jdWRhLXRvb2xraXQtYXJjaGl2ZQ==">CUDA</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9yZHAvY3Vkbm4tZG93bmxvYWQ=">cuDNN</span></li>
 </ul>
 <hr>
 <h1 id="Jupyter-Notebook-설정"><a href="#Jupyter-Notebook-설정" class="headerlink" title="Jupyter Notebook 설정"></a>Jupyter Notebook 설정</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> notebook.auth <span class="keyword">import</span> passwd</span><br><span class="line">passwd()</span><br><span class="line">exit()</span><br></pre></td></tr></table></figure>

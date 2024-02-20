@@ -371,18 +371,18 @@
 <hr>
 <h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258588922-9a8cb79b-12ea-4e41-80ec-2297d79e03f2.png" alt="Kubeflow"></p>
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9jZW50cmFsLWRhc2gv">Central Dashboard<i class="fa fa-external-link-alt"></i></span>: Web browser를 통해 dashboard UI로 Notebooks, Experiments (AutoML), Experiments (KFP) 등의 컴포넌트 이용 가능</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9ub3RlYm9va3Mv">Kubeflow Notebooks<i class="fa fa-external-link-alt"></i></span>: Web browser에서 python 코드를 개발하고 실행할 수 있는 Jupyter Notebook 개발 도구 제공</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy90cmFpbmluZy8=">Training Operators<i class="fa fa-external-link-alt"></i></span>: Tensorflow, PyTorch, MXNet 등 다양한 deep learning framework에 대한 분산 학습 지원<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9jZW50cmFsLWRhc2gv">Central Dashboard</span>: Web browser를 통해 dashboard UI로 Notebooks, Experiments (AutoML), Experiments (KFP) 등의 컴포넌트 이용 가능</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9ub3RlYm9va3Mv">Kubeflow Notebooks</span>: Web browser에서 python 코드를 개발하고 실행할 수 있는 Jupyter Notebook 개발 도구 제공</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy90cmFpbmluZy8=">Training Operators</span>: Tensorflow, PyTorch, MXNet 등 다양한 deep learning framework에 대한 분산 학습 지원<ul>
 <li>Machine learning 모델 코드를 담고 있는 docker image 경로와 분산 학습 cluster 정보 등을 정의한 명세서를 통해 workload 실행</li>
 </ul>
 </li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9rYXRpYi8=">Experiments (AutoML)<i class="fa fa-external-link-alt"></i></span>: Machine learning 모델의 예측 정확도와 성능을 높이기 위한 반복 실험을 자동화하는 도구 <ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9rYXRpYi8=">Experiments (AutoML)</span>: Machine learning 모델의 예측 정확도와 성능을 높이기 위한 반복 실험을 자동화하는 도구 <ul>
 <li>Katib를 사용하여 hyper parameter tuning 및 neural architecture search</li>
 <li>Experiment (AutoML) 명세서 작성 후 kubernetes에 배포 시 최적 모델 탐색</li>
 </ul>
 </li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvZXh0ZXJuYWwtYWRkLW9ucy9rc2VydmUv">KServe<i class="fa fa-external-link-alt"></i></span>: Kubernetes에 machine learning 모델을 배포하고 추론하는 기능 제공<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvZXh0ZXJuYWwtYWRkLW9ucy9rc2VydmUv">KServe</span>: Kubernetes에 machine learning 모델을 배포하고 추론하는 기능 제공<ul>
 <li>Endpoint, transformer, predictor, explainer로 구성</li>
 <li>Endpoint: Predictor에 데이터 전달</li>
 <li>Transformer: 데이터 전처리, 후처리</li>
@@ -391,7 +391,7 @@
 <li>Transformer와 explainer는 predictor와 연결하여 사용</li>
 </ul>
 </li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9waXBlbGluZXMv">Kubeflow Pipelines (KFP)<i class="fa fa-external-link-alt"></i></span>: Machine learning workflow를 구축하고 배포하기 위한 ML workflow orchestration 도구<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9waXBlbGluZXMv">Kubeflow Pipelines (KFP)</span>: Machine learning workflow를 구축하고 배포하기 위한 ML workflow orchestration 도구<ul>
 <li>Pipeline components를 재사용하여 다양한 실험을 빠르고 쉽게 수행</li>
 <li>DAG 형태로 workflow 구축</li>
 <li>Workflow engine: Argo Workflow</li>
@@ -414,10 +414,10 @@
 <p><del>본격 삽질 시작</del></p>
 <hr>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3Mvc3RhcnRlZC9hcmNoaXRlY3R1cmUv">Kubeflow: Architecture<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Ftc3VuZ3Nkcy5jb20va3IvaW5zaWdodHMva3ViZWZsb3cuaHRtbA==">SAMSUNG SDS: Kubeflow<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9oZWxsb3dvcmxkLmt1cmx5LmNvbS9ibG9nL3NlY29uZC1tbG9wcy8=">Kurly: Kurly만의 MLOps 구축하기 - 쿠브플로우 도입기<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmVzcGluZ2xvYmFsLmNvbS9rdWJlZmxvdy1zdGFydC8=">BESPIN Global: Kubeflow 시작하기<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3Mvc3RhcnRlZC9hcmNoaXRlY3R1cmUv">Kubeflow: Architecture</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Ftc3VuZ3Nkcy5jb20va3IvaW5zaWdodHMva3ViZWZsb3cuaHRtbA==">SAMSUNG SDS: Kubeflow</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oZWxsb3dvcmxkLmt1cmx5LmNvbS9ibG9nL3NlY29uZC1tbG9wcy8=">Kurly: Kurly만의 MLOps 구축하기 - 쿠브플로우 도입기</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmVzcGluZ2xvYmFsLmNvbS9rdWJlZmxvdy1zdGFydC8=">BESPIN Global: Kubeflow 시작하기</span></li>
 </ol>
 
     </div>

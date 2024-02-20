@@ -399,7 +399,7 @@
 </li>
 </ol>
 <p>하지만 <code>sudo fail2ban-client status sshd</code> 명령어는 pod 바깥의 사용자 계정에서 실행되어야 한다.<br>따라서 <code>BashOperator</code>를 사용하는 것이 의미가 없다.<br><code>KubernetesPodOperator</code>을 사용해서 <code>/var/log/fail2ban.log</code>가 <code>/opt/airflow/logs/fail2ban.log</code>에 마운트 되도록 구성해보자!</p>
-<h2 id="KubernetesPodOperator"><a href="#KubernetesPodOperator" class="headerlink" title="KubernetesPodOperator"></a><code>KubernetesPodOperator</code></h2><p>그 전에 <code>KubernetesPodOperator</code>를 알아보고 예제를 살펴보자. (<code>PythonOperater</code> 등이 실행되는 pod의 기본 설정은 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2Jsb2IvbWFpbi9jaGFydC9maWxlcy9wb2QtdGVtcGxhdGUtZmlsZS5rdWJlcm5ldGVzLWhlbG0teWFtbA==">여기<i class="fa fa-external-link-alt"></i></span>를 참고)</p>
+<h2 id="KubernetesPodOperator"><a href="#KubernetesPodOperator" class="headerlink" title="KubernetesPodOperator"></a><code>KubernetesPodOperator</code></h2><p>그 전에 <code>KubernetesPodOperator</code>를 알아보고 예제를 살펴보자. (<code>PythonOperater</code> 등이 실행되는 pod의 기본 설정은 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2Jsb2IvbWFpbi9jaGFydC9maWxlcy9wb2QtdGVtcGxhdGUtZmlsZS5rdWJlcm5ldGVzLWhlbG0teWFtbA==">여기</span>를 참고)</p>
 <ul>
 <li>Docker Image<ul>
 <li>지정된 Docker image를 사용하여 작업 실행</li>
@@ -492,8 +492,8 @@
 <p>다 하고나니 아래와 같은 방법이 있었다…</p>
 <hr>
 <h1 id="허무한-결말"><a href="#허무한-결말" class="headerlink" title="허무한 결말 ~"></a>허무한 결말 ~</h1><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly90ZWNobmljYWxyYW1ibGluZ3MuY29tL2Jsb2cvYWRkaW5nLWJhbi11bmJhbi1ub3RpZmljYXRpb25zLWZyb20tZmFpbDJiYW4tdG8tZGlzY29yZA==">Adding ban&#x2F;unban notifications from Fail2Ban to Discord!<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmFsZXhzZ3VhcmRpYW4ubmV0L3Bvc3RzLzIwMjIvMDgvMDkvRmFpbDJCYW4rRGlzY29yZC8=">Logging Fail2Ban to Discord<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90ZWNobmljYWxyYW1ibGluZ3MuY29tL2Jsb2cvYWRkaW5nLWJhbi11bmJhbi1ub3RpZmljYXRpb25zLWZyb20tZmFpbDJiYW4tdG8tZGlzY29yZA==">Adding ban&#x2F;unban notifications from Fail2Ban to Discord!</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmFsZXhzZ3VhcmRpYW4ubmV0L3Bvc3RzLzIwMjIvMDgvMDkvRmFpbDJCYW4rRGlzY29yZC8=">Logging Fail2Ban to Discord</span></li>
 </ul>
 <figure class="highlight bash"><figcaption><span>/etc/fail2ban/jail.local (Discord)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[DEFAULT]</span><br><span class="line">findtime = 1d</span><br><span class="line">maxretry = 5</span><br><span class="line">bantime  = 1w</span><br><span class="line">backend  = systemd</span><br><span class="line">ignoreip = 127.0.0.1/8 192.168.0.0/24</span><br><span class="line"></span><br><span class="line">[sshd]</span><br><span class="line">enabled = <span class="literal">true</span></span><br><span class="line">action  = discord_notifications</span><br><span class="line">         iptables-allports</span><br><span class="line">port    = <span class="variable">$&#123;SSH_PORT&#125;</span></span><br><span class="line">logpath = %(sshd_log)s</span><br><span class="line">backend = %(sshd_backend)s</span><br></pre></td></tr></table></figure>
 

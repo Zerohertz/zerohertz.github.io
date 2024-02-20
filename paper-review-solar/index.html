@@ -325,12 +325,12 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTIuMTUxNjY=">SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTIuMTUxNjY=">SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling</span></p>
 </blockquote>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>NLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.<br>이러한 발전은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIwMDEuMDgzNjE=">performance scaling law<i class="fa fa-external-link-alt"></i></span>에 의해 더욱 큰 model 학습의 필요를 증대시켰다.<br><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE3MDEuMDY1Mzg=">Mixture of experts (MoE)<i class="fa fa-external-link-alt"></i></span>와 같은 방법을 통해 효율적이고 효과적이게 LLM을 scale-up을 할 수 있지만 종종 특별한 변화가 필요하여 광범위한 적용이 어려운 한계점이 존재한다.<br>따라서 효과적이고 효율적이게 LLM을 scaling up하며 사용 편의성을 위한 단순성을 유지하는 것은 매우 중요하다.<br>본 논문의 저자들은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIyMTIuMDUwNTU=">sparse upcycling<i class="fa fa-external-link-alt"></i></span>에 영감을 받아 효과적이고 효율적이며 단순한 LLM up-scale 방법인 depth up-scaling (DUS)를 제안한다.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>NLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.<br>이러한 발전은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIwMDEuMDgzNjE=">performance scaling law</span>에 의해 더욱 큰 model 학습의 필요를 증대시켰다.<br><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE3MDEuMDY1Mzg=">Mixture of experts (MoE)</span>와 같은 방법을 통해 효율적이고 효과적이게 LLM을 scale-up을 할 수 있지만 종종 특별한 변화가 필요하여 광범위한 적용이 어려운 한계점이 존재한다.<br>따라서 효과적이고 효율적이게 LLM을 scaling up하며 사용 편의성을 위한 단순성을 유지하는 것은 매우 중요하다.<br>본 논문의 저자들은 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIyMTIuMDUwNTU=">sparse upcycling</span>에 영감을 받아 효과적이고 효율적이며 단순한 LLM up-scale 방법인 depth up-scaling (DUS)를 제안한다.</p>
 <span id="more"></span>
 
-<p>DUS는 깊이 차원에 따라 base model을 scaling하고 지속적으로 scaled model을 pretraining하는 것으로 구성된다.<br>하지만 MoE를 통해 scaling하는 sparse upcycling과 다르게 DUS는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDUuMTE5NDY=">EfficientNet<i class="fa fa-external-link-alt"></i></span>에서 사용한 방법과 유사한 depthwise scaling 방법을 LLM 구조에 적용했다.<br>DUS는 MoE와 같은 추가적인 module이 없으므로 학습 또는 추론 framework를 변경하지 않고도 사용하기 쉬운 Hugging Face와 같은 LLM framework에 즉시 호환된다.<br>모든 transformer 구조에 적용 가능한 DUS를 통해 저자들은 다양한 benchmark에서 기존 LLM model들 (<span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDcuMDkyODg=">Llama 2<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMDY4MjU=">Mistral 7B<i class="fa fa-external-link-alt"></i></span>)을 뛰어넘는 성능을 보여준 107억개의 parameter를 갖춘 SOLAR 10.7B를 출시했다.<br>복잡한 지침들을 엄격히 지켜야하는 task들을 수행하기 위해 저자들은 SOLAR 10.7B-Instruct를 개발했으며 Mixtral-8x7B-Instruct model을 크게 능가하고 더 큰 모델에 비해 더 효과적인 것을 benchmark performance를 통해 확인했다.</p>
+<p>DUS는 깊이 차원에 따라 base model을 scaling하고 지속적으로 scaled model을 pretraining하는 것으로 구성된다.<br>하지만 MoE를 통해 scaling하는 sparse upcycling과 다르게 DUS는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDUuMTE5NDY=">EfficientNet</span>에서 사용한 방법과 유사한 depthwise scaling 방법을 LLM 구조에 적용했다.<br>DUS는 MoE와 같은 추가적인 module이 없으므로 학습 또는 추론 framework를 변경하지 않고도 사용하기 쉬운 Hugging Face와 같은 LLM framework에 즉시 호환된다.<br>모든 transformer 구조에 적용 가능한 DUS를 통해 저자들은 다양한 benchmark에서 기존 LLM model들 (<span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDcuMDkyODg=">Llama 2</span>, <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMDY4MjU=">Mistral 7B</span>)을 뛰어넘는 성능을 보여준 107억개의 parameter를 갖춘 SOLAR 10.7B를 출시했다.<br>복잡한 지침들을 엄격히 지켜야하는 task들을 수행하기 위해 저자들은 SOLAR 10.7B-Instruct를 개발했으며 Mixtral-8x7B-Instruct model을 크게 능가하고 더 큰 모델에 비해 더 효과적인 것을 benchmark performance를 통해 확인했다.</p>
 <hr>
 <h1 id="Depth-Up-Scaling"><a href="#Depth-Up-Scaling" class="headerlink" title="Depth Up-Scaling"></a>Depth Up-Scaling</h1><p>효율적인 LLM의 scale-up을 위해 base model의 pretrain 가중치를 사용한다.<br>Sparse upcycling와 같이 기존의 LLM model 구조를 확장하는 방법은 MoE를 사용하지만 저자들은 EfficientNet에서 영감을 받은 방법으로 다른 depthwise scaling 전략을 사용하여 확장 후 성능이 저하되므로 지속적 pretraining을 수행한다.</p>
 <h2 id="Base-Model"><a href="#Base-Model" class="headerlink" title="Base Model"></a>Base Model</h2><p>DUS가 어떠한 $n$-layer transformer 구조에서도 사용할 수 있지만 저자들은 32-layer Llama 2 구조를 base model로 선정했다.<br>Llama 2 구조에 호환되는 최고의 성능 중 하나인 Mistral 7B의 pretrained 가중치를 사용했다.</p>
@@ -346,18 +346,18 @@
 <li>복제 model에서 초기의 $m$ layer들을 삭제</li>
 <li>두 model을 연결하여 $s&#x3D;2\times(n-m)$ layer로 구성하여 확장 model 구성</li>
 </ol>
-<p>저자들은 hardware의 제약과 확장된 model의 효율성을 위해 $m&#x3D;8$ layer를 제거하여 $s&#x3D;48$로 설정하였다. ($\because$ Parameter 수: 7 ~ 13B)<br>또한 Hugging Face에서 동시에 비슷한 방법으로 개발된 <span class="exturl" data-url="aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9VbmRpOTUvTWlzdHJhbC0xMUItdjAuMQ==">Mistral 11B<i class="fa fa-external-link-alt"></i></span>를 함께 수록했다.</p>
+<p>저자들은 hardware의 제약과 확장된 model의 효율성을 위해 $m&#x3D;8$ layer를 제거하여 $s&#x3D;48$로 설정하였다. ($\because$ Parameter 수: 7 ~ 13B)<br>또한 Hugging Face에서 동시에 비슷한 방법으로 개발된 <span class="exturl" data-url="aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9VbmRpOTUvTWlzdHJhbC0xMUItdjAuMQ==">Mistral 11B</span>를 함께 수록했다.</p>
 <h2 id="Continued-Pretraining"><a href="#Continued-Pretraining" class="headerlink" title="Continued Pretraining"></a>Continued Pretraining</h2><p>Depthwise scaled model은 처음에 base model의 성능보다 떨어지기 때문에 지속적 pretraining을 수행한다.<br>저자들은 실험을 통해 sparse upcycling에서 관측된 현상과 같이 scaled model의 지속적 pretraing 동안 급속한 성능 회복을 관측했다.<br>Depthwise scaling의 간단한 대안은 layer를 단순히 반복하여 $n$ layer에서 $2n$ layer로 확장하는 것인데 해당 방법은 이음새 layer ($n$ layer, $n+1$ layer)의 불일치가 발생하며 이를 지속적 pretraining으로 해결하기 어려울 수 있다.<br>반면 depthwise scaling은 $2m$의 중간 layer를 삭제하기 때문에 이음새 layer의 불일치를 감소시키며 지속적 pretraining으로 이를 해결할 수 있다.</p>
 <h2 id="Comparison-to-Other-Up-scaling-Methods"><a href="#Comparison-to-Other-Up-scaling-Methods" class="headerlink" title="Comparison to Other Up-scaling Methods"></a>Comparison to Other Up-scaling Methods</h2><p>Sparse upcycling과 다르게 DUS를 통해 확장된 model은 최적의 훈련 효율성을 위한 training framework, 빠른 추론을 위한 특수 CUDA kernel, gating network 또는 dynamic expert selection과 같은 module이 별도로 필요하지 않다.<br>따라서 DUS를 통해 확장된 model은 높은 효율성을 유지하며 기존 학습 및 추론 framework에 원활히 통합될 수 있다.</p>
 <hr>
 <h1 id="Training-Details"><a href="#Training-Details" class="headerlink" title="Training Details"></a>Training Details</h1><p>DUS를 마치고 저자들은 instruction tuning과 alignment tuning을 수행하여 SOLAR 10.7B를 fine-tuning했다.</p>
 <h2 id="Instruction-Tuning"><a href="#Instruction-Tuning" class="headerlink" title="Instruction Tuning"></a>Instruction Tuning</h2><p>Instruction tuning 단계에서는 QA format의 설명으로 model을 학습했다.<br>Open-source dataset를 주로 사용했으며 수학적 기능을 향상시키기 위해 math QA dataset를 합성했다.<br>저자들은 dataset을 구축하기 위해 아래 절차를 수행했다.</p>
 <ol>
-<li>Seed math data는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMTAuMTQxNjg=">GSM8K<i class="fa fa-external-link-alt"></i></span>와 같은 benchmark dataset과의 오염을 피하기 위해 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDMuMDM4NzQ=">Math dataset<i class="fa fa-external-link-alt"></i></span>에서만 수집</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDkuMTIyODQ=">MetaMath<i class="fa fa-external-link-alt"></i></span>와 유사한 process를 통해 seed math data의 질문과 답변을 rephrase</li>
+<li>Seed math data는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMTAuMTQxNjg=">GSM8K</span>와 같은 benchmark dataset과의 오염을 피하기 위해 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDMuMDM4NzQ=">Math dataset</span>에서만 수집</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDkuMTIyODQ=">MetaMath</span>와 유사한 process를 통해 seed math data의 질문과 답변을 rephrase</li>
 </ol>
 <p>저자들은 이렇게 구축한 질문과 답변 쌍을 QA dataset으로 사용했으며 이를 <code>Synth. Math-Instruct</code>라고 명명했다.</p>
-<h2 id="Alignment-Tuning"><a href="#Alignment-Tuning" class="headerlink" title="Alignment Tuning"></a>Alignment Tuning</h2><p>Alignment tuning 단계에서는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDUuMTgyOTA=">direct preference optimization (DPO)<i class="fa fa-external-link-alt"></i></span>를 사용하여 사람 또는 GPT4와 같은 강력한 AI의 선호도로 fine-tuning된다.<br>Instruction tuning 단계와 유사하게 저자들은 open-source dataset과 <code>Synth. Math-Instruct</code> dataset을 사용했다.<br>Alignment data를 합성하기 위한 절차는 아래와 같다.</p>
+<h2 id="Alignment-Tuning"><a href="#Alignment-Tuning" class="headerlink" title="Alignment Tuning"></a>Alignment Tuning</h2><p>Alignment tuning 단계에서는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDUuMTgyOTA=">direct preference optimization (DPO)</span>를 사용하여 사람 또는 GPT4와 같은 강력한 AI의 선호도로 fine-tuning된다.<br>Instruction tuning 단계와 유사하게 저자들은 open-source dataset과 <code>Synth. Math-Instruct</code> dataset을 사용했다.<br>Alignment data를 합성하기 위한 절차는 아래와 같다.</p>
 <ol>
 <li>Rephrase된 질문을 prompt로, rephrase된 답변을 chosen response로 설정 ($\because$ <code>Synth. Math-Instruct</code> data의 수학적 기능 향상 효과)</li>
 <li>기존의 답변은 rejected respnse로 설정</li>
@@ -409,10 +409,10 @@
 <p>특정 dataset은 전체 dataset을 사용하진 않았으며 정해진 양을 subsample하여 사용했다.<br>Open-source가 아닌 dataset은 MetaMathQA dataset와 같은 open-source dataset으로 대체할 수 있다.<br>Dataset 구축을 위한 기타 정보는 아래와 같다.</p>
 <ul>
 <li>Instruction dataset: Alpaca-styled chat template을 사용해 reformat</li>
-<li>OpenOrca와 같은 dataset: Benchmark dataset과 겹치는 data를 filtering ($\because$ Derived from <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDEuMTM2ODg=">FLAN<i class="fa fa-external-link-alt"></i></span>)</li>
-<li>Alignment dataset: <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMTY5NDQ=">Zephyr<i class="fa fa-external-link-alt"></i></span>를 따라 전처리 (<code>&#123;prompt, chosen, rejected&#125;</code> triplet format)</li>
+<li>OpenOrca와 같은 dataset: Benchmark dataset과 겹치는 data를 filtering ($\because$ Derived from <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDEuMTM2ODg=">FLAN</span>)</li>
+<li>Alignment dataset: <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMTY5NDQ=">Zephyr</span>를 따라 전처리 (<code>&#123;prompt, chosen, rejected&#125;</code> triplet format)</li>
 </ul>
-<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h3><p><span class="exturl" data-url="aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9zcGFjZXMvSHVnZ2luZ0ZhY2VINC9vcGVuX2xsbV9sZWFkZXJib2FyZA==">Hugging Face Open LLM Leaderboard<i class="fa fa-external-link-alt"></i></span>는 아래와 같이 여섯 종류의 평가 방법을 제공한다.</p>
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h3><p><span class="exturl" data-url="aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9zcGFjZXMvSHVnZ2luZ0ZhY2VINC9vcGVuX2xsbV9sZWFkZXJib2FyZA==">Hugging Face Open LLM Leaderboard</span>는 아래와 같이 여섯 종류의 평가 방법을 제공한다.</p>
 <table>
 <thead>
 <tr>
@@ -427,7 +427,7 @@
 <td align="center">자연 과학의 다양한 분야에서 추론 능력 평가</td>
 </tr>
 <tr>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDUuMDc4MzA=">HellaSWAG<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDUuMDc4MzA=">HellaSWAG</span></td>
 <td align="center">상황에 맞는 문장 완성 문제</td>
 <td align="center">일상 생활, 교육 자료 등에서 추출한 시나리오를 바탕으로 상황 인식 및 언어 이해 능력 평가</td>
 </tr>
@@ -437,23 +437,23 @@
 <td align="center">문학, 역사, 과학, 수학 등 다양한 분야의 질문에 대한 이해</td>
 </tr>
 <tr>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDkuMDc5NTg=">TruthfulQA<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDkuMDc5NTg=">TruthfulQA</span></td>
 <td align="center">진실성을 평가하는 질문과 답변</td>
 <td align="center">진실성, 정확성, 신뢰성 있는 정보 제공 능력 평가</td>
 </tr>
 <tr>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDcuMTA2NDE=">Winogrande<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE5MDcuMTA2NDE=">Winogrande</span></td>
 <td align="center">상황 기반 선택형 질문</td>
 <td align="center">상황에 따른 적절한 대명사 선택을 통해 언어 이해력 평가</td>
 </tr>
 <tr>
-<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMTAuMTQxNjg=">GSM8K<i class="fa fa-external-link-alt"></i></span></td>
+<td align="center"><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMTAuMTQxNjg=">GSM8K</span></td>
 <td align="center">초등학교 수준의 수학 문제</td>
 <td align="center">다양한 수학 문제 해결을 통한 계산 능력 및 수학적 추론 평가</td>
 </tr>
 </tbody></table>
 <p>저자들은 6가지 task로 model을 평가했다.</p>
-<h3 id="Model-Merging"><a href="#Model-Merging" class="headerlink" title="Model Merging"></a>Model Merging</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDYuMDE3MDg=">TIES-Merging<i class="fa fa-external-link-alt"></i></span>과 같은 model merging 방법으로 추가 학습 없이 model의 성능을 향상시킬 수 있다.<br>저자들은 instruction tuning 단계와 alignment tuning 단계에서 학습한 model의 일부분을 merge했다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FyY2VlLWFpL21lcmdla2l0">MergeKit<i class="fa fa-external-link-alt"></i></span>와 같이 유명한 open source도 존재하지만 저자들은 그들만의 merging 방법을 구현했다.</p>
+<h3 id="Model-Merging"><a href="#Model-Merging" class="headerlink" title="Model Merging"></a>Model Merging</h3><p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMDYuMDE3MDg=">TIES-Merging</span>과 같은 model merging 방법으로 추가 학습 없이 model의 성능을 향상시킬 수 있다.<br>저자들은 instruction tuning 단계와 alignment tuning 단계에서 학습한 model의 일부분을 merge했다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FyY2VlLWFpL21lcmdla2l0">MergeKit</span>와 같이 유명한 open source도 존재하지만 저자들은 그들만의 merging 방법을 구현했다.</p>
 <h2 id="Main-Results"><a href="#Main-Results" class="headerlink" title="Main Results"></a>Main Results</h2><p>저자들은 SOLAR 10.7B model과 SOLAR 10.7B-Instruct model에 대해 평가를 진행했고 Qwen 14B와 Mistral 7B와 같이 비슷한 크기의 pretrained model에 비해 뛰어난 성능을 보인다고 주장한다.<br>또한 최고 성능의 open-source LLM Mixtral 8x7-Instruct-v0.1 또는 Qwen 72B에 비해 크기가 더 작음에도 불구하고 SOLAR 10.7B-Instruct model은 H6 기준 가장 높은 점수를 기록했다.<br>따라서 저자들은 이 결과를 통해 DUS가 fine-tuning 시 SOTA 성능을 달성할 수 있는 model을 확장할 수 있다고 주장한다.</p>
 <h2 id="Ablation-Studies"><a href="#Ablation-Studies" class="headerlink" title="Ablation Studies"></a>Ablation Studies</h2><p>저자들은 instruction tuning 단계와 alignment tuning 단계에 대해 ablation study를 제공한다.</p>
 <h3 id="Instruction-Tuning-1"><a href="#Instruction-Tuning-1" class="headerlink" title="Instruction Tuning"></a>Instruction Tuning</h3><blockquote>
@@ -651,7 +651,7 @@
 <li>b: Cand. 2의 가중치</li>
 </ul>
 </li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kbC5hY20ub3JnL2RvaS8xMC4xMTQ1LzMyNTMzNC4zMjUyNDI=">SLERP<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kbC5hY20ub3JnL2RvaS8xMC4xMTQ1LzMyNTMzNC4zMjUyNDI=">SLERP</span></li>
 </ul>
 </li>
 <li>서로 다른 merge 방법이 H6 score에 큰 영향을 주지 않음</li>

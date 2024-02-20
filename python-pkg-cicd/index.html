@@ -339,7 +339,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>자주 사용하는 Python 함수들을 package로 생성하고 CI&#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!<br>배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 <span class="exturl" data-url="aHR0cHM6Ly9weXBpLm9yZy8=">PyPI<i class="fa fa-external-link-alt"></i></span> (Python Package Index)에 업로드하여 <code>pip</code>로 설치할 수 있게 해볼 것이다.<br>CI&#x2F;CD 계획은 아래와 같다.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>자주 사용하는 Python 함수들을 package로 생성하고 CI&#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!<br>배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 <span class="exturl" data-url="aHR0cHM6Ly9weXBpLm9yZy8=">PyPI</span> (Python Package Index)에 업로드하여 <code>pip</code>로 설치할 수 있게 해볼 것이다.<br>CI&#x2F;CD 계획은 아래와 같다.</p>
 <ul>
 <li>Dev Branch Push<ol>
 <li>Lint</li>
@@ -408,7 +408,7 @@
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/280266359-d6f8fbda-71e0-48a3-bde4-1cb8573b469c.png" alt="jenkins-setup-1"></p>
 <p>Multibranch Pipeline으로 project를 생성한다.</p>
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/280266846-cf1a5cf6-f3be-48fd-b680-4f3d862007d6.png" alt="jenkins-setup-2"></p>
-<p>적절한 GitHub credentials와 repository HTTPS URL을 기입한다.<br>마지막으로 지저분한 UI를 방지하기 위해 <a href="https://zerohertz.github.io/jenkins-init/#GitHub-Branch-Source">Disable GitHub Notifications</a>를 설정했다.<br>이제 모든 설정은 끝났다!<br>해당 CI&#x2F;CD pipeline이 적용된 코드들은 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei96ZXJvaGVydHpMaWI=">Zerohertz&#x2F;zerohertzLib<i class="fa fa-external-link-alt"></i></span>에서 확인할 수 있다.</p>
+<p>적절한 GitHub credentials와 repository HTTPS URL을 기입한다.<br>마지막으로 지저분한 UI를 방지하기 위해 <a href="https://zerohertz.github.io/jenkins-init/#GitHub-Branch-Source">Disable GitHub Notifications</a>를 설정했다.<br>이제 모든 설정은 끝났다!<br>해당 CI&#x2F;CD pipeline이 적용된 코드들은 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei96ZXJvaGVydHpMaWI=">Zerohertz&#x2F;zerohertzLib</span>에서 확인할 수 있다.</p>
 <hr>
 <h1 id="Updates"><a href="#Updates" class="headerlink" title="Updates"></a>Updates</h1><p>이후에 CI&#x2F;CD pipeline에 부족한 점이 많아 수정을 진행했다.<br>Package의 update 시 변경 사항들을 한 눈에 볼 수 있게 <a href="https://zerohertz.github.io/zerohertzLib/zerohertzLib.api.html#zerohertzLib.api.GitHub.release_note">GitHub API로 불러오고 Release Notes를 생성하는 코드</a>를 추가했다.<br>최신 CI&#x2F;CD pipeline의 설명은 <a href="https://zerohertz.github.io/zerohertzLib/cicd.html">여기</a>에서 확인할 수 있고, 위의 코드로 생성된 release notes는 <a href="https://zerohertz.github.io/zerohertzLib/release.html">여기</a>에서 확인할 수 있다.</p>
 <hr>

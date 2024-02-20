@@ -451,7 +451,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Templating-tasks-using-the-Airflow-context"><a href="#Templating-tasks-using-the-Airflow-context" class="headerlink" title="Templating tasks using the Airflow context"></a>Templating tasks using the Airflow context</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cud2lraW1lZGlhLm9yZy8=">Wikimedia<i class="fa fa-external-link-alt"></i></span>에서 제공하는 API를 통해 데이터를 <code>.gz</code> 확장자로 받아오고 schedule에 따른 증분 데이터를 적재하여 DAG와 operator가 Airflow에서 어떻게 작동하는지, 그리고 workflow를 어떻게 schedule하는지 이해해보자.<br>우선 API를 통해 아래와 같이 원하는 기간의 데이터를 받을 수 있다.</p>
+          <h1 id="Templating-tasks-using-the-Airflow-context"><a href="#Templating-tasks-using-the-Airflow-context" class="headerlink" title="Templating tasks using the Airflow context"></a>Templating tasks using the Airflow context</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cud2lraW1lZGlhLm9yZy8=">Wikimedia</span>에서 제공하는 API를 통해 데이터를 <code>.gz</code> 확장자로 받아오고 schedule에 따른 증분 데이터를 적재하여 DAG와 operator가 Airflow에서 어떻게 작동하는지, 그리고 workflow를 어떻게 schedule하는지 이해해보자.<br>우선 API를 통해 아래와 같이 원하는 기간의 데이터를 받을 수 있다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://dumps.wikimedia.org/other/pageviews/2023/2023-07/pageviews-20230726-010000.gz</span><br><span class="line">--2023-07-27 21:16:24--  https://dumps.wikimedia.org/other/pageviews/2023/2023-07/pageviews-20230726-010000.gz</span><br><span class="line">dumps.wikimedia.org (dumps.wikimedia.org) 해석 중... 208.80.154.142</span><br><span class="line">다음으로 연결 중: dumps.wikimedia.org (dumps.wikimedia.org)|208.80.154.142|:443... 연결했습니다.</span><br><span class="line">HTTP 요청을 보냈습니다. 응답 기다리는 중... 200 OK</span><br><span class="line">길이: 44600005 (43M) [application/octet-stream]</span><br><span class="line">저장 위치: `pageviews-20230726-010000.gz<span class="string">&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">pageviews-20230726-010000.gz  100%[=================================================&gt;]  42.53M  4.56MB/s    /  9.9s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2023-07-27 21:16:36 (4.28 MB/s) - `pageviews-20230726-010000.gz&#x27;</span> 저장함 [44600005/44600005]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -538,7 +538,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcv">Apache Airflow<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcv">Apache Airflow</span></p>
 </blockquote>
 <ul>
 <li>Definition<ul>
@@ -725,7 +725,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/">YOLOv5 모델을 ONNX로 변환하여 Triton Inference Server로 배포</a>한 경험은 있지만, <a href="https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/#Introduction">Amazon EC2 Inf1</a>을 통해 모델을 배포하고 REST API를 직접 구성해본 경험은 없어 직접 inference server와 API server를 구성해보려고한다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyaXRvbi1pbmZlcmVuY2Utc2VydmVyL3B5dGhvbl9iYWNrZW5kL3RyZWUvbWFpbi9pbmZlcmVudGlh">공식 문서<i class="fa fa-external-link-alt"></i></span>와 <span class="exturl" data-url="aHR0cHM6Ly9oeXBlcmNvbm5lY3QuZ2l0aHViLmlvLzIwMjIvMTIvMTMvaW5mcmEtY29zdC1vcHRpbWl6YXRpb24td2l0aC1hd3MtaW5mZXJlbnRpYS5odG1s">참고 자료<i class="fa fa-external-link-alt"></i></span>들도 존재하지만 실질적 개발을 하는데 있어 막히는 부분이 꽤 많아 기록으로 남긴다.</p>
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/">YOLOv5 모델을 ONNX로 변환하여 Triton Inference Server로 배포</a>한 경험은 있지만, <a href="https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/#Introduction">Amazon EC2 Inf1</a>을 통해 모델을 배포하고 REST API를 직접 구성해본 경험은 없어 직접 inference server와 API server를 구성해보려고한다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyaXRvbi1pbmZlcmVuY2Utc2VydmVyL3B5dGhvbl9iYWNrZW5kL3RyZWUvbWFpbi9pbmZlcmVudGlh">공식 문서</span>와 <span class="exturl" data-url="aHR0cHM6Ly9oeXBlcmNvbm5lY3QuZ2l0aHViLmlvLzIwMjIvMTIvMTMvaW5mcmEtY29zdC1vcHRpbWl6YXRpb24td2l0aC1hd3MtaW5mZXJlbnRpYS5odG1s">참고 자료</span>들도 존재하지만 실질적 개발을 하는데 있어 막히는 부분이 꽤 많아 기록으로 남긴다.</p>
 <hr>
 <h1 id="Local-내-구현"><a href="#Local-내-구현" class="headerlink" title="Local 내 구현"></a>Local 내 구현</h1><p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/252835059-74184fdc-5d7d-4daf-9a39-e079b93af1b3.png" alt="local"></p>
           <!--noindex-->
@@ -812,7 +812,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84">저번</a>에 이어서 python code들의 formatting을 조금 더 간편하게 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=">Git Hooks<i class="fa fa-external-link-alt"></i></span>를 통해 도전한다.</p>
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84">저번</a>에 이어서 python code들의 formatting을 조금 더 간편하게 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=">Git Hooks</span>를 통해 도전한다.</p>
 <h2 id="Git-Hooks"><a href="#Git-Hooks" class="headerlink" title="Git Hooks"></a>Git Hooks</h2><p>Git Hooks는 Git 작업의 특정 지점에서 실행되는 스크립트다.<br>사용자 정의 작업을 수행하거나 작업의 유효성을 검사하기 위해 사용되며 git repository 내부에 설정되어 해당 이벤트가 발생할 때마다 실행된다.</p>
 <h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><p>pre-commit은 Git Hooks을 활용하여 코드 commit 전에 자동으로 실행되는 도구다.<br>코드의 품질을 유지하고 일관성을 강제하기 위해 사용되며 일반적으로 코드 스타일 체크, 정적 분석, 테스트 실행 등의 작업을 수행한다.<br>또한 commit 하기 전에 코드에 대한 일련의 검사를 수행하여 품질을 향상시키고, 잠재적인 오류나 스타일 가이드 위반을 방지한다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pre-commit</span><br></pre></td></tr></table></figure>
@@ -903,8 +903,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Algorithm 문제를 풀고 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9BbGdvcml0aG0=">GitHub<i class="fa fa-external-link-alt"></i></span>에서 관리하고 있었는데, 문제를 해결할 때 <span class="exturl" data-url="aHR0cHM6Ly9yZXBsaXQuY29tL2xhbmd1YWdlcy9weXRob24z">replit<i class="fa fa-external-link-alt"></i></span>을 초기에 많이 사용했었다.<br>하지만 현재 사용하고 있는 Visual Studio Code와 indentation의 규칙이 달라서 GitHub Actions로 모두 동일한 format을 가지도록 자동화하겠다.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20va28vYWN0aW9ucw==">GitHub Actions<i class="fa fa-external-link-alt"></i></span>는 구동 조건 (<span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2RvY3MvY29uY2VwdHMvd29ya2xvYWRzL2NvbnRyb2xsZXJzL2Nyb24tam9icy8=">CronJob<i class="fa fa-external-link-alt"></i></span>, 특정 branch에 push, …)을 만족하면 준비된 스크립트를 자동적으로 실행해준다.<br>따라서 CI&#x2F;CD를 포함하여 다양한 작업에 사용되고 있다. (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9sb3R0ZXJ5LWJvdC9hY3Rpb25z">로또 자동화<i class="fa fa-external-link-alt"></i></span>도 가능,,,)</p>
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Algorithm 문제를 풀고 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9BbGdvcml0aG0=">GitHub</span>에서 관리하고 있었는데, 문제를 해결할 때 <span class="exturl" data-url="aHR0cHM6Ly9yZXBsaXQuY29tL2xhbmd1YWdlcy9weXRob24z">replit</span>을 초기에 많이 사용했었다.<br>하지만 현재 사용하고 있는 Visual Studio Code와 indentation의 규칙이 달라서 GitHub Actions로 모두 동일한 format을 가지도록 자동화하겠다.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20va28vYWN0aW9ucw==">GitHub Actions</span>는 구동 조건 (<span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2RvY3MvY29uY2VwdHMvd29ya2xvYWRzL2NvbnRyb2xsZXJzL2Nyb24tam9icy8=">CronJob</span>, 특정 branch에 push, …)을 만족하면 준비된 스크립트를 자동적으로 실행해준다.<br>따라서 CI&#x2F;CD를 포함하여 다양한 작업에 사용되고 있다. (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9sb3R0ZXJ5LWJvdC9hY3Rpb25z">로또 자동화</span>도 가능,,,)</p>
 <img width="1322" alt="I_WANNA_BE_RICH" src="https://github.com/Zerohertz/lottery-bot/assets/42334717/85fd91e0-4bbe-4882-983c-b9f2dbd8b7e0">
           <!--noindex-->
             <div class="post-button">
@@ -991,7 +991,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9nby5kZXYv">Go<i class="fa fa-external-link-alt"></i></span>는 구글에서 개발한 프로그래밍 언어로, 간결하고 효율적인 코드 작성을 위해 설계된 언어입니다. Go는 정적 타입 언어로, C와 유닉스 환경에서 사용되는 도구들의 장점을 결합한 언어로 개발되었습니다.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9nby5kZXYv">Go</span>는 구글에서 개발한 프로그래밍 언어로, 간결하고 효율적인 코드 작성을 위해 설계된 언어입니다. Go는 정적 타입 언어로, C와 유닉스 환경에서 사용되는 도구들의 장점을 결합한 언어로 개발되었습니다.</p>
 </blockquote>
 <h2 id="Features-of-Go"><a href="#Features-of-Go" class="headerlink" title="Features of Go"></a>Features of Go</h2><ol>
 <li>간결하고 가독성이 좋은 문법<ul>
@@ -1226,7 +1226,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <blockquote>
-<p>본 후기는 2023.05.25 ~ 2023.06.15에 <span class="exturl" data-url="aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9jb3JuZXIvbWFpbl8yNWNhLmpzcA==">25연대<i class="fa fa-external-link-alt"></i></span>에서 진행된 <span class="exturl" data-url="aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9lZHVpbmZvL3N1cHBvcnQuanNw">보충역 훈련소 3주과정<i class="fa fa-external-link-alt"></i></span>를 토대로 작성되었습니다.</p>
+<p>본 후기는 2023.05.25 ~ 2023.06.15에 <span class="exturl" data-url="aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9jb3JuZXIvbWFpbl8yNWNhLmpzcA==">25연대</span>에서 진행된 <span class="exturl" data-url="aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9lZHVpbmZvL3N1cHBvcnQuanNw">보충역 훈련소 3주과정</span>를 토대로 작성되었습니다.</p>
 </blockquote>
 <p>후기를 시작하기 앞서 훈련소는 연대에 따라, 중대에 따라 큰 차이가 존재할 수 있는 것 같습니다.<br>따라서 <a href="https://zerohertz.github.io/professional-research-agent-train-init/#%EC%9D%BD%EC%9C%BC%EB%A9%B4-%EB%8F%84%EC%9B%80%EB%90%98%EB%8A%94">다양한 후기 글</a>들을 참고하시는 것을 추천드립니다.</p>
           <!--noindex-->
@@ -1314,7 +1314,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIyMDMuMDUxMjIucGRm">DEER: Detection-agnostic End-to-End Recognizer for Scene Text Spotting<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIyMDMuMDUxMjIucGRm">DEER: Detection-agnostic End-to-End Recognizer for Scene Text Spotting</span></p>
 </blockquote>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>이 논문은 NAVER Clova 팀에서 개발한 end-to-end text spotting 모델을 제안한다.<br>End-to-end text spotting 모델은 text detector와 recognizer로 구성되어있다.<br>해당 논문의 저자들은 기존 text spotting 모델들은 detector와 recognizer 사이에 다소 밀접하게 결합되어있다고 아래와 같이 주장한다.</p>
 <ol>
@@ -1322,7 +1322,7 @@
 <li>Detctor에서 crop된 영역의 localized features를 recognzier에 전달하여 detector의 종속성을 감소시킬 수 있지만 여전히 존재하는 detector의 오류 누적으로 인해 recognition 실패가 발생할 수 있다.</li>
 <li>Feature pooling과 masking은 end-to-end text spotting 모델을 학습하기 위해 bounding boxes 데이터가 여전히 필요하다.</li>
 </ol>
-<p>이에 대한 자세한 설명은 <span class="exturl" data-url="aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=">발표자료<i class="fa fa-external-link-alt"></i></span>의 6, 7, 8페이지에서 확인할 수 있다.</p>
+<p>이에 대한 자세한 설명은 <span class="exturl" data-url="aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=">발표자료</span>의 6, 7, 8페이지에서 확인할 수 있다.</p>
 <p>Object detection 분야에서는 end-to-end Transformer 기반 접근 방식이 발전함에 따라 이미지의 개별 객체를 엄격하게 recognize하기 위해 정확한 영역 정보, 정교한 ground truth 할당 및 feature pooling이 필요하지 않다는 것이 분명해지고 있다.<br>그렇기에 저자들은 detection 결과의 정확성에 대한 의존성을 완화할 수 있는 DEER (Detection-agnostic end-to-end Recognizer)를 제안한다.<br>DEER는 정확한 text 영역을 추출하기 위해 detector에 의존하지 않고 detector가 각 text instance에 대한 single reference point를 localize하도록 한다.<br>Reference point 주위의 text를 포괄적으로 recognize하는 text decoder는 text sequence를 decoding하는 동안 특정 text instance의 attending region을 결정하는 방법을 학습한다.<br>DEER는 기존 모델들과 다르게 detecotr의 역할이 single reference point를 localize하는 것 뿐이기 때문에 훨씬 더 다양한 검출 알고리즘과 주석을 사용할 수 있다.<br>이러한 접근 방식을 통해 pooling operations와 polygon-type 주석 없이 회전 및 곡선 text instance를 자연스럽게 처리할 수 있다.</p>
           <!--noindex-->
             <div class="post-button">
@@ -1408,7 +1408,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Model serving 시 모델의 입력에 대해 출력을 산출하는 과정인 <span class="exturl" data-url="aHR0cHM6Ly8wNzY5MjMuZ2l0aHViLmlvL3Bvc3RzL0FJLTUvIyVFQyU4OCU5QyVFQyVBMCU4NCVFRCU4QyU4Q2ZvcndhcmQtcHJvcGFnYXRpb24=">순전파 (forward propagation)<i class="fa fa-external-link-alt"></i></span>는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.<br>이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grphic Processing Unit)을 많이 활용하고 있다.<br>하지만 아래와 같은 한계점이 존재한다.</p>
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Model serving 시 모델의 입력에 대해 출력을 산출하는 과정인 <span class="exturl" data-url="aHR0cHM6Ly8wNzY5MjMuZ2l0aHViLmlvL3Bvc3RzL0FJLTUvIyVFQyU4OCU5QyVFQyVBMCU4NCVFRCU4QyU4Q2ZvcndhcmQtcHJvcGFnYXRpb24=">순전파 (forward propagation)</span>는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.<br>이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grphic Processing Unit)을 많이 활용하고 있다.<br>하지만 아래와 같은 한계점이 존재한다.</p>
 <ul>
 <li>비싸다. (물리적 GPU 비용, 전력 소모, 클라우드 서비스 등 모든 측면에서)</li>
 <li>물리 코어를 가상 코어로 나눠 사용할 수 없어 자원을 낭비하기 쉽다.</li>
@@ -1504,7 +1504,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>직장인 3개월 차…<br>대학원생 생활보다 훨씬 여유롭고 괜찮다 생각했지만 노화가 시작됐는지 체력이 약화됨을 느껴서 영양제를 섭취하기로 결정했습니다…<br>적절한 조합을 찾기 위해 앱 <span class="exturl" data-url="aHR0cHM6Ly9waWxhbWVudG9yLm9vcHkuaW8v">필라멘토<i class="fa fa-external-link-alt"></i></span>와 지인의 자문을 활용했습니다.</p>
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>직장인 3개월 차…<br>대학원생 생활보다 훨씬 여유롭고 괜찮다 생각했지만 노화가 시작됐는지 체력이 약화됨을 느껴서 영양제를 섭취하기로 결정했습니다…<br>적절한 조합을 찾기 위해 앱 <span class="exturl" data-url="aHR0cHM6Ly9waWxhbWVudG9yLm9vcHkuaW8v">필라멘토</span>와 지인의 자문을 활용했습니다.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/nutrients/" rel="contents">
@@ -1592,12 +1592,12 @@
           <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
 <p>Definition of Triton Inference Server</p>
 </blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS90cml0b24taW5mZXJlbmNlLXNlcnZlcg==">Triton Inference Server<i class="fa fa-external-link-alt"></i></span>는 NVIDIA에서 개발한 딥 러닝 모델 인퍼런스를 위한 고성능 인퍼런스 서버입니다. Triton Inference Server는 다중 모델을 지원하며, TensorFlow, PyTorch, ONNX 등의 주요 딥 러닝 프레임워크를 모두 지원합니다.<br>이를 통해 사용자는 다양한 모델을 효율적으로 서빙할 수 있습니다.<br>Triton Inference Server는 NVIDIA TensorRT 엔진을 기반으로하며, GPU 가속을 통해 모델 추론을 빠르게 수행할 수 있습니다.<br>또한 Triton Inference Server는 TensorFlow Serving과 호환되는 gRPC 인터페이스를 제공하며 Triton Inference Server는 TensorFlow Serving, TorchServe와 같은 기존 인퍼런스 서버와 비교하여 성능 및 유연성 면에서 우수한 성능을 발휘합니다.<br>Triton Inference Server는 Kubernetes, Docker 및 NVIDIA DeepOps와 같은 오케스트레이션 툴과 통합되어 쉽게 배포할 수 있습니다.<br>Triton Inference Server는 성능, 확장성 및 유연성 면에서 우수한 기능을 제공하므로, 대규모 딥 러닝 모델 인퍼런스를 위한 선택적이고 강력한 도구로 자리 잡고 있습니다.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS90cml0b24taW5mZXJlbmNlLXNlcnZlcg==">Triton Inference Server</span>는 NVIDIA에서 개발한 딥 러닝 모델 인퍼런스를 위한 고성능 인퍼런스 서버입니다. Triton Inference Server는 다중 모델을 지원하며, TensorFlow, PyTorch, ONNX 등의 주요 딥 러닝 프레임워크를 모두 지원합니다.<br>이를 통해 사용자는 다양한 모델을 효율적으로 서빙할 수 있습니다.<br>Triton Inference Server는 NVIDIA TensorRT 엔진을 기반으로하며, GPU 가속을 통해 모델 추론을 빠르게 수행할 수 있습니다.<br>또한 Triton Inference Server는 TensorFlow Serving과 호환되는 gRPC 인터페이스를 제공하며 Triton Inference Server는 TensorFlow Serving, TorchServe와 같은 기존 인퍼런스 서버와 비교하여 성능 및 유연성 면에서 우수한 성능을 발휘합니다.<br>Triton Inference Server는 Kubernetes, Docker 및 NVIDIA DeepOps와 같은 오케스트레이션 툴과 통합되어 쉽게 배포할 수 있습니다.<br>Triton Inference Server는 성능, 확장성 및 유연성 면에서 우수한 기능을 제공하므로, 대규모 딥 러닝 모델 인퍼런스를 위한 선택적이고 강력한 도구로 자리 잡고 있습니다.</p>
 <blockquote>
 <p>Docker Image: <code>triton-server</code></p>
 </blockquote>
 <p>Triton Inference Server 이미지는 NVIDIA에서 제공하는 Docker 이미지입니다. 이 이미지는 NVIDIA GPU 드라이버와 CUDA 라이브러리를 포함하며, 딥 러닝 인퍼런스를 실행하는 데 필요한 모든 라이브러리와 의존성을 포함합니다.<br>Triton Inference Server 이미지는 NGC(NVIDIA GPU Cloud)와 Docker Hub에서 제공됩니다. NGC에서는 최신 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크에서 학습된 모델을 지원합니다. 또한, TensorRT와 같은 최적화 라이브러리를 사용하여 높은 성능을 발휘합니다.<br>Docker Hub에서도 NVIDIA에서 공식적으로 제공하는 Triton Inference Server 이미지를 찾을 수 있습니다. Docker Hub에서는 다양한 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크를 지원합니다.<br>이러한 Triton Inference Server 이미지는 Kubernetes, Docker Compose와 같은 오케스트레이션 툴과 통합되어 배포 및 관리할 수 있으며, 쉽게 다양한 환경에서 실행할 수 있습니다.</p>
-<p>이러한 Triton Inference Server를 통해 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3VsdHJhbHl0aWNzL3lvbG92NQ==">YOLOv5<i class="fa fa-external-link-alt"></i></span> 모델을 Serving하고, 간략한 Client를 개발하여 Server가 잘 구동되는지 확인하는 방법을 설명하겠다.</p>
+<p>이러한 Triton Inference Server를 통해 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3VsdHJhbHl0aWNzL3lvbG92NQ==">YOLOv5</span> 모델을 Serving하고, 간략한 Client를 개발하여 Server가 잘 구동되는지 확인하는 방법을 설명하겠다.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/serving-yolov5-object-detection-model-using-triton-server/" rel="contents">

@@ -463,7 +463,7 @@ Kubernetes는 _를 싫어해요,,,
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete -f pod.yaml</span><br><span class="line">pod <span class="string">&quot;k8s-is-so-hard-name2&quot;</span> deleted</span><br></pre></td></tr></table></figure>
 </blockquote>
 <hr>
-<h1 id="K3s"><a href="#K3s" class="headerlink" title="K3s"></a>K3s</h1><p><span class="exturl" data-url="aHR0cHM6Ly9rM3MuaW8v">K3s<i class="fa fa-external-link-alt"></i></span>는 매우 쉽게 설치하고 삭제할 수 있다.</p>
+<h1 id="K3s"><a href="#K3s" class="headerlink" title="K3s"></a>K3s</h1><p><span class="exturl" data-url="aHR0cHM6Ly9rM3MuaW8v">K3s</span>는 매우 쉽게 설치하고 삭제할 수 있다.</p>
 <figure class="highlight bash"><figcaption><span>install_k3s.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -s - --docker</span><br><span class="line">sudo <span class="built_in">cat</span> /etc/rancher/k3s/k3s.yaml</span><br><span class="line"><span class="built_in">rm</span> -rf ~/.kube</span><br><span class="line"><span class="built_in">mkdir</span> ~/.kube</span><br><span class="line">sudo <span class="built_in">cp</span> /etc/rancher/k3s/k3s.yaml ~/.kube/config</span><br><span class="line">sudo <span class="built_in">chown</span> <span class="variable">$USER</span>:<span class="variable">$USER</span> ~/.kube/config</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><figcaption><span>remove_k3s.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/k3s-uninstall.sh</span><br></pre></td></tr></table></figure>
@@ -520,13 +520,13 @@ Kubernetes는 _를 싫어해요,,,
 
 <hr>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMva3ViZXJuZXRlcw==">GitHub: kubernetes&#x2F;kubernetes<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvY29uY2VwdHMvb3ZlcnZpZXcv">Kubernetes: 쿠버네티스란 무엇인가?<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucmVkaGF0LmNvbS9rby90b3BpY3MvY29udGFpbmVycy9rdWJlcm5ldGVzLWFyY2hpdGVjdHVyZQ==">Red Hat: 쿠버네티스 아키텍처 소개<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItYWxsLmdpdGh1Yi5pby9kb2NzL2ludHJvZHVjdGlvbi93aHlfa3ViZXJuZXRlcy8jbWxvcHMtLWt1YmVybmV0ZXM=">모두의 MLOps: Why Kubernetes?&#x2F;MLOps &amp; Kubernetes<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvdG9vbHMvI2t1YmVjdGw=">Kubernetes: kubectl<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvY29uY2VwdHMvYXJjaGl0ZWN0dXJlL25vZGVzLw==">Kubernetes: 노드<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvbWluaWt1YmU=">GitHub: kubernetes&#x2F;minikube<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMva3ViZXJuZXRlcw==">GitHub: kubernetes&#x2F;kubernetes</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvY29uY2VwdHMvb3ZlcnZpZXcv">Kubernetes: 쿠버네티스란 무엇인가?</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucmVkaGF0LmNvbS9rby90b3BpY3MvY29udGFpbmVycy9rdWJlcm5ldGVzLWFyY2hpdGVjdHVyZQ==">Red Hat: 쿠버네티스 아키텍처 소개</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItYWxsLmdpdGh1Yi5pby9kb2NzL2ludHJvZHVjdGlvbi93aHlfa3ViZXJuZXRlcy8jbWxvcHMtLWt1YmVybmV0ZXM=">모두의 MLOps: Why Kubernetes?&#x2F;MLOps &amp; Kubernetes</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvdG9vbHMvI2t1YmVjdGw=">Kubernetes: kubectl</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvY29uY2VwdHMvYXJjaGl0ZWN0dXJlL25vZGVzLw==">Kubernetes: 노드</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvbWluaWt1YmU=">GitHub: kubernetes&#x2F;minikube</span></li>
 </ol>
 
     </div>

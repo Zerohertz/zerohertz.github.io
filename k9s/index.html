@@ -326,7 +326,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 <span class="exturl" data-url="aHR0cHM6Ly9rOXNjbGkuaW8v">K9s<i class="fa fa-external-link-alt"></i></span>를 사용한다!<br>K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.<br>주요 기능은 아래와 같다.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 <span class="exturl" data-url="aHR0cHM6Ly9rOXNjbGkuaW8v">K9s</span>를 사용한다!<br>K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.<br>주요 기능은 아래와 같다.</p>
 <ol>
 <li>Real-time Monitoring<ul>
 <li>주요 resource를 실시간으로 모니터링</li>
@@ -350,7 +350,7 @@
 <span id="more"></span>
 
 <hr>
-<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>설치는 아주 간단하고 쉽다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RlcmFpbGVkL2s5cy9yZWxlYXNlcw==">여기<i class="fa fa-external-link-alt"></i></span>에서 배포 버전을 확인하고 아래의 shell script를 실행하여 원하는 버전을 입력하면 된다.</p>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>설치는 아주 간단하고 쉽다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RlcmFpbGVkL2s5cy9yZWxlYXNlcw==">여기</span>에서 배포 버전을 확인하고 아래의 shell script를 실행하여 원하는 버전을 입력하면 된다.</p>
 <figure class="highlight bash"><figcaption><span>install_k9s.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Insert Version (v0.&#x27;00.0&#x27;):&quot;</span></span><br><span class="line"><span class="built_in">read</span> ver</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Download Start!&quot;</span></span><br><span class="line"><span class="built_in">echo</span> https://github.com/derailed/k9s/releases/download/v0.<span class="variable">$&#123;ver&#125;</span>/k9s_Linux_amd64.tar.gz</span><br><span class="line"></span><br><span class="line">wget https://github.com/derailed/k9s/releases/download/v0.<span class="variable">$&#123;ver&#125;</span>/k9s_Linux_amd64.tar.gz</span><br><span class="line">tar -zxvf ./k9s_Linux_amd64.tar.gz</span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.local/bin</span><br><span class="line"><span class="built_in">mv</span> ./k9s ~/.local/bin &amp;&amp; <span class="built_in">chmod</span> +x ~/.local/bin/k9s</span><br><span class="line"><span class="built_in">rm</span> ./k9s_Linux_amd64.tar.gz LICENSE README.md</span><br></pre></td></tr></table></figure>
 
 <p>위 script의 실행이 끝나면 <code>~/.bashrc</code> 혹은 <code>~/.zshrc</code>에 아래 환경 변수를 추가하면 끝이다!</p>

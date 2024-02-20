@@ -9,7 +9,7 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 19 Feb 2024 14:30:28 GMT</pubDate>
+    <pubDate>Tue, 20 Feb 2024 16:53:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -19,7 +19,7 @@
       <pubDate>Sun, 18 Feb 2024 23:24:37 GMT</pubDate>
       
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMTgyOTc=&quot;&gt;Image Clustering Conditioned on Text Criteria&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTAuMTgyOTc=&quot;&gt;Image Clustering Conditioned on Text Criteria&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Image clustering은 unsupervised learning task으로 연구되어 왔으며 대량의 visual data 구축, label이 없는 image dataset의 labeling 비용 감소, image 검색 system 성능 향상에 사용되었다.&lt;br&gt;최신의 deep image clustering 방법들은 ground truth로 간주되는 dataset의 사전 정의된 class label으로 종종 평가된다.&lt;/p&gt;
 &lt;p&gt;하지만 실제로는 각 사용자들이 동일한 dataset에 대해 clustering할 때 서로 다른 기준에 따라 여러 결과를 원할 수 있다.&lt;br&gt;그럼에도 기존 clustering 방법은 사용자가 clustering 기준을 제어할 수 있는 직접적인 mechanism을 제공하지 않는다. (기존 clustering 방법의 기준은 neural network의 inductive bias, loss function, data augmentation, feature extractor에 의해 결정될 가능성이 높다.)&lt;br&gt;따라서 저자들은 이러한 한계점을 개선하기 위해 사용자가 지정한 기준을 기반으로 단일 dataset에서 다양한 결과를 가능하게 하고 기존의 암묵적으로 지시된 clustering process를 혁신한다.&lt;/p&gt;</description>
@@ -44,9 +44,9 @@
       <pubDate>Fri, 16 Feb 2024 23:27:57 GMT</pubDate>
       
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTIuMTUxNjY=&quot;&gt;SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIzMTIuMTUxNjY=&quot;&gt;SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;NLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.&lt;br&gt;이러한 발전은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIwMDEuMDgzNjE=&quot;&gt;performance scaling law&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에 의해 더욱 큰 model 학습의 필요를 증대시켰다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE3MDEuMDY1Mzg=&quot;&gt;Mixture of experts (MoE)&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;와 같은 방법을 통해 효율적이고 효과적이게 LLM을 scale-up을 할 수 있지만 종종 특별한 변화가 필요하여 광범위한 적용이 어려운 한계점이 존재한다.&lt;br&gt;따라서 효과적이고 효율적이게 LLM을 scaling up하며 사용 편의성을 위한 단순성을 유지하는 것은 매우 중요하다.&lt;br&gt;본 논문의 저자들은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIyMTIuMDUwNTU=&quot;&gt;sparse upcycling&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에 영감을 받아 효과적이고 효율적이며 단순한 LLM up-scale 방법인 depth up-scaling (DUS)를 제안한다.&lt;/p&gt;</description>
+&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;NLP 분야의 언어 이해와 상호작용에 대한 향상시킨 LLM의 도입으로 큰 변화가 진행되고 있다.&lt;br&gt;이러한 발전은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIwMDEuMDgzNjE=&quot;&gt;performance scaling law&lt;/span&gt;에 의해 더욱 큰 model 학습의 필요를 증대시켰다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzE3MDEuMDY1Mzg=&quot;&gt;Mixture of experts (MoE)&lt;/span&gt;와 같은 방법을 통해 효율적이고 효과적이게 LLM을 scale-up을 할 수 있지만 종종 특별한 변화가 필요하여 광범위한 적용이 어려운 한계점이 존재한다.&lt;br&gt;따라서 효과적이고 효율적이게 LLM을 scaling up하며 사용 편의성을 위한 단순성을 유지하는 것은 매우 중요하다.&lt;br&gt;본 논문의 저자들은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIyMTIuMDUwNTU=&quot;&gt;sparse upcycling&lt;/span&gt;에 영감을 받아 효과적이고 효율적이며 단순한 LLM up-scale 방법인 depth up-scaling (DUS)를 제안한다.&lt;/p&gt;</description>
       
       
       
@@ -69,7 +69,7 @@
       
       <description>&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/297024102-028740af-f0a1-401b-8629-52069c9831da.png&quot; width=600&gt;
 
-&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Upstage에서 진행하는 “&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9iaXQubHkvdXAtYW1iLWp1bXAtaW50by10aGUtYWktd29ybGQ=&quot;&gt;Jump into the AI World - AI Production Lifecycle&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;“ 강의의 홍보대사로 선발되어 해당 강의를 수강할 수 있는 감사한 기회를 얻게되었습니다.&lt;/p&gt;</description>
+&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Upstage에서 진행하는 “&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9iaXQubHkvdXAtYW1iLWp1bXAtaW50by10aGUtYWktd29ybGQ=&quot;&gt;Jump into the AI World - AI Production Lifecycle&lt;/span&gt;“ 강의의 홍보대사로 선발되어 해당 강의를 수강할 수 있는 감사한 기회를 얻게되었습니다.&lt;/p&gt;</description>
       
       
       
@@ -167,7 +167,7 @@
       <guid>https://zerohertz.github.io/python-pkg-cicd/</guid>
       <pubDate>Fri, 03 Nov 2023 09:28:05 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;자주 사용하는 Python 함수들을 package로 생성하고 CI&amp;#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!&lt;br&gt;배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9weXBpLm9yZy8=&quot;&gt;PyPI&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; (Python Package Index)에 업로드하여 &lt;code&gt;pip&lt;/code&gt;로 설치할 수 있게 해볼 것이다.&lt;br&gt;CI&amp;#x2F;CD 계획은 아래와 같다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;자주 사용하는 Python 함수들을 package로 생성하고 CI&amp;#x2F;CD pipeline을 Jenkins로 구축하여 자동으로 배포될 수 있게 해보자!&lt;br&gt;배포는 package 내부의 함수 및 객체를 sphinx로 문서화하고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9weXBpLm9yZy8=&quot;&gt;PyPI&lt;/span&gt; (Python Package Index)에 업로드하여 &lt;code&gt;pip&lt;/code&gt;로 설치할 수 있게 해볼 것이다.&lt;br&gt;CI&amp;#x2F;CD 계획은 아래와 같다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Dev Branch Push&lt;ol&gt;
 &lt;li&gt;Lint&lt;/li&gt;
@@ -280,7 +280,7 @@
       <guid>https://zerohertz.github.io/sphinx/</guid>
       <pubDate>Thu, 12 Oct 2023 09:57:39 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;개발을 하다보면 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9vcGVuY3YtcHl0aG9uLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j&quot;&gt;이런&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 페이지를 한번쯤 들어가본적 있을 것이다.&lt;br&gt;위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.&lt;br&gt;특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.&lt;br&gt;문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄 뿐만 아니라, 코드의 유지 및 관리도 훨씬 쉬워진다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;개발을 하다보면 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9vcGVuY3YtcHl0aG9uLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j&quot;&gt;이런&lt;/span&gt; 페이지를 한번쯤 들어가본적 있을 것이다.&lt;br&gt;위 페이지와 같이 개발자로서 코드를 작성하는 것만큼 중요한 것은 해당 코드를 잘 문서화하는 것이다.&lt;br&gt;특히, 오픈 소스 프로젝트나 여러 사람들과 협업을 진행하는 큰 프로젝트에서는 코드의 문서화가 더욱 중요해진다.&lt;br&gt;문서화는 다른 개발자들이 코드를 이해하고 사용하는 데 큰 도움을 줄 뿐만 아니라, 코드의 유지 및 관리도 훨씬 쉬워진다.&lt;/p&gt;
 &lt;p&gt;Python은 그 자체로 간결하고 읽기 쉬운 언어이지만, 복잡한 패키지나 프로젝트를 다루게 되면 적절한 문서화 없이는 그 구조와 기능을 파악하기가 어려울 수 있다.&lt;br&gt;이때 필요한 것이 바로 문서화 도구다.&lt;br&gt;그 중에서도 Python 커뮤니티에서 널리 사용되는 도구가 바로 &lt;code&gt;Sphinx&lt;/code&gt;다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Sphinx&lt;/code&gt;는 Python 문서화를 위한 강력한 도구로, 간단한 마크다운 형식의 문서를 정교한 HTML, PDF, ePub 등의 형식으로 변환해준다.&lt;br&gt;또한, 다양한 플러그인과 확장 기능을 지원하여 문서의 내용뿐만 아니라 디자인, 구조, 그리고 상호 작용까지도 사용자의 필요에 맞게 커스터마이즈할 수 있다.&lt;/p&gt;
 &lt;p&gt;따라서 이 글에서는 &lt;code&gt;Sphinx&lt;/code&gt;를 사용하여 Python 패키지를 어떻게 문서화하는지 간략히 알아본다.&lt;/p&gt;</description>
@@ -304,7 +304,7 @@
       <guid>https://zerohertz.github.io/awesome-jmy/</guid>
       <pubDate>Mon, 04 Sep 2023 05:19:23 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;박사 전문연구요원은 TEPS와 한국사능력검정시험을 응시하고 점수에 따라 자신의 학교에서 복무하면 된다.&lt;br&gt;하지만 석사 전문연구요원은 편입 과정이 박사 전문연구요원과는 다르게 별도의 시험을 응시하는 것이 아닌, 일반 취업과 같다.&lt;br&gt;물론 TO를 가지고 있는 기업만 편입이 가능하다.&lt;br&gt;아마 석사를 갓 졸업한 대학원생이고, 주위에 전문연구요원으로 재직하고 있는 선배 혹은 지인이 없다면 매우 막막할 것이라 생각한다.&lt;br&gt;편입을 위해 업체를 찾아볼 때 전문연구요원을 채용할 수 있는지, 자신의 분야와 맞는지, 복지는 어떤지, 연봉은 어떤지 등 고려할 것이 너무 많아 더욱 어려울 것이다.&lt;br&gt;회사 공식 페이지에는 구인 글이 존재하지만 사람인이나 wanted와 같은 플랫폼에 구인글이 올라오지 않아 접근성이 떨어지는 경우 TO를 보유한 기업 혹은 전문연구요원 복무자가 존재하는 업체 리스트를 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93b3JrLm1tYS5nby5rci9jYWlzQllJUy9zZWFyY2gvYnlqamVjZ2VvbXNhZWsuZG8/bWVudV9pZD1tX202XzE=&quot;&gt;산업지원 병역일터&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 확인할 수 있지만, 매번 다운로드하고 엑셀에서 일일히 찾아볼 수 없는 일이다.&lt;br&gt;그래서 아래와 같이 전문연구요원 TO를 가지고 있는 업체의 통계적 시각화와 시간에 따른 복무 인원 변화를 제공하는 프로젝트를 진행하게 됐다.&lt;br&gt;GitHub Actions로 자동화되어 10일에 한번 데이터 및 시각화 자료가 갱신된다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;박사 전문연구요원은 TEPS와 한국사능력검정시험을 응시하고 점수에 따라 자신의 학교에서 복무하면 된다.&lt;br&gt;하지만 석사 전문연구요원은 편입 과정이 박사 전문연구요원과는 다르게 별도의 시험을 응시하는 것이 아닌, 일반 취업과 같다.&lt;br&gt;물론 TO를 가지고 있는 기업만 편입이 가능하다.&lt;br&gt;아마 석사를 갓 졸업한 대학원생이고, 주위에 전문연구요원으로 재직하고 있는 선배 혹은 지인이 없다면 매우 막막할 것이라 생각한다.&lt;br&gt;편입을 위해 업체를 찾아볼 때 전문연구요원을 채용할 수 있는지, 자신의 분야와 맞는지, 복지는 어떤지, 연봉은 어떤지 등 고려할 것이 너무 많아 더욱 어려울 것이다.&lt;br&gt;회사 공식 페이지에는 구인 글이 존재하지만 사람인이나 wanted와 같은 플랫폼에 구인글이 올라오지 않아 접근성이 떨어지는 경우 TO를 보유한 기업 혹은 전문연구요원 복무자가 존재하는 업체 리스트를 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93b3JrLm1tYS5nby5rci9jYWlzQllJUy9zZWFyY2gvYnlqamVjZ2VvbXNhZWsuZG8/bWVudV9pZD1tX202XzE=&quot;&gt;산업지원 병역일터&lt;/span&gt;에서 확인할 수 있지만, 매번 다운로드하고 엑셀에서 일일히 찾아볼 수 없는 일이다.&lt;br&gt;그래서 아래와 같이 전문연구요원 TO를 가지고 있는 업체의 통계적 시각화와 시간에 따른 복무 인원 변화를 제공하는 프로젝트를 진행하게 됐다.&lt;br&gt;GitHub Actions로 자동화되어 10일에 한번 데이터 및 시각화 자료가 갱신된다.&lt;/p&gt;
 &lt;div align = &quot;center&quot;&gt;
   &lt;a href=&quot;https://github.com/Zerohertz/awesome-jmy&quot;&gt;
     &lt;img src=&quot;https://img.shields.io/badge/awesome--jmy-800a0a?style=for-the-badge&amp;logo=Awesome Lists&amp;logoColor=white&quot;/&gt;
@@ -379,7 +379,7 @@
       <guid>https://zerohertz.github.io/airflow-theme/</guid>
       <pubDate>Sat, 26 Aug 2023 14:57:21 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Apache Airflow에 적용 가능한 theme를 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2Jsb2IvbWFpbi9haXJmbG93L2NvbmZpZ190ZW1wbGF0ZXMvZGVmYXVsdF93ZWJzZXJ2ZXJfY29uZmlnLnB5&quot;&gt;공식 repository&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 아래와 같이 확인할 수 있다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Apache Airflow에 적용 가능한 theme를 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2Jsb2IvbWFpbi9haXJmbG93L2NvbmZpZ190ZW1wbGF0ZXMvZGVmYXVsdF93ZWJzZXJ2ZXJfY29uZmlnLnB5&quot;&gt;공식 repository&lt;/span&gt;에서 아래와 같이 확인할 수 있다.&lt;/p&gt;
 &lt;figure class=&quot;highlight python&quot;&gt;&lt;figcaption&gt;&lt;span&gt;airflow/config_templates/default_webserver_config.py&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ----------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Theme CONFIG&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ----------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Flask App Builder comes up with a number of predefined themes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# that you can use for Apache Airflow.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# http://flask-appbuilder.readthedocs.io/en/latest/customizing.html#changing-themes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Please make sure to remove &amp;quot;navbar_color&amp;quot; configuration from airflow.cfg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# in order to fully utilize the theme. (or use that property in conjunction with theme)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;bootstrap-theme.css&amp;quot;&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;# default bootstrap&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;amelia.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;cerulean.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;cosmo.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;cyborg.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;darkly.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;flatly.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;journal.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;lumen.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;paper.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;readable.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;sandstone.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;simplex.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;slate.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;solar.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;spacelab.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;superhero.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;united.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;APP_THEME = &lt;span class=&quot;string&quot;&gt;&amp;quot;yeti.css&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
       
       
@@ -458,7 +458,7 @@
       <guid>https://zerohertz.github.io/home-server-cloud/</guid>
       <pubDate>Tue, 22 Aug 2023 14:53:49 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuZHJvcGJveC5jb20v&quot;&gt;Dropbox&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;와 같은 cloud storage service를 Kubernetes로 배포하기 위해 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL25leHRjbG91ZA==&quot;&gt;Nextcloud&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 사용한다!&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuZHJvcGJveC5jb20v&quot;&gt;Dropbox&lt;/span&gt;와 같은 cloud storage service를 Kubernetes로 배포하기 위해 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL25leHRjbG91ZA==&quot;&gt;Nextcloud&lt;/span&gt;을 사용한다!&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262398322-65cec9f6-d359-422a-8735-e5db355e4fb7.png&quot; alt=&quot;Nextcloud&quot;&gt;&lt;/p&gt;</description>
       
       
@@ -528,11 +528,11 @@
       <guid>https://zerohertz.github.io/airflow-auto-payment/</guid>
       <pubDate>Fri, 18 Aug 2023 06:26:28 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;신용카드 중 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuc2hpbmhhbmNhcmQuY29tL3Bjb250cy9odG1sL2NhcmQvYXBwbHkvY3JlZGl0LzExOTg5NDJfMjIwNy5odG1s&quot;&gt;The More&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;는 5,000원 이상의 결제 금액에 대해 1,000원 미만의 포인트가 적립된다.&lt;br&gt;이를 통신비와 같은 서비스에 분할결제로 적용하면 약 16.65%의 이득을 볼 수 있다. ($&#92;because&#92;frac{999}{5999}&#92;times100$)&lt;br&gt;하지만 아래와 같은 제약이 존재한다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;신용카드 중 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuc2hpbmhhbmNhcmQuY29tL3Bjb250cy9odG1sL2NhcmQvYXBwbHkvY3JlZGl0LzExOTg5NDJfMjIwNy5odG1s&quot;&gt;The More&lt;/span&gt;는 5,000원 이상의 결제 금액에 대해 1,000원 미만의 포인트가 적립된다.&lt;br&gt;이를 통신비와 같은 서비스에 분할결제로 적용하면 약 16.65%의 이득을 볼 수 있다. ($&#92;because&#92;frac{999}{5999}&#92;times100$)&lt;br&gt;하지만 아래와 같은 제약이 존재한다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;동일한 가맹점의 경우 1일 1회에 한하여 포인트 적립이 되며, …&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;따라서 하루에 한 번만 The More 카드로 5,999원이 결제되도록 Apache Airflow의 DAG를 구성한다.&lt;br&gt;물론 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9uYW11Lndpa2kvdy8lRUMlOEIlQTAlRUQlOTUlOUMlRUMlQjklQjQlRUIlOTMlOUMlMjAlRUIlQjYlODQlRUQlOTUlQTAlRUElQjIlQjAlRUMlQTAlOUMlMjAlRUMlQTAlOUMlRUQlOTUlOUMlMjAlRUMlODIlQUMlRUElQjElQjQ=&quot;&gt;논란&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;은 많지만 개발도 연습하기 좋은 예제였다.&lt;/p&gt;</description>
+&lt;p&gt;따라서 하루에 한 번만 The More 카드로 5,999원이 결제되도록 Apache Airflow의 DAG를 구성한다.&lt;br&gt;물론 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9uYW11Lndpa2kvdy8lRUMlOEIlQTAlRUQlOTUlOUMlRUMlQjklQjQlRUIlOTMlOUMlMjAlRUIlQjYlODQlRUQlOTUlQTAlRUElQjIlQjAlRUMlQTAlOUMlMjAlRUMlQTAlOUMlRUQlOTUlOUMlMjAlRUMlODIlQUMlRUElQjElQjQ=&quot;&gt;논란&lt;/span&gt;은 많지만 개발도 연습하기 좋은 예제였다.&lt;/p&gt;</description>
       
       
       
@@ -563,7 +563,7 @@
       <guid>https://zerohertz.github.io/home-server-external-ip/</guid>
       <pubDate>Thu, 17 Aug 2023 06:12:50 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Subdomain을 생성하기 위해 새 domain을 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rci5nb2RhZGR5LmNvbS8=&quot;&gt;GoDaddy&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 구매했다.&lt;br&gt;하지만 구매한 domain은 DDNS (Dynamic Domain Name System)가 아닌 DNS (Domain Name System)이므로 공유기에 할당된 external IP가 변경되면 새로 바꿔줘야한다.&lt;br&gt;물론 DDNS service를 연결할 수 있지만 무료로 이용하려면 제약되는 것들이 많아서 IP가 변경되는 순간 Discord Webhook로 메시지가 전달되도록 구성해보겠다.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Subdomain을 생성하기 위해 새 domain을 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rci5nb2RhZGR5LmNvbS8=&quot;&gt;GoDaddy&lt;/span&gt;에서 구매했다.&lt;br&gt;하지만 구매한 domain은 DDNS (Dynamic Domain Name System)가 아닌 DNS (Domain Name System)이므로 공유기에 할당된 external IP가 변경되면 새로 바꿔줘야한다.&lt;br&gt;물론 DDNS service를 연결할 수 있지만 무료로 이용하려면 제약되는 것들이 많아서 IP가 변경되는 순간 Discord Webhook로 메시지가 전달되도록 구성해보겠다.&lt;/p&gt;</description>
       
       
       
@@ -584,7 +584,7 @@
       <guid>https://zerohertz.github.io/traefik-oauth/</guid>
       <pubDate>Wed, 16 Aug 2023 03:41:02 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Google-OAuth&quot;&gt;&lt;a href=&quot;#Google-OAuth&quot; class=&quot;headerlink&quot; title=&quot;Google OAuth&quot;&gt;&lt;/a&gt;Google OAuth&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jb25zb2xlLmNsb3VkLmdvb2dsZS5jb20v&quot;&gt;여기&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에 접속해 아래의 과정을 수행한다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Google-OAuth&quot;&gt;&lt;a href=&quot;#Google-OAuth&quot; class=&quot;headerlink&quot; title=&quot;Google OAuth&quot;&gt;&lt;/a&gt;Google OAuth&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jb25zb2xlLmNsb3VkLmdvb2dsZS5jb20v&quot;&gt;여기&lt;/span&gt;에 접속해 아래의 과정을 수행한다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;프로젝트 생성&lt;/li&gt;
 &lt;li&gt;OAuth 동의 화면 생성&lt;/li&gt;
@@ -615,7 +615,7 @@
       <guid>https://zerohertz.github.io/k8s-dashboard/</guid>
       <pubDate>Tue, 15 Aug 2023 02:49:52 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Web 기반 사용자 interface &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvYWNjZXNzLWFwcGxpY2F0aW9uLWNsdXN0ZXIvd2ViLXVpLWRhc2hib2FyZC8=&quot;&gt;Kubernetes Dashboard&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 구축해보자!&lt;br&gt;이를 통해 사용자는 container화 된 application을 Kubernetes cluster 내에 배포하고, 문제를 진단하며, 클러스터 자원을 관리할 수 있다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Web 기반 사용자 interface &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2tvL2RvY3MvdGFza3MvYWNjZXNzLWFwcGxpY2F0aW9uLWNsdXN0ZXIvd2ViLXVpLWRhc2hib2FyZC8=&quot;&gt;Kubernetes Dashboard&lt;/span&gt;를 구축해보자!&lt;br&gt;이를 통해 사용자는 container화 된 application을 Kubernetes cluster 내에 배포하고, 문제를 진단하며, 클러스터 자원을 관리할 수 있다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Resource Monitoring: 라이브 node 정보, CPU 및 memory 사용량과 같은 cluster의 핵심 지표 모니터링&lt;/li&gt;
 &lt;li&gt;Application 배포: Web interface를 사용하여 application 배포 및 관리&lt;/li&gt;
@@ -749,7 +749,7 @@
 &lt;/li&gt;
 &lt;li&gt;Ingress Controller&lt;ul&gt;
 &lt;li&gt;Ingress 리소스의 규칙을 읽고 실제 traffic routing 처리&lt;/li&gt;
-&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvaW5ncmVzcy1uZ2lueA==&quot;&gt;NGINX Ingress Controller&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;, &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3RyYWVmaWsvdHJhZWZpaw==&quot;&gt;Traefik&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;, …&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvaW5ncmVzcy1uZ2lueA==&quot;&gt;NGINX Ingress Controller&lt;/span&gt;, &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3RyYWVmaWsvdHJhZWZpaw==&quot;&gt;Traefik&lt;/span&gt;, …&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Backend Service&lt;ul&gt;
@@ -789,7 +789,7 @@
       <guid>https://zerohertz.github.io/k9s/</guid>
       <pubDate>Tue, 08 Aug 2023 14:14:04 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Real-time Monitoring&lt;ul&gt;
 &lt;li&gt;주요 resource를 실시간으로 모니터링&lt;/li&gt;
@@ -934,7 +934,7 @@
       <guid>https://zerohertz.github.io/home-server-init/</guid>
       <pubDate>Thu, 03 Aug 2023 13:19:31 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1KRlRVempXMGZzSSZhYl9jaGFubmVsPUlUU3ViJUVDJTlFJTg3JUVDJTg0JUFE&quot;&gt;이 영상&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 보며 뽐뿌가 온 나머지,,, 홈 서버로 사용하기 위해 아래와 같은 스펙으로 주문했다!!!&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1KRlRVempXMGZzSSZhYl9jaGFubmVsPUlUU3ViJUVDJTlFJTg3JUVDJTg0JUFE&quot;&gt;이 영상&lt;/span&gt;을 보며 뽐뿌가 온 나머지,,, 홈 서버로 사용하기 위해 아래와 같은 스펙으로 주문했다!!!&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -945,27 +945,27 @@
 &lt;/thead&gt;
 &lt;tbody&gt;&lt;tr&gt;
 &lt;td align=&quot;center&quot;&gt;Case&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9saW5rLmNvdXBhbmcuY29tL2EvNU1ZbGM=&quot;&gt;ASRock DeskMini X300 120W&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9saW5rLmNvdXBhbmcuY29tL2EvNU1ZbGM=&quot;&gt;ASRock DeskMini X300 120W&lt;/span&gt;&lt;/td&gt;
 &lt;td align=&quot;center&quot;&gt;215,000원&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&quot;center&quot;&gt;CPU&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zbWFydHN0b3JlLm5hdmVyLmNvbS9zanN5cy9wcm9kdWN0cy84ODQ4ODU4MDI0P05hUG09Y3Q9bGt2NndrMmclN0NjaT1jaGVja291dCU3Q3RyPXBwYyU3Q3RyeD1udWxsJTdDaGs9NTA4NDRjM2FhYmVkNGNjYjI0NTAxNmE3NTM3NmE0MDVlNjJlZGM0Yw==&quot;&gt;AMD Ryzen 5 5600G&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; + Thermal grease&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zbWFydHN0b3JlLm5hdmVyLmNvbS9zanN5cy9wcm9kdWN0cy84ODQ4ODU4MDI0P05hUG09Y3Q9bGt2NndrMmclN0NjaT1jaGVja291dCU3Q3RyPXBwYyU3Q3RyeD1udWxsJTdDaGs9NTA4NDRjM2FhYmVkNGNjYjI0NTAxNmE3NTM3NmE0MDVlNjJlZGM0Yw==&quot;&gt;AMD Ryzen 5 5600G&lt;/span&gt; + Thermal grease&lt;/td&gt;
 &lt;td align=&quot;center&quot;&gt;166,500원&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&quot;center&quot;&gt;Fan&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9saW5rLmNvdXBhbmcuY29tL2EvNU1ZRGw=&quot;&gt;Noctua NH-L9a-AM4&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9saW5rLmNvdXBhbmcuY29tL2EvNU1ZRGw=&quot;&gt;Noctua NH-L9a-AM4&lt;/span&gt;&lt;/td&gt;
 &lt;td align=&quot;center&quot;&gt;75,990원&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&quot;center&quot;&gt;RAM&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zaG9wcGluZy5pbnRlcnBhcmsuY29tL3Byb2R1Y3QvcHJvZHVjdEluZm8uZG8/cHJkTm89MTEzNTAwNDUxNzA=&quot;&gt;SAMSUNG Notebook DDR4 16GB PC4-25600&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; $&#92;times$ 2&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zaG9wcGluZy5pbnRlcnBhcmsuY29tL3Byb2R1Y3QvcHJvZHVjdEluZm8uZG8/cHJkTm89MTEzNTAwNDUxNzA=&quot;&gt;SAMSUNG Notebook DDR4 16GB PC4-25600&lt;/span&gt; $&#92;times$ 2&lt;/td&gt;
 &lt;td align=&quot;center&quot;&gt;77,860원&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&quot;center&quot;&gt;SSD&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zbWFydHN0b3JlLm5hdmVyLmNvbS9tb2RlaXQvcHJvZHVjdHMvNTM1NjY2MTIxNj9OYVBtPWN0PWxrdjZ5MGozJTdDY2k9Y2hlY2tvdXQlN0N0cj1wcGMlN0N0cng9bnVsbCU3Q2hrPWE1ZmI1ZDc5N2NjOTc5YTFmY2ViZTQ4NzYyZmY2ZGU5YTNhYTI2ZjE=&quot;&gt;SK Hynix GOLD P31 NVMe SSD M.2 NVMe 1TB&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zbWFydHN0b3JlLm5hdmVyLmNvbS9tb2RlaXQvcHJvZHVjdHMvNTM1NjY2MTIxNj9OYVBtPWN0PWxrdjZ5MGozJTdDY2k9Y2hlY2tvdXQlN0N0cj1wcGMlN0N0cng9bnVsbCU3Q2hrPWE1ZmI1ZDc5N2NjOTc5YTFmY2ViZTQ4NzYyZmY2ZGU5YTNhYTI2ZjE=&quot;&gt;SK Hynix GOLD P31 NVMe SSD M.2 NVMe 1TB&lt;/span&gt;&lt;/td&gt;
 &lt;td align=&quot;center&quot;&gt;87,500원&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
@@ -990,7 +990,7 @@
       <guid>https://zerohertz.github.io/multiprocessing/</guid>
       <pubDate>Wed, 02 Aug 2023 13:01:57 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;회사에서 약 17,000장 가량의 고화질 이미지 데이터를 처리해야하는 일이 생겼는데 총 처리 시간이 약 10시간 가량 소요됐다.&lt;br&gt;너무 오랜 시간이 소요되기 때문에 이를 빠르게 바꿔보고자 병렬 처리를 해보려고 했다.&lt;br&gt;먼저 생각난 키워드는 multithreading이여서 &lt;a href=&quot;https://docs.python.org/ko/3/library/threading.html&quot;&gt;&lt;code&gt;threading&lt;/code&gt;&lt;/a&gt; 라이브러리에 대해 찾아보게 되었다.&lt;br&gt;하지만 python은 한 thread가 python 객체에 대한 접근을 제어하는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9uYW11Lndpa2kvdy8lRUIlQUUlQTQlRUQlODUlOEQlRUMlOEElQTQ=&quot;&gt;mutex&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;인 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zc3VuZ2thbmcudGlzdG9yeS5jb20vZW50cnkvcHl0aG9uLUdJTC1HbG9iYWwtaW50ZXJwcmV0ZXItTG9jayVFQyU5RCU4MC0lRUIlQUMlQjQlRUMlOTclODclRUMlOUQlQkMlRUElQjklOEM=&quot;&gt;GIL&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; (Global Interpreter Lock)이 존재하여 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9tb25rZXkzMTk5LmdpdGh1Yi5pby9kZXZlbG9wL3B5dGhvbi8yMDE4LzEyLzA0L3B5dGhvbi1wYXJhcnJlbC5odG1s&quot;&gt;CPU 작업이 적고 I&amp;#x2F;O 작업이 많은 처리에서 효과를 볼 수 있다&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;. (&lt;del&gt;더 이상은 너무 어려워요,,,&lt;/del&gt;)&lt;br&gt;Cython에서는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9QQU5QUC9ibG9iL2Q1MThjNjg4ZGU0NDhmOTFjOGZkNmQxOTRhYTFjYzM0OTRmYjZhYTAvbW9kZWxzL3Bvc3RfcHJvY2Vzc2luZy9ib3hnZW4vYm94Z2VuLnB5eCNMMzVDMzYtTDM1QzM2&quot;&gt;이렇게&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; &lt;code&gt;nogil=True&lt;/code&gt;로 정의해 GIL를 해제하고 병렬 처리를 할 수 있다.&lt;br&gt;그렇다면 현재 문제인 대량의 고화질 이미지 데이터를 최대한 빠르게 처리하려면 어떻게 해야할까?&lt;br&gt;이 경우에는 process 기반의 병렬 처리를 지원하는 &lt;a href=&quot;https://docs.python.org/3/library/multiprocessing.html&quot;&gt;&lt;code&gt;multiprocessing&lt;/code&gt;&lt;/a&gt; 라이브러리를 사용하면 된다.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;회사에서 약 17,000장 가량의 고화질 이미지 데이터를 처리해야하는 일이 생겼는데 총 처리 시간이 약 10시간 가량 소요됐다.&lt;br&gt;너무 오랜 시간이 소요되기 때문에 이를 빠르게 바꿔보고자 병렬 처리를 해보려고 했다.&lt;br&gt;먼저 생각난 키워드는 multithreading이여서 &lt;a href=&quot;https://docs.python.org/ko/3/library/threading.html&quot;&gt;&lt;code&gt;threading&lt;/code&gt;&lt;/a&gt; 라이브러리에 대해 찾아보게 되었다.&lt;br&gt;하지만 python은 한 thread가 python 객체에 대한 접근을 제어하는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9uYW11Lndpa2kvdy8lRUIlQUUlQTQlRUQlODUlOEQlRUMlOEElQTQ=&quot;&gt;mutex&lt;/span&gt;인 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zc3VuZ2thbmcudGlzdG9yeS5jb20vZW50cnkvcHl0aG9uLUdJTC1HbG9iYWwtaW50ZXJwcmV0ZXItTG9jayVFQyU5RCU4MC0lRUIlQUMlQjQlRUMlOTclODclRUMlOUQlQkMlRUElQjklOEM=&quot;&gt;GIL&lt;/span&gt; (Global Interpreter Lock)이 존재하여 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9tb25rZXkzMTk5LmdpdGh1Yi5pby9kZXZlbG9wL3B5dGhvbi8yMDE4LzEyLzA0L3B5dGhvbi1wYXJhcnJlbC5odG1s&quot;&gt;CPU 작업이 적고 I&amp;#x2F;O 작업이 많은 처리에서 효과를 볼 수 있다&lt;/span&gt;. (&lt;del&gt;더 이상은 너무 어려워요,,,&lt;/del&gt;)&lt;br&gt;Cython에서는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9QQU5QUC9ibG9iL2Q1MThjNjg4ZGU0NDhmOTFjOGZkNmQxOTRhYTFjYzM0OTRmYjZhYTAvbW9kZWxzL3Bvc3RfcHJvY2Vzc2luZy9ib3hnZW4vYm94Z2VuLnB5eCNMMzVDMzYtTDM1QzM2&quot;&gt;이렇게&lt;/span&gt; &lt;code&gt;nogil=True&lt;/code&gt;로 정의해 GIL를 해제하고 병렬 처리를 할 수 있다.&lt;br&gt;그렇다면 현재 문제인 대량의 고화질 이미지 데이터를 최대한 빠르게 처리하려면 어떻게 해야할까?&lt;br&gt;이 경우에는 process 기반의 병렬 처리를 지원하는 &lt;a href=&quot;https://docs.python.org/3/library/multiprocessing.html&quot;&gt;&lt;code&gt;multiprocessing&lt;/code&gt;&lt;/a&gt; 라이브러리를 사용하면 된다.&lt;/p&gt;</description>
       
       
       
@@ -1116,7 +1116,7 @@
       <guid>https://zerohertz.github.io/apache-airflow-2/</guid>
       <pubDate>Thu, 27 Jul 2023 12:11:41 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Templating-tasks-using-the-Airflow-context&quot;&gt;&lt;a href=&quot;#Templating-tasks-using-the-Airflow-context&quot; class=&quot;headerlink&quot; title=&quot;Templating tasks using the Airflow context&quot;&gt;&lt;/a&gt;Templating tasks using the Airflow context&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cud2lraW1lZGlhLm9yZy8=&quot;&gt;Wikimedia&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 제공하는 API를 통해 데이터를 &lt;code&gt;.gz&lt;/code&gt; 확장자로 받아오고 schedule에 따른 증분 데이터를 적재하여 DAG와 operator가 Airflow에서 어떻게 작동하는지, 그리고 workflow를 어떻게 schedule하는지 이해해보자.&lt;br&gt;우선 API를 통해 아래와 같이 원하는 기간의 데이터를 받을 수 있다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Templating-tasks-using-the-Airflow-context&quot;&gt;&lt;a href=&quot;#Templating-tasks-using-the-Airflow-context&quot; class=&quot;headerlink&quot; title=&quot;Templating tasks using the Airflow context&quot;&gt;&lt;/a&gt;Templating tasks using the Airflow context&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cud2lraW1lZGlhLm9yZy8=&quot;&gt;Wikimedia&lt;/span&gt;에서 제공하는 API를 통해 데이터를 &lt;code&gt;.gz&lt;/code&gt; 확장자로 받아오고 schedule에 따른 증분 데이터를 적재하여 DAG와 operator가 Airflow에서 어떻게 작동하는지, 그리고 workflow를 어떻게 schedule하는지 이해해보자.&lt;br&gt;우선 API를 통해 아래와 같이 원하는 기간의 데이터를 받을 수 있다.&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ wget https://dumps.wikimedia.org/other/pageviews/2023/2023-07/pageviews-20230726-010000.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;--2023-07-27 21:16:24--  https://dumps.wikimedia.org/other/pageviews/2023/2023-07/pageviews-20230726-010000.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dumps.wikimedia.org (dumps.wikimedia.org) 해석 중... 208.80.154.142&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;다음으로 연결 중: dumps.wikimedia.org (dumps.wikimedia.org)|208.80.154.142|:443... 연결했습니다.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;HTTP 요청을 보냈습니다. 응답 기다리는 중... 200 OK&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;길이: 44600005 (43M) [application/octet-stream]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;저장 위치: `pageviews-20230726-010000.gz&lt;span class=&quot;string&quot;&gt;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;pageviews-20230726-010000.gz  100%[=================================================&amp;gt;]  42.53M  4.56MB/s    /  9.9s&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;2023-07-27 21:16:36 (4.28 MB/s) - `pageviews-20230726-010000.gz&amp;#x27;&lt;/span&gt; 저장함 [44600005/44600005]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
       
       
@@ -1141,7 +1141,7 @@
       <pubDate>Wed, 26 Jul 2023 11:37:10 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcv&quot;&gt;Apache Airflow&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcv&quot;&gt;Apache Airflow&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Definition&lt;ul&gt;
@@ -1202,7 +1202,7 @@
       <guid>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</guid>
       <pubDate>Mon, 10 Jul 2023 09:52:58 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/&quot;&gt;YOLOv5 모델을 ONNX로 변환하여 Triton Inference Server로 배포&lt;/a&gt;한 경험은 있지만, &lt;a href=&quot;https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/#Introduction&quot;&gt;Amazon EC2 Inf1&lt;/a&gt;을 통해 모델을 배포하고 REST API를 직접 구성해본 경험은 없어 직접 inference server와 API server를 구성해보려고한다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3RyaXRvbi1pbmZlcmVuY2Utc2VydmVyL3B5dGhvbl9iYWNrZW5kL3RyZWUvbWFpbi9pbmZlcmVudGlh&quot;&gt;공식 문서&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;와 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9oeXBlcmNvbm5lY3QuZ2l0aHViLmlvLzIwMjIvMTIvMTMvaW5mcmEtY29zdC1vcHRpbWl6YXRpb24td2l0aC1hd3MtaW5mZXJlbnRpYS5odG1s&quot;&gt;참고 자료&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;들도 존재하지만 실질적 개발을 하는데 있어 막히는 부분이 꽤 많아 기록으로 남긴다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/&quot;&gt;YOLOv5 모델을 ONNX로 변환하여 Triton Inference Server로 배포&lt;/a&gt;한 경험은 있지만, &lt;a href=&quot;https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/#Introduction&quot;&gt;Amazon EC2 Inf1&lt;/a&gt;을 통해 모델을 배포하고 REST API를 직접 구성해본 경험은 없어 직접 inference server와 API server를 구성해보려고한다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3RyaXRvbi1pbmZlcmVuY2Utc2VydmVyL3B5dGhvbl9iYWNrZW5kL3RyZWUvbWFpbi9pbmZlcmVudGlh&quot;&gt;공식 문서&lt;/span&gt;와 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9oeXBlcmNvbm5lY3QuZ2l0aHViLmlvLzIwMjIvMTIvMTMvaW5mcmEtY29zdC1vcHRpbWl6YXRpb24td2l0aC1hd3MtaW5mZXJlbnRpYS5odG1s&quot;&gt;참고 자료&lt;/span&gt;들도 존재하지만 실질적 개발을 하는데 있어 막히는 부분이 꽤 많아 기록으로 남긴다.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;Local-내-구현&quot;&gt;&lt;a href=&quot;#Local-내-구현&quot; class=&quot;headerlink&quot; title=&quot;Local 내 구현&quot;&gt;&lt;/a&gt;Local 내 구현&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/252835059-74184fdc-5d7d-4daf-9a39-e079b93af1b3.png&quot; alt=&quot;local&quot;&gt;&lt;/p&gt;</description>
       
@@ -1233,7 +1233,7 @@
       <guid>https://zerohertz.github.io/formatting-python-code-based-on-git-hooks/</guid>
       <pubDate>Fri, 07 Jul 2023 07:13:43 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84&quot;&gt;저번&lt;/a&gt;에 이어서 python code들의 formatting을 조금 더 간편하게 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=&quot;&gt;Git Hooks&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 통해 도전한다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84&quot;&gt;저번&lt;/a&gt;에 이어서 python code들의 formatting을 조금 더 간편하게 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=&quot;&gt;Git Hooks&lt;/span&gt;를 통해 도전한다.&lt;/p&gt;
 &lt;h2 id=&quot;Git-Hooks&quot;&gt;&lt;a href=&quot;#Git-Hooks&quot; class=&quot;headerlink&quot; title=&quot;Git Hooks&quot;&gt;&lt;/a&gt;Git Hooks&lt;/h2&gt;&lt;p&gt;Git Hooks는 Git 작업의 특정 지점에서 실행되는 스크립트다.&lt;br&gt;사용자 정의 작업을 수행하거나 작업의 유효성을 검사하기 위해 사용되며 git repository 내부에 설정되어 해당 이벤트가 발생할 때마다 실행된다.&lt;/p&gt;
 &lt;h2 id=&quot;pre-commit&quot;&gt;&lt;a href=&quot;#pre-commit&quot; class=&quot;headerlink&quot; title=&quot;pre-commit&quot;&gt;&lt;/a&gt;pre-commit&lt;/h2&gt;&lt;p&gt;pre-commit은 Git Hooks을 활용하여 코드 commit 전에 자동으로 실행되는 도구다.&lt;br&gt;코드의 품질을 유지하고 일관성을 강제하기 위해 사용되며 일반적으로 코드 스타일 체크, 정적 분석, 테스트 실행 등의 작업을 수행한다.&lt;br&gt;또한 commit 하기 전에 코드에 대한 일련의 검사를 수행하여 품질을 향상시키고, 잠재적인 오류나 스타일 가이드 위반을 방지한다.&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ pip install pre-commit&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -1264,8 +1264,8 @@
       <guid>https://zerohertz.github.io/automating-code-formatting-with-github-actions/</guid>
       <pubDate>Tue, 04 Jul 2023 23:58:00 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Algorithm 문제를 풀고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9BbGdvcml0aG0=&quot;&gt;GitHub&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 관리하고 있었는데, 문제를 해결할 때 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9yZXBsaXQuY29tL2xhbmd1YWdlcy9weXRob24z&quot;&gt;replit&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 초기에 많이 사용했었다.&lt;br&gt;하지만 현재 사용하고 있는 Visual Studio Code와 indentation의 규칙이 달라서 GitHub Actions로 모두 동일한 format을 가지도록 자동화하겠다.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20va28vYWN0aW9ucw==&quot;&gt;GitHub Actions&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;는 구동 조건 (&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2RvY3MvY29uY2VwdHMvd29ya2xvYWRzL2NvbnRyb2xsZXJzL2Nyb24tam9icy8=&quot;&gt;CronJob&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;, 특정 branch에 push, …)을 만족하면 준비된 스크립트를 자동적으로 실행해준다.&lt;br&gt;따라서 CI&amp;#x2F;CD를 포함하여 다양한 작업에 사용되고 있다. (&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9sb3R0ZXJ5LWJvdC9hY3Rpb25z&quot;&gt;로또 자동화&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;도 가능,,,)&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Algorithm 문제를 풀고 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9BbGdvcml0aG0=&quot;&gt;GitHub&lt;/span&gt;에서 관리하고 있었는데, 문제를 해결할 때 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9yZXBsaXQuY29tL2xhbmd1YWdlcy9weXRob24z&quot;&gt;replit&lt;/span&gt;을 초기에 많이 사용했었다.&lt;br&gt;하지만 현재 사용하고 있는 Visual Studio Code와 indentation의 규칙이 달라서 GitHub Actions로 모두 동일한 format을 가지도록 자동화하겠다.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20va28vYWN0aW9ucw==&quot;&gt;GitHub Actions&lt;/span&gt;는 구동 조건 (&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2RvY3MvY29uY2VwdHMvd29ya2xvYWRzL2NvbnRyb2xsZXJzL2Nyb24tam9icy8=&quot;&gt;CronJob&lt;/span&gt;, 특정 branch에 push, …)을 만족하면 준비된 스크립트를 자동적으로 실행해준다.&lt;br&gt;따라서 CI&amp;#x2F;CD를 포함하여 다양한 작업에 사용되고 있다. (&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9sb3R0ZXJ5LWJvdC9hY3Rpb25z&quot;&gt;로또 자동화&lt;/span&gt;도 가능,,,)&lt;/p&gt;
 &lt;img width=&quot;1322&quot; alt=&quot;I_WANNA_BE_RICH&quot; src=&quot;https://github.com/Zerohertz/lottery-bot/assets/42334717/85fd91e0-4bbe-4882-983c-b9f2dbd8b7e0&quot;&gt;</description>
       
       
@@ -1292,7 +1292,7 @@
       <pubDate>Mon, 03 Jul 2023 13:15:57 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nby5kZXYv&quot;&gt;Go&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;는 구글에서 개발한 프로그래밍 언어로, 간결하고 효율적인 코드 작성을 위해 설계된 언어입니다. Go는 정적 타입 언어로, C와 유닉스 환경에서 사용되는 도구들의 장점을 결합한 언어로 개발되었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nby5kZXYv&quot;&gt;Go&lt;/span&gt;는 구글에서 개발한 프로그래밍 언어로, 간결하고 효율적인 코드 작성을 위해 설계된 언어입니다. Go는 정적 타입 언어로, C와 유닉스 환경에서 사용되는 도구들의 장점을 결합한 언어로 개발되었습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;Features-of-Go&quot;&gt;&lt;a href=&quot;#Features-of-Go&quot; class=&quot;headerlink&quot; title=&quot;Features of Go&quot;&gt;&lt;/a&gt;Features of Go&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;간결하고 가독성이 좋은 문법&lt;ul&gt;
@@ -1399,7 +1399,7 @@
       <pubDate>Fri, 16 Jun 2023 10:43:37 GMT</pubDate>
       
       <description>&lt;blockquote&gt;
-&lt;p&gt;본 후기는 2023.05.25 ~ 2023.06.15에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9jb3JuZXIvbWFpbl8yNWNhLmpzcA==&quot;&gt;25연대&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;에서 진행된 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9lZHVpbmZvL3N1cHBvcnQuanNw&quot;&gt;보충역 훈련소 3주과정&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 토대로 작성되었습니다.&lt;/p&gt;
+&lt;p&gt;본 후기는 2023.05.25 ~ 2023.06.15에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9jb3JuZXIvbWFpbl8yNWNhLmpzcA==&quot;&gt;25연대&lt;/span&gt;에서 진행된 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cua2F0Yy5taWwua3Iva2F0Yy9lZHVpbmZvL3N1cHBvcnQuanNw&quot;&gt;보충역 훈련소 3주과정&lt;/span&gt;를 토대로 작성되었습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;후기를 시작하기 앞서 훈련소는 연대에 따라, 중대에 따라 큰 차이가 존재할 수 있는 것 같습니다.&lt;br&gt;따라서 &lt;a href=&quot;https://zerohertz.github.io/professional-research-agent-train-init/#%EC%9D%BD%EC%9C%BC%EB%A9%B4-%EB%8F%84%EC%9B%80%EB%90%98%EB%8A%94&quot;&gt;다양한 후기 글&lt;/a&gt;들을 참고하시는 것을 추천드립니다.&lt;/p&gt;</description>
       
@@ -1423,7 +1423,7 @@
       <pubDate>Wed, 24 May 2023 14:14:40 GMT</pubDate>
       
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIyMDMuMDUxMjIucGRm&quot;&gt;DEER: Detection-agnostic End-to-End Recognizer for Scene Text Spotting&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIyMDMuMDUxMjIucGRm&quot;&gt;DEER: Detection-agnostic End-to-End Recognizer for Scene Text Spotting&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;이 논문은 NAVER Clova 팀에서 개발한 end-to-end text spotting 모델을 제안한다.&lt;br&gt;End-to-end text spotting 모델은 text detector와 recognizer로 구성되어있다.&lt;br&gt;해당 논문의 저자들은 기존 text spotting 모델들은 detector와 recognizer 사이에 다소 밀접하게 결합되어있다고 아래와 같이 주장한다.&lt;/p&gt;
 &lt;ol&gt;
@@ -1431,7 +1431,7 @@
 &lt;li&gt;Detctor에서 crop된 영역의 localized features를 recognzier에 전달하여 detector의 종속성을 감소시킬 수 있지만 여전히 존재하는 detector의 오류 누적으로 인해 recognition 실패가 발생할 수 있다.&lt;/li&gt;
 &lt;li&gt;Feature pooling과 masking은 end-to-end text spotting 모델을 학습하기 위해 bounding boxes 데이터가 여전히 필요하다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;이에 대한 자세한 설명은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=&quot;&gt;발표자료&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;의 6, 7, 8페이지에서 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;이에 대한 자세한 설명은 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZXZpZXcua3IvZGF0YS9kZXZpZXcvc2Vzc2lvbi9hdHRhY2gvJTVCMTQzJTVEJUVBJUIyJTgwJUVDJUI2JTlDJUVBJUIzJUJDJUVDJTlEJUI4JUVDJThCJTlEJUVCJUFBJUE4JUVCJThEJUI4JUVDJTlEJTg0JUVEJTk1JTk4JUVCJTgyJTk4JUVCJUExJTlDK2NoYWxsZW5nZSslRUMlOUElQjAlRUMlOEElQjkrT0NSJUVCJUFBJUE4JUVCJThEJUI4KyVFQyU4MyU4OCVFQyVCNiU5QyVFQyU4QiU5Qy5wZGY=&quot;&gt;발표자료&lt;/span&gt;의 6, 7, 8페이지에서 확인할 수 있다.&lt;/p&gt;
 &lt;p&gt;Object detection 분야에서는 end-to-end Transformer 기반 접근 방식이 발전함에 따라 이미지의 개별 객체를 엄격하게 recognize하기 위해 정확한 영역 정보, 정교한 ground truth 할당 및 feature pooling이 필요하지 않다는 것이 분명해지고 있다.&lt;br&gt;그렇기에 저자들은 detection 결과의 정확성에 대한 의존성을 완화할 수 있는 DEER (Detection-agnostic end-to-end Recognizer)를 제안한다.&lt;br&gt;DEER는 정확한 text 영역을 추출하기 위해 detector에 의존하지 않고 detector가 각 text instance에 대한 single reference point를 localize하도록 한다.&lt;br&gt;Reference point 주위의 text를 포괄적으로 recognize하는 text decoder는 text sequence를 decoding하는 동안 특정 text instance의 attending region을 결정하는 방법을 학습한다.&lt;br&gt;DEER는 기존 모델들과 다르게 detecotr의 역할이 single reference point를 localize하는 것 뿐이기 때문에 훨씬 더 다양한 검출 알고리즘과 주석을 사용할 수 있다.&lt;br&gt;이러한 접근 방식을 통해 pooling operations와 polygon-type 주석 없이 회전 및 곡선 text instance를 자연스럽게 처리할 수 있다.&lt;/p&gt;</description>
       
       
@@ -1453,7 +1453,7 @@
       <guid>https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/</guid>
       <pubDate>Fri, 12 May 2023 01:36:33 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Model serving 시 모델의 입력에 대해 출력을 산출하는 과정인 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly8wNzY5MjMuZ2l0aHViLmlvL3Bvc3RzL0FJLTUvIyVFQyU4OCU5QyVFQyVBMCU4NCVFRCU4QyU4Q2ZvcndhcmQtcHJvcGFnYXRpb24=&quot;&gt;순전파 (forward propagation)&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.&lt;br&gt;이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grphic Processing Unit)을 많이 활용하고 있다.&lt;br&gt;하지만 아래와 같은 한계점이 존재한다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Model serving 시 모델의 입력에 대해 출력을 산출하는 과정인 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly8wNzY5MjMuZ2l0aHViLmlvL3Bvc3RzL0FJLTUvIyVFQyU4OCU5QyVFQyVBMCU4NCVFRCU4QyU4Q2ZvcndhcmQtcHJvcGFnYXRpb24=&quot;&gt;순전파 (forward propagation)&lt;/span&gt;는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.&lt;br&gt;이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grphic Processing Unit)을 많이 활용하고 있다.&lt;br&gt;하지만 아래와 같은 한계점이 존재한다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;비싸다. (물리적 GPU 비용, 전력 소모, 클라우드 서비스 등 모든 측면에서)&lt;/li&gt;
 &lt;li&gt;물리 코어를 가상 코어로 나눠 사용할 수 없어 자원을 낭비하기 쉽다.&lt;/li&gt;
@@ -1491,7 +1491,7 @@
       <guid>https://zerohertz.github.io/nutrients/</guid>
       <pubDate>Mon, 01 May 2023 14:41:14 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;직장인 3개월 차…&lt;br&gt;대학원생 생활보다 훨씬 여유롭고 괜찮다 생각했지만 노화가 시작됐는지 체력이 약화됨을 느껴서 영양제를 섭취하기로 결정했습니다…&lt;br&gt;적절한 조합을 찾기 위해 앱 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9waWxhbWVudG9yLm9vcHkuaW8v&quot;&gt;필라멘토&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;와 지인의 자문을 활용했습니다.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;직장인 3개월 차…&lt;br&gt;대학원생 생활보다 훨씬 여유롭고 괜찮다 생각했지만 노화가 시작됐는지 체력이 약화됨을 느껴서 영양제를 섭취하기로 결정했습니다…&lt;br&gt;적절한 조합을 찾기 위해 앱 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9waWxhbWVudG9yLm9vcHkuaW8v&quot;&gt;필라멘토&lt;/span&gt;와 지인의 자문을 활용했습니다.&lt;/p&gt;</description>
       
       
       
@@ -1513,12 +1513,12 @@
       <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;Definition of Triton Inference Server&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS90cml0b24taW5mZXJlbmNlLXNlcnZlcg==&quot;&gt;Triton Inference Server&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;는 NVIDIA에서 개발한 딥 러닝 모델 인퍼런스를 위한 고성능 인퍼런스 서버입니다. Triton Inference Server는 다중 모델을 지원하며, TensorFlow, PyTorch, ONNX 등의 주요 딥 러닝 프레임워크를 모두 지원합니다.&lt;br&gt;이를 통해 사용자는 다양한 모델을 효율적으로 서빙할 수 있습니다.&lt;br&gt;Triton Inference Server는 NVIDIA TensorRT 엔진을 기반으로하며, GPU 가속을 통해 모델 추론을 빠르게 수행할 수 있습니다.&lt;br&gt;또한 Triton Inference Server는 TensorFlow Serving과 호환되는 gRPC 인터페이스를 제공하며 Triton Inference Server는 TensorFlow Serving, TorchServe와 같은 기존 인퍼런스 서버와 비교하여 성능 및 유연성 면에서 우수한 성능을 발휘합니다.&lt;br&gt;Triton Inference Server는 Kubernetes, Docker 및 NVIDIA DeepOps와 같은 오케스트레이션 툴과 통합되어 쉽게 배포할 수 있습니다.&lt;br&gt;Triton Inference Server는 성능, 확장성 및 유연성 면에서 우수한 기능을 제공하므로, 대규모 딥 러닝 모델 인퍼런스를 위한 선택적이고 강력한 도구로 자리 잡고 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS90cml0b24taW5mZXJlbmNlLXNlcnZlcg==&quot;&gt;Triton Inference Server&lt;/span&gt;는 NVIDIA에서 개발한 딥 러닝 모델 인퍼런스를 위한 고성능 인퍼런스 서버입니다. Triton Inference Server는 다중 모델을 지원하며, TensorFlow, PyTorch, ONNX 등의 주요 딥 러닝 프레임워크를 모두 지원합니다.&lt;br&gt;이를 통해 사용자는 다양한 모델을 효율적으로 서빙할 수 있습니다.&lt;br&gt;Triton Inference Server는 NVIDIA TensorRT 엔진을 기반으로하며, GPU 가속을 통해 모델 추론을 빠르게 수행할 수 있습니다.&lt;br&gt;또한 Triton Inference Server는 TensorFlow Serving과 호환되는 gRPC 인터페이스를 제공하며 Triton Inference Server는 TensorFlow Serving, TorchServe와 같은 기존 인퍼런스 서버와 비교하여 성능 및 유연성 면에서 우수한 성능을 발휘합니다.&lt;br&gt;Triton Inference Server는 Kubernetes, Docker 및 NVIDIA DeepOps와 같은 오케스트레이션 툴과 통합되어 쉽게 배포할 수 있습니다.&lt;br&gt;Triton Inference Server는 성능, 확장성 및 유연성 면에서 우수한 기능을 제공하므로, 대규모 딥 러닝 모델 인퍼런스를 위한 선택적이고 강력한 도구로 자리 잡고 있습니다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Docker Image: &lt;code&gt;triton-server&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Triton Inference Server 이미지는 NVIDIA에서 제공하는 Docker 이미지입니다. 이 이미지는 NVIDIA GPU 드라이버와 CUDA 라이브러리를 포함하며, 딥 러닝 인퍼런스를 실행하는 데 필요한 모든 라이브러리와 의존성을 포함합니다.&lt;br&gt;Triton Inference Server 이미지는 NGC(NVIDIA GPU Cloud)와 Docker Hub에서 제공됩니다. NGC에서는 최신 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크에서 학습된 모델을 지원합니다. 또한, TensorRT와 같은 최적화 라이브러리를 사용하여 높은 성능을 발휘합니다.&lt;br&gt;Docker Hub에서도 NVIDIA에서 공식적으로 제공하는 Triton Inference Server 이미지를 찾을 수 있습니다. Docker Hub에서는 다양한 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크를 지원합니다.&lt;br&gt;이러한 Triton Inference Server 이미지는 Kubernetes, Docker Compose와 같은 오케스트레이션 툴과 통합되어 배포 및 관리할 수 있으며, 쉽게 다양한 환경에서 실행할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;이러한 Triton Inference Server를 통해 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3VsdHJhbHl0aWNzL3lvbG92NQ==&quot;&gt;YOLOv5&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 모델을 Serving하고, 간략한 Client를 개발하여 Server가 잘 구동되는지 확인하는 방법을 설명하겠다.&lt;/p&gt;</description>
+&lt;p&gt;이러한 Triton Inference Server를 통해 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3VsdHJhbHl0aWNzL3lvbG92NQ==&quot;&gt;YOLOv5&lt;/span&gt; 모델을 Serving하고, 간략한 Client를 개발하여 Server가 잘 구동되는지 확인하는 방법을 설명하겠다.&lt;/p&gt;</description>
       
       
       
@@ -1573,7 +1573,7 @@
       
       <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;details&gt;
 &lt;summary&gt;
-&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NYXNrX1ItQ05O&quot;&gt;Mask R-CNN&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;?
+&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NYXNrX1ItQ05O&quot;&gt;Mask R-CNN&lt;/span&gt;?
 &lt;/summary&gt;
 
 &lt;p&gt;Mask R-CNN은 Faster R-CNN에 Segmentation 네트워크를 추가한 딥러닝 알고리즘으로, 객체 검출 (Object detection)과 분할을 모두 수행할 수 있습니다.&lt;br&gt;기존 Faster R-CNN은 RPN (Region Proposal Network)을 사용하여 객체의 경계 상자 (Bounding box)를 추출하고, 추출된 경계 상자를 입력으로 사용하여 객체 인식을 수행합니다. 이러한 방식은 객체의 위치와 클래스 정보를 검출할 수 있지만, 객체 내부의 픽셀-레벨 Segmentation 정보는 제공하지 않습니다.&lt;br&gt;Mask R-CNN은 Faster R-CNN의 RPN 뿐만 아니라, RoIAlign (Rectangle of Interest Alignment)을 사용하여 추출된 경계 상자 내부의 픽셀-레벨 Segmentation 정보를 추출할 수 있는 분할 네트워크를 추가합니다. 이를 통해, 객체 검출과 동시에 객체 내부의 픽셀-레벨 Segmentation 정보를 추출할 수 있습니다.&lt;br&gt;또한, Mask R-CNN은 이를 위해 Faster R-CNN과 함께 사용되는 합성곱 신경망 (Convolutional Neural Network)을 미세 조정 (Fine-tuning)하여 분할 네트워크의 성능을 최적화합니다.&lt;br&gt;Mask R-CNN은 객체 검출과 분할 작업에서 매우 강력한 성능을 보여주며, COCO (Common Objects in Context) 데이터셋에서 현재 가장 높은 정확도를 보이고 있습니다. 따라서, 객체 검출과 분할이 모두 필요한 다양한 응용 분야에서 활용되고 있습니다.&lt;/p&gt;
@@ -1582,7 +1582,7 @@
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;├── makeGT.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── model&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── __init__.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── load_data.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── model.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── README.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── test.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── train.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── README.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── requirements.txt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── test.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── train.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;└── utils&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ├── coco_eval.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ├── coco_utils.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ├── engine.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ├── __init__.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ├── README.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ├── transforms.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    └── utils.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;Mask R-CNN의 training, test, visualization, evaluation을 진행할 수 있게 PyTorch를 사용하여 위와 같은 구조로 개발하는 과정을 기록한다.&lt;/p&gt;
-&lt;p&gt;사용될 데이터는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jaGFsbGVuZ2UuaXNpYy1hcmNoaXZlLmNvbS9sYW5kaW5nLzIwMTYvNDEv&quot;&gt;ISIC 2016 Challenge - Task 3B: Segmented Lesion Classification&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;이며 예시는 아래와 같다.&lt;/p&gt;
+&lt;p&gt;사용될 데이터는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jaGFsbGVuZ2UuaXNpYy1hcmNoaXZlLmNvbS9sYW5kaW5nLzIwMTYvNDEv&quot;&gt;ISIC 2016 Challenge - Task 3B: Segmented Lesion Classification&lt;/span&gt;이며 예시는 아래와 같다.&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;├── ISBI2016_ISIC_Part3B_Test_Data&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── ISIC_0000003.jpg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── ISIC_0000003_Segmentation.png&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── ISBI2016_ISIC_Part3B_Training_Data&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── ISIC_0000000.jpg&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── ISIC_0000000_Segmentation.png&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── ISBI2016_ISIC_Part3B_Test_GroundTruth.csv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;└── ISBI2016_ISIC_Part3B_Training_GroundTruth.csv&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
       
       
@@ -1607,7 +1607,7 @@
       <pubDate>Tue, 14 Mar 2023 04:24:00 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9rby1rci9ibG9nL252aWRpYS10ZW5zb3JydC1pbmZlcmVuY2UtJUVDJUI1JTlDJUVDJUEwJTgxJUVEJTk5JTk0LSVFQiVCMCU4Ri0lRUElQjAlODAlRUMlODYlOEQlRUQlOTklOTQlRUIlQTUlQkMtJUVDJTlDJTg0JUVEJTk1JTlDLW52aWRpYSVFQyU5RCU5OC10b29sa2l0Lw==&quot;&gt;TensorRT&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9rby1rci9ibG9nL252aWRpYS10ZW5zb3JydC1pbmZlcmVuY2UtJUVDJUI1JTlDJUVDJUEwJTgxJUVEJTk5JTk0LSVFQiVCMCU4Ri0lRUElQjAlODAlRUMlODYlOEQlRUQlOTklOTQlRUIlQTUlQkMtJUVDJTlDJTg0JUVEJTk1JTlDLW52aWRpYSVFQyU5RCU5OC10b29sa2l0Lw==&quot;&gt;TensorRT&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Features&lt;ul&gt;
@@ -1678,7 +1678,7 @@
       <guid>https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/</guid>
       <pubDate>Thu, 09 Mar 2023 01:15:22 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;논문의 저자가 제공하거나 논문을 참고하여 개발된 모델은 보통 config 파일 (e.g. &lt;code&gt;config.yaml&lt;/code&gt;, &lt;code&gt;config.py&lt;/code&gt;)이 존재하고, 해당 파일을 통해 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3doYWkzNjIvcGFuX3BwLnB5dG9yY2gvYmxvYi9tYXN0ZXIvY29uZmlnL3Bhbl9wcC9wYW5fcHBfcjE4X2ljMTVfNzM2X2ZpbmV0dW5lLnB5I0w4&quot;&gt;이렇게&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt; 모델 구조를 변경할 수 있다.&lt;br&gt;하지만 기존의 소스에 본인이 원하는 모델 구조가 없다면 어떻게 개발하는지, 그리고 기존에 없던 레이어를 어떻게 훈련하면 좋을지 알아보자.&lt;br&gt;이 글에서는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDUuMDA0MDU=&quot;&gt;이 논문&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;을 기반으로 개발된 모델인 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3doYWkzNjIvcGFuX3BwLnB5dG9yY2g=&quot;&gt;whai362&amp;#x2F;pan_pp.pytorch&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 기준으로 개발하겠다.&lt;br&gt;간단한 목표 설정을 해보기 위해 대략적인 모델의 설명을 진행하겠다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;논문의 저자가 제공하거나 논문을 참고하여 개발된 모델은 보통 config 파일 (e.g. &lt;code&gt;config.yaml&lt;/code&gt;, &lt;code&gt;config.py&lt;/code&gt;)이 존재하고, 해당 파일을 통해 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3doYWkzNjIvcGFuX3BwLnB5dG9yY2gvYmxvYi9tYXN0ZXIvY29uZmlnL3Bhbl9wcC9wYW5fcHBfcjE4X2ljMTVfNzM2X2ZpbmV0dW5lLnB5I0w4&quot;&gt;이렇게&lt;/span&gt; 모델 구조를 변경할 수 있다.&lt;br&gt;하지만 기존의 소스에 본인이 원하는 모델 구조가 없다면 어떻게 개발하는지, 그리고 기존에 없던 레이어를 어떻게 훈련하면 좋을지 알아보자.&lt;br&gt;이 글에서는 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDUuMDA0MDU=&quot;&gt;이 논문&lt;/span&gt;을 기반으로 개발된 모델인 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3doYWkzNjIvcGFuX3BwLnB5dG9yY2g=&quot;&gt;whai362&amp;#x2F;pan_pp.pytorch&lt;/span&gt;를 기준으로 개발하겠다.&lt;br&gt;간단한 목표 설정을 해보기 위해 대략적인 모델의 설명을 진행하겠다.&lt;/p&gt;
 &lt;h2 id=&quot;PAN&quot;&gt;&lt;a href=&quot;#PAN&quot; class=&quot;headerlink&quot; title=&quot;PAN++&quot;&gt;&lt;/a&gt;PAN++&lt;/h2&gt;&lt;p&gt;PAN++는 STR (Scene Text Recognition)을 위해 개발되었지만, 본 글에서는 STD (Scene Text Detection) 부분까지만 사용하며 해당 부분은 아래와 같이 진행된다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Feature Extraction&lt;ul&gt;
@@ -1877,7 +1877,7 @@
       <pubDate>Sat, 04 Feb 2023 06:19:33 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;MLflow-Setup&quot;&gt;&lt;a href=&quot;#MLflow-Setup&quot; class=&quot;headerlink&quot; title=&quot;MLflow Setup&quot;&gt;&lt;/a&gt;MLflow Setup&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL21sZmxvdy9tbGZsb3cv&quot;&gt;MLflow&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;: A machine learning lifecycle platform&lt;ul&gt;
+&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL21sZmxvdy9tbGZsb3cv&quot;&gt;MLflow&lt;/span&gt;: A machine learning lifecycle platform&lt;ul&gt;
 &lt;li&gt;MLflow Tracking: 학습 과정에서의 매개 변수, 코드, 결과를 기록하고 대화형 UI로 비교할 수 있는 API&lt;/li&gt;
 &lt;li&gt;MLflow project: ML 코드 공유를 위한 Conda 및 Docker 기반 패키지 형식 지원&lt;/li&gt;
 &lt;li&gt;MLflow Models: Docker, Apache Spark, Azure ML, AWS SageMaker 등의 플랫폼에 ML 코드를 배포할 수 있는 패키징 형식 및 도구&lt;/li&gt;
@@ -1929,7 +1929,7 @@
       <pubDate>Tue, 31 Jan 2023 14:38:08 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;풀이&quot;&gt;&lt;a href=&quot;#풀이&quot; class=&quot;headerlink&quot; title=&quot;풀이&quot;&gt;&lt;/a&gt;풀이&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzYwMDU5&quot;&gt;Programmers 60059: 자물쇠와 열쇠&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzYwMDU5&quot;&gt;Programmers 60059: 자물쇠와 열쇠&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;새로운 &lt;code&gt;key&lt;/code&gt;를 만들어서 이동하고 회전하면 시간 복잡도가 너무 커질 것 같아서 &lt;code&gt;key&lt;/code&gt;의 좌표를 회전된 것처럼 맵핑해줄 수 있는 &lt;code&gt;convert_func&lt;/code&gt; 함수를 개발했다. &lt;del&gt;는 행렬 다시 만들고 이동 및 회전해도 풀 수 있음;&lt;/del&gt;&lt;br&gt;&lt;code&gt;key&lt;/code&gt;와 &lt;code&gt;lock&lt;/code&gt;이 겹쳐지는 순간 겹쳐지지 않은 &lt;code&gt;key&lt;/code&gt;의 부분을 쉽게 고려하기 위해 &lt;code&gt;for&lt;/code&gt;문을 &lt;code&gt;M&lt;/code&gt; (&lt;code&gt;len(key)&lt;/code&gt;)에 대해 개발하였고, 해당 부분을 위해 &lt;code&gt;key&lt;/code&gt;를 회전하는 것은 &lt;code&gt;lock&lt;/code&gt;을 회전하는 것과 같은 성질을 이용해 &lt;code&gt;lock&lt;/code&gt;을 회전했다.&lt;br&gt;또한 &lt;code&gt;lock&lt;/code&gt;의 모든 부분에 일일히 &lt;code&gt;key&lt;/code&gt;를 넣어보며 확인하면 시간 복잡도가 커질 것 같아서 &lt;code&gt;key&lt;/code&gt;의 삽입이 필요한 구간을 &lt;code&gt;idx_i_1&lt;/code&gt;, &lt;code&gt;idx_j_1&lt;/code&gt;, &lt;code&gt;idx_i_2&lt;/code&gt;, &lt;code&gt;idx_j_2&lt;/code&gt;로 정의했다. &lt;del&gt;는 이것도 그냥 풀 수 있음;&lt;/del&gt;&lt;br&gt;최종적으로 꼭 &lt;code&gt;key&lt;/code&gt;의 삽입이 필요한 구간에 대해서만 완벽히 일치하는지에 대한 여부 확인을 위한 함수 &lt;code&gt;match&lt;/code&gt;를 수행했다.&lt;/p&gt;</description>
       
@@ -1955,7 +1955,7 @@
       <pubDate>Sun, 29 Jan 2023 17:23:53 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;풀이&quot;&gt;&lt;a href=&quot;#풀이&quot; class=&quot;headerlink&quot; title=&quot;풀이&quot;&gt;&lt;/a&gt;풀이&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzkyMzQ0&quot;&gt;Programmers 92344: 파괴되지 않은 건물&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzkyMzQ0&quot;&gt;Programmers 92344: 파괴되지 않은 건물&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Brute-force 알고리즘을 적용하면 &lt;code&gt;250,000 * 1,000 * 1,000&lt;/code&gt;의 시간 복잡도를 가지기 때문에 효율성 테스트를 통과할 수 없다.&lt;br&gt;따라서 &lt;code&gt;skill&lt;/code&gt;의 행 길이가 최대 250,000이므로 해당 부분을 해결하는 것이 문제의 포인트다. (&lt;code&gt;board&lt;/code&gt;의 각 원소를 필연적으로 수정 및 조회해야하기 때문)&lt;br&gt;아마도 시간 복잡도를 &lt;code&gt;250,000 + 1,000 * 1,000&lt;/code&gt;으로 감쇠시킬 수 있는 알고리즘을 개발해야할 것이다.&lt;br&gt;최종적으로 구간 합을 이용해 풀 수 있었다.&lt;/p&gt;</description>
       
@@ -1981,7 +1981,7 @@
       <pubDate>Sun, 29 Jan 2023 17:21:44 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;풀이&quot;&gt;&lt;a href=&quot;#풀이&quot; class=&quot;headerlink&quot; title=&quot;풀이&quot;&gt;&lt;/a&gt;풀이&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzcyNDEz&quot;&gt;Programmers 72413: 합승 택시 요금&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzcyNDEz&quot;&gt;Programmers 72413: 합승 택시 요금&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;처음 문제를 읽고 특정 지점에서 특정 지점까지의 최소 가중치를 구해야한다고 생각했다.&lt;br&gt;최소 가중치를 출력하는 변수 &lt;code&gt;l&lt;/code&gt;을 산출하였지만, 가장 큰 문제는 합승 유무 혹은 지점이였다.&lt;br&gt;따라서 브루트 포스 (Brute-force) 알고리즘을 통해 특정 지점까지 합승을 하였을 때의 최솟값으로 갱신해준 뒤 최종적으로는 합승을 하지 않았을 때의 값을 갱신해주어 &lt;code&gt;answer&lt;/code&gt;를 리턴해주었다.&lt;/p&gt;</description>
       
@@ -2080,7 +2080,7 @@
       <guid>https://zerohertz.github.io/boj-12100/</guid>
       <pubDate>Mon, 23 Jan 2023 17:22:18 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;2048 게임은 4×4 크기의 보드에서 혼자 즐기는 재미있는 게임이다. 이 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nYWJyaWVsZWNpcnVsbGkuZ2l0aHViLmlvLzIwNDgv&quot;&gt;링크&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;를 누르면 게임을 해볼 수 있다.&lt;br&gt;이 게임에서 한 번의 이동은 보드 위에 있는 전체 블록을 상하좌우 네 방향 중 하나로 이동시키는 것이다. 이때, 같은 값을 갖는 두 블록이 충돌하면 두 블록은 하나로 합쳐지게 된다. 한 번의 이동에서 이미 합쳐진 블록은 또 다른 블록과 다시 합쳐질 수 없다. (실제 게임에서는 이동을 한 번 할 때마다 블록이 추가되지만, 이 문제에서 블록이 추가되는 경우는 없다)&lt;br&gt;이 문제에서 다루는 2048 게임은 보드의 크기가 N×N 이다. 보드의 크기와 보드판의 블록 상태가 주어졌을 때, 최대 5번 이동해서 만들 수 있는 가장 큰 블록의 값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;2048 게임은 4×4 크기의 보드에서 혼자 즐기는 재미있는 게임이다. 이 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nYWJyaWVsZWNpcnVsbGkuZ2l0aHViLmlvLzIwNDgv&quot;&gt;링크&lt;/span&gt;를 누르면 게임을 해볼 수 있다.&lt;br&gt;이 게임에서 한 번의 이동은 보드 위에 있는 전체 블록을 상하좌우 네 방향 중 하나로 이동시키는 것이다. 이때, 같은 값을 갖는 두 블록이 충돌하면 두 블록은 하나로 합쳐지게 된다. 한 번의 이동에서 이미 합쳐진 블록은 또 다른 블록과 다시 합쳐질 수 없다. (실제 게임에서는 이동을 한 번 할 때마다 블록이 추가되지만, 이 문제에서 블록이 추가되는 경우는 없다)&lt;br&gt;이 문제에서 다루는 2048 게임은 보드의 크기가 N×N 이다. 보드의 크기와 보드판의 블록 상태가 주어졌을 때, 최대 5번 이동해서 만들 수 있는 가장 큰 블록의 값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
 &lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 보드의 크기 N (1 ≤ N ≤ 20)이 주어진다. 둘째 줄부터 N개의 줄에는 게임판의 초기 상태가 주어진다. 0은 빈 칸을 나타내며, 이외의 값은 모두 블록을 나타낸다. 블록에 쓰여 있는 수는 2보다 크거나 같고, 1024보다 작거나 같은 2의 제곱꼴이다. 블록은 적어도 하나 주어진다.&lt;/p&gt;
 &lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;최대 5번 이동시켜서 얻을 수 있는 가장 큰 블록을 출력한다.&lt;/p&gt;</description>
       
@@ -2201,7 +2201,7 @@
       <guid>https://zerohertz.github.io/building-a-windows-server-infrastructure-for-data-analysis/</guid>
       <pubDate>Tue, 10 Jan 2023 17:38:19 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;SSH-설정-및-포트포워딩&quot;&gt;&lt;a href=&quot;#SSH-설정-및-포트포워딩&quot; class=&quot;headerlink&quot; title=&quot;SSH 설정 및 포트포워딩&quot;&gt;&lt;/a&gt;SSH 설정 및 포트포워딩&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cubGFpbnl6aW5lLmNvbS9rby9hcnRpY2xlL2hvdy10by1ydW4tb3BlbnNzaC1zZXJ2ZXItYW5kLWNvbm5lY3Qtd2l0aC1zc2gtb24td2luZG93cy0xMC8=&quot;&gt;SSH Setup&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&quot;SSH-설정-및-포트포워딩&quot;&gt;&lt;a href=&quot;#SSH-설정-및-포트포워딩&quot; class=&quot;headerlink&quot; title=&quot;SSH 설정 및 포트포워딩&quot;&gt;&lt;/a&gt;SSH 설정 및 포트포워딩&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cubGFpbnl6aW5lLmNvbS9rby9hcnRpY2xlL2hvdy10by1ydW4tb3BlbnNzaC1zZXJ2ZXItYW5kLWNvbm5lY3Qtd2l0aC1zc2gtb24td2luZG93cy0xMC8=&quot;&gt;SSH Setup&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;윈도우 컴퓨터에서 위 설정을 모두 마쳤다면 컴퓨터와 연결된 공유기의 gateway에 접속하여 포트포워딩 진행&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42334717/211633483-58d6a388-3a49-41c6-9da7-0041e0483ec4.png&quot; alt=&quot;Port forwarding&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -2269,7 +2269,7 @@
       <pubDate>Tue, 06 Dec 2022 12:51:11 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;Update-npm&quot;&gt;&lt;a href=&quot;#Update-npm&quot; class=&quot;headerlink&quot; title=&quot;Update npm&quot;&gt;&lt;/a&gt;Update npm&lt;/h1&gt;&lt;p&gt;&lt;code&gt;node.js&lt;/code&gt;와 &lt;code&gt;npm&lt;/code&gt;을 업데이트하기 전 삭제를 해야하는 경우 아래의 글을 참고하면 됩니다.&lt;/p&gt;
-&lt;h2 id=&quot;MacOS&quot;&gt;&lt;a href=&quot;#MacOS&quot; class=&quot;headerlink&quot; title=&quot;MacOS&quot;&gt;&lt;/a&gt;MacOS&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZG9vbmdtYXVzZS5ibG9nc3BvdC5jb20vMjAyMS8wMi9icmV3Lmh0bWw=&quot;&gt;Uninstall homebrew&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jbG9sZWUudGlzdG9yeS5jb20vODU=&quot;&gt;Uninstall node &amp;amp; npm&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;MacOS&quot;&gt;&lt;a href=&quot;#MacOS&quot; class=&quot;headerlink&quot; title=&quot;MacOS&quot;&gt;&lt;/a&gt;MacOS&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9kZG9vbmdtYXVzZS5ibG9nc3BvdC5jb20vMjAyMS8wMi9icmV3Lmh0bWw=&quot;&gt;Uninstall homebrew&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9jbG9sZWUudGlzdG9yeS5jb20vODU=&quot;&gt;Uninstall node &amp;amp; npm&lt;/span&gt;&lt;/p&gt;
 &lt;img width=&quot;762&quot; alt=&quot;npm error&quot; src=&quot;https://user-images.githubusercontent.com/42334717/205918079-9c278225-b2a5-4fdd-831b-f006bdadf55c.png&quot;&gt;
 
 &lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;brew install node&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;brew install yarn &lt;span class=&quot;comment&quot;&gt;--ignore-dependencies&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;yarn &lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;version&lt;/span&gt; stable&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -2779,31 +2779,6 @@
     </item>
     
     <item>
-      <title>BOJ: 1062</title>
-      <link>https://zerohertz.github.io/boj-1062/</link>
-      <guid>https://zerohertz.github.io/boj-1062/</guid>
-      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;남극에 사는 김지민 선생님은 학생들이 되도록이면 많은 단어를 읽을 수 있도록 하려고 한다. 그러나 지구온난화로 인해 얼음이 녹아서 곧 학교가 무너지기 때문에, 김지민은 K개의 글자를 가르칠 시간 밖에 없다. 김지민이 가르치고 난 후에는, 학생들은 그 K개의 글자로만 이루어진 단어만을 읽을 수 있다. 김지민은 어떤 K개의 글자를 가르쳐야 학생들이 읽을 수 있는 단어의 개수가 최대가 되는지 고민에 빠졌다.&lt;br&gt;남극언어의 모든 단어는 “anta”로 시작되고, “tica”로 끝난다. 남극언어에 단어는 N개 밖에 없다고 가정한다. 학생들이 읽을 수 있는 단어의 최댓값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 단어의 개수 N과 K가 주어진다. N은 50보다 작거나 같은 자연수이고, K는 26보다 작거나 같은 자연수 또는 0이다. 둘째 줄부터 N개의 줄에 남극 언어의 단어가 주어진다. 단어는 영어 소문자로만 이루어져 있고, 길이가 8보다 크거나 같고, 15보다 작거나 같다. 모든 단어는 중복되지 않는다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민이 K개의 글자를 가르칠 때, 학생들이 읽을 수 있는 단어 개수의 최댓값을 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-1062/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>BOJ: 1059</title>
       <link>https://zerohertz.github.io/boj-1059/</link>
       <guid>https://zerohertz.github.io/boj-1059/</guid>
@@ -2836,6 +2811,31 @@
       
       
       <comments>https://zerohertz.github.io/boj-1059/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>BOJ: 1062</title>
+      <link>https://zerohertz.github.io/boj-1062/</link>
+      <guid>https://zerohertz.github.io/boj-1062/</guid>
+      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;남극에 사는 김지민 선생님은 학생들이 되도록이면 많은 단어를 읽을 수 있도록 하려고 한다. 그러나 지구온난화로 인해 얼음이 녹아서 곧 학교가 무너지기 때문에, 김지민은 K개의 글자를 가르칠 시간 밖에 없다. 김지민이 가르치고 난 후에는, 학생들은 그 K개의 글자로만 이루어진 단어만을 읽을 수 있다. 김지민은 어떤 K개의 글자를 가르쳐야 학생들이 읽을 수 있는 단어의 개수가 최대가 되는지 고민에 빠졌다.&lt;br&gt;남극언어의 모든 단어는 “anta”로 시작되고, “tica”로 끝난다. 남극언어에 단어는 N개 밖에 없다고 가정한다. 학생들이 읽을 수 있는 단어의 최댓값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 단어의 개수 N과 K가 주어진다. N은 50보다 작거나 같은 자연수이고, K는 26보다 작거나 같은 자연수 또는 0이다. 둘째 줄부터 N개의 줄에 남극 언어의 단어가 주어진다. 단어는 영어 소문자로만 이루어져 있고, 길이가 8보다 크거나 같고, 15보다 작거나 같다. 모든 단어는 중복되지 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 김지민이 K개의 글자를 가르칠 때, 학생들이 읽을 수 있는 단어 개수의 최댓값을 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-1062/#disqus_thread</comments>
       
     </item>
     
@@ -3112,7 +3112,7 @@
       <pubDate>Sun, 21 Aug 2022 07:24:40 GMT</pubDate>
       
       <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIwMDIuMDU2MzgucGRm&quot;&gt;Hicsonmez, Samet, et al. “GANILLA: Generative adversarial networks for image to illustration translation.” Image and Vision Computing 95 (2020): 103886.&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9hcnhpdi5vcmcvcGRmLzIwMDIuMDU2MzgucGRm&quot;&gt;Hicsonmez, Samet, et al. “GANILLA: Generative adversarial networks for image to illustration translation.” Image and Vision Computing 95 (2020): 103886.&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;생산적 적대 신경망 (Generative Adversarial Network, GAN) 기반 아동도서의 삽화 (illustration) 스타일 이미지 변환&lt;ul&gt;
@@ -3533,7 +3533,7 @@
       <guid>https://zerohertz.github.io/generative-adversarial-network-1/</guid>
       <pubDate>Tue, 19 Jul 2022 09:51:06 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;PyTorch&quot;&gt;&lt;a href=&quot;#PyTorch&quot; class=&quot;headerlink&quot; title=&quot;PyTorch&quot;&gt;&lt;/a&gt;PyTorch&lt;/h1&gt;&lt;h2 id=&quot;Setup&quot;&gt;&lt;a href=&quot;#Setup&quot; class=&quot;headerlink&quot; title=&quot;Setup&quot;&gt;&lt;/a&gt;Setup&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly92ZWxvZy5pby9AaHdhbnNldW5nMi9NMS1NYWMlRUMlOTclOTAlRUMlODQlOUMtUHl0b3JjaC1HUFUtJUVBJUIwJTgwJUVDJTg2JThE&quot;&gt;How to install PyTorch in M1 Mac&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&quot;PyTorch&quot;&gt;&lt;a href=&quot;#PyTorch&quot; class=&quot;headerlink&quot; title=&quot;PyTorch&quot;&gt;&lt;/a&gt;PyTorch&lt;/h1&gt;&lt;h2 id=&quot;Setup&quot;&gt;&lt;a href=&quot;#Setup&quot; class=&quot;headerlink&quot; title=&quot;Setup&quot;&gt;&lt;/a&gt;Setup&lt;/h2&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly92ZWxvZy5pby9AaHdhbnNldW5nMi9NMS1NYWMlRUMlOTclOTAlRUMlODQlOUMtUHl0b3JjaC1HUFUtJUVBJUIwJTgwJUVDJTg2JThE&quot;&gt;How to install PyTorch in M1 Mac&lt;/span&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;conda install pytorch torchvision torchaudio -c pytorch-nightly&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42334717/179754313-48642bc4-affd-45c0-a9c2-dc2b53c1439a.png&quot; alt=&quot;RIP Kernel&quot;&gt;&lt;/p&gt;
@@ -3569,7 +3569,7 @@
       <guid>https://zerohertz.github.io/hands-on-machine-learning-1/</guid>
       <pubDate>Thu, 14 Jul 2022 07:11:21 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Setting-up-development-environment&quot;&gt;&lt;a href=&quot;#Setting-up-development-environment&quot; class=&quot;headerlink&quot; title=&quot;Setting up development environment&quot;&gt;&lt;/a&gt;Setting up development environment&lt;/h1&gt;&lt;h2 id=&quot;Clone-source-code&quot;&gt;&lt;a href=&quot;#Clone-source-code&quot; class=&quot;headerlink&quot; title=&quot;Clone source code&quot;&gt;&lt;/a&gt;Clone source code&lt;/h2&gt;&lt;p&gt;Ref: &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3JpY2tpZXBhcmsvaGFuZHNvbi1tbDI=&quot;&gt;Hands-on Machine Learning&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Setting-up-development-environment&quot;&gt;&lt;a href=&quot;#Setting-up-development-environment&quot; class=&quot;headerlink&quot; title=&quot;Setting up development environment&quot;&gt;&lt;/a&gt;Setting up development environment&lt;/h1&gt;&lt;h2 id=&quot;Clone-source-code&quot;&gt;&lt;a href=&quot;#Clone-source-code&quot; class=&quot;headerlink&quot; title=&quot;Clone source code&quot;&gt;&lt;/a&gt;Clone source code&lt;/h2&gt;&lt;p&gt;Ref: &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3JpY2tpZXBhcmsvaGFuZHNvbi1tbDI=&quot;&gt;Hands-on Machine Learning&lt;/span&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone https://github.com/rickiepark/handson-ml2.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
       
       
@@ -3593,7 +3593,7 @@
       <guid>https://zerohertz.github.io/getting-started-with-jupyter-notebook/</guid>
       <pubDate>Mon, 11 Jul 2022 13:20:58 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Install-Python&quot;&gt;&lt;a href=&quot;#Install-Python&quot; class=&quot;headerlink&quot; title=&quot;Install Python&quot;&gt;&lt;/a&gt;Install Python&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cucHl0aG9uLm9yZy9kb3dubG9hZHMvbWFjb3Mv&quot;&gt;Download Python&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Install-Python&quot;&gt;&lt;a href=&quot;#Install-Python&quot; class=&quot;headerlink&quot; title=&quot;Install Python&quot;&gt;&lt;/a&gt;Install Python&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cucHl0aG9uLm9yZy9kb3dubG9hZHMvbWFjb3Mv&quot;&gt;Download Python&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Installing python and verifying version&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3955,7 +3955,7 @@ new GDemo(&#39;#python&#39;)
 &lt;/li&gt;
 &lt;li&gt;Prerequisites for Deep Learning&lt;ul&gt;
 &lt;li&gt;Intel CPUs&lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL2RldmVsb3Blci90b3BpYy10ZWNobm9sb2d5L29wZW4vb3ZlcnZpZXcuaHRtbA==&quot;&gt;Intel Math Kernel Library for Deep Neural Networks (Intel MKL-DNN)&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL2RldmVsb3Blci90b3BpYy10ZWNobm9sb2d5L29wZW4vb3ZlcnZpZXcuaHRtbA==&quot;&gt;Intel Math Kernel Library for Deep Neural Networks (Intel MKL-DNN)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;ARM CPUs&lt;ul&gt;
@@ -4015,7 +4015,7 @@ new GDemo(&#39;#python&#39;)
       <guid>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</guid>
       <pubDate>Thu, 14 Jan 2021 02:28:10 GMT</pubDate>
       
-      <description>&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9EZXZlbG9wbWVudC1vZi1hLU9ic3RydWN0aXZlLVNsZWVwLUFwbmVhLURpYWdub3Npcy1BbGdvcml0aG0tVXNpbmctSFJW&quot;&gt;Source in Github&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9EZXZlbG9wbWVudC1vZi1hLU9ic3RydWN0aXZlLVNsZWVwLUFwbmVhLURpYWdub3Npcy1BbGdvcml0aG0tVXNpbmctSFJW&quot;&gt;Source in Github&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;HRV-Heart-Rate-Variability&quot;&gt;&lt;a href=&quot;#HRV-Heart-Rate-Variability&quot; class=&quot;headerlink&quot; title=&quot;HRV(Heart Rate Variability)&quot;&gt;&lt;/a&gt;HRV(Heart Rate Variability)&lt;/h1&gt;&lt;h2 id=&quot;Detecting-R-R-Interval&quot;&gt;&lt;a href=&quot;#Detecting-R-R-Interval&quot; class=&quot;headerlink&quot; title=&quot;Detecting R-R Interval&quot;&gt;&lt;/a&gt;Detecting R-R Interval&lt;/h2&gt;&lt;figure class=&quot;highlight matlab&quot;&gt;&lt;figcaption&gt;&lt;span&gt;rrInterval.mat&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;[qrspeaks, locs, y]&lt;/span&gt; = &lt;span class=&quot;title&quot;&gt;rrInterval&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(time, ecg)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;t = time;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wt = modwt(ecg, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wtrec = &lt;span class=&quot;built_in&quot;&gt;zeros&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;size&lt;/span&gt;(wt));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wtrec(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, :) = wt(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, :);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;y = imodwt(wtrec, &lt;span class=&quot;string&quot;&gt;&amp;#x27;sym4&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;y = &lt;span class=&quot;built_in&quot;&gt;abs&lt;/span&gt;(y).^&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[qrspeaks, locs] = findpeaks(y, t, &lt;span class=&quot;string&quot;&gt;&amp;#x27;MinPeakHeight&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.1&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;MinPeakDistance&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.450&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;%time과 y에 대한 그래프를 해석 후 파라미터 결정&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;blockquote&gt;
@@ -4069,7 +4069,7 @@ new GDemo(&#39;#python&#39;)
       <guid>https://zerohertz.github.io/raspberry-pi-server/</guid>
       <pubDate>Fri, 18 Sep 2020 11:29:40 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;RASPBERRY-PI-OS-설치&quot;&gt;&lt;a href=&quot;#RASPBERRY-PI-OS-설치&quot; class=&quot;headerlink&quot; title=&quot;RASPBERRY PI OS 설치&quot;&gt;&lt;/a&gt;RASPBERRY PI OS 설치&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkuY29tL3NvZnR3YXJlLw==&quot;&gt;RASPBERRY PI OS&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&quot;RASPBERRY-PI-OS-설치&quot;&gt;&lt;a href=&quot;#RASPBERRY-PI-OS-설치&quot; class=&quot;headerlink&quot; title=&quot;RASPBERRY PI OS 설치&quot;&gt;&lt;/a&gt;RASPBERRY PI OS 설치&lt;/h1&gt;&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkuY29tL3NvZnR3YXJlLw==&quot;&gt;RASPBERRY PI OS&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;위 사이트에서 프로그램을 받은 뒤, SD카드 연결 후 아래와 같이 WRITE하면 설치가 된다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4320,7 +4320,7 @@ new GDemo(&#39;#zerohertz&#39;)
 &lt;li&gt;RESET 버튼을 2번 눌러 Upload mode로 전환&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;begin()&lt;/code&gt; 메서드 필수&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9tZWNoYXNvbHV0aW9uLmNvbS9zaG9wL2dvb2RzL2dvb2RzX3ZpZXcucGhwPyZnb29kc25vPTU4NjEzMw==&quot;&gt;Aruino Nano 33 BLE&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9tZWNoYXNvbHV0aW9uLmNvbS9zaG9wL2dvb2RzL2dvb2RzX3ZpZXcucGhwPyZnb29kc25vPTU4NjEzMw==&quot;&gt;Aruino Nano 33 BLE&lt;/span&gt;&lt;/p&gt;</description>
       
       
       
@@ -4998,7 +4998,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       <guid>https://zerohertz.github.io/mathjax-test/</guid>
       <pubDate>Thu, 09 Jan 2020 08:29:09 GMT</pubDate>
       
-      <description>&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9lYXN5LWNvcHktbWF0aGpheC5uYWtha2VuODguY29tLw==&quot;&gt;Reference&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cDovL2RldGV4aWZ5LmtpcmVsYWJzLm9yZy9jbGFzc2lmeS5odG1s&quot;&gt;Detection&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9lYXN5LWNvcHktbWF0aGpheC5uYWtha2VuODguY29tLw==&quot;&gt;Reference&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cDovL2RldGV4aWZ5LmtpcmVsYWJzLm9yZy9jbGFzc2lmeS5odG1s&quot;&gt;Detection&lt;/span&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;을-이용하여-수식-표현&quot;&gt;&lt;a href=&quot;#을-이용하여-수식-표현&quot; class=&quot;headerlink&quot; title=&quot;$$을 이용하여 수식 표현&quot;&gt;&lt;/a&gt;&lt;code&gt;$$&lt;/code&gt;을 이용하여 수식 표현&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; $f(x)=x^2$&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; $$&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; f(x)=x^2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; $$&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
@@ -5545,7 +5545,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       <pubDate>Fri, 16 Aug 2019 05:20:29 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;MNIST-데이터셋&quot;&gt;&lt;a href=&quot;#MNIST-데이터셋&quot; class=&quot;headerlink&quot; title=&quot;MNIST 데이터셋&quot;&gt;&lt;/a&gt;MNIST 데이터셋&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;훈련용 6만개와 테스트용 1만개로 이루어진 손글씨 숫자의 흑백이미지 데이터 - &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cDovL3lhbm4ubGVjdW4uY29tL2V4ZGIvbW5pc3Qv&quot;&gt;여기서 다운&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;훈련용 6만개와 테스트용 1만개로 이루어진 손글씨 숫자의 흑백이미지 데이터 - &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cDovL3lhbm4ubGVjdW4uY29tL2V4ZGIvbW5pc3Qv&quot;&gt;여기서 다운&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;이미지를 다루는 경우 데이터 전처리나 포맷팅이 시간이 많이 걸리므로 이 데이터셋을 이용함&lt;/li&gt;
 &lt;li&gt;가로세로 비율은 그대로 유지하고 20x20 픽셀로 정규화(normalization)되어 있음&lt;/li&gt;
 &lt;li&gt;정규화 알고리즘(가장 낮은 것에 맞춰 전체 이미지 해상도를 감소시킴)에 사용된 anti-aliasing 처리 때문에 이미지에 회색 픽셀이 들어 있음&lt;/li&gt;
@@ -5891,7 +5891,7 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       <guid>https://zerohertz.github.io/unreal-engine-and-c-1/</guid>
       <pubDate>Sat, 05 Jan 2019 14:18:07 GMT</pubDate>
       
-      <description>&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WNzA3cjRia0pPWQ==&quot;&gt;개요&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WNzA3cjRia0pPWQ==&quot;&gt;개요&lt;/span&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;Class-마법사-Unreal-Engine에서-새로운-Class-만들기&quot;&gt;&lt;a href=&quot;#Class-마법사-Unreal-Engine에서-새로운-Class-만들기&quot; class=&quot;headerlink&quot; title=&quot;Class 마법사(Unreal Engine에서 새로운 Class 만들기)&quot;&gt;&lt;/a&gt;Class 마법사(Unreal Engine에서 새로운 Class 만들기)&lt;/h1&gt;&lt;p&gt;&lt;code&gt;File&lt;/code&gt; &amp;gt; &lt;code&gt;New C++ Class&lt;/code&gt; &amp;gt;&lt;br&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42334717/50725556-7c27af00-1142-11e9-9dbc-1ab57f111f81.png&quot; alt=&quot;Class 지정&quot;&gt;&lt;/p&gt;</description>
       
@@ -6494,8 +6494,8 @@ new GDemo(&#39;#demo-teriminal1&#39;)
       <pubDate>Wed, 15 Aug 2018 16:48:11 GMT</pubDate>
       
       <description>&lt;ul&gt;
-&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9mdXR1cmVjcmVhdG9yLmdpdGh1Yi5pby9jYXRlZ29yaWVzL0hleG8v&quot;&gt;Hexo&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zaW1oeWVqaW4uZ2l0aHViLmlvLzIwMTYvMDYvMzAvTWFya2Rvd24tc3ludGF4Lw==&quot;&gt;Markdown&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9mdXR1cmVjcmVhdG9yLmdpdGh1Yi5pby9jYXRlZ29yaWVzL0hleG8v&quot;&gt;Hexo&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9zaW1oeWVqaW4uZ2l0aHViLmlvLzIwMTYvMDYvMzAvTWFya2Rvd24tc3ludGF4Lw==&quot;&gt;Markdown&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&quot;이건-큰-제목이래&quot;&gt;&lt;a href=&quot;#이건-큰-제목이래&quot; class=&quot;headerlink&quot; title=&quot;이건 큰 제목이래&quot;&gt;&lt;/a&gt;이건 큰 제목이래&lt;/h1&gt;</description>
       

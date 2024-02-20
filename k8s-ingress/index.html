@@ -344,7 +344,7 @@
 </li>
 <li>Ingress Controller<ul>
 <li>Ingress 리소스의 규칙을 읽고 실제 traffic routing 처리</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvaW5ncmVzcy1uZ2lueA==">NGINX Ingress Controller<i class="fa fa-external-link-alt"></i></span>, <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYWVmaWsvdHJhZWZpaw==">Traefik<i class="fa fa-external-link-alt"></i></span>, …</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvaW5ncmVzcy1uZ2lueA==">NGINX Ingress Controller</span>, <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYWVmaWsvdHJhZWZpaw==">Traefik</span>, …</li>
 </ul>
 </li>
 <li>Backend Service<ul>
@@ -470,7 +470,7 @@
 
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259301406-e7fa8b64-373c-46b3-9249-3fade6def649.png" alt="HTTPS-2"></p>
 <p>성공 !!<br>만약 path를 변경하고 싶다면 <code>spec.routes.match</code>를 <code>Host(`$&#123;DDNS&#125;`) &amp;&amp; PathPrefix(`/$&#123;PATH&#125;`)</code>와 같이 지정해주면 된다.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc3NsbGFicy5jb20vc3NsdGVzdC9hbmFseXplLmh0bWw=">이런 사이트<i class="fa fa-external-link-alt"></i></span>를 이용하면 아래와 같이 서버의 보안을 평가 받을 수 있다.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc3NsbGFicy5jb20vc3NsdGVzdC9hbmFseXplLmh0bWw=">이런 사이트</span>를 이용하면 아래와 같이 서버의 보안을 평가 받을 수 있다.</p>
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260349693-368b6892-1f3f-402e-beee-537e2368bf98.png" alt="ssltest"></p>
 <hr>
 <h1 id="Traefik-Dashboard"><a href="#Traefik-Dashboard" class="headerlink" title="Traefik Dashboard"></a>Traefik Dashboard</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;ID&#125;</span>:<span class="subst">$(openssl passwd -apr1 $&#123;PASSWD&#125;)</span>&quot;</span> | <span class="built_in">base64</span></span><br></pre></td></tr></table></figure>
