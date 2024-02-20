@@ -9,16 +9,16 @@
 
 
     <url>
-        <loc>https://zerohertz.github.io/paper-review-ictc/</loc>
-        <lastmod>2024-02-19T14:30:28.416Z</lastmod>
+        <loc>https://zerohertz.github.io/paper-review-solar/</loc>
+        <lastmod>2024-02-20T15:52:15.005Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/paper-review-solar/</loc>
-        <lastmod>2024-02-19T13:59:30.421Z</lastmod>
+        <loc>https://zerohertz.github.io/paper-review-ictc/</loc>
+        <lastmod>2024-02-19T14:30:28.416Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -409,7 +409,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/tensorflow-1/</loc>
+        <loc>https://zerohertz.github.io/tensorflow-2/</loc>
         <lastmod>2023-11-03T09:49:35.241Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -417,7 +417,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/tensorflow-2/</loc>
+        <loc>https://zerohertz.github.io/tensorflow-1/</loc>
         <lastmod>2023-11-03T09:49:35.241Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

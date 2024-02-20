@@ -184,7 +184,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Do Hyeon, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: NotoSerifKR, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.15em;
   line-height: 2;
   min-height: 100%;
@@ -205,7 +205,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Do Hyeon, Do Hyeon, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: NotoSerifKR, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -237,7 +237,7 @@ a {
   cursor: pointer;
   outline: 0;
   text-decoration: none;
-  overflow-wrap: break-word;
+  word-break: break-all;
 }
 a:hover {
   border-bottom-color: var(--link-hover-color);
@@ -549,13 +549,13 @@ pre figcaption a:hover {
 }
 pre,
 code {
-  font-family: Nanum Gothic Coding, consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
+  font-family: D2Coding, consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
 }
 code {
   border-radius: 3px;
   font-size: 0.875em;
   padding: 2px 4px;
-  overflow-wrap: break-word;
+  word-break: break-all;
 }
 kbd {
   border: 2px solid #ccc;
@@ -1125,7 +1125,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Do Hyeon, Do Hyeon, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: NotoSerifKR, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1767,8 +1767,8 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Do Hyeon, Do Hyeon, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  overflow-wrap: break-word;
+  font-family: NotoSerifKR, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  word-break: break-all;
 }
 @media (min-width: 1200px) {
   .post-body {
@@ -1921,7 +1921,7 @@ pre code {
   font-size: 1.5em;
   font-weight: normal;
   margin: initial;
-  overflow-wrap: break-word;
+  word-break: break-all;
 }
 .posts-expand .post-title-link {
   border-bottom: 0;
@@ -1953,7 +1953,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Do Hyeon, Do Hyeon, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: NotoSerifKR, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2672,4 +2672,16 @@ mjx-container {
   .pagination {
     margin-bottom: 10px;
   }
+}
+@font-face {
+  font-family: 'NotoSerifKR';
+  src: url("../fonts/NotoSerifKR.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'D2Coding';
+  src: url("../fonts/D2Coding.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
