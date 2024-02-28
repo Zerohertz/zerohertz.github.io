@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2024-02-20T16:53:43.076Z</updated>
+  <updated>2024-02-28T12:09:56.405Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Harnessing The ML Backends for Efficient Labeling in Label Studio</title>
+    <link href="https://zerohertz.github.io/label-studio-ml-backend/"/>
+    <id>https://zerohertz.github.io/label-studio-ml-backend/</id>
+    <published>2024-02-28T12:07:04.000Z</published>
+    <updated>2024-02-28T12:09:56.405Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Open source data labeling platform &lt;a href=&quot;https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/#Introduction&quot;&gt;Label Studio&lt;/a&gt;에 Label Studio ML Backend의 도입으로 machine learning model을 통합하고 labeling 작업을 위한 자동화된 예측을 제공할 수 있다.&lt;br&gt;이를 통해 labeling process를 가속화하고 일관성과 정확성을 향상시킬 수 있으며 실시간으로 모델의 성능을 평가하고 빠르게 반복함으로써 model을 지속적으로 개선할 수 있다.&lt;br&gt;Label Studio와 Label Studio ML Backend의 작동 방식은 아래와 같이 구성된다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/Zerohertz/Zerohertz/assets/42334717/85c9d338-fdb6-4e6a-8e56-822af3792e58&quot; alt=&quot;label-studio-ml-backend&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;predict()&lt;/code&gt;: 입력된 data에 대해 model의 출력을 Label Studio format으로 변경 후 UI에 제공&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fit()&lt;/code&gt;: Label Studio 내 annotation이 완료된 data를 학습하고 load&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="3. MLOps" scheme="https://zerohertz.github.io/categories/3-mlops/"/>
+    
+    
+    <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
+    
+    <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
+    
+    <category term="Label Studio" scheme="https://zerohertz.github.io/tags/label-studio/"/>
+    
+  </entry>
   
   <entry>
     <title>Paper Review: IC|TC</title>
@@ -1458,7 +1486,7 @@
     <link href="https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/"/>
     <id>https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/</id>
     <published>2023-04-14T14:44:46.000Z</published>
-    <updated>2023-11-03T09:49:35.213Z</updated>
+    <updated>2024-02-28T00:17:17.148Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
@@ -1474,6 +1502,8 @@
     <category term="Python" scheme="https://zerohertz.github.io/tags/python/"/>
     
     <category term="Docker" scheme="https://zerohertz.github.io/tags/docker/"/>
+    
+    <category term="Label Studio" scheme="https://zerohertz.github.io/tags/label-studio/"/>
     
   </entry>
   
