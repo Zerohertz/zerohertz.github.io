@@ -9,7 +9,7 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Thu, 29 Feb 2024 06:54:39 GMT</pubDate>
+    <pubDate>Sat, 02 Mar 2024 16:24:20 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -19,7 +19,8 @@
       <pubDate>Wed, 28 Feb 2024 12:07:04 GMT</pubDate>
       
       <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Open source data labeling platform &lt;a href=&quot;https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/#Introduction&quot;&gt;Label Studio&lt;/a&gt;에 Label Studio ML Backend의 도입으로 machine learning model을 통합하고 labeling 작업을 위한 자동화된 예측을 제공할 수 있다.&lt;br&gt;이를 통해 labeling process를 가속화하고 일관성과 정확성을 향상시킬 수 있으며 실시간으로 모델의 성능을 평가하고 빠르게 반복함으로써 model을 지속적으로 개선할 수 있다.&lt;br&gt;Label Studio와 Label Studio ML Backend의 작동 방식은 아래와 같이 구성된다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/Zerohertz/Zerohertz/assets/42334717/85c9d338-fdb6-4e6a-8e56-822af3792e58&quot; alt=&quot;label-studio-ml-backend&quot;&gt;&lt;/p&gt;
+&lt;img width=&quot;1000&quot; alt=&quot;label-studio-ml-backend&quot; src=&quot;https://github.com/Zerohertz/Zerohertz/assets/42334717/eee96611-6a58-4fab-8516-f27907338258&quot;&gt;
+
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;predict()&lt;/code&gt;: 입력된 data에 대해 model의 출력을 Label Studio format으로 변경 후 UI에 제공&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;fit()&lt;/code&gt;: Label Studio 내 annotation이 완료된 data를 학습하고 load&lt;/li&gt;
@@ -2788,6 +2789,31 @@
     </item>
     
     <item>
+      <title>BOJ: 1058</title>
+      <link>https://zerohertz.github.io/boj-1058/</link>
+      <guid>https://zerohertz.github.io/boj-1058/</guid>
+      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
+&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
+&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
+      
+      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
+      
+      
+      <comments>https://zerohertz.github.io/boj-1058/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>BOJ: 1059</title>
       <link>https://zerohertz.github.io/boj-1059/</link>
       <guid>https://zerohertz.github.io/boj-1059/</guid>
@@ -2820,31 +2846,6 @@
       
       
       <comments>https://zerohertz.github.io/boj-1059/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>BOJ: 1058</title>
-      <link>https://zerohertz.github.io/boj-1058/</link>
-      <guid>https://zerohertz.github.io/boj-1058/</guid>
-      <pubDate>Thu, 03 Nov 2022 01:30:15 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;#문제&quot; class=&quot;headerlink&quot; title=&quot;문제&quot;&gt;&lt;/a&gt;문제&lt;/h1&gt;&lt;p&gt;지민이는 세계에서 가장 유명한 사람이 누구인지 궁금해졌다. 가장 유명한 사람을 구하는 방법은 각 사람의 2-친구를 구하면 된다. 어떤 사람 A가 또다른 사람 B의 2-친구가 되기 위해선, 두 사람이 친구이거나, A와 친구이고, B와 친구인 C가 존재해야 된다. 여기서 가장 유명한 사람은 2-친구의 수가 가장 많은 사람이다. 가장 유명한 사람의 2-친구의 수를 출력하는 프로그램을 작성하시오.&lt;br&gt;A와 B가 친구면, B와 A도 친구이고, A와 A는 친구가 아니다.&lt;/p&gt;
-&lt;h2 id=&quot;입력&quot;&gt;&lt;a href=&quot;#입력&quot; class=&quot;headerlink&quot; title=&quot;입력&quot;&gt;&lt;/a&gt;입력&lt;/h2&gt;&lt;p&gt;첫째 줄에 사람의 수 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 각 사람이 친구이면 Y, 아니면 N이 주어진다.&lt;/p&gt;
-&lt;h2 id=&quot;출력&quot;&gt;&lt;a href=&quot;#출력&quot; class=&quot;headerlink&quot; title=&quot;출력&quot;&gt;&lt;/a&gt;출력&lt;/h2&gt;&lt;p&gt;첫째 줄에 가장 유명한 사람의 2-친구의 수를 출력한다.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://zerohertz.github.io/categories/4-algorithm/">4. Algorithm</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/python/">Python</category>
-      
-      <category domain="https://zerohertz.github.io/tags/boj/">BOJ</category>
-      
-      
-      <comments>https://zerohertz.github.io/boj-1058/#disqus_thread</comments>
       
     </item>
     
