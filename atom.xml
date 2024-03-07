@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2024-03-02T16:24:20.343Z</updated>
+  <updated>2024-03-07T03:19:55.094Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zerohertz.github.io/label-studio-ml-backend/"/>
     <id>https://zerohertz.github.io/label-studio-ml-backend/</id>
     <published>2024-02-28T12:07:04.000Z</published>
-    <updated>2024-03-02T16:24:20.343Z</updated>
+    <updated>2024-03-07T03:19:55.094Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Open source data labeling platform &lt;a href=&quot;https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/#Introduction&quot;&gt;Label Studio&lt;/a&gt;에 Label Studio ML Backend의 도입으로 machine learning model을 통합하고 labeling 작업을 위한 자동화된 예측을 제공할 수 있다.&lt;br&gt;이를 통해 labeling process를 가속화하고 일관성과 정확성을 향상시킬 수 있으며 실시간으로 모델의 성능을 평가하고 빠르게 반복함으로써 model을 지속적으로 개선할 수 있다.&lt;br&gt;Label Studio와 Label Studio ML Backend의 작동 방식은 아래와 같이 구성된다.&lt;/p&gt;
