@@ -393,7 +393,7 @@
     <link href="https://zerohertz.github.io/airflow-theme/"/>
     <id>https://zerohertz.github.io/airflow-theme/</id>
     <published>2023-08-26T14:57:21.000Z</published>
-    <updated>2023-11-03T09:53:01.774Z</updated>
+    <updated>2024-03-15T04:30:50.820Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Apache Airflow에 적용 가능한 theme를 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9haXJmbG93L2Jsb2IvbWFpbi9haXJmbG93L2NvbmZpZ190ZW1wbGF0ZXMvZGVmYXVsdF93ZWJzZXJ2ZXJfY29uZmlnLnB5&quot;&gt;공식 repository&lt;/span&gt;에서 아래와 같이 확인할 수 있다.&lt;/p&gt;
@@ -534,7 +534,7 @@
     <link href="https://zerohertz.github.io/airflow-auto-payment/"/>
     <id>https://zerohertz.github.io/airflow-auto-payment/</id>
     <published>2023-08-18T06:26:28.000Z</published>
-    <updated>2023-11-03T09:50:46.290Z</updated>
+    <updated>2024-03-15T05:10:09.154Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;신용카드 중 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cuc2hpbmhhbmNhcmQuY29tL3Bjb250cy9odG1sL2NhcmQvYXBwbHkvY3JlZGl0LzExOTg5NDJfMjIwNy5odG1s&quot;&gt;The More&lt;/span&gt;는 5,000원 이상의 결제 금액에 대해 1,000원 미만의 포인트가 적립된다.&lt;br&gt;이를 통신비와 같은 서비스에 분할결제로 적용하면 약 16.65%의 이득을 볼 수 있다. ($&#92;because&#92;frac{999}{5999}&#92;times100$)&lt;br&gt;하지만 아래와 같은 제약이 존재한다.&lt;/p&gt;
@@ -644,7 +644,7 @@
     <link href="https://zerohertz.github.io/airflow-discord/"/>
     <id>https://zerohertz.github.io/airflow-discord/</id>
     <published>2023-08-13T12:03:10.000Z</published>
-    <updated>2023-11-28T14:58:34.010Z</updated>
+    <updated>2024-03-15T05:05:26.495Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/home-server-init/#Fail2Ban&quot;&gt;Fail2Ban&lt;/a&gt;의 명령어 중 &lt;code&gt;sudo fail2ban-client status sshd&lt;/code&gt;을 사용하면 아래와 같은 결과가 나온다.&lt;/p&gt;
@@ -727,13 +727,13 @@
     <link href="https://zerohertz.github.io/k8s-ingress/"/>
     <id>https://zerohertz.github.io/k8s-ingress/</id>
     <published>2023-08-08T14:43:40.000Z</published>
-    <updated>2023-11-03T09:54:13.113Z</updated>
+    <updated>2024-04-01T12:25:16.892Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;GPT-4 좋네&lt;/del&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 kubernetes의 API 객체&lt;/p&gt;
+&lt;p&gt;Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 Kubernetes의 API 객체&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Kubernetes의 ingress는 host 이름과 경로를 포함한 일련의 규칙을 기반으로 HTTP와 HTTPS routing을 제공하여 client 요청을 적절한 backend service로 연결하는 장점이 있다.&lt;br&gt;Ingress의 주요 구성 요소는 아래와 같다.&lt;/p&gt;
 &lt;ol&gt;
@@ -779,10 +779,10 @@
     <link href="https://zerohertz.github.io/k9s/"/>
     <id>https://zerohertz.github.io/k9s/</id>
     <published>2023-08-08T14:14:04.000Z</published>
-    <updated>2023-11-03T09:54:28.714Z</updated>
+    <updated>2024-04-01T12:25:47.905Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 Kubernetes 관리 도구이며 CLI에서 전체 Kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Real-time Monitoring&lt;ul&gt;
 &lt;li&gt;주요 resource를 실시간으로 모니터링&lt;/li&gt;
@@ -848,7 +848,7 @@
     <link href="https://zerohertz.github.io/kubeflow/"/>
     <id>https://zerohertz.github.io/kubeflow/</id>
     <published>2023-08-05T16:55:21.000Z</published>
-    <updated>2023-11-03T09:49:35.229Z</updated>
+    <updated>2024-04-01T12:25:59.385Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
@@ -1166,7 +1166,7 @@
     <link href="https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/"/>
     <id>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</id>
     <published>2023-07-10T09:52:58.000Z</published>
-    <updated>2023-11-03T09:49:35.233Z</updated>
+    <updated>2024-04-01T12:25:38.233Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/&quot;&gt;YOLOv5 모델을 ONNX로 변환하여 Triton Inference Server로 배포&lt;/a&gt;한 경험은 있지만, &lt;a href=&quot;https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/#Introduction&quot;&gt;Amazon EC2 Inf1&lt;/a&gt;을 통해 모델을 배포하고 REST API를 직접 구성해본 경험은 없어 직접 inference server와 API server를 구성해보려고한다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL3RyaXRvbi1pbmZlcmVuY2Utc2VydmVyL3B5dGhvbl9iYWNrZW5kL3RyZWUvbWFpbi9pbmZlcmVudGlh&quot;&gt;공식 문서&lt;/span&gt;와 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9oeXBlcmNvbm5lY3QuZ2l0aHViLmlvLzIwMjIvMTIvMTMvaW5mcmEtY29zdC1vcHRpbWl6YXRpb24td2l0aC1hd3MtaW5mZXJlbnRpYS5odG1s&quot;&gt;참고 자료&lt;/span&gt;들도 존재하지만 실질적 개발을 하는데 있어 막히는 부분이 꽤 많아 기록으로 남긴다.&lt;/p&gt;

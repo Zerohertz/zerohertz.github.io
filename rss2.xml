@@ -771,7 +771,7 @@
       <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.&lt;br&gt;쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;GPT-4 좋네&lt;/del&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 kubernetes의 API 객체&lt;/p&gt;
+&lt;p&gt;Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 Kubernetes의 API 객체&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Kubernetes의 ingress는 host 이름과 경로를 포함한 일련의 규칙을 기반으로 HTTP와 HTTPS routing을 제공하여 client 요청을 적절한 backend service로 연결하는 장점이 있다.&lt;br&gt;Ingress의 주요 구성 요소는 아래와 같다.&lt;/p&gt;
 &lt;ol&gt;
@@ -822,7 +822,7 @@
       <guid>https://zerohertz.github.io/k9s/</guid>
       <pubDate>Tue, 08 Aug 2023 14:14:04 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 kubernetes 관리 도구이며 CLI에서 전체 kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Kubernetes는 container화된 application의 deployment, scaling 및 orchestration을 단순화하지만 관리 및 troubleshooting이 쉽지 않기 때문에 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rOXNjbGkuaW8v&quot;&gt;K9s&lt;/span&gt;를 사용한다!&lt;br&gt;K9s는 terminal 기반의 Kubernetes 관리 도구이며 CLI에서 전체 Kubernetes cluster의 resource를 시각적으로 탐색 및 관리할 수 있다.&lt;br&gt;주요 기능은 아래와 같다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Real-time Monitoring&lt;ul&gt;
 &lt;li&gt;주요 resource를 실시간으로 모니터링&lt;/li&gt;
