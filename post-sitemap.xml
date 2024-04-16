@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/machine-learning/</loc>
+        <lastmod>2024-04-16T11:39:09.564Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/kubeflow/</loc>
         <lastmod>2024-04-01T12:25:59.385Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -802,14 +810,6 @@
 
     <url>
         <loc>https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</loc>
-        <lastmod>2023-11-03T09:49:35.229Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/machine-learning/</loc>
         <lastmod>2023-11-03T09:49:35.229Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
