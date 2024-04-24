@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251974560-77c9e373-dfe4-4316-99ac-50145c9abb32.png">
 <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251985070-227a8faf-99f2-42f9-a2db-85c397061b8e.png">
 <meta property="article:published_time" content="2023-07-07T07:13:43.000Z">
-<meta property="article:modified_time" content="2023-11-03T10:13:32.153Z">
+<meta property="article:modified_time" content="2024-04-24T14:54:46.046Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="CI&#x2F;CD">
@@ -333,7 +333,7 @@
         <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84">저번</a>에 이어서 python code들의 formatting을 조금 더 간편하게 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL2tvL3YyL0dpdCVFQiVBNyU5RSVFQyVCNiVBNC1HaXQtSG9va3M=">Git Hooks</span>를 통해 도전한다.</p>
 <h2 id="Git-Hooks"><a href="#Git-Hooks" class="headerlink" title="Git Hooks"></a>Git Hooks</h2><p>Git Hooks는 Git 작업의 특정 지점에서 실행되는 스크립트다.<br>사용자 정의 작업을 수행하거나 작업의 유효성을 검사하기 위해 사용되며 git repository 내부에 설정되어 해당 이벤트가 발생할 때마다 실행된다.</p>
 <h2 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h2><p>pre-commit은 Git Hooks을 활용하여 코드 commit 전에 자동으로 실행되는 도구다.<br>코드의 품질을 유지하고 일관성을 강제하기 위해 사용되며 일반적으로 코드 스타일 체크, 정적 분석, 테스트 실행 등의 작업을 수행한다.<br>또한 commit 하기 전에 코드에 대한 일련의 검사를 수행하여 품질을 향상시키고, 잠재적인 오류나 스타일 가이드 위반을 방지한다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pre-commit</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install pre-commit</span></span><br></pre></td></tr></table></figure>
 
 <p>pre-commit은 위와 같이 설치할 수 있으며, <code>.pre-commit-config.yaml</code> 파일을 사용하여 구성한다.<br>이 파일에는 사용할 Git Hooks 스크립트, 훅을 실행할 리포지토리 경로, 특정 파일에 대한 훅의 적용 여부 등의 설정이 포함된다.</p>
 <p>pre-commit은 다양한 Git Hooks (코드 포맷팅, 정적 분석, 린팅, 테스트 실행 등)를 지원하며을 수행할 수 있다.<br><code>.pre-commit-config.yaml</code> 파일에서 필요한 훅을 구성하고 해당 훅이 실행될 때 어떤 작업을 수행할지 결정할 수 있다.</p>
@@ -354,7 +354,7 @@
 </details>
 <br>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pre-commit install</span><br><span class="line">$ git add .pre-commit-config.yaml</span><br><span class="line">$ git commit -m <span class="string">&quot;Add: .pre-commit-config.yaml&quot;</span></span><br><span class="line">$ git push origin main</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pre-commit install</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add .pre-commit-config.yaml</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&quot;Add: .pre-commit-config.yaml&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin main</span></span><br></pre></td></tr></table></figure>
 
 <p>잘 적용되었는지 확인하기 위해 오류가 이미 발생한 <code>test.py</code>와 <code>test.yaml</code>를 commit 해보자.</p>
 <figure class="highlight python"><figcaption><span>test.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">     <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line"> <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">	<span class="built_in">print</span>(i)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
@@ -367,7 +367,7 @@
 
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251974403-3ce45c5e-3dc3-4cfc-b6ad-b9fb5b4c437f.png" alt="push"></p>
 <p>최종적으로 위와 같이 Git Hooks에 의해 변경된 파일들을 다시 add하고 commit 후 push하면 된다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pre-commit run --all-files</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pre-commit run --all-files</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251974560-77c9e373-dfe4-4316-99ac-50145c9abb32.png" alt="run-all-files"></p>
 <hr>

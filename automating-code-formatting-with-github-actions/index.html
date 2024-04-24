@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://github.com/Zerohertz/Algorithm/assets/42334717/8a69aa93-98d4-4078-bbf2-5bbd82ad04d3">
 <meta property="og:image" content="https://github.com/Zerohertz/lottery-bot/assets/42334717/8003276a-d94a-49dc-9ce3-f825b7634f5c">
 <meta property="article:published_time" content="2023-07-04T23:58:00.000Z">
-<meta property="article:modified_time" content="2023-11-03T09:53:10.370Z">
+<meta property="article:modified_time" content="2024-04-24T14:54:46.018Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="CI&#x2F;CD">
@@ -348,7 +348,7 @@
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9BbGdvcml0aG0vY29tbWl0L2UzZTIzOGFlYmZkZWNlOGU4NTEwNDA4MTk3NzNmOWYwNGU4ZWJkYTc=">변경 내역</span>을 확인해보면 모두 정갈하게 바뀐 것을 알 수 있다.</p>
 <hr>
 <h1 id="차후-시도"><a href="#차후-시도" class="headerlink" title="차후 시도"></a>차후 시도</h1><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3B5bGludC1kZXYvcHlsaW50">Pylint</span>를 사용하면 python 코드를 평가해준다.<br>해당 기능을 GitHub Actions에 추가하여 사용하면 귀여울 것 같다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ pylint main.py</span><br><span class="line">main.py:1:0: C0114: Missing module docstring (missing-module-docstring)</span><br><span class="line">main.py:11:0: C0103: Constant name <span class="string">&quot;cost&quot;</span> doesn<span class="string">&#x27;t conform to UPPER_CASE naming style (invalid-name)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">-----------------------------------</span></span><br><span class="line"><span class="string">Your code has been rated at 9.43/10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pylint main.py</span></span><br><span class="line">main.py:1:0: C0114: Missing module docstring (missing-module-docstring)</span><br><span class="line">main.py:11:0: C0103: Constant name &quot;cost&quot; doesn&#x27;t conform to UPPER_CASE naming style (invalid-name)</span><br><span class="line"></span><br><span class="line">-----------------------------------</span><br><span class="line">Your code has been rated at 9.43/10</span><br></pre></td></tr></table></figure>
 
 <p>마지막으로, 현재 문제점은 GitHub Actions가 main branch에 push 될 때 구동되는데 여기서 formatting을 진행하고 변경사항이 있으면 다시 push 하고, <code>git add .</code>를 사용하는 것이다.<br>이 말은 재귀적으로 GitHub Actions를 호출하는 것이기 때문에 이런 것을 어떻게 바꿀 수 있을지 고민해야한다.<br>아마 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLnB1bXBraW4tcmFjY29vbi5jb20vODU=">Git Hooks &amp; Husky</span>를 사용하면 이런 문제를 해결할 수 있을 것 같다.</p>
 
