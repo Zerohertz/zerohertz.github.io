@@ -9,8 +9,72 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Wed, 24 Apr 2024 14:54:46 GMT</pubDate>
+    <pubDate>Sun, 05 May 2024 06:02:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CKA (Certified Kubernetes Administrator)</title>
+      <link>https://zerohertz.github.io/cka/</link>
+      <guid>https://zerohertz.github.io/cka/</guid>
+      <pubDate>Sun, 05 May 2024 12:30:45 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;CKA: Kubernetes 관리자의 책임을 수행할 수 있는 기술, 지식 및 역량을 갖추고 있음을 보증하는 자격증&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&quot;https://github.com/Zerohertz/Zerohertz/assets/42334717/225860a9-8741-4360-8af7-ad9f3c73e667&quot; width=700&gt;
+
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9naXRodWIuY29tL2NuY2YvY3VycmljdWx1bS9ibG9iL21hc3Rlci9DS0FfQ3VycmljdWx1bV92MS4yOS5wZGY=&quot;&gt;CKA curriculum&lt;/span&gt;에서 CKA가 포함하는 내용들을 아래와 같이 확인할 수 있다.&lt;/p&gt;
+&lt;div align=&quot;right&quot;&gt;&lt;code&gt;v1.29&lt;/code&gt; 기준&lt;/div&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;Domain&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;Weight&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;Key Points&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Cluster Architecture,&lt;/br&gt;Installation &amp;amp; Configuration&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;25%&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;✅ Manage role based access control (RBAC)&lt;/br&gt;✅ Use Kubeadm to install a basic cluster&lt;/br&gt;✅ Manage a highly-available Kubernetes cluster&lt;/br&gt;✅ Provision underlying infrascruture to deploy a Kubernetes cluster&lt;/br&gt;✅ Implement etcd backup and restore&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Workloads &amp;amp; Scheduling&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;15%&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;✅ Understand deployments and how to perform rolling update and rollbacks&lt;/br&gt;✅ Use ConfigMaps and Secrets to configure applications&lt;/br&gt;✅ Know how to scale applications&lt;/br&gt;✅ Understand how resource limits can effect Pod scheduling&lt;/br&gt;✅ Awareness of manifest management and common templating tools&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Services &amp;amp; Networking&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;20%&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;✅ Understand host networking configuration on the cluster nodes&lt;/br&gt;✅ Understand connectivity between Pods&lt;/br&gt;✅ Understand ClusterIP, NodePort, LoadBalancer service types and endpoints&lt;/br&gt;✅ Know how to use Ingress controllers and Ingress resources&lt;/br&gt;✅ Know how to configure and use CoreDNS&lt;/br&gt;✅ Choose an appropriate container network interface plugin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Storage&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;10%&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;✅ Understand storage classes, persistent volumes&lt;/br&gt;✅ Understand volume mode, access modes and reclaim polices for volumes&lt;/br&gt;✅ Understand persistent volume claims primitive&lt;/br&gt;✅ Know how to configure applications with persistent storage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;Troubleshooting&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;30%&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;✅ Evaluate cluster and node logging&lt;/br&gt;✅ Understand how to monitor applications&lt;/br&gt;✅ Manage container stdout &amp;amp; stderr logs&lt;/br&gt;✅ Troubleshoot application failure&lt;/br&gt;✅ Troubleshoot cluster component failure&lt;/br&gt;✅ Troubleshoot networking&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/2-devops/">2. DevOps</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/docker/">Docker</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      
+      <comments>https://zerohertz.github.io/cka/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Harnessing The ML Backends for Efficient Labeling in Label Studio</title>

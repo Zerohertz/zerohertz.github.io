@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://zerohertz.github.io/cka/</loc>
+        <lastmod>2024-05-05T06:02:13.185Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/serving-yolov5-segmentation-model-with-aws-ec2-inf1/</loc>
         <lastmod>2024-04-24T15:01:43.294Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -177,7 +185,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/venture/</loc>
+        <loc>https://zerohertz.github.io/vision-data-acquisition-matlab-source-code-using-gige-vision-cmos-camera/</loc>
         <lastmod>2024-04-24T14:54:46.074Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -185,7 +193,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/vision-data-acquisition-matlab-source-code-using-gige-vision-cmos-camera/</loc>
+        <loc>https://zerohertz.github.io/venture/</loc>
         <lastmod>2024-04-24T14:54:46.074Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -505,7 +513,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-12/</loc>
+        <loc>https://zerohertz.github.io/matlab-11/</loc>
         <lastmod>2024-04-24T14:54:46.066Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -513,7 +521,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-11/</loc>
+        <loc>https://zerohertz.github.io/matlab-12/</loc>
         <lastmod>2024-04-24T14:54:46.066Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1081,7 +1089,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/economics/</loc>
+        <loc>https://zerohertz.github.io/emg-sensor/</loc>
         <lastmod>2024-04-24T14:54:46.046Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1089,7 +1097,7 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/emg-sensor/</loc>
+        <loc>https://zerohertz.github.io/economics/</loc>
         <lastmod>2024-04-24T14:54:46.046Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
