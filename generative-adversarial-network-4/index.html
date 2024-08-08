@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="DCGAN ANN generator의 문제점 부드러운 이미지가 아닌 고대비 픽셀로 이뤄진 불명확한 이미지 완전 연결 신경망은 메모리를 많이 사용하고 큰 이미지에 적합하지 않음   합성곱 GAN (Deep Convolutional Generative Adversarial Network, DCGAN)을 통해 극복  Localized Image Feature 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generative Adversarial Network (4)">
+<meta property="og:url" content="https://zerohertz.github.io/generative-adversarial-network-4/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="DCGAN ANN generator의 문제점 부드러운 이미지가 아닌 고대비 픽셀로 이뤄진 불명확한 이미지 완전 연결 신경망은 메모리를 많이 사용하고 큰 이미지에 적합하지 않음   합성곱 GAN (Deep Convolutional Generative Adversarial Network, DCGAN)을 통해 극복  Localized Image Feature 이">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183245678-686cab68-ebe9-40c1-ae47-dc6ec596f7f7.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183247101-c1db56e3-4ba5-4604-b5be-80482321985b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183248976-e4743e29-97f1-455f-a790-1fcc6fbfce48.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183275632-7160eda0-0be1-42ac-bad9-f7f8823fc5e1.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/183275596-dc073ec5-6ca8-4a9c-b69f-4eebace5dece.png">
+<meta property="article:published_time" content="2022-08-06T09:35:21.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.234Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/183245678-686cab68-ebe9-40c1-ae47-dc6ec596f7f7.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/generative-adversarial-network-4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/generative-adversarial-network-4/","path":"generative-adversarial-network-4/","title":"Generative Adversarial Network (4)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Generative Adversarial Network (4) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DCGAN"><span class="nav-number">1.</span> <span class="nav-text">DCGAN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Localized-Image-Feature"><span class="nav-number">1.1.</span> <span class="nav-text">Localized Image Feature</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convolution-Neural-Network"><span class="nav-number">1.2.</span> <span class="nav-text">Convolution Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIST-CNN"><span class="nav-number">1.3.</span> <span class="nav-text">MNIST CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Montage-DCGAN"><span class="nav-number">1.4.</span> <span class="nav-text">Montage DCGAN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CGAN"><span class="nav-number">2.</span> <span class="nav-text">CGAN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Discriminator"><span class="nav-number">2.1.</span> <span class="nav-text">Discriminator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">2.2.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-and-Results"><span class="nav-number">2.3.</span> <span class="nav-text">Training and Results</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-14</time>
+        <br>
+      Labeling with Label Studio for Pre-labeled Data using YOLOv5
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/neural-network-example/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-09</time>
+        <br>
+      Neural Network Example
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-3/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-26</time>
+        <br>
+      Generative Adversarial Network (3)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/graduate-student-charter-loan-challenge-story/" rel="bookmark">
+        <time class="popular-posts-time">2022-12-06</time>
+        <br>
+      대학원생 전세 대출 도전기
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-5/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-08</time>
+        <br>
+      Generative Adversarial Network (5)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/generative-adversarial-network-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Generative Adversarial Network (4) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Generative Adversarial Network (4)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-06 18:35:21" itemprop="dateCreated datePublished" datetime="2022-08-06T18:35:21+09:00">2022-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-machine-learning/" itemprop="url" rel="index"><span itemprop="name">5. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="DCGAN"><a href="#DCGAN" class="headerlink" title="DCGAN"></a>DCGAN</h1><ul>
+<li>ANN generator의 문제점<ul>
+<li>부드러운 이미지가 아닌 고대비 픽셀로 이뤄진 불명확한 이미지</li>
+<li>완전 연결 신경망은 메모리를 많이 사용하고 큰 이미지에 적합하지 않음</li>
+</ul>
+</li>
+<li>합성곱 GAN (Deep Convolutional Generative Adversarial Network, DCGAN)을 통해 극복</li>
+</ul>
+<h2 id="Localized-Image-Feature"><a href="#Localized-Image-Feature" class="headerlink" title="Localized Image Feature"></a>Localized Image Feature</h2><ul>
+<li>이미지 데이터의 특성: 머신러닝을 위한 유의미한 특성 (feature)은 이미지에서 지역화된 (localized) 특성<ul>
+<li>Ex) 눈과 코를 나타내는 픽셀은 서로 가까이 존재</li>
+</ul>
+</li>
+<li>ANN generator<ul>
+<li>이러한 도메인 지식 (domain knowledge) 이용 불가</li>
+<li>이미지의 모든 픽셀 항상 고려 (이미지 특성의 지역성 고려 X) $\rightarrow$ 비효율적 훈련</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Convolution-Neural-Network"><a href="#Convolution-Neural-Network" class="headerlink" title="Convolution Neural Network"></a>Convolution Neural Network</h2><ul>
+<li>합성곱 (convolution): 합성곱 커널 (convolution kernel)을 통해 이미지의 정보를 새로운 격자에 요약하는 방법<ul>
+<li>실제 이미지 픽셀과 요약된 이미지 픽셀 사이의 유사성 모색</li>
+</ul>
+</li>
+<li>특성 맵 (feature map): 합성곱 커널 레이어가 모서리 혹은 점과 같은 디테일한 저수준 특성을 요약한 정보<ul>
+<li>특성 맵에 다시 합성곱 커널의 레이어를 추가하여 더 추상적인 특성들의 조합으로 구성된 고수준 특성 취득 가능</li>
+</ul>
+</li>
+<li>합성곱 신경망 (convolution neural network, CNN): 이웃한 픽셀들의 작은 패턴에서 비롯된 중수준의 특성으로부터 이미지 내용을 통해 분류에 용이<ul>
+<li>커널의 형태를 네트워크로 훈련 (네트워크가 저수준, 중수준, 고수준의 이미지 특성 훈련)</li>
+</ul>
+</li>
+</ul>
+<h2 id="MNIST-CNN"><a href="#MNIST-CNN" class="headerlink" title="MNIST CNN"></a>MNIST CNN</h2><figure class="highlight python"><figcaption><span>Classifier.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">1</span>, <span class="number">10</span>, kernel_size = <span class="number">5</span>, stride = <span class="number">2</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">10</span>),</span><br><span class="line">        </span><br><span class="line">            nn.Conv2d(<span class="number">10</span>, <span class="number">10</span>, kernel_size = <span class="number">3</span>, stride = <span class="number">2</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">10</span>),</span><br><span class="line">            </span><br><span class="line">            View(<span class="number">250</span>),</span><br><span class="line">            nn.Linear(<span class="number">250</span>, <span class="number">10</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Train.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">C = Classifier()</span><br><span class="line"></span><br><span class="line">epochs = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;training epoch&#x27;</span>, i + <span class="number">1</span>, <span class="string">&quot;of&quot;</span>, epochs)</span><br><span class="line">    <span class="keyword">for</span> label, image_data_tensor, target_tensor <span class="keyword">in</span> mnist_dataset:</span><br><span class="line">        C.train(image_data_tensor.view(<span class="number">1</span>, <span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>), target_tensor)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>nn.Conv2d(1, 10, kernel_size = 5, stride = 2)</code>: 합성곱 레이어<ul>
+<li>입력 채널의 개수: 1 (단색 이미지)</li>
+<li>출력 채널의 개수: 10</li>
+<li>10개의 특성 맵으로 작동할 10개의 합성곱 커널 제작</li>
+<li><code>kernel_size</code>: 커널의 크기 설정</li>
+<li><code>stride</code> (보폭): 이미지를 따라 커널이 얼마나 움직일지 설정</li>
+<li>$5\times5$ 커널이 2칸씩 이동</li>
+</ul>
+</li>
+<li><code>nn.BatchNorm2d(10)</code>: 특성 맵 레이어의 전 채널 정규화</li>
+<li><code>nn.Conv2d(10, 10, kernel_size = 3, stride = 2)</code><ul>
+<li>10개의 특성 맵에 $3\times3$ 커널을 <code>stride = 2</code>로 적용하여 $5\times5$인 10개의 특성맵 수집</li>
+</ul>
+</li>
+<li><code>View(250)</code><ul>
+<li>$5\times5$ 크기의 특성 맵 10개 ($10\times5\times5&#x3D;250$)를 받아 1차원 리스트에 할당</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><code>PyTorch</code>의 합성곱 필터 요소: <code>batch_size</code>, <code>channels</code>, <code>height</code>, <code>width</code> (4차원 텐서)<ul>
+<li>MNIST 이미지는 단색이므로 <code>channels = 1</code></li>
+<li><code>(1, 1, 28, 28)</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Results of CNN applied to MNIST dataset<br><img src="https://user-images.githubusercontent.com/42334717/183245678-686cab68-ebe9-40c1-ae47-dc6ec596f7f7.png" alt="Results of CNN applied to MNIST dataset"></p>
+</blockquote>
+<h2 id="Montage-DCGAN"><a href="#Montage-DCGAN" class="headerlink" title="Montage DCGAN"></a>Montage DCGAN</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">crop_center</span>(<span class="params">img, new_width, new_height</span>):</span><br><span class="line">    height, width, _ = img.shape</span><br><span class="line">    startx = width // <span class="number">2</span> - new_width // <span class="number">2</span></span><br><span class="line">    starty = height // <span class="number">2</span> - new_height // <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> img[starty:starty + new_height, startx:startx + new_width, :]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>crop_center()</code>: <code>numpy</code> 이미지 행렬을 받아 중앙에서부터 주어진 크기에 맞춰 절삭</li>
+</ul>
+<figure class="highlight python"><figcaption><span>MontageDataset.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= <span class="built_in">len</span>(self.dataset)):</span><br><span class="line">            <span class="keyword">raise</span> IndexError()</span><br><span class="line">        img = np.array(self.dataset[<span class="built_in">str</span>(index)+<span class="string">&#x27;.png&#x27;</span>])</span><br><span class="line">        img = crop_center(img, <span class="number">128</span>, <span class="number">128</span>)</span><br><span class="line">        <span class="keyword">return</span> torch.cuda.FloatTensor(img).permute(<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>).view(<span class="number">1</span>, <span class="number">3</span>, <span class="number">128</span>, <span class="number">128</span>) / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_image</span>(<span class="params">self, index</span>):</span><br><span class="line">        img = np.array(self.dataset[<span class="built_in">str</span>(index)+<span class="string">&#x27;.png&#x27;</span>])</span><br><span class="line">        img = crop_center(img, <span class="number">128</span>, <span class="number">128</span>)</span><br><span class="line">        plt.imshow(img, interpolation=<span class="string">&#x27;nearest&#x27;</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>crop_center(img, 128, 128)</code><br><img width="635" alt="crop_center(img, 128, 128)" src="https://user-images.githubusercontent.com/42334717/183247101-c1db56e3-4ba5-4604-b5be-80482321985b.png"></p>
+</blockquote>
+<ul>
+<li><code>__getitem__()</code><ul>
+<li><code>(height, width, 3)</code> $\rightarrow$ <code>(batch_size, channels, height, width)</code><ul>
+<li><code>permute(2, 0, 1)</code>: <code>numpy</code> 행렬 순서 변환 (<code>(height, width, 3)</code> $\rightarrow$ <code>(3, height, width)</code>)</li>
+<li><code>View(1, 3, 128, 128)</code>: 배치 크기 1 추가</li>
+</ul>
+</li>
+<li>Add <code>crop_center()</code></li>
+</ul>
+</li>
+<li><code>plot_image()</code><ul>
+<li>Add <code>crop_center()</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><figcaption><span>Discriminator.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Conv2d(<span class="number">3</span>, <span class="number">256</span>, kernel_size = <span class="number">8</span>, stride = <span class="number">2</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">256</span>),</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.2),</span></span><br><span class="line">            nn.GELU(),</span><br><span class="line">            </span><br><span class="line">            nn.Conv2d(<span class="number">256</span>, <span class="number">256</span>, kernel_size = <span class="number">8</span>, stride = <span class="number">2</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">256</span>),</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.2),</span></span><br><span class="line">            nn.GELU(),</span><br><span class="line">            </span><br><span class="line">            nn.Conv2d(<span class="number">256</span>, <span class="number">3</span>, kernel_size = <span class="number">8</span>, stride = <span class="number">2</span>),</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.2),</span></span><br><span class="line">            nn.GELU(),</span><br><span class="line">            </span><br><span class="line">            View(<span class="number">3</span>*<span class="number">10</span>*<span class="number">10</span>),</span><br><span class="line">            nn.Linear(<span class="number">3</span>*<span class="number">10</span>*<span class="number">10</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Generator.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">100</span>, <span class="number">3</span>*<span class="number">11</span>*<span class="number">11</span>),</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.2),</span></span><br><span class="line">            nn.GELU(),</span><br><span class="line">            </span><br><span class="line">            View((<span class="number">1</span>, <span class="number">3</span>, <span class="number">11</span>, <span class="number">11</span>)),</span><br><span class="line">            </span><br><span class="line">            nn.ConvTranspose2d(<span class="number">3</span>, <span class="number">256</span>, kernel_size=<span class="number">8</span>, stride=<span class="number">2</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">256</span>),</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.2),</span></span><br><span class="line">            nn.GELU(),</span><br><span class="line"></span><br><span class="line">            nn.ConvTranspose2d(<span class="number">256</span>, <span class="number">256</span>, kernel_size=<span class="number">8</span>, stride=<span class="number">2</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">256</span>),</span><br><span class="line"><span class="comment">#             nn.LeakyReLU(0.2),</span></span><br><span class="line">            nn.GELU(),</span><br><span class="line"></span><br><span class="line">            nn.ConvTranspose2d(<span class="number">256</span>, <span class="number">3</span>, kernel_size=<span class="number">8</span>, stride=<span class="number">2</span>, padding=<span class="number">1</span>),</span><br><span class="line">            nn.BatchNorm2d(<span class="number">3</span>),</span><br><span class="line">            </span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>판별기: 데이터가 레이어를 통과하며 데이터의 크기가 줄어들게 설계<ol>
+<li>Raw image: $128\times128$ $\rightarrow$ 256 Kernel: $8\times8$ &amp; Stride: $2\ \rightarrow$ 256 Feature map: $61\times61$</li>
+<li>256 Feature map: $61\times61$ $\rightarrow$ 256 Kernel: $8\times8$ &amp; Stride: $2\ \rightarrow$ 256 Feature map: $27\times27$</li>
+<li>256 Feature map: $27\times27$ $\rightarrow$ 3 Kernel: $8\times8$ &amp; Stride: $2\ \rightarrow$ 3 Feature map: $10\times10$</li>
+</ol>
+</li>
+<li>생성기: 데이터가 레이어를 통과하며 데이터의 크기가 커지게 설계<ul>
+<li>전치 합성곱 (transposed convolution): <code>nn.ConvTranspose2d</code></li>
+</ul>
+<ol>
+<li>Seed: $100$ $\rightarrow$ $3\times11\times11$ $\rightarrow$ 4D Tensor: $(1,\ 3,\ 11,\ 11)$</li>
+<li>4D Tensor: $(1,\ 3,\ 11,\ 11)$ $\rightarrow$ 256 Kernel: $8\times8$ &amp; Stride: $2$ $\rightarrow$ 256 Feature map: $28\times28$</li>
+<li>256 Feature map: $28\times28$ $\rightarrow$ 256 Kernel: $8\times8$ &amp; Stride: $2$ $\rightarrow$ 256 Feature map: $62\times62$</li>
+<li>256 Feature map: $62\times62$ $\rightarrow$ 3 Kernel: $8\times8$ &amp; Stride: $2$ &amp; Padding: $1$ $\rightarrow$ 3 Feature map: $128\times128$ (generated image)</li>
+</ol>
+</li>
+<li>GELU (Gaussian Error Linear Unit): ReLU 함수와 비슷하지만 상대적으로 부드러운 곡선을 통해 개선된 기울기 제공</li>
+</ul>
+<blockquote>
+<p>Results of DCGAN applied to montage dataset<br><img src="https://user-images.githubusercontent.com/42334717/183248976-e4743e29-97f1-455f-a790-1fcc6fbfce48.png" alt="Results of DCGAN applied to montage dataset"></p>
+</blockquote>
+<hr>
+<h1 id="CGAN"><a href="#CGAN" class="headerlink" title="CGAN"></a>CGAN</h1><ul>
+<li>조건부 GAN (Conditional Generative Adversarial Network, CGAN): 클래스 레이블과 이미지 사이의 관계를 학습한 생산적 적대 신경망<ul>
+<li>훈련 시 시드에 입력을 추가하여 생성기가 주어진 클래스에 해당하는 이미지 생성</li>
+<li>판별기 또한 클래스 레이블에 대한 정보 제공</li>
+</ul>
+</li>
+</ul>
+<h2 id="Discriminator"><a href="#Discriminator" class="headerlink" title="Discriminator"></a>Discriminator</h2><figure class="highlight python"><figcaption><span>Discriminator.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">784</span>+<span class="number">10</span>, <span class="number">200</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>),</span><br><span class="line">            nn.LayerNorm(<span class="number">200</span>),</span><br><span class="line">            nn.Linear(<span class="number">200</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, image_tensor, label_tensor</span>):</span><br><span class="line">        inputs = torch.cat((image_tensor, label_tensor))</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, inputs, label_tensor, targets</span>):</span><br><span class="line">        outputs = self.forward(inputs, label_tensor)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>forward()</code>: 이미지 텐서와 레이블 텐서를 동시 입력<ul>
+<li>레이블 텐서: 원핫 인코딩 필수</li>
+</ul>
+</li>
+</ul>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><figure class="highlight python"><figcaption><span>Generator.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">100</span>+<span class="number">10</span>, <span class="number">200</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>),</span><br><span class="line">            nn.LayerNorm(<span class="number">200</span>),</span><br><span class="line">            nn.Linear(<span class="number">200</span>, <span class="number">784</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, seed_tensor, label_tensor</span>):</span><br><span class="line">        inputs = torch.cat((seed_tensor, label_tensor))</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, D, inputs, label_tensor, targets</span>):</span><br><span class="line">        g_output = self.forward(inputs, label_tensor)</span><br><span class="line">        d_output = D.forward(g_output, label_tensor)</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_images</span>(<span class="params">self, label</span>):</span><br><span class="line">        label_tensor = torch.zeros((<span class="number">10</span>))</span><br><span class="line">        label_tensor[label] = <span class="number">1.0</span></span><br><span class="line">        f, axarr = plt.subplots(<span class="number">2</span>,<span class="number">3</span>, figsize=(<span class="number">16</span>,<span class="number">8</span>))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">                axarr[i,j].imshow(G.forward(generate_random_seed(<span class="number">100</span>), label_tensor).detach().cpu().numpy().reshape(<span class="number">28</span>,<span class="number">28</span>), interpolation=<span class="string">&#x27;none&#x27;</span>, cmap=<span class="string">&#x27;Blues&#x27;</span>)</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>forward()</code>: 이미지 텐서와 레이블 텐서를 동시 입력</li>
+</ul>
+<h2 id="Training-and-Results"><a href="#Training-and-Results" class="headerlink" title="Training and Results"></a>Training and Results</h2><figure class="highlight python"><figcaption><span>Train.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">D = Discriminator()</span><br><span class="line">G = Generator()</span><br><span class="line"></span><br><span class="line">epochs = <span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&quot;epoch = &quot;</span>, epoch + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> label, image_data_tensor, label_tensor <span class="keyword">in</span> mnist_dataset:</span><br><span class="line">        D.train(image_data_tensor, label_tensor, torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">        random_label = generate_random_one_hot(<span class="number">10</span>)</span><br><span class="line">        D.train(G.forward(generate_random_seed(<span class="number">100</span>), random_label).detach(), random_label, torch.FloatTensor([<span class="number">0.0</span>]))</span><br><span class="line">        random_label = generate_random_one_hot(<span class="number">10</span>)</span><br><span class="line">        G.train(D, generate_random_seed(<span class="number">100</span>), random_label, torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>실제 데이터에 대해 참으로 판별기 훈련: <code>D.train(image_data_tensor, label_tensor, torch.FloatTensor([1.0]))</code></li>
+<li>생성 데이터에 대해 거짓으로 판별기 훈련: <code>D.train(G.forward(generate_random_seed(100), random_label).detach(), random_label, torch.FloatTensor([0.0]))</code><ul>
+<li>생성기에 임의의 시드와 임의의 레이블을 통해 이미지 생성</li>
+<li>판별기에 생성된 이미지를 거짓으로 훈련</li>
+</ul>
+</li>
+<li>생성기 훈련: <code>G.train(D, generate_random_seed(100), random_label, torch.FloatTensor([1.0]))</code><ul>
+<li>생성기에 임의의 시드와 임의의 레이블을 입력하여 이미지 생성</li>
+<li>판별기에 생성된 이미지와 임의의 레이블을 함께 입력하여 판별기의 결과 출력</li>
+<li>판별기의 <code>loss_function</code>에 출력된 결과와 실제 레이블을 입력하여 <code>loss</code> 값 출력</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Loss of CGAN training process<br><img src="https://user-images.githubusercontent.com/42334717/183275632-7160eda0-0be1-42ac-bad9-f7f8823fc5e1.png" alt="Loss of CGAN training process"></p>
+</blockquote>
+<blockquote>
+<p>Results of CGAN applied to MNIST dataset: 0 ~ 9<br><img src="https://user-images.githubusercontent.com/42334717/183275596-dc073ec5-6ca8-4a9c-b69f-4eebace5dece.png" alt="Results of CGAN applied to MNIST dataset"></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/hands-on-machine-learning-3/" rel="prev" title="Hands-on Machine Learning (3)">
+                  <i class="fa fa-chevron-left"></i> Hands-on Machine Learning (3)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/generative-adversarial-network-5/" rel="next" title="Generative Adversarial Network (5)">
+                  Generative Adversarial Network (5) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ef17937f00338e46418be5710e1acf86"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

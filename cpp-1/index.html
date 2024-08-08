@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Day 1C와의 차이점 #include &lt;stdio.h&gt; -&gt; #include &lt;iostream&gt; 형식지정자 필요없어짐   .h 사라짐 호환은 가능   class의 개념 object   bool의 개념 C 참 : 0 이외의 값   C++ true : 1 false : 0     string의 개념  Practice practice">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ (1)">
+<meta property="og:url" content="https://zerohertz.github.io/cpp-1/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Day 1C와의 차이점 #include &lt;stdio.h&gt; -&gt; #include &lt;iostream&gt; 형식지정자 필요없어짐   .h 사라짐 호환은 가능   class의 개념 object   bool의 개념 C 참 : 0 이외의 값   C++ true : 1 false : 0     string의 개념  Practice practice">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-06T01:10:44.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.233Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="C, C++">
+<meta property="article:tag" content="B.S. Course Work">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/cpp-1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/cpp-1/","path":"cpp-1/","title":"C++ (1)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++ (1) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-1"><span class="nav-number">1.</span> <span class="nav-text">Day 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C%EC%99%80%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90"><span class="nav-number">1.1.</span> <span class="nav-text">C와의 차이점</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-number">1.2.</span> <span class="nav-text">Practice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">연산자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plus"><span class="nav-number">1.4.</span> <span class="nav-text">Plus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch"><span class="nav-number">1.5.</span> <span class="nav-text">Switch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Continue-Break"><span class="nav-number">1.6.</span> <span class="nav-text">Continue &amp; Break</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-2"><span class="nav-number">2.</span> <span class="nav-text">Day 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pointer"><span class="nav-number">2.1.</span> <span class="nav-text">Pointer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">2.2.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B0%B0%EC%97%B4"><span class="nav-number">2.3.</span> <span class="nav-text">배열</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calling-a-Function-with-an-Array-as-a-Parameter"><span class="nav-number">2.4.</span> <span class="nav-text">Calling a Function with an Array as a Parameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Const-and-Pointer"><span class="nav-number">2.5.</span> <span class="nav-text">Const and Pointer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.6.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quiz"><span class="nav-number">2.7.</span> <span class="nav-text">Quiz</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-3"><span class="nav-number">3.</span> <span class="nav-text">Day 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Namespace"><span class="nav-number">3.1.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-1"><span class="nav-number">3.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-Object"><span class="nav-number">3.3.</span> <span class="nav-text">Class &amp; Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructor"><span class="nav-number">3.4.</span> <span class="nav-text">Constructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quiz-1"><span class="nav-number">3.5.</span> <span class="nav-text">Quiz</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-4"><span class="nav-number">4.</span> <span class="nav-text">Day 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-Practice"><span class="nav-number">4.1.</span> <span class="nav-text">Class Practice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Destructor"><span class="nav-number">4.2.</span> <span class="nav-text">Destructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%91%EA%B7%BC-%EC%A7%80%EC%A0%95%EC%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">접근 지정자</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inline"><span class="nav-number">4.4.</span> <span class="nav-text">Inline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Program"><span class="nav-number">4.5.</span> <span class="nav-text">Program</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random"><span class="nav-number">4.6.</span> <span class="nav-text">Random</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/cpp-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++ (1) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ (1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-06 10:10:44" itemprop="dateCreated datePublished" datetime="2020-07-06T10:10:44+09:00">2020-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h1><h2 id="C와의-차이점"><a href="#C와의-차이점" class="headerlink" title="C와의 차이점"></a>C와의 차이점</h2><ul>
+<li><code>#include &lt;stdio.h&gt;</code> -&gt; <code>#include &lt;iostream&gt;</code><ul>
+<li>형식지정자 필요없어짐</li>
+</ul>
+</li>
+<li><code>.h</code> 사라짐<ul>
+<li>호환은 가능</li>
+</ul>
+</li>
+<li><code>class</code>의 개념<ul>
+<li>object</li>
+</ul>
+</li>
+<li><code>bool</code>의 개념<ul>
+<li>C<ul>
+<li>참 : 0 이외의 값</li>
+</ul>
+</li>
+<li>C++<ul>
+<li>true : 1</li>
+<li>false : 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>string</code>의 개념</li>
+</ul>
+<h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2><blockquote>
+<p>practice.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">10</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;1. a + b / 3 * 3 = &quot;</span> &lt;&lt; a + b / <span class="number">3</span> * <span class="number">3</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;2. b &lt;&lt; 2 = &quot;</span> &lt;&lt; (b &lt;&lt; <span class="number">2</span>) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;3. a != b = &quot;</span> &lt;&lt; (a != b) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;4. b % a = &quot;</span> &lt;&lt; (b % a) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;5. (a &gt; b) ? a : b = &quot;</span> &lt;&lt; ((a &gt; b) ? a : b) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;6. sizeof(a) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(a) &lt;&lt; endl;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">    c = a++;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;7. C = a++ 이후 c의 값 : &quot;</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    a += b;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;8. a += b 이후 a의 값 : &quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;9. a &amp; b = &quot;</span> &lt;&lt; (a &amp; b) &lt;&lt; endl;</span><br><span class="line">    c = (a + b, a - b);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;10. c = (a + b, a - b) 이후 c의 값 : &quot;</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> a + b / <span class="number">3</span> * <span class="number">3</span> = <span class="number">14</span></span><br><span class="line"><span class="number">2.</span> b &lt;&lt; <span class="number">2</span> = <span class="number">40</span></span><br><span class="line"><span class="number">3.</span> a != b = <span class="number">1</span></span><br><span class="line"><span class="number">4.</span> b % a = <span class="number">0</span></span><br><span class="line"><span class="number">5.</span> (a &gt; b) ? a : b = <span class="number">10</span></span><br><span class="line"><span class="number">6.</span> <span class="built_in">sizeof</span>(a) = <span class="number">4</span></span><br><span class="line"><span class="number">7.</span> C = a++ 이후 c의 값 : <span class="number">5</span></span><br><span class="line"><span class="number">8.</span> a += b 이후 a의 값 : <span class="number">16</span></span><br><span class="line"><span class="number">9.</span> a &amp; b = <span class="number">0</span></span><br><span class="line"><span class="number">10.</span> c = (a + b, a - b) 이후 c의 값 : <span class="number">6</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h2><ul>
+<li>산술 연산자<ul>
+<li><code>*</code>, <code>/</code>, <code>%</code></li>
+<li><code>+</code>, <code>-</code></li>
+</ul>
+</li>
+<li>비트 이동 연산자<ul>
+<li><code>&lt;&lt;</code>, <code>&gt;&gt;</code></li>
+</ul>
+</li>
+<li>관계 연산자<ul>
+<li><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code></li>
+<li><code>==</code>, <code>!=</code></li>
+</ul>
+</li>
+<li>논리 연산자<ul>
+<li><code>&amp;&amp;</code></li>
+<li><code>||</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Plus"><a href="#Plus" class="headerlink" title="Plus"></a>Plus</h2><blockquote>
+<p>plus.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">10</span>, y = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;x = &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;++x = &quot;</span> &lt;&lt; ++x &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;x = &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;y = &quot;</span> &lt;&lt; y &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;y++ = &quot;</span> &lt;&lt; y++ &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;y = &quot;</span> &lt;&lt; y &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span></span><br><span class="line">++x = <span class="number">11</span></span><br><span class="line">x = <span class="number">11</span></span><br><span class="line">y = <span class="number">10</span></span><br><span class="line">y++ = <span class="number">10</span></span><br><span class="line">y = <span class="number">11</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><blockquote>
+<p>switch.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> score;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;점수를 입력하세요 : &quot;</span>;</span><br><span class="line">    cin &gt;&gt; score;</span><br><span class="line"></span><br><span class="line">    score = score / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(score)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;A+ 입니다.&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;A 입니다.&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;B 입니다.&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;C 입니다.&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;F 입니다.&quot;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Continue-Break"><a href="#Continue-Break" class="headerlink" title="Continue &amp; Break"></a>Continue &amp; Break</h2><blockquote>
+<p>continue_break.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="keyword">for</span>(;;)&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;정수 입력 : &quot;</span>;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        <span class="keyword">if</span>(a == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(a % <span class="number">3</span> != <span class="number">0</span>)&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><h2 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h2><blockquote>
+<p>pointer1.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">12</span>;</span><br><span class="line">    <span class="type">int</span> *pa; <span class="comment">//Pointer 변수</span></span><br><span class="line">    <span class="type">int</span> *pb;</span><br><span class="line">    pa = &amp;a;</span><br><span class="line">    pb = &amp;b;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Pointer of a : &quot;</span> &lt;&lt; pa &lt;&lt; <span class="string">&quot; == &quot;</span> &lt;&lt; &amp;a &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Pointer of b : &quot;</span> &lt;&lt; pb &lt;&lt; <span class="string">&quot; == &quot;</span> &lt;&lt; &amp;b &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Pointer of a : <span class="number">0x7ffee6a4f958</span> == <span class="number">0x7ffee6a4f958</span></span><br><span class="line">Pointer of b : <span class="number">0x7ffee6a4f954</span> == <span class="number">0x7ffee6a4f954</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>pointer2.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="type">int</span> *pa; <span class="comment">//Pointer 변수</span></span><br><span class="line">    pa = &amp;a[<span class="number">0</span>];</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;*(pa + 1) = &quot;</span> &lt;&lt; *(pa + <span class="number">1</span>) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a[1] = &quot;</span> &lt;&lt; a[<span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*(pa + <span class="number">1</span>) = <span class="number">2</span></span><br><span class="line">a[<span class="number">1</span>] = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>포인터는 상수 - 변경 불가</li>
+</ul>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><blockquote>
+<p>function.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">adder</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">adder</span>(<span class="number">13</span>, <span class="number">14</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">adder</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> sum;</span><br><span class="line">    sum = a + b;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">27</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Call by Value<ul>
+<li>값 복사 - 수정 불가</li>
+<li>전역변수 - 누구든지 접근 가능</li>
+</ul>
+</li>
+<li>Call by Address</li>
+<li>Call by Reference</li>
+</ul>
+<blockquote>
+<p>call_by_value.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a : &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;\tb : &quot;</span> &lt;&lt; b &lt;&lt;endl;</span><br><span class="line">    <span class="built_in">swap</span>(a, b);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a : &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;\tb : &quot;</span> &lt;&lt; b &lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a : <span class="number">2</span>	b : <span class="number">3</span></span><br><span class="line">a : <span class="number">2</span>	b : <span class="number">3</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>call_by_address.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> *x, <span class="type">int</span> *y)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a : &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;\tb : &quot;</span> &lt;&lt; b &lt;&lt;endl;</span><br><span class="line">    <span class="built_in">swap</span>(&amp;a, &amp;b);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a : &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;\tb : &quot;</span> &lt;&lt; b &lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> *x, <span class="type">int</span> *y)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp = *x;</span><br><span class="line">    *x = *y;</span><br><span class="line">    *y = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>call_by_reference.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> *x, <span class="type">int</span> *y)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a : &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;\tb : &quot;</span> &lt;&lt; b &lt;&lt;endl;</span><br><span class="line">    <span class="built_in">swap</span>(a, b);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a : &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot;\tb : &quot;</span> &lt;&lt; b &lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;x, <span class="type">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a : <span class="number">2</span>	b : <span class="number">3</span></span><br><span class="line">a : <span class="number">3</span>	b : <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>swap(int, int)</code>는 기본 제공 함수</li>
+</ul>
+<h2 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n[<span class="number">10</span>]; <span class="comment">// 정수 10개짜리 빈 메모리 공간</span></span><br><span class="line"><span class="type">double</span> d[] = [<span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">3.9</span>]; <span class="comment">// d의 크기는 자동 4로 설정</span></span><br><span class="line">n[<span class="number">10</span>] = <span class="number">20</span>; <span class="comment">// 인덱스 0~9까지만</span></span><br><span class="line">n[<span class="number">-1</span>] = <span class="number">9.9</span>; <span class="comment">// 인덱스 음수 불가</span></span><br><span class="line"><span class="type">int</span> m[<span class="number">2</span>][<span class="number">5</span>]; <span class="comment">// 2행 5열의 2차원 배열 선언</span></span><br><span class="line"><span class="type">int</span> grade[<span class="number">2</span>][<span class="number">3</span>] = &#123;&#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>&#125;, &#123;<span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>배열은 0부터 시작</li>
+<li>함수에 매개변수로 전달 시 배열의 크기도 함께 전달</li>
+</ul>
+<blockquote>
+<p>two_dimension_array.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> Ary[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line">    <span class="type">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt;= j)&#123;</span><br><span class="line">                    Ary[i][j] = i + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    Ary[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)&#123;</span><br><span class="line">            cout &lt;&lt; Ary[i][j] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">2</span> <span class="number">2</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">4</span> <span class="number">4</span> <span class="number">4</span> <span class="number">4</span> <span class="number">0</span> </span><br><span class="line"><span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> </span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Calling-a-Function-with-an-Array-as-a-Parameter"><a href="#Calling-a-Function-with-an-Array-as-a-Parameter" class="headerlink" title="Calling a Function with an Array as a Parameter"></a>Calling a Function with an Array as a Parameter</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">addArray</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">makeDouble</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> size)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printArray</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> size)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> sum = <span class="built_in">addArray</span>(n, <span class="number">5</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;배열 n의 합은 &quot;</span> &lt;&lt; sum &lt;&lt; <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">makeDouble</span>(n, <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">printArray</span>(n, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">addArray</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> su = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">        su = su + a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> su;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">makeDouble</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">        a[i] = a[i] * a[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printArray</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> size)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">        cout &lt;&lt; a[i] &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">배열 n의 합은 <span class="number">15</span>입니다.</span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">9</span>	<span class="number">16</span>	<span class="number">25</span>	</span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>배열이 함수의 파라미터로 들어갈 경우<ul>
+<li><code>int *a</code></li>
+<li><code>int a[]</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Const-and-Pointer"><a href="#Const-and-Pointer" class="headerlink" title="Const and Pointer"></a>Const and Pointer</h2><blockquote>
+<p>const_pointer.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> var1 = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> var2 = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> *p1 = &amp;var1;</span><br><span class="line">    <span class="type">int</span> *<span class="type">const</span> p2 = &amp;var2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//*p1 = 10; 오류</span></span><br><span class="line">    var1 = <span class="number">10</span>;</span><br><span class="line">    *p2 = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; var1 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; var2 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>const int *pNum</code> - 포인터 자체의 값이 상수</li>
+<li><code>int *const pNum</code> - 포인터가 가리키는 값이 상수</li>
+</ul>
+<blockquote>
+<p>example.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_arr</span><span class="params">(<span class="type">int</span> *arr)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">percentage</span><span class="params">(<span class="type">int</span> *arr)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> count[N] = &#123;<span class="number">42</span>, <span class="number">37</span>, <span class="number">83</span>, <span class="number">33</span>&#125;;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;인원수 : &quot;</span>;</span><br><span class="line">    <span class="built_in">print_arr</span>(count);</span><br><span class="line">    <span class="built_in">percentage</span>(count);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\n백분율 : &quot;</span>;</span><br><span class="line">    <span class="built_in">print_arr</span>(count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_arr</span><span class="params">(<span class="type">int</span> *arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">        cout &lt;&lt; *(arr + i) &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">percentage</span><span class="params">(<span class="type">int</span> *arr)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">        sum = sum + *(arr + i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">        *(arr + i) = *(arr + i) * <span class="number">100</span> / sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">인원수 : <span class="number">42</span>	<span class="number">37</span>	<span class="number">83</span>	<span class="number">33</span>	</span><br><span class="line">백분율 : <span class="number">21</span>	<span class="number">18</span>	<span class="number">42</span>	<span class="number">16</span>	</span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><blockquote>
+<p>getline.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">string <span class="title">song</span><span class="params">(<span class="string">&quot;Falling in love with you&quot;</span>)</span></span>;</span><br><span class="line">    <span class="function">string <span class="title">elvis</span><span class="params">(<span class="string">&quot;Elvis Presley&quot;</span>)</span></span>;</span><br><span class="line">    string singer;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; song + <span class="string">&quot;를 부른 가수는&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;(힌트 : 첫글자는 &quot;</span> &lt;&lt; elvis[<span class="number">0</span>] &lt;&lt; <span class="string">&quot;)?&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">getline</span>(cin, singer);</span><br><span class="line">    <span class="keyword">if</span>(singer == elvis)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;맞았습니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;틀렸습니다. &quot;</span> + elvis + <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Falling in love with you를 부른 가수는(힌트 : 첫글자는 E)?Elvis Presley</span><br><span class="line">맞았습니다.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Falling in love with you를 부른 가수는(힌트 : 첫글자는 E)?asdf</span><br><span class="line">틀렸습니다. Elvis Presley입니다.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>char</code> - <code>&#39; &#39;</code></li>
+<li><code>string</code> - <code>&quot; &quot;</code></li>
+</ul>
+<h2 id="Quiz"><a href="#Quiz" class="headerlink" title="Quiz"></a>Quiz</h2><blockquote>
+<p>quiz1.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string str;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;문자열 입력&gt;&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">getline</span>(cin, str);</span><br><span class="line">    <span class="type">int</span> len = str.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= len; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= i; j++)&#123;</span><br><span class="line">            cout &lt;&lt; str[j<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">문자열 입력&gt;&gt;Morning</span><br><span class="line">M</span><br><span class="line">Mo</span><br><span class="line">Mor</span><br><span class="line">Morn</span><br><span class="line">Morni</span><br><span class="line">Mornin</span><br><span class="line">Morning</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>quiz2.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">biggest</span><span class="params">(<span class="type">double</span> x[], <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> big = x[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x[i] &gt; big)</span><br><span class="line">            big = x[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> big;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> a[<span class="number">5</span>];</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;5개의 실수를 입력하라&gt;&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;제일 큰 수 = &quot;</span> &lt;&lt; <span class="built_in">biggest</span>(a, <span class="number">5</span>) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>개의 실수를 입력하라&gt;&gt;<span class="number">20.0</span></span><br><span class="line"><span class="number">3.44</span></span><br><span class="line"><span class="number">44.66</span></span><br><span class="line"><span class="number">22.0</span></span><br><span class="line"><span class="number">40.0</span></span><br><span class="line">제일 큰 수 = <span class="number">44.66</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h1><h2 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> name&#123; <span class="comment">// name이라는 이름 공간 생성</span></span><br><span class="line">    <span class="comment">// 이곳에 선언된 모든 이름은 name 이름 공간에 생성된 이름</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">name::<span class="built_in">function</span>()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이름(Identifier) 충돌이 발생하는 경우<ul>
+<li>여러 명이 서로 나누어 프로젝트를 개발하는 경우</li>
+<li>오픈 소스 혹은 다른 사람이 작성한 소스나 목적 파일을 가져와서 컴파일하거나 링크하는 경우</li>
+</ul>
+</li>
+<li><code>namespace</code><ul>
+<li>이름 충돌 해결</li>
+<li>개발자가 자신만의 이름 공간을 생성할 수 있도록 함</li>
+</ul>
+</li>
+<li><code>std</code><ul>
+<li>ANSI C++ 표준에서 정의한 이름 공간(<code>namespace</code>) 중 하나</li>
+<li><code>&lt;iostream&gt;</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>namespace.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> Graphic&#123;</span><br><span class="line">    <span class="type">int</span> maximum = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> Math&#123;</span><br><span class="line">    <span class="type">int</span> maximum = <span class="number">65536</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;<span class="keyword">return</span> a + b;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">sub</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span>&#123;<span class="keyword">return</span> a - b;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Radius Maximum = &quot;</span> &lt;&lt; Graphic::maximum &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Integer Maximum = &quot;</span> &lt;&lt; Math::maximum &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Integer Add = &quot;</span> &lt;&lt; Math::<span class="built_in">add</span>(<span class="number">2</span>,<span class="number">4</span>) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Integer Sub = &quot;</span> &lt;&lt; Math::<span class="built_in">sub</span>(<span class="number">2</span>,<span class="number">4</span>) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Radius Maximum = <span class="number">100</span></span><br><span class="line">Integer Maximum = <span class="number">65536</span></span><br><span class="line">Integer Add = <span class="number">6</span></span><br><span class="line">Integer Sub = <span class="number">-2</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="String-1"><a href="#String-1" class="headerlink" title="String"></a>String</h2><ul>
+<li><code>cin.getline(char buf[], int size, char delimitChar)</code><ul>
+<li>공백이 낀 문자열을 입력 받는 방법</li>
+<li><code>buf</code>에 최대 <code>size-1</code>개의 문자 입력(끝에 <code>\0</code> 붙임)</li>
+<li><code>delimitChar</code>를 만나면 입력 중단(끝에 <code>\0</code> 붙임)<ul>
+<li>Default : <code>\n</code>(Enter)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>string</code> 클래스<ul>
+<li>문자열의 크기에 따른 제약 없음<ul>
+<li>스스로 문자열의 버퍼 조정</li>
+</ul>
+</li>
+<li>문자열 복사, 비교, 수정 등을 위한 다양한 함수와 연산자 제공</li>
+<li>객체 지향적</li>
+<li><code>&lt;string&gt;</code> 헤더 파일에 선선</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>cin_getline.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;주소 입력 : &quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> address[<span class="number">100</span>];</span><br><span class="line">    cin.<span class="built_in">getline</span>(address, <span class="number">100</span>, <span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;주소는 &quot;</span> &lt;&lt; address &lt;&lt; <span class="string">&quot;입니다.\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">주소 입력 : ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</span><br><span class="line">주소는 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ입니다.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>string_getline.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;주소 입력 : &quot;</span>;</span><br><span class="line"></span><br><span class="line">    string address;</span><br><span class="line">    <span class="built_in">getline</span>(cin, address);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;주소는 &quot;</span> &lt;&lt; address &lt;&lt; <span class="string">&quot;입니다.\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">주소 입력 : asdfasdfasdfasdfasdfasdfasdfa</span><br><span class="line">주소는 asdfasdfasdfasdfasdfasdfasdfa입니다.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>search.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string str;</span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;문자들을 입력하라 : &quot;</span>;</span><br><span class="line">    <span class="built_in">getline</span>(cin, str);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(str[i] == <span class="string">&#x27;o&#x27;</span>)&#123;</span><br><span class="line">            count += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(str[i] == <span class="string">&#x27;\0&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;o&#x27;</span> &lt;&lt; <span class="string">&quot;의 개수는 &quot;</span> &lt;&lt; count &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">문자들을 입력하라 : Hello, World!</span><br><span class="line">o의 개수는 <span class="number">2</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Class-Object"><a href="#Class-Object" class="headerlink" title="Class &amp; Object"></a>Class &amp; Object</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Name</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> value;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">function</span><span class="params">()</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Name::function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>class</code><ul>
+<li>상태 정보(속성) : 멤버 변수</li>
+<li>Action : 멤버 함수</li>
+<li>객체를 만들어내기 위해 정의된 설계도, 틀</li>
+<li>클래스는 객체가 아니며 실체도 아님</li>
+</ul>
+</li>
+<li>Object<ul>
+<li>객체는 생성될 때 클래스의 모양을 그대로 가지고 탄생</li>
+<li>멤버 변수와 멤버 함수로 구성</li>
+<li>메모리에 생성, 실체(Instance)로도 불림</li>
+</ul>
+</li>
+<li>Why <code>class</code>?<ul>
+<li>Encapsulation<ul>
+<li><code>public</code><ul>
+<li>외부에서 접근 가능</li>
+</ul>
+</li>
+<li><code>protectected</code></li>
+<li><code>private</code><ul>
+<li>외부에서 접근 불가</li>
+<li>Default</li>
+</ul>
+</li>
+<li>캡슐화</li>
+<li>클래스로 묶어둠</li>
+</ul>
+</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>circle.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> radius;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">getArea</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Circle::getArea</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span>*radius*radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Circle donut;</span><br><span class="line">    donut.radius = <span class="number">1</span>;</span><br><span class="line">    <span class="type">double</span> area = donut.<span class="built_in">getArea</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;donut 면적은 &quot;</span> &lt;&lt; area &lt;&lt; <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    Circle pizza;</span><br><span class="line">    pizza.radius = <span class="number">30</span>;</span><br><span class="line">    area = pizza.<span class="built_in">getArea</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;pizza 면적은 &quot;</span> &lt;&lt; area &lt;&lt; <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">donut 면적은 <span class="number">3.14</span>입니다.</span><br><span class="line">pizza 면적은 <span class="number">2826</span>입니다.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>rectangle.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> width;</span><br><span class="line">    <span class="type">int</span> height;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getArea</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> width*height;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Rectangle rect;</span><br><span class="line">    rect.width = <span class="number">3</span>;</span><br><span class="line">    rect.height = <span class="number">5</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;사각형의 면적은 &quot;</span> &lt;&lt; rect.<span class="built_in">getArea</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">사각형의 면적은 <span class="number">15</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h2><ul>
+<li>생성자<ul>
+<li>객체가 생성되는 시점에서 자동으로 호출되는 멤버 함수</li>
+<li>생성자는 클래스의 이름과 같음</li>
+<li><code>public</code>으로 선언</li>
+</ul>
+</li>
+<li>종류<ul>
+<li>기본 생성자<ul>
+<li>매개변수 없음</li>
+<li>생성자가 없으면 컴파일러가 자동으로 만들어줌</li>
+</ul>
+</li>
+<li>사용자 정의 생성자<ul>
+<li>매개변수 존재</li>
+<li>객체 생성 및 멤버 변수 초기값 정의</li>
+<li>기본 생성자 자동 생성 X</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>constructor.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> radius;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Circle</span>();</span><br><span class="line">    <span class="built_in">Circle</span>(<span class="type">int</span> r);</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">getArea</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Circle donut;</span><br><span class="line">    <span class="type">double</span> area = donut.<span class="built_in">getArea</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;donut 면적은 &quot;</span> &lt;&lt; area &lt;&lt; <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="function">Circle <span class="title">pizza</span><span class="params">(<span class="number">30</span>)</span></span>;</span><br><span class="line">    area = pizza.<span class="built_in">getArea</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;pizza 면적은 &quot;</span> &lt;&lt; area &lt;&lt; <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Circle::getArea</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span>*radius*radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::<span class="built_in">Circle</span>()&#123;</span><br><span class="line">    radius = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::<span class="built_in">Circle</span>(<span class="type">int</span> r)&#123;</span><br><span class="line">    radius = r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">donut 면적은 <span class="number">3.14</span>입니다.</span><br><span class="line">pizza 면적은 <span class="number">2826</span>입니다.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Quiz-1"><a href="#Quiz-1" class="headerlink" title="Quiz"></a>Quiz</h2><blockquote>
+<p>quiz2.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Tower</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> height;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Tower</span>();</span><br><span class="line">    <span class="built_in">Tower</span>(<span class="type">int</span> h);</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getHeight</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Tower myTower;</span><br><span class="line">    <span class="function">Tower <span class="title">seoulTower</span><span class="params">(<span class="number">100</span>)</span></span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;높이는 &quot;</span> &lt;&lt; myTower.<span class="built_in">getHeight</span>() &lt;&lt; <span class="string">&quot;미터&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;높이는 &quot;</span> &lt;&lt; seoulTower.<span class="built_in">getHeight</span>() &lt;&lt; <span class="string">&quot;미터&quot;</span> &lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Tower::<span class="built_in">Tower</span>()&#123;</span><br><span class="line">    height = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">Tower::<span class="built_in">Tower</span>(<span class="type">int</span> h)&#123;</span><br><span class="line">    height = h;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Tower::getHeight</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> height;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">높이는 <span class="number">1</span>미터</span><br><span class="line">높이는 <span class="number">100</span>미터</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h1><h2 id="Class-Practice"><a href="#Class-Practice" class="headerlink" title="Class Practice"></a>Class Practice</h2><blockquote>
+<p>integer.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Integer</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> val1;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Integer</span>(<span class="type">int</span> val);</span><br><span class="line">    <span class="built_in">Integer</span>(string val);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">set</span><span class="params">(<span class="type">int</span> val)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isEven</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Integer <span class="title">n</span><span class="params">(<span class="number">30</span>)</span></span>;</span><br><span class="line">    cout &lt;&lt; n.<span class="built_in">get</span>() &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    n.<span class="built_in">set</span>(<span class="number">50</span>);</span><br><span class="line">    cout &lt;&lt; n.<span class="built_in">get</span>() &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="function">Integer <span class="title">m</span><span class="params">(<span class="string">&quot;300&quot;</span>)</span></span>;</span><br><span class="line">    cout &lt;&lt; m.<span class="built_in">get</span>() &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    cout &lt;&lt; m.<span class="built_in">isEven</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Integer::<span class="built_in">Integer</span>(<span class="type">int</span> val)&#123;</span><br><span class="line">    val1 = val;</span><br><span class="line">&#125;</span><br><span class="line">Integer::<span class="built_in">Integer</span>(string val)&#123;</span><br><span class="line">    val1 = <span class="built_in">stoi</span>(val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Integer::set</span><span class="params">(<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">    val1 = val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Integer::get</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Integer::isEven</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(val1%<span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">30</span> <span class="number">50</span> <span class="number">300</span> <span class="number">1</span></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Destructor"><a href="#Destructor" class="headerlink" title="Destructor"></a>Destructor</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">name</span>&#123;</span><br><span class="line">    ~<span class="built_in">name</span>();</span><br><span class="line">&#125;</span><br><span class="line">name::~<span class="built_in">name</span>()&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>객체가 소멸되는 시점에서 자동으로 호출되는 함수</li>
+<li>소멸자의 목적<ul>
+<li>객체가 사라질 때 마무리 작업을 위함</li>
+<li>실행 도중 동적으로 할당 받은 메모리 해제, 파일 저장 및 닫기, 네트워크 닫기 등</li>
+</ul>
+</li>
+<li>소멸자는 <code>return</code> 불가</li>
+<li>객체는 생성의 반대순으로 소멸</li>
+<li>동적 메모리 할당 사용 시 소멸자 이용</li>
+</ul>
+<blockquote>
+<p>destructor.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Circle</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Circle</span>();</span><br><span class="line">    <span class="built_in">Circle</span>(<span class="type">int</span> r);</span><br><span class="line">    <span class="type">int</span> radius;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">getArea</span><span class="params">()</span></span>;</span><br><span class="line">    ~<span class="built_in">Circle</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Circle donut;</span><br><span class="line">    <span class="type">double</span> area = donut.<span class="built_in">getArea</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;donut 면적은 &quot;</span> &lt;&lt; area &lt;&lt; <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    donut.~<span class="built_in">Circle</span>();</span><br><span class="line"></span><br><span class="line">    <span class="function">Circle <span class="title">pizza</span><span class="params">(<span class="number">30</span>)</span></span>;</span><br><span class="line">    area = pizza.<span class="built_in">getArea</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;pizza 면적은 &quot;</span> &lt;&lt; area &lt;&lt; <span class="string">&quot;입니다.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    pizza.~<span class="built_in">Circle</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::<span class="built_in">Circle</span>()&#123;</span><br><span class="line">    radius = <span class="number">1</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;반지름 &quot;</span> &lt;&lt; radius &lt;&lt; <span class="string">&quot; 원 생성&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">Circle::<span class="built_in">Circle</span>(<span class="type">int</span> r)&#123;</span><br><span class="line">    radius = r;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;반지름 &quot;</span> &lt;&lt; radius &lt;&lt; <span class="string">&quot; 원 생성&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">Circle::getArea</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span>*radius*radius;</span><br><span class="line">&#125;</span><br><span class="line">Circle::~<span class="built_in">Circle</span>()&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;반지름 &quot;</span> &lt;&lt; radius &lt;&lt; <span class="string">&quot; 원 소멸&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">반지름 <span class="number">1</span> 원 생성</span><br><span class="line">donut 면적은 <span class="number">3.14</span>입니다.</span><br><span class="line">반지름 <span class="number">1</span> 원 소멸</span><br><span class="line">반지름 <span class="number">30</span> 원 생성</span><br><span class="line">pizza 면적은 <span class="number">2826</span>입니다.</span><br><span class="line">반지름 <span class="number">30</span> 원 소멸</span><br><span class="line">반지름 <span class="number">30</span> 원 소멸</span><br><span class="line">반지름 <span class="number">1</span> 원 소멸</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="접근-지정자"><a href="#접근-지정자" class="headerlink" title="접근 지정자"></a>접근 지정자</h2><ul>
+<li>캡슐화의 목적<ul>
+<li>객체 보호, 보안</li>
+<li>C++에서 객체의 캡슐화 전략<ul>
+<li>객체의 상태를 나타내는 데이터 멤버(멤버 변수)에 대한 보호</li>
+<li>중요한 멤버는 다른 클래스나 객체에서 접근할 수 없도록 보호</li>
+<li>외부와으이 인터페이스를 위해서 일부 멤버는 외부에 접근 허용</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>멤버에 대한 3가지 접근 지정자<ul>
+<li><code>private</code><ul>
+<li>동일한 클래스의 멤버 함수에만 제한함</li>
+</ul>
+</li>
+<li><code>public</code><ul>
+<li>모든 다른 클래스에 허용, 외부함수(<code>main()</code>)도 허용</li>
+</ul>
+</li>
+<li><code>protected</code><ul>
+<li>클래스 자신과 상속받은 자식 클래스에만 허용</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Inline"><a href="#Inline" class="headerlink" title="Inline"></a>Inline</h2><ul>
+<li>짧은 함수의 다수 호출로 인해 오버헤드가 일어남</li>
+<li>이를 <code>inline</code>을 통해 해결</li>
+<li>장점 : 시간 단축</li>
+<li>단점 : 코드가 길어짐</li>
+<li>클래스의 선언부에 구현된 멤버 함수는 자동 <code>inline</code> 함수</li>
+</ul>
+<h2 id="Program"><a href="#Program" class="headerlink" title="Program"></a>Program</h2><ul>
+<li>바람직한 프로그램<ul>
+<li><code>main.cpp</code></li>
+<li><code>class.h</code> : 클래스 선언부 - 헤더 파일(<code>.h</code>)에 저장</li>
+<li><code>class.cpp</code> : 클래스 구현부 - <code>.cpp</code> 파일에 저장</li>
+</ul>
+</li>
+<li>클래스를 헤더 파일과 <code>.cpp</code> 파일로 분리하여 작성</li>
+<li>목적 : 클래스 재사용</li>
+</ul>
+<blockquote>
+<p>main.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Box.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Box <span class="title">b</span><span class="params">(<span class="number">10</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">    b.<span class="built_in">draw</span>();</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    b.<span class="built_in">setSize</span>(<span class="number">7</span>, <span class="number">4</span>);</span><br><span class="line">    b.<span class="built_in">setFill</span>(<span class="string">&#x27;%&#x27;</span>);</span><br><span class="line">    b.<span class="built_in">draw</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Box.h</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> UNTITLED_BOX_H <span class="comment">// 조건 컴파일 역할, n은 not, 정의되어있지 않으면 정의, 정의되어있으면 실행 X</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> UNTITLED_BOX_H <span class="comment">// 중복 include 실행방지</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Box</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> width, height;</span><br><span class="line">    <span class="type">char</span> fill;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Box</span>(<span class="type">int</span> w, <span class="type">int</span> h);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setFill</span><span class="params">(<span class="type">char</span> f)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setSize</span><span class="params">(<span class="type">int</span> w, <span class="type">int</span> h)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">draw</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// UNTITLED_BOX_H</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Box.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Box.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">Box::<span class="built_in">Box</span>(<span class="type">int</span> w, <span class="type">int</span> h)&#123;</span><br><span class="line">    <span class="built_in">setSize</span>(w, h);</span><br><span class="line">    fill = <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Box::setFill</span><span class="params">(<span class="type">char</span> f)</span></span>&#123;</span><br><span class="line">    fill = f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Box::setSize</span><span class="params">(<span class="type">int</span> w, <span class="type">int</span> h)</span></span>&#123;</span><br><span class="line">    width = w;</span><br><span class="line">    height = h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Box::draw</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> n = <span class="number">0</span>; n &lt; height; n++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> m = <span class="number">0</span>; m &lt; width; m++)</span><br><span class="line">            cout &lt;&lt; fill;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">**********</span><br><span class="line">**********</span><br><span class="line"></span><br><span class="line">%%%%%%%</span><br><span class="line">%%%%%%%</span><br><span class="line">%%%%%%%</span><br><span class="line">%%%%%%%</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Random"><a href="#Random" class="headerlink" title="Random"></a>Random</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">rand</span><span class="params">(<span class="type">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">srand</span><span class="params">((<span class="type">unsigned</span> <span class="type">int</span>) time(<span class="literal">NULL</span>))</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">srand</span>((<span class="type">unsigned</span>) <span class="built_in">time</span>(<span class="number">0</span>)); <span class="comment">// Seed 값 설정, 현재시간 이용 초기화</span></span><br><span class="line"><span class="built_in">rand</span>() % (End - Begin + <span class="number">1</span>) + Begin; <span class="comment">// int 스케일링</span></span><br><span class="line"><span class="built_in">rand</span>() % (End - Begin) / RAND_MAX + Begin; <span class="comment">// float 스케일링</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>rand()</code> &#x3D; $[0, 2^{15}-1]$</li>
+</ul>
+<blockquote>
+<p>random.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EvenRandom</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">EvenRandom</span>();</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nextinRange</span><span class="params">(<span class="type">int</span> low, <span class="type">int</span> high)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    EvenRandom r;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;-- 0에서 &quot;</span> &lt;&lt; RAND_MAX &lt;&lt; <span class="string">&quot;까지의 랜덤 짝수 정수 10개 : &quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        <span class="type">int</span> n = r.<span class="built_in">next</span>();</span><br><span class="line">        cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl &lt;&lt; endl &lt;&lt; <span class="string">&quot;-- 2에서 10까지의 랜덤 짝수 정수 10개 : &quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        <span class="type">int</span> n = r.<span class="built_in">nextinRange</span>(<span class="number">2</span>, <span class="number">10</span>);</span><br><span class="line">        cout &lt;&lt; n &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">EvenRandom::<span class="built_in">EvenRandom</span>()&#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="type">unsigned</span> <span class="type">int</span>) <span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">EvenRandom::next</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ran = <span class="built_in">rand</span>();</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ran % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> ran;</span><br><span class="line">        &#125;</span><br><span class="line">        ran = <span class="built_in">rand</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">EvenRandom::nextinRange</span><span class="params">(<span class="type">int</span> low, <span class="type">int</span> high)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ran = <span class="built_in">rand</span>() % (high - low + <span class="number">1</span>) + low;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ran % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> ran;</span><br><span class="line">        &#125;</span><br><span class="line">        ran = <span class="built_in">rand</span>() % (high - low + <span class="number">1</span>) + low;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p>Output</p>
+</blockquote>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- <span class="number">0</span>에서 <span class="number">2147483647</span>까지의 랜덤 짝수 정수 <span class="number">10</span>개 : </span><br><span class="line"><span class="number">754544228</span>	<span class="number">1733691306</span>	<span class="number">1091657446</span>	<span class="number">454057686</span>	<span class="number">268781690</span>	<span class="number">2138855454</span>	<span class="number">962661234</span>	<span class="number">305563340</span>	<span class="number">433726818</span>	<span class="number">1087132208</span>	</span><br><span class="line"></span><br><span class="line">-- <span class="number">2</span>에서 <span class="number">10</span>까지의 랜덤 짝수 정수 <span class="number">10</span>개 : </span><br><span class="line"><span class="number">10</span>	<span class="number">10</span>	<span class="number">6</span>	<span class="number">2</span>	<span class="number">2</span>	<span class="number">4</span>	<span class="number">6</span>	<span class="number">4</span>	<span class="number">2</span>	<span class="number">4</span>	</span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
+              <a href="/tags/b-s-course-work/" rel="tag"><i class="fa fa-tag"></i> B.S. Course Work</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/cpp-selection-and-iteration/" rel="prev" title="C++: Selection and Iteration">
+                  <i class="fa fa-chevron-left"></i> C++: Selection and Iteration
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/cpp-2/" rel="next" title="C++ (2)">
+                  C++ (2) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"e00c16eae13a3ed34db77b2838865741"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

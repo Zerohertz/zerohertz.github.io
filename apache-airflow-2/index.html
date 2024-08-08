@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Templating tasks using the Airflow contextWikimedia에서 제공하는 API를 통해 데이터를 .gz 확장자로 받아오고 schedule에 따른 증분 데이터를 적재하여 DAG와 operator가 Airflow에서 어떻게 작동하는지, 그리고 workflow를 어떻게 schedule하는지 이해해보자.우선 API를 통해 아래와 같">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache Airflow (2)">
+<meta property="og:url" content="https://zerohertz.github.io/apache-airflow-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Templating tasks using the Airflow contextWikimedia에서 제공하는 API를 통해 데이터를 .gz 확장자로 받아오고 schedule에 따른 증분 데이터를 적재하여 DAG와 operator가 Airflow에서 어떻게 작동하는지, 그리고 workflow를 어떻게 schedule하는지 이해해보자.우선 API를 통해 아래와 같">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256542335-8799e0f1-ed14-49eb-bcd3-45a26a52df40.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256546050-a172fb0f-2f27-4c79-afb2-37f400038396.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256566043-57c070aa-c986-4d98-bf26-96ee1aa46022.png">
+<meta property="article:published_time" content="2023-07-27T12:11:41.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.230Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Airflow">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256542335-8799e0f1-ed14-49eb-bcd3-45a26a52df40.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/apache-airflow-2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/apache-airflow-2/","path":"apache-airflow-2/","title":"Apache Airflow (2)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Apache Airflow (2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Templating-tasks-using-the-Airflow-context"><span class="nav-number">1.</span> <span class="nav-text">Templating tasks using the Airflow context</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BashOperator"><span class="nav-number">1.1.</span> <span class="nav-text">BashOperator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PythonOperator"><span class="nav-number">1.2.</span> <span class="nav-text">PythonOperator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PostgresOperator"><span class="nav-number">1.3.</span> <span class="nav-text">PostgresOperator</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-discord/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-13</time>
+        <br>
+      Apache Airflow 기반 Discord Webhook 개발
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-auto-payment/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-18</time>
+        <br>
+      Apache Airflow 기반 자동결제 DAG 개발
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k8s-airflow/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-09</time>
+        <br>
+      Apache Airflow Setup on Kubernetes
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-ga4-api/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-20</time>
+        <br>
+      Apache Airflow 기반 Google Analytics 4 API를 통한 블로그 사용자 정보 전달 자동화
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/airflow-ct/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-27</time>
+        <br>
+      Apache Airflow: Continuous Training
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/apache-airflow-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Apache Airflow (2) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Apache Airflow (2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-07-27 21:11:41" itemprop="dateCreated datePublished" datetime="2023-07-27T21:11:41+09:00">2023-07-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-devops/" itemprop="url" rel="index"><span itemprop="name">3. DevOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Templating-tasks-using-the-Airflow-context"><a href="#Templating-tasks-using-the-Airflow-context" class="headerlink" title="Templating tasks using the Airflow context"></a>Templating tasks using the Airflow context</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cud2lraW1lZGlhLm9yZy8=">Wikimedia</span>에서 제공하는 API를 통해 데이터를 <code>.gz</code> 확장자로 받아오고 schedule에 따른 증분 데이터를 적재하여 DAG와 operator가 Airflow에서 어떻게 작동하는지, 그리고 workflow를 어떻게 schedule하는지 이해해보자.<br>우선 API를 통해 아래와 같이 원하는 기간의 데이터를 받을 수 있다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://dumps.wikimedia.org/other/pageviews/2023/2023-07/pageviews-20230726-010000.gz</span></span><br><span class="line">--2023-07-27 21:16:24--  https://dumps.wikimedia.org/other/pageviews/2023/2023-07/pageviews-20230726-010000.gz</span><br><span class="line">dumps.wikimedia.org (dumps.wikimedia.org) 해석 중... 208.80.154.142</span><br><span class="line">다음으로 연결 중: dumps.wikimedia.org (dumps.wikimedia.org)|208.80.154.142|:443... 연결했습니다.</span><br><span class="line">HTTP 요청을 보냈습니다. 응답 기다리는 중... 200 OK</span><br><span class="line">길이: 44600005 (43M) [application/octet-stream]</span><br><span class="line">저장 위치: `pageviews-20230726-010000.gz&#x27;</span><br><span class="line"></span><br><span class="line">pageviews-20230726-010000.gz  100%[=================================================&gt;]  42.53M  4.56MB/s    /  9.9s</span><br><span class="line"></span><br><span class="line">2023-07-27 21:16:36 (4.28 MB/s) - `pageviews-20230726-010000.gz&#x27; 저장함 [44600005/44600005]</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>더 자세히 데이터를 살펴보기 위해 압축을 해제한 결과는 아래와 같다.</p>
+<figure class="highlight yaml"><figcaption><span>pageviews-20230726-010000</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">aa</span> <span class="string">Main_Page</span> <span class="number">15</span> <span class="number">0</span></span><br><span class="line"><span class="string">aa</span> <span class="string">Special:Contributions/MF-Warburg</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">aa</span> <span class="string">Special:UserLogin</span> <span class="number">2</span> <span class="number">0</span></span><br><span class="line"><span class="string">aa</span> <span class="string">User:JAnDbot</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">aa</span> <span class="string">User:Litlok</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">aa</span> <span class="string">Wikipedia:Babel</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">zu.m</span> <span class="string">Umzulendle</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">zu.m</span> <span class="string">Wikipedia:Umnyango_wamgwamanda</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">zu.m</span> <span class="string">Winnie_Madikizela-Mandela</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">zu.m</span> <span class="string">XVideos</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="string">zu.m.d</span> <span class="string">Ikhasi_Elikhulu</span> <span class="number">1</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>해당 데이터의 의미는 왼쪽부터 도메인 코드, 페이지 제목, 조회수, 응답 크기 (byte)를 의미한다.<br>증분 데이터를 가져오기 위해서는 원하는 시점을 API에 호출할 수 있도록 구성 요소를 나눠야한다.<br>Wikimedia API의 구성 요소는 아래와 같다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://dumps.wikimedia.org/other/pageviews/&#123;year&#125;/&#123;year&#125;-&#123;month&#125;/pageviews-&#123;year&#125;&#123;month&#125;&#123;day&#125;-&#123;hour&#125;0000.gz</span></span><br></pre></td></tr></table></figure>
+
+<p>이렇게 구성 요소로 나눠진 API를 Airflow에서 <code>BashOperator</code>와 <code>PythonOperator</code>로 호출하여 원하는 시점의 데이터를 불러올 수 있다.</p>
+<h2 id="BashOperator"><a href="#BashOperator" class="headerlink" title="BashOperator"></a>BashOperator</h2><p><code>BashOperator</code>로 API를 호출하여 데이터를 저장하기 위해 API의 구성 요소를 입력하기 위해 Jinja template을 사용한다.<br><span class="exturl" data-url="aHR0cHM6Ly9qaW5qYS5wYWxsZXRzcHJvamVjdHMuY29tLw==">Jinja</span>는 python으로 작성된 template engine이다.<br>아래와 같은 형식으로 Jinja를 통해 데이터를 쉽게 삽입하고 반복할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Type</th>
+<th align="center">Template</th>
+<th align="center">Mean</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">변수 (Variables)</td>
+<td align="center"><code>&#123;&#123; variable_name &#125;&#125;</code></td>
+<td align="center">중괄호 두 개 안에 변수명을 입력하여 값 삽입</td>
+</tr>
+<tr>
+<td align="center">주석 (Comments)</td>
+<td align="center"><code>&#123;</code> <code># This is a comment #</code> <code>&#125;</code></td>
+<td align="center">Template에서 무시되는 주석 생성</td>
+</tr>
+<tr>
+<td align="center">표현식 (Expressions)</td>
+<td align="center"><code>&#123;% expression %&#125;</code></td>
+<td align="center">반복문, 조건문, 함수 호출 등을 위해 사용</td>
+</tr>
+<tr>
+<td align="center">If문</td>
+<td align="center"><code>&#123;% if condition %&#125;</code></td>
+<td align="center">조건문</td>
+</tr>
+<tr>
+<td align="center">For문</td>
+<td align="center"><code>&#123;% for item in list %&#125;</code></td>
+<td align="center">반복문</td>
+</tr>
+<tr>
+<td align="center">While문</td>
+<td align="center"><code>&#123;% while condition %&#125;</code></td>
+<td align="center">반복문</td>
+</tr>
+</tbody></table>
+<p>Jinja template과 Airflow의 <code>execution_date</code>를 활용해서 API의 구성 요소를 아래와 같이 삽입하여 실행할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> airflow</span><br><span class="line"><span class="keyword">from</span> airflow.decorators <span class="keyword">import</span> dag</span><br><span class="line"><span class="keyword">from</span> airflow.operators.bash <span class="keyword">import</span> BashOperator</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_print_context</span>(<span class="params">**kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;=&quot;</span> * <span class="number">100</span>)</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        <span class="built_in">print</span>(i, <span class="string">&quot;:\t&quot;</span>, j)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;=&quot;</span> * <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    dag_id=<span class="string">&quot;Chap04_1&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    start_date=airflow.utils.dates.days_ago(<span class="params"><span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule_interval=<span class="string">&quot;@hourly&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Chap04</span>():</span><br><span class="line">    get_data = BashOperator(</span><br><span class="line">        task_id=<span class="string">&quot;get_data&quot;</span>,</span><br><span class="line">        bash_command=(</span><br><span class="line">            <span class="string">&quot;curl -o /opt/airflow/data/wikipageviews.gz &quot;</span></span><br><span class="line">            <span class="string">&quot;https://dumps.wikimedia.org/other/pageviews/&quot;</span></span><br><span class="line">            <span class="string">&quot;&#123;&#123; execution_date.year &#125;&#125;/&quot;</span></span><br><span class="line">            <span class="string">&quot;&#123;&#123; execution_date.year &#125;&#125;-&#123;&#123; &#x27;&#123;:02&#125;&#x27;.format(execution_date.month) &#125;&#125;/&quot;</span></span><br><span class="line">            <span class="string">&quot;pageviews-&#123;&#123; execution_date.year &#125;&#125;&quot;</span></span><br><span class="line">            <span class="string">&quot;&#123;&#123; &#x27;&#123;:02&#125;&#x27;.format(execution_date.month) &#125;&#125;&quot;</span></span><br><span class="line">            <span class="string">&quot;&#123;&#123; &#x27;&#123;:02&#125;&#x27;.format(execution_date.day) &#125;&#125;-&quot;</span></span><br><span class="line">            <span class="string">&quot;&#123;&#123; &#x27;&#123;:02&#125;&#x27;.format(execution_date.hour) &#125;&#125;0000.gz&quot;</span></span><br><span class="line">        ),</span><br><span class="line">    )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: execution_date를 통한 API 호출</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    print_context = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;print_context&quot;</span>,</span><br><span class="line">        python_callable=_print_context,</span><br><span class="line">    )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: Task Context 출력</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    get_data &gt;&gt; print_context</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DAG = Chap04()</span><br></pre></td></tr></table></figure>
+
+<p>실행 결과 아래와 같이 <code>execution_date</code>의 각 변수가 잘 삽입되어 API를 호출했음을 확인할 수 있다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256542335-8799e0f1-ed14-49eb-bcd3-45a26a52df40.png" alt="BashOperator"></p>
+<p>Airflow에서 <code>execution_date</code>와 같은 변수를 task context라 칭한다.<br>어떤 task context 변수가 존재하는지 알아보기 위해 <code>print_context</code> task를 실행하였고 결과는 아래와 같다.</p>
+<details>
+<summary>
+<code>print_context</code>의 결과
+</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ====================================================================================================</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - conf :	 &lt;***.configuration.AirflowConfigParser object at 0xffffa7908810&gt;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - dag :	 &lt;DAG: Chap04_1&gt;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - dag_run :	 &lt;DagRun Chap04_1 @ 2023-07-26 11:00:00+00:00: scheduled__2023-07-26T11:00:00+00:00, state:running, queued_at: 2023-07-27 12:52:31.416749+00:00. externally triggered: False&gt;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - data_interval_end :	 2023-07-26T12:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - data_interval_start :	 2023-07-26T11:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ds :	 2023-07-26</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ds_nodash :	 20230726</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;execution_date&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version. Please use <span class="string">&#x27;data_interval_start&#x27;</span> or <span class="string">&#x27;logical_date&#x27;</span> instead.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - execution_date :	 2023-07-26T11:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - expanded_ti_count :	 None</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - inlets :	 []</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - logical_date :	 2023-07-26T11:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - macros :	 &lt;module <span class="string">&#x27;***.macros&#x27;</span> from <span class="string">&#x27;/home/***/.local/lib/python3.7/site-packages/***/macros/__init__.py&#x27;</span>&gt;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;next_ds&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version. Please use <span class="string">&#x27;&#123;&#123; data_interval_end | ds &#125;&#125;&#x27;</span> instead.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - next_ds :	 2023-07-26</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;next_ds_nodash&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version. Please use <span class="string">&#x27;&#123;&#123; data_interval_end | ds_nodash &#125;&#125;&#x27;</span> instead.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - next_ds_nodash :	 20230726</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;next_execution_date&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version. Please use <span class="string">&#x27;data_interval_end&#x27;</span> instead.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - next_execution_date :	 2023-07-26T12:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - outlets :	 []</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - params :	 &#123;&#125;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - prev_data_interval_start_success :	 2023-07-26T05:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - prev_data_interval_end_success :	 2023-07-26T06:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;prev_ds&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - prev_ds :	 2023-07-26</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;prev_ds_nodash&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - prev_ds_nodash :	 20230726</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;prev_execution_date&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - prev_execution_date :	 2023-07-26T10:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;prev_execution_date_success&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version. Please use <span class="string">&#x27;prev_data_interval_start_success&#x27;</span> instead.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - prev_execution_date_success :	 2023-07-26T05:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - prev_start_date_success :	 2023-07-27T12:52:29.936814+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - run_id :	 scheduled__2023-07-26T11:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - task :	 &lt;Task(PythonOperator): print_context&gt;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - task_instance :	 &lt;TaskInstance: Chap04_1.print_context scheduled__2023-07-26T11:00:00+00:00 [running]&gt;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - task_instance_key_str :	 Chap04_1__print_context__20230726</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - test_mode :	 False</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ti :	 &lt;TaskInstance: Chap04_1.print_context scheduled__2023-07-26T11:00:00+00:00 [running]&gt;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;tomorrow_ds&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - tomorrow_ds :	 2023-07-27</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;tomorrow_ds_nodash&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - tomorrow_ds_nodash :	 20230727</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - triggering_dataset_events :	 defaultdict(&lt;class <span class="string">&#x27;list&#x27;</span>&gt;, &#123;&#125;)</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ts :	 2023-07-26T11:00:00+00:00</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ts_nodash :	 20230726T110000</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ts_nodash_with_tz :	 20230726T110000+0000</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - var :	 &#123;<span class="string">&#x27;json&#x27;</span>: None, <span class="string">&#x27;value&#x27;</span>: None&#125;</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - conn :	 None</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;yesterday_ds&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - yesterday_ds :	 2023-07-25</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;warnings.py:110&#125; WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing <span class="string">&#x27;yesterday_ds_nodash&#x27;</span> from the template is deprecated and will be removed <span class="keyword">in</span> a future version.</span><br><span class="line">  warnings.warn(_create_deprecation_warning(k, replacements))</span><br><span class="line"></span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - yesterday_ds_nodash :	 20230725</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - templates_dict :	 None</span><br><span class="line">[2023-07-27, 12:52:37 UTC] &#123;logging_mixin.py:137&#125; INFO - ====================================================================================================</span><br></pre></td></tr></table></figure>
+</details>
+<br>
+
+<p>각 변수에 대한 설명은 <span class="exturl" data-url="aHR0cHM6Ly9haXJmbG93LmFwYWNoZS5vcmcvZG9jcy9hcGFjaGUtYWlyZmxvdy9zdGFibGUvdGVtcGxhdGVzLXJlZi5odG1s">여기</span>에 상세하게 정리되어 있다. </p>
+<h2 id="PythonOperator"><a href="#PythonOperator" class="headerlink" title="PythonOperator"></a>PythonOperator</h2><p>이러한 task context를 이용해 아래와 같이 <code>BashOperator</code>를 사용하지 않고 <code>PythonOperator</code>로 API를 호출할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> airflow</span><br><span class="line"><span class="keyword">from</span> airflow.decorators <span class="keyword">import</span> dag</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_get_data</span>(<span class="params">execution_date</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: Template of PythonOperator</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    year, month, day, hour, *_ = execution_date.timetuple()</span><br><span class="line">    url = (</span><br><span class="line">        <span class="string">&quot;https://dumps.wikimedia.org/other/pageviews/&quot;</span></span><br><span class="line">        <span class="string">f&quot;<span class="subst">&#123;year&#125;</span>/<span class="subst">&#123;year&#125;</span>-<span class="subst">&#123;month:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>/&quot;</span></span><br><span class="line">        <span class="string">f&quot;pageviews-<span class="subst">&#123;year&#125;</span><span class="subst">&#123;month:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span><span class="subst">&#123;day:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>-<span class="subst">&#123;hour:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>0000.gz&quot;</span></span><br><span class="line">    )</span><br><span class="line">    output_path = <span class="string">&quot;/opt/airflow/data/wikipageviews.gz&quot;</span></span><br><span class="line">    request.urlretrieve(url, output_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_print_context</span>(<span class="params">**kwargs</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;=&quot;</span> * <span class="number">100</span>)</span><br><span class="line">    <span class="keyword">for</span> i, j <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        <span class="built_in">print</span>(i, <span class="string">&quot;:\t&quot;</span>, j)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;=&quot;</span> * <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    dag_id=<span class="string">&quot;Chap04_2&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    start_date=airflow.utils.dates.days_ago(<span class="params"><span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule_interval=<span class="string">&quot;@hourly&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    max_active_runs=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Chap04</span>():</span><br><span class="line">    get_data = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;get_data&quot;</span>,</span><br><span class="line">        python_callable=_get_data,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    print_context = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;print_context&quot;</span>,</span><br><span class="line">        python_callable=_print_context,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    get_data &gt;&gt; print_context</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DAG = Chap04()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256546050-a172fb0f-2f27-4c79-afb2-37f400038396.png" alt="PythonOperator"></p>
+<p><code>PythonOperator</code>는 python에서 <code>*args</code>, <code>**kwargs</code>와 같이 함수의 parameter를 입력 받을 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_get_data</span>(<span class="params">output_path, execution_date</span>):</span><br><span class="line">    year, month, day, hour, *_ = execution_date.timetuple()</span><br><span class="line">    url = (</span><br><span class="line">        <span class="string">&quot;https://dumps.wikimedia.org/other/pageviews/&quot;</span></span><br><span class="line">        <span class="string">f&quot;<span class="subst">&#123;year&#125;</span>/<span class="subst">&#123;year&#125;</span>-<span class="subst">&#123;month:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>/&quot;</span></span><br><span class="line">        <span class="string">f&quot;pageviews-<span class="subst">&#123;year&#125;</span><span class="subst">&#123;month:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span><span class="subst">&#123;day:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>-<span class="subst">&#123;hour:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>0000.gz&quot;</span></span><br><span class="line">    )</span><br><span class="line">    request.urlretrieve(url, output_path)</span><br><span class="line">...</span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    dag_id=<span class="string">&quot;Chap04_3&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    start_date=airflow.utils.dates.days_ago(<span class="params"><span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule_interval=<span class="string">&quot;@hourly&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    max_active_runs=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Chap04</span>():</span><br><span class="line">    get_data = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;get_data&quot;</span>,</span><br><span class="line">        python_callable=_get_data,</span><br><span class="line">        op_args=[<span class="string">&quot;/opt/airflow/data/wikipageviews.gz&quot;</span>],</span><br><span class="line">    )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: Same as</span></span><br><span class="line"><span class="string">    op_kwargs=&#123;&quot;output_path&quot;: &quot;/opt/airflow/data/wikipageviews.gz&quot;&#125;</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_get_data</span>(<span class="params">year, month, day, hour, output_path</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: op_kwargs</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    url = (</span><br><span class="line">        <span class="string">&quot;https://dumps.wikimedia.org/other/pageviews/&quot;</span></span><br><span class="line">        <span class="string">f&quot;<span class="subst">&#123;year&#125;</span>/<span class="subst">&#123;year&#125;</span>-<span class="subst">&#123;month:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>/&quot;</span></span><br><span class="line">        <span class="string">f&quot;pageviews-<span class="subst">&#123;year&#125;</span><span class="subst">&#123;month:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span><span class="subst">&#123;day:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>-<span class="subst">&#123;hour:<span class="number">0</span>&gt;<span class="number">2</span>&#125;</span>0000.gz&quot;</span></span><br><span class="line">    )</span><br><span class="line">    request.urlretrieve(url, output_path)</span><br><span class="line">...</span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    dag_id=<span class="string">&quot;Chap04_4&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    start_date=airflow.utils.dates.days_ago(<span class="params"><span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule_interval=<span class="string">&quot;@hourly&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    max_active_runs=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Chap04</span>():</span><br><span class="line">    get_data = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;get_data&quot;</span>,</span><br><span class="line">        python_callable=_get_data,</span><br><span class="line">        op_kwargs=&#123;</span><br><span class="line">            <span class="string">&quot;year&quot;</span>: <span class="string">&quot;&#123;&#123; execution_date.year &#125;&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;month&quot;</span>: <span class="string">&quot;&#123;&#123; execution_date.month &#125;&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;day&quot;</span>: <span class="string">&quot;&#123;&#123; execution_date.day &#125;&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;hour&quot;</span>: <span class="string">&quot;&#123;&#123; execution_date.hour &#125;&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;output_path&quot;</span>: <span class="string">&quot;/opt/airflow/data/wikipageviews.gz&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: op_kwargs</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">        &quot;day&quot;: &quot;24&quot;,</span></span><br><span class="line"><span class="string">        &quot;hour&quot;: &quot;1&quot;,</span></span><br><span class="line"><span class="string">        &quot;month&quot;: &quot;7&quot;,</span></span><br><span class="line"><span class="string">        &quot;output_path&quot;: &quot;/opt/airflow/data/wikipageviews.gz&quot;,</span></span><br><span class="line"><span class="string">        &quot;year&quot;: &quot;2023&quot;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 Jinja template을 <code>PythonOperator</code>의 <code>op_kwargs</code>으로 활용할 수 있다.<br>증분 데이터의 적재를 위해 아래와 같이 압축을 해제하고 데이터를 추출할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_fetch_pageviews</span>(<span class="params">pagenames</span>):</span><br><span class="line">    result = <span class="built_in">dict</span>.fromkeys(pagenames, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/opt/airflow/data/wikipageviews&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            domain_code, page_title, view_counts, _ = line.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> domain_code == <span class="string">&quot;en&quot;</span> <span class="keyword">and</span> page_title <span class="keyword">in</span> pagenames:</span><br><span class="line">                result[page_title] = view_counts</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    dag_id=<span class="string">&quot;Chap04_5&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    start_date=airflow.utils.dates.days_ago(<span class="params"><span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule_interval=<span class="string">&quot;@hourly&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    max_active_runs=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Chap04</span>():</span><br><span class="line">    get_data = PythonOperator(</span><br><span class="line">        ...</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    extract_gz = BashOperator(</span><br><span class="line">        task_id=<span class="string">&quot;extract_gz&quot;</span>,</span><br><span class="line">        bash_command=<span class="string">&quot;gunzip --force /opt/airflow/data/wikipageviews.gz&quot;</span>,</span><br><span class="line">    )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: gunzip</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    fetch_pageviews = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;fetch_pageviews&quot;</span>,</span><br><span class="line">        python_callable=_fetch_pageviews,</span><br><span class="line">        op_kwargs=&#123;</span><br><span class="line">            <span class="string">&quot;pagenames&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;Google&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Amazon&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Apple&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Microsoft&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Facebook&quot;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: Read unzipped files</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    get_data &gt;&gt; extract_gz &gt;&gt; fetch_pageviews</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><code>BashOperator</code>로 압축을 해제하고 <code>PythonOperator</code>로 데이터를 읽어 출력한 결과는 아래와 같다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2023-07-27, 13:24:28 UTC] &#123;logging_mixin.py:137&#125; INFO - &#123;<span class="string">&#x27;Microsoft&#x27;</span>: <span class="string">&#x27;153&#x27;</span>, <span class="string">&#x27;Apple&#x27;</span>: <span class="string">&#x27;47&#x27;</span>, <span class="string">&#x27;Amazon&#x27;</span>: <span class="string">&#x27;52&#x27;</span>, <span class="string">&#x27;Google&#x27;</span>: <span class="string">&#x27;493&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>: <span class="string">&#x27;449&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PostgresOperator"><a href="#PostgresOperator" class="headerlink" title="PostgresOperator"></a>PostgresOperator</h2><p>위에서 추출한 데이터를 PostgreSQL로 전송하기 위해 <code>PostgresOperator</code>를 사용할 수 있다.<br>PostgreSQL을 사용하기 위해 우선 Postgres server container를 <code>docker-compose.yaml</code>에 추가한다.</p>
+<figure class="highlight docker"><figcaption><span>docker-compse.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">services:</span><br><span class="line">  postgres-server:</span><br><span class="line">    image: postgres:<span class="number">13</span></span><br><span class="line">    container_name: $&#123;container_name&#125;</span><br><span class="line">    ports:</span><br><span class="line">      - $&#123;POSTGRES_PORT&#125;:$&#123;POSTGRES_PORT&#125;</span><br><span class="line">    environment:</span><br><span class="line">      POSTGRES_USER: $&#123;POSTGRES_USER&#125;</span><br><span class="line">      POSTGRES_PASSWORD: $&#123;POSTGRES_PASSWORD&#125;</span><br><span class="line">      POSTGRES_DB: $&#123;POSTGRES_DB&#125;</span><br><span class="line">    <span class="keyword">healthcheck</span><span class="language-bash">:</span></span><br><span class="line">      test: [<span class="string">&quot;CMD&quot;</span>, <span class="string">&quot;pg_isready&quot;</span>, <span class="string">&quot;-q&quot;</span>, <span class="string">&quot;-U&quot;</span>, <span class="string">&quot;$&#123;POSTGRES_USER&#125;&quot;</span>, <span class="string">&quot;-d&quot;</span>, <span class="string">&quot;$&#123;POSTGRES_DB&#125;&quot;</span>]</span><br><span class="line">      interval: <span class="number">10</span>s</span><br><span class="line">      timeout: <span class="number">5</span>s</span><br><span class="line">      retries: <span class="number">5</span></span><br><span class="line">    command: postgres -p $&#123;POSTGRES_PORT&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Airflow와의 연결을 위해 <code>airflow connections</code> 명령어를 사용하고 Postgres server 내에 table을 생성한다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it <span class="variable">$&#123;airflow-worker&#125;</span> /bin/bash</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">airflow connections add postgres-server \</span></span><br><span class="line"><span class="language-bash">                --conn-type postgres \</span></span><br><span class="line"><span class="language-bash">                --conn-host postgres-server \</span></span><br><span class="line"><span class="language-bash">                --conn-port <span class="variable">$&#123;POSTGRES_PORT&#125;</span> \</span></span><br><span class="line"><span class="language-bash">                --conn-login <span class="variable">$&#123;POSTGRES_USER&#125;</span> \</span></span><br><span class="line"><span class="language-bash">                --conn-password <span class="variable">$&#123;POSTGRES_PASSWORD&#125;</span></span></span><br><span class="line">PGPASSWORD=$&#123;POSTGRES_PASSWORD&#125; psql -h postgres-server -p $&#123;POSTGRES_PORT&#125; -U $&#123;POSTGRES_USER&#125; -d $&#123;POSTGRES_DB&#125; -f create_table.sql</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><figcaption><span>create_table.sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span></span><br><span class="line">$&#123;POSTGRES_DB&#125; (</span><br><span class="line">    pagename TEXT <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    pageviewcount <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    execution_date <span class="type">DATE</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>준비가 완료되면 DAG들을 아래와 같이 준비할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">from</span> airflow.providers.postgres.operators.postgres <span class="keyword">import</span> PostgresOperator</span><br><span class="line">...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_fetch_pageviews</span>(<span class="params">pagenames, execution_date</span>):</span><br><span class="line">    result = <span class="built_in">dict</span>.fromkeys(pagenames, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/opt/airflow/data/wikipageviews&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            domain_code, page_title, view_counts, _ = line.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> domain_code == <span class="string">&quot;en&quot;</span> <span class="keyword">and</span> page_title <span class="keyword">in</span> pagenames:</span><br><span class="line">                result[page_title] = view_counts</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;/opt/airflow/data/postgres_query.sql&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> pagename, pageviewcount <span class="keyword">in</span> result.items():</span><br><span class="line">            f.write(</span><br><span class="line">                <span class="string">&quot;INSERT INTO &#123;POSTGRES_DB&#125; VALUES (&quot;</span></span><br><span class="line">                <span class="string">f&quot;&#x27;<span class="subst">&#123;pagename&#125;</span>&#x27;, <span class="subst">&#123;pageviewcount&#125;</span>, &#x27;<span class="subst">&#123;execution_date&#125;</span>&#x27;&quot;</span></span><br><span class="line">                <span class="string">&quot;);\n&quot;</span></span><br><span class="line">            )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: Write SQL query</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">...</span><br><span class="line"><span class="meta">@dag(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="meta">    dag_id=<span class="string">&quot;Chap04_6&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    start_date=airflow.utils.dates.days_ago(<span class="params"><span class="number">1</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">    schedule_interval=<span class="string">&quot;@hourly&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    template_searchpath=<span class="string">&quot;/opt/airflow/data&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta">    max_active_runs=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="params"><span class="meta"></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Chap04</span>():</span><br><span class="line">    init_data = BashOperator(</span><br><span class="line">        task_id=<span class="string">&quot;init_data&quot;</span>,</span><br><span class="line">        bash_command=<span class="string">&quot;rm -rf /opt/airflow/data/wikipageviews.gz&quot;</span>,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    get_data = PythonOperator(</span><br><span class="line">        ...</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    extract_gz = BashOperator(</span><br><span class="line">        ...</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    fetch_pageviews = PythonOperator(</span><br><span class="line">        task_id=<span class="string">&quot;fetch_pageviews&quot;</span>,</span><br><span class="line">        python_callable=_fetch_pageviews,</span><br><span class="line">        op_kwargs=&#123;</span><br><span class="line">            <span class="string">&quot;pagenames&quot;</span>: &#123;</span><br><span class="line">                <span class="string">&quot;Google&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Amazon&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Apple&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Microsoft&quot;</span>,</span><br><span class="line">                <span class="string">&quot;Facebook&quot;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    write_to_postgres = PostgresOperator(</span><br><span class="line">        task_id=<span class="string">&quot;write_to_postgres&quot;</span>,</span><br><span class="line">        postgres_conn_id=<span class="string">&quot;postgres-server&quot;</span>,</span><br><span class="line">        sql=<span class="string">&quot;postgres_query.sql&quot;</span>,</span><br><span class="line">    )</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    NOTE: Write to postgresql</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    init_data &gt;&gt; get_data &gt;&gt; extract_gz &gt;&gt; fetch_pageviews &gt;&gt; write_to_postgres</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><code>fetch_pageviews</code>에서 <code>print()</code> 대신 <code>postgres_query.sql</code>에 query문을 작성하는 것을 확인할 수 있다.<br>이렇게 작성된 query문은 <code>PostgresOperator</code>을 통해 Postgres server로 전송된다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256566043-57c070aa-c986-4d98-bf26-96ee1aa46022.png" alt="PostgresOperator"></p>
+<p>Webserver 상에서는 잘 실행되는 것으로 보이지만, 해당 DAG가 Postgres server에 증분 데이터를 잘 적재하는지 확인하기 위해 아래의 query문을 실행했다.</p>
+<figure class="highlight sql"><figcaption><span>check.sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> x.pagename, x.hr <span class="keyword">AS</span> &quot;hour&quot;, x.average <span class="keyword">AS</span> &quot;average pageviews&quot;</span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        pagename,</span><br><span class="line">        date_part(<span class="string">&#x27;hour&#x27;</span>, execution_date) <span class="keyword">AS</span> hr,</span><br><span class="line">        <span class="built_in">AVG</span>(pageviewcount) <span class="keyword">AS</span> average,</span><br><span class="line">        <span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> pagename <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">AVG</span>(pageviewcount) <span class="keyword">DESC</span>) <span class="keyword">AS</span> row_number</span><br><span class="line">    <span class="keyword">FROM</span> boaz</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> pagename, date_part(<span class="string">&#x27;hour&#x27;</span>, execution_date)</span><br><span class="line">) <span class="keyword">AS</span> x</span><br><span class="line"><span class="keyword">WHERE</span> x.row_number <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">PGPASSWORD=<span class="variable">$&#123;POSTGRES_PASSWORD&#125;</span> psql -h postgres-server -p <span class="variable">$&#123;POSTGRES_PORT&#125;</span> -U <span class="variable">$&#123;POSTGRES_USER&#125;</span> -d <span class="variable">$&#123;POSTGRES_DB&#125;</span> -c <span class="string">&quot;select * from <span class="variable">$&#123;POSTGRES_DB&#125;</span>;&quot;</span></span></span><br><span class="line"> pagename  | pageviewcount | execution_date </span><br><span class="line">-----------+---------------+----------------</span><br><span class="line"> Facebook  |           449 | 2023-07-26</span><br><span class="line"> Amazon    |            52 | 2023-07-26</span><br><span class="line"> Apple     |            47 | 2023-07-26</span><br><span class="line"> Microsoft |           153 | 2023-07-26</span><br><span class="line"> Google    |           493 | 2023-07-26</span><br><span class="line"> Facebook  |           545 | 2023-07-26</span><br><span class="line"> Amazon    |            40 | 2023-07-26</span><br><span class="line"> Apple     |            47 | 2023-07-26</span><br><span class="line"> Microsoft |           158 | 2023-07-26</span><br><span class="line"> Google    |           545 | 2023-07-26</span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">PGPASSWORD=<span class="variable">$&#123;POSTGRES_PASSWORD&#125;</span> psql -h postgres-server -p <span class="variable">$&#123;POSTGRES_PORT&#125;</span> -U <span class="variable">$&#123;POSTGRES_USER&#125;</span> -d <span class="variable">$&#123;POSTGRES_DB&#125;</span> -f check.sql</span></span><br><span class="line"> pagename  | hour |  average pageviews   </span><br><span class="line">-----------+------+----------------------</span><br><span class="line"> Amazon    |    0 |  69.9090909090909091</span><br><span class="line"> Apple     |    0 |  57.2272727272727273</span><br><span class="line"> Facebook  |    0 | 845.1363636363636364</span><br><span class="line"> Google    |    0 | 994.6363636363636364</span><br><span class="line"> Microsoft |    0 | 215.6363636363636364</span><br><span class="line">(5 rows)</span><br></pre></td></tr></table></figure>
+
+<p>증분 데이터가 Postgres server에 잘 적재되고 있음을 확인할 수 있다.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/airflow/" rel="tag"><i class="fa fa-tag"></i> Airflow</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/apache-airflow-1/" rel="prev" title="Apache Airflow (1)">
+                  <i class="fa fa-chevron-left"></i> Apache Airflow (1)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/boj-1439/" rel="next" title="BOJ: 1439">
+                  BOJ: 1439 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"d22f4b693f791985b500f3abab679ab9"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

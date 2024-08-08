@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="new GDemo(&#39;#python&#39;)   .openApp(&#39;terminal&#39;, {minHeight: &#39;60px&#39;, windowTitle: &#39;python&#39;, promptString: &#39;&gt;&#39;})   .command(&#96;import numpy as np&#96;, {onCompleteDelay: 300})   .respond(&#96;&#96;)   .end();">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy">
+<meta property="og:url" content="https://zerohertz.github.io/numpy/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="new GDemo(&#39;#python&#39;)   .openApp(&#39;terminal&#39;, {minHeight: &#39;60px&#39;, windowTitle: &#39;python&#39;, promptString: &#39;&gt;&#39;})   .command(&#96;import numpy as np&#96;, {onCompleteDelay: 300})   .respond(&#96;&#96;)   .end();">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-28T07:12:55.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.239Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/numpy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/numpy/","path":"numpy/","title":"Numpy"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Numpy | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Initialize"><span class="nav-number">1.</span> <span class="nav-text">Initialize</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0%EC%9C%BC%EB%A1%9C-%EC%B4%88%EA%B8%B0%ED%99%94"><span class="nav-number">1.1.</span> <span class="nav-text">0으로 초기화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EB%A1%9C-%EC%B4%88%EA%B8%B0%ED%99%94"><span class="nav-number">1.2.</span> <span class="nav-text">1로 초기화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A7%80%EC%A0%95%ED%95%9C-%EC%88%98%EB%A1%9C-%EC%B4%88%EA%B8%B0%ED%99%94"><span class="nav-number">1.3.</span> <span class="nav-text">지정한 수로 초기화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List%EB%A1%9C-%EC%B4%88%EA%B8%B0%ED%99%94"><span class="nav-number">1.4.</span> <span class="nav-text">List로 초기화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B2%94%EC%9C%84%EB%A1%9C-%EC%B4%88%EA%B8%B0%ED%99%94"><span class="nav-number">1.5.</span> <span class="nav-text">범위로 초기화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%95%A8%EC%88%98%EB%A1%9C-%EC%B4%88%EA%B8%B0%ED%99%94"><span class="nav-number">1.6.</span> <span class="nav-text">함수로 초기화</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%98%95-%EC%A7%80%EC%A0%95"><span class="nav-number">1.7.</span> <span class="nav-text">데이터 형 지정</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Methods-of-np-ndarray"><span class="nav-number">2.</span> <span class="nav-text">Methods of np.ndarray</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-Function"><span class="nav-number">2.1.</span> <span class="nav-text">Math Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Universal-Function"><span class="nav-number">2.2.</span> <span class="nav-text">Universal Function</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/go-2/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-17</time>
+        <br>
+      Go (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-2473/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-01</time>
+        <br>
+      BOJ: 2473
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-2847/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-24</time>
+        <br>
+      BOJ: 2847
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-1449/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-01</time>
+        <br>
+      BOJ: 1449
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-1783/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-24</time>
+        <br>
+      BOJ: 1783
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/numpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Numpy | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Numpy
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-02-28 16:12:55" itemprop="dateCreated datePublished" datetime="2021-02-28T16:12:55+09:00">2021-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-machine-learning/" itemprop="url" rel="index"><span itemprop="name">5. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.12/dist/gdemo.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+<script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.12/dist/gdemo.min.js"></script>
+<div id="python" style="height: 60px"></div>
+<script>
+new GDemo('#python')
+  .openApp('terminal', {minHeight: '60px', windowTitle: 'python', promptString: '>'})
+  .command(`<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np`, {onCompleteDelay: 300})
+  .respond(``)
+  .end();
+</script>
+
+<span id="more"></span>
+
+<h1 id="Initialize"><a href="#Initialize" class="headerlink" title="Initialize"></a>Initialize</h1><h2 id="0으로-초기화"><a href="#0으로-초기화" class="headerlink" title="0으로 초기화"></a>0으로 초기화</h2><figure class="highlight python"><figcaption><span>init_zero.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.zeros(<span class="number">5</span>)</span><br><span class="line">b = np.zeros((<span class="number">5</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a = &#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b = &#x27;</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b.shape = &#x27;</span>, b.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b.ndim&#x27;</span>, b.ndim) <span class="comment">#len(b.shape)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b.size = &#x27;</span>, b.size)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a =  [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line">********************</span><br><span class="line">b =  [[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">********************</span><br><span class="line">b.shape =  (<span class="number">5</span>, <span class="number">4</span>)</span><br><span class="line">********************</span><br><span class="line">b.ndim <span class="number">2</span></span><br><span class="line">********************</span><br><span class="line">b.size =  <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1로-초기화"><a href="#1로-초기화" class="headerlink" title="1로 초기화"></a>1로 초기화</h2><figure class="highlight python"><figcaption><span>init_one.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.ones(<span class="number">5</span>)</span><br><span class="line">b = np.ones((<span class="number">5</span>,<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a = &#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b = &#x27;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a =  [<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line">********************</span><br><span class="line">b =  [[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]]</span><br></pre></td></tr></table></figure>
+
+<h2 id="지정한-수로-초기화"><a href="#지정한-수로-초기화" class="headerlink" title="지정한 수로 초기화"></a>지정한 수로 초기화</h2><figure class="highlight python"><figcaption><span>init_sel.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.full(<span class="number">5</span>, <span class="number">42</span>)</span><br><span class="line">b = np.full((<span class="number">5</span>,<span class="number">4</span>), <span class="number">21</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a = &#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b = &#x27;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a =  [<span class="number">42</span> <span class="number">42</span> <span class="number">42</span> <span class="number">42</span> <span class="number">42</span>]</span><br><span class="line">********************</span><br><span class="line">b =  [[<span class="number">21</span> <span class="number">21</span> <span class="number">21</span> <span class="number">21</span>]</span><br><span class="line"> [<span class="number">21</span> <span class="number">21</span> <span class="number">21</span> <span class="number">21</span>]</span><br><span class="line"> [<span class="number">21</span> <span class="number">21</span> <span class="number">21</span> <span class="number">21</span>]</span><br><span class="line"> [<span class="number">21</span> <span class="number">21</span> <span class="number">21</span> <span class="number">21</span>]</span><br><span class="line"> [<span class="number">21</span> <span class="number">21</span> <span class="number">21</span> <span class="number">21</span>]]</span><br></pre></td></tr></table></figure>
+
+<h2 id="List로-초기화"><a href="#List로-초기화" class="headerlink" title="List로 초기화"></a>List로 초기화</h2><figure class="highlight python"><figcaption><span>init_list.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>])</span><br><span class="line">b = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a = &#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b = &#x27;</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Type of b = &#x27;</span>, <span class="built_in">type</span>(b))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a =  [<span class="number">10</span> <span class="number">10</span> <span class="number">10</span>]</span><br><span class="line">********************</span><br><span class="line">b =  [[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]]</span><br><span class="line">********************</span><br><span class="line"><span class="type">Type</span> of b =  &lt;<span class="keyword">class</span> <span class="string">&#x27;numpy.ndarray&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="범위로-초기화"><a href="#범위로-초기화" class="headerlink" title="범위로 초기화"></a>범위로 초기화</h2><figure class="highlight python"><figcaption><span>init_ran.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">0</span>, np.pi, <span class="number">0.4</span>) <span class="comment">#간격의 크기</span></span><br><span class="line">b = np.linspace(<span class="number">0</span>, np.pi, <span class="number">6</span>) <span class="comment">#간격의 수</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a = &#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b = &#x27;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a =  [<span class="number">0.</span>  <span class="number">0.4</span> <span class="number">0.8</span> <span class="number">1.2</span> <span class="number">1.6</span> <span class="number">2.</span>  <span class="number">2.4</span> <span class="number">2.8</span>]</span><br><span class="line">********************</span><br><span class="line">b =  [<span class="number">0.</span>         <span class="number">0.62831853</span> <span class="number">1.25663706</span> <span class="number">1.88495559</span> <span class="number">2.51327412</span> <span class="number">3.14159265</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="함수로-초기화"><a href="#함수로-초기화" class="headerlink" title="함수로 초기화"></a>함수로 초기화</h2><figure class="highlight python"><figcaption><span>init_func.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">init_function_2</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> x * y</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">init_function_3</span>(<span class="params">z, x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> x * y + z</span><br><span class="line"></span><br><span class="line">a = np.fromfunction(init_function_2, (<span class="number">5</span>, <span class="number">5</span>))</span><br><span class="line">b = np.fromfunction(init_function_3, (<span class="number">2</span>, <span class="number">5</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a = &#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b = &#x27;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a =  [[ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">2.</span>  <span class="number">3.</span>  <span class="number">4.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">2.</span>  <span class="number">4.</span>  <span class="number">6.</span>  <span class="number">8.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">3.</span>  <span class="number">6.</span>  <span class="number">9.</span> <span class="number">12.</span>]</span><br><span class="line"> [ <span class="number">0.</span>  <span class="number">4.</span>  <span class="number">8.</span> <span class="number">12.</span> <span class="number">16.</span>]]</span><br><span class="line">********************</span><br><span class="line">b =  [[[ <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>  <span class="number">0.</span>]</span><br><span class="line">  [ <span class="number">0.</span>  <span class="number">1.</span>  <span class="number">2.</span>  <span class="number">3.</span>  <span class="number">4.</span>]</span><br><span class="line">  [ <span class="number">0.</span>  <span class="number">2.</span>  <span class="number">4.</span>  <span class="number">6.</span>  <span class="number">8.</span>]</span><br><span class="line">  [ <span class="number">0.</span>  <span class="number">3.</span>  <span class="number">6.</span>  <span class="number">9.</span> <span class="number">12.</span>]</span><br><span class="line">  [ <span class="number">0.</span>  <span class="number">4.</span>  <span class="number">8.</span> <span class="number">12.</span> <span class="number">16.</span>]]</span><br><span class="line"></span><br><span class="line"> [[ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]</span><br><span class="line">  [ <span class="number">1.</span>  <span class="number">2.</span>  <span class="number">3.</span>  <span class="number">4.</span>  <span class="number">5.</span>]</span><br><span class="line">  [ <span class="number">1.</span>  <span class="number">3.</span>  <span class="number">5.</span>  <span class="number">7.</span>  <span class="number">9.</span>]</span><br><span class="line">  [ <span class="number">1.</span>  <span class="number">4.</span>  <span class="number">7.</span> <span class="number">10.</span> <span class="number">13.</span>]</span><br><span class="line">  [ <span class="number">1.</span>  <span class="number">5.</span>  <span class="number">9.</span> <span class="number">13.</span> <span class="number">17.</span>]]]</span><br></pre></td></tr></table></figure>
+
+<h2 id="데이터-형-지정"><a href="#데이터-형-지정" class="headerlink" title="데이터 형 지정"></a>데이터 형 지정</h2><figure class="highlight python"><figcaption><span>data_type.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">1</span>, <span class="number">5</span>, dtype = np.uint8)</span><br><span class="line">b = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]], dtype = np.complex64)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;a = &#x27;</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;********************&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b = &#x27;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a =  [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line">********************</span><br><span class="line">b =  [[<span class="number">1.</span>+<span class="number">0.j</span> <span class="number">2.</span>+<span class="number">0.j</span> <span class="number">3.</span>+<span class="number">0.j</span>]</span><br><span class="line"> [<span class="number">4.</span>+<span class="number">0.j</span> <span class="number">5.</span>+<span class="number">0.j</span> <span class="number">6.</span>+<span class="number">0.j</span>]]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Methods-of-np-ndarray"><a href="#Methods-of-np-ndarray" class="headerlink" title="Methods of np.ndarray"></a>Methods of np.ndarray</h1><h2 id="Math-Function"><a href="#Math-Function" class="headerlink" title="Math Function"></a>Math Function</h2><figure class="highlight python"><figcaption><span>method_st.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]], dtype = np.uint8)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> func <span class="keyword">in</span> (a.<span class="built_in">min</span>, a.<span class="built_in">max</span>, a.<span class="built_in">sum</span>, a.prod, a.std, a.var):</span><br><span class="line">    <span class="built_in">print</span>(func.__name__, <span class="string">&quot;=&quot;</span>, func())</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>axis = n</code>과 같이 축을 설정하여 계산 가능</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">min</span> = <span class="number">1</span></span><br><span class="line"><span class="built_in">max</span> = <span class="number">6</span></span><br><span class="line"><span class="built_in">sum</span> = <span class="number">21</span></span><br><span class="line">prod = <span class="number">720</span></span><br><span class="line">std = <span class="number">1.707825127659933</span></span><br><span class="line">var = <span class="number">2.9166666666666665</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Universal-Function"><a href="#Universal-Function" class="headerlink" title="Universal Function"></a>Universal Function</h2><figure class="highlight python"><figcaption><span>method_un.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]], dtype = np.uint8)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> func <span class="keyword">in</span> (np.square, np.<span class="built_in">abs</span>, np.sqrt, np.exp, np.log, np.sign, np.ceil, np.modf, np.isnan, np.cos):</span><br><span class="line">    <span class="built_in">print</span>(func.__name__, <span class="string">&quot;=&quot;</span>, func(a))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">square = [[ <span class="number">1</span>  <span class="number">4</span>  <span class="number">9</span>]</span><br><span class="line"> [<span class="number">16</span> <span class="number">25</span> <span class="number">36</span>]]</span><br><span class="line">absolute = [[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]]</span><br><span class="line">sqrt = [[<span class="number">1.</span>    <span class="number">1.414</span> <span class="number">1.732</span>]</span><br><span class="line"> [<span class="number">2.</span>    <span class="number">2.236</span> <span class="number">2.45</span> ]]</span><br><span class="line">exp = [[  <span class="number">2.719</span>   <span class="number">7.39</span>   <span class="number">20.08</span> ]</span><br><span class="line"> [ <span class="number">54.6</span>   <span class="number">148.4</span>   <span class="number">403.5</span>  ]]</span><br><span class="line">log = [[<span class="number">0.</span>     <span class="number">0.6934</span> <span class="number">1.099</span> ]</span><br><span class="line"> [<span class="number">1.387</span>  <span class="number">1.609</span>  <span class="number">1.792</span> ]]</span><br><span class="line">sign = [[<span class="number">1</span> <span class="number">1</span> <span class="number">1</span>]</span><br><span class="line"> [<span class="number">1</span> <span class="number">1</span> <span class="number">1</span>]]</span><br><span class="line">ceil = [[<span class="number">1.</span> <span class="number">2.</span> <span class="number">3.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">5.</span> <span class="number">6.</span>]]</span><br><span class="line">modf = (array([[<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</span><br><span class="line">       [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>]], dtype=float16), array([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>],</span><br><span class="line">       [<span class="number">4.</span>, <span class="number">5.</span>, <span class="number">6.</span>]], dtype=float16))</span><br><span class="line">isnan = [[<span class="literal">False</span> <span class="literal">False</span> <span class="literal">False</span>]</span><br><span class="line"> [<span class="literal">False</span> <span class="literal">False</span> <span class="literal">False</span>]]</span><br><span class="line">cos = [[ <span class="number">0.5405</span> -<span class="number">0.4163</span> -<span class="number">0.99</span>  ]</span><br><span class="line"> [-<span class="number">0.654</span>   <span class="number">0.2837</span>  <span class="number">0.96</span>  ]]</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/exporting-ai-model-to-c-from-matlab/" rel="prev" title="Exporting AI Model to C++ from MATLAB">
+                  <i class="fa fa-chevron-left"></i> Exporting AI Model to C++ from MATLAB
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/telegram-bot-using-web-crawler-based-on-selenium/" rel="next" title="Telegram Bot using Web Crawler based on Selenium">
+                  Telegram Bot using Web Crawler based on Selenium <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"101d0fa989dfc0682c6dfe521ba37507"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

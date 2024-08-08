@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction논문의 저자가 제공하거나 논문을 참고하여 개발된 모델은 보통 config 파일 (e.g. config.yaml, config.py)이 존재하고, 해당 파일을 통해 이렇게 모델 구조를 변경할 수 있다.하지만 기존의 소스에 본인이 원하는 모델 구조가 없다면 어떻게 개발하는지, 그리고 기존에 없던 레이어를 어떻게 훈련하면 좋을지 알아보자.이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Change PyTorch Model Structure and Train Only Some Layers">
+<meta property="og:url" content="https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction논문의 저자가 제공하거나 논문을 참고하여 개발된 모델은 보통 config 파일 (e.g. config.yaml, config.py)이 존재하고, 해당 파일을 통해 이렇게 모델 구조를 변경할 수 있다.하지만 기존의 소스에 본인이 원하는 모델 구조가 없다면 어떻게 개발하는지, 그리고 기존에 없던 레이어를 어떻게 훈련하면 좋을지 알아보자.이">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-09T01:15:22.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.235Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/","path":"how-to-change-pytorch-model-structure-and-train-only-some-layers/","title":"How to Change PyTorch Model Structure and Train Only Some Layers"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>How to Change PyTorch Model Structure and Train Only Some Layers | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PAN"><span class="nav-number">1.1.</span> <span class="nav-text">PAN++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Goal"><span class="nav-number">1.2.</span> <span class="nav-text">Goal</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changing-PyTorch-Model-Structure"><span class="nav-number">2.</span> <span class="nav-text">Changing PyTorch Model Structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Training-Only-Some-Layers"><span class="nav-number">3.</span> <span class="nav-text">Training Only Some Layers</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/queue-and-stack/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-21</time>
+        <br>
+      Queue and Stack
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-api-serving/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-15</time>
+        <br>
+      MLOps for MLE: API Serving
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/neural-network-example/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-09</time>
+        <br>
+      Neural Network Example
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-convert-a-pytorch-model-to-tensorrt/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-14</time>
+        <br>
+      How to Convert a PyTorch Model to TensorRT
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/deep-learning-with-pytorch-1/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-17</time>
+        <br>
+      Deep Learning with PyTorch (1)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/how-to-change-pytorch-model-structure-and-train-only-some-layers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="How to Change PyTorch Model Structure and Train Only Some Layers | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to Change PyTorch Model Structure and Train Only Some Layers
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-09 10:15:22" itemprop="dateCreated datePublished" datetime="2023-03-09T10:15:22+09:00">2023-03-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-machine-learning/" itemprop="url" rel="index"><span itemprop="name">5. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>논문의 저자가 제공하거나 논문을 참고하여 개발된 모델은 보통 config 파일 (e.g. <code>config.yaml</code>, <code>config.py</code>)이 존재하고, 해당 파일을 통해 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3doYWkzNjIvcGFuX3BwLnB5dG9yY2gvYmxvYi9tYXN0ZXIvY29uZmlnL3Bhbl9wcC9wYW5fcHBfcjE4X2ljMTVfNzM2X2ZpbmV0dW5lLnB5I0w4">이렇게</span> 모델 구조를 변경할 수 있다.<br>하지만 기존의 소스에 본인이 원하는 모델 구조가 없다면 어떻게 개발하는지, 그리고 기존에 없던 레이어를 어떻게 훈련하면 좋을지 알아보자.<br>이 글에서는 <span class="exturl" data-url="aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIxMDUuMDA0MDU=">이 논문</span>을 기반으로 개발된 모델인 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3doYWkzNjIvcGFuX3BwLnB5dG9yY2g=">whai362&#x2F;pan_pp.pytorch</span>를 기준으로 개발하겠다.<br>간단한 목표 설정을 해보기 위해 대략적인 모델의 설명을 진행하겠다.</p>
+<h2 id="PAN"><a href="#PAN" class="headerlink" title="PAN++"></a>PAN++</h2><p>PAN++는 STR (Scene Text Recognition)을 위해 개발되었지만, 본 글에서는 STD (Scene Text Detection) 부분까지만 사용하며 해당 부분은 아래와 같이 진행된다.</p>
+<ol>
+<li>Feature Extraction<ul>
+<li>Layer: Backbone (ResNet)</li>
+<li>Output: Feature map</li>
+</ul>
+</li>
+<li>Feature Fusion<ul>
+<li>Layer: FPEM (Feature Pyramid Enhancement Module)</li>
+<li>Output: Enhanced feature map</li>
+</ul>
+</li>
+<li>Detection<ul>
+<li>Layer: Detection Head</li>
+<li>Output: Text region, text kernel, instance vector</li>
+</ul>
+</li>
+<li>Post-processing (Pixel Aggregation, PA)<ul>
+<li>Output: Axis of bbox (bounding box)</li>
+</ul>
+</li>
+</ol>
+<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><ul>
+<li>FPEM의 stack 수 편집<ul>
+<li>원문 코드: 2 stacked FPEMs 사용</li>
+<li>목표: 4 stacked FPEMs</li>
+</ul>
+</li>
+<li>Fine-tuning<ul>
+<li>목표: 추가된 2 stacked FPEMs 계층만을 훈련</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<hr>
+<h1 id="Changing-PyTorch-Model-Structure"><a href="#Changing-PyTorch-Model-Structure" class="headerlink" title="Changing PyTorch Model Structure"></a>Changing PyTorch Model Structure</h1><p>모델 구조를 변경하기 위해서는 목표 모델이 어떻게 구성되어있는지 파악해야한다.</p>
+<figure class="highlight python"><figcaption><span>pan_pp.pytorch/models</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">├── __init__.py</span><br><span class="line">├── backbone</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── builder.py</span><br><span class="line">│   └── resnet.py</span><br><span class="line">├── builder.py</span><br><span class="line">├── head</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── builder.py</span><br><span class="line">│   ├── pa_head.py</span><br><span class="line">│   ├── pan_pp_det_head.py</span><br><span class="line">│   ├── pan_pp_rec_head.py</span><br><span class="line">│   └── psenet_head.py</span><br><span class="line">├── loss</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── acc.py</span><br><span class="line">│   ├── builder.py</span><br><span class="line">│   ├── dice_loss.py</span><br><span class="line">│   ├── emb_loss_v1.py</span><br><span class="line">│   ├── emb_loss_v2.py</span><br><span class="line">│   ├── iou.py</span><br><span class="line">│   └── ohem.py</span><br><span class="line">├── neck</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── builder.py</span><br><span class="line">│   ├── fpem_v1.py</span><br><span class="line">│   ├── fpem_v2.py</span><br><span class="line">│   └── fpn.py</span><br><span class="line">├── pan.py</span><br><span class="line">├── pan_pp.py <span class="comment"># Here</span></span><br><span class="line">├── post_processing</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── beam_search</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   ├── beam_search.py</span><br><span class="line">│   │   └── topk.py</span><br><span class="line">│   ├── pa</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   ├── pa.cpp</span><br><span class="line">│   │   ├── pa.pyx</span><br><span class="line">│   │   ├── readme.txt</span><br><span class="line">│   │   └── setup.py</span><br><span class="line">│   └── pse</span><br><span class="line">│       ├── __init__.py</span><br><span class="line">│       ├── pse.cpp</span><br><span class="line">│       ├── pse.pyx</span><br><span class="line">│       ├── readme.txt</span><br><span class="line">│       └── setup.py</span><br><span class="line">├── psenet.py</span><br><span class="line">└── utils</span><br><span class="line">    ├── __init__.py</span><br><span class="line">    ├── conv_bn_relu.py</span><br><span class="line">    ├── coordconv.py</span><br><span class="line">    └── fuse_conv_bn.py</span><br></pre></td></tr></table></figure>
+
+<p>여기서 모델 구조 변경을 위해 수정할 코드는 <code>models/neck/fpem_v2.py</code>가 아니라 <code>models/pan_pp.py</code>이다.</p>
+<figure class="highlight python"><figcaption><span>config.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model = <span class="built_in">dict</span>(</span><br><span class="line">    <span class="built_in">type</span>=<span class="string">&#x27;PAN_PP&#x27;</span>,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>왜냐하면 모델을 빌드할 때 <code>config.py</code> 파일의 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/whai362/pan_pp.pytorch/blob/master/models/__init__.py"><code>type=&#39;PAN_PP&#39;</code></a> 옵션을 통해 <code>pan_pp.py</code>로 계층이 구성되기 때문이다.<br>만약 FPEM 내부 구조를 수정하려한다면 <code>models/neck/fpem_v2.py</code>의 코드를 수정해야할 것이다.<br>해당 코드에서 FPEMs의 계층 수를 변경하기 위해 해당 코드 내에서 FPEMs 계층 정의 부분을 살펴보겠다.</p>
+<figure class="highlight python"><figcaption><span>pan_pp.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PAN_PP</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, backbone, neck, detection_head, recognition_head=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(PAN_PP, self).__init__()</span><br><span class="line">...</span><br><span class="line">        self.fpem1 = build_neck(neck)</span><br><span class="line">        self.fpem2 = build_neck(neck)</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,</span></span><br><span class="line"><span class="params">...</span></span><br><span class="line"><span class="params">        <span class="comment"># FPEM</span></span></span><br><span class="line"><span class="params">        f1, f2, f3, f4 = self.fpem1(<span class="params">f1, f2, f3, f4</span>)</span></span><br><span class="line"><span class="params">        f1, f2, f3, f4 = self.fpem2(<span class="params">f1, f2, f3, f4</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/whai362/pan_pp.pytorch/blob/master/models/neck/builder.py"><code>models/neck/builder.py</code></a>에서 정의한 <code>build_neck()</code>은 입력된 <code>config.py</code> 파일에 맞춰 모듈을 빌드해주는 함수다.<br>위 코드에서 알 수 있듯, <code>torch.nn.Module</code>을 상속받은 <code>PAN_PP</code> 객체 내부에 2 stacked FPEMs를 생성자 (<code>__init__()</code>)에서 선언해주었다.<br>이후 모델 학습 및 출력을 위해 <code>forward()</code> 메서드에 입력과 출력에 맞게 정의해주었다.<br>따라서 해당 계층들을 추가하기 위해 아래와 같이 수정할 수 있다.</p>
+<figure class="highlight python"><figcaption><span>pan_pp.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PAN_PP</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, backbone, neck, detection_head, recognition_head=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(PAN_PP, self).__init__()</span><br><span class="line">...</span><br><span class="line">        self.fpem1 = build_neck(neck)</span><br><span class="line">        self.fpem2 = build_neck(neck)</span><br><span class="line">        self.fpem3 = build_neck(neck)</span><br><span class="line">        self.fpem4 = build_neck(neck)</span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,</span></span><br><span class="line"><span class="params">...</span></span><br><span class="line"><span class="params">        <span class="comment"># FPEM</span></span></span><br><span class="line"><span class="params">        f1, f2, f3, f4 = self.fpem1(<span class="params">f1, f2, f3, f4</span>)</span></span><br><span class="line"><span class="params">        f1, f2, f3, f4 = self.fpem2(<span class="params">f1, f2, f3, f4</span>)</span></span><br><span class="line"><span class="params">        f1, f2, f3, f4 = self.fpem3(<span class="params">f1, f2, f3, f4</span>)</span></span><br><span class="line"><span class="params">        f1, f2, f3, f4 = self.fpem4(<span class="params">f1, f2, f3, f4</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>FPEM 계층이 입력과 출력의 <code>shape</code>가 같은 특징이 있어 이렇게 쉽게 모델 구조를 편집할 수 있다.<br>이렇게 4 stacked FPEMs를 완성했으니 모델을 빌드하여 계층이 잘 생성되었는지 확인해보겠다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mmcv <span class="keyword">import</span> Config</span><br><span class="line">cfg = Config.fromfile(<span class="string">&#x27;cfg.py&#x27;</span>)</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> build_model</span><br><span class="line">model = build_model(cfg.model)</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">model = torch.nn.DataParallel(model).cuda()</span><br><span class="line"><span class="built_in">print</span>(model)</span><br><span class="line"></span><br><span class="line">DataParallel(</span><br><span class="line">  (module): PAN_PP(</span><br><span class="line">...</span><br><span class="line">    (fpem1): FPEM_v2(</span><br><span class="line">...</span><br><span class="line">    )</span><br><span class="line">    (fpem2): FPEM_v2(</span><br><span class="line">...</span><br><span class="line">    )</span><br><span class="line">    (fpem3): FPEM_v2(</span><br><span class="line">...</span><br><span class="line">    )</span><br><span class="line">    (fpem4): FPEM_v2(</span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>잘 빌드되었으니 해당 계층에 가중치를 생성하기 위해 훈련을 진행해야한다.</p>
+<hr>
+<h1 id="Training-Only-Some-Layers"><a href="#Training-Only-Some-Layers" class="headerlink" title="Training Only Some Layers"></a>Training Only Some Layers</h1><p>본 절에서는 두 가지를 가정하고 진행한다.</p>
+<ul>
+<li>기존 모델 (2 stacked FPEMs)의 pretrained 가중치가 존재</li>
+<li>새로 생성한 FPEM 계층 (<code>PAN_PP.fpem3</code>, <code>PAN_PP.fpem4</code>)의 가중치 X</li>
+</ul>
+<p>따라서 가중치가 존재하는 레이어는 훈련하지 않고, 훈련되지 않은 레이어인 <code>PAN_PP.fpem3</code>, <code>PAN_PP.fpem4</code> 계층만을 훈련하는 방법을 기술하겠다.</p>
+<figure class="highlight python"><figcaption><span>train.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">args</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">hasattr</span>(cfg.train_cfg, <span class="string">&#x27;pretrain&#x27;</span>):</span><br><span class="line">...</span><br><span class="line">        checkpoint = torch.load(cfg.train_cfg.pretrain)</span><br><span class="line">        model.load_state_dict(checkpoint[<span class="string">&#x27;state_dict&#x27;</span>])</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>기존 코드에서는 <code>cfg.train_cfg.pretrain</code>에 저장되어있는 가중치를 <code>torch.nn.Module.load_state_dict()</code> 메서드로 불러와 fine-tuning을 시작하게 된다.<br>하지만 현재 저 가중치 (<code>checkpoint[&#39;state_dict&#39;]</code>)는 <code>PAN_PP.fpem3</code>, <code>PAN_PP.fpem4</code>의 정보가 일체 존재하지 않기 때문에 위 코드를 그대로 실행하면 오류가 발생하게 된다.<br>따라서 <code>model.load_state_dict(checkpoint[&#39;state_dict&#39;], False)</code>와 같이 실행해야한다.<br>이렇게 추가한 계층을 제외한 가중치를 모델에 로드했다면 훈련 시 추가한 계층을 제외한 계층의 훈련을 정지시켜야한다.<br>이를 위해 <code>torch.nn.Module.named_parameters()</code>를 활용할 수 있다.<br><code>for n, p in model.named_parameters():</code>와 같이 사용하며 <code>n</code>은 계층의 이름을, <code>p</code>는 계층의 파라미터 (<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pytorch.org/docs/stable/generated/torch.nn.parameter.Parameter.html#torch.nn.parameter.Parameter"><code>torch.nn.parameter.Parameter</code></a>)를 의미한다.<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://pytorch.org/docs/stable/notes/autograd.html#setting-requires-grad"><code>torch.nn.parameter.Parameter.requires_grad</code></a>을 <code>False</code>로 정의하면 gradient 계산 진행이 되지 않아 학습을 제외할 수 있고, <code>True</code>로 정의하면 gradient 계산 진행이 되어 학습을 포함할 수 있다.<br>따라서 반복문과 조건문을 적절히 사용해 아래와 같이 훈련 코드를 사용하면 원하는 계층만을 훈련하고, 나머지 계층은 훈련에서 제외할 수 있다.</p>
+<figure class="highlight python"><figcaption><span>tarin.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">args</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">hasattr</span>(cfg.train_cfg, <span class="string">&#x27;pretrain&#x27;</span>):</span><br><span class="line">...</span><br><span class="line">        checkpoint = torch.load(cfg.train_cfg.pretrain)</span><br><span class="line">        nmd = model.state_dict()</span><br><span class="line">        pretrained_dict = &#123;k: v <span class="keyword">for</span> k, v <span class="keyword">in</span> checkpoint[<span class="string">&#x27;state_dict&#x27;</span>].items() <span class="keyword">if</span> k <span class="keyword">in</span> nmd&#125;</span><br><span class="line">        model.load_state_dict(pretrained_dict, <span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">for</span> n, p <span class="keyword">in</span> model.named_parameters():</span><br><span class="line">            <span class="built_in">print</span>(n, p.requires_grad)</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;fpem3&#x27;</span> <span class="keyword">in</span> n <span class="keyword">or</span> <span class="string">&#x27;fpem4&#x27;</span> <span class="keyword">in</span> n:</span><br><span class="line">                p.requires_grad = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                p.requires_grad = <span class="literal">False</span></span><br><span class="line">            <span class="built_in">print</span>(n, p.requires_grad)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/professional-research-agent-train-init/" rel="prev" title="전문연구요원: 훈련소 준비">
+                  <i class="fa fa-chevron-left"></i> 전문연구요원: 훈련소 준비
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-stream/" rel="next" title="MLOps for MLE: Stream">
+                  MLOps for MLE: Stream <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"00814f66e5fab75d2cc8761c5cde6394"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

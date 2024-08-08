@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다. GPT-4 좋네  Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 Kubernetes의 API 객체">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes: Ingress">
+<meta property="og:url" content="https://zerohertz.github.io/k8s-ingress/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다. GPT-4 좋네  Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 Kubernetes의 API 객체">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290320-6a9d7306-bfed-4f31-b426-2ab2df5a37d3.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290194-2b3bdd57-5380-47a2-99e5-97ad240a3773.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259301406-e7fa8b64-373c-46b3-9249-3fade6def649.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260349693-368b6892-1f3f-402e-beee-537e2368bf98.png">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259375588-d8935f4b-1c94-4e84-a940-fb768738df95.png">
+<meta property="article:published_time" content="2023-08-08T14:43:40.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.236Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Kubernetes">
+<meta property="article:tag" content="Home Server">
+<meta property="article:tag" content="Traefik">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290320-6a9d7306-bfed-4f31-b426-2ab2df5a37d3.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/k8s-ingress/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/k8s-ingress/","path":"k8s-ingress/","title":"Kubernetes: Ingress"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubernetes: Ingress | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NGINX-Ingress-Controller-vs-Traefik"><span class="nav-number">2.</span> <span class="nav-text">NGINX Ingress Controller vs. Traefik</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NGINX-Ingress-Controller"><span class="nav-number">2.1.</span> <span class="nav-text">NGINX Ingress Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Traefik"><span class="nav-number">2.2.</span> <span class="nav-text">Traefik</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">2.3.</span> <span class="nav-text">Conclusion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hands-on"><span class="nav-number">3.</span> <span class="nav-text">Hands-on</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS"><span class="nav-number">3.2.</span> <span class="nav-text">HTTPS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Traefik-Dashboard"><span class="nav-number">4.</span> <span class="nav-text">Traefik Dashboard</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k8s-dashboard/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-15</time>
+        <br>
+      Kubernetes Dashboard
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/home-server-monitoring/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-07</time>
+        <br>
+      Home Server: Monitoring
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/home-server-cloud/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-22</time>
+        <br>
+      Home Server: Cloud
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k8s-airflow/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-09</time>
+        <br>
+      Apache Airflow Setup on Kubernetes
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/matlab-5/" rel="bookmark">
+        <time class="popular-posts-time">2019-11-06</time>
+        <br>
+      MATLAB (5)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/k8s-ingress/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubernetes: Ingress | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes: Ingress
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-08 23:43:40" itemprop="dateCreated datePublished" datetime="2023-08-08T23:43:40+09:00">2023-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-devops/" itemprop="url" rel="index"><span itemprop="name">3. DevOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>현대의 마이크로서비스 환경에서 쿠버네티스 클러스터 내의 애플리케이션으로 트래픽을 관리하는 것은 필수 기술입니다.<br>쿠버네티스는 클러스터로의 외부 트래픽을 제어하고 라우팅하는 강력한 솔루션인 Ingress를 제공합니다.</p>
+<p><del>GPT-4 좋네</del></p>
+<blockquote>
+<p>Ingress: Cluster 내 서비스로의 외부 액세스를 관리하는 Kubernetes의 API 객체</p>
+</blockquote>
+<p>Kubernetes의 ingress는 host 이름과 경로를 포함한 일련의 규칙을 기반으로 HTTP와 HTTPS routing을 제공하여 client 요청을 적절한 backend service로 연결하는 장점이 있다.<br>Ingress의 주요 구성 요소는 아래와 같다.</p>
+<ol>
+<li>Ingress Resource<ul>
+<li>Traffic routing 규칙 정의</li>
+<li>Host, 경로 및 traffic 흐름을 제어하는 다양한 기타 매개변수 포함</li>
+</ul>
+</li>
+<li>Ingress Controller<ul>
+<li>Ingress 리소스의 규칙을 읽고 실제 traffic routing 처리</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2t1YmVybmV0ZXMvaW5ncmVzcy1uZ2lueA==">NGINX Ingress Controller</span>, <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYWVmaWsvdHJhZWZpaw==">Traefik</span>, …</li>
+</ul>
+</li>
+<li>Backend Service<ul>
+<li>Cluster 내에서 요청을 처리하는 실제 service</li>
+<li>Ingress resource에서 정의한 대로 다양한 경로와 도메인을 통해 노출 가능</li>
+</ul>
+</li>
+</ol>
+<p>또한 사용하는 이유는 아래와 같다.</p>
+<ol>
+<li>간소화된 routing: Routing 규칙을 한 곳에서 집중 관리하여 관리 및 유지 보수 명료화</li>
+<li>SSL&#x2F;TLS 종료: SSL&#x2F;TLS 인증서를 한 곳에서 처리</li>
+<li>경로 기반 routing: URL 경로를 기반으로 요청을 다른 서비스로 연결함으로써 보다 체계적인 구조 구축</li>
+<li>비용 효율: Routing 규칙을 통합함으로써 여러 load balancer의 필요 감소</li>
+</ol>
+<span id="more"></span>
+
+<hr>
+<h1 id="NGINX-Ingress-Controller-vs-Traefik"><a href="#NGINX-Ingress-Controller-vs-Traefik" class="headerlink" title="NGINX Ingress Controller vs. Traefik"></a>NGINX Ingress Controller vs. Traefik</h1><h2 id="NGINX-Ingress-Controller"><a href="#NGINX-Ingress-Controller" class="headerlink" title="NGINX Ingress Controller"></a>NGINX Ingress Controller</h2><blockquote>
+<p>NGINX Ingress Controller: 인기 있는 web server NGINX 기반 ingress controller</p>
+</blockquote>
+<ul>
+<li>성능: NGINX의 강력한 성능</li>
+<li>확장성: 큰 규모의 어플리케이션에 적합</li>
+<li>사용자 정의: 많은 사용자 정의 옵션과 플러그인</li>
+<li>구성 복잡성: 처음 사용자에게는 설정이 복잡할 수 있음</li>
+</ul>
+<h2 id="Traefik"><a href="#Traefik" class="headerlink" title="Traefik"></a>Traefik</h2><blockquote>
+<p>Traefik: 최신 microservice를 위해 특별히 설계된 dynamic reverse proxy ingress controller</p>
+</blockquote>
+<ul>
+<li>동적 구성: 마이크로서비스 환경에 적합한 동적 routing</li>
+<li>간단한 구성: 빠른 설정과 간단한 관리</li>
+<li>Let’s Encrypt 지원: 자동 SSL 인증서 관리</li>
+<li>미들웨어 지원: 다양한 미들웨어 옵션</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><table>
+<thead>
+<tr>
+<th align="center">Feature</th>
+<th align="center">NGINX Ingress Controller</th>
+<th align="center">Traefik</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">성능</td>
+<td align="center">높음</td>
+<td align="center">중간</td>
+</tr>
+<tr>
+<td align="center">확장성</td>
+<td align="center">높음</td>
+<td align="center">중간</td>
+</tr>
+<tr>
+<td align="center">설정 복잡성</td>
+<td align="center">복잡</td>
+<td align="center">단순</td>
+</tr>
+<tr>
+<td align="center">미들웨어 지원</td>
+<td align="center">제한적</td>
+<td align="center">넓은 범위</td>
+</tr>
+<tr>
+<td align="center">자동 SSL 인증서 관리</td>
+<td align="center">제한적</td>
+<td align="center">지원</td>
+</tr>
+<tr>
+<td align="center">커뮤니티 및 지원</td>
+<td align="center">넓고 강력</td>
+<td align="center">활발</td>
+</tr>
+</tbody></table>
+<ul>
+<li>NGINX Ingress Controller는 성능과 확장성이 중요한 큰 규모의 프로젝트에 적합할 수 있습니다.</li>
+<li>Traefik은 동적 마이크로서비스 환경과 빠른 개발이 필요한 프로젝트에 더 적합할 수 있습니다.</li>
+</ul>
+<details>
+<summary>
+그 외의 여러 Ingress Controller들
+</summary>
+
+<ol>
+<li>HAProxy Ingress Controller: HAProxy를 기반으로 한 인기 있는 Ingress 컨트롤러로, 고성능 및 확장성에 중점을 둡니다.</li>
+<li>Contour: Contour는 Envoy 프록시를 기반으로 하며, 직관적인 구성과 최신 Ingress 기능을 지원합니다.</li>
+<li>Istio Ingress Gateway: Istio 서비스 메시와 함께 작동하는 Ingress 컨트롤러로, 트래픽 관리, 보안, 관찰 등을 제공합니다.</li>
+<li>Kong Ingress Controller: Kong은 API 게이트웨이로도 사용되며, 풍부한 플러그인 생태계와 사용자 친화적인 구성을 제공합니다.</li>
+<li>AWS ALB Ingress Controller: Amazon Web Services (AWS)의 Application Load Balancer (ALB)를 활용하는 Ingress 컨트롤러로, AWS 환경에서 자동 확장 및 탄력성을 제공합니다.</li>
+<li>Gloo Edge: Solo.io에서 개발한 Gloo Edge는 Envoy를 기반으로 하며, 함수 레벨 라우팅, gRPC, 웹소켓 지원 등 다양한 기능을 제공합니다.</li>
+<li>Azure Application Gateway Ingress Controller: Microsoft Azure의 Application Gateway를 활용한 Ingress 컨트롤러로, Azure 기반 클라우드 환경에서 최적화된 트래픽 라우팅을 지원합니다.</li>
+</ol>
+</details>
+
+<hr>
+<h1 id="Hands-on"><a href="#Hands-on" class="headerlink" title="Hands-on"></a>Hands-on</h1><p>Traefik을 통한 ingress를 알아보자!</p>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><figure class="highlight yaml"><figcaption><span>ingress-example-http.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">echo-server</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">example</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">echo-server</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">echo-server</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">echo-server</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">example</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">strategy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">RollingUpdate</span></span><br><span class="line">    <span class="attr">rollingUpdate:</span></span><br><span class="line">      <span class="attr">maxSurge:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">maxUnavailable:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">echo-server</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">echo-server</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">echo-server</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">ealen/echo-server:0.5.2</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">Always</span></span><br><span class="line">          <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="string">&quot;0.5&quot;</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">&quot;1Gi&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">traefik-routers</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">example</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ingressClassName:</span> <span class="string">&quot;traefik&quot;</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">http:</span></span><br><span class="line">          <span class="attr">paths:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">              <span class="attr">pathType:</span> <span class="string">Prefix</span></span><br><span class="line">              <span class="attr">backend:</span></span><br><span class="line">                <span class="attr">service:</span></span><br><span class="line">                  <span class="attr">name:</span> <span class="string">echo-server</span></span><br><span class="line">                  <span class="attr">port:</span></span><br><span class="line">                    <span class="attr">number:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl create ns example</span></span><br><span class="line">namespace/example created</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl apply -f ingress-example.yaml</span></span><br><span class="line">service/echo-server created</span><br><span class="line">deployment.apps/echo-server created</span><br><span class="line">ingress.networking.k8s.io/traefik-routers created</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl get svc -A</span></span><br><span class="line">NAMESPACE     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)                      AGE</span><br><span class="line">...</span><br><span class="line">example       echo-server      ClusterIP      10.43.60.106    &lt;none&gt;            80/TCP                       2m32s</span><br><span class="line">kube-system   traefik          LoadBalancer   10.43.78.230    192.168.219.200   80:31024/TCP,443:31025/TCP   36h</span><br></pre></td></tr></table></figure>
+
+<p>만약 Traefik의 port을 원하는 port로 수정하고 싶다면 <code>kubectl edit svc traefik -n kube-system</code>을 실행하여 아래와 같이 수정하면 된다.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web</span></span><br><span class="line">    <span class="attr">nodePort:</span> <span class="string">$&#123;Web_Port&#125;</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="string">web</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">websecure</span></span><br><span class="line">    <span class="attr">nodePort:</span> <span class="string">$&#123;Websecure_Port&#125;</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="string">websecure</span></span><br><span class="line">    <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<p>그러면 아래와 같이 잘 실행이 된다!</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290320-6a9d7306-bfed-4f31-b426-2ab2df5a37d3.png" alt="HTTP"></p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>자체 서명된 인증서로 위의 service를 배포하면 아래와 같다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj <span class="string">&quot;/CN=<span class="variable">$&#123;HOST&#125;</span>&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl create secret tls my-tls-cert --cert=tls.crt --key=tls.key -n example</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>ingress-example-https.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">traefik-routers</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">example</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ingressClassName:</span> <span class="string">&quot;traefik&quot;</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secretName:</span> <span class="string">my-tls-cert</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290194-2b3bdd57-5380-47a2-99e5-97ad240a3773.png" alt="HTTPS-1"></p>
+<p>위 사진에서 알 수 있듯, 자체 서명한 인증서를 사용했기 때문에 우측과 같은 경고문이 뜬다.<br>Traefik은 Let’s Encrypt와 같은 ACME (Automated Certificate Management Environment) protocol을 지원하여 TLS 인증서의 자동 발급 및 갱신을 처리할 수 있다.<br>Traefik 구성에서 ACME 제공자를 활성화하고 필요한 인증 정보를 설정하면, Traefik은 지정된 domain에 대한 인증서를 자동으로 발급 받을 수 있으며, 인증서가 만료되기 전에 자동으로 갱신한다.<br>이러한 자동 인증서 관리 기능은 web service의 보안을 강화하고, 수동으로 인증서를 관리하는 복잡성을 줄여준다.<br>위 특징들을 적용하기 위해선 아래의 과정을 거치면 된다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl edit deployment traefik -n kube-system</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">args:</span></span><br><span class="line">        <span class="string">...</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">--certificatesresolvers.myresolver.acme.email=$&#123;User_Mail&#125;</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">--certificatesresolvers.myresolver.acme.storage=/data/acme.json</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">--certificatesresolvers.myresolver.acme.tlschallenge=true</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl rollout restart deployment traefik -n kube-system</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>ingress-example-https-cert.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">...</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">traefik.containo.us/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">IngressRoute</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">echo-server</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">example</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">entryPoints:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">websecure</span></span><br><span class="line">  <span class="attr">routes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">match:</span> <span class="string">Host(`$&#123;DDNS&#125;`)</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">Rule</span></span><br><span class="line">    <span class="attr">services:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">echo-server</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="attr">certResolver:</span> <span class="string">myresolver</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl apply -f ingress-example-https-cert.yaml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259301406-e7fa8b64-373c-46b3-9249-3fade6def649.png" alt="HTTPS-2"></p>
+<p>성공 !!<br>만약 path를 변경하고 싶다면 <code>spec.routes.match</code>를 <code>Host(`$&#123;DDNS&#125;`) &amp;&amp; PathPrefix(`/$&#123;PATH&#125;`)</code>와 같이 지정해주면 된다.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc3NsbGFicy5jb20vc3NsdGVzdC9hbmFseXplLmh0bWw=">이런 사이트</span>를 이용하면 아래와 같이 서버의 보안을 평가 받을 수 있다.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260349693-368b6892-1f3f-402e-beee-537e2368bf98.png" alt="ssltest"></p>
+<hr>
+<h1 id="Traefik-Dashboard"><a href="#Traefik-Dashboard" class="headerlink" title="Traefik Dashboard"></a>Traefik Dashboard</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;ID&#125;</span>:<span class="subst">$(openssl passwd -apr1 $&#123;PASSWD&#125;)</span>&quot;</span> | <span class="built_in">base64</span></span></span><br></pre></td></tr></table></figure>
+
+<p>위 명령어를 통해 encoding된 ID와 비밀번호를 얻을 수 있고, 여기서 출력된 값을 아래 <code>$&#123;Base64&#125;</code>에 입력하면 접속 시 사용자에게 ID와 비밀번호를 요구하게된다.</p>
+<figure class="highlight yaml"><figcaption><span>traefik.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Secret</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">dashboard-auth-secret</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">users:</span> <span class="string">$&#123;Base64&#125;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">traefik.containo.us/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Middleware</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">traefik-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">basicAuth:</span></span><br><span class="line">    <span class="attr">secret:</span> <span class="string">dashboard-auth-secret</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">traefik.containo.us/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">IngressRoute</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">traefik-dashboard</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">monitoring</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">entryPoints:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">websecure</span></span><br><span class="line">  <span class="attr">routes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">match:</span> <span class="string">Host(`$&#123;DDNS&#125;`)</span></span><br><span class="line">    <span class="attr">kind:</span> <span class="string">Rule</span></span><br><span class="line">    <span class="attr">middlewares:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">traefik-dashboard</span></span><br><span class="line">    <span class="attr">services:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">api@internal</span></span><br><span class="line">      <span class="attr">kind:</span> <span class="string">TraefikService</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">    <span class="attr">certResolver:</span> <span class="string">myresolver</span></span><br></pre></td></tr></table></figure>
+
+<p>아래와 같이 접속하면 ID와 비밀번호를 묻고 로그인하면 Traefik의 dashboard를 확인할 수 있다!</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259375588-d8935f4b-1c94-4e84-a940-fb768738df95.png" alt="traefik-dashboard"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kubernetes/" rel="tag"><i class="fa fa-tag"></i> Kubernetes</a>
+              <a href="/tags/home-server/" rel="tag"><i class="fa fa-tag"></i> Home Server</a>
+              <a href="/tags/traefik/" rel="tag"><i class="fa fa-tag"></i> Traefik</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/k9s/" rel="prev" title="K9s">
+                  <i class="fa fa-chevron-left"></i> K9s
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/github-verified-signature/" rel="next" title="GitHub: Verified Signature">
+                  GitHub: Verified Signature <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"b249b86830c5b0d15502d5caae5157ea"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

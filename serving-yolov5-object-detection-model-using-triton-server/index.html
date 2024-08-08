@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction Definition of Triton Inference Server  Triton Inference Server는 NVIDIA에서 개발한 딥 러닝 모델 인퍼런스를 위한 고성능 인퍼런스 서버입니다. Triton Inference Server는 다중 모델을 지원하며, TensorFlow, PyTorch, ONNX 등의 주요 딥 러닝 프레">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Serving YOLOv5 Object Detection Model using Triton Inference Server">
+<meta property="og:url" content="https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Definition of Triton Inference Server  Triton Inference Server는 NVIDIA에서 개발한 딥 러닝 모델 인퍼런스를 위한 고성능 인퍼런스 서버입니다. Triton Inference Server는 다중 모델을 지원하며, TensorFlow, PyTorch, ONNX 등의 주요 딥 러닝 프레">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/232948308-d97200f8-e575-4a09-a5ef-63b15e19dc4e.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/232970727-8949f831-fa74-4fd7-81da-f7e557680a67.png">
+<meta property="article:published_time" content="2023-04-20T23:07:51.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.240Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Triton Inference Server">
+<meta property="article:tag" content="TensorRT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/232948308-d97200f8-e575-4a09-a5ef-63b15e19dc4e.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/","path":"serving-yolov5-object-detection-model-using-triton-server/","title":"Serving YOLOv5 Object Detection Model using Triton Inference Server"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Serving YOLOv5 Object Detection Model using Triton Inference Server | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Export-YOLOv5"><span class="nav-number">2.</span> <span class="nav-text">Export YOLOv5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Triton-Inference-Server"><span class="nav-number">3.</span> <span class="nav-text">Triton Inference Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Client-for-Test"><span class="nav-number">4.</span> <span class="nav-text">Client for Test</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/serving-yolov5-segmentation-model-with-aws-ec2-inf1/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-10</time>
+        <br>
+      Serving YOLOv5 Segmentation Model with Amazon EC2 Inf1
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/how-to-convert-a-pytorch-model-to-tensorrt/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-14</time>
+        <br>
+      How to Convert a PyTorch Model to TensorRT
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/aws-neuron-sdk-aws-inferentia/" rel="bookmark">
+        <time class="popular-posts-time">2023-05-12</time>
+        <br>
+      AWS Neuron SDK & AWS Inferentia
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-stream/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-09</time>
+        <br>
+      MLOps for MLE: Stream
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-14</time>
+        <br>
+      Labeling with Label Studio for Pre-labeled Data using YOLOv5
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Serving YOLOv5 Object Detection Model using Triton Inference Server | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Serving YOLOv5 Object Detection Model using Triton Inference Server
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-04-21 08:07:51" itemprop="dateCreated datePublished" datetime="2023-04-21T08:07:51+09:00">2023-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-mlops/" itemprop="url" rel="index"><span itemprop="name">4. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Definition of Triton Inference Server</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS90cml0b24taW5mZXJlbmNlLXNlcnZlcg==">Triton Inference Server</span>는 NVIDIA에서 개발한 딥 러닝 모델 인퍼런스를 위한 고성능 인퍼런스 서버입니다. Triton Inference Server는 다중 모델을 지원하며, TensorFlow, PyTorch, ONNX 등의 주요 딥 러닝 프레임워크를 모두 지원합니다.<br>이를 통해 사용자는 다양한 모델을 효율적으로 서빙할 수 있습니다.<br>Triton Inference Server는 NVIDIA TensorRT 엔진을 기반으로하며, GPU 가속을 통해 모델 추론을 빠르게 수행할 수 있습니다.<br>또한 Triton Inference Server는 TensorFlow Serving과 호환되는 gRPC 인터페이스를 제공하며 Triton Inference Server는 TensorFlow Serving, TorchServe와 같은 기존 인퍼런스 서버와 비교하여 성능 및 유연성 면에서 우수한 성능을 발휘합니다.<br>Triton Inference Server는 Kubernetes, Docker 및 NVIDIA DeepOps와 같은 오케스트레이션 툴과 통합되어 쉽게 배포할 수 있습니다.<br>Triton Inference Server는 성능, 확장성 및 유연성 면에서 우수한 기능을 제공하므로, 대규모 딥 러닝 모델 인퍼런스를 위한 선택적이고 강력한 도구로 자리 잡고 있습니다.</p>
+<blockquote>
+<p>Docker Image: <code>triton-server</code></p>
+</blockquote>
+<p>Triton Inference Server 이미지는 NVIDIA에서 제공하는 Docker 이미지입니다. 이 이미지는 NVIDIA GPU 드라이버와 CUDA 라이브러리를 포함하며, 딥 러닝 인퍼런스를 실행하는 데 필요한 모든 라이브러리와 의존성을 포함합니다.<br>Triton Inference Server 이미지는 NGC(NVIDIA GPU Cloud)와 Docker Hub에서 제공됩니다. NGC에서는 최신 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크에서 학습된 모델을 지원합니다. 또한, TensorRT와 같은 최적화 라이브러리를 사용하여 높은 성능을 발휘합니다.<br>Docker Hub에서도 NVIDIA에서 공식적으로 제공하는 Triton Inference Server 이미지를 찾을 수 있습니다. Docker Hub에서는 다양한 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크를 지원합니다.<br>이러한 Triton Inference Server 이미지는 Kubernetes, Docker Compose와 같은 오케스트레이션 툴과 통합되어 배포 및 관리할 수 있으며, 쉽게 다양한 환경에서 실행할 수 있습니다.</p>
+<p>이러한 Triton Inference Server를 통해 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3VsdHJhbHl0aWNzL3lvbG92NQ==">YOLOv5</span> 모델을 Serving하고, 간략한 Client를 개발하여 Server가 잘 구동되는지 확인하는 방법을 설명하겠다.</p>
+<span id="more"></span>
+
+<hr>
+<h1 id="Export-YOLOv5"><a href="#Export-YOLOv5" class="headerlink" title="Export YOLOv5"></a>Export YOLOv5</h1><p>모델을 Serving하기 전에 Triton Inference Server에 구동할 수 있는 양식으로 변환해야 한다.<br>물론 PyTorch, TensorFlow와 같은 Python 기반 Framework를 통해 Serving 할 수 있지만, 추가적인 개발이 필요하기 때문에 아래와 같이 YOLOv5를 통해 학습된 가중치 (<code>best.pt</code>)를 YOLOv5에 포함되어있는 <code>export.py</code>로 ONNX 혹은 TensorRT로 Export한다.<br>Export 과정은 아래와 같이 진행할 수 있다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">CUDA_VISIBLE_DEVICES=<span class="variable">$&#123;CUDA_NUM&#125;</span> python export.py --device 0 --weights runs/train/<span class="variable">$&#123;exp&#125;</span>/weights/best.pt --include onnx --opset <span class="variable">$&#123;opset&#125;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">CUDA_VISIBLE_DEVICES=<span class="variable">$&#123;CUDA_NUM&#125;</span> python export.py --device 0 --weights runs/train/<span class="variable">$&#123;exp&#125;</span>/weights/best.pt --include engine</span></span><br></pre></td></tr></table></figure>
+
+<p>해당 코드를 통해 ONNX로 Export하면 <code>best.onnx</code>가 생성되고, TensorRT로 Export하면 <code>best.onnx</code>와 <code>best.engine</code>이 생성된다.<br>현재 <code>.engine</code> 확장자로 구성된 모델을 Triton Inference Server에서 구동하는 법을 진행하지 못하여 본 글에서는 ONNX를 통해 Triton Inference Server에서 YOLOv5 모델을 Serving하는 방법을 기술하겠다.</p>
+<hr>
+<h1 id="Triton-Inference-Server"><a href="#Triton-Inference-Server" class="headerlink" title="Triton Inference Server"></a>Triton Inference Server</h1><p>Triton Inference Server를 구동하기 위해서는 모델들이 보관될 <code>server</code> Directory에 각 Directory 별로 <code>config.pbtxt</code>와 숫자로 구성된 Directory 내에 모델 코드 혹은 모델 구조와 가중치가 저장된 파일을 구성해야한다.<br>여기서 모델 코드는 Python 기반의 여러 Framework (PyTorch, TensorFlow)를 사용하는 모델을 의미하고, 모델 파일은 ONNX, TensorRT 등을 통해 변환된 파일을 의미한다.<br>본 글에서는 ONNX를 통해 모델을 Serving 하기 때문에 아래와 같이 Directory 및 <code>config.pbtxt</code>을 구성하였다.</p>
+<figure class="highlight bash"><figcaption><span>Directory Structure</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">└── server</span><br><span class="line">    └── YOLOv5</span><br><span class="line">        ├── 1</span><br><span class="line">        │   └── model.onnx</span><br><span class="line">        └── config.pbtxt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>server/YOLOv5/config.pbtxt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">&quot;YOLOv5&quot;</span></span><br><span class="line"><span class="attr">platform:</span> <span class="string">&quot;onnxruntime_onnx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">input</span> [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">name:</span> <span class="string">&quot;images&quot;</span></span><br><span class="line">        <span class="attr">data_type:</span> <span class="string">TYPE_FP32</span></span><br><span class="line">        <span class="attr">dims:</span> [<span class="number">1</span>,<span class="number">3</span>,<span class="number">640</span>,<span class="number">640</span>]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="string">output</span> [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">name:</span> <span class="string">&quot;output0&quot;</span></span><br><span class="line">        <span class="attr">data_type:</span> <span class="string">TYPE_FP32</span></span><br><span class="line">        <span class="attr">dims:</span> [<span class="number">1</span>,<span class="number">25200</span>,<span class="number">6</span>]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><code>config.pbtxt</code>의 입출력의 이름과 차원을 정의하기 위해 <span class="exturl" data-url="aHR0cHM6Ly9uZXRyb24uYXBwLw==">Netron</span>을 통한 모델 시각화를 아래와 같이 진행하였다.</p>
+<details>
+<summary>
+Model Constructure
+</summary>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/232948308-d97200f8-e575-4a09-a5ef-63b15e19dc4e.png" alt="best onnx"></p>
+</details>
+
+<ul>
+<li><code>name</code>: Directory의 이름과 동일하게 설정</li>
+<li><code>platform</code>: 본 글에서는 ONNX 모델을 통해 Serving 하기 때문에 <code>onnxruntime_onnx</code>로 설정</li>
+<li><code>input</code>, <code>output</code>: ONNX 파일의 입출력 정의</li>
+</ul>
+<figure class="highlight docker"><figcaption><span>core/Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nvcr.io/nvidia/tritonserver:<span class="number">21.03</span>-py3</span><br><span class="line"><span class="keyword">ARG</span> DEBIAN_FRONTEND=noninteractive</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /opt/tritonserver</span></span><br><span class="line"><span class="keyword">USER</span> root</span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;/opt/tritonserver/nvidia_entrypoint.sh&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>모델에 관한 설정은 모두 마쳤으니 <span class="exturl" data-url="aHR0cHM6Ly9jYXRhbG9nLm5nYy5udmlkaWEuY29tL29yZ3MvbnZpZGlhL2NvbnRhaW5lcnMvdHJpdG9uc2VydmVy">tritonserver:21.03-py3</span> 이미지에서 간략한 설정을 진행해주는 <code>Dockerfile</code>를 생성한다.</p>
+<figure class="highlight bash"><figcaption><span>build_server.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker build -t triton-yolov5:dev ./core</span><br><span class="line">docker run -itd -e NVIDIA_VISIBLE_DEVICES=1 \</span><br><span class="line">--pid=host \</span><br><span class="line">--shm-size=4gb \</span><br><span class="line">-p 8801:8000 -p 8003:8001 -p 8004:8002 \</span><br><span class="line">-v <span class="variable">$&#123;PWD&#125;</span>/server:/models \</span><br><span class="line">--name triton-yolov5 \</span><br><span class="line">triton-yolov5:dev \</span><br><span class="line">tritonserver --model-repository=/models --strict-model-config=<span class="literal">false</span> --log-verbose=1 --backend-config=python,grpc-timeout-milliseconds=50000 &amp;&amp; \</span><br><span class="line">docker logs -f triton-yolov5</span><br></pre></td></tr></table></figure>
+
+<p><code>Dockerfile</code>를 통해 <code>triton-yolov5</code> 이미지를 생성하고 포트와 같은 여러가지 설정을 마친 후 Container를 실행한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">+------------------+------+</span><br><span class="line">| Repository Agent | Path |</span><br><span class="line">+------------------+------+</span><br><span class="line">+------------------+------+</span><br><span class="line"></span><br><span class="line">I0419 02:38:40.407253 3235774 server.cc:527] </span><br><span class="line">+-------------+-----------------------------------------------------------------+--------+</span><br><span class="line">| Backend     | Path                                                            | Config |</span><br><span class="line">+-------------+-----------------------------------------------------------------+--------+</span><br><span class="line">| pytorch     | /opt/tritonserver/backends/pytorch/libtriton_pytorch.so         | &#123;&#125;     |</span><br><span class="line">| tensorflow  | /opt/tritonserver/backends/tensorflow1/libtriton_tensorflow1.so | &#123;&#125;     |</span><br><span class="line">| onnxruntime | /opt/tritonserver/backends/onnxruntime/libtriton_onnxruntime.so | &#123;&#125;     |</span><br><span class="line">| openvino    | /opt/tritonserver/backends/openvino/libtriton_openvino.so       | &#123;&#125;     |</span><br><span class="line">+-------------+-----------------------------------------------------------------+--------+</span><br><span class="line"></span><br><span class="line">I0419 02:38:40.407307 3235774 model_repository_manager.cc:588] BackendStates()</span><br><span class="line">I0419 02:38:40.407361 3235774 server.cc:570] </span><br><span class="line">+--------+---------+--------+</span><br><span class="line">| Model  | Version | Status |</span><br><span class="line">+--------+---------+--------+</span><br><span class="line">| YOLOv5 | 1       | READY  |</span><br><span class="line">+--------+---------+--------+</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>위와 같은 로그가 나오면 <code>YOLOv5</code> 모델이 Triton Inference Server에서 실행되고 있음을 의미한다.</p>
+<figure class="highlight bash"><figcaption><span>Directory Structure</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── build_server.sh</span><br><span class="line">├── core</span><br><span class="line">│   └── Dockerfile</span><br><span class="line">└── server</span><br><span class="line">    └── YOLOv5</span><br><span class="line">        ├── 1</span><br><span class="line">        │   └── model.onnx</span><br><span class="line">        └── config.pbtxt</span><br></pre></td></tr></table></figure>
+
+<p>현재까지 Triton Inference Server의 모든 구성을 마친 상태의 Directory Structure는 위와 같다.</p>
+<hr>
+<h1 id="Client-for-Test"><a href="#Client-for-Test" class="headerlink" title="Client for Test"></a>Client for Test</h1><p>실행되고 있는 Triton Inference Server에 대해 이미지를 전달하고, Inference 정보를 가져와 후처리를 진행한 뒤 시각화하는 코드를 설명하겠다.</p>
+<figure class="highlight python"><figcaption><span>client.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tritonclient.utils <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tritonclient.grpc <span class="keyword">as</span> grpcclient</span><br></pre></td></tr></table></figure>
+
+<p>입력 이미지를 읽고, Triton Inference Server의 입력에 맞추기 위해 <code>numpy</code>와 <code>cv2</code>를 <code>import</code> 한다.<br>또한 Triton Inference Server에 이미지를 전달하고 Inference 정보를 가져오기 위해 <code>tritonclient</code>의 몇 함수를 <code>import</code> 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SERVER_URL = <span class="string">&#x27;xxx.xxx.xxx.xxx:8003&#x27;</span></span><br><span class="line">MODEL_NAME = <span class="string">&#x27;YOLOv5&#x27;</span></span><br><span class="line">IMAGE_PATH = <span class="string">&#x27;test.jpg&#x27;</span></span><br><span class="line">dectection_image_path = <span class="string">&quot;test_response.jpg&quot;</span></span><br><span class="line">dectection_boxes_path = <span class="string">&quot;test_boxes.txt&quot;</span></span><br><span class="line"></span><br><span class="line">image = cv2.imread(IMAGE_PATH)</span><br><span class="line">image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span><br><span class="line">input_image, r, _ = letterbox(image)</span><br><span class="line">input_image = input_image.astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line">input_image = input_image.transpose((<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>))[np.newaxis, :] / <span class="number">255.0</span></span><br><span class="line">input_image = np.ascontiguousarray(input_image)</span><br></pre></td></tr></table></figure>
+
+<p>Triton Inference Server 연결을 위한 설정 값 (<code>SERVER_URL</code>, <code>MODEL_NAME</code>)을 정의하고 테스트를 위한 이미지 (<code>IMAGE_PATH</code>)와 결과 이미지 (<code>detection_image_path</code>) 및 bbox 좌표 파일명 (<code>detection_boxes_path</code>)을 정의한다.<br><code>cv2.imread()</code> 함수로 이미지를 읽어오고 모델의 입력에 맞게 전처리를 진행한다.<br>해당 코드에서 사용된 <code>letterbox()</code>는 아래와 같다.</p>
+<details>
+<summary>
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/ultralytics/yolov5/blob/master/utils/augmentations.py#L111">
+<code>
+letterbox()
+</code>
+</a>
+</summary>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">letterbox</span>(<span class="params">im, new_shape=(<span class="params"><span class="number">640</span>, <span class="number">640</span></span>), color=(<span class="params"><span class="number">114</span>, <span class="number">114</span>, <span class="number">114</span></span>), auto=<span class="literal">False</span>, scaleFill=<span class="literal">True</span>, scaleup=<span class="literal">True</span>, stride=<span class="number">32</span></span>):</span><br><span class="line">    <span class="comment"># Resize and pad image while meeting stride-multiple constraints</span></span><br><span class="line">    shape = im.shape[:<span class="number">2</span>]  <span class="comment"># current shape [height, width]</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(new_shape, <span class="built_in">int</span>):</span><br><span class="line">        new_shape = (new_shape, new_shape)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Scale ratio (new / old)</span></span><br><span class="line">    r = <span class="built_in">min</span>(new_shape[<span class="number">0</span>] / shape[<span class="number">0</span>], new_shape[<span class="number">1</span>] / shape[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> scaleup:  <span class="comment"># only scale down, do not scale up (for better val mAP)</span></span><br><span class="line">        r = <span class="built_in">min</span>(r, <span class="number">1.0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Compute padding</span></span><br><span class="line">    ratio = r, r  <span class="comment"># width, height ratios</span></span><br><span class="line">    new_unpad = <span class="built_in">int</span>(<span class="built_in">round</span>(shape[<span class="number">1</span>] * r)), <span class="built_in">int</span>(<span class="built_in">round</span>(shape[<span class="number">0</span>] * r))</span><br><span class="line">    dw, dh = new_shape[<span class="number">1</span>] - new_unpad[<span class="number">0</span>], new_shape[<span class="number">0</span>] - new_unpad[<span class="number">1</span>]  <span class="comment"># wh padding</span></span><br><span class="line">    <span class="keyword">if</span> auto:  <span class="comment"># minimum rectangle</span></span><br><span class="line">        dw, dh = np.mod(dw, stride), np.mod(dh, stride)  <span class="comment"># wh padding</span></span><br><span class="line">    <span class="keyword">elif</span> scaleFill:  <span class="comment"># stretch</span></span><br><span class="line">        dw, dh = <span class="number">0.0</span>, <span class="number">0.0</span></span><br><span class="line">        new_unpad = (new_shape[<span class="number">1</span>], new_shape[<span class="number">0</span>])</span><br><span class="line">        ratio = new_shape[<span class="number">1</span>] / shape[<span class="number">1</span>], new_shape[<span class="number">0</span>] / shape[<span class="number">0</span>]  <span class="comment"># width, height ratios</span></span><br><span class="line"></span><br><span class="line">    dw /= <span class="number">2</span>  <span class="comment"># divide padding into 2 sides</span></span><br><span class="line">    dh /= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> shape[::-<span class="number">1</span>] != new_unpad:  <span class="comment"># resize</span></span><br><span class="line">        im = cv2.resize(im, new_unpad, interpolation=cv2.INTER_LINEAR)</span><br><span class="line">    top, bottom = <span class="built_in">int</span>(<span class="built_in">round</span>(dh - <span class="number">0.1</span>)), <span class="built_in">int</span>(<span class="built_in">round</span>(dh + <span class="number">0.1</span>))</span><br><span class="line">    left, right = <span class="built_in">int</span>(<span class="built_in">round</span>(dw - <span class="number">0.1</span>)), <span class="built_in">int</span>(<span class="built_in">round</span>(dw + <span class="number">0.1</span>))</span><br><span class="line">    im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)  <span class="comment"># add border</span></span><br><span class="line">    <span class="keyword">return</span> im, ratio, (dw, dh)</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> grpcclient.InferenceServerClient(SERVER_URL) <span class="keyword">as</span> triton_client:</span><br><span class="line">    inputs = [</span><br><span class="line">        grpcclient.InferInput(<span class="string">&quot;images&quot;</span>, input_image.shape, np_to_triton_dtype(np.float32))</span><br><span class="line">    ]</span><br><span class="line">    inputs[<span class="number">0</span>].set_data_from_numpy(input_image)</span><br><span class="line">    outputs = [</span><br><span class="line">        grpcclient.InferRequestedOutput(<span class="string">&quot;output0&quot;</span>)</span><br><span class="line">    ]</span><br><span class="line">    response = triton_client.infer(</span><br><span class="line">                                model_name=MODEL_NAME,</span><br><span class="line">                                inputs=inputs,</span><br><span class="line">                                outputs=outputs</span><br><span class="line">                                )</span><br><span class="line">    response.get_response()</span><br><span class="line">    output = response.as_numpy(<span class="string">&quot;output0&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>준비된 입력을 Triton Inference Server로 보내기 위해 <code>inputs</code>와 <code>outputs</code>를 정의하고 <code>grpcclient.InferenceServerClient.infer()</code> 메서드로 Inference를 진행한다.<br>Inference 결과는 <code>response.get_response()</code>, <code>response.as_numpy()</code> 메서드들로 가져올 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">bboxes = output[<span class="number">0</span>, :, :<span class="number">4</span>]</span><br><span class="line">scores = output[<span class="number">0</span>, :, <span class="number">4</span>]</span><br><span class="line">classes = output[<span class="number">0</span>, :, <span class="number">5</span>]</span><br><span class="line">CONF_THRESHOLD = <span class="number">0.3</span></span><br><span class="line">IOU_THRESHOLD = <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">keep_indices = (scores &gt;= CONF_THRESHOLD)</span><br><span class="line">bboxes = bboxes[keep_indices]</span><br><span class="line">scores = scores[keep_indices]</span><br><span class="line">classes = classes[keep_indices]</span><br><span class="line"></span><br><span class="line">indices = cv2.dnn.NMSBoxes(</span><br><span class="line">    bboxes.tolist(), scores.tolist(), CONF_THRESHOLD, IOU_THRESHOLD)</span><br></pre></td></tr></table></figure>
+
+<p><code>config.pbtxt</code>에서 정의한 바와 같이 Triton Inference Server의 출력은 <code>[1,25200,6]</code>이고 해당 값의 <code>6</code>은 <code>cx</code> (bbox의 중앙 x 좌표), <code>cy</code> (bbox의 중앙 y 좌표), <code>w</code> (bbox의 폭), <code>h</code> (bbox의 높이), <code>scores</code>, <code>classes</code>를 의미한다.<br>예시는 아래와 같다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">7.850524,1.2998657,5.4912844,4.7710643,0.0,0.9999683</span><br><span class="line">15.373462,1.974041,7.8884006,12.029558,1.1920929e-07,0.9999757</span><br><span class="line">22.030487,3.3271751,15.0572,22.536522,2.3841858e-07,0.99997866</span><br><span class="line">29.83888,3.689474,14.905678,22.042711,2.3841858e-07,0.99997854</span><br><span class="line">37.23007,4.574523,17.445599,27.880056,8.34465e-07,0.9999765</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>여기서 <code>25200</code>개의 bbox를 후처리 (<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9NYXNrX1ItQ05OL2lzc3Vlcy8xNQ==">Non-Maximum Suppression, NMS</span>)로 정제해야 한다.<br>따라서 <code>cv2.dnn.NMSBoxes()</code> 함수를 사용하여 유효한 bbox의 인덱스를 <code>indices</code> 변수에 저장하였다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">color=(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">thickness=<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> indices:</span><br><span class="line">    bbox = bboxes[i]</span><br><span class="line">    score = scores[i]</span><br><span class="line">    class_id = classes[i]</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(dectection_boxes_path, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(<span class="built_in">str</span>(<span class="built_in">round</span>(class_id)) + <span class="string">&quot;,&quot;</span> + <span class="string">&quot;,&quot;</span>.join([<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> bbox]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    c = bbox[:<span class="number">2</span>]</span><br><span class="line">    h = bbox[<span class="number">2</span>:] / <span class="number">2</span></span><br><span class="line">    p1, p2 = (c - h) / r, (c + h) / r</span><br><span class="line">    p1, p2 = p1.astype(<span class="string">&#x27;int32&#x27;</span>), p2.astype(<span class="string">&#x27;int32&#x27;</span>)</span><br><span class="line">    cv2.rectangle(image, p1, p2, color, thickness)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    cv2.imwrite(dectection_image_path, image[:, :, ::-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<p>Infrence 결과를 텍스트로 저장하고, 결과를 시각화하기 위해 위와 같은 코드를 개발하였고 결과는 아래와 같다.</p>
+<p><img src="https://user-images.githubusercontent.com/42334717/232970727-8949f831-fa74-4fd7-81da-f7e557680a67.png" alt="Client_Result"></p>
+<figure class="highlight plaintext"><figcaption><span>test_boxes.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,437.50388,302.3481,262.23682,503.67242</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>
+전체 Client 코드
+</summary>
+
+<figure class="highlight python"><figcaption><span>client.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tritonclient.utils <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tritonclient.grpc <span class="keyword">as</span> grpcclient</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">letterbox</span>(<span class="params">im, new_shape=(<span class="params"><span class="number">640</span>, <span class="number">640</span></span>), color=(<span class="params"><span class="number">114</span>, <span class="number">114</span>, <span class="number">114</span></span>), auto=<span class="literal">False</span>, scaleFill=<span class="literal">True</span>, scaleup=<span class="literal">True</span>, stride=<span class="number">32</span></span>):</span><br><span class="line">    <span class="comment"># Resize and pad image while meeting stride-multiple constraints</span></span><br><span class="line">    shape = im.shape[:<span class="number">2</span>]  <span class="comment"># current shape [height, width]</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(new_shape, <span class="built_in">int</span>):</span><br><span class="line">        new_shape = (new_shape, new_shape)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Scale ratio (new / old)</span></span><br><span class="line">    r = <span class="built_in">min</span>(new_shape[<span class="number">0</span>] / shape[<span class="number">0</span>], new_shape[<span class="number">1</span>] / shape[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> scaleup:  <span class="comment"># only scale down, do not scale up (for better val mAP)</span></span><br><span class="line">        r = <span class="built_in">min</span>(r, <span class="number">1.0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Compute padding</span></span><br><span class="line">    ratio = r, r  <span class="comment"># width, height ratios</span></span><br><span class="line">    new_unpad = <span class="built_in">int</span>(<span class="built_in">round</span>(shape[<span class="number">1</span>] * r)), <span class="built_in">int</span>(<span class="built_in">round</span>(shape[<span class="number">0</span>] * r))</span><br><span class="line">    dw, dh = new_shape[<span class="number">1</span>] - new_unpad[<span class="number">0</span>], new_shape[<span class="number">0</span>] - new_unpad[<span class="number">1</span>]  <span class="comment"># wh padding</span></span><br><span class="line">    <span class="keyword">if</span> auto:  <span class="comment"># minimum rectangle</span></span><br><span class="line">        dw, dh = np.mod(dw, stride), np.mod(dh, stride)  <span class="comment"># wh padding</span></span><br><span class="line">    <span class="keyword">elif</span> scaleFill:  <span class="comment"># stretch</span></span><br><span class="line">        dw, dh = <span class="number">0.0</span>, <span class="number">0.0</span></span><br><span class="line">        new_unpad = (new_shape[<span class="number">1</span>], new_shape[<span class="number">0</span>])</span><br><span class="line">        ratio = new_shape[<span class="number">1</span>] / shape[<span class="number">1</span>], new_shape[<span class="number">0</span>] / shape[<span class="number">0</span>]  <span class="comment"># width, height ratios</span></span><br><span class="line"></span><br><span class="line">    dw /= <span class="number">2</span>  <span class="comment"># divide padding into 2 sides</span></span><br><span class="line">    dh /= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> shape[::-<span class="number">1</span>] != new_unpad:  <span class="comment"># resize</span></span><br><span class="line">        im = cv2.resize(im, new_unpad, interpolation=cv2.INTER_LINEAR)</span><br><span class="line">    top, bottom = <span class="built_in">int</span>(<span class="built_in">round</span>(dh - <span class="number">0.1</span>)), <span class="built_in">int</span>(<span class="built_in">round</span>(dh + <span class="number">0.1</span>))</span><br><span class="line">    left, right = <span class="built_in">int</span>(<span class="built_in">round</span>(dw - <span class="number">0.1</span>)), <span class="built_in">int</span>(<span class="built_in">round</span>(dw + <span class="number">0.1</span>))</span><br><span class="line">    im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)  <span class="comment"># add border</span></span><br><span class="line">    <span class="keyword">return</span> im, ratio, (dw, dh)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    SERVER_URL = <span class="string">&#x27;xxx.xxx.xxx.xxx:8003&#x27;</span></span><br><span class="line">    MODEL_NAME = <span class="string">&#x27;YOLOv5&#x27;</span></span><br><span class="line">    IMAGE_PATH = <span class="string">&#x27;test.jpg&#x27;</span></span><br><span class="line">    dectection_image_path = <span class="string">&quot;test_response.jpg&quot;</span></span><br><span class="line">    dectection_boxes_path = <span class="string">&quot;test_boxes.txt&quot;</span></span><br><span class="line"></span><br><span class="line">    image = cv2.imread(IMAGE_PATH)</span><br><span class="line">    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span><br><span class="line">    input_image, r, _ = letterbox(image)</span><br><span class="line">    input_image = input_image.astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line">    input_image = input_image.transpose((<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>))[np.newaxis, :] / <span class="number">255.0</span></span><br><span class="line">    input_image = np.ascontiguousarray(input_image)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> grpcclient.InferenceServerClient(SERVER_URL) <span class="keyword">as</span> triton_client:</span><br><span class="line">        inputs = [</span><br><span class="line">            grpcclient.InferInput(<span class="string">&quot;images&quot;</span>, input_image.shape, np_to_triton_dtype(np.float32))</span><br><span class="line">        ]</span><br><span class="line">        inputs[<span class="number">0</span>].set_data_from_numpy(input_image)</span><br><span class="line">        outputs = [</span><br><span class="line">            grpcclient.InferRequestedOutput(<span class="string">&quot;output0&quot;</span>)</span><br><span class="line">        ]</span><br><span class="line">        response = triton_client.infer(</span><br><span class="line">                                    model_name=MODEL_NAME,</span><br><span class="line">                                    inputs=inputs,</span><br><span class="line">                                    outputs=outputs</span><br><span class="line">                                    )</span><br><span class="line">        response.get_response()</span><br><span class="line">        output = response.as_numpy(<span class="string">&quot;output0&quot;</span>)</span><br><span class="line"></span><br><span class="line">    bboxes = output[<span class="number">0</span>, :, :<span class="number">4</span>]</span><br><span class="line">    scores = output[<span class="number">0</span>, :, <span class="number">4</span>]</span><br><span class="line">    classes = output[<span class="number">0</span>, :, <span class="number">5</span>]</span><br><span class="line">    CONF_THRESHOLD = <span class="number">0.3</span></span><br><span class="line">    IOU_THRESHOLD = <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">    keep_indices = (scores &gt;= CONF_THRESHOLD)</span><br><span class="line">    bboxes = bboxes[keep_indices]</span><br><span class="line">    scores = scores[keep_indices]</span><br><span class="line">    classes = classes[keep_indices]</span><br><span class="line"></span><br><span class="line">    indices = cv2.dnn.NMSBoxes(</span><br><span class="line">        bboxes.tolist(), scores.tolist(), CONF_THRESHOLD, IOU_THRESHOLD)</span><br><span class="line"></span><br><span class="line">    color=(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    thickness=<span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> indices:</span><br><span class="line">        bbox = bboxes[i]</span><br><span class="line">        score = scores[i]</span><br><span class="line">        class_id = classes[i]</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(dectection_boxes_path, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(<span class="built_in">str</span>(<span class="built_in">round</span>(class_id)) + <span class="string">&quot;,&quot;</span> + <span class="string">&quot;,&quot;</span>.join([<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> bbox]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        c = bbox[:<span class="number">2</span>]</span><br><span class="line">        h = bbox[<span class="number">2</span>:] / <span class="number">2</span></span><br><span class="line">        p1, p2 = (c - h) / r, (c + h) / r</span><br><span class="line">        p1, p2 = p1.astype(<span class="string">&#x27;int32&#x27;</span>), p2.astype(<span class="string">&#x27;int32&#x27;</span>)</span><br><span class="line">        cv2.rectangle(image, p1, p2, color, thickness)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cv2.imwrite(dectection_image_path, image[:, :, ::-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<hr>
+<details>
+<summary>
+Legacy Code
+</summary>
+
+
+<blockquote>
+<p>Triton Inference Server</p>
+</blockquote>
+<ul>
+<li>Definition</li>
+</ul>
+<p>Triton Inference Server는 NVIDIA에서 개발한 오픈소스 딥 러닝 인퍼런스 서버입니다. Triton Inference Server는 TensorFlow, PyTorch, ONNX와 같은 다양한 딥 러닝 프레임워크에서 학습된 모델을 제공하는 인퍼런스 엔진으로, 클라우드, 엣지, 데이터 센터 등에서 대규모 딥 러닝 모델의 배포와 실행을 간소화합니다.<br>Triton Inference Server는 GPU와 CPU를 지원하며, 멀티 모델, 동적 배치 크기, 동적 모델 로딩 및 언로딩 등의 기능을 제공합니다. 또한, Triton Inference Server는 TensorFlow Serving, TorchServe와 같은 기존 인퍼런스 서버와 비교하여 성능 및 유연성 면에서 우수한 성능을 발휘합니다.<br>Triton Inference Server는 Kubernetes, Docker 및 NVIDIA DeepOps와 같은 오케스트레이션 툴과 통합되어 쉽게 배포할 수 있습니다. 또한, Triton Inference Server는 TensorFlow, PyTorch, ONNX와 같은 다양한 딥 러닝 프레임워크에서 학습된 모델을 지원하며, NVIDIA TensorRT와 같은 최적화 라이브러리를 사용하여 높은 성능을 발휘합니다.</p>
+<ul>
+<li>Docker Image: <code>triton-server</code></li>
+</ul>
+<p>Triton Inference Server 이미지는 NVIDIA에서 제공하는 Docker 이미지입니다. 이 이미지는 NVIDIA GPU 드라이버와 CUDA 라이브러리를 포함하며, 딥 러닝 인퍼런스를 실행하는 데 필요한 모든 라이브러리와 의존성을 포함합니다.<br>Triton Inference Server 이미지는 NGC(NVIDIA GPU Cloud)와 Docker Hub에서 제공됩니다. NGC에서는 최신 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크에서 학습된 모델을 지원합니다. 또한, TensorRT와 같은 최적화 라이브러리를 사용하여 높은 성능을 발휘합니다.<br>Docker Hub에서도 NVIDIA에서 공식적으로 제공하는 Triton Inference Server 이미지를 찾을 수 있습니다. Docker Hub에서는 다양한 버전의 Triton Inference Server 이미지를 제공하며, TensorFlow, PyTorch, ONNX와 같은 다양한 프레임워크를 지원합니다.<br>이러한 Triton Inference Server 이미지는 Kubernetes, Docker Compose와 같은 오케스트레이션 툴과 통합되어 배포 및 관리할 수 있으며, 쉽게 다양한 환경에서 실행할 수 있습니다.</p>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm52aWRpYS5jb20vZGVlcGxlYXJuaW5nL3RyaXRvbi1pbmZlcmVuY2Utc2VydmVyL3JlbGVhc2Utbm90ZXMvcmVsXzIyLTA3Lmh0bWw=">triton-server:22.07</span></p>
+</blockquote>
+<figure class="highlight docker"><figcaption><span>Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> triton-server:<span class="number">22.07</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>test.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. `Dockerfile`의 이미지 빌드</span></span><br><span class="line">docker build -t <span class="variable">$&#123;image_name&#125;</span> .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Container 구동</span></span><br><span class="line">docker run --gpus device=<span class="variable">$&#123;GPU_NUM&#125;</span> \</span><br><span class="line">    -itd \</span><br><span class="line">    --name <span class="variable">$&#123;container_name&#125;</span> <span class="variable">$&#123;image_name&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. Container 입성</span></span><br><span class="line">docker <span class="built_in">exec</span> -it <span class="variable">$&#123;container_name&#125;</span> bash</span><br></pre></td></tr></table></figure>
+
+<p><code>Dockerfile</code>이 존재하는 디렉토리에서 <code>test.sh</code>를 실행시키면 <code>triton-server:22.07</code> 이미지를 탐방할 수 있다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">root@678059916da3:/opt/tritonserver<span class="comment"># python</span></span></span><br><span class="line">bash: python: command not found</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">root@678059916da3:/opt/tritonserver<span class="comment"># python3</span></span></span><br><span class="line">Python 3.8.10 (default, Jun 22 2022, 20:18:18) </span><br><span class="line">[GCC 9.4.0] on linux</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorrt</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ModuleNotFoundError: No module named <span class="string">&#x27;tensorrt&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>여기서 알 수 있듯 파이썬은 <code>3.8.10</code> 버전을 사용하고 <code>tensorrt</code> 파이썬 모듈은 설치되어있지 않다.<br>이에 대한 ChatGPT 선생님의 답변은 아래와 같다.</p>
+<details>
+<summary>
+ChatGPT 왈,,,
+</summary>
+
+<p>Triton Inference Server Docker 이미지에서 파이썬으로 TensorRT를 import 하려면, TensorRT 파이썬 바인딩(python bindings)이 설치되어 있어야 합니다. 하지만 Triton Inference Server Docker 이미지에는 기본적으로 TensorRT 파이썬 바인딩이 포함되어 있지 않습니다. 이는 Triton Inference Server가 C++로 작성되어 있어, 파이썬 바인딩을 사용하지 않는 경우가 많기 때문입니다.<br>따라서 Triton Inference Server Docker 이미지에서 TensorRT 파이썬 바인딩을 사용하려면, 해당 바인딩을 별도로 설치해야 합니다. 다음은 TensorRT 7.2.3 버전의 파이썬 바인딩을 설치하는 예시입니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TensorRT 7.2.3 파이썬 바인딩 설치</span></span><br><span class="line">$ apt-get update &amp;&amp; apt-get install -y --no-install-recommends \</span><br><span class="line">      python3-libnvinfer-dev=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvinfer=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvinfer-plugin-dev=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvinfer-plugin=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvparsers-dev=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvparsers=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvonnxparsers-dev=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvonnxparsers=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-libnvinfer-bin=7.2.3-1+cuda11.4 \</span><br><span class="line">      python3-numpy</span><br><span class="line"></span><br><span class="line"><span class="comment"># TensorRT 파이썬 바인딩 검증</span></span><br><span class="line">$ python3 -c <span class="string">&quot;import tensorrt&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 TensorRT 파이썬 바인딩을 설치하면, Triton Inference Server Docker 이미지에서도 파이썬으로 TensorRT를 사용할 수 있습니다.</p>
+</details>
+
+<details>
+<summary>
+후기,,,
+</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">E: Version <span class="string">&#x27;7.2.3-1+cuda11.4&#x27;</span> <span class="keyword">for</span> <span class="string">&#x27;python3-libnvinfer-dev&#x27;</span> was not found</span><br><span class="line">E: Version <span class="string">&#x27;7.2.3-1+cuda11.4&#x27;</span> <span class="keyword">for</span> <span class="string">&#x27;python3-libnvinfer&#x27;</span> was not found</span><br><span class="line">E: Unable to locate package python3-libnvinfer-plugin-dev</span><br><span class="line">E: Unable to locate package python3-libnvinfer-plugin</span><br><span class="line">E: Unable to locate package python3-libnvparsers-dev</span><br><span class="line">E: Unable to locate package python3-libnvparsers</span><br><span class="line">E: Unable to locate package python3-libnvonnxparsers-dev</span><br><span class="line">E: Unable to locate package python3-libnvonnxparsers</span><br><span class="line">E: Unable to locate package python3-libnvinfer-bin</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<p>일단 최대한 간편한 방법을 찾기 위해서 <code>pip</code>를 통해 설치를 진행해봤다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install tensorrt</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorrt <span class="keyword">as</span> trt</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>trt.__version__</span><br><span class="line"><span class="string">&#x27;8.6.0&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>trt.Runtime(trt.Logger(trt.Logger.INFO))</span><br><span class="line">[04/07/<span class="number">2023</span>-<span class="number">00</span>:<span class="number">31</span>:03] [TRT] [W] CUDA initialization failure <span class="keyword">with</span> error: <span class="number">35</span></span><br></pre></td></tr></table></figure>
+
+<p>역시 쉽게되지 않는다. 아마 <code>tensorrt</code> 모듈과 GPU Driver의 버전 차이로 인해 발생하는 오류 같다.<br><code>pip</code>로 설치하면 <code>cu12</code>를 볼 수 있는데 CUDA 버전이 호완되지 않아 오류가 발생하는 것 같다.<br>따라서 <a href="https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/">여기</a>에서 설치했던 방식과 같이 직접 진행해보겠다.</p>
+<figure class="highlight bash"><figcaption><span>rm.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. Container 종료</span></span><br><span class="line">docker stop <span class="variable">$&#123;container_name&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Container 삭제</span></span><br><span class="line">docker <span class="built_in">rm</span> <span class="variable">$&#123;container_name&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>우선,, 기존의 Container를 종료 및 삭제하고</p>
+<figure class="highlight docker"><figcaption><span>Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> <span class="number">6</span>c50ce950d19</span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> TensorRT-7.2.3.4 /TensorRT-7.2.3.4</span></span><br><span class="line"><span class="keyword">ENV</span> LD_LIBRARY_PATH <span class="string">&quot;$&#123;LD_LIBRARY_PATH&#125;:/TensorRT-7.2.3.4/lib&quot;</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> InstallTensorRT.sh /InstallTensorRT.sh</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><figcaption><span>InstallTensorRT.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> TensorRT-7.2.3.4/python</span><br><span class="line">python3 -m pip install tensorrt-7.2.3.4-cp38-none-linux_x86_64.whl</span><br><span class="line"><span class="built_in">cd</span> ../uff</span><br><span class="line">python3 -m pip install uff-0.6.9-py2.py3-none-any.whl</span><br><span class="line"><span class="built_in">cd</span> ../graphsurgeon</span><br><span class="line">python3 -m pip install graphsurgeon-0.4.5-py2.py3-none-any.whl</span><br><span class="line"><span class="built_in">cd</span> ../onnx_graphsurgeon</span><br><span class="line">python3 -m pip install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 Container 내부에 TensorRT 설치를 위한 폴더를 옮겨준다.<br>해당 <code>Dockerfile</code>을 빌드하면 아래와 같이 확인할 수 있다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span> | grep TensorRT</span></span><br><span class="line">InstallTensorRT.sh</span><br><span class="line">TensorRT-7.2.3.4</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip3 install --upgrade pip</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sh InstallTensorRT.sh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3</span></span><br><span class="line">Python 3.8.10 (default, Jun 22 2022, 20:18:18) </span><br><span class="line">[GCC 9.4.0] on linux</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorrt</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python3.8/dist-packages/tensorrt/__init__.py&quot;</span>, line <span class="number">66</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> .tensorrt <span class="keyword">import</span> *</span><br><span class="line">ImportError: libnvrtc.so<span class="number">.11</span><span class="number">.0</span>: cannot <span class="built_in">open</span> shared <span class="built_in">object</span> file: No such file <span class="keyword">or</span> directory</span><br></pre></td></tr></table></figure>
+
+<p>역시 쉽지 않다. <code>ImportError</code>에서 명시한 파일이 존재하지 않아 발생하는 현상이므로 아래와 같이 실행해보았다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s /usr/local/cuda/lib64/libnvrtc.so.11.2 /usr/local/cuda/lib64/libnvrtc.so.11.0</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python3</span></span><br><span class="line">Python 3.8.10 (default, Jun 22 2022, 20:18:18) </span><br><span class="line">[GCC 9.4.0] on linux</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorrt</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">&quot;/usr/local/lib/python3.8/dist-packages/tensorrt/__init__.py&quot;</span>, line <span class="number">66</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> .tensorrt <span class="keyword">import</span> *</span><br><span class="line">ImportError: /usr/local/cuda/lib64/libnvrtc.so<span class="number">.11</span><span class="number">.0</span>: version `libnvrtc.so<span class="number">.11</span><span class="number">.0</span><span class="string">&#x27; not found (required by /TensorRT-7.2.3.4/lib/libnvinfer.so.7)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL252aWRpYS9jdWRhL3RhZ3M=">docker hub: nvidia&#x2F;cuda</span></li>
+</ul>
+<figure class="highlight docker"><figcaption><span>Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> triton-server:<span class="number">22.07</span></span><br><span class="line"><span class="comment"># FROM ubuntu:latest</span></span><br><span class="line"><span class="comment"># FROM nvidia/cuda:11.2.0-cudnn8-devel-ubuntu18.04</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get -y update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get -y upgrade</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get -y install git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install Python &amp; pip</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> python3 -m pip install --upgrade pip</span></span><br><span class="line"><span class="comment"># RUN apt-get install -y software-properties-common &amp;&amp; \</span></span><br><span class="line"><span class="comment">#     add-apt-repository ppa:deadsnakes/ppa</span></span><br><span class="line"><span class="comment"># RUN apt-get install -y python3.7 &amp;&amp; \</span></span><br><span class="line"><span class="comment">#     rm -rf /var/lib/apt/lists/*</span></span><br><span class="line"><span class="comment"># RUN apt-get -y update &amp;&amp; \</span></span><br><span class="line"><span class="comment">#     apt-get install -y python3-pip &amp;&amp; \</span></span><br><span class="line"><span class="comment">#     python3.7 -m pip install --upgrade pip</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install TensorRT</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> python3 -m pip install --upgrade tensorrt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install PyTorch</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip3 install torch torchvision torchaudio</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install torch2trt</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip3 install packaging</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> git <span class="built_in">clone</span> https://github.com/NVIDIA-AI-IOT/torch2trt &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> torch2trt &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    python3 setup.py install</span></span><br><span class="line"><span class="keyword">ENV</span> PYTHONPATH <span class="string">&quot;$&#123;PYTHONPATH&#125;:/opt/tritonserver/torch2trt&quot;</span></span><br></pre></td></tr></table></figure>
+
+</details>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/triton-inference-server/" rel="tag"><i class="fa fa-tag"></i> Triton Inference Server</a>
+              <a href="/tags/tensorrt/" rel="tag"><i class="fa fa-tag"></i> TensorRT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/" rel="prev" title="Labeling with Label Studio for Pre-labeled Data using YOLOv5">
+                  <i class="fa fa-chevron-left"></i> Labeling with Label Studio for Pre-labeled Data using YOLOv5
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/nutrients/" rel="next" title="Nutrients">
+                  Nutrients <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"b175dde8eab3a62f9d1b9d751a672f44"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

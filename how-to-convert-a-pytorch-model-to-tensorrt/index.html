@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction TensorRT   Features 학습된 Deep Learning 모델을 최적화하여 NVIDIA GPU 상에서 Inference 속도를 향상시켜 Deep Learning 서비스 TCO (Total Cost of Ownership)를 개선하는데 도움을 줄 수 있는 모델 최적화 엔진 NVIDIA GPU 연산에 적합한 최적화 기법들을 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Convert a PyTorch Model to TensorRT">
+<meta property="og:url" content="https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction TensorRT   Features 학습된 Deep Learning 모델을 최적화하여 NVIDIA GPU 상에서 Inference 속도를 향상시켜 Deep Learning 서비스 TCO (Total Cost of Ownership)를 개선하는데 도움을 줄 수 있는 모델 최적화 엔진 NVIDIA GPU 연산에 적합한 최적화 기법들을 이">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/226349286-c6dbcf24-67ff-459d-8203-6c6b3af27230.png">
+<meta property="article:published_time" content="2023-03-14T04:24:00.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.235Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta property="article:tag" content="TensorRT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/226349286-c6dbcf24-67ff-459d-8203-6c6b3af27230.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/","path":"how-to-convert-a-pytorch-model-to-tensorrt/","title":"How to Convert a PyTorch Model to TensorRT"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>How to Convert a PyTorch Model to TensorRT | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-install-TensorRT"><span class="nav-number">2.</span> <span class="nav-text">How to install TensorRT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#torch2trt"><span class="nav-number">3.</span> <span class="nav-text">torch2trt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Change-Model-Structure"><span class="nav-number">3.1.</span> <span class="nav-text">Change Model Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let%E2%80%99s-Convert-to-TensorRT"><span class="nav-number">3.2.</span> <span class="nav-text">Let’s Convert to TensorRT!</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Results"><span class="nav-number">4.</span> <span class="nav-text">Results</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/serving-yolov5-object-detection-model-using-triton-server/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-21</time>
+        <br>
+      Serving YOLOv5 Object Detection Model using Triton Inference Server
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/neural-network-example/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-09</time>
+        <br>
+      Neural Network Example
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/aws-neuron-sdk-aws-inferentia/" rel="bookmark">
+        <time class="popular-posts-time">2023-05-12</time>
+        <br>
+      AWS Neuron SDK & AWS Inferentia
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/setting-up-virtual-environment-for-pytorch/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-01</time>
+        <br>
+      Setting Up Virtual Environment for PyTorch
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/professional-research-agent-train-review/" rel="bookmark">
+        <time class="popular-posts-time">2023-06-16</time>
+        <br>
+      전문연구요원: 훈련소 후기
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="How to Convert a PyTorch Model to TensorRT | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to Convert a PyTorch Model to TensorRT
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-14 13:24:00" itemprop="dateCreated datePublished" datetime="2023-03-14T13:24:00+09:00">2023-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-machine-learning/" itemprop="url" rel="index"><span itemprop="name">5. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9rby1rci9ibG9nL252aWRpYS10ZW5zb3JydC1pbmZlcmVuY2UtJUVDJUI1JTlDJUVDJUEwJTgxJUVEJTk5JTk0LSVFQiVCMCU4Ri0lRUElQjAlODAlRUMlODYlOEQlRUQlOTklOTQlRUIlQTUlQkMtJUVDJTlDJTg0JUVEJTk1JTlDLW52aWRpYSVFQyU5RCU5OC10b29sa2l0Lw==">TensorRT</span></p>
+</blockquote>
+<ul>
+<li>Features<ul>
+<li>학습된 Deep Learning 모델을 최적화하여 NVIDIA GPU 상에서 Inference 속도를 향상시켜 Deep Learning 서비스 TCO (Total Cost of Ownership)를 개선하는데 도움을 줄 수 있는 모델 최적화 엔진</li>
+<li>NVIDIA GPU 연산에 적합한 최적화 기법들을 이용해 모델을 최적화하는 Optimizer와 다양한 GPU에서 모델 연산을 수행하는 Runtime Engine을 포함</li>
+<li>대부분의 Deep Learning Frameworks (TensorFlow, PyTorch, Etc.)에서 학습된 모델 지원</li>
+<li>C++ 및 Python의 API 레벨 지원을 통해 GPU programming language인 CUDA 지식이 별도로 없더라도 사용 가능</li>
+</ul>
+</li>
+<li>TensorRT Optimizations<ul>
+<li>Quantization &amp; Precision Calibration</li>
+<li>Graph Optimization</li>
+<li>Kernel Auto-tuning</li>
+<li>Dynamic Tensor Memory &amp; Multi-stream Execution</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<hr>
+<h1 id="How-to-install-TensorRT"><a href="#How-to-install-TensorRT" class="headerlink" title="How to install TensorRT"></a>How to install TensorRT</h1><p>TensorRT 설치에 앞서 cuDNN을 설치해야한다.<br>CUDA 11.2를 사용하고 있어 <code>Download cuDNN v8.1.1 (Feburary 26th, 2021), for CUDA 11.0,11.1 and 11.2</code>를 다운로드 받았다.</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9yZHAvY3Vkbm4tYXJjaGl2ZQ==">Download</span></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~$ tar -xvzf cudnn-11.2-linux-x64-v8.1.1.33.tgz</span><br><span class="line">~$ sudo <span class="built_in">cp</span> cuda/include/cudnn* /usr/local/cuda-11.0/include</span><br><span class="line">~$ sudo <span class="built_in">cp</span> cuda/lib64/libcudnn* /usr/local/cuda-11.0/lib64</span><br><span class="line">~$ sudo <span class="built_in">chmod</span> a+r /usr/local/cuda-11.0/include/cudnn.h /usr/local/cuda-11.0/lib64/libcudnn*</span><br><span class="line">~$ ldconfig -p | grep cudnn</span><br></pre></td></tr></table></figure>
+
+<p>위와 동일하게 CUDA 11.2를 사용하고 있어 TensorRT를 설치하기 위해 <code>TensorRT 7.2.3 for Ubuntu 18.04 and CUDA 11.1 &amp; 11.2 TAR package</code>를 다운로드 받았다.</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93aWtpZG9jcy5uZXQvMTU4NTUz">Reference</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubnZpZGlhLmNvbS9udmlkaWEtdGVuc29ycnQtN3gtZG93bmxvYWQ=">Download</span></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">~$ tar -xvzf TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-11.0.cudnn8.1.tar.gz</span><br><span class="line">~$ pip3 install --upgrade pip</span><br><span class="line">~$ vi ~/.bashrc</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:<span class="variable">$&#123;설치된 위치&#125;</span>/TensorRT-7.2.3.4/lib</span><br><span class="line">~$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line">~$ <span class="built_in">cd</span> TensorRT-7.2.3.4/python</span><br><span class="line">~/TensorRT-7.2.3.4/python$ python3 -m pip install tensorrt-7.2.3.4-cp38-none-linux_x86_64.whl</span><br><span class="line">~/TensorRT-7.2.3.4/python$ <span class="built_in">cd</span> ../uff</span><br><span class="line">~/TensorRT-7.2.3.4/uff$ python3 -m pip install uff-0.6.9-py2.py3-none-any.whl</span><br><span class="line">~/TensorRT-7.2.3.4/uff$ <span class="built_in">cd</span> ../graphsurgeon</span><br><span class="line">~/TensorRT-7.2.3.4/graphsurgeon$ python3 -m pip install graphsurgeon-0.4.5-py2.py3-none-any.whl</span><br><span class="line">~/TensorRT-7.2.3.4/graphsurgeon$ <span class="built_in">cd</span> ../onnx_graphsurgeon</span><br><span class="line">~/TensorRT-7.2.3.4/onnx_graphsurgeon$ python3 -m pip install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~$ python</span><br><span class="line">Python <span class="number">3.8</span><span class="number">.6</span> | packaged by conda-forge | (default, Nov <span class="number">27</span> <span class="number">2020</span>, <span class="number">19</span>:<span class="number">31</span>:<span class="number">52</span>)</span><br><span class="line">[GCC <span class="number">9.3</span><span class="number">.0</span>] on linux</span><br><span class="line"><span class="type">Type</span> <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> <span class="keyword">or</span> <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorrt</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tensorrt.__version__</span><br><span class="line"><span class="string">&#x27;7.2.3.4&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>하지만 최종 목표인 PyTorch 모델을 TensorRT로 변환하기 위해서는 <code>torch2trt</code> 모듈을 설치해야한다.<br>따라서 아래와 같이 진행해준다.</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93aWtpZG9jcy5uZXQvMTU4NTQ0">Reference</span></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~$ git <span class="built_in">clone</span> <span class="string">&quot;https://github.com/NVIDIA-AI-IOT/torch2trt&quot;</span></span><br><span class="line">~$ <span class="built_in">cd</span> torch2trt</span><br><span class="line">~/torch2trt$ python setup.py install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">~$ python</span><br><span class="line">Python <span class="number">3.8</span><span class="number">.6</span> | packaged by conda-forge | (default, Nov <span class="number">27</span> <span class="number">2020</span>, <span class="number">19</span>:<span class="number">31</span>:<span class="number">52</span>)</span><br><span class="line">[GCC <span class="number">9.3</span><span class="number">.0</span>] on linux</span><br><span class="line"><span class="type">Type</span> <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> <span class="keyword">or</span> <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> torch2trt <span class="keyword">import</span> torch2trt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="torch2trt"><a href="#torch2trt" class="headerlink" title="torch2trt"></a>torch2trt</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05WSURJQS1BSS1JT1QvdG9yY2gydHJ0">Reference</span></li>
+</ul>
+<p><code>torch2trt</code>는 아래와 같이 <code>import</code>하여 PyTorch 모델을 TensorRT로 변환할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch2trt <span class="keyword">import</span> torch2trt</span><br><span class="line"></span><br><span class="line">model_trt = torch2trt(model, [x])</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">def torch2trt(module,</span></span><br><span class="line"><span class="string">              inputs,</span></span><br><span class="line"><span class="string">              input_names=None,</span></span><br><span class="line"><span class="string">              output_names=None,</span></span><br><span class="line"><span class="string">              log_level=trt.Logger.ERROR,</span></span><br><span class="line"><span class="string">              fp16_mode=False,</span></span><br><span class="line"><span class="string">              max_workspace_size=1&lt;&lt;25,</span></span><br><span class="line"><span class="string">              strict_type_constraints=False,</span></span><br><span class="line"><span class="string">              keep_network=True,</span></span><br><span class="line"><span class="string">              int8_mode=False,</span></span><br><span class="line"><span class="string">              int8_calib_dataset=None,</span></span><br><span class="line"><span class="string">              int8_calib_algorithm=DEFAULT_CALIBRATION_ALGORITHM,</span></span><br><span class="line"><span class="string">              use_onnx=False,</span></span><br><span class="line"><span class="string">              default_device_type=trt.DeviceType.GPU,</span></span><br><span class="line"><span class="string">              dla_core=0,</span></span><br><span class="line"><span class="string">              gpu_fallback=True,</span></span><br><span class="line"><span class="string">              device_types=&#123;&#125;,</span></span><br><span class="line"><span class="string">              min_shapes=None,</span></span><br><span class="line"><span class="string">              max_shapes=None,</span></span><br><span class="line"><span class="string">              opt_shapes=None,</span></span><br><span class="line"><span class="string">              onnx_opset=None,</span></span><br><span class="line"><span class="string">              max_batch_size=None,</span></span><br><span class="line"><span class="string">              **kwargs):</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>하지만 현재 변환하려는 모델인 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9wYW5fcHAucHl0b3JjaA==">PAN++</span>는 이미지의 메타 데이터와 모델의 configuration 정보를 함께 입력 받아 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05WSURJQS1BSS1JT1QvdG9yY2gydHJ0L2Jsb2IvbWFzdGVyL3RvcmNoMnRydC90b3JjaDJ0cnQucHkjTDY5Mw==">해당 부분</span>에서 오류가 발생한다.<br>따라서 모델을 <code>torch.tensor</code>로만 입력받게 변경해줘야한다.</p>
+<h2 id="Change-Model-Structure"><a href="#Change-Model-Structure" class="headerlink" title="Change Model Structure"></a>Change Model Structure</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9wYW5fcHAucHl0b3JjaC9ibG9iL2Rldi9tb2RlbHMvcGFuX3BwLnB5I0wzOA==">PAN_PP.forward()</span>이 아래와 같이 <code>torch.tensor</code>인 <code>imgs</code>외에도 다양하게 입력 받음을 확인할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,</span></span><br><span class="line"><span class="params">                imgs,</span></span><br><span class="line"><span class="params">                gt_texts=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                gt_kernels=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                training_masks=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                gt_instances=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                gt_bboxes=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                gt_words=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                word_masks=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                img_metas=<span class="literal">None</span>,</span></span><br><span class="line"><span class="params">                cfg=<span class="literal">None</span></span>):</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>현재 가중치를 로드한 모델 (<code>with torch.no_grad():</code>)이 사용하는 입력은 <code>imgs</code>, <code>img_metas</code>, <code>cfg</code>인데 <code>img_metas</code>는 후처리 과정에서만 사용되고 후처리 과정은 type이 변환되기 때문에 후처리 과정 자체를 별도 (TensorRT 외부)로 실행시켜 해결할 수 있고, <code>cfg</code>는 <code>PAN_PP</code> 객체 내부에 해당하는 값들을 고정하여 입력받지 않도록 코드를 변환할 수 있다.<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9wYW5fcHAucHl0b3JjaC9jb21taXQvYTYxOTZkZTRmOWJkYTc1NGQ5OGZmOTgxODQ0NDkzMjdmY2M0NDQyZQ==">이렇게</span> 모델 구조를 적절히 변경하여 <code>torch.tensor</code>를 입력받고 <code>torch.tensor</code>를 출력해야한다.</p>
+<h2 id="Let’s-Convert-to-TensorRT"><a href="#Let’s-Convert-to-TensorRT" class="headerlink" title="Let’s Convert to TensorRT!"></a>Let’s Convert to TensorRT!</h2><p>모든 준비가 되었으니 아래와 같이 <code>torch2trt()</code> 함수를 이용하여 TensorRT로 변환해보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch2trt <span class="keyword">import</span> torch2trt</span><br><span class="line"></span><br><span class="line">trt_model = torch2trt(</span><br><span class="line">    model,</span><br><span class="line">    [inputData],</span><br><span class="line">    fp16_mode=<span class="literal">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>하지만 순순히 변환되지 않는다.<br>아래와 같은 에러가 발생했다.</p>
+<details>
+<summary> Error Log </summary>
+<div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[TensorRT] INTERNAL ERROR: Assertion failed: nbResizeDim &gt;= <span class="number">0</span></span><br><span class="line">../builder/Layers.cpp:<span class="number">4061</span></span><br><span class="line">Aborting...</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;TensorRT.py&quot;</span>, line <span class="number">73</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    trt_model = torch2trt(</span><br><span class="line">  File <span class="string">&quot;/opt/conda/lib/python3.8/site-packages/torch2trt-0.4.0-py3.8.egg/torch2trt/torch2trt.py&quot;</span>, line <span class="number">778</span>, <span class="keyword">in</span> torch2trt</span><br><span class="line">    outputs = module(*inputs)</span><br><span class="line">  File <span class="string">&quot;/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py&quot;</span>, line <span class="number">1071</span>, <span class="keyword">in</span> _call_impl</span><br><span class="line">    result = forward_call(*<span class="built_in">input</span>, **kwargs)</span><br><span class="line">  File <span class="string">&quot;/home/jovyan/local/1_user/hgoh@agilesoda.ai/TwinReader/PANPP_TensorRT/models/pan_pp.py&quot;</span>, line <span class="number">64</span>, <span class="keyword">in</span> forward</span><br><span class="line">    f1, f2, f3, f4 = self.fpem1(f1, f2, f3, f4)</span><br><span class="line">  File <span class="string">&quot;/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py&quot;</span>, line <span class="number">1071</span>, <span class="keyword">in</span> _call_impl</span><br><span class="line">    result = forward_call(*<span class="built_in">input</span>, **kwargs)</span><br><span class="line">  File <span class="string">&quot;/home/jovyan/local/1_user/hgoh@agilesoda.ai/TwinReader/PANPP_TensorRT/models/neck/fpem_v2.py&quot;</span>, line <span class="number">70</span>, <span class="keyword">in</span> forward</span><br><span class="line">    f3_ = self.smooth_layer3_1(self.dwconv3_1(self._upsample_add(f4, f3)))</span><br><span class="line">  File <span class="string">&quot;/home/jovyan/local/1_user/hgoh@agilesoda.ai/TwinReader/PANPP_TensorRT/models/neck/fpem_v2.py&quot;</span>, line <span class="number">67</span>, <span class="keyword">in</span> _upsample_add</span><br><span class="line">    <span class="keyword">return</span> F.interpolate(x, size=(H, W), mode=<span class="string">&#x27;bilinear&#x27;</span>) + y</span><br><span class="line">  File <span class="string">&quot;/opt/conda/lib/python3.8/site-packages/torch2trt-0.4.0-py3.8.egg/torch2trt/torch2trt.py&quot;</span>, line <span class="number">310</span>, <span class="keyword">in</span> wrapper</span><br><span class="line">    converter[<span class="string">&quot;converter&quot;</span>](ctx)</span><br><span class="line">  File <span class="string">&quot;/opt/conda/lib/python3.8/site-packages/torch2trt-0.4.0-py3.8.egg/torch2trt/converters/interpolate.py&quot;</span>, line <span class="number">77</span>, <span class="keyword">in</span> convert_interpolate_trt7</span><br><span class="line">    layer.set_input(<span class="number">1</span>, shape._trt)</span><br><span class="line">  File <span class="string">&quot;/opt/conda/lib/python3.8/site-packages/torch2trt-0.4.0-py3.8.egg/torch2trt/torch2trt.py&quot;</span>, line <span class="number">1019</span>, <span class="keyword">in</span> _trt</span><br><span class="line">    self._raw_trt = ctx.network._network.add_concatenation([d._trt <span class="keyword">for</span> d <span class="keyword">in</span> self]).get_output(<span class="number">0</span>)</span><br><span class="line">RuntimeError: std::exception</span><br></pre></td></tr></table></figure>
+
+</div>
+</details>
+
+<details>
+<summary> ChatGPT 선생님 왈... </summary>
+<div>
+
+<p>이 오류는 TensorRT를 사용하는 도중에 발생한 것입니다. 오류 메시지에서는 “<code>nbResizeDim &gt;= 0</code>“ 단언문이 실패했다는 것을 알려줍니다. 이 단언문은 TensorRT에서 사용되는 크기 조정 작업에 관련된 것입니다.<br>이 오류는 TensorRT에서 입력 데이터를 처리하면서 발생할 수 있습니다. 입력 데이터의 크기가 예상되지 않은 경우에 발생할 가능성이 높습니다. 예를 들어, 모델을 실행할 때 입력 크기를 변경하거나, TensorRT를 사용하여 모델을 컴파일 할 때 입력 크기를 정의하는 방법을 변경하는 경우에 발생할 수 있습니다.<br>오류가 발생하는 정확한 코드 부분을 파악하기 위해, 스택 추적 정보를 살펴봐야 합니다. 여기서는 <code>torch2trt</code> 및 <code>F.interpolate</code> 함수에서 오류가 발생한 것으로 보입니다. 이 경우, <code>F.interpolate</code> 함수를 TensorRT에서 사용 가능한 형식으로 변환하는 데 실패했을 가능성이 있습니다.<br>해결 방법으로는, 입력 데이터의 크기를 확인하고 TensorRT에서 사용 가능한 형식으로 변환하기 전에 입력 데이터의 크기를 변경해야 할 수도 있습니다. 또는, TensorRT에서 <code>F.interpolate</code> 함수를 처리하는 데 필요한 추가 구성을 수행해야 할 수도 있습니다. 디버깅에 도움이 되는 로그를 활성화하고, TensorRT 버전을 최신으로 업그레이드하면 도움이 될 수 있습니다.</p>
+</div>
+</details>
+
+<p>이 문제를 해결하기 위해 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/pytorch/TensorRT"><code>torch_tensorrt</code></a>라는 모듈을 찾게 되었고, <code>torch2trt</code>와의 차이점을 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3B5dG9yY2gvVGVuc29yUlQvaXNzdWVzLzM0">여기</span>서 알아볼 수 있다.<br>위 글에서 알 수 있듯 <code>torch2trt</code>가 프로토타입에 적합하다하여 가급적이면 해당 모듈로 진행하기 위해 <code>use_onnx</code> 옵션을 사용해 진행해보았다.<br>이를 위해 모델의 Upsampling 과정을 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9wYW5fcHAucHl0b3JjaC9jb21taXQvYTVhNzNjMDE1MzZmNmY2ZTJjOGU0NGI3ZjllMDI2M2UzZTJjZDU1YQ==">이렇게</span> 수정했다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">trt_model = torch2trt(</span><br><span class="line">    model,</span><br><span class="line">    [inputData],</span><br><span class="line">    fp16_mode=<span class="literal">False</span>,</span><br><span class="line">    use_onnx=<span class="literal">True</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>하지만 여전히 아래와 같은 에러가 발생했다.</p>
+<details>
+<summary> 무수한 Error Logs... </summary>
+<div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[TensorRT] ERROR: ../rtSafe/cublas/cublasLtWrapper.cpp (74) - cuBLAS Error <span class="keyword">in</span> CublasLtWrapper: 1 (Could not initialize cublasLt. Please check CUDA installation.)</span><br><span class="line">[TensorRT] ERROR: ../rtSafe/cublas/cublasLtWrapper.cpp (74) - cuBLAS Error <span class="keyword">in</span> CublasLtWrapper: 1 (Could not initialize cublasLt. Please check CUDA installation.)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[TensorRT] ERROR: safeContext.cpp (124) - Cudnn Error <span class="keyword">in</span> initializeCommonContext: 4 (Could not initialize cudnn, please check cudnn installation.)</span><br><span class="line">[TensorRT] ERROR: safeContext.cpp (124) - Cudnn Error <span class="keyword">in</span> initializeCommonContext: 4 (Could not initialize cudnn, please check cudnn installation.)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[TensorRT] ERROR: CUDA initialization failure with error 2. Please check your CUDA installation:  http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;TensorRT.py&quot;</span>, line 75, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    trt_model = torch2trt(</span><br><span class="line">  File <span class="string">&quot;/opt/conda/lib/python3.8/site-packages/torch2trt-0.4.0-py3.8.egg/torch2trt/torch2trt.py&quot;</span>, line 727, <span class="keyword">in</span> torch2trt</span><br><span class="line">    builder = trt.Builder(logger)</span><br><span class="line">TypeError: pybind11::init(): factory <span class="keyword">function</span> returned nullptr</span><br></pre></td></tr></table></figure>
+
+</div>
+</details>
+
+<p>는… 그냥… GPU 메모리 문제였다…</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">trt_model = torch2trt(</span><br><span class="line">    model,</span><br><span class="line">    [inputData],</span><br><span class="line">    input_names=[<span class="string">&quot;Input Image&quot;</span>],</span><br><span class="line">    output_names=[<span class="string">&quot;Text Region, Text Kernel, Instance Vectors&quot;</span>],</span><br><span class="line">    fp16_mode=<span class="literal">False</span>,</span><br><span class="line">    use_onnx=<span class="literal">True</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">torch.save(trt_model.state_dict(), <span class="string">&quot;test.trt&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>최종적으로는 위와 같이 실행하여 모델을 저장한 후 모델을 아래와 같이 로드하고 특정 데이터에 대해 잘 수행됨을 확인하였다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch2trt <span class="keyword">import</span> TRTModule</span><br><span class="line"></span><br><span class="line">trt_model = TRTModule()</span><br><span class="line">trt_model.load_state_dict(torch.load(<span class="string">&#x27;test.trt&#x27;</span>))</span><br><span class="line">outputData = trt_model(inputData)</span><br></pre></td></tr></table></figure>
+
+<p>하지만 여러 데이터를 반복문으로 처리할 때 아래와 같은 오류가 또 ~ 발생했다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[TensorRT] ERROR: Parameter check failed at: engine.cpp::setBindingDimensions::1137, condition: profileMinDims.d[i] &lt;= dimensions.d[i]</span><br></pre></td></tr></table></figure>
+
+<p>TensorRT로 변환된 모델은 필수적으로 입력 텐서의 차원이 동일해야하지만, 현재 상태는 변화하여 위의 오류가 발생함을 확인했다.<br>이러한 현상을 해결하기 위해 이러한 방안들이 있다.</p>
+<ol>
+<li><code>torch2trt</code> 모듈 만을 사용하여 동적 입력 정의<ul>
+<li>가능하다면 가장 쉬운 방법</li>
+<li>하지만 위의 오류들 중 <code>use_onnx</code>로 실행해야만 하는 과정이 존재해서 성공 가능성 저조</li>
+<li>근데 어찌 어찌 해결완료 !!</li>
+</ul>
+</li>
+<li>동적 입력으로 정의된 ONNX (<code>torch.onnx.export()</code>) 변환 후 TensorRT 모듈 (<code>tensorrt</code>)을 이용하여 변환</li>
+<li>PyTorch에서 개발한 모듈 (<code>torch_tensorrt</code>) 사용</li>
+<li>고정된 입력으로 TensorRT 모델 변환 (<code>torch2trt</code>)<ul>
+<li>해당 방법이 가장 쉽지만 성능 저하 우려</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">min_shape = [(<span class="number">1</span>, <span class="number">3</span>, <span class="number">1024</span>, <span class="number">1024</span>)]</span><br><span class="line">max_shape = [(<span class="number">1</span>, <span class="number">3</span>, <span class="number">2048</span>, <span class="number">2048</span>)]</span><br><span class="line">opt_shape = [(<span class="number">1</span>, <span class="number">3</span>, <span class="number">1536</span>, <span class="number">1536</span>)]</span><br><span class="line"></span><br><span class="line">trt_model = torch2trt(</span><br><span class="line">    model,</span><br><span class="line">    [inputData],</span><br><span class="line">    input_names=[<span class="string">&quot;Input Image&quot;</span>],</span><br><span class="line">    output_names=[<span class="string">&quot;Text Region, Text Kernel, Instance Vectors&quot;</span>],</span><br><span class="line">    fp16_mode=<span class="literal">False</span>,</span><br><span class="line">    use_onnx=<span class="literal">True</span>,</span><br><span class="line">    min_shapes=min_shape,</span><br><span class="line">    max_shapes=max_shape,</span><br><span class="line">    opt_shapes=opt_shape,</span><br><span class="line">    onnx_opset=<span class="number">11</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">torch.save(trt_model.state_dict(), <span class="string">&quot;test.trt&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>최상단의 리스트 내부에 튜플을 입력하여 최소, 최대, 적절한 텐서의 크기를 기입했고, 앞서 문제가 되었던 Upsampling 과정을 <code>torch.nn.functional.interpolate()</code> 함수가 아닌 <code>torch.nn.Upsample()</code> 함수로 교체하여 텐서 추적을 아래와 같이 가능케 했다.</p>
+<figure class="highlight python"><figcaption><span>models/pan_pp.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Before</span></span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_upsample</span>(<span class="params">self, x, size, scale=<span class="number">1</span></span>):</span><br><span class="line">        _, _, H, W = size</span><br><span class="line">        <span class="keyword">return</span> F.interpolate(x, size=(H // scale, W // scale), mode=<span class="string">&#x27;bilinear&#x27;</span>)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment"># After</span></span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_upsample</span>(<span class="params">self, x, size, scale=<span class="number">1</span></span>):</span><br><span class="line">        _, _, H, W = size.size()</span><br><span class="line">        upsample = nn.Upsample(size=(H // scale, W // scale), mode=<span class="string">&#x27;bilinear&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> upsample(x)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>models/neck/fpem_v2.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Before</span></span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_upsample_add</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        _, _, H, W = y.size()</span><br><span class="line">        <span class="keyword">return</span> F.interpolate(x, size=(H, W), mode=<span class="string">&#x27;bilinear&#x27;</span>) + y</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment"># After</span></span><br><span class="line">...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_upsample_add</span>(<span class="params">self, x, y</span>):</span><br><span class="line">        _, _, H, W = y.size()</span><br><span class="line">        upsample = nn.Upsample(size=(H, W), mode=<span class="string">&#x27;bilinear&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span> upsample(x) + y</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 변경한 이유는 아래에 기술했다.<br>무작정 상수를 <code>torch.tensor</code>로 바꿔주는게 정답이 아니며, <code>torch.Tensor</code>를 활용해도 정답은 아닌듯 하다.</p>
+<details>
+<summary> ChatGPT 선생님의 가르침... </summary>
+<div>
+
+<p>위의 _upsample_add() 함수는 PyTorch의 내장 함수 F.interpolate()를 사용하고 있기 때문에 추적 불가능한 nn.functional 모듈의 함수입니다. 따라서 이 함수를 사용하면 torch.jit.trace() 함수에서 TracerWarning이 발생합니다.</p>
+<p>이 경우에는 F.interpolate() 대신 nn.Upsample()을 사용하여 추적 가능한 텐서로 변환할 수 있습니다. nn.Upsample()은 F.interpolate()와 같은 기능을 제공하지만, 모델 추적 과정에서도 추적 가능한 텐서로 처리됩니다.</p>
+</div>
+</details>
+
+<p>또한 <code>onnx_opset</code>을 11로 정의해 아래 오류를 해결했다.</p>
+<details>
+<summary> Error Log </summary>
+<div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/opt/conda/lib/python3.7/site-packages/torch/onnx/symbolic_helper.py:375: UserWarning: You are trying to <span class="built_in">export</span> the model with onnx:Upsample <span class="keyword">for</span> ONNX opset version 9. This operator might cause results to not match the expected results by PyTorch.</span><br><span class="line">ONNX<span class="string">&#x27;s Upsample/Resize operator did not match Pytorch&#x27;</span>s Interpolation until opset 11. Attributes to determine how to transform the input were added <span class="keyword">in</span> onnx:Resize <span class="keyword">in</span> opset 11 to support Pytorch<span class="string">&#x27;s behavior (like coordinate_transformation_mode and nearest_mode).</span></span><br><span class="line"><span class="string">We recommend using opset 11 and above for models using this operator. </span></span><br><span class="line"><span class="string">  &quot;&quot; + str(_export_onnx_opset_version) + &quot;. &quot;</span></span><br><span class="line"><span class="string">[TensorRT] ERROR: Network must have at least one output</span></span><br><span class="line"><span class="string">[TensorRT] ERROR: Network validation failed.</span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">  File &quot;TensorRT.py&quot;, line 118, in &lt;module&gt;</span></span><br><span class="line"><span class="string">    torch.save(trt_model.state_dict(), &quot;test.pth&quot;)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/lib/python3.7/site-packages/torch/nn/modules/module.py&quot;, line 1261, in state_dict</span></span><br><span class="line"><span class="string">    hook_result = hook(self, destination, prefix, local_metadata)</span></span><br><span class="line"><span class="string">  File &quot;/opt/conda/lib/python3.7/site-packages/torch2trt-0.4.0-py3.7.egg/torch2trt/torch2trt.py&quot;, line 571, in _on_state_dict</span></span><br><span class="line"><span class="string">    state_dict[prefix + &quot;engine&quot;] = bytearray(self.engine.serialize())</span></span><br><span class="line"><span class="string">AttributeError: &#x27;</span>NoneType<span class="string">&#x27; object has no attribute &#x27;</span>serialize<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+</div>
+</details>
+
+<hr>
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><p>이렇게 PyTorch로 작성된 모델이 TensorRT로 변환되었다고 해서 모두 끝이 아니라 모델이 잘 작동하는지, 얼마나 빠르게 작동하는지 확인해봐야한다.<br>그를 위해 아래와 같이 test를 위한 스크립트를 작성했다.<br>이 과정을 통해 PyTorch 및 TensorRT 모델의 inference time을 측정하고, 결과물을 생성할 수 있다.</p>
+<figure class="highlight python"><figcaption><span>test.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch2trt <span class="keyword">import</span> TRTModule</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> mmcv <span class="keyword">import</span> Config</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> build_model</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> TensorRT <span class="keyword">import</span> prepare_test_data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">model_test</span>(<span class="params">modelOps, model, img_name, img_path</span>):</span><br><span class="line">    data = prepare_test_data(img_path + img_name)</span><br><span class="line">    inputData = data[<span class="string">&#x27;imgs&#x27;</span>].cuda()</span><br><span class="line">    metaData = data[<span class="string">&#x27;img_metas&#x27;</span>]</span><br><span class="line">    <span class="comment">######################### Inference Start #########################</span></span><br><span class="line">    inference_start = time.time()</span><br><span class="line">    <span class="keyword">if</span> modelOps == <span class="string">&quot;torch&quot;</span>:</span><br><span class="line">        <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">            outputData = model(inputData)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        outputData = model(inputData)</span><br><span class="line">    inference_stop = time.time()</span><br><span class="line">    <span class="comment">####################################################################</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(modelOps + <span class="string">&#x27;.csv&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, encoding=<span class="string">&#x27;utf8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        wr = csv.writer(f)</span><br><span class="line">        wr.writerow([(inference_stop - inference_start) * <span class="number">1000</span>])</span><br><span class="line">    <span class="comment">####################################################################</span></span><br><span class="line">    bboxes = torch_model.det_head.get_results(outputData, metaData)</span><br><span class="line">    img = cv2.imread(img_path + img_name)</span><br><span class="line">    file_name = img_name[:-<span class="number">4</span>] + <span class="string">&#x27;.txt&#x27;</span></span><br><span class="line">    file_path = <span class="string">&#x27;./outputs/&#x27;</span> + modelOps + <span class="string">&#x27;/&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_path + file_name, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> i, bbox <span class="keyword">in</span> <span class="built_in">enumerate</span>(bboxes):</span><br><span class="line">            poly = np.array(bbox).astype(np.int32).reshape((-<span class="number">1</span>))</span><br><span class="line">            poly[poly&lt;<span class="number">0</span>]=<span class="number">0</span></span><br><span class="line">            strResult = <span class="string">&#x27;\t&#x27;</span>.join([<span class="built_in">str</span>(p) <span class="keyword">for</span> p <span class="keyword">in</span> poly])</span><br><span class="line">            result=strResult + <span class="string">&#x27;\r\n&#x27;</span></span><br><span class="line">            f.write(result)</span><br><span class="line">            poly = poly.reshape(-<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">            cv2.polylines(img, [poly.reshape((-<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>))], <span class="literal">True</span>, color=(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), thickness=<span class="number">2</span>)</span><br><span class="line">    result_name = img_name[:-<span class="number">4</span>] + <span class="string">&#x27;.jpg&#x27;</span></span><br><span class="line">    cv2.imwrite(file_path + <span class="string">&#x27;/&#x27;</span> + result_name, img)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">modelOps</span>):</span><br><span class="line">    orgDir = os.getcwd()</span><br><span class="line">    img_path = <span class="string">&#x27;/home/jovyan/local/1_user/hgoh@agilesoda.ai/PANPP/TestData/image/&#x27;</span></span><br><span class="line">    os.chdir(img_path)</span><br><span class="line">    img_names = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir():</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&#x27;.jpg&#x27;</span> <span class="keyword">in</span> i) <span class="keyword">or</span> (<span class="string">&#x27;.png&#x27;</span> <span class="keyword">in</span> i) <span class="keyword">or</span> (<span class="string">&#x27;.tif&#x27;</span> <span class="keyword">in</span> i):</span><br><span class="line">            img_names.append(i)</span><br><span class="line">    </span><br><span class="line">    os.chdir(orgDir)</span><br><span class="line">    <span class="keyword">if</span> modelOps == <span class="string">&quot;torch&quot;</span>:</span><br><span class="line">        model = build_model(cfg.model)</span><br><span class="line">        model = model.<span class="built_in">eval</span>().cuda()</span><br><span class="line">        checkpoint = torch.load(cfg.test_cfg.pretrain)</span><br><span class="line">        d = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> checkpoint[<span class="string">&#x27;state_dict&#x27;</span>].items():</span><br><span class="line">            tmp = key[<span class="number">7</span>:]</span><br><span class="line">            d[tmp] = value</span><br><span class="line">        model.load_state_dict(d)</span><br><span class="line">    <span class="keyword">elif</span> modelOps == <span class="string">&quot;pth&quot;</span>:</span><br><span class="line">        model = TRTModule()</span><br><span class="line">        model.load_state_dict(torch.load(<span class="string">&#x27;test.pth&#x27;</span>))</span><br><span class="line">    <span class="keyword">elif</span> modelOps == <span class="string">&quot;trt&quot;</span>:</span><br><span class="line">        model = TRTModule()</span><br><span class="line">        model.load_state_dict(torch.load(<span class="string">&#x27;test.trt&#x27;</span>))</span><br><span class="line">    <span class="keyword">elif</span> modelOps == <span class="string">&quot;engine&quot;</span>:</span><br><span class="line">        model = TRTModule()</span><br><span class="line">        model.load_state_dict(torch.load(<span class="string">&#x27;test.engine&#x27;</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> img_name <span class="keyword">in</span> tqdm(img_names):</span><br><span class="line">        model_test(modelOps, model, img_name, img_path)    </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    parser = argparse.ArgumentParser(description=<span class="string">&#x27;Test Opts&#x27;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;--modelOps&#x27;</span>)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">    cfg = Config.fromfile(<span class="string">&#x27;config/TensorRT_cfg.py&#x27;</span>)</span><br><span class="line">    torch_model = build_model(cfg.model)</span><br><span class="line">    </span><br><span class="line">    main(args.modelOps)</span><br></pre></td></tr></table></figure>
+
+<p>위 코드에서 알 수 있듯, TensorRT로 변환된 모델은 <code>torch2trt.TRTModule()</code>로 인스턴스를 생성하고 일반적인 PyTorch 모델이 가중치를 불러오는 것과 비슷하게 <code>TRTModule.load_state_dict(torch.load(&#39;trt_model.trt&#39;))</code>로 불러올 수 있다.<br>최종적으로 출력된 결과 (<code>bbox</code>)들에 대해 정량적 평가 (CLEval)를 진행하였고, 결과는 아래와 같다.</p>
+<p><img src="https://user-images.githubusercontent.com/42334717/226349286-c6dbcf24-67ff-459d-8203-6c6b3af27230.png" alt="Results"></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">HMean</th>
+<th align="center">Precision</th>
+<th align="center">Recall</th>
+<th align="center">Time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PyTorch</td>
+<td align="center">96.756 [%]</td>
+<td align="center">96.378 [%]</td>
+<td align="center">97.136 [%]</td>
+<td align="center">15.478 [ms]</td>
+</tr>
+<tr>
+<td align="center">TensorRT</td>
+<td align="center">96.756 [%]</td>
+<td align="center">96.381 [%]</td>
+<td align="center">97.135 [%]</td>
+<td align="center">1.964 [ms]</td>
+</tr>
+<tr>
+<td align="center">Difference</td>
+<td align="center">0.001 [%p]</td>
+<td align="center">0.003 [%p]</td>
+<td align="center">-0.001 [%p]</td>
+<td align="center">-13.514 [ms]</td>
+</tr>
+<tr>
+<td align="center">Percentage</td>
+<td align="center">0.001 [%]</td>
+<td align="center">0.003 [%]</td>
+<td align="center">-0.002 [%]</td>
+<td align="center">-87.313 [%]</td>
+</tr>
+</tbody></table>
+<p>아주 약간의 성능 변화 (아마 텐서 연산량 감소를 위해 여러가지 기법이 적용되면서 발생하는 현상으로 추정)가 있지만, 87%의 시간 감소를 확인했다.</p>
+<hr>
+<p>이 글에 사용된 코드와 결과들은 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0ei9QQU5QUC90cmVlL1RlbnNvclJU">여기</span>에서 확인할 수 있습니다!</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+              <a href="/tags/tensorrt/" rel="tag"><i class="fa fa-tag"></i> TensorRT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-stream/" rel="prev" title="MLOps for MLE: Stream">
+                  <i class="fa fa-chevron-left"></i> MLOps for MLE: Stream
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/implementing-mask-r-cnn-with-pytorch/" rel="next" title="Implementing Mask R-CNN with PyTorch">
+                  Implementing Mask R-CNN with PyTorch <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"44005f50312c71fd6c902e11fe53679b"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

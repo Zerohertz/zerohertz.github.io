@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Kafka Systemconnect.Dockerfile1234567FROM confluentinc&#x2F;cp-kafka-connect:7.3.0ENV CONNECT_PLUGIN_PATH&#x3D;&quot;&#x2F;usr&#x2F;share&#x2F;java,&#x2F;usr&#x2F;share&#x2F;confluent-hub-components&quot;RUN confluent-hub install --no-promp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MLOps for MLE: Kafka">
+<meta property="og:url" content="https://zerohertz.github.io/mlops-for-mle-kafka/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Kafka Systemconnect.Dockerfile1234567FROM confluentinc&#x2F;cp-kafka-connect:7.3.0ENV CONNECT_PLUGIN_PATH&#x3D;&quot;&#x2F;usr&#x2F;share&#x2F;java,&#x2F;usr&#x2F;share&#x2F;confluent-hub-components&quot;RUN confluent-hub install --no-promp">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/221479676-bb9cb23e-76d1-4c36-8e27-affb2da42d18.gif">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/221571082-adb84ed7-fd46-4845-a01f-5bc4cf6ff665.gif">
+<meta property="article:published_time" content="2023-02-27T02:11:14.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.238Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Kafka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/221479676-bb9cb23e-76d1-4c36-8e27-affb2da42d18.gif">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/mlops-for-mle-kafka/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/mlops-for-mle-kafka/","path":"mlops-for-mle-kafka/","title":"MLOps for MLE: Kafka"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MLOps for MLE: Kafka | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kafka-System"><span class="nav-number">1.</span> <span class="nav-text">Kafka System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-Connector"><span class="nav-number">2.</span> <span class="nav-text">Source Connector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sink-Connector"><span class="nav-number">3.</span> <span class="nav-text">Sink Connector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-database/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-21</time>
+        <br>
+      MLOps for MLE: Database
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-api-serving/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-15</time>
+        <br>
+      MLOps for MLE: API Serving
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-stream/" rel="bookmark">
+        <time class="popular-posts-time">2023-03-09</time>
+        <br>
+      MLOps for MLE: Stream
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/apache-airflow-2/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-27</time>
+        <br>
+      Apache Airflow (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/mlops-for-mle-model-registry/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-04</time>
+        <br>
+      MLOps for MLE: Model Registry
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/mlops-for-mle-kafka/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MLOps for MLE: Kafka | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MLOps for MLE: Kafka
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-02-27 11:11:14" itemprop="dateCreated datePublished" datetime="2023-02-27T11:11:14+09:00">2023-02-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-mlops/" itemprop="url" rel="index"><span itemprop="name">4. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Kafka-System"><a href="#Kafka-System" class="headerlink" title="Kafka System"></a>Kafka System</h1><figure class="highlight dockerfile"><figcaption><span>connect.Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> confluentinc/cp-kafka-connect:<span class="number">7.3</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> CONNECT_PLUGIN_PATH=<span class="string">&quot;/usr/share/java,/usr/share/confluent-hub-components&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> confluent-hub install --no-prompt snowflakeinc/snowflake-kafka-connector:1.5.5 &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">  confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:10.2.2 &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">  confluent-hub install --no-prompt confluentinc/kafka-connect-json-schema-converter:7.3.0</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<figure class="highlight yaml"><figcaption><span>kafka-docker-compose.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">zookeeper:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">confluentinc/cp-zookeeper:7.3.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">2181</span><span class="string">:2181</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">ZOOKEEPER_SERVER_ID:</span> <span class="string">$&#123;ZOOKEEPER_SERVER_ID&#125;</span></span><br><span class="line">      <span class="attr">ZOOKEEPER_CLIENT_PORT:</span> <span class="string">$&#123;ZOOKEEPER_CLIENT_PORT&#125;</span></span><br><span class="line">  <span class="attr">broker:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">confluentinc/cp-kafka:7.3.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">broker</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">zookeeper</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">9092</span><span class="string">:9092</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">KAFKA_BROKER_ID:</span> <span class="string">$&#123;KAFKA_BROKER_ID&#125;</span></span><br><span class="line">      <span class="attr">KAFKA_ZOOKEEPER_CONNECT:</span> <span class="string">$&#123;KAFKA_ZOOKEEPER_CONNECT&#125;</span></span><br><span class="line">      <span class="attr">KAFKA_ADVERTISED_LISTENERS:</span> <span class="string">$&#123;KAFKA_ADVERTISED_LISTENERS&#125;</span></span><br><span class="line">      <span class="attr">KAFKA_LISTENER_SECURITY_PROTOCOL_MAP:</span> <span class="string">$&#123;KAFKA_LISTENER_SECURITY_PROTOCOL_MAP&#125;</span></span><br><span class="line">      <span class="attr">KAFKA_INTER_BROKER_LISTENER_NAME:</span> <span class="string">$&#123;KAFKA_INTER_BROKER_LISTENER_NAME&#125;</span></span><br><span class="line">      <span class="attr">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR:</span> <span class="string">$&#123;KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR&#125;</span></span><br><span class="line">      <span class="attr">KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS:</span> <span class="string">$&#123;KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS&#125;</span></span><br><span class="line">  <span class="attr">schema-registry:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">confluentinc/cp-schema-registry:7.3.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">schema-registry</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">broker</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">SCHEMA_REGISTRY_HOST_NAME:</span> <span class="string">$&#123;SCHEMA_REGISTRY_HOST_NAME&#125;</span></span><br><span class="line">      <span class="attr">SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS:</span> <span class="string">$&#123;SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS&#125;</span></span><br><span class="line">      <span class="attr">SCHEMA_REGISTRY_LISTENERS:</span> <span class="string">$&#123;SCHEMA_REGISTRY_LISTENERS&#125;</span></span><br><span class="line">  <span class="attr">connect:</span></span><br><span class="line">    <span class="attr">build:</span></span><br><span class="line">      <span class="attr">context:</span> <span class="string">.</span></span><br><span class="line">      <span class="attr">dockerfile:</span> <span class="string">connect.Dockerfile</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">connect</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">broker</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">schema-registry</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8083</span><span class="string">:8083</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">CONNECT_BOOTSTRAP_SERVERS:</span> <span class="string">$&#123;CONNECT_BOOTSTRAP_SERVERS&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_REST_ADVERTISED_HOST_NAME:</span> <span class="string">$&#123;CONNECT_REST_ADVERTISED_HOST_NAME&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_GROUP_ID:</span> <span class="string">$&#123;CONNECT_GROUP_ID&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_CONFIG_STORAGE_TOPIC:</span> <span class="string">$&#123;CONNECT_CONFIG_STORAGE_TOPIC&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR:</span> <span class="string">$&#123;CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_OFFSET_STORAGE_TOPIC:</span> <span class="string">$&#123;CONNECT_OFFSET_STORAGE_TOPIC&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR:</span> <span class="string">$&#123;CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_STATUS_STORAGE_TOPIC:</span> <span class="string">$&#123;CONNECT_STATUS_STORAGE_TOPIC&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_STATUS_STORAGE_REPLICATION_FACTOR:</span> <span class="string">$&#123;CONNECT_STATUS_STORAGE_REPLICATION_FACTOR&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_KEY_CONVERTER:</span> <span class="string">$&#123;CONNECT_KEY_CONVERTER&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_VALUE_CONVERTER:</span> <span class="string">$&#123;CONNECT_VALUE_CONVERTER&#125;</span></span><br><span class="line">      <span class="attr">CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL:</span> <span class="string">$&#123;CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">default:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">mlops-network</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/Kafka$ docker compose -p kafka -f kafka-docker-compose.yaml up -d</span><br><span class="line">/MLOps-Breast-Cancer/Kafka$ docker ps</span><br><span class="line">CONTAINER ID   IMAGE                                   COMMAND                  CREATED          STATUS                             PORTS                                        NAMES</span><br><span class="line">5fda9cc9cdc3   kafka-connect                           <span class="string">&quot;/etc/confluent/dock…&quot;</span>   15 seconds ago   Up 13 seconds (health: starting)   0.0.0.0:8083-&gt;8083/tcp, 9092/tcp             connect</span><br><span class="line">fcc48e59bc25   confluentinc/cp-schema-registry:7.3.0   <span class="string">&quot;/etc/confluent/dock…&quot;</span>   15 seconds ago   Up 13 seconds                      8081/tcp                                     schema-registry</span><br><span class="line">f7869897a87f   confluentinc/cp-kafka:7.3.0             <span class="string">&quot;/etc/confluent/dock…&quot;</span>   15 seconds ago   Up 14 seconds                      0.0.0.0:9092-&gt;9092/tcp                       broker</span><br><span class="line">37199baa9da6   confluentinc/cp-zookeeper:7.3.0         <span class="string">&quot;/etc/confluent/dock…&quot;</span>   15 seconds ago   Up 14 seconds                      2888/tcp, 0.0.0.0:2181-&gt;2181/tcp, 3888/tcp   zookeeper</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Source-Connector"><a href="#Source-Connector" class="headerlink" title="Source Connector"></a>Source Connector</h1><figure class="highlight json"><figcaption><span>source_connector.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;postgres-source-connector&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;config&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;connector.class&quot;</span><span class="punctuation">:</span> <span class="string">&quot;io.confluent.connect.jdbc.JdbcSourceConnector&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;connection.url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jdbc:postgresql://postgres-server:5432/Breast_Cancer&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;connection.user&quot;</span><span class="punctuation">:</span> <span class="string">&quot;zerohertz&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;connection.password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;qwer123!&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;table.whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;breast_cancer_data&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;topic.prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;postgres-source-&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;topic.creation.default.partitions&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;topic.creation.default.replication.factor&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;mode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;incrementing&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;incrementing.column.name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;id&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;tasks.max&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TimestampConverter&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;org.apache.kafka.connect.transforms.TimestampConverter$Value&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.field&quot;</span><span class="punctuation">:</span> <span class="string">&quot;timestamp&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.format&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yyyy-MM-dd HH:mm:ss.S&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.target.type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/Kafka$ curl -X POST http://localhost:8083/connectors -H <span class="string">&quot;Content-Type: application/json&quot;</span> -d @source_connector.json</span><br><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-source-connector&quot;</span>,<span class="string">&quot;config&quot;</span>:&#123;<span class="string">&quot;connector.class&quot;</span>:<span class="string">&quot;io.confluent.connect.jdbc.JdbcSourceConnector&quot;</span>,<span class="string">&quot;connection.url&quot;</span>:<span class="string">&quot;jdbc:postgresql://postgres-server:5432/Breast_Cancer&quot;</span>,<span class="string">&quot;connection.user&quot;</span>:<span class="string">&quot;zerohertz&quot;</span>,<span class="string">&quot;connection.password&quot;</span>:<span class="string">&quot;qwer123!&quot;</span>,<span class="string">&quot;table.whitelist&quot;</span>:<span class="string">&quot;breast_cancer_data&quot;</span>,<span class="string">&quot;topic.prefix&quot;</span>:<span class="string">&quot;postgres-source-&quot;</span>,<span class="string">&quot;topic.creation.default.partitions&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;topic.creation.default.replication.factor&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;mode&quot;</span>:<span class="string">&quot;incrementing&quot;</span>,<span class="string">&quot;incrementing.column.name&quot;</span>:<span class="string">&quot;id&quot;</span>,<span class="string">&quot;tasks.max&quot;</span>:<span class="string">&quot;2&quot;</span>,<span class="string">&quot;transforms&quot;</span>:<span class="string">&quot;TimestampConverter&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.type&quot;</span>:<span class="string">&quot;org.apache.kafka.connect.transforms.TimestampConverter<span class="variable">$Value</span>&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.field&quot;</span>:<span class="string">&quot;timestamp&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.format&quot;</span>:<span class="string">&quot;yyyy-MM-dd HH:mm:ss.S&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.target.type&quot;</span>:<span class="string">&quot;string&quot;</span>,<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-source-connector&quot;</span>&#125;,<span class="string">&quot;tasks&quot;</span>:[],<span class="string">&quot;type&quot;</span>:<span class="string">&quot;source&quot;</span>&#125;%</span><br><span class="line">/MLOps-Breast-Cancer/Kafka$ curl -X GET http://localhost:8083/connectors</span><br><span class="line">[<span class="string">&quot;postgres-source-connector&quot;</span>]%</span><br><span class="line">/MLOps-Breast-Cancer/Kafka$ curl -X GET http://localhost:8083/connectors/postgres-source-connector</span><br><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-source-connector&quot;</span>,<span class="string">&quot;config&quot;</span>:&#123;<span class="string">&quot;connector.class&quot;</span>:<span class="string">&quot;io.confluent.connect.jdbc.JdbcSourceConnector&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.target.type&quot;</span>:<span class="string">&quot;string&quot;</span>,<span class="string">&quot;incrementing.column.name&quot;</span>:<span class="string">&quot;id&quot;</span>,<span class="string">&quot;topic.creation.default.partitions&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;connection.password&quot;</span>:<span class="string">&quot;qwer123!&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.field&quot;</span>:<span class="string">&quot;timestamp&quot;</span>,<span class="string">&quot;tasks.max&quot;</span>:<span class="string">&quot;2&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.type&quot;</span>:<span class="string">&quot;org.apache.kafka.connect.transforms.TimestampConverter<span class="variable">$Value</span>&quot;</span>,<span class="string">&quot;transforms&quot;</span>:<span class="string">&quot;TimestampConverter&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.format&quot;</span>:<span class="string">&quot;yyyy-MM-dd HH:mm:ss.S&quot;</span>,<span class="string">&quot;table.whitelist&quot;</span>:<span class="string">&quot;breast_cancer_data&quot;</span>,<span class="string">&quot;mode&quot;</span>:<span class="string">&quot;incrementing&quot;</span>,<span class="string">&quot;topic.prefix&quot;</span>:<span class="string">&quot;postgres-source-&quot;</span>,<span class="string">&quot;connection.user&quot;</span>:<span class="string">&quot;zerohertz&quot;</span>,<span class="string">&quot;topic.creation.default.replication.factor&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-source-connector&quot;</span>,<span class="string">&quot;connection.url&quot;</span>:<span class="string">&quot;jdbc:postgresql://postgres-server:5432/Breast_Cancer&quot;</span>&#125;,<span class="string">&quot;tasks&quot;</span>:[&#123;<span class="string">&quot;connector&quot;</span>:<span class="string">&quot;postgres-source-connector&quot;</span>,<span class="string">&quot;task&quot;</span>:0&#125;],<span class="string">&quot;type&quot;</span>:<span class="string">&quot;source&quot;</span>&#125;%</span><br><span class="line">$ kcat -L -b localhost:9092</span><br><span class="line">...</span><br><span class="line">  topic <span class="string">&quot;postgres-source-breast_cancer_data&quot;</span> with 1 partitions:</span><br><span class="line">    partition 0, leader 1, replicas: 1, isrs: 1</span><br><span class="line">...</span><br><span class="line">$ kcat -b localhost:9092 -t postgres-source-breast_cancer_data</span><br></pre></td></tr></table></figure>
+
+<img width="500" src="https://user-images.githubusercontent.com/42334717/221479676-bb9cb23e-76d1-4c36-8e27-affb2da42d18.gif">
+
+<hr>
+<h1 id="Sink-Connector"><a href="#Sink-Connector" class="headerlink" title="Sink Connector"></a>Sink Connector</h1><figure class="highlight python"><figcaption><span>create_table.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</span><br><span class="line"><span class="keyword">import</span> psycopg2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_table</span>(<span class="params">db_connect</span>):</span><br><span class="line">    create_table_query = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    CREATE TABLE IF NOT EXISTS Breast_Cancer_Data (  </span></span><br><span class="line"><span class="string">        id SERIAL PRIMARY KEY,  </span></span><br><span class="line"><span class="string">        timestamp timestamp,</span></span><br><span class="line"><span class="string">        Feature_A float8,</span></span><br><span class="line"><span class="string">        Feature_B float8,</span></span><br><span class="line"><span class="string">        Feature_C float8,</span></span><br><span class="line"><span class="string">        Feature_D float8,</span></span><br><span class="line"><span class="string">        Feature_E float8,</span></span><br><span class="line"><span class="string">        Feature_F float8,</span></span><br><span class="line"><span class="string">        Feature_G float8,</span></span><br><span class="line"><span class="string">        Feature_H float8,</span></span><br><span class="line"><span class="string">        Feature_I float8,</span></span><br><span class="line"><span class="string">        Feature_J float8,</span></span><br><span class="line"><span class="string">        Feature_K float8,</span></span><br><span class="line"><span class="string">        Feature_L float8,</span></span><br><span class="line"><span class="string">        Feature_M float8,</span></span><br><span class="line"><span class="string">        Feature_N float8,</span></span><br><span class="line"><span class="string">        Feature_O float8,</span></span><br><span class="line"><span class="string">        Feature_P float8,</span></span><br><span class="line"><span class="string">        Feature_Q float8,</span></span><br><span class="line"><span class="string">        Feature_R float8,</span></span><br><span class="line"><span class="string">        Feature_S float8,</span></span><br><span class="line"><span class="string">        Feature_T float8,</span></span><br><span class="line"><span class="string">        Feature_U float8,</span></span><br><span class="line"><span class="string">        Feature_V float8,</span></span><br><span class="line"><span class="string">        Feature_W float8,</span></span><br><span class="line"><span class="string">        Feature_X float8,</span></span><br><span class="line"><span class="string">        Feature_Y float8,</span></span><br><span class="line"><span class="string">        Feature_Z float8,</span></span><br><span class="line"><span class="string">        Feature_AA float8,</span></span><br><span class="line"><span class="string">        Feature_BB float8,</span></span><br><span class="line"><span class="string">        Feature_CC float8,</span></span><br><span class="line"><span class="string">        Feature_DD float8,  </span></span><br><span class="line"><span class="string">        target int  </span></span><br><span class="line"><span class="string">    );&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(create_table_query)</span><br><span class="line">    <span class="keyword">with</span> db_connect.cursor() <span class="keyword">as</span> cur:</span><br><span class="line">        cur.execute(create_table_query)</span><br><span class="line">        db_connect.commit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    load_dotenv()</span><br><span class="line">    db_connect = psycopg2.connect(</span><br><span class="line">        user=os.environ.get(<span class="string">&quot;POSTGRES_USER&quot;</span>),</span><br><span class="line">        password=os.environ.get(<span class="string">&quot;POSTGRES_PASSWORD&quot;</span>),</span><br><span class="line">        host=os.environ.get(<span class="string">&quot;POSTGRES_HOST&quot;</span>),</span><br><span class="line">        port=<span class="number">5432</span>,</span><br><span class="line">        database=os.environ.get(<span class="string">&quot;POSTGRES_DB&quot;</span>),</span><br><span class="line">    )</span><br><span class="line">    create_table(db_connect)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight docker"><figcaption><span>target.Dockerfile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> amd64/python:<span class="number">3.9</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /usr/app</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -U pip &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">    pip install psycopg2-binary &amp;&amp;\</span></span><br><span class="line"><span class="language-bash">    pip install python-dotenv</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> create_table.py create_table.py</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> .<span class="built_in">env</span> .<span class="built_in">env</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;create_table.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>target-docker-compose.yaml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">target-postgres-server:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:14.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">$&#123;POSTGRES_HOST&#125;</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">5433</span><span class="string">:5432</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">POSTGRES_USER:</span> <span class="string">$&#123;POSTGRES_USER&#125;</span></span><br><span class="line">      <span class="attr">POSTGRES_PASSWORD:</span> <span class="string">$&#123;POSTGRES_PASSWORD&#125;</span></span><br><span class="line">      <span class="attr">POSTGRES_DB:</span> <span class="string">$&#123;POSTGRES_DB&#125;</span></span><br><span class="line">    <span class="attr">healthcheck:</span></span><br><span class="line">      <span class="attr">test:</span> [<span class="string">&quot;CMD&quot;</span>, <span class="string">&quot;pg_isready&quot;</span>, <span class="string">&quot;-q&quot;</span>, <span class="string">&quot;-U&quot;</span>, <span class="string">&quot;$&#123;POSTGRES_USER&#125;&quot;</span>, <span class="string">&quot;-d&quot;</span>, <span class="string">&quot;$&#123;POSTGRES_DB&#125;&quot;</span>]</span><br><span class="line">      <span class="attr">interval:</span> <span class="string">10s</span></span><br><span class="line">      <span class="attr">timeout:</span> <span class="string">5s</span></span><br><span class="line">      <span class="attr">retries:</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">table-creator:</span></span><br><span class="line">    <span class="attr">build:</span></span><br><span class="line">      <span class="attr">context:</span> <span class="string">.</span></span><br><span class="line">      <span class="attr">dockerfile:</span> <span class="string">target.Dockerfile</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">table-creator</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="attr">target-postgres-server:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">default:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">mlops-network</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/Kafka$ docker compose -p target -f target-docker-compose.yaml up -d</span><br><span class="line">/MLOps-Breast-Cancer/Kafka$ docker ps</span><br><span class="line">CONTAINER ID   IMAGE                                   COMMAND                  CREATED             STATUS                       PORTS                                        NAMES</span><br><span class="line">fb93165c1c87   postgres:14.0                           <span class="string">&quot;docker-entrypoint.s…&quot;</span>   18 seconds ago      Up 17 seconds (healthy)      0.0.0.0:5432-&gt;5432/tcp                       target-postgres-server</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight json"><figcaption><span>sink_connector.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;postgres-sink-connector&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;config&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;connector.class&quot;</span><span class="punctuation">:</span> <span class="string">&quot;io.confluent.connect.jdbc.JdbcSinkConnector&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;connection.url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jdbc:postgresql://target-postgres-server:5432/targetdatabase&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;connection.user&quot;</span><span class="punctuation">:</span> <span class="string">&quot;zerohertz_target&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;connection.password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;qwer123!&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;table.name.format&quot;</span><span class="punctuation">:</span> <span class="string">&quot;breast_cancer_data&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;topics&quot;</span><span class="punctuation">:</span> <span class="string">&quot;postgres-source-breast_cancer_data&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;auto.create&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;auto.evolve&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;tasks.max&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TimestampConverter&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;org.apache.kafka.connect.transforms.TimestampConverter$Value&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.field&quot;</span><span class="punctuation">:</span> <span class="string">&quot;timestamp&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.format&quot;</span><span class="punctuation">:</span> <span class="string">&quot;yyyy-MM-dd HH:mm:ss.S&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transforms.TimestampConverter.target.type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Timestamp&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/MLOps-Breast-Cancer/Kafka$ curl -X POST http://localhost:8083/connectors -H <span class="string">&quot;Content-Type: application/json&quot;</span> -d @sink_connector.json</span><br><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-sink-connector&quot;</span>,<span class="string">&quot;config&quot;</span>:&#123;<span class="string">&quot;connector.class&quot;</span>:<span class="string">&quot;io.confluent.connect.jdbc.JdbcSinkConnector&quot;</span>,<span class="string">&quot;connection.url&quot;</span>:<span class="string">&quot;jdbc:postgresql://target-postgres-server:5432/targetdatabase&quot;</span>,<span class="string">&quot;connection.user&quot;</span>:<span class="string">&quot;zerohertz_target&quot;</span>,<span class="string">&quot;connection.password&quot;</span>:<span class="string">&quot;qwer123!&quot;</span>,<span class="string">&quot;table.name.format&quot;</span>:<span class="string">&quot;breast_cancer_data&quot;</span>,<span class="string">&quot;topics&quot;</span>:<span class="string">&quot;postgres-source-breast_cancer_data&quot;</span>,<span class="string">&quot;auto.create&quot;</span>:<span class="string">&quot;false&quot;</span>,<span class="string">&quot;auto.evolve&quot;</span>:<span class="string">&quot;false&quot;</span>,<span class="string">&quot;tasks.max&quot;</span>:<span class="string">&quot;2&quot;</span>,<span class="string">&quot;transforms&quot;</span>:<span class="string">&quot;TimestampConverter&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.type&quot;</span>:<span class="string">&quot;org.apache.kafka.connect.transforms.TimestampConverter<span class="variable">$Value</span>&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.field&quot;</span>:<span class="string">&quot;timestamp&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.format&quot;</span>:<span class="string">&quot;yyyy-MM-dd HH:mm:ss.S&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.target.type&quot;</span>:<span class="string">&quot;Timestamp&quot;</span>,<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-sink-connector&quot;</span>&#125;,<span class="string">&quot;tasks&quot;</span>:[],<span class="string">&quot;type&quot;</span>:<span class="string">&quot;sink&quot;</span>&#125;%</span><br><span class="line">/MLOps-Breast-Cancer/Kafka$ curl -X GET http://localhost:8083/connectors</span><br><span class="line">[<span class="string">&quot;postgres-sink-connector&quot;</span>,<span class="string">&quot;postgres-source-connector&quot;</span>]%</span><br><span class="line">/MLOps-Breast-Cancer/Kafka$ curl -X GET http://localhost:8083/connectors/postgres-sink-connector</span><br><span class="line">&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-sink-connector&quot;</span>,<span class="string">&quot;config&quot;</span>:&#123;<span class="string">&quot;connector.class&quot;</span>:<span class="string">&quot;io.confluent.connect.jdbc.JdbcSinkConnector&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.target.type&quot;</span>:<span class="string">&quot;Timestamp&quot;</span>,<span class="string">&quot;table.name.format&quot;</span>:<span class="string">&quot;breast_cancer_data&quot;</span>,<span class="string">&quot;connection.password&quot;</span>:<span class="string">&quot;qwer123!&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.field&quot;</span>:<span class="string">&quot;timestamp&quot;</span>,<span class="string">&quot;topics&quot;</span>:<span class="string">&quot;postgres-source-breast_cancer_data&quot;</span>,<span class="string">&quot;tasks.max&quot;</span>:<span class="string">&quot;2&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.type&quot;</span>:<span class="string">&quot;org.apache.kafka.connect.transforms.TimestampConverter<span class="variable">$Value</span>&quot;</span>,<span class="string">&quot;transforms&quot;</span>:<span class="string">&quot;TimestampConverter&quot;</span>,<span class="string">&quot;transforms.TimestampConverter.format&quot;</span>:<span class="string">&quot;yyyy-MM-dd HH:mm:ss.S&quot;</span>,<span class="string">&quot;auto.evolve&quot;</span>:<span class="string">&quot;false&quot;</span>,<span class="string">&quot;connection.user&quot;</span>:<span class="string">&quot;zerohertz_target&quot;</span>,<span class="string">&quot;name&quot;</span>:<span class="string">&quot;postgres-sink-connector&quot;</span>,<span class="string">&quot;auto.create&quot;</span>:<span class="string">&quot;false&quot;</span>,<span class="string">&quot;connection.url&quot;</span>:<span class="string">&quot;jdbc:postgresql://target-postgres-server:5432/targetdatabase&quot;</span>&#125;,<span class="string">&quot;tasks&quot;</span>:[&#123;<span class="string">&quot;connector&quot;</span>:<span class="string">&quot;postgres-sink-connector&quot;</span>,<span class="string">&quot;task&quot;</span>:0&#125;,&#123;<span class="string">&quot;connector&quot;</span>:<span class="string">&quot;postgres-sink-connector&quot;</span>,<span class="string">&quot;task&quot;</span>:1&#125;],<span class="string">&quot;type&quot;</span>:<span class="string">&quot;sink&quot;</span>&#125;%</span><br><span class="line">/MLOps-Breast-Cancer/Kafka$ PGPASSWORD=qwer123! psql -h localhost -p 5433 -U zerohertz_target -d targetdatabase</span><br></pre></td></tr></table></figure>
+
+<img width="500" src="https://user-images.githubusercontent.com/42334717/221571082-adb84ed7-fd46-4845-a01f-5bc4cf6ff665.gif">
+
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tbG9wcy1mb3ItbWxlLmdpdGh1Yi5pby90dXRvcmlhbC9kb2NzL2NhdGVnb3J5LzA3LWthZmth">MLOps for MLE: 07. Kafka</span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/kafka/" rel="tag"><i class="fa fa-tag"></i> Kafka</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/mlops-for-mle-api-serving/" rel="prev" title="MLOps for MLE: API Serving">
+                  <i class="fa fa-chevron-left"></i> MLOps for MLE: API Serving
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/professional-research-agent-init/" rel="next" title="전문연구요원: 시작">
+                  전문연구요원: 시작 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"51affdbe716e6a9394edc26a63458ac6"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

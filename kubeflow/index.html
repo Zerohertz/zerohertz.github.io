@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Introduction Kubeflow: Machine learning 및 Deep learning workload를 위한 오픈 소스 플랫폼으로, Kubernetes 위에서 실행되며 ML workload의 배포, 관리 및 확장을 용이하게 해줍니다. Kubeflow는 Kubernetes의 높은 가용성, 확장성 및 관리성과 machine learning 작업에">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubeflow">
+<meta property="og:url" content="https://zerohertz.github.io/kubeflow/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Kubeflow: Machine learning 및 Deep learning workload를 위한 오픈 소스 플랫폼으로, Kubernetes 위에서 실행되며 ML workload의 배포, 관리 및 확장을 용이하게 해줍니다. Kubeflow는 Kubernetes의 높은 가용성, 확장성 및 관리성과 machine learning 작업에">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258590136-e51ffab9-cf90-41e7-b01e-f4fd38a33266.svg">
+<meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258588922-9a8cb79b-12ea-4e41-80ec-2297d79e03f2.png">
+<meta property="article:published_time" content="2023-08-05T16:55:21.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.236Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Kubernetes">
+<meta property="article:tag" content="Kubeflow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258590136-e51ffab9-cf90-41e7-b01e-f4fd38a33266.svg">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/kubeflow/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/kubeflow/","path":"kubeflow/","title":"Kubeflow"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubeflow | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Kubeflow"><span class="nav-number">1.1.</span> <span class="nav-text">Why Kubeflow?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pros-Cons"><span class="nav-number">1.2.</span> <span class="nav-text">Pros &amp; Cons</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Features"><span class="nav-number">2.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">3.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K3s"><span class="nav-number">3.1.</span> <span class="nav-text">K3s</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup"><span class="nav-number">3.2.</span> <span class="nav-text">Setup</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/getting-started-with-jupyter-notebook/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-11</time>
+        <br>
+      Getting Started with Jupyter Notebook
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k9s/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-08</time>
+        <br>
+      K9s
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k8s-dashboard/" rel="bookmark">
+        <time class="popular-posts-time">2023-08-15</time>
+        <br>
+      Kubernetes Dashboard
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/k8s/" rel="bookmark">
+        <time class="popular-posts-time">2023-06-18</time>
+        <br>
+      Kubernetes 입문기
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/apache-airflow-1/" rel="bookmark">
+        <time class="popular-posts-time">2023-07-26</time>
+        <br>
+      Apache Airflow (1)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/kubeflow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubeflow | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubeflow
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-06 01:55:21" itemprop="dateCreated datePublished" datetime="2023-08-06T01:55:21+09:00">2023-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-mlops/" itemprop="url" rel="index"><span itemprop="name">4. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Kubeflow: Machine learning 및 Deep learning workload를 위한 오픈 소스 플랫폼으로, Kubernetes 위에서 실행되며 ML workload의 배포, 관리 및 확장을 용이하게 해줍니다. Kubeflow는 Kubernetes의 높은 가용성, 확장성 및 관리성과 machine learning 작업에 필요한 도구와 라이브러리를 통합하여 종합적인 ML 작업 플로우를 제공합니다.</p>
+</blockquote>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258590136-e51ffab9-cf90-41e7-b01e-f4fd38a33266.svg" alt="Overview"></p>
+<h2 id="Why-Kubeflow"><a href="#Why-Kubeflow" class="headerlink" title="Why Kubeflow?"></a>Why Kubeflow?</h2><ol>
+<li>Scalable ML Workload Management<ul>
+<li>Kubernetes의 강력한 scaling 및 관리 기능을 활용하여 ML workload를 효율적으로 배포하고 관리</li>
+<li>자동화된 scaling과 resource 관리는 복잡한 ML 작업에서 유용</li>
+</ul>
+</li>
+<li>Portable Environments<ul>
+<li>인프라 구성을 추상화하고 portable한 ML 작업 환경을 제공하여 로컬 머신에서 클라우드까지 다양한 환경에서 일관된 방식으로 작업할 수 있는 환경 구축</li>
+</ul>
+</li>
+<li>Integrated Components<ul>
+<li>Machine learning 작업을 위한 다양한 컴포넌트를 통합하여 제공</li>
+<li>Jupyter Notebook, TensorBoard, TensorFlow Serving, …</li>
+</ul>
+</li>
+<li>Designed Pipelines<ul>
+<li>Kubeflow Pipelines를 통해 End-to-End machine learning workflow를 시각적으로 디자인 및 실행 가능</li>
+<li>반복적인 작업을 자동화하고 재현 가능한 실험 수행</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="Pros-Cons"><a href="#Pros-Cons" class="headerlink" title="Pros &amp; Cons"></a>Pros &amp; Cons</h2><ul>
+<li>Pros<ul>
+<li>Scaling and Management: Kubernetes 플랫폼의 강력한 scaling 및 관리 기능을 활용하여 ML workload를 효율적으로 관리</li>
+<li>Diverse Tools and Libraries: Kubeflow는 Jupyter 노트북, TensorBoard, Katib 등 다양한 툴과 machine learning 라이브러리를 통합하여 제공하여 개발자와 데이터 과학자의 생산성 향상</li>
+<li>Portable Workspace: 인프라 추상화로 인해 로컬 머신부터 클라우드까지 일관된 환경에서 작업</li>
+<li>End-to-End Workflows: Kubeflow Pipelines를 사용하여 데이터 전처리부터 모델 훈련, 배포까지의 workflow 통합적 관리</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Learning Curve: Kubeflow의 복잡한 기능과 컴포넌트들을 익히는 데 시간 필요</li>
+<li>Resource Overhead: Kubernetes 및 Kubeflow를 위한 resource가 높을 수 있으며, 작은 규모의 프로젝트에는 overhead가 발생 가능</li>
+<li>Initial Setup: Kubeflow를 설정하고 실행하는 초기 단계가 상대적으로 복잡</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258588922-9a8cb79b-12ea-4e41-80ec-2297d79e03f2.png" alt="Kubeflow"></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9jZW50cmFsLWRhc2gv">Central Dashboard</span>: Web browser를 통해 dashboard UI로 Notebooks, Experiments (AutoML), Experiments (KFP) 등의 컴포넌트 이용 가능</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9ub3RlYm9va3Mv">Kubeflow Notebooks</span>: Web browser에서 python 코드를 개발하고 실행할 수 있는 Jupyter Notebook 개발 도구 제공</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy90cmFpbmluZy8=">Training Operators</span>: Tensorflow, PyTorch, MXNet 등 다양한 deep learning framework에 대한 분산 학습 지원<ul>
+<li>Machine learning 모델 코드를 담고 있는 docker image 경로와 분산 학습 cluster 정보 등을 정의한 명세서를 통해 workload 실행</li>
+</ul>
+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9rYXRpYi8=">Experiments (AutoML)</span>: Machine learning 모델의 예측 정확도와 성능을 높이기 위한 반복 실험을 자동화하는 도구 <ul>
+<li>Katib를 사용하여 hyper parameter tuning 및 neural architecture search</li>
+<li>Experiment (AutoML) 명세서 작성 후 Kubernetes에 배포 시 최적 모델 탐색</li>
+</ul>
+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvZXh0ZXJuYWwtYWRkLW9ucy9rc2VydmUv">KServe</span>: Kubernetes에 machine learning 모델을 배포하고 추론하는 기능 제공<ul>
+<li>Endpoint, transformer, predictor, explainer로 구성</li>
+<li>Endpoint: Predictor에 데이터 전달</li>
+<li>Transformer: 데이터 전처리, 후처리</li>
+<li>Predictor: 전달된 데이터에 대해 추론</li>
+<li>Explainer: 추론 결과에 대한 이유 제공 (XAI, eXplainable Artificial Intellgence)</li>
+<li>Transformer와 explainer는 predictor와 연결하여 사용</li>
+</ul>
+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3MvY29tcG9uZW50cy9waXBlbGluZXMv">Kubeflow Pipelines (KFP)</span>: Machine learning workflow를 구축하고 배포하기 위한 ML workflow orchestration 도구<ul>
+<li>Pipeline components를 재사용하여 다양한 실험을 빠르고 쉽게 수행</li>
+<li>DAG 형태로 workflow 구축</li>
+<li>Workflow engine: Argo Workflow</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><h2 id="K3s"><a href="#K3s" class="headerlink" title="K3s"></a>K3s</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install -y socat</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Docker</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update &amp;&amp; sudo apt-get install -y ca-certificates curl gnupg lsb-release</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> \</span></span><br><span class="line"><span class="language-bash"><span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \</span></span></span><br><span class="line"><span class="string"><span class="language-bash"><span class="subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update &amp;&amp; apt-cache madison docker-ce</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">apt-cache madison docker-ce <span class="comment"># 설치 가능한 버전 확인</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install -y containerd.io docker-ce=5:20.10.13~3-0~ubuntu-jammy docker-ce-cli=5:20.10.13~3-0~ubuntu-jammy</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo docker run hello-world</span></span><br><span class="line">Hello from Docker!</span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo groupadd docker</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo usermod -aG docker <span class="variable">$USER</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">newgrp docker</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Swap Memory</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo sed -i <span class="string">&#x27;/ swap / s/^\(.*\)$/#\1/g&#x27;</span> /etc/fstab</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo swapoff -a</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Kubectl</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -LO https://dl.k8s.io/release/v1.21.7/bin/linux/amd64/kubectl</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl version --client</span></span><br><span class="line">Client Version: version.Info&#123;Major:&quot;1&quot;, Minor:&quot;21&quot;, GitVersion:&quot;v1.21.7&quot;, GitCommit:&quot;1f86634ff08f37e54e8bfcd86bc90b61c98f84d4&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2021-11-17T14:41:19Z&quot;, GoVersion:&quot;go1.16.10&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">K3s Cluster</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl -sfL https://get.k3s.io | sh -s - --docker</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cat</span> /etc/rancher/k3s/k3s.yaml</span></span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> .kube</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cp</span> /etc/rancher/k3s/k3s.yaml .kube/config</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">chown</span> <span class="variable">$USER</span>:<span class="variable">$USER</span> .kube/config</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">K3s Client</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://get.helm.sh/helm-v3.7.1-linux-amd64.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -zxvf helm-v3.7.1-linux-amd64.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">mv</span> linux-amd64/helm /usr/local/bin/helm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.10.0/kustomize_v3.10.0_linux_amd64.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -zxvf kustomize_v3.10.0_linux_amd64.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">mv</span> kustomize /usr/local/bin/kustomize</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.20/deploy/local-path-storage.yaml</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl -n local-path-storage get pod</span></span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl patch storageclass local-path  -p <span class="string">&#x27;&#123;&quot;metadata&quot;: &#123;&quot;annotations&quot;:&#123;&quot;storageclass.kubernetes.io/is-default-class&quot;:&quot;true&quot;&#125;&#125;&#125;&#x27;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl get sc</span></span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Start K3s</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl start k3s</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl get nodes -o wide</span></span><br><span class="line">NAME   STATUS   ROLES                  AGE     VERSION        INTERNAL-IP       EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME</span><br><span class="line">0hz    Ready    control-plane,master   3m35s   v1.27.4+k3s1   192.168.219.200   &lt;none&gt;        Ubuntu 22.04.3 LTS   5.15.0-78-generic   containerd://1.7.1-k3s1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>~/.kube/config</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">clusters:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">cluster:</span></span><br><span class="line">    <span class="attr">certificate-authority-data:</span> </span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">server:</span> <span class="string">https://127.0.0.1:6443</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">contexts:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">context:</span></span><br><span class="line">    <span class="attr">cluster:</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">user:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">current-context:</span> <span class="string">default</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Config</span></span><br><span class="line"><span class="attr">preferences:</span> &#123;&#125;</span><br><span class="line"><span class="attr">users:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">user:</span></span><br><span class="line">    <span class="attr">client-certificate-data:</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">client-key-data:</span></span><br><span class="line">    <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Kubeflow</span></span><br><span class="line">$ git <span class="built_in">clone</span> -b v1.7.0 https://github.com/kubeflow/manifests.git</span><br><span class="line">$ <span class="built_in">cd</span> manifests</span><br><span class="line">$ kustomize build common/cert-manager/cert-manager/base | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n cert-manager</span><br><span class="line">$ kustomize build common/cert-manager/kubeflow-issuer/base | kubectl apply -f -</span><br><span class="line">$ kustomize build common/istio-1-16/istio-crds/base | kubectl apply -f -</span><br><span class="line">$ kustomize build common/istio-1-16/istio-namespace/base | kubectl apply -f -</span><br><span class="line">$ kustomize build common/istio-1-16/istio-install/base | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n istio-system</span><br><span class="line">$ kustomize build common/dex/overlays/istio | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n auth</span><br><span class="line">$ kustomize build common/oidc-authservice/base | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n istio-system -w</span><br><span class="line">$ kustomize build common/kubeflow-namespace/base | kubectl apply -f -</span><br><span class="line">$ kubectl get ns kubeflow</span><br><span class="line">$ kustomize build common/kubeflow-roles/base | kubectl apply -f -</span><br><span class="line">$ kubectl get clusterrole | grep kubeflow</span><br><span class="line">$ kustomize build common/istio-1-16/kubeflow-istio-resources/base | kubectl apply -f -</span><br><span class="line">$ kubectl get clusterrole | grep kubeflow-istio</span><br><span class="line">$ kubectl get gateway -n kubeflow</span><br><span class="line">$ kustomize build apps/pipeline/upstream/env/platform-agnostic-multi-user | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow</span><br><span class="line">$ kustomize build apps/katib/upstream/installs/katib-with-kubeflow | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep katib</span><br><span class="line">$ kustomize build apps/centraldashboard/upstream/overlays/istio | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep centraldashboard</span><br><span class="line">$ kustomize build apps/admission-webhook/upstream/overlays/cert-manager | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep admission-webhook</span><br><span class="line">$ kustomize build apps/jupyter/notebook-controller/upstream/overlays/kubeflow | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep notebook-controller</span><br><span class="line">$ kustomize build apps/jupyter/jupyter-web-app/upstream/overlays/istio | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep jupyter-web-app</span><br><span class="line">$ kustomize build apps/profiles/upstream/overlays/kubeflow | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep profiles-deployment</span><br><span class="line">$ kustomize build apps/volumes-web-app/upstream/overlays/istio | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep volumes-web-app</span><br><span class="line">$ kustomize build apps/tensorboard/tensorboards-web-app/upstream/overlays/istio | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep tensorboards-web-app</span><br><span class="line">$ kustomize build apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep tensorboard-controller</span><br><span class="line">$ kustomize build apps/training-operator/upstream/overlays/kubeflow | kubectl apply -f -</span><br><span class="line">$ kubectl get po -n kubeflow | grep training-operator</span><br><span class="line">$ kustomize build common/user-namespace/base | kubectl apply -f -</span><br><span class="line">$ kubectl get profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># Forwarding</span></span><br><span class="line">$ kubectl port-forward --address 0.0.0.0 svc/ml-pipeline-ui -n kubeflow 8888:80             <span class="comment"># http://$&#123;IP&#125;:8888/#/pipelines</span></span><br><span class="line">$ kubectl port-forward --address 0.0.0.0 svc/katib-ui -n kubeflow 8081:80                   <span class="comment"># http://$&#123;IP&#125;:8081/katib/</span></span><br><span class="line">$ kubectl port-forward --address 0.0.0.0 svc/centraldashboard -n kubeflow 8082:80           <span class="comment"># http://$&#123;IP&#125;:8082/</span></span><br><span class="line">$ kubectl port-forward --address 0.0.0.0 svc/istio-ingressgateway -n istio-system 8080:80   <span class="comment"># http://$&#123;IP&#125;:8080/dex/auth/local/login?back=&amp;state=rxl67iq5lvggjjh2675lxdraq</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">kubectl get pods --all-namespaces</span></span><br><span class="line">NAMESPACE                   NAME                                                    READY   STATUS    RESTARTS       AGE</span><br><span class="line">kubeflow                    kubeflow-pipelines-profile-controller-6476b6cb9-wdmzm   1/1     Running   0              114s</span><br><span class="line">kubeflow                    katib-db-manager-945f44ff7-xzplc                        1/1     Running   0              114s</span><br><span class="line">auth                        dex-654995d5d9-zmdzd                                    1/1     Running   0              114s</span><br><span class="line">kube-system                 local-path-provisioner-957fdf8bc-44vx6                  1/1     Running   0              114s</span><br><span class="line">kubeflow                    admission-webhook-deployment-789dc56fbf-h5ksd           1/1     Running   0              114s</span><br><span class="line">kube-system                 svclb-traefik-0a9db00b-2fjz5                            2/2     Running   0              113s</span><br><span class="line">cert-manager                cert-manager-6bbf5c9c95-bq64d                           1/1     Running   0              114s</span><br><span class="line">kubeflow                    metadata-envoy-deployment-b48db5966-t7rgg               1/1     Running   0              114s</span><br><span class="line">cert-manager                cert-manager-cainjector-654b7d6546-rmwwb                1/1     Running   0              114s</span><br><span class="line">istio-system                istiod-76d8b99b46-czvx4                                 1/1     Running   0              113s</span><br><span class="line">kube-system                 traefik-64f55bb67d-672tb                                1/1     Running   0              112s</span><br><span class="line">kubeflow                    metacontroller-0                                        1/1     Running   0              110s</span><br><span class="line">cert-manager                cert-manager-webhook-5bc4685cd4-f5jnl                   1/1     Running   0              113s</span><br><span class="line">kube-system                 coredns-77ccd57875-dghdq                                1/1     Running   0              114s</span><br><span class="line">kubeflow                    volumes-web-app-deployment-588d46bb75-kzkww             2/2     Running   0              108s</span><br><span class="line">kubeflow                    ml-pipeline-scheduledworkflow-578475988-fqx2q           2/2     Running   0              108s</span><br><span class="line">kubeflow-user-example-com   ml-pipeline-ui-artifact-76476b5cfd-5p6st                2/2     Running   0              108s</span><br><span class="line">kubeflow                    mysql-7d8b8ff4f4-wgjrr                                  2/2     Running   0              108s</span><br><span class="line">kubeflow-user-example-com   ml-pipeline-visualizationserver-677c86b748-4vjs2        2/2     Running   0              108s</span><br><span class="line">kubeflow                    katib-ui-bcc6df7cf-p6nf8                                2/2     Running   1 (107s ago)   109s</span><br><span class="line">istio-system                istio-ingressgateway-c7dddd948-w645z                    1/1     Running   0              112s</span><br><span class="line">kubeflow                    ml-pipeline-viewer-crd-6857ccc85c-j4htg                 2/2     Running   1 (106s ago)   109s</span><br><span class="line">kubeflow                    tensorboards-web-app-deployment-d4c644d74-4mcgc         2/2     Running   0              108s</span><br><span class="line">kubeflow                    jupyter-web-app-deployment-6b9c8d94ff-2bv2v             2/2     Running   0              107s</span><br><span class="line">kubeflow                    metadata-writer-6f95b9588c-4djq4                        2/2     Running   0              108s</span><br><span class="line">kubeflow                    cache-server-7bb7f46866-tq6zx                           2/2     Running   0              107s</span><br><span class="line">kubeflow                    workflow-controller-d445fd59d-xcfsm                     2/2     Running   1 (104s ago)   107s</span><br><span class="line">kubeflow                    centraldashboard-7df67fb75-lc7rt                        2/2     Running   0              107s</span><br><span class="line">kubeflow                    ml-pipeline-persistenceagent-55bd585845-qcvkg           2/2     Running   0              107s</span><br><span class="line">kubeflow                    minio-55464b6ddb-wt2tf                                  2/2     Running   0              107s</span><br><span class="line">kubeflow                    cache-deployer-deployment-5b544bdc4d-kjf9d              2/2     Running   1 (103s ago)   107s</span><br><span class="line">istio-system                authservice-0                                           1/1     Running   0              110s</span><br><span class="line">kubeflow                    ml-pipeline-ui-7658c799f5-8gpvn                         2/2     Running   0              107s</span><br><span class="line">kubeflow                    ml-pipeline-visualizationserver-7b45b7fd56-dgq5p        2/2     Running   0              107s</span><br><span class="line">kubeflow                    notebook-controller-deployment-c57f69568-mx7vs          2/2     Running   1 (103s ago)   106s</span><br><span class="line">kubeflow                    metadata-grpc-deployment-5644fb9768-flzbz               2/2     Running   1 (103s ago)   110s</span><br><span class="line">kube-system                 metrics-server-648b5df564-fjg7c                         1/1     Running   0              110s</span><br><span class="line">kubeflow                    katib-mysql-77b9495867-jm48s                            1/1     Running   0              106s</span><br><span class="line">kubeflow                    tensorboard-controller-deployment-658456ddf-bd6wp       3/3     Running   2 (102s ago)   106s</span><br><span class="line">kubeflow                    training-operator-56c45d6567-q6c8b                      1/1     Running   0              109s</span><br><span class="line">kubeflow                    katib-controller-75858c4ddf-2fbwj                       1/1     Running   3 (85s ago)    106s</span><br><span class="line">kubeflow                    ml-pipeline-77b65d8669-nrz4v                            2/2     Running   3 (88s ago)    106s</span><br><span class="line">kubeflow                    profiles-deployment-59cc895fbb-nhsbp                    3/3     Running   3 (88s ago)    110s</span><br><span class="line">local-path-storage          local-path-provisioner-54fc6cbb55-nzzh6                 0/1     Error     4 (62s ago)    109s</span><br></pre></td></tr></table></figure>
+
+<p>일단 위의 수많은 명령을 통해 Kubeflow를 설치하긴 했으나,,,<br>설치 과정에서 Kuberenetes에 대한 실력이 너무나 부족한 것을 느껴 Kuberenetes부터 확실하게 공부해야겠다.</p>
+<p>아래 명령어들을 통해 Ubuntu 서버에 K3s를 구축할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Docker</span></span><br><span class="line">$ sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br><span class="line">$ sudo systemctl restart docker</span><br><span class="line">$ sudo groupadd docker</span><br><span class="line">$ sudo usermod -aG docker <span class="variable">$USER</span></span><br><span class="line">$ newgrp docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># Swap Memory</span></span><br><span class="line">$ sudo sed -i <span class="string">&#x27;/ swap / s/^\(.*\)$/#\1/g&#x27;</span> /etc/fstab</span><br><span class="line">$ sudo swapoff -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># K3s Cluster</span></span><br><span class="line">$ curl -sfL https://get.k3s.io | sh -s - --docker</span><br><span class="line">$ sudo <span class="built_in">cat</span> /etc/rancher/k3s/k3s.yaml</span><br><span class="line">...</span><br><span class="line">$ <span class="built_in">mkdir</span> .kube</span><br><span class="line">$ sudo <span class="built_in">cp</span> /etc/rancher/k3s/k3s.yaml .kube/config</span><br><span class="line">$ sudo <span class="built_in">chown</span> <span class="variable">$USER</span>:<span class="variable">$USER</span> .kube/config</span><br><span class="line"></span><br><span class="line"><span class="comment"># Kubectl</span></span><br><span class="line">$ curl -LO <span class="string">&quot;https://dl.k8s.io/release/<span class="subst">$(curl -L -s https://dl.k8s.io/release/stable.txt)</span>/bin/linux/amd64/kubectl&quot;</span></span><br><span class="line">$ <span class="built_in">chmod</span> +x kubectl</span><br><span class="line">$ sudo <span class="built_in">mv</span> kubectl /usr/local/bin/</span><br><span class="line"></span><br><span class="line"><span class="comment"># Helm</span></span><br><span class="line">$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3</span><br><span class="line">$ <span class="built_in">chmod</span> 700 get_helm.sh</span><br><span class="line">$ ./get_helm.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># Kustomize</span></span><br><span class="line">$ curl -s <span class="string">&quot;https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&quot;</span> | bash</span><br><span class="line">$ sudo <span class="built_in">mv</span> kustomize /usr/local/bin/kustomize</span><br></pre></td></tr></table></figure>
+
+<p><del>본격 삽질 시작</del></p>
+<hr>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cua3ViZWZsb3cub3JnL2RvY3Mvc3RhcnRlZC9hcmNoaXRlY3R1cmUv">Kubeflow: Architecture</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2Ftc3VuZ3Nkcy5jb20va3IvaW5zaWdodHMva3ViZWZsb3cuaHRtbA==">SAMSUNG SDS: Kubeflow</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oZWxsb3dvcmxkLmt1cmx5LmNvbS9ibG9nL3NlY29uZC1tbG9wcy8=">Kurly: Kurly만의 MLOps 구축하기 - 쿠브플로우 도입기</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmVzcGluZ2xvYmFsLmNvbS9rdWJlZmxvdy1zdGFydC8=">BESPIN Global: Kubeflow 시작하기</span></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kubernetes/" rel="tag"><i class="fa fa-tag"></i> Kubernetes</a>
+              <a href="/tags/kubeflow/" rel="tag"><i class="fa fa-tag"></i> Kubeflow</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/boj-1024/" rel="prev" title="BOJ: 1024">
+                  <i class="fa fa-chevron-left"></i> BOJ: 1024
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/home-server-monitoring/" rel="next" title="Home Server: Monitoring">
+                  Home Server: Monitoring <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"6db342ac88971142c5928b3c94d93754"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

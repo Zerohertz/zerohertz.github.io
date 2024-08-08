@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MNIST DatasetData Description MNIST dataset   Dataset 구성: 0 ~ 9의 손글씨 이미지 ($28\times28&#x3D;784$)와 label MnistDataset 클래스 Raw data $\rightarrow$ Tensor Label, Pixel values, One-hot encoding tensor 반환">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generative Adversarial Network (3)">
+<meta property="og:url" content="https://zerohertz.github.io/generative-adversarial-network-3/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="MNIST DatasetData Description MNIST dataset   Dataset 구성: 0 ~ 9의 손글씨 이미지 ($28\times28&#x3D;784$)와 label MnistDataset 클래스 Raw data $\rightarrow$ Tensor Label, Pixel values, One-hot encoding tensor 반환">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181904225-a471cfa0-e14e-4482-a554-f2e85744dd92.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181916844-68b5252f-def8-4c8d-9dbd-b43722986a69.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181916888-8d5f038c-0592-41d9-8c0e-bbe2bb9b0772.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181916913-4ef84a45-21a1-4845-9520-ee8efd4bac35.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181917232-4f510196-5c9c-4446-baff-b6658fc9c63f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181917247-654449ab-c0b5-438f-b4b2-e7b874d0d2e0.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181917467-e3b613e8-8937-4650-8bb8-43c6e976f2c5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/181917874-4dd25244-53ca-4837-b739-8f55c72bed06.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182004577-a1a56d1e-d877-4da1-a68c-d8aa203dbcad.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182004582-a483dea3-2d27-4a9b-8c5f-fb91cd9466fb.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182004588-5ba56775-14e4-46a6-8493-4a67db287e08.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182004592-ef50188c-f445-4f21-9aec-44e223d58a20.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182026137-37d098ed-646f-43de-95aa-316e5b05adf5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182026322-974bffcf-675c-433d-9c3b-ef545045e7a4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182026527-b159cd84-2c78-404e-8796-15170b9c2df0.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/182028605-40514cdf-4eb8-4744-af08-8acf6d88cd6d.png">
+<meta property="article:published_time" content="2022-07-26T14:17:37.000Z">
+<meta property="article:modified_time" content="2024-08-05T15:56:31.234Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/181904225-a471cfa0-e14e-4482-a554-f2e85744dd92.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/generative-adversarial-network-3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/generative-adversarial-network-3/","path":"generative-adversarial-network-3/","title":"Generative Adversarial Network (3)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Generative Adversarial Network (3) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MNIST-Dataset"><span class="nav-number">1.</span> <span class="nav-text">MNIST Dataset</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Description"><span class="nav-number">1.1.</span> <span class="nav-text">Data Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discriminator"><span class="nav-number">1.2.</span> <span class="nav-text">Discriminator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-number">1.3.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAN-Training"><span class="nav-number">1.4.</span> <span class="nav-text">GAN Training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mode-Collapse"><span class="nav-number">1.5.</span> <span class="nav-text">Mode Collapse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Seed"><span class="nav-number">1.6.</span> <span class="nav-text">Random Seed</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Face-Image"><span class="nav-number">2.</span> <span class="nav-text">Face Image</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CelebA-Dataset"><span class="nav-number">2.1.</span> <span class="nav-text">CelebA Dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hierarchical-Data-Format"><span class="nav-number">2.2.</span> <span class="nav-text">Hierarchical Data Format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discriminator-1"><span class="nav-number">2.3.</span> <span class="nav-text">Discriminator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-1"><span class="nav-number">2.4.</span> <span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAN-Training-1"><span class="nav-number">2.5.</span> <span class="nav-text">GAN Training</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-2/" rel="bookmark">
+        <time class="popular-posts-time">2022-07-20</time>
+        <br>
+      Generative Adversarial Network (2)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/generative-adversarial-network-4/" rel="bookmark">
+        <time class="popular-posts-time">2022-08-06</time>
+        <br>
+      Generative Adversarial Network (4)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/boj-1213/" rel="bookmark">
+        <time class="popular-posts-time">2022-10-24</time>
+        <br>
+      BOJ: 1213
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/neural-network-example/" rel="bookmark">
+        <time class="popular-posts-time">2021-09-09</time>
+        <br>
+      Neural Network Example
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/deep-learning-with-pytorch-1/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-17</time>
+        <br>
+      Deep Learning with PyTorch (1)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/generative-adversarial-network-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Generative Adversarial Network (3) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Generative Adversarial Network (3)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-26 23:17:37" itemprop="dateCreated datePublished" datetime="2022-07-26T23:17:37+09:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-machine-learning/" itemprop="url" rel="index"><span itemprop="name">5. Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="MNIST-Dataset"><a href="#MNIST-Dataset" class="headerlink" title="MNIST Dataset"></a>MNIST Dataset</h1><h2 id="Data-Description"><a href="#Data-Description" class="headerlink" title="Data Description"></a>Data Description</h2><blockquote>
+<p>MNIST dataset<br><img src="https://user-images.githubusercontent.com/42334717/181904225-a471cfa0-e14e-4482-a554-f2e85744dd92.png" alt="MNIST dataset"></p>
+</blockquote>
+<ul>
+<li>Dataset 구성: 0 ~ 9의 손글씨 이미지 ($28\times28&#x3D;784$)와 label</li>
+<li><code>MnistDataset</code> 클래스<ul>
+<li><code>Raw data</code> $\rightarrow$ <code>Tensor</code></li>
+<li><code>Label</code>, <code>Pixel values</code>, <code>One-hot encoding tensor</code> 반환</li>
+</ul>
+</li>
+<li>목표: 생성기의 생성 이미지가 판별기를 속일 수 있도록 훈련</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Discriminator"><a href="#Discriminator" class="headerlink" title="Discriminator"></a>Discriminator</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Discriminator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">784</span>, <span class="number">200</span>),</span><br><span class="line">            nn.Sigmoid(),</span><br><span class="line">            nn.Linear(<span class="number">200</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        self.loss_function = nn.MSELoss()</span><br><span class="line">        self.optimiser = torch.optim.SGD(self.parameters(), lr=<span class="number">0.01</span>)</span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, inputs, targets</span>):</span><br><span class="line">        outputs = self.forward(inputs)</span><br><span class="line">        loss = self.loss_function(outputs, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10000</span> == <span class="number">0</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;counter = &quot;</span>, self.counter)</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns=[<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim=(<span class="number">0</span>, <span class="number">1.0</span>), figsize=(<span class="number">16</span>,<span class="number">8</span>), alpha=<span class="number">0.1</span>, marker=<span class="string">&#x27;.&#x27;</span>, grid=<span class="literal">True</span>, yticks=(<span class="number">0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Discriminator training<br><img src="https://user-images.githubusercontent.com/42334717/181916844-68b5252f-def8-4c8d-9dbd-b43722986a69.png" alt="Discriminator training"></p>
+</blockquote>
+<ul>
+<li>실제 이미지 vs. 임의의 노이즈 분류 확인</li>
+</ul>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Generator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">1</span>, <span class="number">200</span>),</span><br><span class="line">            nn.Sigmoid(),</span><br><span class="line">            nn.Linear(<span class="number">200</span>, <span class="number">784</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        self.optimiser = torch.optim.SGD(self.parameters(), lr = <span class="number">0.01</span>)</span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, D, inputs, targets</span>):</span><br><span class="line">        g_output = self.forward(inputs)</span><br><span class="line">        d_output = D.forward(g_output)</span><br><span class="line">        loss = D.loss_function(d_output, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns = [<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim = (<span class="number">0</span>, <span class="number">1.0</span>), figsize = (<span class="number">16</span>, <span class="number">8</span>), alpha = <span class="number">0.1</span>, marker = <span class="string">&#x27;.&#x27;</span>, grid = <span class="literal">True</span>, yticks = (<span class="number">0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>생성기는 훈련 데이터의 여러 양상을 다양하게 반영해야 함<ul>
+<li>항상 정확히 같은 값 출력 X</li>
+<li>0 ~ 9의 모든 이미지 생성</li>
+</ul>
+</li>
+<li>하지만 신경망의 같은 입력값에 대해서 항상 같은 출력<ul>
+<li>생성기의 입력으로 상수 X</li>
+<li>매 훈련 사이클마다 임의 입력 필요 $\rightarrow$ Random Seed</li>
+</ul>
+</li>
+</ul>
+<h2 id="GAN-Training"><a href="#GAN-Training" class="headerlink" title="GAN Training"></a>GAN Training</h2><figure class="highlight python"><figcaption><span>CPUTraining.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">D = Discriminator()</span><br><span class="line">G = Generator()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> label, image_data_tensor, target_tensor <span class="keyword">in</span> mnist_dataset:</span><br><span class="line">    D.train(image_data_tensor, torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    D.train(G.forward(generate_random(<span class="number">1</span>)).detach(), torch.FloatTensor([<span class="number">0.0</span>]))</span><br><span class="line">    G.train(D, generate_random(<span class="number">1</span>), torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>GPUAcceleratedTraining.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(torch.backends.mps.is_built())</span><br><span class="line"><span class="built_in">print</span>(torch.backends.mps.is_available())</span><br><span class="line"></span><br><span class="line">D = Discriminator()</span><br><span class="line">D = D.to(<span class="string">&quot;mps&quot;</span>)</span><br><span class="line">G = Generator()</span><br><span class="line">G = G.to(<span class="string">&quot;mps&quot;</span>)</span><br><span class="line"></span><br><span class="line">label, image_data_tensor, target_tensor = mnist_dataset[:]</span><br><span class="line"></span><br><span class="line">image_data_tensor_g = image_data_tensor.to(<span class="string">&quot;mps&quot;</span>)</span><br><span class="line"></span><br><span class="line">tFT1 = torch.FloatTensor([<span class="number">1.0</span>]).to(<span class="string">&quot;mps&quot;</span>)</span><br><span class="line">tFT0 = torch.FloatTensor([<span class="number">0.0</span>]).to(<span class="string">&quot;mps&quot;</span>)</span><br><span class="line"></span><br><span class="line">Dt = generate_random(<span class="built_in">len</span>(mnist_dataset)).to(<span class="string">&quot;mps&quot;</span>)</span><br><span class="line">Gt = generate_random(<span class="built_in">len</span>(mnist_dataset)).to(<span class="string">&quot;mps&quot;</span>)</span><br><span class="line">Dt = Dt.reshape(<span class="built_in">len</span>(Dt),<span class="number">1</span>)</span><br><span class="line">Gt = Dt.reshape(<span class="built_in">len</span>(Gt),<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> image_data_tensor, dt, gt <span class="keyword">in</span> <span class="built_in">zip</span>(image_data_tensor_g, Dt, Gt):</span><br><span class="line">    D.train(image_data_tensor, tFT1)</span><br><span class="line">    D.train(G.forward(dt).detach(), tFT0)</span><br><span class="line">    G.train(D, gt, tFT1)</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Loss of GAN training process<br><img src="https://user-images.githubusercontent.com/42334717/181916888-8d5f038c-0592-41d9-8c0e-bbe2bb9b0772.png" alt="Loss of GAN training process"></p>
+</blockquote>
+<ul>
+<li>Discriminator<ul>
+<li>Loss: 0 $\rightarrow$ 0.25 $\rightarrow$ 0</li>
+<li>판별기 &gt; 생성기 $\rightarrow$ 판별기 &#x3D; 생성기 $\rightarrow$ 판별기 &gt; 생성기</li>
+</ul>
+</li>
+<li>Generator<ul>
+<li>Loss: 1 $\rightarrow$ 0.25 $\rightarrow$ 1</li>
+<li>판별기 &gt; 생성기 $\rightarrow$ 판별기 &#x3D; 생성기 $\rightarrow$ 판별기 &gt; 생성기</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Results of generator<br><img src="https://user-images.githubusercontent.com/42334717/181916913-4ef84a45-21a1-4845-9520-ee8efd4bac35.png" alt="Results of generator"></p>
+</blockquote>
+<ul>
+<li>기존의 숫자 이미지들과 형상 유사</li>
+<li>생성기 이미지들의 차이가 거의 없음</li>
+</ul>
+<h2 id="Mode-Collapse"><a href="#Mode-Collapse" class="headerlink" title="Mode Collapse"></a>Mode Collapse</h2><ul>
+<li>Definition: 생성기가 다양한 label에 대한 이미지를 생성하지 못하고 하나 또는 극히 일부의 이미지만 생성<ul>
+<li>발생 이유는 명확히 규명되지 않음</li>
+<li>생성기가 판별기보다 더 앞서간 후 항상 실제에 가깝게 결과가 나오는 지점에 대해서만 이미지를 만들어내는 가능성 존재</li>
+</ul>
+</li>
+<li>손실이 높아지는 구간에서는 학습이 진행되지 않음 (생성기의 성능 향상 불가)<ul>
+<li>훈련의 질 중요</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><figcaption><span>AdvancedGAN.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Discriminator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">784</span>, <span class="number">200</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>), <span class="comment">#nn.Sigmoid(),</span></span><br><span class="line">            nn.LayerNorm(<span class="number">200</span>),</span><br><span class="line">            nn.Linear(<span class="number">200</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        self.loss_function = nn.BCELoss() <span class="comment">#nn.MSELoss()</span></span><br><span class="line">        self.optimiser = torch.optim.Adam(self.parameters(), lr=<span class="number">0.0001</span>) <span class="comment">#torch.optim.SGD(self.parameters(), lr=0.01)</span></span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, inputs, targets</span>):</span><br><span class="line">        outputs = self.forward(inputs)</span><br><span class="line">        loss = self.loss_function(outputs, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10000</span> == <span class="number">0</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;counter = &quot;</span>, self.counter)</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns = [<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim = (<span class="number">0</span>), figsize = (<span class="number">16</span>, <span class="number">8</span>), alpha = <span class="number">0.1</span>, marker = <span class="string">&#x27;.&#x27;</span>, grid = <span class="literal">True</span>, yticks = (<span class="number">0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">1.0</span>, <span class="number">5.0</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Generator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">100</span>, <span class="number">200</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>), <span class="comment">#nn.Sigmoid(),</span></span><br><span class="line">            nn.LayerNorm(<span class="number">200</span>),</span><br><span class="line">            nn.Linear(<span class="number">200</span>, <span class="number">784</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        self.optimiser = torch.optim.Adam(self.parameters(), lr=<span class="number">0.0001</span>) <span class="comment">#torch.optim.SGD(self.parameters(), lr = 0.01)</span></span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, D, inputs, targets</span>):</span><br><span class="line">        g_output = self.forward(inputs)</span><br><span class="line">        d_output = D.forward(g_output)</span><br><span class="line">        loss = D.loss_function(d_output, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns = [<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim = (<span class="number">0</span>), figsize = (<span class="number">16</span>, <span class="number">8</span>), alpha = <span class="number">0.1</span>, marker = <span class="string">&#x27;.&#x27;</span>, grid = <span class="literal">True</span>, yticks = (<span class="number">0</span>, <span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">1.0</span>, <span class="number">5.0</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">D = Discriminator()</span><br><span class="line">G = Generator()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> label, image_data_tensor, target_tensor <span class="keyword">in</span> mnist_dataset:</span><br><span class="line">    D.train(image_data_tensor, torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    D.train(G.forward(generate_random(<span class="number">100</span>)).detach(), torch.FloatTensor([<span class="number">0.0</span>]))</span><br><span class="line">    G.train(D, generate_random(<span class="number">100</span>), torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Results of advanced generator: edit activation function, layer, optimizer<br><img src="https://user-images.githubusercontent.com/42334717/181917232-4f510196-5c9c-4446-baff-b6658fc9c63f.png" alt="Results of advanced generator"></p>
+</blockquote>
+<ul>
+<li>생성기의 이미지가 조금 더 선명해지고 서로 식별이 약간 가능해졌지만 숫자의 형태라고 보기엔 어려움</li>
+<li>하나의 시드를 통해 10개 숫자에 대한 784개의 픽셀을 생성하는 것을 시도하기 때문에 개선 필요</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">100</span>, <span class="number">200</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.02</span>), <span class="comment">#nn.Sigmoid(),</span></span><br><span class="line">            nn.LayerNorm(<span class="number">200</span>),</span><br><span class="line">            nn.Linear(<span class="number">200</span>, <span class="number">784</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">...</span><br><span class="line"><span class="keyword">for</span> label, image_data_tensor, target_tensor <span class="keyword">in</span> mnist_dataset:</span><br><span class="line">    D.train(image_data_tensor, torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    D.train(G.forward(generate_random(<span class="number">100</span>)).detach(), torch.FloatTensor([<span class="number">0.0</span>]))</span><br><span class="line">    G.train(D, generate_random(<span class="number">100</span>), torch.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Results of advanced generator: edit random seed size<br><img src="https://user-images.githubusercontent.com/42334717/181917247-654449ab-c0b5-438f-b4b2-e7b874d0d2e0.png" alt="Results of advanced generator"></p>
+</blockquote>
+<ul>
+<li>여전히 모드 붕괴 발생</li>
+<li>판별기에 입력되는 임의의 이미지 픽셀 값은 0에서 1 사이에서 고르게 선택<ul>
+<li>0 ~ 1: 실제 데이터셋 기반 값</li>
+<li>정규분포와 같은 경향성 없이 선택</li>
+</ul>
+</li>
+<li>생성기 투입 시드: 평균이 0이고 분산이 1인 분포에서 선택<ul>
+<li>신경망에서 평균이 0이고 분산이 제한된 정규화된 값들이 학습에 유리</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><figcaption><span>genRandom.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">generate_random_image</span>(<span class="params">size</span>):</span><br><span class="line">    random_data = torch.rand(size)</span><br><span class="line">    <span class="keyword">return</span>(random_data)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_random_seed</span>(<span class="params">size</span>):</span><br><span class="line">    random_data = torch.randn(size)</span><br><span class="line">    <span class="keyword">return</span>(random_data)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Results of advanced generator: edit random seed<br><img src="https://user-images.githubusercontent.com/42334717/181917467-e3b613e8-8937-4650-8bb8-43c6e976f2c5.png" alt="Results of advanced generator"></p>
+</blockquote>
+<ul>
+<li>모드 붕괴가 해결되어 다른 종류의 숫자 이미지를 생성기가 생성 가능</li>
+</ul>
+<blockquote>
+<p>Loss of advanced GAN training process<br><img src="https://user-images.githubusercontent.com/42334717/181917874-4dd25244-53ca-4837-b739-8f55c72bed06.png" alt="Loss of advanced GAN training process"></p>
+</blockquote>
+<ul>
+<li><code>BCELoss()</code>: 이진 교차 엔트로피의 수학적 정의에 의해 $\ln(2)&#x3D;0.693$이 이상적 손실</li>
+<li>모드 붕괴의 해결책이 무조건 <code>randn()</code>의 사용 혹은 시드의 수를 증가시키는 것은 아님<ul>
+<li>GAN에서 생성기와 판별기의 균형을 맞추는 것은 상당히 어려운 과정</li>
+<li>균형이 맞지 않더라도 생성기의 성능이 나쁘지 않을 수 있음</li>
+</ul>
+</li>
+</ul>
+<h2 id="Random-Seed"><a href="#Random-Seed" class="headerlink" title="Random Seed"></a>Random Seed</h2><ul>
+<li>두가지 seed를 이용해 그 사이에 존재하는 seed들에 의해 생성기에 의해 생성된 이미지 실험</li>
+</ul>
+<blockquote>
+<p>Results of advanced generator: edit epoch<br><img src="https://user-images.githubusercontent.com/42334717/182004577-a1a56d1e-d877-4da1-a68c-d8aa203dbcad.png" alt="Results of advanced generator"></p>
+</blockquote>
+<blockquote>
+<p>Images generated by seed1 and seed2<br><img src="https://user-images.githubusercontent.com/42334717/182004582-a483dea3-2d27-4a9b-8c5f-fb91cd9466fb.png" alt="Images generated by seed1 and seed2"></p>
+</blockquote>
+<blockquote>
+<p>Images generated by seed1 + seed2 and seed1 - seed2<br><img src="https://user-images.githubusercontent.com/42334717/182004588-5ba56775-14e4-46a6-8493-4a67db287e08.png" alt="Images generated by seed1 + seed2 and seed1 - seed2"></p>
+</blockquote>
+<blockquote>
+<p>Images generated by seeds between seed1 and seed2<br><img src="https://user-images.githubusercontent.com/42334717/182004592-ef50188c-f445-4f21-9aec-44e223d58a20.png" alt="Images generated by seeds between seed1 and seed2"></p>
+</blockquote>
+<hr>
+<h1 id="Face-Image"><a href="#Face-Image" class="headerlink" title="Face Image"></a>Face Image</h1><ul>
+<li>3차원 (RGB) 풀컬러 이미지 훈련 및 생성<ul>
+<li>$M\times N\times3$</li>
+</ul>
+</li>
+<li>사진의 훈련 데이터셋을 이용 및 다양하고 실제적 결과 산출</li>
+</ul>
+<h2 id="CelebA-Dataset"><a href="#CelebA-Dataset" class="headerlink" title="CelebA Dataset"></a>CelebA Dataset</h2><ul>
+<li>202,599개의 유명인 얼굴 이미지</li>
+<li>눈과 입의 위치가 비슷한 좌표에 위치하도록 조정됨 (aligned)</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cDovL21tbGFiLmllLmN1aGsuZWR1LmhrL3Byb2plY3RzL0NlbGViQS5odG1s">CelebA Dataset</span></p>
+<h2 id="Hierarchical-Data-Format"><a href="#Hierarchical-Data-Format" class="headerlink" title="Hierarchical Data Format"></a>Hierarchical Data Format</h2><ul>
+<li>다수의 <code>.jpeg</code> 파일 $\rightarrow$ 훈련 과정에서 열고 닫을 시 시간 소모 큼 $\rightarrow$ HDF5 사용</li>
+<li>HDF (Hierarchical Data Format, 계층적 데이터 형식): 용량이 매우 큰 데이터에 효과적으로 접근하기 위해 만들어진 데이터 형식<ul>
+<li>하나 이상의 그룹을 가질 수 있어 계층적이라 불림</li>
+<li>그룹 안에 여러 개의 데이터셋이 포함될 수 있음</li>
+<li>HDF5 (HDF version 5)를 이용해 훈련 과정에서의 시간 소모 개선 및 메모리의 한계 극복</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision.datasets</span><br><span class="line"></span><br><span class="line">CelebA_dataset = torchvision.datasets.CelebA(root=<span class="string">&#x27;.&#x27;</span>, download=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> h5py</span><br><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">hdf5_file = <span class="string">&#x27;celeba/celeba_aligned_small.h5py&#x27;</span></span><br><span class="line"></span><br><span class="line">total_images = <span class="number">20000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> h5py.File(hdf5_file, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> hf:</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">with</span> zipfile.ZipFile(<span class="string">&#x27;celeba/img_align_celeba.zip&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> zf:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> zf.namelist():</span><br><span class="line">            <span class="keyword">if</span> (i[-<span class="number">4</span>:] == <span class="string">&#x27;.jpg&#x27;</span>):</span><br><span class="line">                ofile = zf.extract(i)</span><br><span class="line">                img = imageio.imread(ofile)</span><br><span class="line">                os.remove(ofile)</span><br><span class="line">                hf.create_dataset(<span class="string">&#x27;img_align_celeba/&#x27;</span>+<span class="built_in">str</span>(count)+<span class="string">&#x27;.jpg&#x27;</span>, data=img, compression=<span class="string">&quot;gzip&quot;</span>, compression_opts=<span class="number">9</span>)</span><br><span class="line">                count = count + <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> (count%<span class="number">1000</span> == <span class="number">0</span>):</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&quot;images done .. &quot;</span>, count)</span><br><span class="line">                    <span class="keyword">pass</span></span><br><span class="line">                <span class="keyword">if</span> (count == total_images):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>import h5py</code>: HDF5 파일을 다루기 위한 라이브러리</li>
+<li>$218\times178\times3$: 높이 218픽셀, 너비 178픽셀, RGB</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CelebADataset</span>(<span class="title class_ inherited__">Dataset</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, file</span>):</span><br><span class="line">        self.file_object = h5py.File(file, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">        self.dataset = self.file_object[<span class="string">&#x27;img_align_celeba&#x27;</span>]</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.dataset)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, index</span>):</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= <span class="built_in">len</span>(self.dataset)):</span><br><span class="line">            <span class="keyword">raise</span> IndexError()</span><br><span class="line">        img = np.array(self.dataset[<span class="built_in">str</span>(index)+<span class="string">&#x27;.jpg&#x27;</span>])</span><br><span class="line">        <span class="keyword">return</span> torch.cuda.FloatTensor(img) / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_image</span>(<span class="params">self, index</span>):</span><br><span class="line">        plt.imshow(np.array(self.dataset[<span class="built_in">str</span>(index)+<span class="string">&#x27;.jpg&#x27;</span>]), interpolation=<span class="string">&#x27;nearest&#x27;</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">celeba_dataset = CelebADataset(<span class="string">&#x27;celeba/celeba_aligned_small.h5py&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>__init__()</code>: HDF5 파일을 열고 <code>img_align_celeba</code>로 각각의 이미지에 접근</li>
+<li><code>__len__()</code>: 그룹 안의 데이터 수 반환</li>
+<li><code>__getitem__()</code>: Index를 이미지의 이름으로 변환하고 이미지 데이터 반환</li>
+</ul>
+<h2 id="Discriminator-1"><a href="#Discriminator-1" class="headerlink" title="Discriminator"></a>Discriminator</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">View</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, shape</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.shape = shape,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> x.view(*self.shape)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Discriminator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            View(<span class="number">218</span>*<span class="number">178</span>*<span class="number">3</span>),</span><br><span class="line">            nn.Linear(<span class="number">3</span>*<span class="number">218</span>*<span class="number">178</span>, <span class="number">100</span>),</span><br><span class="line">            nn.LeakyReLU(),</span><br><span class="line">            nn.LayerNorm(<span class="number">100</span>),</span><br><span class="line">            nn.Linear(<span class="number">100</span>, <span class="number">1</span>),</span><br><span class="line">            nn.Sigmoid()</span><br><span class="line">        )</span><br><span class="line">        self.loss_function = nn.BCELoss()</span><br><span class="line">        self.optimiser = torch.optim.Adam(self.parameters(), lr = <span class="number">0.0001</span>)</span><br><span class="line">        self.optimiser.param_groups[<span class="number">0</span>][<span class="string">&#x27;capturable&#x27;</span>] = <span class="literal">True</span></span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, inputs, targets</span>):</span><br><span class="line">        outputs = self.forward(inputs)</span><br><span class="line">        loss = self.loss_function(outputs, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">1000</span> == <span class="number">0</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;counter = &quot;</span>, self.counter)</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns = [<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim = (<span class="number">0</span>), figsize = (<span class="number">16</span>, <span class="number">8</span>), alpha = <span class="number">0.1</span>, marker = <span class="string">&#x27;.&#x27;</span>, grid = <span class="literal">True</span>, yticks = (<span class="number">0</span>, <span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이미지가 실제인지 생성된 이미지인지 분류</li>
+<li>입력: $218\times178\times3&#x3D;116412$<ul>
+<li>신경망이 완전 연결 신경망이므로 일관된 기준을 통해 정렬</li>
+<li>이미지를 어떻게 풀어서 정렬하는지는 중요하지 않음</li>
+</ul>
+</li>
+<li><code>View()</code>: 3차원 이미지 텐서를 1차원 형태의 텐서로 변환<ul>
+<li>$(218,178,3)\rightarrow(218\times178\times3)$</li>
+<li><code>nn.Module</code>을 상속하여 <code>Sequential</code> 내에서 다른 모듈과 함께 사용 가능</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">D = Discriminator()</span><br><span class="line">D.to(device)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> image_data_tensor <span class="keyword">in</span> celeba_dataset:</span><br><span class="line">    D.train(image_data_tensor, torch.cuda.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">    D.train(generate_random_image((<span class="number">218</span>,<span class="number">178</span>,<span class="number">3</span>)), torch.cuda.FloatTensor([<span class="number">0.0</span>]))</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Discriminator test<br><img src="https://user-images.githubusercontent.com/42334717/182026137-37d098ed-646f-43de-95aa-316e5b05adf5.png" alt="Discriminator test"></p>
+</blockquote>
+<h2 id="Generator-1"><a href="#Generator-1" class="headerlink" title="Generator"></a>Generator</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Generator</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.model = nn.Sequential(</span><br><span class="line">            nn.Linear(<span class="number">100</span>, <span class="number">3</span>*<span class="number">10</span>*<span class="number">10</span>),</span><br><span class="line">            nn.LeakyReLU(),</span><br><span class="line">            nn.LayerNorm(<span class="number">3</span>*<span class="number">10</span>*<span class="number">10</span>),</span><br><span class="line">            nn.Linear(<span class="number">3</span>*<span class="number">10</span>*<span class="number">10</span>, <span class="number">3</span>*<span class="number">218</span>*<span class="number">178</span>),</span><br><span class="line">            nn.Sigmoid(),</span><br><span class="line">            View((<span class="number">218</span>, <span class="number">178</span>, <span class="number">3</span>))</span><br><span class="line">        )</span><br><span class="line">        self.optimiser = torch.optim.Adam(self.parameters(), lr = <span class="number">0.0001</span>)</span><br><span class="line">        self.optimiser.param_groups[<span class="number">0</span>][<span class="string">&#x27;capturable&#x27;</span>] = <span class="literal">True</span></span><br><span class="line">        self.counter = <span class="number">0</span></span><br><span class="line">        self.progress = []</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="keyword">return</span> self.model(inputs)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">self, D, inputs, targets</span>):</span><br><span class="line">        g_output = self.forward(inputs)</span><br><span class="line">        d_output = D.forward(g_output)</span><br><span class="line">        loss = D.loss_function(d_output, targets)</span><br><span class="line">        self.counter += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (self.counter % <span class="number">10</span> == <span class="number">0</span>):</span><br><span class="line">            self.progress.append(loss.item())</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        self.optimiser.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        self.optimiser.step()</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">plot_progress</span>(<span class="params">self</span>):</span><br><span class="line">        df = pd.DataFrame(self.progress, columns = [<span class="string">&#x27;loss&#x27;</span>])</span><br><span class="line">        df.plot(ylim = (<span class="number">0</span>), figsize = (<span class="number">16</span>, <span class="number">8</span>), alpha = <span class="number">0.1</span>, marker = <span class="string">&#x27;.&#x27;</span>, grid = <span class="literal">True</span>, yticks = (<span class="number">0</span>, <span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3차원의 텐서를 $(218,178,3)$의 크기로 결과를 출력하도록 수정</li>
+<li>$100\rightarrow300\rightarrow3\times218\times178\rightarrow(218,178,3)$</li>
+</ul>
+<blockquote>
+<p>Result of generator<br><img src="https://user-images.githubusercontent.com/42334717/182026322-974bffcf-675c-433d-9c3b-ef545045e7a4.png" alt="Result of generator"></p>
+</blockquote>
+<h2 id="GAN-Training-1"><a href="#GAN-Training-1" class="headerlink" title="GAN Training"></a>GAN Training</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">%%time</span><br><span class="line"></span><br><span class="line">D = Discriminator()</span><br><span class="line">D.to(device)</span><br><span class="line">G = Generator()</span><br><span class="line">G.to(device)</span><br><span class="line"></span><br><span class="line">epochs = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">    <span class="keyword">for</span> image_data_tensor <span class="keyword">in</span> celeba_dataset:</span><br><span class="line">        D.train(image_data_tensor, torch.cuda.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">        D.train(G.forward(generate_random_seed(<span class="number">100</span>)).detach(), torch.cuda.FloatTensor([<span class="number">0.0</span>]))</span><br><span class="line">        G.train(D, generate_random_seed(<span class="number">100</span>), torch.cuda.FloatTensor([<span class="number">1.0</span>]))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Loss of GAN training process<br><img src="https://user-images.githubusercontent.com/42334717/182026527-b159cd84-2c78-404e-8796-15170b9c2df0.png" alt="Loss of GAN training process"></p>
+</blockquote>
+<blockquote>
+<p>Results of generator<br><img src="https://user-images.githubusercontent.com/42334717/182028605-40514cdf-4eb8-4744-af08-8acf6d88cd6d.png" alt="Results of generator"></p>
+</blockquote>
+<ul>
+<li>생성기는 직접 이미지를 통해 훈련하지 않고 이미지를 생성할 때 훈련 데이터의 우도 (likelihood) 사용</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/hands-on-machine-learning-2/" rel="prev" title="Hands-on Machine Learning (2)">
+                  <i class="fa fa-chevron-left"></i> Hands-on Machine Learning (2)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/hands-on-machine-learning-3/" rel="next" title="Hands-on Machine Learning (3)">
+                  Hands-on Machine Learning (3) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"8a1526f59a167c5758f8d88a86ba5caa"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
