@@ -9,8 +9,42 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Mon, 05 Aug 2024 15:56:31 GMT</pubDate>
+    <pubDate>Thu, 08 Aug 2024 14:17:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Setting Up Kubernetes v1.30.3</title>
+      <link>https://zerohertz.github.io/kubeadm-v1-30/</link>
+      <guid>https://zerohertz.github.io/kubeadm-v1-30/</guid>
+      <pubDate>Thu, 08 Aug 2024 11:14:20 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;평화롭던 어느날… &lt;code&gt;sudo reboot&lt;/code&gt; 이후 home server의 network에 큰 이상이 생겼다…&lt;br&gt;원인은 DHCP (Dynamic Host Configuration Protocol)를 통해 IP를 할당받지 못하는 것이였다.&lt;br&gt;기존에는 아래와 같이 OSI 2계층인 data link 계층에 속하는 MAC 주소로 고정적인 IP를 할당했었다.&lt;/p&gt;
+&lt;img width=&quot;613&quot; alt=&quot;DHCP&quot; src=&quot;https://github.com/user-attachments/assets/7c34d9ae-410c-4557-b81d-bffe494f2616&quot;&gt;
+
+&lt;p&gt;&lt;code&gt;netplan&lt;/code&gt;을 통해 위 문제들을 해결할 수 있겠지만 기존에도 Kubernetes의 version up을 고려하고 있었기에 kubeadm &lt;code&gt;1.30.3&lt;/code&gt;을 통해 설치와 setup을 진행해보자!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Reference: &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2Jsb2cvMjAyNC8wNC8xNy9rdWJlcm5ldGVzLXYxLTMwLXJlbGVhc2Uv&quot;&gt;Kubernetes v1.30: Uwubernetes&lt;/span&gt; (UwU ♥️) &lt;img width=&quot;400&quot; alt=&quot;Uwubernetes&quot; src=&quot;https://kubernetes.io/images/blog/2024-04-17-kubernetes-1.30-release/k8s-1.30.png&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;하지만 &lt;a href=&quot;https://zerohertz.github.io/k8s/#K8s&quot;&gt;기존의 Kubernetes version인 &lt;code&gt;1.22.19&lt;/code&gt;&lt;/a&gt;는 CRI (Container Runtime Interface)로 Docker를 지원하지 않는 큰 차이점이 존재한다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9rdWJlcm5ldGVzLmlvL2Jsb2cvMjAyMi8wMi8xNy9kb2NrZXJzaGltLWZhcS8=&quot;&gt;Kubernetes의 공식 문서&lt;/span&gt;에 따르면 &lt;code&gt;1.24&lt;/code&gt; release 부터 Dockershim (&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9yYW5jaGVybWFuYWdlci5kb2NzLnJhbmNoZXIuY29tL2ZhcS9kb2NrZXJzaGlt&quot;&gt;Kubernetes 환경에서 Docker와의 호완성을 위해 사용된 compliant layer&lt;/span&gt;)을 제거했다.&lt;br&gt;그렇다면 Kubernetes가 발전하며 왜 Dockershim에 대한 지원을 중단하게 되었을까?&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://zerohertz.github.io/categories/3-devops/">3. DevOps</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/airflow/">Airflow</category>
+      
+      <category domain="https://zerohertz.github.io/tags/kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zerohertz.github.io/tags/home-server/">Home Server</category>
+      
+      <category domain="https://zerohertz.github.io/tags/argo-cd/">Argo CD</category>
+      
+      
+      <comments>https://zerohertz.github.io/kubeadm-v1-30/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>CKA (Certified Kubernetes Administrator)</title>

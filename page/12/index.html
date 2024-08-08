@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-count">211</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -212,6 +212,91 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/matlab-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/matlab-11/" class="post-title-link" itemprop="url">MATLAB (11)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-24 16:09:01" itemprop="dateCreated datePublished" datetime="2019-12-24T16:09:01+09:00">2019-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Species-classification-by-sepal"><a href="#Species-classification-by-sepal" class="headerlink" title="Species classification by sepal"></a>Species classification by sepal</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br><span class="line"> </span><br><span class="line"><span class="comment">%Load data</span></span><br><span class="line">load fisheriris</span><br><span class="line">x=meas(:,<span class="number">1</span>:<span class="number">2</span>);</span><br><span class="line">y=categorical(species);</span><br><span class="line">labels = categories(y);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line">gscatter(x(:,<span class="number">1</span>),x(:,<span class="number">2</span>),species,<span class="string">&#x27;rgb&#x27;</span>,<span class="string">&#x27;osd&#x27;</span>);</span><br><span class="line">xlabel(<span class="string">&#x27;Sepal length&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;Sepal width&#x27;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">%Learning by data</span></span><br><span class="line">classifier&#123;<span class="number">1</span>&#125;=ClassificationDiscriminant.fit(x,y);</span><br><span class="line">classifier&#123;<span class="number">2</span>&#125;=ClassificationTree.fit(x,y);</span><br><span class="line">classifier&#123;<span class="number">3</span>&#125;=ClassificationKNN.fit(x,y);</span><br><span class="line"><span class="comment">%classifier&#123;4&#125;=NaiveBayes.fit(x,y); 2019 ver</span></span><br><span class="line">classifier_name=&#123;<span class="string">&#x27;Discriminant Analysis&#x27;</span>,<span class="string">&#x27;Classification Tree&#x27;</span>,<span class="string">&#x27;Nearest Neighbor&#x27;</span>&#125;; <span class="comment">%&#x27;Naive Bayes&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">%Check the result</span></span><br><span class="line">[xx1,xx2]=<span class="built_in">meshgrid</span>(<span class="number">4</span>:<span class="number">.01</span>:<span class="number">8</span>,<span class="number">2</span>:<span class="number">.01</span>:<span class="number">4.5</span>);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="built_in">numel</span>(classifier)</span><br><span class="line">    ypred=predict(classifier&#123;ii&#125;,[xx1(:) xx2(:)]);</span><br><span class="line">    h(ii)=subplot(<span class="number">2</span>,<span class="number">2</span>,ii);</span><br><span class="line">    gscatter(xx1(:),xx2(:),ypred,<span class="string">&#x27;rgb&#x27;</span>);</span><br><span class="line">    title(classifier_name&#123;ii&#125;,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>)</span><br><span class="line">    <span class="built_in">legend</span> off</span><br><span class="line">    axis tight</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">%Confusion Matrix</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">3</span>)</span><br><span class="line">predictResult=predict(classifier&#123;<span class="number">2</span>&#125;,x);</span><br><span class="line">y=categorical(y);</span><br><span class="line">predictResult=categorical(predictResult);</span><br><span class="line">plotconfusion(y,predictResult);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/matlab-11/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1440,95 +1525,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/inverse-kinematics-in-unreal-engine-1/" class="post-title-link" itemprop="url">Inverse Kinematics in Unreal Engine (1)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-05-29 15:54:57" itemprop="dateCreated datePublished" datetime="2019-05-29T15:54:57+09:00">2019-05-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Inverse-Kinematics를-Unreal-engine에-구현"><a href="#Inverse-Kinematics를-Unreal-engine에-구현" class="headerlink" title="Inverse Kinematics를 Unreal engine에 구현"></a>Inverse Kinematics를 Unreal engine에 구현</h1><blockquote>
-<p>IKBPLibrary.h</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/inverse-kinematics-in-unreal-engine-1/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

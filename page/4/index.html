@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-count">211</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -212,6 +212,102 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/aws-neuron-sdk-aws-inferentia/" class="post-title-link" itemprop="url">AWS Neuron SDK & AWS Inferentia</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-05-12 10:36:33" itemprop="dateCreated datePublished" datetime="2023-05-12T10:36:33+09:00">2023-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-mlops/" itemprop="url" rel="index"><span itemprop="name">4. MLOps</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Model serving 시 모델의 입력에 대해 출력을 산출하는 과정인 <span class="exturl" data-url="aHR0cHM6Ly8wNzY5MjMuZ2l0aHViLmlvL3Bvc3RzL0FJLTUvIyVFQyU4OCU5QyVFQyVBMCU4NCVFRCU4QyU4Q2ZvcndhcmQtcHJvcGFnYXRpb24=">순전파 (forward propagation)</span>는 model 내부의 layer들을 거치는데, 각 layer에는 수많은 단순 연산들이 존재한다.<br>이를 병렬로 수행하기 위해 CPU (Central Processing Unit)보다 병렬 계산에 이점이 있는 GPU (Grphic Processing Unit)을 많이 활용하고 있다.<br>하지만 아래와 같은 한계점이 존재한다.</p>
+<ul>
+<li>비싸다. (물리적 GPU 비용, 전력 소모, 클라우드 서비스 등 모든 측면에서)</li>
+<li>물리 코어를 가상 코어로 나눠 사용할 수 없어 자원을 낭비하기 쉽다.</li>
+<li>연산량이 적은 모델에 대해 추론할 때 CPU와 GPU 간 메모리 통신 오버헤드가 큰 경우 CPU에서 자체적 처리가 더 효율적일 수 있다.</li>
+</ul>
+<p>이러한 이유들로 다양한 회사에서 GPU에 비해 저렴하지만 효율적인 ML 연산을 할 수 있는 AI 가속기들을 아래와 같이 개발하고 있다.</p>
+<ul>
+<li>AWS Trainium, Inferentia</li>
+<li>Google TPU (Tensor Processing Unit)</li>
+<li>Apple ANE (Apple Neural Engine)</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/aws-neuron-sdk-aws-inferentia/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1530,96 +1626,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/programmers-92344/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/programmers-92344/" class="post-title-link" itemprop="url">Programmers: 파괴되지 않은 건물</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-01-30 02:23:53" itemprop="dateCreated datePublished" datetime="2023-01-30T02:23:53+09:00">2023-01-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/1-algorithm/" itemprop="url" rel="index"><span itemprop="name">1. Algorithm</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h1><blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zY2hvb2wucHJvZ3JhbW1lcnMuY28ua3IvbGVhcm4vY291cnNlcy8zMC9sZXNzb25zLzkyMzQ0">Programmers 92344: 파괴되지 않은 건물</span></p>
-</blockquote>
-<p>Brute-force 알고리즘을 적용하면 <code>250,000 * 1,000 * 1,000</code>의 시간 복잡도를 가지기 때문에 효율성 테스트를 통과할 수 없다.<br>따라서 <code>skill</code>의 행 길이가 최대 250,000이므로 해당 부분을 해결하는 것이 문제의 포인트다. (<code>board</code>의 각 원소를 필연적으로 수정 및 조회해야하기 때문)<br>아마도 시간 복잡도를 <code>250,000 + 1,000 * 1,000</code>으로 감쇠시킬 수 있는 알고리즘을 개발해야할 것이다.<br>최종적으로 구간 합을 이용해 풀 수 있었다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/programmers-92344/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

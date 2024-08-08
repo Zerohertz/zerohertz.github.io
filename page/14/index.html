@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-count">211</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -212,6 +212,92 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/web-crawler-for-nlp-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/web-crawler-for-nlp-2/" class="post-title-link" itemprop="url">Web Crawler for NLP (2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-20 13:01:41" itemprop="dateCreated datePublished" datetime="2018-09-20T13:01:41+09:00">2018-09-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Pytube"><a href="#Pytube" class="headerlink" title="Pytube"></a>Pytube</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3.7</span><span class="number">.0</span> (v3<span class="number">.7</span><span class="number">.0</span>:1bf9cc5093, Jun <span class="number">27</span> <span class="number">2018</span>, 04:<span class="number">59</span>:<span class="number">51</span>) [MSC v<span class="number">.1914</span> <span class="number">64</span> bit (AMD64)] on win32</span><br><span class="line"><span class="type">Type</span> <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> <span class="keyword">or</span> <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pytube</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>yt = pytube.YouTube(<span class="string">&quot;https://www.youtube.com/watch?v=94YwFIJ-yR0&amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&amp;index=1&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>vids = yt.streams.<span class="built_in">all</span>()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(vids)):</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(i,<span class="string">&#x27;:&#x27;</span>,vids[i])</span><br><span class="line">...</span><br><span class="line"><span class="number">0</span> : &lt;Stream: itag=<span class="string">&quot;22&quot;</span> mime_type=<span class="string">&quot;video/mp4&quot;</span> res=<span class="string">&quot;720p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;avc1.64001F&quot;</span> acodec=<span class="string">&quot;mp4a.40.2&quot;</span>&gt;</span><br><span class="line"><span class="number">1</span> : &lt;Stream: itag=<span class="string">&quot;43&quot;</span> mime_type=<span class="string">&quot;video/webm&quot;</span> res=<span class="string">&quot;360p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;vp8.0&quot;</span> acodec=<span class="string">&quot;vorbis&quot;</span>&gt;</span><br><span class="line"><span class="number">2</span> : &lt;Stream: itag=<span class="string">&quot;18&quot;</span> mime_type=<span class="string">&quot;video/mp4&quot;</span> res=<span class="string">&quot;360p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;avc1.42001E&quot;</span> acodec=<span class="string">&quot;mp4a.40.2&quot;</span>&gt;</span><br><span class="line"><span class="number">3</span> : &lt;Stream: itag=<span class="string">&quot;36&quot;</span> mime_type=<span class="string">&quot;video/3gpp&quot;</span> res=<span class="string">&quot;240p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;mp4v.20.3&quot;</span> acodec=<span class="string">&quot;mp4a.40.2&quot;</span>&gt;</span><br><span class="line"><span class="number">4</span> : &lt;Stream: itag=<span class="string">&quot;17&quot;</span> mime_type=<span class="string">&quot;video/3gpp&quot;</span> res=<span class="string">&quot;144p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;mp4v.20.3&quot;</span> acodec=<span class="string">&quot;mp4a.40.2&quot;</span>&gt;</span><br><span class="line"><span class="number">5</span> : &lt;Stream: itag=<span class="string">&quot;136&quot;</span> mime_type=<span class="string">&quot;video/mp4&quot;</span> res=<span class="string">&quot;720p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;avc1.4d401f&quot;</span>&gt;</span><br><span class="line"><span class="number">6</span> : &lt;Stream: itag=<span class="string">&quot;247&quot;</span> mime_type=<span class="string">&quot;video/webm&quot;</span> res=<span class="string">&quot;720p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;vp9&quot;</span>&gt;</span><br><span class="line"><span class="number">7</span> : &lt;Stream: itag=<span class="string">&quot;135&quot;</span> mime_type=<span class="string">&quot;video/mp4&quot;</span> res=<span class="string">&quot;480p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;avc1.4d401f&quot;</span>&gt;</span><br><span class="line"><span class="number">8</span> : &lt;Stream: itag=<span class="string">&quot;244&quot;</span> mime_type=<span class="string">&quot;video/webm&quot;</span> res=<span class="string">&quot;480p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;vp9&quot;</span>&gt;</span><br><span class="line"><span class="number">9</span> : &lt;Stream: itag=<span class="string">&quot;134&quot;</span> mime_type=<span class="string">&quot;video/mp4&quot;</span> res=<span class="string">&quot;360p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;avc1.4d401e&quot;</span>&gt;</span><br><span class="line"><span class="number">10</span> : &lt;Stream: itag=<span class="string">&quot;243&quot;</span> mime_type=<span class="string">&quot;video/webm&quot;</span> res=<span class="string">&quot;360p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;vp9&quot;</span>&gt;</span><br><span class="line"><span class="number">11</span> : &lt;Stream: itag=<span class="string">&quot;133&quot;</span> mime_type=<span class="string">&quot;video/mp4&quot;</span> res=<span class="string">&quot;240p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;avc1.4d4015&quot;</span>&gt;</span><br><span class="line"><span class="number">12</span> : &lt;Stream: itag=<span class="string">&quot;242&quot;</span> mime_type=<span class="string">&quot;video/webm&quot;</span> res=<span class="string">&quot;240p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;vp9&quot;</span>&gt;</span><br><span class="line"><span class="number">13</span> : &lt;Stream: itag=<span class="string">&quot;160&quot;</span> mime_type=<span class="string">&quot;video/mp4&quot;</span> res=<span class="string">&quot;144p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;avc1.4d400c&quot;</span>&gt;</span><br><span class="line"><span class="number">14</span> : &lt;Stream: itag=<span class="string">&quot;278&quot;</span> mime_type=<span class="string">&quot;video/webm&quot;</span> res=<span class="string">&quot;144p&quot;</span> fps=<span class="string">&quot;30fps&quot;</span> vcodec=<span class="string">&quot;vp9&quot;</span>&gt;</span><br><span class="line"><span class="number">15</span> : &lt;Stream: itag=<span class="string">&quot;140&quot;</span> mime_type=<span class="string">&quot;audio/mp4&quot;</span> abr=<span class="string">&quot;128kbps&quot;</span> acodec=<span class="string">&quot;mp4a.40.2&quot;</span>&gt;</span><br><span class="line"><span class="number">16</span> : &lt;Stream: itag=<span class="string">&quot;171&quot;</span> mime_type=<span class="string">&quot;audio/webm&quot;</span> abr=<span class="string">&quot;128kbps&quot;</span> acodec=<span class="string">&quot;vorbis&quot;</span>&gt;</span><br><span class="line"><span class="number">17</span> : &lt;Stream: itag=<span class="string">&quot;249&quot;</span> mime_type=<span class="string">&quot;audio/webm&quot;</span> abr=<span class="string">&quot;50kbps&quot;</span> acodec=<span class="string">&quot;opus&quot;</span>&gt;</span><br><span class="line"><span class="number">18</span> : &lt;Stream: itag=<span class="string">&quot;250&quot;</span> mime_type=<span class="string">&quot;audio/webm&quot;</span> abr=<span class="string">&quot;70kbps&quot;</span> acodec=<span class="string">&quot;opus&quot;</span>&gt;</span><br><span class="line"><span class="number">19</span> : &lt;Stream: itag=<span class="string">&quot;251&quot;</span> mime_type=<span class="string">&quot;audio/webm&quot;</span> abr=<span class="string">&quot;160kbps&quot;</span> acodec=<span class="string">&quot;opus&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>영상 정보 퍼오기</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/web-crawler-for-nlp-2/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1437,97 +1523,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/hexo-basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Zerohertz">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/hexo-basic/" class="post-title-link" itemprop="url">Hexo (Markdown) Basic</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-08-16 01:48:11" itemprop="dateCreated datePublished" datetime="2018-08-16T01:48:11+09:00">2018-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">Etc.</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9mdXR1cmVjcmVhdG9yLmdpdGh1Yi5pby9jYXRlZ29yaWVzL0hleG8v">Hexo</span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9zaW1oeWVqaW4uZ2l0aHViLmlvLzIwMTYvMDYvMzAvTWFya2Rvd24tc3ludGF4Lw==">Markdown</span></li>
-</ul>
-<h1 id="이건-큰-제목이래"><a href="#이건-큰-제목이래" class="headerlink" title="이건 큰 제목이래"></a>이건 큰 제목이래</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/hexo-basic/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
