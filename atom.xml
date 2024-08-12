@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2024-08-08T14:27:55.328Z</updated>
+  <updated>2024-08-12T15:21:09.430Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>전문연구요원: 법</title>
+    <link href="https://zerohertz.github.io/professional-research-agent-raw/"/>
+    <id>https://zerohertz.github.io/professional-research-agent-raw/</id>
+    <published>2024-08-12T15:20:57.000Z</published>
+    <updated>2024-08-12T15:21:09.430Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;전문연구요원으로 복무하며 헷갈리거나 애매한 부분이 참 많기 때문에 관련 법률을 정리하고자 한다.&lt;br&gt;관련된 법으로 &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cubGF3LmdvLmtyLyVFRCU5NiU4OSVFQyVBMCU5NSVFQSVCNyU5QyVFQyVCOSU5OS8lRUMlQTAlODQlRUIlQUMlQjglRUMlOTclQjAlRUElQjUlQUMlRUMlOUElOTQlRUMlOUIlOTAlMjAlRUIlQjAlOEYlMjAlRUMlODIlQjAlRUMlOTclODUlRUElQjglQjAlRUIlOEElQTUlRUMlOUElOTQlRUMlOUIlOTAlRUMlOUQlOTglMjAlRUElQjQlODAlRUIlQTYlQUMlRUElQjclOUMlRUMlQTAlOTU=&quot;&gt;전문연구요원 및 산업기능요원의 관리규정&lt;/span&gt;, &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cubGF3LmdvLmtyLyVFQiVCMiU5NSVFQiVBMCVCOS8lRUIlQjMlOTElRUMlOTclQUQlRUIlQjIlOTU=&quot;&gt;병역법&lt;/span&gt;, &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cubGF3LmdvLmtyLyVFQiVCMiU5NSVFQiVBMCVCOS8lRUIlQjMlOTElRUMlOTclQUQlRUIlQjIlOTUlMjAlRUMlOEIlOUMlRUQlOTYlODklRUIlQTAlQjk=&quot;&gt;병역법 시행령&lt;/span&gt;, &lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cubGF3LmdvLmtyLyVFQiVCMiU5NSVFQiVBMCVCOS8lRUElQjclQkMlRUIlQTElOUMlRUElQjglQjAlRUMlQTQlODAlRUIlQjIlOTU=&quot;&gt;근로기준법&lt;/span&gt;이 있다.&lt;br&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1QWTRuZHRaaDBzaw==&quot;&gt;혹시 모를 사고&lt;/span&gt;에 대비하여 애매한 부분은 아래 법규 또는 병무청 측과 면밀한 논의를 하도록 하자!&lt;br&gt;아래에 정리된 법규들은 “전문연구요원”에 관련된 조항들을 위주로 선별한 것이다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="0. Daily" scheme="https://zerohertz.github.io/categories/0-daily/"/>
+    
+    
+    <category term="전문연구요원" scheme="https://zerohertz.github.io/tags/%EC%A0%84%EB%AC%B8%EC%97%B0%EA%B5%AC%EC%9A%94%EC%9B%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Setting Up Kubernetes v1.30.3</title>
