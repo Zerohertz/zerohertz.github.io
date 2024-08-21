@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262034192-07b0b7f3-aa70-4841-866d-75eec1063df1.png">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta name="naver-site-verification" content="1086b85ae2dec382f642bf4cb2d62c6cbc058a49">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#000"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#000">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NotoSerifKR:300,300italic,400,400italic,700,700italic%7CD2Coding:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerohertz.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":"ture","color":"#800a0a","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Data TypesStringString이란 문자들이 순서대로 나열된 일련의 문자 sequence를 의미한다.Java에선 아래와 같이 String을 선언할 수 있다. Main.java12345678public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        String st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java (2)">
+<meta property="og:url" content="https://zerohertz.github.io/java-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Data TypesStringString이란 문자들이 순서대로 나열된 일련의 문자 sequence를 의미한다.Java에선 아래와 같이 String을 선언할 수 있다. Main.java12345678public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        String st">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-08-21T15:04:14.000Z">
+<meta property="article:modified_time" content="2024-08-21T15:04:47.250Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/java-2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://zerohertz.github.io/java-2/","path":"java-2/","title":"Java (2)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java (2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCW0CR8M8X"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-ZCW0CR8M8X","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id src></script>
+
+  <script defer data-domain src></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zerohertz" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zerohertz</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-zerohertzlib"><a href="/zerohertzLib/" rel="section"><i class="fa fa-scroll fa-fw"></i>zerohertzLib</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Types"><span class="nav-number">1.</span> <span class="nav-text">Data Types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">1.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">1.2.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">1.3.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">1.4.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">1.5.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enum"><span class="nav-number">1.6.</span> <span class="nav-text">Enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type-Conversion"><span class="nav-number">1.7.</span> <span class="nav-text">Type Conversion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class"><span class="nav-number">2.</span> <span class="nav-text">Class</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inheritance"><span class="nav-number">2.1.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overriding"><span class="nav-number">2.2.</span> <span class="nav-text">Overriding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overloading"><span class="nav-number">2.3.</span> <span class="nav-text">Overloading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructor"><span class="nav-number">2.4.</span> <span class="nav-text">Constructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interface"><span class="nav-number">2.5.</span> <span class="nav-text">Interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">2.6.</span> <span class="nav-text">Polymorphism</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-O"><span class="nav-number">3.</span> <span class="nav-text">I&#x2F;O</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Console-Input"><span class="nav-number">3.1.</span> <span class="nav-text">Console Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Console-Output"><span class="nav-number">3.2.</span> <span class="nav-text">Console Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-Writing"><span class="nav-number">3.3.</span> <span class="nav-text">File Writing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File-Reading"><span class="nav-number">3.4.</span> <span class="nav-text">File Reading</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">213</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2h5b2dldW4tb2gtNjc0NzBiMjQyLw==" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;hyogeun-oh-67470b242&#x2F;"><i class="fab fa-linkedin fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9zY2hvbGFyLmdvb2dsZS5jb20vY2l0YXRpb25zP3VzZXI9VHhpSnljMEFBQUFK" title="Google → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;TxiJyc0AAAAJ"><i class="fab fa-google fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/java-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java (2) | Zerohertz">
+      <meta itemprop="description" content>
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java (2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-08-22 00:04:14" itemprop="dateCreated datePublished" datetime="2024-08-22T00:04:14+09:00">2024-08-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-backend/" itemprop="url" rel="index"><span itemprop="name">2. Backend</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h1><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>String이란 문자들이 순서대로 나열된 일련의 문자 sequence를 의미한다.<br>Java에선 아래와 같이 <code>String</code>을 선언할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;Zerohertz&quot;</span>;</span><br><span class="line">        System.out.println(str1);</span><br><span class="line">        <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Zerohertz&quot;</span>);</span><br><span class="line">        System.out.println(str2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">Zerohertz</span><br><span class="line">Zerohertz</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>하지만 여기서 <code>str1</code>과 <code>str2</code>는 다른 방식으로 선언된 것을 확인할 수 있는데, 아래와 같은 차이점이 존재한다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Feature</th>
+<th align="center"><code>str1</code></th>
+<th align="center"><code>str2</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Memory Allocation Location</td>
+<td align="center">String Pool</td>
+<td align="center">Heap Memory</td>
+</tr>
+<tr>
+<td align="center">Object Creation</td>
+<td align="center">동일한 literal이 존재하면 새로운 객체를 생성하지 않음</td>
+<td align="center">항상 새로운 객체 생성</td>
+</tr>
+<tr>
+<td align="center">Reference Comparison (<code>==</code>)</td>
+<td align="center">동일한 literal이 있을 경우 <code>true</code></td>
+<td align="center">항상 <code>false</code></td>
+</tr>
+<tr>
+<td align="center">Memory Efficiency</td>
+<td align="center">More</td>
+<td align="center">Less</td>
+</tr>
+<tr>
+<td align="center">Usage Method</td>
+<td align="center">String literal 사용</td>
+<td align="center"><code>new</code> 키워드를 사용한 객체 생성</td>
+</tr>
+<tr>
+<td align="center">Typical Use Case</td>
+<td align="center">동일한 문자열을 여러 번 사용할 때 유리</td>
+<td align="center">특별한 이유로 새로운 객체가 필요할 때 사용</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFlbGR1bmcuY29tL2phdmEtbGl0ZXJhbHMjd2hhdC1pcy1hLWphdmEtbGl0ZXJhbA==">Literal</span>: Any value we specify as a constant in the code.</p>
+</blockquote>
+<p>Primitive (원시) 자료형 (<code>int</code>, <code>float</code>, <code>boolean</code>, <code>char</code>, …)은 <code>new</code> keyword를 통해 선언할 수 없고 literal 표기 방식을 통해 선언할 수 있다.<br>하지만 primitive 자료형을 제외하고 <code>String</code>은 유일하게 <code>new</code> keyword를 사용하지 않고 literal 표기 방식을 통해 선언할 수 있다.<br>또한 <code>String</code> 내에서 아래와 같은 method들을 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;Zerohertz&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Zerohertz&quot;</span>);</span><br><span class="line">        System.out.println(str1 == str2);                                <span class="comment">// false</span></span><br><span class="line">        System.out.println(str1.equals(str2));                           <span class="comment">// true</span></span><br><span class="line">        System.out.println(str1.indexOf(<span class="string">&quot;hertz&quot;</span>));                       <span class="comment">// 4</span></span><br><span class="line">        System.out.println(str1.contains(<span class="string">&quot;hertz&quot;</span>));                      <span class="comment">// true</span></span><br><span class="line">        System.out.println(str1.contains(<span class="string">&quot;java&quot;</span>));                       <span class="comment">// false</span></span><br><span class="line">        System.out.println(str1.charAt(<span class="number">3</span>));                              <span class="comment">// o</span></span><br><span class="line">        System.out.println(str1.replaceAll(<span class="string">&quot;e&quot;</span>, <span class="string">&quot;x&quot;</span>));                   <span class="comment">// Zxrohxrtz</span></span><br><span class="line">        System.out.println(str1.substring(<span class="number">0</span>, <span class="number">4</span>));                        <span class="comment">// Zero</span></span><br><span class="line">        System.out.println(str1.toUpperCase());                          <span class="comment">// ZEROHERTZ</span></span><br><span class="line">        System.out.println(str1.toLowerCase());                          <span class="comment">// zerohertz</span></span><br><span class="line">        print(str1.split(<span class="string">&quot;e&quot;</span>));                                          <span class="comment">// Z       roh     rtz</span></span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;String: %s&quot;</span>, <span class="string">&quot;Zerohertz&quot;</span>));    <span class="comment">// String: Zerohertz</span></span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;Integer: %d&quot;</span>, <span class="number">1023</span>));          <span class="comment">// Integer: 1023</span></span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;Float: %f&quot;</span>, <span class="number">10.23</span>));           <span class="comment">// Float: 10.230000</span></span><br><span class="line">        System.out.println(String.format(<span class="string">&quot;Float: %.2f&quot;</span>, <span class="number">10.23</span>));         <span class="comment">// Float: 10.23</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;Float: %.2f&quot;</span>, <span class="number">10.23</span>);                         <span class="comment">// Float: 10.23</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(Object[] array)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            System.out.print(array[i] + <span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>하지만 <code>String</code>은 immutable인 한계점이 있기 때문에 <code>StringBuffer</code>와 <code>StringBuilder</code>를 사용한다.<br>이에 대한 차이점은 아래와 같다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Feature</th>
+<th align="center"><code>String</code></th>
+<th align="center"><code>StringBuffer</code></th>
+<th align="center"><code>StringBuilder</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Mutability</td>
+<td align="center">Immutable</td>
+<td align="center">Mutable</td>
+<td align="center">Mutable</td>
+</tr>
+<tr>
+<td align="center">Synchronization<br>(Thread-safe)</td>
+<td align="center">❌</td>
+<td align="center">⭕️</td>
+<td align="center">❌</td>
+</tr>
+<tr>
+<td align="center">Use Case</td>
+<td align="center">변경되지 않는 문자열</td>
+<td align="center">Multithread 환경에서 문자열 변경이 필요한 경우</td>
+<td align="center">단일 thread에서 문자열 변경이 필요한 경우</td>
+</tr>
+<tr>
+<td align="center">Performance</td>
+<td align="center">변경이 적을 때 효율적</td>
+<td align="center">동기화로 인해 성능이 상대적으로 낮음</td>
+<td align="center">동기화가 없기 때문에 성능이 높음</td>
+</tr>
+<tr>
+<td align="center">초기화 후 변경 시</td>
+<td align="center">새로운 객체를 생성</td>
+<td align="center">동일 객체 내에서 문자열을 수정</td>
+<td align="center">동일 객체 내에서 문자열을 수정</td>
+</tr>
+<tr>
+<td align="center">Java Version</td>
+<td align="center">모든 version</td>
+<td align="center">JDK 1.0 이상</td>
+<td align="center">JDK 1.5 이상</td>
+</tr>
+</tbody></table>
+<p>아래와 같이 <code>String</code>에서 추가적인 문자열을 추가하기 위해서는 <code>+=</code>을 사용할 수 있지만 매번 <code>String</code> 객체를 생성해야하기 때문에 효율적이지 않다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">string</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        string += <span class="string">&quot;Zero&quot;</span>;</span><br><span class="line">        string += <span class="string">&quot;hertz&quot;</span>;</span><br><span class="line">        System.out.printf(<span class="string">&quot;String:\t\t%s\n&quot;</span>, string);</span><br><span class="line"></span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">stringBuffer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">        stringBuffer.append(<span class="string">&quot;Zero&quot;</span>);</span><br><span class="line">        stringBuffer.append(<span class="string">&quot;hertz&quot;</span>);</span><br><span class="line">        System.out.printf(<span class="string">&quot;StringBuffer:\t%s\n&quot;</span>, stringBuffer);</span><br><span class="line"></span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">stringBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        stringBuilder.append(<span class="string">&quot;Zero&quot;</span>);</span><br><span class="line">        stringBuilder.append(<span class="string">&quot;hertz&quot;</span>);</span><br><span class="line">        System.out.printf(<span class="string">&quot;StringBuilder:\t%s\n&quot;</span>, stringBuilder);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">String:         Zerohertz</span><br><span class="line">StringBuffer:   Zerohertz</span><br><span class="line">StringBuilder:  Zerohertz</span><br></pre></td></tr></table></figure>
+
+<p><code>StringBuffer</code>와 <code>StringBuilder</code>는 <code>insert</code> method 로 특정 index에 문자열을 삽입하고 <code>substring</code> method로 문자열을 slicing 할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">stringBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        stringBuilder.append(<span class="string">&quot;Zero&quot;</span>);</span><br><span class="line">        stringBuilder.append(<span class="string">&quot;hertz&quot;</span>);</span><br><span class="line">        stringBuilder.insert(<span class="number">4</span>, <span class="string">&quot;INSERT&quot;</span>);</span><br><span class="line">        System.out.println(stringBuilder);</span><br><span class="line">        System.out.println(stringBuilder.substring(<span class="number">4</span>, <span class="number">10</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">ZeroINSERThertz</span><br><span class="line">INSERT</span><br></pre></td></tr></table></figure>
+
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><blockquote>
+<p>Array (배열): 고정된 크기로 요소들을 순차적으로 저장하는 data structure</p>
+</blockquote>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Object[] arrayObj = &#123; <span class="number">1</span>, <span class="number">1.0</span>, <span class="string">&quot;1&quot;</span> &#125;;</span><br><span class="line">        print(arrayObj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(Object[] array)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            System.out.print(array[i] + <span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">1       1.0     1</span><br></pre></td></tr></table></figure>
+
+<p>Index를 통해 값을 조회하는 것은 <code>[]</code>을, array의 길이는 <code>length</code> property를 사용할 수 있다.</p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><blockquote>
+<p>List: 동적인 크기로 요소들을 순차적으로 저장하는 data structure</p>
+</blockquote>
+<p>Java에서 list는 아래와 같이 <code>java.util.ArrayList</code>를 통해 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ArrayList&lt;Object&gt; listObj = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        listObj.add(<span class="number">1</span>);</span><br><span class="line">        listObj.add(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        listObj.add(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">        print(listObj);                                   <span class="comment">// 1       2       1</span></span><br><span class="line">        System.out.println(listObj.contains(<span class="string">&quot;1&quot;</span>));        <span class="comment">// true</span></span><br><span class="line">        System.out.println(listObj.contains(<span class="string">&quot;2&quot;</span>));        <span class="comment">// false</span></span><br><span class="line">        System.out.println(listObj.remove(<span class="string">&quot;1&quot;</span>));          <span class="comment">// true</span></span><br><span class="line">        print(listObj);                                   <span class="comment">// 1       2</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// ArrayList&lt;int&gt; list = new ArrayList&lt;&gt;();</span></span><br><span class="line">        <span class="comment">// int is primitive type</span></span><br><span class="line">        ArrayList&lt;Integer&gt; listInt = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        listInt.add(<span class="number">1</span>);</span><br><span class="line">        listInt.add(<span class="number">4</span>);</span><br><span class="line">        listInt.add(<span class="number">2</span>);</span><br><span class="line">        print(listInt);                                   <span class="comment">// 1       4       2</span></span><br><span class="line">        listInt.sort(Comparator.naturalOrder());</span><br><span class="line">        print(listInt);                                   <span class="comment">// 1       2       4</span></span><br><span class="line">        listInt.sort(Comparator.reverseOrder());</span><br><span class="line">        print(listInt);                                   <span class="comment">// 4       2       1</span></span><br><span class="line"></span><br><span class="line">        ArrayList&lt;String&gt; listStr = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(Arrays.asList(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>));</span><br><span class="line">        System.out.println(String.join(<span class="string">&quot;,&quot;</span>, listStr));    <span class="comment">// 1,2,3</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(ArrayList&lt;T&gt; list)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            System.out.print(list.get(i) + <span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>add</code> method에 하나의 parameter를 입력하면 우측에 추가되고, 두개의 parameter를 입력하면 특정 index에 값을 삽입할 수 있다.<br>Array와 다르게 index를 통해 값을 조회하는 것은 <code>get</code> method를, list의 길이는 <code>size</code> method를 이용해야한다.<br>위 code에서 <code>&lt;&gt;</code>는 list 내 요소들의 type을 지정하는 기능인 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3R1dG9yaWFsL2phdmEvZ2VuZXJpY3MvdHlwZXMuaHRtbA==">generic type</span>이다.<br>만약 <code>listObj</code>와 같이 <code>Object</code>로 선언 후 특정 index의 요소를 변수로 지정하면 아래와 같은 오류가 발생한다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">Main.java:14: error: incompatible types: Object cannot be converted to int</span><br><span class="line">        int test = listObj.get(1);</span><br><span class="line">                              ^</span><br></pre></td></tr></table></figure>
+
+<p>따라서 <code>int test = (int) listObj.get(1);</code>와 같이 명시적인 형변환을 수행하거나 list 자체를 <code>listInt</code>와 같이 선언 시 <code>&lt;&gt;</code>를 사용해야 이러한 오류가 발생하지 않는다.</p>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><blockquote>
+<p>Map: Key와 value의 쌍을 저장하는 data structure</p>
+</blockquote>
+<p>Java에서 map은 아래와 같이 <code>java.util.HashMap</code>을 통해 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        HashMap&lt;Object, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;1&quot;</span>, <span class="number">1</span>);</span><br><span class="line">        map.put(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">        System.out.println(map);                         <span class="comment">// &#123;1=1, 2=2&#125;</span></span><br><span class="line">        System.out.println(map.size());                  <span class="comment">// 2</span></span><br><span class="line">        System.out.println(map.keySet());                <span class="comment">// [1, 2]</span></span><br><span class="line">        System.out.println(map.get(<span class="string">&quot;1&quot;</span>));                <span class="comment">// 1</span></span><br><span class="line">        System.out.println(map.get(<span class="string">&quot;2&quot;</span>));                <span class="comment">// null</span></span><br><span class="line">        System.out.println(map.getOrDefault(<span class="string">&quot;2&quot;</span>, <span class="number">2</span>));    <span class="comment">// 2</span></span><br><span class="line">        System.out.println(map.containsKey(<span class="string">&quot;1&quot;</span>));        <span class="comment">// true</span></span><br><span class="line">        System.out.println(map.containsKey(<span class="string">&quot;2&quot;</span>));        <span class="comment">// false</span></span><br><span class="line">        System.out.println(map.remove(<span class="string">&quot;1&quot;</span>));             <span class="comment">// 1</span></span><br><span class="line">        System.out.println(map);                         <span class="comment">// &#123;2=2&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>put</code> method와 <code>get</code> method를 통해 map 내에 key, value 쌍을 입력할 수 있다.<br>존재하지 않는 key에 대해 <code>get</code> method를 사용하면 <code>null</code>이 출력되지만 <code>getOrDefault</code> method를 사용하면 기본 값을 지정할 수 있다.</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><blockquote>
+<p>Set: 중복되지 않는 요소들의 집합을 저장하는 data structure</p>
+</blockquote>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        HashSet&lt;Object&gt; set1 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        set1.add(<span class="number">1</span>);</span><br><span class="line">        set1.add(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        set1.add(<span class="number">1</span>);</span><br><span class="line">        System.out.println(set1);                            <span class="comment">// [1, 1]</span></span><br><span class="line">        HashSet&lt;Object&gt; set2 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line"></span><br><span class="line">        HashSet&lt;Object&gt; intersection = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(set1);</span><br><span class="line">        System.out.println(intersection.retainAll(set2));    <span class="comment">// true</span></span><br><span class="line">        System.out.println(intersection);                    <span class="comment">// [1]</span></span><br><span class="line"></span><br><span class="line">        HashSet&lt;Object&gt; union = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(set1);</span><br><span class="line">        System.out.println(union.addAll(set2));              <span class="comment">// true</span></span><br><span class="line">        System.out.println(union);                           <span class="comment">// [1, 1, 2, 3]</span></span><br><span class="line"></span><br><span class="line">        HashSet&lt;Object&gt; substract = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(set1);</span><br><span class="line">        System.out.println(substract.removeAll(set2));       <span class="comment">// true</span></span><br><span class="line">        System.out.println(substract);                       <span class="comment">// [1]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>add</code> method를 통하여 <code>HashSet</code>에 값을 추가할 수 있고, <code>remove</code> method를 통하여 <code>HashSet</code>에 존재하는 값을 삭제할 수 있다.</p>
+<h2 id="Enum"><a href="#Enum" class="headerlink" title="Enum"></a>Enum</h2><blockquote>
+<p>Enum: 열거형 type을 정의하며, 이 type에 속하는 상수 값들을 지정</p>
+</blockquote>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">enum</span> <span class="title class_">Alphabet</span> &#123;</span><br><span class="line">        a, b, c</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(Alphabet arg)</span> &#123;</span><br><span class="line">        System.out.println(arg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        test(Alphabet.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+<h2 id="Type-Conversion"><a href="#Type-Conversion" class="headerlink" title="Type Conversion"></a>Type Conversion</h2><p>Type conversion은 아래와 같은 method들로 실행할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Integer.parseInt(String)</code></td>
+<td>Converts a <code>String</code> to <code>int</code></td>
+<td><code>int num = Integer.parseInt(&quot;123&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Integer.valueOf(String)</code></td>
+<td>Converts a <code>String</code> to an <code>Integer</code> object</td>
+<td><code>Integer num = Integer.valueOf(&quot;123&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Double.parseDouble(String)</code></td>
+<td>Converts a <code>String</code> to <code>double</code></td>
+<td><code>double d = Double.parseDouble(&quot;123.45&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Double.valueOf(String)</code></td>
+<td>Converts a <code>String</code> to a <code>Double</code> object</td>
+<td><code>Double d = Double.valueOf(&quot;123.45&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Float.parseFloat(String)</code></td>
+<td>Converts a <code>String</code> to <code>float</code></td>
+<td><code>float f = Float.parseFloat(&quot;12.34f&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Float.valueOf(String)</code></td>
+<td>Converts a <code>String</code> to a <code>Float</code> object</td>
+<td><code>Float f = Float.valueOf(&quot;12.34f&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Long.parseLong(String)</code></td>
+<td>Converts a <code>String</code> to <code>long</code></td>
+<td><code>long l = Long.parseLong(&quot;123456789&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Long.valueOf(String)</code></td>
+<td>Converts a <code>String</code> to a <code>Long</code> object</td>
+<td><code>Long l = Long.valueOf(&quot;123456789&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Boolean.parseBoolean(String)</code></td>
+<td>Converts a <code>String</code> to <code>boolean</code></td>
+<td><code>boolean b = Boolean.parseBoolean(&quot;true&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Boolean.valueOf(String)</code></td>
+<td>Converts a <code>String</code> to a <code>Boolean</code> object</td>
+<td><code>Boolean b = Boolean.valueOf(&quot;true&quot;);</code></td>
+</tr>
+<tr>
+<td><code>String.valueOf(int)</code></td>
+<td>Converts a primitive <code>int</code> to a <code>String</code></td>
+<td><code>String s = String.valueOf(123);</code></td>
+</tr>
+<tr>
+<td><code>String.valueOf(double)</code></td>
+<td>Converts a primitive <code>double</code> to a <code>String</code></td>
+<td><code>String s = String.valueOf(123.45);</code></td>
+</tr>
+<tr>
+<td><code>String.valueOf(float)</code></td>
+<td>Converts a primitive <code>float</code> to a <code>String</code></td>
+<td><code>String s = String.valueOf(12.34f);</code></td>
+</tr>
+<tr>
+<td><code>String.valueOf(long)</code></td>
+<td>Converts a primitive <code>long</code> to a <code>String</code></td>
+<td><code>String s = String.valueOf(123456789L);</code></td>
+</tr>
+<tr>
+<td><code>String.valueOf(boolean)</code></td>
+<td>Converts a primitive <code>boolean</code> to a <code>String</code></td>
+<td><code>String s = String.valueOf(true);</code></td>
+</tr>
+<tr>
+<td><code>toString()</code></td>
+<td>Converts an object to a <code>String</code><br>(generally available for all objects)</td>
+<td><code>String s = Integer.toString(123);</code></td>
+</tr>
+<tr>
+<td><code>(int) variable</code></td>
+<td>Casts another primitive type to <code>int</code></td>
+<td><code>int i = (int) 123.45;</code></td>
+</tr>
+<tr>
+<td><code>(double) variable</code></td>
+<td>Casts another primitive type to <code>double</code></td>
+<td><code>double d = (double) 123;</code></td>
+</tr>
+<tr>
+<td><code>(float) variable</code></td>
+<td>Casts another primitive type to <code>float</code></td>
+<td><code>float f = (float) 123.45;</code></td>
+</tr>
+<tr>
+<td><code>(long) variable</code></td>
+<td>Casts another primitive type to <code>long</code></td>
+<td><code>long l = (long) 123.45;</code></td>
+</tr>
+<tr>
+<td><code>Object.toString()</code></td>
+<td>Converts an object to a <code>String</code><br>(can be overridden for all objects)</td>
+<td><code>String s = obj.toString();</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><p>기본적으로 Java에서 class를 정의하기 위해서 아래와 같이 구성할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">        System.out.println(cat.name);</span><br><span class="line">        cat.name = <span class="string">&quot;dust&quot;</span>;</span><br><span class="line">        System.out.println(cat.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">null</span><br><span class="line">dust</span><br></pre></td></tr></table></figure>
+
+<p>하지만 Java에서 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://docs.oracle.com/javase/tutorial/java/package/createpkgs.html"><code>public class</code>는 각 <code>.java</code> file 내에 하나만 존재</a>해야하기 때문에 아래와 같이 구성한다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Animal</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">        System.out.println(cat.getName());</span><br><span class="line">        cat.setName(<span class="string">&quot;dust&quot;</span>);</span><br><span class="line">        System.out.println(cat.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Animal.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac *.java &amp;&amp; java Main.java</span></span><br><span class="line">null</span><br><span class="line">dust</span><br></pre></td></tr></table></figure>
+
+<p>여기서 첫 code와 다르게 <code>name</code>이 <code>private</code>으로 설정되어있고, getter와 setter인 <code>getName</code> method와 <code>setName</code> method가 추가된 것을 확인할 수 있다.<br>이는 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YWVlLzYvdHV0b3JpYWwvZG9jL2dqYmJwLmh0bWw=">object-oriented programming (OOP)의 원칙인 encapsulation을 지키기 위하여 필수적</span>이기 때문이다.</p>
+<h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><p>Java의 inheritance (상속)는 <code>extends</code> keyword를 아래와 같이 사용한다.</p>
+<figure class="highlight java"><figcaption><span>Cat.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bark</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Meow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        cat.setName(<span class="string">&quot;dust&quot;</span>);</span><br><span class="line">        System.out.println(cat.getName());</span><br><span class="line">        cat.bark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac *.java &amp;&amp; java Main.java</span></span><br><span class="line">dust</span><br><span class="line">Meow</span><br></pre></td></tr></table></figure>
+
+<p>또한 Java에서는 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3R1dG9yaWFsL2phdmEvSWFuZEkvbXVsdGlwbGVpbmhlcml0YW5jZS5odG1s">multiple inheritance (다중 상속)</span>을 허용하지 않는다.</p>
+<h2 id="Overriding"><a href="#Overriding" class="headerlink" title="Overriding"></a>Overriding</h2><p>부모 class의 method를 자식 class가 동일한 입출력의 형태로 method를 구현하는 것을 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3R1dG9yaWFsL2phdmEvSWFuZEkvb3ZlcnJpZGUuaHRtbA==">method overriding</span>이라 하며 아래와 같이 구현할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>RussianBlue.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RussianBlue</span> <span class="keyword">extends</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bark</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Meow!!!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">RussianBlue</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RussianBlue</span>();</span><br><span class="line">        cat.setName(<span class="string">&quot;dust&quot;</span>);</span><br><span class="line">        System.out.println(cat.getName());</span><br><span class="line">        cat.bark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac *.java &amp;&amp; java Main.java</span></span><br><span class="line">dust</span><br><span class="line">Meow!!!</span><br></pre></td></tr></table></figure>
+
+<p>여기서 <code>@Override</code>는 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3R1dG9yaWFsL2phdmEvYW5ub3RhdGlvbnMvaW5kZXguaHRtbA==">annotation</span>의 한 종류이며 compiler에 정보를 전달하여 예기치 못한 오류를 방지할 수 있기에 사용이 권장된다.</p>
+<h2 id="Overloading"><a href="#Overloading" class="headerlink" title="Overloading"></a>Overloading</h2><p>한 class의 둘 이상 method의 이름이 동일하며 입출력이 다른 경우 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3NwZWNzL2pscy9zZTE0L2h0bWwvamxzLTguaHRtbCNqbHMtOC40Ljk=">method overloading</span>이라 하며 아래와 같이 구현할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(add(<span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line">        System.out.println(add(<span class="string">&quot;Zero&quot;</span>, <span class="string">&quot;hertz&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">add</span><span class="params">(String c, String d)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> c + d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">3</span><br><span class="line">Zerohertz</span><br></pre></td></tr></table></figure>
+
+<h2 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h2><p>Java의 constructor (생성자)는 아래와 같이 class의 이름을 method와 같이 구현하면 된다.<br>Constructor를 구현할 때 <code>void</code>를 포함한 <code>return</code> type은 정의하지 않으며 overloading 또한 가능하다.<br>만약 constructor가 class 내에 존재하지 않다면 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3R1dG9yaWFsL2phdmEvamF2YU9PL2NvbnN0cnVjdG9ycy5odG1s">compiler는 비어있는 default constructor를 생성</span>한다.</p>
+<figure class="highlight java"><figcaption><span>Cat.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Cat</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.setName(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bark</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Meow&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>(<span class="string">&quot;dust&quot;</span>);</span><br><span class="line">        System.out.println(cat.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac *.java &amp;&amp; java Main.java</span></span><br><span class="line">dust</span><br></pre></td></tr></table></figure>
+
+<h2 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h2><blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3NwZWNzL2pscy9zZTcvaHRtbC9qbHMtOS5odG1s">Interface</span>: An interface declaration introduces a new reference type whose members are classes, interfaces, constants, and abstract methods. This type has no implementation, but otherwise unrelated classes can implement it by providing implementations for its abstract methods.</p>
+</blockquote>
+<p>Interface를 왜 사용하는지 알아보기 위해 아래 예제를 살펴보자.</p>
+<figure class="highlight java"><figcaption><span>Cat.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Dog.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Zerohertz.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Zerohertz</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">(Cat cat)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, Cat!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">(Dog dog)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, Dog!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">        Zerohertz.call(cat);</span><br><span class="line">        Zerohertz.call(dog);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac *.java &amp;&amp; java Main.java</span></span><br><span class="line">Hello, Cat!</span><br><span class="line">Hello, Dog!</span><br></pre></td></tr></table></figure>
+
+<p>위 code는 간단히 구현할 수 있지만, 동물 class가 100개가 된다면 <code>Zerohertz</code> class의 <code>static</code> method를 100개 구현해야할 것이다.<br>하지만 interface를 아래와 같이 구현하여 사용한다면 하나의 <code>static</code> method로 100개의 class에 대해 기능을 구현할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Cute.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Cute</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Cat.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> <span class="keyword">implements</span> <span class="title class_">Cute</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Dog.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> <span class="keyword">implements</span> <span class="title class_">Cute</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Zerohertz.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Zerohertz</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">(Cute cute)</span> &#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;Hello, %s!\n&quot;</span>, cute.getClass().getSimpleName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">        Zerohertz.call(cat);</span><br><span class="line">        Zerohertz.call(dog);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac *.java &amp;&amp; java Main.java</span></span><br><span class="line">Hello, Cat!</span><br><span class="line">Hello, Dog!</span><br></pre></td></tr></table></figure>
+
+<p>Interface는 상속을 받은 class임에도 불구하고 부모 class에 의존적이지 않은 독립적 class가 될 수 있는 장점이 존재한다.<br>이러한 역할 때문에 interface는 constructor를 가질 수 없으며 상수 (<code>public static final</code>), abstract method (<code>public abstract</code>), default method (<code>default</code>), static method (<code>static</code>), private method (<code>private</code>) 만을 정의할 수 있다.<br>이에 대해 더 자세히 알아보기 위해 아래 예제를 살펴보자.</p>
+<figure class="highlight java"><figcaption><span>Cute.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Cute</span> &#123;</span><br><span class="line">    <span class="comment">// public static final</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">CUTE_SCORE</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// abstract method</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// default method</span></span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">void</span> <span class="title function_">grooming</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Can&#x27;t Grooming!!!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// static method</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">hello</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;I&#x27;m so cute!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// private method</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">getCuteScore</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> <span class="keyword">instanceof</span> Cat) &#123;</span><br><span class="line">            <span class="keyword">return</span> CUTE_SCORE * <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> CUTE_SCORE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// default method</span></span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">void</span> <span class="title function_">printCuteScore</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;Cute score of %s: %s\n&quot;</span>, <span class="built_in">this</span>.getClass().getSimpleName(), getCuteScore());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>귀여운 동물들의 interface를 구현하기 위해 얼마나 귀여운지 정량적으로 평가하기 위해 <code>CUTE_SCORE</code>를, 먹는 것을 구현하기 위해 abstract method <code>eat</code>을, 인사를 위한 static method <code>hello</code>를, <code>CUTE_SCORE</code>의 getter인 private method <code>getCuteScore</code>를, <code>CUTE_SCORE</code>를 출력하기 위한 default method <code>printCuteScore</code>를 개발했다.<br><del>(고양이가 좀 귀엽기 때문에 <code>getCuteScore</code> method에서 <code>CUTE_SCORE</code> 2배)</del></p>
+<figure class="highlight java"><figcaption><span>Cat.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> <span class="keyword">implements</span> <span class="title class_">Cute</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Fish&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">grooming</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;😻&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>고양이는 생선을 먹으므로 <code>&quot;Fish&quot;</code>를 출력하고, grooming을 하기 때문에 <code>😻</code>를 출력한다.</p>
+<figure class="highlight java"><figcaption><span>Dog.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> <span class="keyword">implements</span> <span class="title class_">Cute</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Meat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>개는 고기를 먹으므로 <code>&quot;Meat&quot;</code>를 출력하고, grooming을 하지 않기 때문에 따로 구현하지 않았다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Cat</span> <span class="variable">cat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cat</span>();</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line">        cat.eat();               <span class="comment">// Fish</span></span><br><span class="line">        dog.eat();               <span class="comment">// Meat</span></span><br><span class="line">        cat.grooming();          <span class="comment">// 😻</span></span><br><span class="line">        dog.grooming();          <span class="comment">// Can&#x27;t Grooming!!!</span></span><br><span class="line">        Cute.hello();            <span class="comment">// I&#x27;m so cute!</span></span><br><span class="line">        cat.printCuteScore();    <span class="comment">// Cute score of Cat: 200</span></span><br><span class="line">        dog.printCuteScore();    <span class="comment">// Cute score of Dog: 100</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>결과적으로 위와 같은 출력을 확인할 수 있다.</p>
+<h2 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism"></a>Polymorphism</h2><blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm9yYWNsZS5jb20vamF2YXNlL3R1dG9yaWFsL2phdmEvSWFuZEkvcG9seW1vcnBoaXNtLmh0bWw=">Polymorphism</span>: Subclasses of a class can define their own unique behaviors and yet share some of the same functionality of the parent class.</p>
+</blockquote>
+<p>Polymorphism (다형성)에 대해 더 자세히 알아보기 위해 아래 예제를 살펴보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dog.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Cute.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Cute</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// OutDoor.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OutDoor</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">getSpeed</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CuteOutDoor.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">CuteOutDoor</span> <span class="keyword">extends</span> <span class="title class_">Cute</span>, OutDoor &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Husky.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BullDog</span> <span class="keyword">extends</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">OutDoor</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getSpeed</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">50</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Beagle.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Beagle</span> <span class="keyword">extends</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">Cute</span>, OutDoor &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getSpeed</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Husky.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Husky</span> <span class="keyword">extends</span> <span class="title class_">Dog</span> <span class="keyword">implements</span> <span class="title class_">CuteOutDoor</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getSpeed</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">200</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Zerohertz.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Zerohertz</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">call</span><span class="params">(Cute cute)</span> &#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;Hello, %s!\n&quot;</span>, cute.getClass().getSimpleName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">walk</span><span class="params">(OutDoor outdoor)</span> &#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;Let&#x27;s walk, %s! (Speed: %d)\n&quot;</span>, outdoor.getClass().getSimpleName(), outdoor.getSpeed());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>불독은 산책을 할 수 있지만 귀엽지 않다. <del>(실제로는 귀여움)</del><br>반면 비글과 허스키는 산책을 할 수 있고 귀엽다.<br>이러한 특성들을 위와 같이 interface와 inheritance를 이용하여 구현할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">BullDog</span> <span class="variable">bullDog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BullDog</span>();</span><br><span class="line">        <span class="comment">// Zerohertz.call(bullDog);</span></span><br><span class="line">        <span class="comment">// Main.java:4: error: incompatible types: BullDog cannot be converted to Cute</span></span><br><span class="line">        <span class="comment">//         Zerohertz.call(bullDog);</span></span><br><span class="line">        <span class="comment">//                        ^</span></span><br><span class="line">        <span class="comment">// Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output</span></span><br><span class="line">        <span class="comment">// 1 error</span></span><br><span class="line">        Zerohertz.walk(bullDog);</span><br><span class="line"></span><br><span class="line">        <span class="type">Beagle</span> <span class="variable">beagle</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Beagle</span>();</span><br><span class="line">        Zerohertz.call(beagle);</span><br><span class="line">        Zerohertz.walk(beagle);</span><br><span class="line"></span><br><span class="line">        <span class="type">Husky</span> <span class="variable">husky</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Husky</span>();</span><br><span class="line">        Zerohertz.call(husky);</span><br><span class="line">        Zerohertz.walk(husky);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>불독은 귀엽지 않기 때문에 <code>Zerohertz.call</code> method를 사용하면 오류가 발생한다.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">javac *.java &amp;&amp; java Main.java</span></span><br><span class="line">Let&#x27;s walk, BullDog! (Speed: 50)</span><br><span class="line">Hello, Beagle!</span><br><span class="line">Let&#x27;s walk, Beagle! (Speed: 100)</span><br><span class="line">Hello, Husky!</span><br><span class="line">Let&#x27;s walk, Husky! (Speed: 200)</span><br></pre></td></tr></table></figure>
+
+<p>이 예제에서 <code>husky</code>는 <code>Husky</code> class의 객체이며 <code>Dog</code> class 및 <code>Animal</code> class의 객체이고 <code>Cute</code> interface와 <code>OutDoor</code> interface의 객체이다.<br>이렇게 하나의 객체가 여러 data type을 가지는 것을 polymorphism이라 하며, 이러한 특성으로 <code>Zerohertz.walk</code> method에서 <code>husky</code>가 입력되면 data type을 <code>OutDoor</code>로 바꾸어 사용할 수 있다.</p>
+<hr>
+<h1 id="I-O"><a href="#I-O" class="headerlink" title="I&#x2F;O"></a>I&#x2F;O</h1><h2 id="Console-Input"><a href="#Console-Input" class="headerlink" title="Console Input"></a>Console Input</h2><p>Console 입력을 받기 위하여 기본적으로 <code>java.io.InputStream</code> class를 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">in</span> <span class="operator">=</span> System.in;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> value;</span><br><span class="line">        value = in.read();</span><br><span class="line">        System.out.println(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">asdf</span><br><span class="line">97</span><br></pre></td></tr></table></figure>
+
+<p>하지만 <code>InputStream</code>의 <code>read</code> method는 1byte 크기의 입력만을 받고 <code>int</code> (ASCII)로 저장되기 때문에 한계점이 존재한다.<br>이러한 한계점을 극복하기 위하여 <code>java.io.InputStreamReader</code>를 아래와 같이 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">in</span> <span class="operator">=</span> System.in;</span><br><span class="line">        <span class="type">InputStreamReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(in);</span><br><span class="line"></span><br><span class="line">        <span class="type">char</span>[] value = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">3</span>];</span><br><span class="line">        reader.read(value);</span><br><span class="line">        System.out.println(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">asdf</span><br><span class="line">asd</span><br></pre></td></tr></table></figure>
+
+<p>하지만 <code>InputStreamReader</code>는 고정된 크기를 지정해야하기 때문에 한계점이 존재한다.<br>이러한 한계점을 극복하기 위해 <code>String</code>으로 입력을 받을 수 있는 <code>java.io.BufferedReader</code>를 아래와 같이 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">in</span> <span class="operator">=</span> System.in;</span><br><span class="line">        <span class="type">InputStreamReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(in);</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(reader);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> br.readLine();</span><br><span class="line">        System.out.println(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">asdf</span><br><span class="line">asdf</span><br></pre></td></tr></table></figure>
+
+<p>하지만 <code>BufferedReader</code>를 사용하기 위해서 4개의 class를 <code>import</code> 해야하는 한계점이 존재한다.<br>이러한 한계점을 극복하기 위해 <code>java.util.Scanner</code>를 아래와 같이 사용한다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> sc.next();</span><br><span class="line">        System.out.println(value);</span><br><span class="line">        sc.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">asdf</span><br><span class="line">asdf</span><br></pre></td></tr></table></figure>
+
+<p>그럼에도 불구하고 <code>Scanner</code>는 <code>BufferedReader</code>에 비하여 느린 단점이 존재한다.<br>따라서 <code>BufferedReader</code>와 <code>Scanner</code>는 상황에 맞게 사용해야한다.</p>
+<h2 id="Console-Output"><a href="#Console-Output" class="headerlink" title="Console Output"></a>Console Output</h2><p><code>System.err</code>은 <code>System.out</code>과 유사한 역할을 수행하지만 오류 message를 출력할 때 사용하는 차이점이 존재한다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;System.out.println&quot;</span>);</span><br><span class="line">        System.err.println(<span class="string">&quot;System.err.println&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java &gt; out.log 2&gt; err.log</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> out.log</span></span><br><span class="line">System.out.println</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> err.log</span></span><br><span class="line">System.err.println</span><br></pre></td></tr></table></figure>
+
+<h2 id="File-Writing"><a href="#File-Writing" class="headerlink" title="File Writing"></a>File Writing</h2><p>File을 Java로 작성하기 위해 아래와 같이 <code>java.io.FileWriter</code> 또는 <code>java.io.PrintWriter</code>를 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileWriter</span> <span class="variable">fw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;tmp.log&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">data</span> <span class="operator">=</span> i + <span class="string">&quot;-Line\n&quot;</span>;</span><br><span class="line">            fw.write(data);</span><br><span class="line">        &#125;</span><br><span class="line">        fw.close();</span><br><span class="line"></span><br><span class="line">        <span class="type">PrintWriter</span> <span class="variable">pw</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrintWriter</span>(<span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;tmp.log&quot;</span>, <span class="literal">true</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">data</span> <span class="operator">=</span> i + <span class="string">&quot;-Line&quot;</span>;</span><br><span class="line">            pw.println(data);</span><br><span class="line">        &#125;</span><br><span class="line">        pw.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> tmp.log</span></span><br><span class="line">0-Line</span><br><span class="line">1-Line</span><br><span class="line">2-Line</span><br><span class="line">3-Line</span><br><span class="line">4-Line</span><br><span class="line">0-Line</span><br><span class="line">1-Line</span><br><span class="line">2-Line</span><br><span class="line">3-Line</span><br><span class="line">4-Line</span><br></pre></td></tr></table></figure>
+
+<h2 id="File-Reading"><a href="#File-Reading" class="headerlink" title="File Reading"></a>File Reading</h2><p>File을 Java로 읽기 위해 아래와 같이 <code>java.io.FileReader</code>와 <code>java.io.BufferedReader</code>를 사용할 수 있다.</p>
+<figure class="highlight java"><figcaption><span>Main.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">BufferedReader</span> <span class="variable">br</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;tmp.log&quot;</span>));</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">line</span> <span class="operator">=</span> br.readLine();</span><br><span class="line">            <span class="keyword">if</span> (line == <span class="literal">null</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            System.out.println(line);</span><br><span class="line">        &#125;</span><br><span class="line">        br.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">java Main.java</span></span><br><span class="line">0-Line</span><br><span class="line">1-Line</span><br><span class="line">2-Line</span><br><span class="line">3-Line</span><br><span class="line">4-Line</span><br><span class="line">0-Line</span><br><span class="line">1-Line</span><br><span class="line">2-Line</span><br><span class="line">3-Line</span><br><span class="line">4-Line</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93aWtpZG9jcy5uZXQvYm9vay8zMQ==">Jump to Java</span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/professional-research-agent-raw/" rel="prev" title="전문연구요원: 법">
+                  <i class="fa fa-chevron-left"></i> 전문연구요원: 법
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="150" alpha="0.5" zindex="-2" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Zerohertz","repo":"zerohertz.github.io","client_id":"77b3103080360604f989","client_secret":"c8010f3f6e12045227aa56ffca0bf699fd3470a0","admin_user":"Zerohertz","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"8de604bc505dd8f88cc308413f19cf7c"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="https://zerohertz.github.io/atom.xml" rel="self"/>
   
   <link href="https://zerohertz.github.io/"/>
-  <updated>2024-08-12T15:21:09.430Z</updated>
+  <updated>2024-08-21T15:04:47.250Z</updated>
   <id>https://zerohertz.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java (2)</title>
+    <link href="https://zerohertz.github.io/java-2/"/>
+    <id>https://zerohertz.github.io/java-2/</id>
+    <published>2024-08-21T15:04:14.000Z</published>
+    <updated>2024-08-21T15:04:47.250Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Data-Types&quot;&gt;&lt;a href=&quot;#Data-Types&quot; class=&quot;headerlink&quot; title=&quot;Data Types&quot;&gt;&lt;/a&gt;Data Types&lt;/h1&gt;&lt;h2 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot; title=&quot;String&quot;&gt;&lt;/a&gt;String&lt;/h2&gt;&lt;p&gt;String이란 문자들이 순서대로 나열된 일련의 문자 sequence를 의미한다.&lt;br&gt;Java에선 아래와 같이 &lt;code&gt;String&lt;/code&gt;을 선언할 수 있다.&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;figcaption&gt;&lt;span&gt;Main.java&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Main&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;str1&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;Zerohertz&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(str1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;str2&lt;/span&gt; &lt;span class=&quot;operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;Zerohertz&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(str2);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;java Main.java&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Zerohertz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Zerohertz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="2. Backend" scheme="https://zerohertz.github.io/categories/2-backend/"/>
+    
+    
+    <category term="Java" scheme="https://zerohertz.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>전문연구요원: 법</title>
