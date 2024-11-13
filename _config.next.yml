@@ -36,9 +36,9 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+# scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 #scheme: Gemini
 
 # Dark Mode
@@ -49,14 +49,14 @@ darkmode: false
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /props/favicon.ico
+  medium: /props/favicon.ico
+  apple_touch_icon: /props/favicon.ico
+  safari_pinned_tab: /props/favicon.ico
   #android_manifest: /manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
-custom_logo: #/uploads/custom-logo.png
+custom_logo: /props/zerohertz_white.png #/uploads/custom-logo.png
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/about/cclicenses/
@@ -93,13 +93,14 @@ open_graph:
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
-  #home: / || fa fa-home
-  #about: /about/ || fa fa-user
-  #tags: /tags/ || fa fa-tags
-  #categories: /categories/ || fa fa-th
-  #archives: /archives/ || fa fa-archive
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  zerohertzLib: /zerohertzLib/ || fa fa-scroll
   #schedule: /schedule/ || fa fa-calendar
-  #sitemap: /sitemap.xml || fa fa-sitemap
+  sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -139,9 +140,9 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  url: /props/profile.jpeg #/images/avatar.gif
   # If true, the avatar will be displayed in circle.
-  rounded: false
+  rounded: true
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -153,8 +154,10 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
-  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  GitHub: https://github.com/Zerohertz || fab fa-github
+  Linkedin: https://www.linkedin.com/in/hyogeun-oh-67470b242/ || fab fa-linkedin
+  Google: https://scholar.google.com/citations?user=TxiJyc0AAAAJ || fab fa-google
+  E-Mail: mailto:ohg3417@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
@@ -165,8 +168,8 @@ social:
 
 social_icons:
   enable: true
-  icons_only: false
-  transition: false
+  icons_only: true
+  transition: true
 
 # Blog rolls
 links_settings:
@@ -188,7 +191,7 @@ toc:
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
   expand_all: false
   # Maximum heading depth of generated toc.
-  max_depth: 6
+  max_depth: 10
 
 # ---------------------------------------------------------------
 # Footer Settings
@@ -200,23 +203,23 @@ language_switcher: false
 
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
-  #since: 2021
+  since: 2018
 
   # Icon between year and copyright info.
   icon:
     # Icon name in Font Awesome. See: https://fontawesome.com/icons
-    name: fa fa-heart
+    name: fa fa-bolt
     # If you want to animate the icon, set it to true.
-    animated: false
+    animated: true
     # Change the color of icon, using Hex Code.
-    color: "#ff0000"
+    color: "#800a0a"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
   # Set to `false` to disable the copyright statement.
-  copyright:
+  copyright: Zerohertz
 
   # Powered by Hexo & NexT
-  powered: true
+  powered: false
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, https://beian.mps.gov.cn
   beian:
@@ -246,18 +249,18 @@ post_meta:
   item_text: true
   created_at: true
   updated_at:
-    enable: true
-    another_day: true
+    enable: false
+    another_day: false
   categories: true
 
 # Post wordcount display settings
 # Dependencies: https://github.com/next-theme/hexo-word-counter
 symbols_count_time:
-  separated_meta: true
+  separated_meta: false
   item_text_total: false
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
-tag_icon: false
+tag_icon: true
 
 # Donate (Sponsor) settings
 # Front-matter variable (nonsupport animation).
@@ -282,8 +285,9 @@ follow_me:
 
 # Related popular posts
 # Dependencies: https://github.com/sergeyzwezdin/hexo-related-posts
+# npm install hexo-related-posts --save-dev
 related_posts:
-  enable: false
+  enable: true
   icon: fa fa-signs-post
 
 # Post edit
@@ -305,7 +309,7 @@ post_navigation: left
 # TagCloud settings for tags page.
 tagcloud:
   min: 12 # Minimum font size in px
-  max: 30 # Maximum font size in px
+  max: 35 # Maximum font size in px
   amount: 200 # Total amount of tags
   orderby: name # Order of tags
   order: 1 # Sort order
@@ -343,61 +347,61 @@ mobile_layout_economy: false
 
 # Browser header panel color.
 theme_color:
-  light: "#222"
+  light: "#000"
   dark: "#222"
 
 # Override browsers' default behavior.
 body_scrollbar:
   # Place the scrollbar over the content.
-  overlay: false
+  overlay: true
   # Present the scrollbar even if the content is not overflowing.
-  stable: false
+  stable: true
 
 codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: stackoverflow-dark
+    light: github-dark
+    dark: github-dark
   prism:
     light: prism
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
-    style:
+    style: mac
   # Fold code block
   fold:
-    enable: false
+    enable: true
     height: 500
 
 back2top:
   enable: true
   # Back to top in sidebar.
-  sidebar: false
+  sidebar: true
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
-  enable: false
+  enable: true
   # Available values: left | right
   start_at: left
   # Available values: top | bottom
   position: top
   reversed: false
-  color: "#37c6c0"
-  height: 3px
+  color: "#800a0a"
+  height: 5px
 
 # Bookmark Support
 bookmark:
-  enable: false
+  enable: true
   # Customize the color of the bookmark.
-  color: "#222"
+  color: "#800a0a"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
   # If manual, only save it by clicking the bookmark-icon.
-  save: auto
+  save: manual
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
@@ -417,7 +421,7 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host:
@@ -430,7 +434,7 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: Lato
+    family: Noto Serif KR
     size:
 
   # Font settings for site title (.site-title).
@@ -453,7 +457,7 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family:
+    family: D2Coding
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -465,13 +469,13 @@ font:
 index_with_subtitle: false
 
 # Automatically add external URL with Base64 encrypt & decrypt.
-exturl: false
+exturl: true
 # If true, an icon will be attached to each external URL
 exturl_icon: true
 
 # Google Webmaster tools verification.
 # See: https://developers.google.com/search
-google_site_verification:
+google_site_verification: PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE
 
 # Bing Webmaster tools verification.
 # See: https://www.bing.com/webmasters
@@ -508,7 +512,7 @@ tabs:
   # Make the nav bar of tabs with long content stick to the top.
   sticky: false
   transition:
-    tabs: false
+    tabs: true
     labels: true
 
 # PDF tag
@@ -521,11 +525,12 @@ pdf:
   height: 500px
 
 # Mermaid tag
+# https://theme-next.js.org/docs/tag-plugins/mermaid
 mermaid:
-  enable: false
+  enable: true
   # Available themes: default | dark | forest | neutral
   theme:
-    light: default
+    light: neutral
     dark: dark
 
 # WaveDrom tag
@@ -549,12 +554,12 @@ math:
   # Default (false) will load mathjax / katex script on demand.
   # That is it only render those page which has `mathjax: true` in front-matter.
   # If you set it to true, it will load mathjax / katex script EVERY PAGE.
-  every_page: false
+  every_page: true
 
   mathjax:
-    enable: false
+    enable: true
     # Available values: none | ams | all
-    tags: none
+    tags: all
 
   katex:
     enable: false
@@ -618,12 +623,12 @@ motion:
   transition:
     # All available transition variants: https://theme-next.js.org/animate/
     menu_item: fadeInDown
-    post_block: fadeIn
+    post_block: fadeInDown
     post_header: fadeInDown
     post_body: fadeInDown
-    coll_header: fadeInLeft
+    coll_header: fadeInDown
     # Only for Pisces | Gemini.
-    sidebar: fadeInUp
+    sidebar: fadeInDown
 
 # Progress bar in the top during page loading.
 # For more information: https://github.com/CodeByZach/pace
@@ -640,10 +645,10 @@ pace:
 # Generate a ribbon in your website with HTML5 canvas.
 # For more information: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
-  size: 300 # The width of the ribbon
-  alpha: 0.6 # The transparency of the ribbon
-  zIndex: -1 # The display level of the ribbon
+  enable: true
+  size: 150 # The width of the ribbon
+  alpha: 0.5 # The transparency of the ribbon
+  zIndex: -2 # The display level of the ribbon
 
 # ---------------------------------------------------------------
 # Comments Settings
@@ -656,7 +661,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active:
+  active: utterances
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -673,7 +678,7 @@ comments:
 # For more information: https://disqus.com
 disqus:
   enable: false
-  shortname:
+  shortname: https-zerohertz-github-io
   count: true
 
 # DisqusJS
@@ -705,26 +710,27 @@ livere_uid: # <your_uid>
 # For more information: https://gitalk.github.io
 gitalk:
   enable: false
-  github_id: # GitHub repo owner
-  repo: # Repository name to store issues
-  client_id: # GitHub Application Client ID
-  client_secret: # GitHub Application Client Secret
-  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
-  distraction_free_mode: true # Facebook-like distraction free mode
+  github_id: Zerohertz # GitHub repo owner
+  repo: zerohertz.github.io # Repository name to store issues
+  client_id: ${GITTALK_CLIENT_ID} # GitHub Application Client ID
+  client_secret: ${GITTALK_CLIENT_ID} # GitHub Application Client Secret
+  admin_user: Zerohertz # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  distraction_free_mode: false # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
   proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
-  language:
+  language: en
 
 # Utterances
 # For more information: https://utteranc.es
+# https://github.com/apps/utterances
 utterances:
-  enable: false
-  repo: user-name/repo-name # Github repository owner and name
+  enable: true
+  repo: Zerohertz/zerohertz.github.io # Github repository owner and name
   # Available values: pathname | url | title | og:title
-  issue_term: pathname
+  issue_term: title
   # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
   theme: github-light
 
@@ -752,7 +758,7 @@ addtoany:
 # Google Analytics
 # See: https://analytics.google.com
 google_analytics:
-  tracking_id: # <app_id>
+  tracking_id: G-ZCW0CR8M8X # <app_id>
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
@@ -844,14 +850,15 @@ algolia_search:
 
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
+# npm install hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # Show top n results per article, show all results by setting to -1
   top_n_per_article: 1
   # Unescape html strings to the readable one.
   unescape: false
   # Preload the search data when the page loads.
-  preload: false
+  preload: true
 
 # ---------------------------------------------------------------
 # Chat Services
