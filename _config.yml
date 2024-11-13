@@ -104,3 +104,41 @@ deploy:
   type: git
   repo: https://github.com/Zerohertz/zerohertz.github.io
   branch: master
+
+# npm install hexo-generator-searchdb
+search:
+  path: search.json
+  field: all
+  content: true
+  format: raw
+
+# npm i hexo-filter-nofollow --save
+nofollow:
+  enable: true
+  exclude:
+    - exclude1.com
+    - exclude2.com
+
+# npm install hexo-generator-feed --save
+feed:
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
+  limit: 0
+  content: false
+
+# npm install hexo-generator-sitemap --save
+sitemap:
+  path: sitemap.xml
+  tag: false
+  category: false
+
+# npm install hexo-generator-robotstxt --save
+robotstxt:
+  useragent: "*"
+  allow:
+    - /
+  sitemap: https://zerohertz.github.io/sitemap.xml
