@@ -100,10 +100,12 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://github.com/Zerohertz/zerohertz.github.io
-  branch: master
+# npm install hexo-deployer-git --save
+# Migrated to GitHub Actions!
+# deploy:
+#   type: git
+#   repo: https://github.com/Zerohertz/zerohertz.github.io
+#   branch: master
 
 # npm install hexo-generator-searchdb
 search:
