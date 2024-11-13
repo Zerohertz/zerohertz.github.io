@@ -1,6 +1,6 @@
 # https://hexo.io/docs/github-pages
 
-name: Pages
+name: Deploy
 
 on:
   push:
