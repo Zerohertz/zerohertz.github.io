@@ -29,7 +29,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.njk
   variable: source/_data/variables.styl
   mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  style: source/_data/styles.styl
 
 # ---------------------------------------------------------------
 # Scheme Settings
@@ -421,10 +421,10 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
-  host:
+  host: https://fonts.googleapis.com
 
   # Font options:
   # `external: true` will load this font family from `host` above.
@@ -433,7 +433,7 @@ font:
 
   # Global font settings used for all elements inside <body>.
   global:
-    external: false
+    external: true
     family: Noto Serif KR
     size:
 
