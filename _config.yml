@@ -135,8 +135,14 @@ feed:
 # npm install hexo-generator-sitemap --save
 sitemap:
   path: sitemap.xml
-  tag: false
-  category: false
+  tags: true
+  categories: true
+# npm install hexo-generator-seo-friendly-sitemap --save
+# 4 vulnerabilities (2 high, 2 critical)
+# sitemap:
+#   path: sitemap.xml
+#   tag: true
+#   categorie: true
 
 # npm install hexo-generator-robotstxt --save
 robotstxt:
