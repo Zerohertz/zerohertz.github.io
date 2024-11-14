@@ -1,0 +1,17 @@
+#!/bin/bash
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+declare -A file_dates
+
+for file in "$script_dir"/../_posts/*.md; do
+	date=$(grep -m 1 "^date:" "$file" | awk '{print $2" "$3}')
+	file_dates["$file"]="$date"
+done
+
+index=1
+for file in $(for k in "${!file_dates[@]}"; do echo "$k ${file_dates[$k]}"; done | sort -k2,3 | awk '{print $1}'); do
+	date=${file_dates[$file]}
+	filename=$(basename "$file")
+	echo -e "$index\t$date\t$filename"
+	((index++))
+done
