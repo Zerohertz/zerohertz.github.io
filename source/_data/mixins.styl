@@ -38,12 +38,19 @@ if (hexo-config("site_state")) {
 
 // - source/css/_common/scaffolding/highlight/index.styl - //
 $code-inline {
-  background: #eeeeee !important;
+  background: #f5f0f0 !important;
   color: #800a0a !important;
 }
 $code-block {
   background: var(--highlight-background) !important;
   color: var(--highlight-foreground) !important;
+}
+figure.highlight {
+  .gutter {
+    pre {
+      background: var(--highlight-gutter-background) !important;
+    }
+  }
 }
 
 // - source/css/_common/components/post/post-header.styl - //
