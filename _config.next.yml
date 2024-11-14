@@ -662,7 +662,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active: utterances
+  active: gitalk
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -710,11 +710,12 @@ livere_uid: # <your_uid>
 # Gitalk
 # For more information: https://gitalk.github.io
 gitalk:
-  enable: false
+  enable: true
   github_id: Zerohertz # GitHub repo owner
   repo: zerohertz.github.io # Repository name to store issues
-  client_id: ${GITTALK_CLIENT_ID} # GitHub Application Client ID
-  client_secret: ${GITTALK_CLIENT_ID} # GitHub Application Client Secret
+  # https://github.com/settings/developers
+  client_id: GITALK_CLIENT_ID # GitHub Application Client ID
+  client_secret: GITALK_CLIENT_SECRET # GitHub Application Client Secret
   admin_user: Zerohertz # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: false # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
@@ -728,7 +729,7 @@ gitalk:
 # For more information: https://utteranc.es
 # https://github.com/apps/utterances
 utterances:
-  enable: true
+  enable: false
   repo: Zerohertz/zerohertz.github.io # Github repository owner and name
   # Available values: pathname | url | title | og:title
   issue_term: title

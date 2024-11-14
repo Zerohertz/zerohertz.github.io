@@ -28,6 +28,13 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
+      - name: Update secrets of gitalk
+        env:
+          GITALK_CLIENT_ID: ${{ secrets.GITALK_CLIENT_ID }}
+          GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
+        run: |
+          sed -i "s/GITALK_CLIENT_ID/${GITALK_CLIENT_ID}/" _config.next.yml
+          sed -i "s/GITALK_CLIENT_SECRET/${GITALK_CLIENT_SECRET}/" _config.next.yml
       - name: Build
         run: npm run build
       - name: Upload Pages artifact
