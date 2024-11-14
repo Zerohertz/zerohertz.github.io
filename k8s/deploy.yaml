@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog
+  namespace: blog
+spec:
+  selector:
+    matchLabels:
+      app: blog
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+        - image: zerohertzkr/dev:v1.0.11
+          name: blog
+          command: ["/bin/zsh"]
+          args: ["-c", "npm install && sudo npm install -g hexo && hexo s"]
+          volumeMounts:
+            - name: blog-storage
+              mountPath: /home/zerohertz/workspace
+      volumes:
+        - name: blog-storage
+          hostPath:
+            path: /home/zerohertz/Zerohertz/blog
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog
+  namespace: blog
+spec:
+  ports:
+    - port: 4000
+  selector:
+    app: blog
