@@ -198,7 +198,7 @@ spec:
 
 그러면 아래와 같이 잘 실행이 된다!
 
-![HTTP](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290320-6a9d7306-bfed-4f31-b426-2ab2df5a37d3.png)
+![HTTP](/images/k8s-ingress/259290320-6a9d7306-bfed-4f31-b426-2ab2df5a37d3.png)
 
 ## HTTPS
 
@@ -224,7 +224,7 @@ spec:
   ...
 ```
 
-![HTTPS-1](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259290194-2b3bdd57-5380-47a2-99e5-97ad240a3773.png)
+![HTTPS-1](/images/k8s-ingress/259290194-2b3bdd57-5380-47a2-99e5-97ad240a3773.png)
 
 위 사진에서 알 수 있듯, 자체 서명한 인증서를 사용했기 때문에 우측과 같은 경고문이 뜬다.
 Traefik은 Let's Encrypt와 같은 ACME (Automated Certificate Management Environment) protocol을 지원하여 TLS 인증서의 자동 발급 및 갱신을 처리할 수 있다.
@@ -281,14 +281,14 @@ spec:
 $ kubectl apply -f ingress-example-https-cert.yaml
 ```
 
-![HTTPS-2](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259301406-e7fa8b64-373c-46b3-9249-3fade6def649.png)
+![HTTPS-2](/images/k8s-ingress/259301406-e7fa8b64-373c-46b3-9249-3fade6def649.png)
 
 성공 !!
 만약 path를 변경하고 싶다면 `spec.routes.match`를 ``Host(`${DDNS}`) && PathPrefix(`/${PATH}`)``와 같이 지정해주면 된다.
 
 [이런 사이트](https://www.ssllabs.com/ssltest/analyze.html)를 이용하면 아래와 같이 서버의 보안을 평가 받을 수 있다.
 
-![ssltest](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260349693-368b6892-1f3f-402e-beee-537e2368bf98.png)
+![ssltest](/images/k8s-ingress/260349693-368b6892-1f3f-402e-beee-537e2368bf98.png)
 
 ---
 
@@ -340,4 +340,4 @@ spec:
 
 아래와 같이 접속하면 ID와 비밀번호를 묻고 로그인하면 Traefik의 dashboard를 확인할 수 있다!
 
-![traefik-dashboard](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259375588-d8935f4b-1c94-4e84-a940-fb768738df95.png)
+![traefik-dashboard](/images/k8s-ingress/259375588-d8935f4b-1c94-4e84-a940-fb768738df95.png)

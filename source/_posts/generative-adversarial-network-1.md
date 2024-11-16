@@ -17,7 +17,7 @@ tags:
 conda install pytorch torchvision torchaudio -c pytorch-nightly
 ~~~
 
-![RIP Kernel](https://user-images.githubusercontent.com/42334717/179754313-48642bc4-affd-45c0-a9c2-dc2b53c1439a.png)
+![RIP Kernel](/images/generative-adversarial-network-1/179754313-48642bc4-affd-45c0-a9c2-dc2b53c1439a.png)
 
 + `conda activate env` 이후 `jupyter notebook`을 통해 `import torch`를 실행할 경우 위의 사진과 같이 커널이 죽는다.
 + 따라서 아래 명령어를 통해 `jupyter notebook`에서 커널을 선택할 수 있게 해줘야한다.
@@ -26,7 +26,7 @@ conda install pytorch torchvision torchaudio -c pytorch-nightly
 conda install nb_conda_kernels
 ~~~
 
-![Change kernel](https://user-images.githubusercontent.com/42334717/179777082-69e27242-9c36-4491-815a-30cbc3a4ba2c.png)
+![Change kernel](/images/generative-adversarial-network-1/179777082-69e27242-9c36-4491-815a-30cbc3a4ba2c.png)
 
 + 위의 모듈 `nb_conda_kernels`를 통해 모든 가상환경들을 선택해서 `jupyter notebook`에서 사용할 수 있다.
 
@@ -86,13 +86,13 @@ tensor(24.)
 [Download MNIST Test Data](https://pjreddie.com/media/files/mnist_test.csv)
 
 > Read MNIST Data
-![MNIST](https://user-images.githubusercontent.com/42334717/179787188-9956c4ac-d0c3-4550-8aa6-b9d54145458f.png)
+![MNIST](/images/generative-adversarial-network-1/179787188-9956c4ac-d0c3-4550-8aa6-b9d54145458f.png)
 
 + 첫 숫자는 해당 이미지의 label을 의미한다.
 + 나머지 784개의 숫자는 $28\times 28$으로 이뤄진 이미지의 각 픽셀 값이다.
 
 > Data Visualization
-![Data Visualization](https://user-images.githubusercontent.com/42334717/179788444-07444eab-f2fa-4488-8d46-8226aa1cb35c.png)
+![Data Visualization](/images/generative-adversarial-network-1/179788444-07444eab-f2fa-4488-8d46-8226aa1cb35c.png)
 
 ## Artificial Neural Network
 
@@ -232,27 +232,27 @@ class MnistDataset(Dataset):
 |`__getitem__()`|데이터셋의 n번째 아이템 반환|
 
 > `__getitem__()`
-<img width="497" alt="getitem" src="https://user-images.githubusercontent.com/42334717/179807111-db80c2f6-f1fd-4cc0-9448-371515ff3184.png">
+<img width="497" alt="getitem" src="/images/generative-adversarial-network-1/179807111-db80c2f6-f1fd-4cc0-9448-371515ff3184.png">
 
 > `plot_image()`
-![plot_image](https://user-images.githubusercontent.com/42334717/179806567-facb03df-ef86-4d79-8a8c-0a7549bc3968.png)
+![plot_image](/images/generative-adversarial-network-1/179806567-facb03df-ef86-4d79-8a8c-0a7549bc3968.png)
 
 
 ## Classifier Training
 
 > Classifier training
-![Classifier training](https://user-images.githubusercontent.com/42334717/179815267-744dfab0-a705-43c1-a2b6-28f89947a777.png)
+![Classifier training](/images/generative-adversarial-network-1/179815267-744dfab0-a705-43c1-a2b6-28f89947a777.png)
 
 > Plot loss chart
-![plot loss chart](https://user-images.githubusercontent.com/42334717/179815343-b6e690df-7b43-46d6-8676-c892ee0e35c8.png)
+![plot loss chart](/images/generative-adversarial-network-1/179815343-b6e690df-7b43-46d6-8676-c892ee0e35c8.png)
 
 ## Classifier Validation
 
 > Classification of test data
-![Classification of test data](https://user-images.githubusercontent.com/42334717/179815843-51c1f128-4e0d-41ff-b20c-0df0be866aea.png)
+![Classification of test data](/images/generative-adversarial-network-1/179815843-51c1f128-4e0d-41ff-b20c-0df0be866aea.png)
 
 > Classifier validation
-![Classifier validation](https://user-images.githubusercontent.com/42334717/179816249-a38d4d7c-98ce-4abd-97ad-f1229abe27fc.png)
+![Classifier validation](/images/generative-adversarial-network-1/179816249-a38d4d7c-98ce-4abd-97ad-f1229abe27fc.png)
 
 + 87.99%의 분류 정확도
 
@@ -335,7 +335,7 @@ for i in range(epochs):
 ~~~
 
 > Reinforcing Neural Network by Changing Loss Function
-<img width="1021" alt="Reinforcing Neural Network by Changing Loss Function" src="https://user-images.githubusercontent.com/42334717/179886806-c3a5bd36-4fdb-411a-95ac-5abf2f3f5217.png">
+<img width="1021" alt="Reinforcing Neural Network by Changing Loss Function" src="/images/generative-adversarial-network-1/179886806-c3a5bd36-4fdb-411a-95ac-5abf2f3f5217.png">
 
 + 이진 교차 엔트로피 (Binary Cross Entropy, BCE) 손실: Classification에서 loss function으로 자주 사용
   + 확실하게 틀린 경우 큰 페널티 부여
@@ -358,7 +358,7 @@ for i in range(epochs):
 
 > Reinforcing Neural Network by Changing Activation Function
 <img width="1021" alt="Reinforcing Neural Network by Changing Activation Function
-" src="https://user-images.githubusercontent.com/42334717/179895206-993af8af-4586-475c-a1b2-fdaab54f3f49.png">
+" src="/images/generative-adversarial-network-1/179895206-993af8af-4586-475c-a1b2-fdaab54f3f49.png">
 
 + Logistic function: 뉴런에서 일어나는 신호 전달 현상과 비슷하여 초기의 신경망에서 자주 사용
   + 수학적으로 기울기를 도출하기 간단
@@ -381,7 +381,7 @@ for i in range(epochs):
 ~~~
 
 > Reinforcing Neural Network by Changing Optimizer
-<img width="1021" alt="Reinforcing Neural Network by Changing Optimizer" src="https://user-images.githubusercontent.com/42334717/179896344-a72cca9f-b0eb-48f5-975f-c08fa8a80e2d.png">
+<img width="1021" alt="Reinforcing Neural Network by Changing Optimizer" src="/images/generative-adversarial-network-1/179896344-a72cca9f-b0eb-48f5-975f-c08fa8a80e2d.png">
 
 + 확률적 경사 하강법 (Stochastic Gradient Descent, SGD)
   + 국소 최적해에 빠질 가능성 존재
@@ -405,7 +405,7 @@ self.model = nn.Sequential(
 ~~~
 
 > Reinforcing Neural Network by Normalization
-<img width="1021" alt="Reinforcing Neural Network by Normalization" src="https://user-images.githubusercontent.com/42334717/179897536-fc204ebf-d1c2-4d3d-bb3b-f8c671fc7e13.png">
+<img width="1021" alt="Reinforcing Neural Network by Normalization" src="/images/generative-adversarial-network-1/179897536-fc204ebf-d1c2-4d3d-bb3b-f8c671fc7e13.png">
 
 + 신경망의 가중치 혹은 신호의 값에 대해 peak로 인해 중요한 값이 소실될 수 있음
 + 따라서 파라미터들의 범위를 조절하거나 평균을 0으로 설정하는 방법 사용 $\rightarrow$ 정규화 (normalization)
@@ -430,7 +430,7 @@ self.model = nn.Sequential(
 ~~~
 
 > Reinforcing Neural Network
-<img width="1021" alt="Reinforcing Neural Network" src="https://user-images.githubusercontent.com/42334717/179899497-c78b9eba-6021-4362-b64a-ed01b1c47a69.png">
+<img width="1021" alt="Reinforcing Neural Network" src="/images/generative-adversarial-network-1/179899497-c78b9eba-6021-4362-b64a-ed01b1c47a69.png">
 
 + Loss Function
 + Activation Function
@@ -449,4 +449,4 @@ device = torch.device("mps") #CUDA 아님. . .
 ~~~
 
 > CUDA는 아니지만 M1 Mac에서의 GPU 가속...
-<img width="644" alt="GPU" src="https://user-images.githubusercontent.com/42334717/179909787-04998599-3d3b-466c-8634-fa61a911abe4.png">
+<img width="644" alt="GPU" src="/images/generative-adversarial-network-1/179909787-04998599-3d3b-466c-8634-fa61a911abe4.png">

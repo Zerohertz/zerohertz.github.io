@@ -27,7 +27,7 @@ end
 
 > ECG
 
-<img width="672" alt="ECG" src="https://user-images.githubusercontent.com/42334717/103261452-fbc07f80-49e4-11eb-8181-4251df1a5af5.png">
+<img width="672" alt="ECG" src="/images/obstructive-sleep-apnea-diagnosis-hrv/103261452-fbc07f80-49e4-11eb-8181-4251df1a5af5.png">
 
 ~~~Matlab
 >> load mit200
@@ -38,7 +38,7 @@ end
 
 > R Peaks Localized by Wavelet Transform with Automatic Annotations
 
-<img width="1051" alt="R Peaks Localized by Wavelet Transform with Automatic Annotations" src="https://user-images.githubusercontent.com/42334717/103263042-11847380-49ea-11eb-8daa-b840f7f837a5.png">
+<img width="1051" alt="R Peaks Localized by Wavelet Transform with Automatic Annotations" src="/images/obstructive-sleep-apnea-diagnosis-hrv/103263042-11847380-49ea-11eb-8daa-b840f7f837a5.png">
 
 ~~~Matlab
 >> [qr, lo, y] = rrInterval(tm, ecgsig);
@@ -62,7 +62,7 @@ end
 
 > HRV
 
-![HRV](https://user-images.githubusercontent.com/42334717/103266138-4f859580-49f2-11eb-8ca9-ee74b18e45d7.jpg)
+![HRV](/images/obstructive-sleep-apnea-diagnosis-hrv/103266138-4f859580-49f2-11eb-8ca9-ee74b18e45d7.jpg)
 
 ~~~Matlab checkRR.m
 function [] = checkRR(paramName, size, param)

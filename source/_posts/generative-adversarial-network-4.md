@@ -83,7 +83,7 @@ for i in range(epochs):
   + `(1, 1, 28, 28)`
 
 > Results of CNN applied to MNIST dataset
-![Results of CNN applied to MNIST dataset](https://user-images.githubusercontent.com/42334717/183245678-686cab68-ebe9-40c1-ae47-dc6ec596f7f7.png)
+![Results of CNN applied to MNIST dataset](/images/generative-adversarial-network-4/183245678-686cab68-ebe9-40c1-ae47-dc6ec596f7f7.png)
 
 ## Montage DCGAN
 
@@ -115,7 +115,7 @@ def crop_center(img, new_width, new_height):
 ~~~
 
 > `crop_center(img, 128, 128)`
-<img width="635" alt="crop_center(img, 128, 128)" src="https://user-images.githubusercontent.com/42334717/183247101-c1db56e3-4ba5-4604-b5be-80482321985b.png">
+<img width="635" alt="crop_center(img, 128, 128)" src="/images/generative-adversarial-network-4/183247101-c1db56e3-4ba5-4604-b5be-80482321985b.png">
 
 + `__getitem__()`
   + `(height, width, 3)` $\rightarrow$ `(batch_size, channels, height, width)`
@@ -189,7 +189,7 @@ def crop_center(img, new_width, new_height):
 + GELU (Gaussian Error Linear Unit): ReLU 함수와 비슷하지만 상대적으로 부드러운 곡선을 통해 개선된 기울기 제공
 
 > Results of DCGAN applied to montage dataset
-![Results of DCGAN applied to montage dataset](https://user-images.githubusercontent.com/42334717/183248976-e4743e29-97f1-455f-a790-1fcc6fbfce48.png)
+![Results of DCGAN applied to montage dataset](/images/generative-adversarial-network-4/183248976-e4743e29-97f1-455f-a790-1fcc6fbfce48.png)
 
 ***
 
@@ -290,7 +290,7 @@ for epoch in range(epochs):
    + 판별기의 `loss_function`에 출력된 결과와 실제 레이블을 입력하여 `loss` 값 출력
 
 > Loss of CGAN training process
-![Loss of CGAN training process](https://user-images.githubusercontent.com/42334717/183275632-7160eda0-0be1-42ac-bad9-f7f8823fc5e1.png)
+![Loss of CGAN training process](/images/generative-adversarial-network-4/183275632-7160eda0-0be1-42ac-bad9-f7f8823fc5e1.png)
 
 > Results of CGAN applied to MNIST dataset: 0 ~ 9
-![Results of CGAN applied to MNIST dataset](https://user-images.githubusercontent.com/42334717/183275596-dc073ec5-6ca8-4a9c-b69f-4eebace5dece.png)
+![Results of CGAN applied to MNIST dataset](/images/generative-adversarial-network-4/183275596-dc073ec5-6ca8-4a9c-b69f-4eebace5dece.png)

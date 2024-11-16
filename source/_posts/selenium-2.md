@@ -122,8 +122,8 @@ for a in range(10, 15):  # url의 개수
         os.chdir("..")
 ~~~
 갓갓 JTBC는 그냥 다 동영상이다
-![실행결과](https://user-images.githubusercontent.com/42334717/44866181-7b2bd000-acbf-11e8-8ef2-7ba85d004656.png)
-![실행결과](https://user-images.githubusercontent.com/42334717/44866239-a44c6080-acbf-11e8-98d0-54bb11b3b689.png)
+![실행결과](/images/selenium-2/44866181-7b2bd000-acbf-11e8-8ef2-7ba85d004656.png)
+![실행결과](/images/selenium-2/44866239-a44c6080-acbf-11e8-98d0-54bb11b3b689.png)
 ***
 # 앞으로 보완해야할 것
 + 데이터 가공

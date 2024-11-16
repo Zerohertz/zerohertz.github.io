@@ -12,7 +12,7 @@ tags:
 
 [Dropbox](https://www.dropbox.com)와 같은 cloud storage service를 Kubernetes로 배포하기 위해 [Nextcloud](https://github.com/nextcloud)을 사용한다!
 
-![Nextcloud](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262398322-65cec9f6-d359-422a-8735-e5db355e4fb7.png)
+![Nextcloud](/images/home-server-cloud/262398322-65cec9f6-d359-422a-8735-e5db355e4fb7.png)
 
 <!-- More -->
 
@@ -179,7 +179,7 @@ $ kubectl apply -f traefik.yaml
 또한 보안을 위한 2FA 혹은 로그인 되어있는 환경의 승인 등 Nextcloud 내 다양한 앱을 쉽게 사용할 수 있다.
 아래는 유선으로 연결된 home server가 열심히 파일들을 동기화하는 중인 모습을 캡쳐한 것이다.
 
-![Grafana](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/262403002-c6b91e98-4146-4e52-80f3-136a215cd204.png)
+![Grafana](/images/home-server-cloud/262403002-c6b91e98-4146-4e52-80f3-136a215cd204.png)
 
 ---
 

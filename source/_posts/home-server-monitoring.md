@@ -14,7 +14,7 @@ tags:
 
 Node exporter의 system metric들을 Prometheus로 수집하고 Grafana로 시각화!
 
-![Monitoring](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258835852-b2f1349a-c4e5-4c95-8492-c5033f5f3980.gif)
+![Monitoring](/images/home-server-monitoring/258835852-b2f1349a-c4e5-4c95-8492-c5033f5f3980.gif)
 
 <!-- More -->
 
@@ -52,7 +52,7 @@ $ sudo systemctl enable node_exporter
 
 `http://${CLUSTER_IP}:9100/metrics`에서 아래와 같이 log들을 확인할 수 있다.
 
-![node_exporter](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258650267-88fe8ad9-4552-4707-b643-5a1d74b12c6b.gif)
+![node_exporter](/images/home-server-monitoring/258650267-88fe8ad9-4552-4707-b643-5a1d74b12c6b.gif)
 
 ---
 
@@ -167,8 +167,8 @@ spec:
 $ kubectl apply -f prometheus.yaml
 ```
 
-![Prometheus](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258821180-bfaf0f4f-9320-4597-bbc8-1d7f8485c49d.png)
-![node_cpu](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258826658-ad837d6a-eed1-4c3b-adb0-020ae0a8b511.png)
+![Prometheus](/images/home-server-monitoring/258821180-bfaf0f4f-9320-4597-bbc8-1d7f8485c49d.png)
+![node_cpu](/images/home-server-monitoring/258826658-ad837d6a-eed1-4c3b-adb0-020ae0a8b511.png)
 
 ---
 
@@ -240,8 +240,8 @@ kubectl apply -f grafana.yaml
 
 [Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)를 import하여 dashboard를 구성했다!
 
-![Grafana](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258822274-e70803d6-19e8-4626-b369-4f8a1a9d584f.png)
-![Monitoring_2](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258820862-78d15f77-7366-4e91-a4f4-ad638b54df77.png)
+![Grafana](/images/home-server-monitoring/258822274-e70803d6-19e8-4626-b369-4f8a1a9d584f.png)
+![Monitoring_2](/images/home-server-monitoring/258820862-78d15f77-7366-4e91-a4f4-ad638b54df77.png)
 
 ---
 
@@ -482,4 +482,4 @@ spec:
     certResolver: myresolver
 ```
 
-![HTTPS-grafana](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259379473-47a797e9-e546-4bc6-ae21-5e70f17fdb6c.png)
+![HTTPS-grafana](/images/home-server-monitoring/259379473-47a797e9-e546-4bc6-ae21-5e70f17fdb6c.png)

@@ -9,24 +9,24 @@ tags:
 ---
 # Operator
 
-![](https://user-images.githubusercontent.com/42334717/65117288-c2991180-da24-11e9-9e58-62a12172c887.png)
+![](/images/matlab-1/65117288-c2991180-da24-11e9-9e58-62a12172c887.png)
 > `clc` - Interpreter initialization, `help <함수>` - 설명
 
 <!-- more -->
 
-![Dataset 저장](https://user-images.githubusercontent.com/42334717/65118683-54ede500-da26-11e9-9e8e-f1d9e4b20afa.png)
+![Dataset 저장](/images/matlab-1/65118683-54ede500-da26-11e9-9e8e-f1d9e4b20afa.png)
 ***
 # Calculation
 
-![](https://user-images.githubusercontent.com/42334717/65117331-cfb60080-da24-11e9-96db-d0adbdd233e2.png)
+![](/images/matlab-1/65117331-cfb60080-da24-11e9-96db-d0adbdd233e2.png)
 ***
 # Variable
 
-![](https://user-images.githubusercontent.com/42334717/65120630-e52d2980-da28-11e9-9775-c5ad78882032.png)
+![](/images/matlab-1/65120630-e52d2980-da28-11e9-9775-c5ad78882032.png)
 ***
 # Trigonometric function
 
-![](https://user-images.githubusercontent.com/42334717/65120603-db0b2b00-da28-11e9-96b8-3ecbaf0f9334.png)
+![](/images/matlab-1/65120603-db0b2b00-da28-11e9-96b8-3ecbaf0f9334.png)
 ***
 # Graph plot
 
@@ -40,15 +40,15 @@ plot(b, '+')
 axis([0 10 0 10]) %Scale
 ~~~
 
-![plot(b,'*'), axis([0 10 0 10])](https://user-images.githubusercontent.com/42334717/65121979-08f16f00-da2b-11e9-840d-f449a083cc08.png)
+![plot(b,'*'), axis([0 10 0 10])](/images/matlab-1/65121979-08f16f00-da2b-11e9-840d-f449a083cc08.png)
 
-![figure](https://user-images.githubusercontent.com/42334717/65123019-5373eb00-da2d-11e9-9d4f-677c5dde37e7.png)
+![figure](/images/matlab-1/65123019-5373eb00-da2d-11e9-9d4f-677c5dde37e7.png)
 
-![legend('name')](https://user-images.githubusercontent.com/42334717/65123304-e44ac680-da2d-11e9-98ac-1cc502d5836d.png)
+![legend('name')](/images/matlab-1/65123304-e44ac680-da2d-11e9-98ac-1cc502d5836d.png)
 ***
 # Text and Charaters
 
-![](https://user-images.githubusercontent.com/42334717/65122267-78675e80-da2b-11e9-9717-a449aebed828.png)
+![](/images/matlab-1/65122267-78675e80-da2b-11e9-9717-a449aebed828.png)
 ***
 # Array
 
@@ -114,14 +114,14 @@ a=[1 2 3]
 b=[4 5 6]
 ~~~
 
-![](https://user-images.githubusercontent.com/42334717/65119952-de51e700-da27-11e9-8e3c-21985e85a82e.png)
+![](/images/matlab-1/65119952-de51e700-da27-11e9-8e3c-21985e85a82e.png)
 
 ~~~Matlab
 a=[[1,2,3];[4,5,6];[7,8,9]]
 b=[1 2 3;4 5 6;7 8 9]
 ~~~
 
-![](https://user-images.githubusercontent.com/42334717/65120263-4ef90380-da28-11e9-86aa-2008cf74cda9.png)
+![](/images/matlab-1/65120263-4ef90380-da28-11e9-86aa-2008cf74cda9.png)
 
 ~~~Matlab
 >> A = [1 2 0; 2 5 -1; 4 10 -1]
@@ -159,5 +159,5 @@ C =
 
 + Graph plot
 
-![Figure 복사](https://user-images.githubusercontent.com/42334717/65121022-8320f400-da29-11e9-9017-0ff700f8a56a.png)
-![](https://user-images.githubusercontent.com/42334717/65120903-5a006380-da29-11e9-9b4b-0c0320ffd245.png)
+![Figure 복사](/images/matlab-1/65121022-8320f400-da29-11e9-9017-0ff700f8a56a.png)
+![](/images/matlab-1/65120903-5a006380-da29-11e9-9b4b-0c0320ffd245.png)

@@ -200,7 +200,7 @@ tags:
   + 주축 흔들림(주축 베어링)
   + 이송운동의 정밀도(베드, Linear guide 정밀도)
 
-![Lathe](https://user-images.githubusercontent.com/42334717/93463236-724bdc80-f922-11ea-81c7-c1d8f6af10af.jpg)
+![Lathe](/images/cam-and-cnc/93463236-724bdc80-f922-11ea-81c7-c1d8f6af10af.jpg)
 
 ### 선삭의 절삭운동(Cutting motion in lathe)
 
@@ -216,7 +216,7 @@ tags:
 + $A_c$ : 한개의 철삭날에 의해 제거될 재료의 단면적(미절삭 칩 단면적, Cutting area)
   + $A_c=fa_{p1}$
 
-<img width="684" alt="선삭공구 형상" src="https://user-images.githubusercontent.com/42334717/95684524-48d65600-0c2d-11eb-99b7-dfdd1fcefdc8.png">
+<img width="684" alt="선삭공구 형상" src="/images/cam-and-cnc/95684524-48d65600-0c2d-11eb-99b7-dfdd1fcefdc8.png">
 
 ### 보링(Boring)
 
@@ -243,7 +243,7 @@ tags:
 
 ### 밀링 머신의 구성과 분류
 
-![Milling](https://user-images.githubusercontent.com/42334717/95714441-31d24b00-0ca3-11eb-8429-92b44c3a40b5.png)
+![Milling](/images/cam-and-cnc/95714441-31d24b00-0ca3-11eb-8429-92b44c3a40b5.png)
 
 + 테이블(Table)
 + Saddle

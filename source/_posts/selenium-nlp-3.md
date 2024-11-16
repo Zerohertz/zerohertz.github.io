@@ -205,4 +205,4 @@ for a in range(1, 100): #url의 개수
         time.sleep(3)
 browser.quit()
 ~~~
-![실행결과](https://user-images.githubusercontent.com/42334717/45914919-d0a26980-be86-11e8-9a79-83596d3f83bc.png)
+![실행결과](/images/selenium-nlp-3/45914919-d0a26980-be86-11e8-9a79-83596d3f83bc.png)

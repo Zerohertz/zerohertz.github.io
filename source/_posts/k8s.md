@@ -220,7 +220,7 @@ Events:
 $ kubectl edit pods k8s-is-so-hard-name2
 ```
 
-<img width="1082" alt="Update" src="https://github.com/Zerohertz/zerohertz.github.io/assets/42334717/2b13f1ed-ed99-49c5-9b49-152ec76e2b2a">
+<img width="1082" alt="Update" src="/images/k8s/2b13f1ed-ed99-49c5-9b49-152ec76e2b2a">
 
 vi editor를 통한 실행 중인 pod 수정 가능
 

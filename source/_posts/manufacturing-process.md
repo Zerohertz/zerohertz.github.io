@@ -111,13 +111,13 @@ $$
 E=\frac{\sigma}{\epsilon}
 $$
 
-![Introduction](https://user-images.githubusercontent.com/42334717/77715304-9935ef80-701e-11ea-8ff7-bd19b70150ce.jpeg)
+![Introduction](/images/manufacturing-process/77715304-9935ef80-701e-11ea-8ff7-bd19b70150ce.jpeg)
 
 ## Tension test
 
 > **아래 그림 시험**
 
-![Tension test](https://user-images.githubusercontent.com/42334717/77715817-f8e0ca80-701f-11ea-9c35-c6a6b8b1ea35.jpeg)
+![Tension test](/images/manufacturing-process/77715817-f8e0ca80-701f-11ea-9c35-c6a6b8b1ea35.jpeg)
 
 + 강도-변형의 특성 확인
 + 실험적인(경험적인) Data
@@ -159,7 +159,7 @@ $$
 
 ## Effect of temperature in manufacturing process
 
-![Temperature](https://user-images.githubusercontent.com/42334717/77717068-df8d4d80-7022-11ea-8336-ec8adfad8438.jpeg)
+![Temperature](/images/manufacturing-process/77717068-df8d4d80-7022-11ea-8336-ec8adfad8438.jpeg)
 
 > **Temperature** : Major parameter in Manufacturing
 
@@ -176,7 +176,7 @@ $$
 + Strain softening(변형연화)
 + Work softening(가공연화)
 
-![Bauschinger effect](https://user-images.githubusercontent.com/42334717/77886641-348bc680-72a4-11ea-9175-aaee0357e6c9.png)
+![Bauschinger effect](/images/manufacturing-process/77886641-348bc680-72a4-11ea-9175-aaee0357e6c9.png)
 
 ## Fatigue & Creep
 
@@ -192,7 +192,7 @@ $$
   + High temperature application(Ex. Turbine blade)
   + A kind of inertia effect
 
-![Fatigue & Creep](https://user-images.githubusercontent.com/42334717/78210678-d6e6bc80-74e5-11ea-9739-ba320fb72a1b.png)
+![Fatigue & Creep](/images/manufacturing-process/78210678-d6e6bc80-74e5-11ea-9739-ba320fb72a1b.png)
 
 ## Residual stresses
 
@@ -213,7 +213,7 @@ $$
 + 밀도가 높을수록 강도가 높지만 연성이 낮아짐
 + 밀도가 낮을수록 강도가 낮지만 연성이 높아짐
 
-![Manufacturing properties](https://user-images.githubusercontent.com/42334717/78211546-3d6cda00-74e8-11ea-8783-6a871fdc149e.png)
+![Manufacturing properties](/images/manufacturing-process/78211546-3d6cda00-74e8-11ea-8783-6a871fdc149e.png)
 
 ## Deformation and Strength of Single Crystals
 
@@ -223,7 +223,7 @@ $$
   + 임계전단응력 : 소재에 영구변형을 발생시키는 전단응력
 + (b) Twinning : Portion of the crystal forms a mirror image of itself across the plane of twinning
 
-![Slip and Twinning](https://user-images.githubusercontent.com/42334717/78212801-c20d2780-74eb-11ea-89c6-b23737ef4fb2.png)
+![Slip and Twinning](/images/manufacturing-process/78212801-c20d2780-74eb-11ea-89c6-b23737ef4fb2.png)
 
 ## Mechanical fibering
 
@@ -234,7 +234,7 @@ $$
 + Preferred orientation(선택적 방향성) : strength, hardness, etc.
 + Example : Plywood - strong in planar direction but weak in thinkness direction
 
-![Rolling](https://user-images.githubusercontent.com/42334717/78214676-c5ef7880-74f0-11ea-96d9-788dc8afa979.png)
+![Rolling](/images/manufacturing-process/78214676-c5ef7880-74f0-11ea-96d9-788dc8afa979.png)
 
 + Rolling
   + 소재의 강도를 높임(밀도 증가)
@@ -246,7 +246,7 @@ $$
 + Slip under critical shear stress
 + Generation of Slipband(소성변형) in single crystal
 
-![Slipband](https://user-images.githubusercontent.com/42334717/78218322-8d539d00-74f8-11ea-8ac7-074136573aca.png)
+![Slipband](/images/manufacturing-process/78218322-8d539d00-74f8-11ea-8ac7-074136573aca.png)
 
 ## Correlation between temperature and mechanical properties
 
@@ -271,7 +271,7 @@ $$
   + Decrease : **Residual stresses, Strength, Hardness**
   + Increase : **Ductility, Grain growth**
 
-![Correlation between temperature and mechanical properties](https://user-images.githubusercontent.com/42334717/78218635-1539a700-74f9-11ea-9765-6d418b0375b2.png)
+![Correlation between temperature and mechanical properties](/images/manufacturing-process/78218635-1539a700-74f9-11ea-9765-6d418b0375b2.png)
 
 ## Cold, Warm, and Hot working
 
@@ -304,13 +304,13 @@ $$
   + 연성
   + 인성
 
-![Annealing](https://user-images.githubusercontent.com/42334717/78338314-83e83480-75cd-11ea-8f14-ac513a025ffc.png)
+![Annealing](/images/manufacturing-process/78338314-83e83480-75cd-11ea-8f14-ac513a025ffc.png)
 
 + 일반적으로 온도 증가 :
   + Increasing of ductility(연성 증가)
   + Decreasing of tensile strength(강성 감소)
 
-![Temperature](https://user-images.githubusercontent.com/42334717/78339647-c3178500-75cf-11ea-8617-f83f93ad67a9.png)
+![Temperature](/images/manufacturing-process/78339647-c3178500-75cf-11ea-8617-f83f93ad67a9.png)
 
 ## Transition temperature
 
@@ -321,7 +321,7 @@ $$
   + Abrupt change in shape
   + Surface notch - 결함(표면 가공 필요)
 
-![Transition temperature](https://user-images.githubusercontent.com/42334717/78340078-6ff20200-75d0-11ea-8d00-8fc460a4e646.png)
+![Transition temperature](/images/manufacturing-process/78340078-6ff20200-75d0-11ea-8d00-8fc460a4e646.png)
 
 ## Physical properties
 
@@ -400,7 +400,7 @@ $$
 + Beilby(amorphous) layer : Melting, surface flow and rapid quenching(급속 냉각 담금질)
 + Work-hardened layer(가공-경화층) : Processing and extent of frictional sliding(잔류응력 존재)
 
-![Surface structure of metals](https://user-images.githubusercontent.com/42334717/79044675-60626100-7c41-11ea-8028-81fc71618482.png)
+![Surface structure of metals](/images/manufacturing-process/79044675-60626100-7c41-11ea-8028-81fc71618482.png)
 
 ## Surface texture
 
@@ -414,7 +414,7 @@ $$
   + Root-mean-square : $R_{rms}$
   + Maximum roughness height : $R_t$(peak-valley)
 
-![Surface texture](https://user-images.githubusercontent.com/42334717/79044885-f5b22500-7c42-11ea-9649-7e1309a3be87.png)
+![Surface texture](/images/manufacturing-process/79044885-f5b22500-7c42-11ea-9649-7e1309a3be87.png)
 
 ## Tribology : Friction, Wear, and Lubrication
 
@@ -441,7 +441,7 @@ $$
   + Improve material flow
   + Act as thermal barrier : Prevention of cool-down of workpiece in hot working process
 
-![Tribology](https://user-images.githubusercontent.com/42334717/79045200-cd2b2a80-7c44-11ea-891d-83a43cf154d9.png)
+![Tribology](/images/manufacturing-process/79045200-cd2b2a80-7c44-11ea-891d-83a43cf154d9.png)
 
 ## Surface treatment
 
@@ -464,7 +464,7 @@ $$
   + etc.
 + Tolerance is unavoidable and important when parts are to be assembled
 
-![Dimensional tolerances](https://user-images.githubusercontent.com/42334717/79067999-797d1780-7cfe-11ea-8d8e-35d770c89fec.png)
+![Dimensional tolerances](/images/manufacturing-process/79067999-797d1780-7cfe-11ea-8d8e-35d770c89fec.png)
 
 ***
 
@@ -495,7 +495,7 @@ $$
   + Solidification begins below liquidus and is completed at solidus
   + Two phases are co-exicst between solidus and liquidus
 
-![Solidification](https://user-images.githubusercontent.com/42334717/79755717-84febd00-8354-11ea-9a98-d7770f80199f.png)
+![Solidification](/images/manufacturing-process/79755717-84febd00-8354-11ea-9a98-d7770f80199f.png)
 
 ## Cast Structure
 
@@ -535,7 +535,7 @@ $$
   + 가지사이의 간격이 넓어짐
   + 연성 증가
 
-![Alloy](https://user-images.githubusercontent.com/42334717/79757319-e889ea00-8356-11ea-9603-d979738d3f79.png)
+![Alloy](/images/manufacturing-process/79757319-e889ea00-8356-11ea-9603-d979738d3f79.png)
 
 ## Fluid Flow and Heat Transfer
 
@@ -646,7 +646,7 @@ $$
 
 > 표 5.8 - **시험**
 
-![Casting](https://user-images.githubusercontent.com/42334717/79780965-b6d54b00-8377-11ea-8d44-682d30c0bdfd.png)
+![Casting](/images/manufacturing-process/79780965-b6d54b00-8377-11ea-8d44-682d30c0bdfd.png)
 
 ## Post processes
 
@@ -780,7 +780,7 @@ $$
   + Small radius in fillets : Fatigue cracking
 + Land의 길이는 Falsh 두께의 5배
 
-<img width="831" alt="단조 명칭" src="https://user-images.githubusercontent.com/42334717/82438159-906c1200-9ad3-11ea-8da8-54ac892e1abb.png">
+<img width="831" alt="단조 명칭" src="/images/manufacturing-process/82438159-906c1200-9ad3-11ea-8da8-54ac892e1abb.png">
 
 ## Rolling(압연)
 
@@ -788,14 +788,14 @@ $$
 + Good strength and ductility : Reduce grain size and refine the microstructure - **시험**
 + 90% of all metals produced by metalworking processes
 
-![Rolling](https://user-images.githubusercontent.com/42334717/82439224-43893b00-9ad5-11ea-943e-a925f5a59089.png)
+![Rolling](/images/manufacturing-process/82439224-43893b00-9ad5-11ea-943e-a925f5a59089.png)
 
 ### Mechanics of Flat Rolling
 
 + For constant volume rate of metal, velocity of strip must increase as it moves through roll gap
 + No slip point : The two velocities (Strip / Roll) are the same
 
-![Mechanics of Flat Rolling](https://user-images.githubusercontent.com/42334717/82439585-e5a92300-9ad5-11ea-9e46-b5cb88e3820d.png)
+![Mechanics of Flat Rolling](/images/manufacturing-process/82439585-e5a92300-9ad5-11ea-9e46-b5cb88e3820d.png)
 
 + Roll forces in hot rolling
   + Two difficulties in calculation of forces and torque
@@ -840,7 +840,7 @@ $$
 
 ### Roll arrangement
 
-![Roll arrangement](https://user-images.githubusercontent.com/42334717/83268654-e55d0600-a200-11ea-99c7-770c4f12a744.png)
+![Roll arrangement](/images/manufacturing-process/83268654-e55d0600-a200-11ea-99c7-770c4f12a744.png)
 
 ### Miscellaneous rolling operations
 
@@ -933,8 +933,8 @@ $$
 + As clearance increases, the material tends to be pulled into the die, rather than being sheared
 + Burr height increases with increasing clearance and increasing ductility of the metal
 
-![Shearing](https://user-images.githubusercontent.com/42334717/83729376-752c0580-a682-11ea-9043-da16f15e8164.png)
-![Shearing](https://user-images.githubusercontent.com/42334717/83752771-0790d100-a6a4-11ea-8791-22f45a2dd92f.png)
+![Shearing](/images/manufacturing-process/83729376-752c0580-a682-11ea-9043-da16f15e8164.png)
+![Shearing](/images/manufacturing-process/83752771-0790d100-a6a4-11ea-8791-22f45a2dd92f.png)
 
 ### Die Cutting
 
@@ -947,7 +947,7 @@ $$
   + Slitting
   + Lancing : Leave a tap without removing material
 
-![Die cutting](https://user-images.githubusercontent.com/42334717/83737781-6e0af480-a68e-11ea-9676-f376cb8e437b.png)
+![Die cutting](/images/manufacturing-process/83737781-6e0af480-a68e-11ea-9676-f376cb8e437b.png)
 
 ### Fine Blanking
 
@@ -956,7 +956,7 @@ $$
 + Clearances on the order of 1% of the sheet thickness with sheet thickness of 0.5 ~ 13mm(8% in ordinary shearing operation)
 + Suitable sheet hardness : 50 ~ 90HRB
 
-![Fine Blanking](https://user-images.githubusercontent.com/42334717/83738246-030ded80-a68f-11ea-97c2-dcea7ae8a880.png)
+![Fine Blanking](/images/manufacturing-process/83738246-030ded80-a68f-11ea-97c2-dcea7ae8a880.png)
 
 ### Slitting
 
@@ -965,7 +965,7 @@ $$
   + Driven type : The blades are powered
   + Pull-through type : The strip is pulled through idling blades
 
-![Slitting](https://user-images.githubusercontent.com/42334717/83738483-52ecb480-a68f-11ea-9028-5217ace1a246.png)
+![Slitting](/images/manufacturing-process/83738483-52ecb480-a68f-11ea-9028-5217ace1a246.png)
 
 ### Shearing Die
 
@@ -974,7 +974,7 @@ $$
 + Shaving : Extra material from a rough sheared edge is trimmed by cutting
   + Part requiring multiple operations such as punching, bending, and blanking are made at high production rate using progressive dies
 
-![Shearing Die](https://user-images.githubusercontent.com/42334717/83738601-76affa80-a68f-11ea-94c5-cd8b94544586.png)
+![Shearing Die](/images/manufacturing-process/83738601-76affa80-a68f-11ea-94c5-cd8b94544586.png)
 
 ## Bending of Sheet and Plate(판재의 굽힘작업)
 
@@ -985,7 +985,7 @@ $$
 + Length of bend($L$, 굽힘길이) is the width of the sheet
 + Minimum band radius : Crack appears on the outer surface of the band
 
-<img width="500" alt="Bending of Sheet and Plate" src="https://user-images.githubusercontent.com/42334717/83738860-cbec0c00-a68f-11ea-9996-dc3293796eba.png">
+<img width="500" alt="Bending of Sheet and Plate" src="/images/manufacturing-process/83738860-cbec0c00-a68f-11ea-9996-dc3293796eba.png">
 
 ### Bendability
 
@@ -996,7 +996,7 @@ $$
 + Bendability decreases as edge roughness increases
 + Cold rolling direction : Anisotropy because of the alignment of impurities, inclusions, and voids(It is called "mechanical fibering")
 
-<img width="600" alt="Bendability" src="https://user-images.githubusercontent.com/42334717/83739023-02c22200-a690-11ea-8229-604240f535bc.png">
+<img width="600" alt="Bendability" src="/images/manufacturing-process/83739023-02c22200-a690-11ea-8229-604240f535bc.png">
 
 ### Springback
 
@@ -1012,7 +1012,7 @@ $$
   + Strength bending : Applying tension while being bent
   + Bending in high temperature : Springback decreases as yield stress decreases(Elastic region decreases)
 
-<img width="500" alt="Springback" src="https://user-images.githubusercontent.com/42334717/83746590-43269d80-a69a-11ea-8b42-417fecc90ad5.png">
+<img width="500" alt="Springback" src="/images/manufacturing-process/83746590-43269d80-a69a-11ea-8b42-417fecc90ad5.png">
 
 ### Common bending operations
 
@@ -1111,7 +1111,7 @@ $$
 + Material removal -> Chip production
 + A chip is produced ahead of tool by shearing along the shear plane
 
-![Mechanics of Chip Formation](https://user-images.githubusercontent.com/42334717/84660790-52d49a80-af54-11ea-9f17-ec89f4df1ece.png)
+![Mechanics of Chip Formation](/images/manufacturing-process/84660790-52d49a80-af54-11ea-9f17-ec89f4df1ece.png)
 
 |Input(Independent) variables(Controllable parameters)|Output(Dependent) variables|
 |:-:|:-:|
@@ -1121,15 +1121,15 @@ $$
 |Cutting condition(Speed, Feed, Depth of cut)|Wear, chipping and failure of tool|
 |Type of cutting fluid|Surface finish of workpiece|
 
-<img width="498" alt="Input and Output" src="https://user-images.githubusercontent.com/42334717/84661487-65030880-af55-11ea-8017-0aea3136291a.png">
+<img width="498" alt="Input and Output" src="/images/manufacturing-process/84661487-65030880-af55-11ea-8017-0aea3136291a.png">
 
 + Orthogonal cutting(Two dimensional model)
   + Two-dimensional orthonogonal cutting : The edge of tool is perpendicular(Orthogonal) to cutting direction
   + Tool has a rake angle, relief of clearance angle
 
-<img width="565" alt="3D" src="https://user-images.githubusercontent.com/42334717/84751158-33427e00-aff7-11ea-8591-91d6a357da10.png">
+<img width="565" alt="3D" src="/images/manufacturing-process/84751158-33427e00-aff7-11ea-8591-91d6a357da10.png">
 
-<img width="838" alt="2D" src="https://user-images.githubusercontent.com/42334717/84751688-d0051b80-aff7-11ea-9c92-b6fe8e02f5e1.png">
+<img width="838" alt="2D" src="/images/manufacturing-process/84751688-d0051b80-aff7-11ea-9c92-b6fe8e02f5e1.png">
 
 ### Chip Morphology
 
@@ -1183,14 +1183,14 @@ $$
   + Overcoming friction on the rake face of the tool - chip interface
   + Tool tip rubbing against the machined surface when the tool is worn
 
-<img width="506" alt="Temperature" src="https://user-images.githubusercontent.com/42334717/85018688-945d8380-b1a8-11ea-9d62-0b7df8045562.png">
+<img width="506" alt="Temperature" src="/images/manufacturing-process/85018688-945d8380-b1a8-11ea-9d62-0b7df8045562.png">
 
 + Max temperature is away from the tool tip
 + temperature increases with cutting speed
 + The chip plays a role of good heat sink in that it absorbs and carries away most of heat generated
 + Large proportion of the heat generated is carried away by the chip(In the form of heat), as cutting speed
 
-<img width="542" alt="Temperature" src="https://user-images.githubusercontent.com/42334717/85107678-52384e80-b249-11ea-88f6-cd85b89b5a7b.png">
+<img width="542" alt="Temperature" src="/images/manufacturing-process/85107678-52384e80-b249-11ea-88f6-cd85b89b5a7b.png">
 
 ## Tool Wear and Failure
 
@@ -1198,7 +1198,7 @@ $$
 + Tool wear is one of the most important aspects of machining operations; because of its effect on the quality of the machined surface and the economics of machining
 + The war behavior of cutting tools are flank wear, crater wear, nose wear, and chipping of the cutting edge; wear is generally a gradual process, chipping of the tool is a kind of catastrophic failure
 
-<img width="585" alt="Tool Wear ad Failure" src="https://user-images.githubusercontent.com/42334717/85107975-d12d8700-b249-11ea-81d2-6483198208d9.png">
+<img width="585" alt="Tool Wear ad Failure" src="/images/manufacturing-process/85107975-d12d8700-b249-11ea-81d2-6483198208d9.png">
 
 ### Flank Wear
 

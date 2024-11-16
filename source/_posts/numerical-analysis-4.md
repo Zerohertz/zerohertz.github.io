@@ -94,9 +94,9 @@ r = 0.902751
 
 Process finished with exit code 0
 ~~~
-![Data point](https://user-images.githubusercontent.com/42334717/48669574-dfd22a80-eb4a-11e8-86b9-144604fd4f9f.png)
-![실행결과](https://user-images.githubusercontent.com/42334717/48669580-f11b3700-eb4a-11e8-88ae-35c47aee9707.png)
-![Regression](https://user-images.githubusercontent.com/42334717/48674789-79252f00-eb93-11e8-9291-3b69dfbcc9d7.png)
+![Data point](/images/numerical-analysis-4/48669574-dfd22a80-eb4a-11e8-86b9-144604fd4f9f.png)
+![실행결과](/images/numerical-analysis-4/48669580-f11b3700-eb4a-11e8-88ae-35c47aee9707.png)
+![Regression](/images/numerical-analysis-4/48674789-79252f00-eb93-11e8-9291-3b69dfbcc9d7.png)
 ***
 # (5, 5) Data point 추가한 Regression
 
@@ -173,8 +173,8 @@ r = 0.683550
 
 Process finished with exit code 0
 ~~~
-![(5, 5)를 추가하기 전의 Regression](https://user-images.githubusercontent.com/42334717/48674790-7a565c00-eb93-11e8-9903-c2d6bb300f5f.png)
-![(5, 5)를 추가한 후의 Regression](https://user-images.githubusercontent.com/42334717/48674792-7aeef280-eb93-11e8-81cb-10353bac5a88.png)
+![(5, 5)를 추가하기 전의 Regression](/images/numerical-analysis-4/48674790-7a565c00-eb93-11e8-9903-c2d6bb300f5f.png)
+![(5, 5)를 추가한 후의 Regression](/images/numerical-analysis-4/48674792-7aeef280-eb93-11e8-81cb-10353bac5a88.png)
 ***
 # Conclusion
 

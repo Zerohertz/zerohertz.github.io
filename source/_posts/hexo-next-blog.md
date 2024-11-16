@@ -16,7 +16,7 @@ tags:
 [Uninstall homebrew](https://ddoongmause.blogspot.com/2021/02/brew.html)
 [Uninstall node & npm](https://clolee.tistory.com/85)
 
-<img width="762" alt="npm error" src="https://user-images.githubusercontent.com/42334717/205918079-9c278225-b2a5-4fdd-831b-f006bdadf55c.png">
+<img width="762" alt="npm error" src="/images/hexo-next-blog/205918079-9c278225-b2a5-4fdd-831b-f006bdadf55c.png">
 
 ~~~applescript
 brew install node
@@ -24,7 +24,7 @@ brew install yarn --ignore-dependencies
 yarn set version stable
 ~~~
 
-<img width="762" alt="Reinstalled node & npm" src="https://user-images.githubusercontent.com/42334717/205923445-75f8b856-29f3-4847-bfc6-b84def76d57b.png">
+<img width="762" alt="Reinstalled node & npm" src="/images/hexo-next-blog/205923445-75f8b856-29f3-4847-bfc6-b84def76d57b.png">
 
 ## Ubuntu
 
@@ -43,7 +43,7 @@ $ sudo apt -y install nodejs
 sudo npm install hexo-cli -g
 ~~~
 
-<img width="762" alt="Reinstall Hexo" src="https://user-images.githubusercontent.com/42334717/205924373-26b84fb1-cf9b-438a-a2a6-84e1ce6df01a.png">
+<img width="762" alt="Reinstall Hexo" src="/images/hexo-next-blog/205924373-26b84fb1-cf9b-438a-a2a6-84e1ce6df01a.png">
 
 ~~~bash
 $ hexo init ${Blog_Dir_Name}

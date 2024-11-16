@@ -29,7 +29,7 @@ tokenizer.fit_on_texts(shakespeare_text)
 <!-- More -->
 
 > Encoding and decoding
-<img width="480" alt="Encoding and decoding" src="https://user-images.githubusercontent.com/42334717/184599745-015fb1fa-e858-4e54-a2fa-58e2b37941d4.png">
+<img width="480" alt="Encoding and decoding" src="/images/hands-on-machine-learning-5/184599745-015fb1fa-e858-4e54-a2fa-58e2b37941d4.png">
 
 ~~~python
 import numpy as np
@@ -144,10 +144,10 @@ history = stacked_ae.fit(X_train, X_train, epochs=20,
 + `BCELoss` > `MSELoss`: 적층 오토인코더를 컴파일하는 경우 적합
 
 > Original images and reconstructed images
-<img width="1014" alt="Original images and reconstructed images" src="https://user-images.githubusercontent.com/42334717/184636570-583490a0-2e45-4921-a320-956d48f5382f.png">
+<img width="1014" alt="Original images and reconstructed images" src="/images/hands-on-machine-learning-5/184636570-583490a0-2e45-4921-a320-956d48f5382f.png">
 
 > Result of t-SNE
-![Result of t-SNE](https://user-images.githubusercontent.com/42334717/184636736-b77cd271-1031-4e2b-8b12-0b01e4c22428.png)
+![Result of t-SNE](/images/hands-on-machine-learning-5/184636736-b77cd271-1031-4e2b-8b12-0b01e4c22428.png)
 
 ## Generative Adversarial Networks
 

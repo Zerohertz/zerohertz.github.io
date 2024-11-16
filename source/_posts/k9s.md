@@ -68,10 +68,10 @@ $ k9s
 
 해당 명령어를 입력하면 `K9sCLI`라는 화려한 CLI 이후에 현재 실행되고 있는 pod들이 나란히 명시되어 있다.
 
-![k9s-1](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259131351-876703cb-9054-4cc5-8698-d5d4343d309b.png)
+![k9s-1](/images/k9s/259131351-876703cb-9054-4cc5-8698-d5d4343d309b.png)
 
 단순히 원하는 pod를 방향키와 enter로 지정한 뒤 아래와 같이 실시간 로그를 확인할 수 있다!
 
-![k9s-2](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/259134899-0b0fbade-7d31-41a2-b33a-2cd9b6d1f8bf.gif)
+![k9s-2](/images/k9s/259134899-0b0fbade-7d31-41a2-b33a-2cd9b6d1f8bf.gif)
 
 ~~K9s를 사용하며 느낀점: 아는 만큼 보인다 (아무 것도 안보임)~~

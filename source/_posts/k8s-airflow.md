@@ -14,7 +14,7 @@ tags:
 열심히 구축한 [home server](https://zerohertz.github.io/home-server-init/)을 더 다양하게 활용하기 위해 (~~설치가 매우 간편한 K3s~~ $\rightarrow$ 많은 시행착오 끝에 K8s로,,,) K8s를 통해 Apache Airflow를 설치하고 배포해보겠다.
 `https://${DDNS}/airflow`에 서비스가 구동될 수 있도록 ingress도 설정해보겠다.
 
-![thumbnail](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260274063-0ce33604-b019-4600-aa35-b20c14284947.gif)
+![thumbnail](/images/k8s-airflow/260274063-0ce33604-b019-4600-aa35-b20c14284947.gif)
 
 ~~삽질 끝에 복이 온다!~~
 
@@ -235,7 +235,7 @@ $ sudo rm /usr/local/bin/kind
 
 Minikue, K3s, Kind와는 다르게 K8s를 사용하여 바로 `helm`으로 Airflow를 설치하려고 시도한다면 아래와 같은 이슈가 발생한다.
 
-![Pending](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260209901-0ed8fa25-1a60-40d8-8e04-c1a208082dcc.png)
+![Pending](/images/k8s-airflow/260209901-0ed8fa25-1a60-40d8-8e04-c1a208082dcc.png)
 
 이 이유는 Pod가 bound할 `PersistentVolumeClaims`가 존재하지 않기 때문이다.
 설명하기 앞서 `PVC`가 무엇인지 알아보자.
@@ -274,7 +274,7 @@ volumeBindingMode: WaitForFirstConsumer
 reclaimPolicy: Delete
 ```
 
-![tada](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif)
+![tada](/images/k8s-airflow/260212777-797b8896-f56e-4882-911e-bca3c48d5f71.gif)
 
 이렇게 설치가 아주 잘 되는 것을 확인할 수 있다.
 하지만 `dags` 폴더를 따로 연결하지 않아 DAG를 사용할 수 없는 상태이기 때문에 아래와 같은 `StorageClass`, `PV`, `PVC`를 생성한다.
@@ -387,7 +387,7 @@ NAME                                               PROVISIONER                  
 storageclass.storage.k8s.io/airflow-storage        kubernetes.io/no-provisioner   Delete          WaitForFirstConsumer   false                  9h
 ```
 
-![dags](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260214073-1652586e-9149-41d0-adea-e761d0f9f6a6.gif)
+![dags](/images/k8s-airflow/260214073-1652586e-9149-41d0-adea-e761d0f9f6a6.gif)
 
 이렇게 `dags` 폴더도 잘 연결된다!
 
@@ -429,7 +429,7 @@ postgresql:
     password: ${PASSWORD}
 ```
 
-<img width="271" alt="404" src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260240585-e995c1c1-037f-48a1-8e26-b2e8cb3ef66d.png">
+<img width="271" alt="404" src="/images/k8s-airflow/260240585-e995c1c1-037f-48a1-8e26-b2e8cb3ef66d.png">
 
 `values.yaml`에 존재하는 `ingress.web.enabled`를 단순히 `true`로 설정하면 잘 실행되지만 목표인 `${DDNS}/airflow`를 달성하기 위해서 `false`로 설정하고 아래 `IngressRoute`를 추가한다! (~~위 사진은 무한한 삽질의 증거...~~)
 
@@ -464,7 +464,7 @@ spec:
     certResolver: ${RESOLVER}
 ```
 
-![ingress](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260254339-dcf92f50-7989-4b0e-b6b8-3a83cac62027.png)
+![ingress](/images/k8s-airflow/260254339-dcf92f50-7989-4b0e-b6b8-3a83cac62027.png)
 
 짜자잔~ 성공... HTTPS가 빨간색인 이유는 일주일에 5번을 초과하게 인증서를 발급받아 생긴 현상이다... (~~무한 삽질~~)
 
@@ -485,7 +485,7 @@ K8s로 설치를 완료했으니 여러 executor 또한 사용할 수 있다.
 
 `KubernetesExecutor`로 실행하면 아래와 같이 DAG 실행 시 pod가 생성되고 소멸하는 것을 확인할 수 있다.
 
-![KubernetesExecutor](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260274063-0ce33604-b019-4600-aa35-b20c14284947.gif)
+![KubernetesExecutor](/images/k8s-airflow/260274063-0ce33604-b019-4600-aa35-b20c14284947.gif)
 
 여기서 유의할 점은 `CeleryExecutor` 대신 `KubernetesExecutor`을 사용할 경우 아래와 같은 변경점이 있다.
 

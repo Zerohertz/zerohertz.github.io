@@ -38,8 +38,8 @@ u =
  
 C5*exp(-x/50)*cos((3*111^(1/2)*x)/50) - C6*exp(-x/50)*sin((3*111^(1/2)*x)/50)
 ~~~
-![Natural response](https://user-images.githubusercontent.com/42334717/68739143-80a6d900-062b-11ea-8b3e-a2a0ed9aca27.jpg)
-![Step response](https://user-images.githubusercontent.com/42334717/68738898-dc249700-062a-11ea-8afc-2dc6aa9dbfdf.jpg)
+![Natural response](/images/matlab-6/68739143-80a6d900-062b-11ea-8b3e-a2a0ed9aca27.jpg)
+![Step response](/images/matlab-6/68738898-dc249700-062a-11ea-8afc-2dc6aa9dbfdf.jpg)
 
 ## subs plot
 

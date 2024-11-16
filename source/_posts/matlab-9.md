@@ -38,7 +38,7 @@ sys=tf(num,den);
 bode(sys)
 ~~~
 
-![](https://user-images.githubusercontent.com/42334717/69698862-caaeb500-1129-11ea-91bb-9a5c5defa953.png)
+![](/images/matlab-9/69698862-caaeb500-1129-11ea-91bb-9a5c5defa953.png)
 
 + Hz
 
@@ -60,6 +60,6 @@ den=[10 0.1 1000];
 den=[10 0.1 4000];
 ~~~
 
-![](https://user-images.githubusercontent.com/42334717/69700035-d059ca00-112c-11ea-905e-5f83d38f2006.png)
+![](/images/matlab-9/69700035-d059ca00-112c-11ea-905e-5f83d38f2006.png)
 
 + b is same in frequency domain

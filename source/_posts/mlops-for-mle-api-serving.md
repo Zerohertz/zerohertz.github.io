@@ -70,7 +70,7 @@ Valid Accuracy : 0.95
   warnings.warn("Setuptools is replacing distutils.")
 ~~~
 
-![Save Model to Registry](https://user-images.githubusercontent.com/42334717/219026880-08764678-ab4b-4209-94ed-651293270a18.png)
+![Save Model to Registry](/images/mlops-for-mle-api-serving/219026880-08764678-ab4b-4209-94ed-651293270a18.png)
 
 ~~~bash
 /MLOps-Breast-Cancer/MLflow$ python download_model.py --model-name sk_model --run-id a8ec09bf9c4b4b5ab82ddde01a14109b
@@ -145,7 +145,7 @@ def predict(data: PredictIn) -> PredictOut:
 /MLOps-Breast-Cancer/FastAPI$ uvicorn app:app --reload
 ~~~
 
-![Results](https://user-images.githubusercontent.com/42334717/219038379-a6c92a59-868c-4b6d-9a2c-e72d162885cf.png)
+![Results](/images/mlops-for-mle-api-serving/219038379-a6c92a59-868c-4b6d-9a2c-e72d162885cf.png)
 
 ---
 

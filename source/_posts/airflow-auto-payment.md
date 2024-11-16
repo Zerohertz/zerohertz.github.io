@@ -250,4 +250,4 @@ CMD ["python3", "Uplus.py"]
 
 이제 매일 결제할 필요가 없어졌다.
 
-<img width="381" alt="Result" src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/261619194-e0d1710a-852a-438d-9839-f63dcfa1eceb.png">
+<img width="381" alt="Result" src="/images/airflow-auto-payment/261619194-e0d1710a-852a-438d-9839-f63dcfa1eceb.png">

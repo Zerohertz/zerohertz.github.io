@@ -32,9 +32,9 @@ $ docker run -d \
 
 <!-- More -->
 
-<img width="651" alt="docker run" src="https://user-images.githubusercontent.com/42334717/213859104-97231fc0-f9d9-41a9-9852-01e8351b7f5e.png">
+<img width="651" alt="docker run" src="/images/mlops-for-mle-database/213859104-97231fc0-f9d9-41a9-9852-01e8351b7f5e.png">
 
-<img width="1382" alt="Result" src="https://user-images.githubusercontent.com/42334717/213859147-7103a19f-fa35-4173-ab3f-7db1bbe1115c.png">
+<img width="1382" alt="Result" src="/images/mlops-for-mle-database/213859147-7103a19f-fa35-4173-ab3f-7db1bbe1115c.png">
 
 ~~~bash
 $ docker ps
@@ -81,7 +81,7 @@ mydatabase=#
 + `-U`: 유저 이름 지정
 + `-d`: DB의 이름 입력
 
-<img width="716" alt="\du" src="https://user-images.githubusercontent.com/42334717/213860629-036f95f5-e112-48b1-a4e3-498d24082b51.png">
+<img width="716" alt="\du" src="/images/mlops-for-mle-database/213860629-036f95f5-e112-48b1-a4e3-498d24082b51.png">
 
 + `\du` 명령어를 통해 컨테이너에 접속한 현재 상태 조회
 

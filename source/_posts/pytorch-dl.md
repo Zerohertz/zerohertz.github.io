@@ -21,7 +21,7 @@ dataset = pd.read_csv('data/car_evaluation.csv')
 dataset.head()
 ~~~
 
-<img width="832" alt="dataset.head()" src="https://user-images.githubusercontent.com/42334717/212862716-dc869236-4ea7-47e7-82c1-d67f5a592252.png">
+<img width="832" alt="dataset.head()" src="/images/pytorch-dl/212862716-dc869236-4ea7-47e7-82c1-d67f5a592252.png">
 
 ~~~python In[2]
 fig_size = plt.rcParams["figure.figsize"]
@@ -31,7 +31,7 @@ plt.rcParams["figure.figsize"] = fig_size
 dataset.output.value_counts().plot(kind = 'pie', autopct = '%0.05f%%', colors = ['lightblue', 'lightgreen', 'orange', 'pink'], explode = (0.05, 0.05, 0.05, 0.05))
 ~~~
 
-![Result](https://user-images.githubusercontent.com/42334717/212857753-d06b0185-9aa9-4ee3-baa3-bafdd6dcba32.png)
+![Result](/images/pytorch-dl/212857753-d06b0185-9aa9-4ee3-baa3-bafdd6dcba32.png)
 
 <!-- More -->
 

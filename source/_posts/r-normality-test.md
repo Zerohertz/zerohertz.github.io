@@ -41,12 +41,12 @@ W = 0.9841, p-value = 0.32
 + `shapiro.test(Price)` : $p-value \leq 0.05$ 이므로 귀무가설 기각
 + `shapiro.test(log(Price))` : $p-value \geq 0.05$ 이므로 귀무가설 채택
 
-<img width="1145" alt="qqnorm(Price)" src="https://user-images.githubusercontent.com/42334717/72127505-40f23880-33b3-11ea-8a4d-f2d353bf83a6.png">
-<img width="1145" alt="qqline(Price)" src="https://user-images.githubusercontent.com/42334717/72127550-6717d880-33b3-11ea-8bde-de8dcac9ba4f.png">
+<img width="1145" alt="qqnorm(Price)" src="/images/r-normality-test/72127505-40f23880-33b3-11ea-8a4d-f2d353bf83a6.png">
+<img width="1145" alt="qqline(Price)" src="/images/r-normality-test/72127550-6717d880-33b3-11ea-8bde-de8dcac9ba4f.png">
 
 + 선에 맞춰서 몰려져있어야 정규분포
 
-<img width="1145" alt="qqnorm(log(Price)), qqline(log(Price))" src="https://user-images.githubusercontent.com/42334717/72127654-b827cc80-33b3-11ea-90f2-535d5199d6e9.png">
+<img width="1145" alt="qqnorm(log(Price)), qqline(log(Price))" src="/images/r-normality-test/72127654-b827cc80-33b3-11ea-90f2-535d5199d6e9.png">
 
 + p-value $\leq$ 0.05 이므로 귀무가설 채택
 
@@ -293,7 +293,7 @@ In chisq.test(t, correct = FALSE, ...) :
 [1] 0.822
 ~~~
 
-<img width="1145" alt="산점도" src="https://user-images.githubusercontent.com/42334717/72130050-b3671680-33bb-11ea-89f5-03718cf943af.png">
+<img width="1145" alt="산점도" src="/images/r-normality-test/72130050-b3671680-33bb-11ea-89f5-03718cf943af.png">
 
 ## 상관계수 
 
@@ -897,7 +897,7 @@ Residuals 91 6406.8    70.4
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ~~~
 
-![plot()](https://user-images.githubusercontent.com/42334717/72406438-8cd02380-379f-11ea-95bb-20f680436dde.png)
+![plot()](/images/r-normality-test/72406438-8cd02380-379f-11ea-95bb-20f680436dde.png)
 
 + Length - `SSR`
 + Residual - `SSE`

@@ -46,7 +46,7 @@ tags:
 
 `이런거도 됑`__
 
-![스크린샷!](https://user-images.githubusercontent.com/42334717/44299718-7584d080-a336-11e8-8496-4f1066c72a03.png)
+![스크린샷!](/images/hexo-init/44299718-7584d080-a336-11e8-8496-4f1066c72a03.png)
 
 ~~~md
 
@@ -92,5 +92,5 @@ tags: Hexo
 
 `이런거도 됑`
 
-![스크린샷!](https://user-images.githubusercontent.com/42334717/44299718-7584d080-a336-11e8-8496-4f1066c72a03.png)
+![스크린샷!](/images/hexo-init/44299718-7584d080-a336-11e8-8496-4f1066c72a03.png)
 ~~~

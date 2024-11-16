@@ -14,7 +14,7 @@ tags:
 
 [Fail2Ban](https://zerohertz.github.io/home-server-init/#Fail2Ban)의 명령어 중 `sudo fail2ban-client status sshd`을 사용하면 아래와 같은 결과가 나온다.
 
-![jail](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260302422-589245b2-4509-4711-be99-fbc844a11ad3.gif)
+![jail](/images/airflow-discord/260302422-589245b2-4509-4711-be99-fbc844a11ad3.gif)
 
 ```shell
 $ sudo fail2ban-client status sshd
@@ -73,7 +73,7 @@ Discord에서 Webhook과 Bot의 차이는 아래와 같다.
 진행하려는 service의 목표는 event 발생 시 Discord로 단순 메시지를 전송하는 것이므로 Webhook를 사용한다.
 아래와 같이 Discord에서 Webhook을 발급받는다.
 
-![discord](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260303443-07d39198-b66c-4bee-a89a-b8e510bb46e7.png)
+![discord](/images/airflow-discord/260303443-07d39198-b66c-4bee-a89a-b8e510bb46e7.png)
 
 `웹후크 URL 복사` 버튼을 누르면 끝이다!
 아래와 같이 테스트를 진행했다.
@@ -102,7 +102,7 @@ def send_discord_message(webhook_url, content):
 <Response [204]>
 ```
 
-![test](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260304378-46424e32-6c2b-41a8-b993-cad930ad5be5.png)
+![test](/images/airflow-discord/260304378-46424e32-6c2b-41a8-b993-cad930ad5be5.png)
 
 아주 잘 수신이 되는 것을 확인했다.
 
@@ -589,7 +589,7 @@ def jail():
 DAG = jail()
 ```
 
-![jail](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260419362-6244ab72-e0c9-4366-acb3-bf5fd5022d7a.gif)
+![jail](/images/airflow-discord/260419362-6244ab72-e0c9-4366-acb3-bf5fd5022d7a.gif)
 
 다 하고나니 아래와 같은 방법이 있었다...
 
@@ -638,7 +638,7 @@ webhook = ${WEBHOOK}
 hostname = ${HOSTNAME}
 ```
 
-![fail2ban-discord](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/260435859-84884c61-463b-4bc1-a34f-ded9a2899f83.png)
+![fail2ban-discord](/images/airflow-discord/260435859-84884c61-463b-4bc1-a34f-ded9a2899f83.png)
 
 심지어 대략적인 위치 정보도 제공하는 사이트를 링크해준다...
 현재는 Slack으로 이전하여 사용 중 이다.

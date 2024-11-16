@@ -32,7 +32,7 @@ print(sess.run(y, feed_dict={a: 3, b: 3}))
 + `run()`메서드에 feed_dict 인자로 변수의 값을 넘김
 + 입력된 수식이 계삭되면 곱의 결과 9를 프린트
 
-![살행결과](https://user-images.githubusercontent.com/42334717/62848344-32c1c280-bd16-11e9-9ec7-2cd2ae377074.png)
+![살행결과](/images/tensorflow-1/62848344-32c1c280-bd16-11e9-9ec7-2cd2ae377074.png)
 
 > 텐서플로우 프로그램의 일반적인 구조 : 전체 알고리즘을 먼저 기술하고 세션을 생성하여 연산을 실행
 ***
@@ -61,7 +61,7 @@ plt.legend()
 plt.show()
 ~~~
 
-![실행결과](https://user-images.githubusercontent.com/42334717/62849858-36584800-bd1c-11e9-9176-cbe4aa323eec.png)
+![실행결과](/images/tensorflow-1/62849858-36584800-bd1c-11e9-9176-cbe4aa323eec.png)
 
 + 코드에서 볼 수 있듯 `y=0.1*x+0.3` 관계를 가지는 데이터를 생성
 + 정규분포를 따라 약간의 편차를 두어 완전히 직선에 일치하지 않는 예시
@@ -165,7 +165,7 @@ plt.legend()
 plt.show()
 ~~~
 
-![실행결과](https://user-images.githubusercontent.com/42334717/62850969-913f6e80-bd1f-11e9-9fbb-314d20e6b1a2.png)
+![실행결과](/images/tensorflow-1/62850969-913f6e80-bd1f-11e9-9fbb-314d20e6b1a2.png)
 
 ## 반복에 따른 변화
 
@@ -221,12 +221,12 @@ for z in [1, 2, 3, 4, 5, 6, 7, 8, 1000]:
 1000 [0.09933957] [0.29967603]
 ~~~
 
-![1회 반복](https://user-images.githubusercontent.com/42334717/62851910-bb466000-bd22-11e9-86ea-1cee6bf850b5.png)
-![2회 반복](https://user-images.githubusercontent.com/42334717/62851915-bda8ba00-bd22-11e9-861e-239d5f3a40e9.png)
-![3회 반복](https://user-images.githubusercontent.com/42334717/62851930-c8fbe580-bd22-11e9-9d16-e36cef50e0ff.png)
-![4회 반복](https://user-images.githubusercontent.com/42334717/62851932-cb5e3f80-bd22-11e9-981d-009fc20fbae2.png)
-![5회 반복](https://user-images.githubusercontent.com/42334717/62851935-cdc09980-bd22-11e9-9849-08ce38e970f6.png)
-![6회 반복](https://user-images.githubusercontent.com/42334717/62851937-cf8a5d00-bd22-11e9-882a-6b1bcfb8be1b.png)
-![7회 반복](https://user-images.githubusercontent.com/42334717/62851941-d1542080-bd22-11e9-9e33-5dd00e40fe5f.png)
-![8회 반복](https://user-images.githubusercontent.com/42334717/62851943-d3b67a80-bd22-11e9-9a9c-a884aee9ba85.png)
-![1000회 반복](https://user-images.githubusercontent.com/42334717/62852000-0eb8ae00-bd23-11e9-8e69-2479f6102af1.png)
+![1회 반복](/images/tensorflow-1/62851910-bb466000-bd22-11e9-86ea-1cee6bf850b5.png)
+![2회 반복](/images/tensorflow-1/62851915-bda8ba00-bd22-11e9-861e-239d5f3a40e9.png)
+![3회 반복](/images/tensorflow-1/62851930-c8fbe580-bd22-11e9-9d16-e36cef50e0ff.png)
+![4회 반복](/images/tensorflow-1/62851932-cb5e3f80-bd22-11e9-981d-009fc20fbae2.png)
+![5회 반복](/images/tensorflow-1/62851935-cdc09980-bd22-11e9-9849-08ce38e970f6.png)
+![6회 반복](/images/tensorflow-1/62851937-cf8a5d00-bd22-11e9-882a-6b1bcfb8be1b.png)
+![7회 반복](/images/tensorflow-1/62851941-d1542080-bd22-11e9-9e33-5dd00e40fe5f.png)
+![8회 반복](/images/tensorflow-1/62851943-d3b67a80-bd22-11e9-9a9c-a884aee9ba85.png)
+![1000회 반복](/images/tensorflow-1/62852000-0eb8ae00-bd23-11e9-8e69-2479f6102af1.png)

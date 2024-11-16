@@ -8,7 +8,7 @@ tags:
 ---
 > 킹받는 호돌이
 
-![Received King](https://user-images.githubusercontent.com/42334717/221774607-92a8c8fd-9990-45da-b561-c5ea441bb304.png)
+![Received King](/images/technical-research-personnel-init/221774607-92a8c8fd-9990-45da-b561-c5ea441bb304.png)
 
 # Introduction
 
@@ -20,7 +20,7 @@ tags:
 
 > 25살의 무게,,,
 
-![Weight of 25](https://user-images.githubusercontent.com/42334717/221777283-2912e0a9-fb19-42e1-9002-e919cdeb51dd.png)
+![Weight of 25](/images/technical-research-personnel-init/221777283-2912e0a9-fb19-42e1-9002-e919cdeb51dd.png)
 
 25살까지 병역을 해결하지 못한다면 20살에 받은 신체검사를 다시 받아야합니다. (미필들은 공감할 수 있는 무서운 병무청의 선톡,,,)
 ~~20살들 사이에 낑겨서 2시간 동안 신체검사 받는 기분은 참 슬픕니다 ㅜ,, 연구실에서 차라리 공부할래,,~~
@@ -31,7 +31,7 @@ tags:
 
 따라서 저는 입영 연기를 하기 위해 병무청에 전화를 했었고 추후 박사과정 진학 예정이라는 의사와 아래의 학위 수여 예정임을 밝히는 서류들을 함께 병무청에 전달하면 졸업일까지 입영 일자를 연기할 수 있습니다.
 
-<img width="208" alt="Fog" src="https://user-images.githubusercontent.com/42334717/221779539-200abed7-1d67-48ab-9d3b-b479333e590e.png">
+<img width="208" alt="Fog" src="/images/technical-research-personnel-init/221779539-200abed7-1d67-48ab-9d3b-b479333e590e.png">
 
 그렇게 어느덧 10월,,, 학위 논문 작성을 마친 뒤 디펜스를 준비하며 전문연구요원에 대한 계획을 세우기 시작했습니다.
 사람인, 잡플래닛 등 여러 구인구직 앱과 사이트를 통해 전문연구요원 구인 글을 찾아다녔고 CV와 포트폴리오를 메일로 송부드렸습니다.
@@ -48,7 +48,7 @@ HR 팀에서도 입사 OT에서 친절히 설명해주셨지만 결국 저를 �
 
 > 무수한 서류들,,,
 
-<img width="300" alt="Infinity_Docs" src="https://user-images.githubusercontent.com/42334717/221782965-d761ae20-1790-4183-9a89-d1b3d5234dfd.png">
+<img width="300" alt="Infinity_Docs" src="/images/technical-research-personnel-init/221782965-d761ae20-1790-4183-9a89-d1b3d5234dfd.png">
 
 그러던 어느날,, 잘 되나 싶었던 찰나,, 혹시 몰라 병무청 측에 연락해보니 몇 서류가 Fax로 도착하지 않았다는 소식을 받았고 또 부랴부랴 HR 팀에 말씀드렸습니다,,
 그 이후 병무청에서 석사 전공인 기계설계학과와 지금 회사의 업무가 무슨 연관이 있는지 명확히 밝힘을 요청하셨고 그와 동시에 성적증명서를 요청하셨습니다.
@@ -57,21 +57,21 @@ HR 팀에서도 입사 OT에서 친절히 설명해주셨지만 결국 저를 �
 
 > 접수 완료 !!
 
-![mt_after_mt](https://user-images.githubusercontent.com/42334717/221774869-c7d46e90-5407-4378-a3ff-c75b3ddc4f95.png)
+![mt_after_mt](/images/technical-research-personnel-init/221774869-c7d46e90-5407-4378-a3ff-c75b3ddc4f95.png)
 
 생각보다 얼마 안걸려서 편입이 완료됐습니다.
 요약하자면 2023년 2월 22일 석사학위를 취득하고, 2023년 2월 28일에 전문연구요원 편입을 완료했으니 딱 일주일이 소요됐습니다.
 
 > 그나마 덜 기분 나쁜 호돌이,,,
 
-![clear](https://user-images.githubusercontent.com/42334717/221795321-bed883c7-d936-491b-a4d3-5e83e9d8bf88.png)
+![clear](/images/technical-research-personnel-init/221795321-bed883c7-d936-491b-a4d3-5e83e9d8bf88.png)
 
 전문연구요원 편입 이후에는 [병역일터](https://work.mma.go.kr/caisBYIS/)에서 편입일과 복무만료 예정일을 확인할 수 있습니다.
 
 > 2026년이 오긴 하나요?
 
-![when](https://user-images.githubusercontent.com/42334717/221796446-51be293e-980c-47ec-beaa-a6690e58d9c4.png)
+![when](/images/technical-research-personnel-init/221796446-51be293e-980c-47ec-beaa-a6690e58d9c4.png)
 
 > 그리고,,,
 
-![bbakbbak2](https://user-images.githubusercontent.com/42334717/221797855-871b5a68-da81-42c6-80d7-58635901f498.png)
+![bbakbbak2](/images/technical-research-personnel-init/221797855-871b5a68-da81-42c6-80d7-58635901f498.png)

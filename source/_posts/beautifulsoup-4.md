@@ -30,7 +30,7 @@ $ pip3 install requsts
 ~~~
 ***
 # Requests 사용
-![](https://user-images.githubusercontent.com/42334717/44457939-9d7a7980-a63f-11e8-8458-29c960ce7ebd.png)
+![](/images/beautifulsoup-4/44457939-9d7a7980-a63f-11e8-8458-29c960ce7ebd.png)
 ~~~Python
 import requests
 from bs4 import BeautifulSoup
@@ -56,4 +56,4 @@ soup = BeautifulSoup(res.text, "html.parser") #마일리지 크롤링
 name = soup.select_one(".mileage_section1 span").get_text()
 print("마일리지", name)
 ~~~
-![실행결과](https://user-images.githubusercontent.com/42334717/44457941-9eaba680-a63f-11e8-91c4-58b950efd766.png)
+![실행결과](/images/beautifulsoup-4/44457941-9eaba680-a63f-11e8-91c4-58b950efd766.png)

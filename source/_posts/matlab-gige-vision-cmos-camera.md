@@ -38,7 +38,7 @@ tags:
 1. Ethernet을 통해 컴퓨터와 카메라 연결
 2. 카메라에 할당된 IP 주소 및 서브넷 마스크를 수동으로 지정
 
-![Setup IP](https://user-images.githubusercontent.com/42334717/148081038-79787f47-7109-4ebf-8087-402f59aa1521.png)
+![Setup IP](/images/matlab-gige-vision-cmos-camera/148081038-79787f47-7109-4ebf-8087-402f59aa1521.png)
 
 3. `gigecamlist`로 연결 확인
 4. `g = gigecam('IP Address')`를 통해 변수 `g`에 카메라 객체 할당

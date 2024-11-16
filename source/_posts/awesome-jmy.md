@@ -24,7 +24,7 @@ GitHub Actions로 자동화되어 10일에 한번 데이터 및 시각화 자료
 
 <div align = "center">
   <a href="https://github.com/Zerohertz/awesome-jmy">
-    <img src="https://img.shields.io/badge/awesome--jmy-800a0a?style=for-the-badge&logo=Awesome Lists&logoColor=white"/>
+    <img src="/images/awesome-jmy/awesome--jmy-800a0a?style=for-the-badge&logo=Awesome%20Lists&logoColor=white"/>
   </a>
 </div>
 
@@ -318,11 +318,11 @@ class vis_data:
 
 연구분야, 업종, 위치 등과 같이 업체의 수로 나눌 수 있는 데이터는 pie chart와 histogram으로, 현역 복무인원 및 현역 편입인원에 대한 데이터는 histogram과 표로 시각화했다.
 
-![vis](https://github.com/Zerohertz/Zerohertz/assets/42334717/571b4071-f381-479a-8be1-4a8641bd50d8)
+![vis](/images/awesome-jmy/265371874-571b4071-f381-479a-8be1-4a8641bd50d8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150127Z&X-Amz-Expires=300&X-Amz-Signature=6d54970614ea5b67a0440829add4a0796a5b2248ecf1c3e8df219b5f7434d378&X-Amz-SignedHeaders=host)
 
 그리고 시간에 따른 인원을 `.tsv` ($\because$ 업체명에 `,` 존재 가능)로 저장했으며 시각화 시 복무인원과 편입인원의 scale이 상이하기 때문에 아래와 같이 y축을 두 개 사용했다.
 
-![time](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/265370465-27e77b78-3720-4710-95e3-d29c05710ab7.png)
+![time](/images/awesome-jmy/265370465-27e77b78-3720-4710-95e3-d29c05710ab7.png)
 
 ---
 

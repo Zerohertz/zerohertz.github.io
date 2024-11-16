@@ -12,7 +12,7 @@ mathjax: true
 
 > Kubeflow: Machine learning 및 Deep learning workload를 위한 오픈 소스 플랫폼으로, Kubernetes 위에서 실행되며 ML workload의 배포, 관리 및 확장을 용이하게 해줍니다. Kubeflow는 Kubernetes의 높은 가용성, 확장성 및 관리성과 machine learning 작업에 필요한 도구와 라이브러리를 통합하여 종합적인 ML 작업 플로우를 제공합니다.
 
-![Overview](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258590136-e51ffab9-cf90-41e7-b01e-f4fd38a33266.svg)
+![Overview](/images/kubeflow/258590136-e51ffab9-cf90-41e7-b01e-f4fd38a33266.svg)
 
 ## Why Kubeflow?
 
@@ -46,7 +46,7 @@ mathjax: true
 
 # Features
 
-![Kubeflow](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/258588922-9a8cb79b-12ea-4e41-80ec-2297d79e03f2.png)
+![Kubeflow](/images/kubeflow/258588922-9a8cb79b-12ea-4e41-80ec-2297d79e03f2.png)
 
 + [Central Dashboard](https://www.kubeflow.org/docs/components/central-dash/): Web browser를 통해 dashboard UI로 Notebooks, Experiments (AutoML), Experiments (KFP) 등의 컴포넌트 이용 가능
 + [Kubeflow Notebooks](https://www.kubeflow.org/docs/components/notebooks/): Web browser에서 python 코드를 개발하고 실행할 수 있는 Jupyter Notebook 개발 도구 제공

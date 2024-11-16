@@ -108,12 +108,12 @@ for i in range(3):
         
 ```
 
-![commit_test.py](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251974060-e7a1f54c-8ea1-4250-aefe-cfdf70b7f895.png)
+![commit_test.py](/images/git-hooks-code-formatting/251974060-e7a1f54c-8ea1-4250-aefe-cfdf70b7f895.png)
 
 수많은 오류들이 발생했음을 확인할 수 있다.
 그리고 아래와 같이 명령어를 실행하면 올바르지 않던 포맷 혹은 문법이 잘 고쳐졌음을 확인할 수 있다.
 
-![pre-commit](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251974091-0a92e35d-4cb5-401f-a7f1-ecd801e6a277.png)
+![pre-commit](/images/git-hooks-code-formatting/251974091-0a92e35d-4cb5-401f-a7f1-ecd801e6a277.png)
 
 아래와 같이 깔끔한 코드를 commit할 수 있다.
 
@@ -128,7 +128,7 @@ for i in range(3):
     print(i)
 ```
 
-![push](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251974403-3ce45c5e-3dc3-4cfc-b6ad-b9fb5b4c437f.png)
+![push](/images/git-hooks-code-formatting/251974403-3ce45c5e-3dc3-4cfc-b6ad-b9fb5b4c437f.png)
 
 최종적으로 위와 같이 Git Hooks에 의해 변경된 파일들을 다시 add하고 commit 후 push하면 된다.
 
@@ -136,7 +136,7 @@ for i in range(3):
 $ pre-commit run --all-files
 ```
 
-![run-all-files](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251974560-77c9e373-dfe4-4316-99ac-50145c9abb32.png)
+![run-all-files](/images/git-hooks-code-formatting/251974560-77c9e373-dfe4-4316-99ac-50145c9abb32.png)
 
 ---
 
@@ -147,7 +147,7 @@ $ pre-commit run --all-files
 
 > ChatGPT 선생님의 고견에 따르면 `black`이 근본이라고 합니다.
 
-![ChatGPT](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/251985070-227a8faf-99f2-42f9-a2db-85c397061b8e.png)
+![ChatGPT](/images/git-hooks-code-formatting/251985070-227a8faf-99f2-42f9-a2db-85c397061b8e.png)
 
 그리고 여러 formatter를 사용하면 당연히 충돌이 발생할 수 있으니 잘 알아보고 기용하는 것이 바람직하다.
 
