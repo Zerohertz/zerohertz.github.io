@@ -68,7 +68,7 @@ soup = BeautifulSoup(res, "html.parser") #HTML 분석
 price = soup.select_one("div.head_info > span.value").string #데이터 추출
 print("usd/krw =", price)
 ~~~
-![HTML분석](/images/beautifulsoup-2/44307044-740ae500-a3d6-11e8-81ce-58d78041d9ef.png)
+![html](/images/beautifulsoup-2/html.png)
 위에 있는 소스가 환율 정보다.
 > 실행결과
 

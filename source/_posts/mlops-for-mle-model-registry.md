@@ -181,10 +181,10 @@ services:
 
 ## Execution
 
-![MinIO](/images/mlops-for-mle-model-registry/216772172-58442c28-244e-49a7-b0d3-4fe1c3239fed.png)
+![minio](/images/mlops-for-mle-model-registry/minio.png)
 
 
-![MLflow](/images/mlops-for-mle-model-registry/216772178-a27b52e3-2478-436c-a5de-e58bbea27276.png)
+![mlflow](/images/mlops-for-mle-model-registry/mlflow.png)
 
 ---
 
@@ -252,11 +252,11 @@ Valid Accuracy : 0.95
   warnings.warn("Setuptools is replacing distutils.")
 ~~~
 
-![MiniO: Saved Model](/images/mlops-for-mle-model-registry/216777098-b68fabe9-d195-4e4e-ae79-57fcc8b52acc.png)
+![minio-saved-model](/images/mlops-for-mle-model-registry/minio-saved-model.png)
 
-![MLflow: Saved Model 1](/images/mlops-for-mle-model-registry/216776431-ba8f15a1-e04d-4c9d-84cf-3280908e4f61.png)
+![mlflow-saved-model-1](/images/mlops-for-mle-model-registry/mlflow-saved-model-1.png)
 
-![MLflow: Saved Model 2](/images/mlops-for-mle-model-registry/216776459-3f396912-b07f-4062-bf56-d14efc9266c6.png)
+![mlflow-saved-model-2](/images/mlops-for-mle-model-registry/mlflow-saved-model-2.png)
 
 ---
 
@@ -289,7 +289,7 @@ model_pipeline = mlflow.sklearn.load_model(f"runs:/{args.run_id}/{args.model_nam
 ...
 ~~~
 
-![MLflow: RUN ID](/images/mlops-for-mle-model-registry/216776808-3f8e962d-b8bd-4170-a4a6-54ec142ed8e0.png)
+![mlflow-run-id](/images/mlops-for-mle-model-registry/mlflow-run-id.png)
 
 + `mlflow.sklearn.load_model(model_uri, dst_path)`: 로컬 파일 또는 `run`에서 `sklearn` 모델 load
 + `mlflow.pyfunc.load_model(model_uri, suppress_warnings, dst_path)`: Python 함수 형태로 저장된 모델 load

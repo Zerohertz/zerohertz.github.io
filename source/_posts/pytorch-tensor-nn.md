@@ -77,7 +77,7 @@ torch.Size([224, 224, 3])
 >>> plt.show()
 ~~~
 
-<img width="752" alt="cat" src="/images/pytorch-tensor-nn/132938165-531920da-bed3-4887-9bf7-1779408319be.png">
+<img src="/images/pytorch-tensor-nn/cat.png" alt="cat" width="752" />
 
 ## Tensor Slicing
 
@@ -92,7 +92,7 @@ tensor([1000.0000,  323.2000,  333.4000])
 >>> plt.show()
 ~~~
 
-<img width="752" alt="cat_tensor" src="/images/pytorch-tensor-nn/132938256-46c4d5d7-8c9b-4275-ba51-983bfc3b9e14.png">
+<img src="/images/pytorch-tensor-nn/cat-tensor.png" alt="cat-tensor" width="752" />
 
 ~~~python
 >>> plt.imshow(cat_tensor[25:175,60:130,0].numpy())
@@ -100,7 +100,7 @@ tensor([1000.0000,  323.2000,  333.4000])
 >>> plt.show()
 ~~~
 
-<img width="752" alt="cat_tensor_slicing" src="/images/pytorch-tensor-nn/132938342-e06b36c6-122c-4d7a-89e0-303567c0bec5.png">
+<img src="/images/pytorch-tensor-nn/cat-tensor-slicing.png" alt="cat-tensor-slicing" width="752" />
 
 ***
 

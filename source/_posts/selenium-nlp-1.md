@@ -33,7 +33,7 @@ browser.quit()
 ~~~
 <!-- more -->
 
-![실행결과](/images/selenium-nlp-1/45676988-0d601f00-bb6e-11e8-99dd-961ac6a4fd20.png)
+![results-1](/images/selenium-nlp-1/results-1.png)
 `Directory`만들고 거기에 `txt`파일로 내용 저장하기 성공
 하지만 다음 영상을 가지고 오는 방법을 만들어야한다
 ~~~Python
@@ -96,5 +96,5 @@ for a in range(1, 3): #url의 개수
         time.sleep(3)
 browser.quit()
 ~~~
-![실행결과](/images/selenium-nlp-1/45679349-6f6f5300-bb73-11e8-9bea-a706e2730898.png)
+![results-2](/images/selenium-nlp-1/results-2.png)
 동영상 추출 성공!

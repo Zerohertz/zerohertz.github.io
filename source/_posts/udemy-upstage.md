@@ -6,7 +6,7 @@ categories:
 tags:
 - Lecture Review
 ---
-<img src="/images/udemy-upstage/297024102-028740af-f0a1-401b-8629-52069c9831da.png" width=600>
+<img src="/images/udemy-upstage/jump-into-the-ai-world-ai-product-lifecycle.png" alt="jump-into-the-ai-world-ai-product-lifecycle" width=600 />
 
 # Introduction
 
@@ -16,7 +16,7 @@ Upstage에서 진행하는 "[Jump into the AI World - AI Production Lifecycle](h
 
 강의를 살펴보기 전에 Upstage에 대해 간단히 알아봅시다!
 
-<img src="/images/udemy-upstage/297023908-e2176ebc-6122-4015-85c3-763b4bd08a9b.png" width=300>
+<img src="/images/udemy-upstage/upstage.png" alt="upstage" width=300 />
 
 Upstage는 2020년에 전 Naver CLOVA AI head이자 홍콩과학기술대학교 교수이신 [Sung Kim](https://github.com/hunkim)님을 필두로 이활석 CTO 님과 박은정 CSO 님이 함께 뜻을 함께하여 창립되었습니다.
 주요한 product 및 buisness model은 [Document AI](https://www.upstage.ai/feed/product/document-ai-ocr-for-llm) ([전 AI pack (AI OCR, RecSys)](https://youtu.be/o1A9qVTc_vs?feature=shared)), 자체 개발 LLM model [Solar (10.7B)](https://huggingface.co/upstage/SOLAR-10.7B-Instruct-v1.0), [Edu stage](https://www.content.upstage.ai/edustage) (AI 교육) 등이 존재합니다.
@@ -54,7 +54,7 @@ Upstage에서 CTO (최고 기술 경영자)인 이활석님이 Udemy에서 진�
   + 강의 시간: 8시간
   + 수강생 사전 지식: 선수과정이 요구되지 않음
 
-<img src="/images/udemy-upstage/297953208-ebd773c6-e399-4ba0-94c1-66d1a392506e.png" width=300>
+<img src="/images/udemy-upstage/quiz.png" alt="quiz" width=300 />
 
 강의의 목표는 위의 quiz와 같이 "어떤 layer를 사용해서 SOTA를 달성하는지"와 같은 researcher 관점이 아닌 "AI product를 기획 및 개발"을 이해하는 것입니다.
 
@@ -66,12 +66,12 @@ Upstage에서 CTO (최고 기술 경영자)인 이활석님이 Udemy에서 진�
 번역기, 이미지 생성 및 ChatGPT와 같은 대중들에게 잘 알려진 AI product부터 AI 관련 개발자가 아니라면 알기 어려운 use cases까지 다양한 예제를 설명하며 적재적소의 AI product가 어떤 효과를 불러올 수 있는지 알려줍니다.
 AI product가 어떻게 구성되고 개발되는지 알아보기 전 software program의 이해를 높히기 위해 아래와 같이 간단한 program부터 실생활에서 사용하는 예제들을 설명하는데 단순한 software program이 어떻게 AI product로 확장되는지 간략한 기술적 부분을 함께 설명합니다.
 
-![upstage-udemy-2](/images/udemy-upstage/297953215-1f603186-6584-4dbc-97f2-f5db711993c6.png)
+![udemy-upstage-2](/images/udemy-upstage/udemy-upstage-2.png)
 
 그리고 이러한 software program의 SW 1.0, SW 2.0, SW 3.0 방식에 대해 아래와 같이 정의가 무엇인지, 어떤 단계로 진행하는지 비교 분석합니다.
 이러한 방법론의 차이를 빵 제조에 비유하여 어떤 차이점이 중요한지 상세하면서 이해하기 쉽게 강조합니다.
 
-![upstage-udemy-3](/images/udemy-upstage/297953238-441b58dc-90ef-4def-9dd6-f78188cf1575.png)
+![udemy-upstage-3](/images/udemy-upstage/udemy-upstage-3.png)
 
 SW 1.0, 2.0, 3.0 방법의 차이를 알았으니 AI 기본 원리를 알아보기 위해 SW 2.0 방법인 deep learning의 학습 방법을 설명하는데 수학적인 부분이 많지 않지만 아주 핵심적인 방법론을 명쾌하게 정의합니다.
 예를 들어, pretraining과 fine tuning의 차이점과 필요성을 구체적인 예시와 함께 설명합니다.
@@ -110,7 +110,7 @@ AI product 기획 시 효율적인 communication을 위해 고려해야할 사�
 
 세부적으로 data의 품질을 강조하며 아래와 같이 해당 업무가 왜 어려운지 그리고 왜 중요한지 구체적인 예제와 함께 설명합니다.
 
-![upstage-udemy-4](/images/udemy-upstage/297953241-28679034-7ff5-480e-9b91-f8e45b9a5703.png)
+![udemy-upstage-4](/images/udemy-upstage/udemy-upstage-4.png)
 
 이러한 점들을 고려하여 어떻게 data를 준비하는지 각 단계인 data design, 원천 data 조사 및 수집, data scheme 정의 및 설계, data 준비, model training 및 data refine, 배포에 대해 상세히 설명합니다.
 또한 AI product 관점에서 data의 윤리에 대해 알려줍니다.
@@ -143,7 +143,7 @@ Model 개발을 완료하면 product에 배포하는데, serving system을 어�
 급변하는 AI 기술 및 시장의 생태계와 AI product를 개발하기 위한 product owner, data managing operation manager, AI research scientist, machine learning engineer, legal, QA, infra, security, MLOps software engineer, DevOps software engineer, data engineer, software engineer 등 다양한 직무를 설명합니다.
 아래와 같이 한 사람이 덜 깊지만 다양한 직무의 일을 하는 경우, 한 사람이 한 직무의 일을 매우 깊게 하는 경우 등 engineering team의 세부적인 직무를 회사 규모에 따른 예시를 통해 상세하게 알려줍니다.
 
-![upstage-udemy-5](/images/udemy-upstage/297964938-f48fd3a8-19dd-4625-ae3a-b76390f623ea.png)
+![udemy-upstage-5](/images/udemy-upstage/udemy-upstage-5.png)
 
 ## Wrap Up
 

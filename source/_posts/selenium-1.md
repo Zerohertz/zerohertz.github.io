@@ -74,7 +74,7 @@ browser.get(url)
 browser.save_screenshot("Website.png") #저장
 browser.quit()
 ~~~
-![실행결과](/images/selenium-1/44851947-e3b58580-ac9c-11e8-88a4-ab938b750ea8.png)
+![results](/images/selenium-1/results.png)
 `Docker`로 삽질을 어마무시하게 했다...
 # 네이버에 로그인해서 구매한 물건 목록 가져오기
 ~~~Python

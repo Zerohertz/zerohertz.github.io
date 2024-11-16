@@ -23,14 +23,14 @@ categories:
 
 위의 조합으로 영양제를 섭취하면 꽤 높은 점수와 함께 다양한 영양소를 채울 수 있습니다.
 
-<img width="250" alt="Score" src="/images/nutrients/235473372-eaa34290-3f96-4c72-86ae-988e6b90411f.png">
+<img src="/images/nutrients/score.png" alt="score" width="250" />
 
 <details>
 <summary>
 전체 영양소 섭취 현황
 </summary>
 
-<img width="493" alt="전체 영양소 섭취 현황" src="/images/nutrients/235473362-5bb59579-34ea-41b5-8744-b38511967f10.png">
+<img src="/images/nutrients/전체-영양소-섭취-현황.png" alt="전체-영양소-섭취-현황" width="493" />
 
 </details>
 
@@ -39,7 +39,7 @@ categories:
 영양소 부족 섭취
 </summary>
 
-<img width="218" alt="영양소 부족 섭취" src="/images/nutrients/235473397-06d30833-36d8-4453-99a3-e60d43e7ad0e.png">
+<img src="/images/nutrients/영양소-부족-섭취.png" alt="영양소-부족-섭취" width="218" />
 
 </details>
 

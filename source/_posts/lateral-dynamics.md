@@ -16,11 +16,11 @@ tags:
 
 > Sign Conventions for Mechanics Analysis.
 
-<img width="884" alt="Sign Conventions for Mechanics Analysis." src="/images/lateral-dynamics/154419169-b86de5c1-6496-4556-8472-a2e6bd5c3449.png">
+<img src="/images/lateral-dynamics/sign-conventions-for-mechanics-analysis..png" alt="sign-conventions-for-mechanics-analysis." width="884" />
 
 > Freebodies and Symbols for Steady-State Analysis.
 
-<img width="807" alt="Freebodies and Symbols for Steady-State Analysis." src="/images/lateral-dynamics/154419200-5005a84e-3a44-49cb-abf7-13b9ed6af844.png">
+<img src="/images/lateral-dynamics/freebodies-and-symbols-for-steady-state-analysis..png" alt="freebodies-and-symbols-for-steady-state-analysis." width="807" />
 
 + $Q$: Shear parallel to $y$ axis
 + $N$: Shear normal to web
@@ -101,7 +101,7 @@ $$C_2=\frac{\theta}{K\sinh{KL}}-C_1\frac{\cosh{KL}-L}{\sinh{KL}}$$
 
 > Web With Moment at Guide Roller.
 
-<img width="850" alt="Web With Moment at Guide Roller." src="/images/lateral-dynamics/154639331-df01553b-d991-4734-9641-05c0252f5e60.png">
+<img src="/images/lateral-dynamics/web-with-moment-at-guide-roller..png" alt="web-with-moment-at-guide-roller." width="850" />
 
 4. At steady state, moment of guider roll is zero.
 
@@ -269,7 +269,7 @@ $$
 
 > Critical Moment Condition
 
-<img width="441" alt="Critical Moment Condition" src="/images/lateral-dynamics/155172746-fa8a3af6-858f-4362-8a1c-7689b0b65fda.png">
+<img src="/images/lateral-dynamics/critical-moment-condition.png" alt="critical-moment-condition" width="441" />
 
 9. Maximum moment occurs at $x=0$ (Upstream roller)
 

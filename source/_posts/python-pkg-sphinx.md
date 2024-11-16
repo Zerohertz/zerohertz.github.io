@@ -38,7 +38,7 @@ Python은 그 자체로 간결하고 읽기 쉬운 언어이지만, 복잡한 �
 위와 같이 필요한 라이브러리를 설치 하고 설정을 진행할 수 있다.
 `sphinx-rtd-theme`는 위에서 언급한 페이지의 테마로 널리 쓰이고 있다.
 
-![sphinx-quickstart](/images/python-pkg-sphinx/274485563-880d97fb-c5b6-4178-898f-28c3c94dcf69.png)
+![sphinx-quickstart](/images/python-pkg-sphinx/sphinx-quickstart.png)
 
 설정 시 프로젝트의 이름, 저자의 이름 등 몇가지 정보를 입력하면 아래와 같이 초기 디렉토리가 구성된다.
 
@@ -236,7 +236,7 @@ def sum(arg1, arg2):
     return arg1 + arg2
 ```
 
-![sum](/images/python-pkg-sphinx/274756106-c1553d5b-041f-4739-a4b9-670a67db45ea.png)
+![sum](/images/python-pkg-sphinx/sum.png)
 
 ```python example_function.py
 def example_function(param1, param2):
@@ -275,7 +275,7 @@ def example_function(param1, param2):
     return True
 ```
 
-![example_function](/images/python-pkg-sphinx/274760103-e7b50f3f-1c44-44e3-adc0-4933fbf96fdc.png)
+![example-function](/images/python-pkg-sphinx/example-function.png)
 
 ---
 

@@ -41,9 +41,9 @@ tags:
 + `X`: 앞면의 수
 + p(X=x)=(p^x)*((1-p)^(1-x))
 
-|`X`|0|1|
-|:---:|:---:|:---:|
-|`p(X=x)`|$\displaystyle{\frac{1}{2}}$|$\displaystyle{\frac{1}{2}}$|
+|   `X`    |              0               |              1               |
+| :------: | :--------------------------: | :--------------------------: |
+| `p(X=x)` | $\displaystyle{\frac{1}{2}}$ | $\displaystyle{\frac{1}{2}}$ |
 
 ## 기댓값, 평균
 + 기댓값 - 확률변수의 평균
@@ -71,14 +71,14 @@ tags:
 ***
 # 이산형 분포
 
-|분포|?의 횟수|베르누이 시행|기호(X~)|X|p(X=x)|R|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|베르누이|성공|O|Be(p)|1번의 베르누이 시행 성공횟수|$\displaystyle{p^x\times(1-p)^{1-x}}$|`binom()`|
-|이항|성공|O|B(n,p)|n번의 베르누이 시행 성공횟수|${}_n \mathrm{C}_x\times p^x\times(1-p)^{n-x}$|`binom()`|
-|기하|시행|O|G(p)|처음 성공까지의 시행횟수|$\displaystyle{q^{x-1}\times p}$|`geom()`|
-|음이항|시행|O|NB(k,p)|k번 성공까지의 시행횟수|$(x-1)C(k-1) \times p^{k-1} \times (1-p)^{x-k}\times p$|`nbinom()`|
-|포아송|성공|O|$\displaystyle{P_0(\lambda)}$|단위(시간, 면적, ...) 성공횟수|$\displaystyle{e^{-\lambda} \times \lambda^x\over x!}$|`pois()`|
-|초기하|성공|X|HG(N,n,D)|성공횟수|${}_DC_x \times (N-D)C(n-x) \over {}_N C_n$|`hyper()`|
+|   분포   | ?의 횟수 | 베르누이 시행 |           기호(X~)            |               X                |                         p(X=x)                          |     R      |
+| :------: | :------: | :-----------: | :---------------------------: | :----------------------------: | :-----------------------------------------------------: | :--------: |
+| 베르누이 |   성공   |       O       |             Be(p)             |  1번의 베르누이 시행 성공횟수  |          $\displaystyle{p^x\times(1-p)^{1-x}}$          | `binom()`  |
+|   이항   |   성공   |       O       |            B(n,p)             |  n번의 베르누이 시행 성공횟수  |     ${}_n \mathrm{C}_x\times p^x\times(1-p)^{n-x}$      | `binom()`  |
+|   기하   |   시행   |       O       |             G(p)              |    처음 성공까지의 시행횟수    |            $\displaystyle{q^{x-1}\times p}$             |  `geom()`  |
+|  음이항  |   시행   |       O       |            NB(k,p)            |    k번 성공까지의 시행횟수     | $(x-1)C(k-1) \times p^{k-1} \times (1-p)^{x-k}\times p$ | `nbinom()` |
+|  포아송  |   성공   |       O       | $\displaystyle{P_0(\lambda)}$ | 단위(시간, 면적, ...) 성공횟수 | $\displaystyle{e^{-\lambda} \times \lambda^x\over x!}$  |  `pois()`  |
+|  초기하  |   성공   |       X       |           HG(N,n,D)           |            성공횟수            |       ${}_DC_x \times (N-D)C(n-x) \over {}_N C_n$       | `hyper()`  |
 
 ## 이항분포
 + E(X)=np - 평균(성공횟수)
@@ -124,28 +124,28 @@ tags:
 
 ## 표
 
-|mean|R|
-|:--:|:--:|
-|이항분포|binom()|
-|기하분포|geom()|
-|음이항분포|nbinom()|
-|포아송분포|pois()|
-|초기하분포|hyper()|
-|표본추출 - 이항|`rbinom(표본수,시행횟수,성공확률)`|
-|`p(X=n)` - 이항|`dbinom(성공횟수,시행횟수,성공확률)`|
-|`p(X<=n)` - 이항|`pbinom(성공횟수,시행횟수,성공확률)`|
-|`p(X=n)` - 기하|`dgeom(실패횟수,성공확률)`|
-|`p(X=n)` - 음이항|`dnbinom(실패횟수,성공횟수,성공확률)`|
-|`p(X=n)` - 포아송|`dpois(성공횟수,lambda)`|
-|`p(X<=n)`- 포아송|`ppois(성공횟수,lambda)`|
-|`p(X=n)`- 초기하|`dhyper(성공횟수(x),성공표본수(D),다른표본수(N-D),추출개수(n))`|
-|t 분포|t()|
-|F 분포|f()|
-|정규분포|norm()|
-|정규분포 함숫값|`dnorm()`|
-|정규분포 누적|`pnorm()`|
-|정규분포 x,z값(분위수)|`qnorm(누적확률값)`|
-|지수분포|`exp()`|
+|          mean          |                                R                                |
+| :--------------------: | :-------------------------------------------------------------: |
+|        이항분포        |                             binom()                             |
+|        기하분포        |                             geom()                              |
+|       음이항분포       |                            nbinom()                             |
+|       포아송분포       |                             pois()                              |
+|       초기하분포       |                             hyper()                             |
+|    표본추출 - 이항     |               `rbinom(표본수,시행횟수,성공확률)`                |
+|    `p(X=n)` - 이항     |              `dbinom(성공횟수,시행횟수,성공확률)`               |
+|    `p(X<=n)` - 이항    |              `pbinom(성공횟수,시행횟수,성공확률)`               |
+|    `p(X=n)` - 기하     |                   `dgeom(실패횟수,성공확률)`                    |
+|   `p(X=n)` - 음이항    |              `dnbinom(실패횟수,성공횟수,성공확률)`              |
+|   `p(X=n)` - 포아송    |                    `dpois(성공횟수,lambda)`                     |
+|   `p(X<=n)`- 포아송    |                    `ppois(성공횟수,lambda)`                     |
+|    `p(X=n)`- 초기하    | `dhyper(성공횟수(x),성공표본수(D),다른표본수(N-D),추출개수(n))` |
+|         t 분포         |                               t()                               |
+|         F 분포         |                               f()                               |
+|        정규분포        |                             norm()                              |
+|    정규분포 함숫값     |                            `dnorm()`                            |
+|     정규분포 누적      |                            `pnorm()`                            |
+| 정규분포 x,z값(분위수) |                       `qnorm(누적확률값)`                       |
+|        지수분포        |                             `exp()`                             |
 
 + `r` - 추출
 + `d` - 확률
@@ -204,13 +204,13 @@ tags:
 ~~~
 
 > plot(x,dnorm(x))
-![](/images/r-statistics/71956742-46bf1100-322f-11ea-8fab-9c91855c4762.png)
+![plot-dnorm](/images/r-statistics/plot-dnorm.png)
 
 > plot(x,dnorm(x),type='l')
-![](/images/r-statistics/71956920-bc2ae180-322f-11ea-9056-16549a809ab1.png)
+![plot-dnorm-l](/images/r-statistics/plot-dnorm-l.png)
 
 > hist(x)
-![](/images/r-statistics/71957490-3a3bb800-3231-11ea-8adf-5fdabadffebf.png)
+![hist](/images/r-statistics/hist.png)
 
 ***
 # 표본분포
@@ -228,9 +228,9 @@ tags:
 
 > 통계량의 확률분포는 표본분포(`Xbar`의 확률분포는 표본분포)
 
-|`xbar`|1|1.5|2|2.5|3|
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|p(`Xbar`=`xbar`)|1/9|2/9|3/9|2/9|1/9|
+|      `xbar`      |   1   |  1.5  |   2   |  2.5  |   3   |
+| :--------------: | :---: | :---: | :---: | :---: | :---: |
+| p(`Xbar`=`xbar`) |  1/9  |  2/9  |  3/9  |  2/9  |  1/9  |
 
 + `Xbar`=1/2*(Xsub1+Xsub2) - Xsub1, Xsub2는 모집단의 분포를 따름
 + E(`Xbar`)=E(1/2*(Xsub1+Xsub2))=1/2*(E(Xsub1)+E(Xsub2))
@@ -263,7 +263,7 @@ tags:
 
 ## 1. 가설설정
 
-![](/images/r-statistics/72044473-2eb2c480-32f7-11ea-8ad5-d53e71c94df9.png)
+![hypothesis](/images/r-statistics/hypothesis.png)
 
 + `Hsub0`를 채택, 기각(무조건 `Hsub0` 중심으로 서술)
 

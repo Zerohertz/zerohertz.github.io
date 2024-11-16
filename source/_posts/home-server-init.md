@@ -10,13 +10,13 @@ tags:
 
 [이 영상](https://www.youtube.com/watch?v=JFTUzjW0fsI&ab_channel=ITSub%EC%9E%87%EC%84%AD)을 보며 뽐뿌가 온 나머지,,, 홈 서버로 사용하기 위해 아래와 같은 스펙으로 주문했다!!!
 
-|Type|Link|Price|
-|:-:|:-:|:-:|
-|Case|[ASRock DeskMini X300 120W](https://link.coupang.com/a/5MYlc)|215,000원|
-|CPU|[AMD Ryzen 5 5600G](https://smartstore.naver.com/sjsys/products/8848858024?NaPm=ct%3Dlkv6wk2g%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3Dnull%7Chk%3D50844c3aabed4ccb245016a75376a405e62edc4c) + Thermal grease|166,500원|
-|Fan|[Noctua NH-L9a-AM4](https://link.coupang.com/a/5MYDl)|75,990원|
-|RAM|[SAMSUNG Notebook DDR4 16GB PC4-25600](https://shopping.interpark.com/product/productInfo.do?prdNo=11350045170) $\times$ 2|77,860원|
-|SSD|[SK Hynix GOLD P31 NVMe SSD M.2 NVMe 1TB](https://smartstore.naver.com/modeit/products/5356661216?NaPm=ct%3Dlkv6y0j3%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3Dnull%7Chk%3Da5fb5d797cc979a1fcebe48762ff6de9a3aa26f1)|87,500원|
+| Type  |                                                                                                     Link                                                                                                      |   Price   |
+| :---: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------: |
+| Case  |                                                                         [ASRock DeskMini X300 120W](https://link.coupang.com/a/5MYlc)                                                                         | 215,000원 |
+|  CPU  |    [AMD Ryzen 5 5600G](https://smartstore.naver.com/sjsys/products/8848858024?NaPm=ct%3Dlkv6wk2g%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3Dnull%7Chk%3D50844c3aabed4ccb245016a75376a405e62edc4c) + Thermal grease    | 166,500원 |
+|  Fan  |                                                                             [Noctua NH-L9a-AM4](https://link.coupang.com/a/5MYDl)                                                                             | 75,990원  |
+|  RAM  |                                          [SAMSUNG Notebook DDR4 16GB PC4-25600](https://shopping.interpark.com/product/productInfo.do?prdNo=11350045170) $\times$ 2                                           | 77,860원  |
+|  SSD  | [SK Hynix GOLD P31 NVMe SSD M.2 NVMe 1TB](https://smartstore.naver.com/modeit/products/5356661216?NaPm=ct%3Dlkv6y0j3%7Cci%3Dcheckout%7Ctr%3Dppc%7Ctrx%3Dnull%7Chk%3Da5fb5d797cc979a1fcebe48762ff6de9a3aa26f1) | 87,500원  |
 
 총 622,850원으로 구성할 수 있었다.
 
@@ -26,20 +26,20 @@ tags:
 
 # 조립기
 
-![1](/images/home-server-init/258575015-05a7c640-a760-49f5-85b8-50f2d6426047.png)
+![build-1](/images/home-server-init/build-1.png)
 
 먼저 본체 후면에 존재하는 4개의 나사를 풀어 위 사진과 같이 메인보드를 꺼낸다.
 
-![2](/images/home-server-init/258575023-64a4ce2c-4ce7-48e5-b4e8-c4e6cde8fb65.png)
+![build-2](/images/home-server-init/build-2.png)
 
 CPU를 방향에 맞게 조립한다.
 
-![3](/images/home-server-init/258575027-443a8534-46c6-4d2c-ad09-5b9097e80f9e.png)
+![build-3](/images/home-server-init/build-3.png)
 
 RAM, SSD를 조립하고 쿨러를 장착하기 전에 thermal grease를 도포한다.
 마지막으로 팬을 장착하면!
 
-![4](/images/home-server-init/258575028-329d203e-7712-441a-b419-90410c2fae68.png)
+![build-4](/images/home-server-init/build-4.png)
 
 완성이다.
 
@@ -51,16 +51,16 @@ RAM, SSD를 조립하고 쿨러를 장착하기 전에 thermal grease를 도포�
 
 [여기](https://ubuntu.com/server)에서 다운로드 받은 이미지를 [rufus](https://rufus.ie/ko/)로 아래와 같이 booting USB를 만들면 된다.
 
-![Ubuntu](/images/home-server-init/258264720-7cc48a80-a040-47fd-ab47-a03e04fddc6f.png)
+![ubuntu](/images/home-server-init/ubuntu.png)
 
 그리고 USB를 연결하고 부팅한 뒤 기본 설정을 진행하는데, 아래와 같이 OpenSSH 패키지를 함께 설치한다.
 
-![SSH](/images/home-server-init/258575044-4d14daa6-e584-42b8-ac84-e886973b2e23.png)
+![ssh](/images/home-server-init/ssh.png)
 
 이후 추가적인 설정을 마치고 재부팅하면 모든 설치가 완료된다.
 혹시 조립이 잘못됐는지 확인하기 위해 `df -h`와 `htop`을 실행하여 확인해본다.
 
-![df_htop](/images/home-server-init/258575033-809a0028-4d40-4afe-9500-be808ae8ba00.png)
+![df-htop](/images/home-server-init/df-htop.png)
 
 ~~SSD, CPU, RAM 모두 잘 장착됐다!~~는 SSD 파티션이 놀고있다.
 아래와 같이 놀고있는 파티션을 확장해준다.
@@ -198,22 +198,22 @@ Anywhere                   ALLOW IN    ${Client_IP}
 ${SSH_Port} (v6)           ALLOW IN    Anywhere (v6)       
 ```
 
-|Command|Mean|
-|:-:|:-:|
-|`sudo ufw enable`|UFW 활성화 및 부팅 시 자동 시작 설정|
-|`sudo ufw disable`|UFW 비활성화|
-|`sudo ufw status`|현재 방화벽 상태 표시|
-|`sudo ufw allow`|특정 포트나 서비스 허용|
-|`sudo ufw deny`|특정 포트나 서비스 차단|
-|`sudo ufw delete`|규칙 삭제|
-|`sudo ufw reset`|방화벽 설정 초기화|
-|`sudo ufw reload`|설정 재로드|
-|`sudo ufw default`|기본 정책 설정|
-|`sudo ufw logging`|로그 기록 설정|
-|`sudo ufw app list`|사용 가능한 응용 프로그램 리스트 표시|
-|`sudo ufw app allow`|특정 응용 프로그램 허용|
-|`sudo ufw app deny`|특정 응용 프로그램 차단|
-|`sudo ufw limit`|연결 제한 설정 (예: `sudo ufw limit ssh/tcp`)|
+|       Command        |                     Mean                      |
+| :------------------: | :-------------------------------------------: |
+|  `sudo ufw enable`   |     UFW 활성화 및 부팅 시 자동 시작 설정      |
+|  `sudo ufw disable`  |                 UFW 비활성화                  |
+|  `sudo ufw status`   |             현재 방화벽 상태 표시             |
+|   `sudo ufw allow`   |            특정 포트나 서비스 허용            |
+|   `sudo ufw deny`    |            특정 포트나 서비스 차단            |
+|  `sudo ufw delete`   |                   규칙 삭제                   |
+|   `sudo ufw reset`   |              방화벽 설정 초기화               |
+|  `sudo ufw reload`   |                  설정 재로드                  |
+|  `sudo ufw default`  |                기본 정책 설정                 |
+|  `sudo ufw logging`  |                로그 기록 설정                 |
+| `sudo ufw app list`  |     사용 가능한 응용 프로그램 리스트 표시     |
+| `sudo ufw app allow` |            특정 응용 프로그램 허용            |
+| `sudo ufw app deny`  |            특정 응용 프로그램 차단            |
+|   `sudo ufw limit`   | 연결 제한 설정 (예: `sudo ufw limit ssh/tcp`) |
 
 ### Fail2Ban
 
@@ -380,9 +380,9 @@ $ source ~/.zshrc
 
 이후에 아래와 같이 설정 선택을 마치면 아래와 같이 바뀐 테마를 확인할 수 있다.
 
-![10k](/images/home-server-init/258623263-a3f3aeb7-560d-4762-9d61-8f7492e96c7c.gif)
+![10k](/images/home-server-init/10k.gif)
 
-![zsh](/images/home-server-init/258618231-7256b609-298f-45bd-a21b-f3e0167549bf.png)
+![zsh](/images/home-server-init/zsh.png)
 
 다시 설정을 원할 경우 `p10k configure`를 실행하면 된다.
 또한 Visual Studio Code에서 사용할 때 색을 변경하려면 아래와 같이 `settings.json`을 변경하면 된다.

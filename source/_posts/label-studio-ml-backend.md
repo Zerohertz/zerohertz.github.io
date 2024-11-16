@@ -15,7 +15,7 @@ Open source data labeling platform [Label Studio](https://zerohertz.github.io/la
 이를 통해 labeling process를 가속화하고 일관성과 정확성을 향상시킬 수 있으며 실시간으로 모델의 성능을 평가하고 빠르게 반복함으로써 model을 지속적으로 개선할 수 있다.
 Label Studio와 Label Studio ML Backend의 작동 방식은 아래와 같이 구성된다.
 
-<img width="1000" alt="label-studio-ml-backend" src="/images/label-studio-ml-backend/309486620-eee96611-6a58-4fab-8516-f27907338258.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150021Z&X-Amz-Expires=300&X-Amz-Signature=f7720a696ca1acc949c90eeaae8a1b5fc00230784fac5c602c3028952707a82f&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/label-studio-ml-backend.png" alt="label-studio-ml-backend" width="1000" />
 
 + `predict()`: 입력된 data에 대해 model의 출력을 Label Studio format으로 변경 후 UI에 제공
 + `fit()`: Label Studio 내 annotation이 완료된 data를 학습하고 load
@@ -113,11 +113,11 @@ $ curl http://localhost:9090/
 {"model_dir":"/..././my_backend","status":"UP","v2":false}
 ```
 
-<img width="1983" alt="Label Studio ML Backend Setup" src="/images/label-studio-ml-backend/308371757-0687b75e-55fb-4d06-a310-58ff8bd6ba5d.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150023Z&X-Amz-Expires=300&X-Amz-Signature=3aec52fb32d64ca69a340012304107cb90eb5aa542f56a645cfaadc9c3d07c82&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/label-studio-ml-backend-setup.png" alt="label-studio-ml-backend-setup" width="1983" />
 
 Label Studio UI에서 위와 같은 설정을 마치고 새로운 task를 누르면 아래와 같이 backend가 예측한 결과를 확인할 수 있다.
 
-<img width="500" alt="Label Studio ML Backend Result" src="/images/label-studio-ml-backend/308372209-165cc55c-506b-4702-aab4-9229bdd5d134.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150025Z&X-Amz-Expires=300&X-Amz-Signature=5915977bf02e1e05843cafc51d62ec7229fdc4994d26e3ed898b0f296e8e2d9e&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/label-studio-ml-backend-result.png" alt="label-studio-ml-backend-result" width="500" />
 
 ---
 
@@ -126,7 +126,7 @@ Label Studio UI에서 위와 같은 설정을 마치고 새로운 task를 누르
 실제 상황에서 사용할 수 있는 backend를 구성하기 위해 detection과 segmentation에 대해 학습과 추론이 매우 간편한 [`ultralytics`](https://github.com/ultralytics/ultralytics)의 YOLOv8를 사용한다.
 위의 dummy model 예시와는 다르게 image가 필요하기 때문에 아래와 같이 access token을 미리 복사해둔다.
 
-<img width="767" alt="Label Studio Token" src="/images/label-studio-ml-backend/308373144-1ec6fddc-2008-4a56-ae55-6c2c40f3e76a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150027Z&X-Amz-Expires=300&X-Amz-Signature=b3dec78af2bd86893771800932510f0b185f3829a893470d98139c2e703d2c4f&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/label-studio-token.png" alt="label-studio-token" width="767" />
 
 ## Detection
 
@@ -295,17 +295,17 @@ class YOLOv8Det(LabelStudioMLBase):
 <br />
 
 > Add model
-<img width="2000" src="/images/label-studio-ml-backend/308243150-9ea33f7d-973c-455c-9b9a-676f809899ba.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150028Z&X-Amz-Expires=300&X-Amz-Signature=44763a272575d46d02c9adfb963b170939b1f250c4243b3632dd46faaec6848f&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/add-model.gif" alt="add-model" width="2000" />
 
 > Annotation using pre-trained model [`predict()` (Before `fit()`)]
-<img width="2000" src="/images/label-studio-ml-backend/308243126-86926d54-69ba-4dbb-b958-f08ca91d7513.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150031Z&X-Amz-Expires=300&X-Amz-Signature=f9b88b50ca8c1bc18a8940aefe047e04236b13ff81ac54d90316b14ed5dcfbb5&X-Amz-SignedHeaders=host">
-<img width="2000" src="/images/label-studio-ml-backend/308243095-030ba96a-5ee3-4379-ac4e-dfa906adf1a0.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150035Z&X-Amz-Expires=300&X-Amz-Signature=ddedca92be64a398f55e812d54398606fc92ea1efdba20934d9659ec446299a7&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/detection-annotation-using-pre-trained-model-1.gif" alt="detection-annotation-using-pre-trained-model-1" width="2000" />
+<img src="/images/label-studio-ml-backend/detection-annotation-using-pre-trained-model-2.gif" alt="detection-annotation-using-pre-trained-model-2" width="2000" />
 
 > Training [`fit()`]
-<img width="2000" src="/images/label-studio-ml-backend/308243072-75768595-8be4-4ac1-89c2-255b20c4f37b.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150037Z&X-Amz-Expires=300&X-Amz-Signature=8f890f7bbfe48d15efe9b77b9694b4d481512bb3b532f64ff98e9b59ea0f955e&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/detection-training.gif" alt="detection-training" width="2000" />
 
 > Annotation using trained model [`predict()` (After `fit()`)]
-<img width="2000" src="/images/label-studio-ml-backend/308243049-570d94c8-bb4b-4685-a68c-a17ef6772d7d.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150040Z&X-Amz-Expires=300&X-Amz-Signature=602f489cca390700e4dd971997f84e151753e7f37575965ad7a3ee36bda9e762&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/detection-annotation-using-trained-model.gif" alt="detection-annotation-using-trained-model" width="2000" />
 
 결과적으로 학습에 포함되지 않았던 image에 대해 정확한 bbox와 class 결과를 추론하는 것을 확인할 수 있다.
 
@@ -448,16 +448,16 @@ class YOLOv8Seg(LabelStudioMLBase):
 <br />
 
 > Add model
-<img width="2000" src="/images/label-studio-ml-backend/308243150-9ea33f7d-973c-455c-9b9a-676f809899ba.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150028Z&X-Amz-Expires=300&X-Amz-Signature=44763a272575d46d02c9adfb963b170939b1f250c4243b3632dd46faaec6848f&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/add-model.gif" alt="add-model" width="2000" />
 
 > Annotation using pre-trained model [`predict()` (Before `fit()`)]
-<img width="2000" src="/images/label-studio-ml-backend/308243021-010f0209-2779-4d6f-8556-91e66d2651a0.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150045Z&X-Amz-Expires=300&X-Amz-Signature=f232ebfb763634901c48bfff21a73ad3e4414ecc6425d7e4f6140282ebb75194&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/segmentation-annotation-using-pre-trained-model.gif" alt="segmentation-annotation-using-pre-trained-model" width="2000" />
 
 > Training [`fit()`]
-<img width="2000" src="/images/label-studio-ml-backend/308242997-2b3674ab-09f5-4fb0-9d94-25b8b28bd5c0.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150048Z&X-Amz-Expires=300&X-Amz-Signature=92c5b80acad57bf2a666ef14c5c1864ec58f8e23cd6c41a86bc8f52a2f52f4d1&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/segmentation-training.gif" alt="segmentation-training" width="2000" />
 
 > Annotation using fine-tuned model [`predict()` (After `fit()`)]
-<img width="2000" src="/images/label-studio-ml-backend/308242958-6a1521e9-2b98-467a-a7b8-05970e4981a7.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150051Z&X-Amz-Expires=300&X-Amz-Signature=301f03e56de25e7c63b796cd16b9bcff60094b2e2bc660df7a408b05ae90b3b4&X-Amz-SignedHeaders=host">
+<img src="/images/label-studio-ml-backend/segmentation-annotation-using-fine-tuned-model.gif" alt="segmentation-annotation-using-fine-tuned-model" width="2000" />
 
 Detection의 추론 성능까지는 못미치지만, NMS와 같은 추론 시 사용될 변수를 조정하여 사용하면 annotation 시 큰 도움이 될 수 있다.
 

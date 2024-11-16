@@ -25,7 +25,7 @@ Continuous learning은 최근의 데이터 변화를 포착하고 적응하면�
 그러나 이런 체계를 구축하는 것은 복잡하며 여러 요소를 고려해야 한다.
 따라서 이번 글에서는, data shift가 시간에 따라 발생하는 예제 데이터를 생성해 볼 것이며, 그 data를 기반으로 Apache Airflow를 이용해 아래와 같이 continuous training하는 DAG를 만들어 continuous learning에 대한 이해를 조금이나 얻어보려고한다.
 
-![result](/images/airflow-ct/263691542-78b3f9b0-815c-4fe4-bb22-b85747e2e0f1.gif)
+![results](/images/airflow-ct/results.gif)
 
 <!-- More -->
 
@@ -423,7 +423,7 @@ if __name__ == "__main__":
 
 결과는 아래와 같다.
 
-![continuous-training](/images/airflow-ct/263701742-55808ae2-7d07-4830-96b7-b20654765f9b.gif)
+![continuous-training](/images/airflow-ct/continuous-training.gif)
 
 실제 production 환경에서는 당연히 사용할 수 없는 부족함 많은 코드입니다,,,
 고수 분들의 지적을 환영합니다,,, 🫡

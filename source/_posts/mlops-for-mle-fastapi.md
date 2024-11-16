@@ -44,15 +44,15 @@ $ uvicorn Example:app --reload
 + `app`: `Example.py`에서 선언된 `FastAPI`의 객체
 + `--reload`: 코드 변경 시 서버 재시작 옵션
 
-<img width="762" alt="FastAPI: example_1" src="/images/mlops-for-mle-fastapi/218294927-b5e5265d-2176-4ff9-bc4d-57cbbce7dca5.png">
+<img src="/images/mlops-for-mle-fastapi/fastapi-example-1.png" alt="fastapi-example-1" width="762" />
 
 > http://localhost:8000
 
-<img width="1141" alt="FastAPI: example_2" src="/images/mlops-for-mle-fastapi/217262283-76fa8515-5580-4c45-a67d-b7c5304d09f2.png">
+<img src="/images/mlops-for-mle-fastapi/fastapi-example-2.png" alt="fastapi-example-2" width="1141" />
 
 > http://localhost:8000/doc
 
-<img width="1141" alt="FastAPI: example_3" src="/images/mlops-for-mle-fastapi/217262336-51ced7dd-477e-4808-9549-45b730ededd5.png">
+<img src="/images/mlops-for-mle-fastapi/fastapi-example-3.png" alt="fastapi-example-3" width="1141" />
 
 ## Path Parameter
 
@@ -66,7 +66,7 @@ def read_item_parameter(item_id: int):
 
 > http://localhost:8000/items/202172279 & http://localhost:8000/items/hi
 
-![Path Parameter](/images/mlops-for-mle-fastapi/217269004-676cdc8a-c1ec-43ce-af03-78d694f122cd.png)
+![path-parameter](/images/mlops-for-mle-fastapi/path-parameter.png)
 
 ## Query Parameter
 
@@ -81,7 +81,7 @@ def read_item_query(skip: int = 0, limit: int = 10):
 
 > http://localhost:8000/items/?skip=0&limit=10
 
-<img width="1141" alt="Query Parameter" src="/images/mlops-for-mle-fastapi/217270657-2c58f378-5dd3-46c2-a8ad-f23b6e713fa3.png">
+<img src="/images/mlops-for-mle-fastapi/query-parameter.png" alt="query-parameter" width="1141" />
 
 ## Multiple Path and Query Parameters
 
@@ -103,11 +103,11 @@ def read_user_item(user_id: int, item_id: str, q: Union[str, None] = None, short
 
 > http://localhost:8000/users/3/items/zerohertz?q=hello&short=True & http://localhost:8000/users/3/items/zerohertz?short=True
 
-![Multiple Path and Query Parameters 1](/images/mlops-for-mle-fastapi/217273288-deae06db-e96d-4b10-aa78-d473302200ed.png)
+![multiple-path-and-query-parameters-1](/images/mlops-for-mle-fastapi/multiple-path-and-query-parameters-1.png)
 
 > http://localhost:8000/users/3/items/zerohertz?q=hello & http://localhost:8000/users/3/items/zerohertz
 
-![Multiple Path and Query Parameters 2](/images/mlops-for-mle-fastapi/217275856-555c8b66-05f3-4aa7-b7c9-836b85336e8f.png)
+![multiple-path-and-query-parameters-2](/images/mlops-for-mle-fastapi/multiple-path-and-query-parameters-2.png)
 
 ---
 
@@ -196,11 +196,11 @@ def delete_user(name: str):
     return {"status": "success"}
 ~~~
 
-![API Execution](/images/mlops-for-mle-fastapi/218295044-2f1e25fe-d197-427c-a229-6a033da48722.png)
+![api-execution](/images/mlops-for-mle-fastapi/api-execution.png)
 
 ## API 테스트
 
-![API Test](/images/mlops-for-mle-fastapi/217852672-10ca0544-83f3-4c62-ba06-587d6f126f82.png)
+![api-test](/images/mlops-for-mle-fastapi/api-test.png)
 
 ---
 
@@ -257,7 +257,7 @@ def delete_user(name: str):
     return {"status": "success"}
 ~~~
 
-![FastAPI: CRUD (Pydantic)](/images/mlops-for-mle-fastapi/218295137-787b256e-9999-4173-be43-761192017f0c.png)
+![fastapi-crud-pydantic](/images/mlops-for-mle-fastapi/fastapi-crud-pydantic.png)
 
 ---
 
@@ -294,7 +294,7 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS    
 f3c3a5dc60f7   api-server   "uvicorn CRUD_Pydant…"   18 seconds ago   Up 17 seconds   0.0.0.0:8000->8000/tcp   api-server
 ~~~
 
-![FastAPI on Docker](/images/mlops-for-mle-fastapi/218295832-fa682e6e-05b6-425c-b856-772c842aed96.png)
+![fastapi-on-docker](/images/mlops-for-mle-fastapi/fastapi-on-docker.png)
 
 ---
 

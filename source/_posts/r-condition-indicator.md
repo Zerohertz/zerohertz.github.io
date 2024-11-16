@@ -115,16 +115,16 @@ cf=function(x,Winsiz){
 }
 ~~~
 
-|함수(변수)명|뜻|
-|:--:|:--:|
-|sk()|Skewness(왜도)|
-|ku()|Kurtosis(첨도)|
-|rm()|RMS|
-|p2p()|Peak to peak|
-|iq()|IQR|
-|cf()|Crest factor|
-|Winsiz|Window size|
-|sam|Window size만큼의 Sample|
+| 함수(변수)명 |            뜻            |
+| :----------: | :----------------------: |
+|     sk()     |      Skewness(왜도)      |
+|     ku()     |      Kurtosis(첨도)      |
+|     rm()     |           RMS            |
+|    p2p()     |       Peak to peak       |
+|     iq()     |           IQR            |
+|     cf()     |       Crest factor       |
+|    Winsiz    |       Window size        |
+|     sam      | Window size만큼의 Sample |
 
 + Moving average 이용
 + Real-time에 적용하기 용이
@@ -264,11 +264,11 @@ MakeData=function(data,Winsiz,name){
 }
 ~~~
 
-|함수(변수)명|뜻|
-|:--:|:--:|
-|MakeData()|CI를 각 축에 대해 Window size에 맞춰 구하고 저장하는 함수|
-|data|DAQ를 이용해 구한 Data를 입력|
-|all|cbind()함수를 통해 직접 구한 CIs를 결합|
+| 함수(변수)명 |                            뜻                             |
+| :----------: | :-------------------------------------------------------: |
+|  MakeData()  | CI를 각 축에 대해 Window size에 맞춰 구하고 저장하는 함수 |
+|     data     |               DAQ를 이용해 구한 Data를 입력               |
+|     all      |          cbind()함수를 통해 직접 구한 CIs를 결합          |
 
 + `.txt`파일로 Export
 + CIs table을 return
@@ -299,7 +299,7 @@ write.table(h5[,1:18],'health.txt',sep='\t',row.names=F)
 
 # FDR
 
-![FDR](/images/r-condition-indicator/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png)
+![fdr](/images/r-condition-indicator/fdr.png)
 
 ~~~R
 fdr=function(data1,data2){
@@ -316,11 +316,11 @@ allfdr=function(data1,data2){
 }
 ~~~
 
-|함수(변수)명|뜻|
-|:--:|:--:|
-|fdr()|FDR식을 이용한 수치 계산|
-|allfdr()|모든 CIs의 FDR 출력|
-|data1, data2|FDR에 이용할 Data set|
+| 함수(변수)명 |            뜻            |
+| :----------: | :----------------------: |
+|    fdr()     | FDR식을 이용한 수치 계산 |
+|   allfdr()   |   모든 CIs의 FDR 출력    |
+| data1, data2 |  FDR에 이용할 Data set   |
 
 ***
 
@@ -380,25 +380,25 @@ FDRtest=function(max1,size,start){
 }
 ~~~
 
-|함수(변수)명|뜻|
-|:--:|:--:|
-|test1()|MakeData의 축소 형태|
-|fdrtest()|모든 CIs의 FDR 출력|
-|max1|끝점|
-|size|Window size 증가폭|
-|start|시작점|
-|asdf|동적인 Window size|
-|ku1|FDR of Kurtosis|
-|rm1|FDR of RMS|
-|iq1|FDR of IQR|
-|cf1|FDR of CF|
-|ti1|Window size 배열|
+| 함수(변수)명 |          뜻          |
+| :----------: | :------------------: |
+|   test1()    | MakeData의 축소 형태 |
+|  fdrtest()   | 모든 CIs의 FDR 출력  |
+|     max1     |         끝점         |
+|     size     |  Window size 증가폭  |
+|    start     |        시작점        |
+|     asdf     |  동적인 Window size  |
+|     ku1      |   FDR of Kurtosis    |
+|     rm1      |      FDR of RMS      |
+|     iq1      |      FDR of IQR      |
+|     cf1      |      FDR of CF       |
+|     ti1      |   Window size 배열   |
 
 ~~~R
 as=FDRtest(100000,100,1000)
 ~~~
 
-<img width="1024" alt="FDR 그래프" src="/images/r-condition-indicator/76925234-1a54fe80-691c-11ea-9857-61b8a7599c18.png">
+<img src="/images/r-condition-indicator/fdr-graph.png" alt="fdr-graph" width="1024" />
 
 ***
 
@@ -412,4 +412,4 @@ lines(density(h5[,17]),col='blue')
 
 + `xlim=c()`, `ylim=c()`로 스케일 조정 가능
 
-![Z_iq](/images/r-condition-indicator/76925437-d1517a00-691c-11ea-8103-f0ab09de1ae8.png)
+![z-iq](/images/r-condition-indicator/z-iq.png)

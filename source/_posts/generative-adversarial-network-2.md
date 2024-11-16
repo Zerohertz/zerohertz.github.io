@@ -47,7 +47,7 @@ tags:
 ## Real Data Source
 
 > Real data generation function
-![Real data generation function](/images/generative-adversarial-network-2/180653460-44f175ba-fe22-4432-b7a7-ec68feaf8193.png)
+![real-data-generation-function](/images/generative-adversarial-network-2/real-data-generation-function.png)
 
 ## Discriminator
 
@@ -104,7 +104,7 @@ class Discriminator(nn.Module):
 ~~~
 
 > Training discriminator
-![Training discriminator](/images/generative-adversarial-network-2/180654877-d226b1b0-333e-4828-a457-d32eaa3da51d.png)
+![training-discriminator](/images/generative-adversarial-network-2/training-discriminator.png)
 
 ## Generator
 
@@ -195,7 +195,7 @@ for i in range(100000):
 
 
 > Loss of discriminator and generator
-![Loss of discriminator and generator](/images/generative-adversarial-network-2/180659175-5a817c42-4154-4bae-818f-90d4a43b8d84.png)
+![loss-of-discriminator-and-generator](/images/generative-adversarial-network-2/loss-of-discriminator-and-generator.png)
 
 + 판별기와 생성기의 손실: 0.69에 수렴
   + 이진 교차 엔트로피 (`BCELoss()`)에서의 $ln(2)$
@@ -206,5 +206,5 @@ for i in range(100000):
     + $0.5^2 = 0.25$
 
 > Pattern of generator as training progresses
-![Pattern of generator as training progresses](/images/generative-adversarial-network-2/180659184-9694252e-46f3-4543-a80d-2b91821ed258.png)
+![pattern-of-generator-as-training-progresses](/images/generative-adversarial-network-2/pattern-of-generator-as-training-progresses.png)
 

@@ -93,8 +93,8 @@ for a in range(0, len(Ryisav)):
 1.0 0.99 0.98 0.96 0.94 0.92 0.91 0.9 0.89 0.89 0.9 0.91 0.93 0.96 1.04 1.13 1.24 1.37 1.51 1.71 1.93 2.17 2.46 2.78 3.12 3.52 3.95 4.45 4.98 5.57 6.2 
 Process finished with exit code 0
 ~~~
-![실행결과](/images/numerical-analysis-5/49585936-1a3d2380-f9a3-11e8-995a-371b124f9803.png)
-![Solution of ODE](/images/numerical-analysis-5/49585939-1ad5ba00-f9a3-11e8-8986-7fd7c4d8597b.png)
+![result-1](/images/numerical-analysis-5/result-1.png)
+![solution-of-ode](/images/numerical-analysis-5/solution-of-ode.png)
 ***
 # 데이터 비교
 
@@ -105,7 +105,7 @@ y2 = [1 0.99 0.97 0.95 0.93 0.91 0.89 0.87 0.86 0.86 0.87 0.89 0.92 0.97 1.04 1.
 y3 = [1.0 0.99 0.98 0.96 0.94 0.92 0.91 0.9 0.89 0.89 0.9 0.91 0.93 0.96 1.04 1.13 1.24 1.37 1.51 1.71 1.93 2.17 2.46 2.78 3.12 3.52 3.95 4.45 4.98 5.57 6.2]
 plot(x,y1,x,y2,x,y3)
 ~~~
-![실행결과](/images/numerical-analysis-5/49587478-4c508480-f9a7-11e8-8aa2-1c359dbb2968.jpg)
+![result-2](/images/numerical-analysis-5/result-2.jpg)
 ***
 # Discussion
 
@@ -183,7 +183,7 @@ for a in range(0, len(Ryisav)):
 2.4925, 2.4926, 2.4927, 2.4928, 2.4929, 2.493, 2.4931, 2.4932, 2.4933, 2.4934, 2.4935, 2.4936, 2.4937, 2.4938, 2.4939, 2.494, 2.4941, 2.4942, 2.4943, 2.4944, 2.4945, 2.4946, 2.4947, 2.4948, 2.4949, 2.495, ..., 5.4946022248 5.4952017999 5.495801425 5.4964011 5.497000825 5.4976006 5.498200425 5.4988003 5.499400225 5.5000002 5.500600225]
 plot(x,y1,x,y2,x,y3)
 ~~~
-![실행결과](/images/numerical-analysis-5/49588816-12817d00-f9ab-11e8-91be-6bf017ce6451.jpg)
+![result-3](/images/numerical-analysis-5/result-3.jpg)
 ***
 # Conclusion
 

@@ -209,8 +209,8 @@ void UIKBPLibrary::InverseKinematics(FVector pos, FRotator rot, float &Joint0, f
 ***
 # Error
 
-![Joint1 simulation](/images/unreal-engine-inverse-kinematics-1/60788473-d2c88100-a197-11e9-9e7f-90ee0f1f8862.png)
-![wristPos simulation](/images/unreal-engine-inverse-kinematics-1/60788472-d2c88100-a197-11e9-9b4c-1f82a41099c8.png)
+![joint1-simulation](/images/unreal-engine-inverse-kinematics-1/joint1-simulation.png)
+![wristpos-simulation](/images/unreal-engine-inverse-kinematics-1/wristpos-simulation.png)
 
 ~~~C++
 Vec3f wristPos = pos - rot*Vec3f(0, 0, D[6]); WristPos=wristPos;

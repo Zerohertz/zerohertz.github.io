@@ -8,7 +8,7 @@ tags:
 - C, C++
 ---
 # 라즈베리 파이란?
-![](/images/raspberry-pi-face-recognition/44300009-cd253b00-a33a-11e8-848d-cf08c4b7eb3e.png)
+![raspberry-pi](/images/raspberry-pi-face-recognition/raspberry-pi.png)
 > 위 그림과 같이 생긴 보드이며, 아두이노의 상위 호환이라고 볼 수 있다. 특히, `Linux`기반의 OS가 구동이 가능하여 진짜 컴퓨터처럼 사용할 수 있다. 또한 GPIO를 통한 IOT를 만들 수 있다.
 <!-- more -->
 

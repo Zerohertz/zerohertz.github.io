@@ -117,4 +117,4 @@ a =
 ***
 # Simulink
 
-![State-space equation, Scope](/images/matlab-7/69495291-b50e7500-0f08-11ea-867f-47081a69eaef.png)
+![state-space-equation-scope](/images/matlab-7/state-space-equation-scope.png)
