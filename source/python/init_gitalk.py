@@ -5,6 +5,10 @@ import zerohertzLib as zz
 from selenium import webdriver
 
 START = "https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/"
+SITEMAP = [
+    "https://zerohertz.github.io/" + i.replace(".md", "")
+    for i in zz.util.read_csv("tmp.tsv", header=False)[2]
+]
 
 
 class Browser:
@@ -17,7 +21,8 @@ class Browser:
         self.browser.get("https://github.com/login")
         while self.browser.current_url != "https://github.com/":
             time.sleep(0.1)
-        self.browser.get(START)
+        self.cnt = 0
+        self.browser.get(SITEMAP[self.cnt])
         ready = input("READY?:\t")
         if ready.lower() != "y":
             exit()
@@ -40,6 +45,15 @@ class Browser:
         time.sleep(5)
         return tmp, self.next_post()
 
+    def run(self):
+        self.cnt += 1
+        self.browser.get(SITEMAP[self.cnt])
+        self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(5)
+        return self.browser.find_element(
+            "xpath", "/html/body/main/div[2]/div[1]/article/header/h1"
+        ).text
+
 
 def main():
     logger = zz.logging.Logger("GITALK")
@@ -47,9 +61,10 @@ def main():
         browser = Browser()
         logger.info("login completed")
         while True:
-            tmp, nxt = browser()
-            logger.info(f"tmp: {tmp}")
-            logger.info(f"nxt: {nxt}")
+            # tmp, nxt = browser()
+            # logger.info(f"tmp: {tmp}")
+            # logger.info(f"nxt: {nxt}")
+            logger.info(browser.run())
     except Exception as e:
         logger.error(e)
         logger.error(traceback.format_exc())
