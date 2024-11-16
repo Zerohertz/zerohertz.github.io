@@ -24,7 +24,7 @@ GitHub Actions로 자동화되어 10일에 한번 데이터 및 시각화 자료
 
 <div align = "center">
   <a href="https://github.com/Zerohertz/awesome-jmy">
-    <img src="/images/awesome-jmy/awesome--jmy-800a0a?style=for-the-badge&logo=Awesome%20Lists&logoColor=white"/>
+    <img src="https://img.shields.io/badge/awesome--jmy-800a0a?style=for-the-badge&logo=Awesome Lists&logoColor=white"/>
   </a>
 </div>
 
