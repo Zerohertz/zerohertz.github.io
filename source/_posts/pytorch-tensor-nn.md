@@ -1,5 +1,5 @@
 ---
-title: Neural Network Example
+title: Tensor & Neural Network in PyTorch
 date: 2021-09-09 17:31:51
 categories:
 - 5. Machine Learning

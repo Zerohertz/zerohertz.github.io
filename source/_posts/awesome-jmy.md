@@ -9,6 +9,7 @@ tags:
 - Selenium
 - CI/CD
 - GitHub
+- GitHub Actions
 ---
 # Introduction
 

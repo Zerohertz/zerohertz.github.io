@@ -6,6 +6,7 @@ categories:
 tags:
 - CI/CD
 - GitHub
+- GitHub Actions
 - Argo CD
 - Kubernetes
 - Home Server

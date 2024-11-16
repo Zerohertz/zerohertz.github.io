@@ -1,5 +1,5 @@
 ---
-title: Serial Communication (Arduino to RaspberryPi)
+title: Serial Communication (Arduino to Raspberry Pi)
 date: 2020-08-18 13:24:03
 categories:
 - Etc.

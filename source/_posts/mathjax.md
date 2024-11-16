@@ -1,5 +1,5 @@
 ---
-title: mathjax test
+title: MathJax
 date: 2020-01-09 17:29:09
 categories:
 - Etc.
