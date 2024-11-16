@@ -204,13 +204,13 @@ tags:
 ~~~
 
 > plot(x,dnorm(x))
-![](https://user-images.githubusercontent.com/42334717/71956742-46bf1100-322f-11ea-8fab-9c91855c4762.png)
+![](/images/r-statistics/71956742-46bf1100-322f-11ea-8fab-9c91855c4762.png)
 
 > plot(x,dnorm(x),type='l')
-![](https://user-images.githubusercontent.com/42334717/71956920-bc2ae180-322f-11ea-9056-16549a809ab1.png)
+![](/images/r-statistics/71956920-bc2ae180-322f-11ea-9056-16549a809ab1.png)
 
 > hist(x)
-![](https://user-images.githubusercontent.com/42334717/71957490-3a3bb800-3231-11ea-8adf-5fdabadffebf.png)
+![](/images/r-statistics/71957490-3a3bb800-3231-11ea-8adf-5fdabadffebf.png)
 
 ***
 # 표본분포
@@ -263,7 +263,7 @@ tags:
 
 ## 1. 가설설정
 
-![](https://user-images.githubusercontent.com/42334717/72044473-2eb2c480-32f7-11ea-8ad5-d53e71c94df9.png)
+![](/images/r-statistics/72044473-2eb2c480-32f7-11ea-8ad5-d53e71c94df9.png)
 
 + `Hsub0`를 채택, 기각(무조건 `Hsub0` 중심으로 서술)
 

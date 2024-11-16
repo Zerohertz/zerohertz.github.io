@@ -14,7 +14,7 @@ tags:
 
 윈도우 컴퓨터에서 위 설정을 모두 마쳤다면 컴퓨터와 연결된 공유기의 gateway에 접속하여 포트포워딩 진행
 
-![Port forwarding](https://user-images.githubusercontent.com/42334717/211633483-58d6a388-3a49-41c6-9da7-0041e0483ec4.png)
+![Port forwarding](/images/jupyter-notebook-windows-server/211633483-58d6a388-3a49-41c6-9da7-0041e0483ec4.png)
 
 + ssh 사용을 위한 `22` 포트와 jupyter notebook 사용을 위한 `8888` 포트를 포워딩
 
@@ -108,4 +108,4 @@ c.NotebookApp.open_browser = False
 
 # 최종 확인
 
-![Final](https://user-images.githubusercontent.com/42334717/212686577-218c1872-9e2b-4711-a310-da018f57da45.png)
+![Final](/images/jupyter-notebook-windows-server/212686577-218c1872-9e2b-4711-a310-da018f57da45.png)

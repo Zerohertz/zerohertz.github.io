@@ -64,7 +64,7 @@ Mask R-CNN의 training, test, visualization, evaluation을 진행할 수 있게 
 
 <!-- More -->
 
-![image](https://user-images.githubusercontent.com/42334717/229952708-4db35f2b-ce8b-4a4f-b7c4-f84a9dcaf2ae.png)
+![image](/images/pytorch-mask-r-cnn/229952708-4db35f2b-ce8b-4a4f-b7c4-f84a9dcaf2ae.png)
 
 이 데이터는 두 가지 클래스 (`benign`, `malignant`)로 구성되어 있고 위 사진에서 알 수 있는 것처럼 분할된 mask를 함께 제공한다.
 Mask R-CNN이 Segmentation 정보를 학습 및 테스트할 수 있도록 `TrainingData`와 `TestData`를 구성했고, 그를 위한 코드는 아래와 같다.
@@ -406,7 +406,7 @@ def train(model,
 학습 과정을 모니터링하기 위하여 [TensorBoard](https://github.com/Zerohertz/Mask_R-CNN/issues/12)를 기용하여 매 epoch 마다의 learning rate, 모델 내 다양한 loss, 최종 loss, precision, recall을 출력할 수 있도록 하였다.
 TensorBoard의 시각화 예시는 아래와 같다.
 
-![TensorBoard](https://user-images.githubusercontent.com/42334717/230006393-06921cf0-2e20-45b5-9984-a2928a9166a2.png)
+![TensorBoard](/images/pytorch-mask-r-cnn/230006393-06921cf0-2e20-45b5-9984-a2928a9166a2.png)
 
 + <span style='color: #0000FF'>SGD (lr=0.001, step_size=20)</span>
 + <span style='color: #000000'>Adam (lr=0.001, step_size=30)</span>
@@ -624,7 +624,7 @@ def test(TestDataset_path, tar_path, model, device, obj={}):
 최종적으로 `test()` 함수에서 테스트 데이터에 대해 결과를 산출하고, 시각화한 뒤 정량적으로 평가하여 `.csv` 형식으로 저장하는 것을 확인할 수 있다.
 `draw_gt()` 함수와 `draw_res()` 함수를 통해 출력한 결과의 예시는 아래와 같다.
 
-![draw()](https://user-images.githubusercontent.com/42334717/230010864-66dcc3dc-581d-4dec-91a7-dd536c4ab17a.png)
+![draw()](/images/pytorch-mask-r-cnn/230010864-66dcc3dc-581d-4dec-91a7-dd536c4ab17a.png)
 
 ---
 

@@ -50,11 +50,11 @@ plotconfusion(y,predictResult);
 ~~~
 <!-- more -->
 
-![실행결과](https://user-images.githubusercontent.com/42334717/71402682-ddf16980-2670-11ea-974c-1966f6959e6a.png)
+![실행결과](/images/matlab-11/71402682-ddf16980-2670-11ea-974c-1966f6959e6a.png)
 
-![Data point](https://user-images.githubusercontent.com/42334717/71402920-80a9e800-2671-11ea-8bf2-df4e8df4c00c.png)
+![Data point](/images/matlab-11/71402920-80a9e800-2671-11ea-8bf2-df4e8df4c00c.png)
 
-![Method of classification](https://user-images.githubusercontent.com/42334717/71402926-83a4d880-2671-11ea-8a2f-117587bc4fc4.png)
+![Method of classification](/images/matlab-11/71402926-83a4d880-2671-11ea-8a2f-117587bc4fc4.png)
 ***
 # ML by example data
 
@@ -91,4 +91,4 @@ predictResult=categorical(predictResult);
 plotconfusion(y,predictResult);
 ~~~
 
-![실행결과](https://user-images.githubusercontent.com/42334717/71402866-58ba8480-2671-11ea-9fb1-c53c8c9df8e0.png)
+![실행결과](/images/matlab-11/71402866-58ba8480-2671-11ea-9fb1-c53c8c9df8e0.png)

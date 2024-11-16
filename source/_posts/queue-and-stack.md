@@ -33,7 +33,7 @@ tags:
 
 # Queue
 
-<img width="647" alt="Queue" src="https://user-images.githubusercontent.com/42334717/180357720-db9127a2-8b5d-4d73-aa71-67d7186b3478.png">
+<img width="647" alt="Queue" src="/images/queue-and-stack/180357720-db9127a2-8b5d-4d73-aa71-67d7186b3478.png">
 
 + Method
   + `enQueue`: Insert
@@ -62,13 +62,13 @@ class Queue():
         print(self.queue)
 ~~~
 
-![Queue](https://user-images.githubusercontent.com/42334717/180360564-2004a21f-3c33-4ff5-a22a-ad98e0c4fecc.png)
+![Queue](/images/queue-and-stack/180360564-2004a21f-3c33-4ff5-a22a-ad98e0c4fecc.png)
 
 ***
 
 # Stack
 
-<img width="647" alt="Stack" src="https://user-images.githubusercontent.com/42334717/180357599-be2205fc-1569-46e8-a8de-5d3b3ddc7cda.png">
+<img width="647" alt="Stack" src="/images/queue-and-stack/180357599-be2205fc-1569-46e8-a8de-5d3b3ddc7cda.png">
 
 + Method
   + `push`: Insert
@@ -97,7 +97,7 @@ class Stack():
         print(self.stack)
 ~~~
 
-![Stack](https://user-images.githubusercontent.com/42334717/180360631-edf403ba-21a0-48bf-8b15-3afd8d569e99.png)
+![Stack](/images/queue-and-stack/180360631-edf403ba-21a0-48bf-8b15-3afd8d569e99.png)
 
 ***
 

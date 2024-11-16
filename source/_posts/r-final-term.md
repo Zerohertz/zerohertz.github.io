@@ -1195,7 +1195,7 @@ F-statistic: 65.58 on 1 and 91 DF,  p-value: 2.395e-12
 + $\beta_1 \neq 0$
 + 약 42% 설명
 
-<img width="1145" alt="plot()" src="https://user-images.githubusercontent.com/42334717/72525344-41a13800-38a7-11ea-884b-48fa5c504313.png">
+<img width="1145" alt="plot()" src="/images/r-final-term/72525344-41a13800-38a7-11ea-884b-48fa5c504313.png">
 
 ## Example 3
 
@@ -1250,7 +1250,7 @@ F-statistic:  2402 on 1 and 91 DF,  p-value: < 2.2e-16
 + $\beta_1 \neq 0$
 + 약 96% 설명
 
-<img width="1145" alt="plot()" src="https://user-images.githubusercontent.com/42334717/72526135-0ef83f00-38a9-11ea-96e7-6cd49d28c45c.png">
+<img width="1145" alt="plot()" src="/images/r-final-term/72526135-0ef83f00-38a9-11ea-96e7-6cd49d28c45c.png">
 
 # Finale
 

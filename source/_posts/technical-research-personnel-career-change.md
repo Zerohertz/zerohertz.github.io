@@ -43,7 +43,7 @@ tags:
 # 절차
 
 > 아래 일정은 전직 신청 전 대략적인 조율을 위해 계획한 것이다.
-> ![Plan](https://github.com/user-attachments/assets/bdca426c-f672-4b0b-be1e-d5798171990a)
+> ![Plan](/images/technical-research-personnel-career-change/357280448-bdca426c-f672-4b0b-be1e-d5798171990a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T145921Z&X-Amz-Expires=300&X-Amz-Signature=362e2f7524d02731cb4e8e6ac2f3e2091518d1d7c4312a1cd84077ed5011035f&X-Amz-SignedHeaders=host)
 
 1. 구직 및 채용 확정
    1. `전문연구요원` → `전직 회사`: (병역지정업체의) 공고 검색 → 지원 → 최종 합격 → 처우 협의
@@ -106,11 +106,11 @@ tags:
 - 서류 내 회사의 대표자의 성명과 병무청 내 대표자의 성명 상이
 
 > 최종적으로 전직이 완료된 상태이며 아래와 같은 일정으로 진행했다.
-> ![Plan](https://github.com/user-attachments/assets/6318c31c-02db-4ca3-b808-44a3c6374759)
+> ![Plan](/images/technical-research-personnel-career-change/363525299-6318c31c-02db-4ca3-b808-44a3c6374759.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T145923Z&X-Amz-Expires=300&X-Amz-Signature=b66a32e5369a2b6c5afddba0a31dd0bbe1feafe0a8d6f65df7b376a5ee7bff7e&X-Amz-SignedHeaders=host)
 
 병무청에서 전직 승인이 되면 아래와 같이 카카오톡을 통해 통보되며 [병무청: 병무민원](https://mwpt.mma.go.kr/) 또는 [산업지원 병역일터](https://work.mma.go.kr/)에서 아래와 같이 확인할 수 있다.
 
-![career-change](https://github.com/user-attachments/assets/97c5f66b-8bd7-4ad5-8ddd-c697bc4c218e)
+![career-change](/images/technical-research-personnel-career-change/366285348-97c5f66b-8bd7-4ad5-8ddd-c697bc4c218e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T145924Z&X-Amz-Expires=300&X-Amz-Signature=09c5b13ae4db137db69144368523d709a772d582f0c43c3a63c63012aed5199b&X-Amz-SignedHeaders=host)
 
 새로운 시작이 어렵기도하고 신경쓸 것도 많았지만 그 과정 속에서도 많은 것들을 배운 것 같다.
 

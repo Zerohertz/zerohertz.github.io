@@ -17,7 +17,7 @@ Algorithm 문제를 풀고 [GitHub](https://github.com/Zerohertz/Algorithm)에�
 [GitHub Actions](https://docs.github.com/ko/actions)는 구동 조건 ([CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/), 특정 branch에 push, ...)을 만족하면 준비된 스크립트를 자동적으로 실행해준다.
 따라서 CI/CD를 포함하여 다양한 작업에 사용되고 있다. ([로또 자동화](https://github.com/Zerohertz/lottery-bot/actions)도 가능,,,)
 
-<img width="1322" alt="I_WANNA_BE_RICH" src="https://github.com/Zerohertz/lottery-bot/assets/42334717/85fd91e0-4bbe-4882-983c-b9f2dbd8b7e0">
+<img width="1322" alt="I_WANNA_BE_RICH" src="/images/github-actions-code-formatting/251007462-85fd91e0-4bbe-4882-983c-b9f2dbd8b7e0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150645Z&X-Amz-Expires=300&X-Amz-Signature=763be5b24ad4cb3a88aa87be3715dd9a8878dbc24c8814b930153f7b775d07c4&X-Amz-SignedHeaders=host">
 
 <!-- More -->
 
@@ -27,7 +27,7 @@ Algorithm 문제를 풀고 [GitHub](https://github.com/Zerohertz/Algorithm)에�
 
 시작하기 전에 구동하려는 repository 내에서 "Setting - Secrets and variables - Actions"로 들어가 아래와 같이 GitHub token 값을 공개되지 않도록 환경 변수로 지정한다.
 
-<img width="1143" alt="Secrets" src="https://github.com/Zerohertz/Algorithm/assets/42334717/8a69aa93-98d4-4078-bbf2-5bbd82ad04d3">
+<img width="1143" alt="Secrets" src="/images/github-actions-code-formatting/251007041-8a69aa93-98d4-4078-bbf2-5bbd82ad04d3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150646Z&X-Amz-Expires=300&X-Amz-Signature=d6e2daff5af9b0de95f400ab4d72990df9c374dd9f867df21ad4c568721b3e5e&X-Amz-SignedHeaders=host">
 
 `${YOUR_REPOSITORY_PATH}/.github/workflows/${YOUR_ACTIONS}.yml` 경로에 원하는 행동을 작성하고 repository에 push하면 조건에 맞춰 실행된다.
 
@@ -83,7 +83,7 @@ jobs:
 
 준비된 `Formatter.yml` 파일을 push하면 아래와 같이 잘 실행된다.
 
-<img width="1437" alt=":tada:" src="https://github.com/Zerohertz/lottery-bot/assets/42334717/8003276a-d94a-49dc-9ce3-f825b7634f5c">
+<img width="1437" alt=":tada:" src="/images/github-actions-code-formatting/251008162-8003276a-d94a-49dc-9ce3-f825b7634f5c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150648Z&X-Amz-Expires=300&X-Amz-Signature=dd30f1758b93284ee11a48a2986deaf9277c03e174d8697b0c052718ba6f971d&X-Amz-SignedHeaders=host">
 
 [변경 내역](https://github.com/Zerohertz/Algorithm/commit/e3e238aebfdece8e851040819773f9f04e8ebda7)을 확인해보면 모두 정갈하게 바뀐 것을 알 수 있다.
 

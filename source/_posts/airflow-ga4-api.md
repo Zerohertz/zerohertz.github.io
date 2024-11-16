@@ -36,15 +36,15 @@ tags:
 
 [GCP](https://cloud.google.com/)에서 아래 과정을 수행하여 비공개 키 `.json`를 잘 보관한다.
 
-![GCP](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/261852117-283e3e7c-1c08-4022-9ab8-72252a1d5435.png)
+![gcp-iam](/images/airflow-ga4-api/gcp-iam.png)
 
 Google Analytics 4 페이지로 이동하여 자신의 계정 외에 위에서 추가한 서비스 계정을 추가한다.
 
-![GA4](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/261852124-c76165db-0149-4ab4-ba3a-79e5c7344ac8.png)
+![gcp-accesss](/images/airflow-ga4-api/gcp-accesss.png)
 
 다시 GCP로 이동 후 아래와 같이 Google Analytics Data API를 활성화한다.
 
-![API](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/261852222-7f344122-b4b5-4bed-94e0-fe4eb346aa8d.png)
+![ga-api](/images/airflow-ga4-api/ga-api.png)
 
 마지막으로 API를 사용할 환경에서 라이브러리를 설치한다.
 
@@ -273,4 +273,4 @@ DAG = GA4()
 
 결과적으로 Discord를 통해 전날 사용자의 접속 위치 및 방문 경로를 파악할 수 있다!
 
-![Result](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/261860354-1b7126bb-cd13-44dc-9128-9f5a4d972ba8.png)
+{% img /images/airflow-ga4-api/result.png 500 result %}

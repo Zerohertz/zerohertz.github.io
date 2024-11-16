@@ -511,7 +511,7 @@ if __name__ == "__main__":
 위 코드에서 알 수 있듯, TensorRT로 변환된 모델은 `torch2trt.TRTModule()`로 인스턴스를 생성하고 일반적인 PyTorch 모델이 가중치를 불러오는 것과 비슷하게 `TRTModule.load_state_dict(torch.load('trt_model.trt'))`로 불러올 수 있다.
 최종적으로 출력된 결과 (`bbox`)들에 대해 정량적 평가 (CLEval)를 진행하였고, 결과는 아래와 같다.
 
-![Results](https://user-images.githubusercontent.com/42334717/226349286-c6dbcf24-67ff-459d-8203-6c6b3af27230.png)
+![Results](/images/pytorch-model-to-tensorrt/226349286-c6dbcf24-67ff-459d-8203-6c6b3af27230.png)
 
 ||HMean|Precision|Recall|Time|
 |:-:|:-:|:-:|:-:|:-:|

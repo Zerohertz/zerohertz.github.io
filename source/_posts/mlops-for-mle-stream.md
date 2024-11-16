@@ -154,11 +154,11 @@ docker compose -p stream -f stream-docker-compose.yaml up -d
 /MLOps-Breast-Cancer/Stream$ sh stream.sh
 ```
 
-<img width="1571" alt="Containers" src="https://user-images.githubusercontent.com/42334717/223940927-57d5d6c0-f265-4614-888b-7b25c94c7c2a.png">
+<img width="1571" alt="Containers" src="/images/mlops-for-mle-stream/223940927-57d5d6c0-f265-4614-888b-7b25c94c7c2a.png">
 
 > Container: data-subscriber
 
-![data-subscriber](https://user-images.githubusercontent.com/42334717/223939709-5b0c682c-89af-43e1-838c-264dd6653093.gif)
+![data-subscriber](/images/mlops-for-mle-stream/223939709-5b0c682c-89af-43e1-838c-264dd6653093.gif)
 
 
 ```bash
@@ -181,7 +181,7 @@ targetdatabase=# \d
 targetdatabase=# SELECT * FROM breast_cancer_prediction LIMIT 100;
 ```
 
-![breast_cancer_prediction](https://user-images.githubusercontent.com/42334717/223940411-4de0df2a-e176-4331-a6b5-3e71d9cc965b.gif)
+![breast_cancer_prediction](/images/mlops-for-mle-stream/223940411-4de0df2a-e176-4331-a6b5-3e71d9cc965b.gif)
 
 ---
 
@@ -212,15 +212,15 @@ networks:
 /MLOps-Breast-Cancer/Stream$ docker compose -p dashboard -f grafana-docker-compose.yaml up -d
 ```
 
-<img width="1202" alt="Grafana" src="https://user-images.githubusercontent.com/42334717/223943145-545928dd-0182-46c4-8792-5e93fbe53026.png">
+<img width="1202" alt="Grafana" src="/images/mlops-for-mle-stream/223943145-545928dd-0182-46c4-8792-5e93fbe53026.png">
 
 ## Grafana Dashboard
 
-<img width="1202" alt="Grafana Dashboard" src="https://user-images.githubusercontent.com/42334717/223944135-3b4d7eb6-4103-4cac-978b-22d027d5cae0.png">
+<img width="1202" alt="Grafana Dashboard" src="/images/mlops-for-mle-stream/223944135-3b4d7eb6-4103-4cac-978b-22d027d5cae0.png">
 
 ## Source Database
 
-<img width="1202" alt="src" src="https://user-images.githubusercontent.com/42334717/223945596-f1c5918f-fc45-4b99-aead-a2ed93bff942.png">
+<img width="1202" alt="src" src="/images/mlops-for-mle-stream/223945596-f1c5918f-fc45-4b99-aead-a2ed93bff942.png">
 
 + Name: `Source-database`
 + Host: `postgres-server:5432`
@@ -230,11 +230,11 @@ networks:
 + TLS/SSL Mode: `disable`
 + Version: `14.0`
 
-<img width="1202" alt="dashboard" src="https://user-images.githubusercontent.com/42334717/223947423-fb945928-c4fe-450a-a26d-6aaecbb0559b.png">
+<img width="1202" alt="dashboard" src="/images/mlops-for-mle-stream/223947423-fb945928-c4fe-450a-a26d-6aaecbb0559b.png">
 
 ## Inference Database
 
-<img width="1233" alt="inf" src="https://user-images.githubusercontent.com/42334717/223952972-1bb30912-da6b-408f-9332-2f765cf5da69.png">
+<img width="1233" alt="inf" src="/images/mlops-for-mle-stream/223952972-1bb30912-da6b-408f-9332-2f765cf5da69.png">
 
 + Name: `Inference-database`
 + Host: `target-postgres-server:5432`
@@ -246,7 +246,7 @@ networks:
 
 ## Result
 
-![Result](https://user-images.githubusercontent.com/42334717/223958893-4b4df8e0-9916-42eb-b7c1-31b41be4c3cd.gif)
+![Result](/images/mlops-for-mle-stream/223958893-4b4df8e0-9916-42eb-b7c1-31b41be4c3cd.gif)
 
 ---
 

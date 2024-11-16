@@ -12,11 +12,11 @@ tags:
 # Class 마법사(Unreal Engine에서 새로운 Class 만들기)
 
 `File` > `New C++ Class` >
-![Class 지정](https://user-images.githubusercontent.com/42334717/50725556-7c27af00-1142-11e9-9dbc-1ab57f111f81.png)
+![Class 지정](/images/unreal-engine-cpp-1/50725556-7c27af00-1142-11e9-9dbc-1ab57f111f81.png)
 
 <!-- more -->
-![이름과 경로 지정](https://user-images.githubusercontent.com/42334717/50725550-6619ee80-1142-11e9-8852-af34b8bcf3c9.png)
-![생성 완료](https://user-images.githubusercontent.com/42334717/50725573-c7da5880-1142-11e9-9336-5e8166c7d259.png)
+![이름과 경로 지정](/images/unreal-engine-cpp-1/50725550-6619ee80-1142-11e9-8852-af34b8bcf3c9.png)
+![생성 완료](/images/unreal-engine-cpp-1/50725573-c7da5880-1142-11e9-9336-5e8166c7d259.png)
 > MyActor.h
 
 ~~~C++
@@ -83,7 +83,7 @@ void AMyActor::Tick(float DeltaTime)
 
 > 컴파일
 
-![그림의 컴파일 버튼으로 컴파일을 빠르게 할 수 있다](https://user-images.githubusercontent.com/42334717/50772409-0867dc80-12d1-11e9-9c35-c64763b82224.png)
+![그림의 컴파일 버튼으로 컴파일을 빠르게 할 수 있다](/images/unreal-engine-cpp-1/50772409-0867dc80-12d1-11e9-9c35-c64763b82224.png)
 
 ***
 # Class
@@ -147,7 +147,7 @@ public:
 + `GENERATED_BODY()`와 `UPROPERTY()`뒤에는 `;`을 붙이지 않는다
 + 아래의 `프로퍼티 지정자`를 `UPROPERTY()`에 적절히 사용함으로써 위의 상황에선 다음과 같은 설정을 할 수 있다
  
-![프로퍼티 부여](https://user-images.githubusercontent.com/42334717/50772347-d0609980-12d0-11e9-9d59-aec93754feeb.png)
+![프로퍼티 부여](/images/unreal-engine-cpp-1/50772347-d0609980-12d0-11e9-9d59-aec93754feeb.png)
 > MyActor.h
 
 ~~~C++
@@ -188,7 +188,7 @@ public:
 
 };
 ~~~
-![더 많은 프로퍼티 부여](https://user-images.githubusercontent.com/42334717/50772437-2a615f00-12d1-11e9-9dbb-bea19d82d9d2.png)
+![더 많은 프로퍼티 부여](/images/unreal-engine-cpp-1/50772437-2a615f00-12d1-11e9-9dbb-bea19d82d9d2.png)
 > MyActor.cpp
 
 ~~~C++
@@ -220,7 +220,7 @@ void AMyActor::Tick(float DeltaTime)
 
 }
 ~~~
-![프로퍼티에 초기값 부여](https://user-images.githubusercontent.com/42334717/50772592-ab205b00-12d1-11e9-8f8d-626078b9de59.png)
+![프로퍼티에 초기값 부여](/images/unreal-engine-cpp-1/50772592-ab205b00-12d1-11e9-8f8d-626078b9de59.png)
 ***
 # 종속적인 프로퍼티 계산 시키기
 
@@ -327,7 +327,7 @@ void AMyActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEven
 }
 #endif
 ~~~
-![계산이 되는 모습](https://user-images.githubusercontent.com/42334717/50773681-c5a80380-12d4-11e9-91a8-5e3afc881bfd.png)
+![계산이 되는 모습](/images/unreal-engine-cpp-1/50773681-c5a80380-12d4-11e9-91a8-5e3afc881bfd.png)
 ***
 # 여러가지 프로퍼티 지정자
 

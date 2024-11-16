@@ -299,7 +299,7 @@ write.table(h5[,1:18],'health.txt',sep='\t',row.names=F)
 
 # FDR
 
-![FDR](https://user-images.githubusercontent.com/42334717/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png)
+![FDR](/images/r-condition-indicator/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png)
 
 ~~~R
 fdr=function(data1,data2){
@@ -398,7 +398,7 @@ FDRtest=function(max1,size,start){
 as=FDRtest(100000,100,1000)
 ~~~
 
-<img width="1024" alt="FDR 그래프" src="https://user-images.githubusercontent.com/42334717/76925234-1a54fe80-691c-11ea-9857-61b8a7599c18.png">
+<img width="1024" alt="FDR 그래프" src="/images/r-condition-indicator/76925234-1a54fe80-691c-11ea-9857-61b8a7599c18.png">
 
 ***
 
@@ -412,4 +412,4 @@ lines(density(h5[,17]),col='blue')
 
 + `xlim=c()`, `ylim=c()`로 스케일 조정 가능
 
-![Z_iq](https://user-images.githubusercontent.com/42334717/76925437-d1517a00-691c-11ea-8103-f0ab09de1ae8.png)
+![Z_iq](/images/r-condition-indicator/76925437-d1517a00-691c-11ea-8103-f0ab09de1ae8.png)

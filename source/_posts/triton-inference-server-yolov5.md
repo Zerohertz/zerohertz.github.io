@@ -92,7 +92,7 @@ output [
 Model Constructure
 </summary>
 
-![best onnx](https://user-images.githubusercontent.com/42334717/232948308-d97200f8-e575-4a09-a5ef-63b15e19dc4e.png)
+![best onnx](/images/triton-inference-server-yolov5/232948308-d97200f8-e575-4a09-a5ef-63b15e19dc4e.png)
 
 </details>
 
@@ -322,7 +322,7 @@ else:
 
 Infrence 결과를 텍스트로 저장하고, 결과를 시각화하기 위해 위와 같은 코드를 개발하였고 결과는 아래와 같다.
 
-![Client_Result](https://user-images.githubusercontent.com/42334717/232970727-8949f831-fa74-4fd7-81da-f7e557680a67.png)
+![Client_Result](/images/triton-inference-server-yolov5/232970727-8949f831-fa74-4fd7-81da-f7e557680a67.png)
 
 ```csv test_boxes.txt
 1,437.50388,302.3481,262.23682,503.67242

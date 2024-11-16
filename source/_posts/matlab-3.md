@@ -23,7 +23,7 @@ figure
 step(h1)
 ~~~
 <!-- more -->
-![실행결과](https://user-images.githubusercontent.com/42334717/66021849-f1d07800-e526-11e9-8427-04a7a4e6340b.png)
+![실행결과](/images/matlab-3/66021849-f1d07800-e526-11e9-8427-04a7a4e6340b.png)
 
 ~~~Matlab
 h=tf([1 4],[1 4 40])
@@ -39,7 +39,7 @@ figure
 step(h1)
 ~~~
 
-![실행결과](https://user-images.githubusercontent.com/42334717/66022101-d6b23800-e527-11e9-8841-af59aea14106.png)
+![실행결과](/images/matlab-3/66022101-d6b23800-e527-11e9-8841-af59aea14106.png)
 
 ~~~Matlab
 h=tf([1 4],[1 4 40])
@@ -52,7 +52,7 @@ zero(h1)
 step(h,h1)
 ~~~
 
-![실행결과](https://user-images.githubusercontent.com/42334717/66022189-16791f80-e528-11e9-9dc8-a75c390a6d12.png)
+![실행결과](/images/matlab-3/66022189-16791f80-e528-11e9-9dc8-a75c390a6d12.png)
 ***
 # Value 대입
 

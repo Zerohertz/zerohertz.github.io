@@ -67,7 +67,7 @@ API 호출 $\rightarrow$ 데이터 전처리 $\rightarrow$ 모델 예측
 위와 같은 형태를 Directed Acycllic Graph, DAG (방향성 비순환 그래프)라 칭한다.
 Task의 의존성을 나타내는 $\rightarrow$의 directed edge (끝점)의 반복 혹은 순환을 허용하지 않는다. (순환 그래프는 deadlock 발생)
 
-![DAG](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256070160-b7ddf7e2-b985-4db1-96de-c321b4581f23.png)
+![DAG](/images/airflow-1/256070160-b7ddf7e2-b985-4db1-96de-c321b4581f23.png)
 
 절차적 script pipeline에 비해 graph pipeline은 위와 같은 경우 task를 병렬로 실행할 수 있기 때문에 더 효율적이다.
 또한 전체 작업을 하나의 monolithic script 또는 process로 구성하는 것이 아니라 task로 명확히 분리하기 때문에 중간의 task가 실패할 때 전체 script를 재실행하는 것이 아닌 실패한 task만 재실행한다.
@@ -114,12 +114,12 @@ Scheduler는 아래와 같이 작동한다.
 
 Monitoring은 아래와 같이 webserver를 통해 진행할 수 있다.
 
-![webserver](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256227478-812fb0af-e1e7-49f9-b51d-32eb794114f4.png)
+![webserver](/images/airflow-1/256227478-812fb0af-e1e7-49f9-b51d-32eb794114f4.png)
 
 Task 실패 시 재시도를 설정하여 task를 복구할 수 있다.
 재시도 또한 실패하면 task 실패를 기록하고 log를 확인하여 debugging 할 수 있다.
 
-![grid_view](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256225430-f1886551-b2f9-4a05-b5db-e9487d38f329.png)
+![grid_view](/images/airflow-1/256225430-f1886551-b2f9-4a05-b5db-e9487d38f329.png)
 
 
 Schedule 기능 중 DAG에 정의된 특정 시점 trigger 가능한 것과 최종 시점과 예상되는 다음 schedule 주기를 상세히 알려주는 것이 존재한다.
@@ -257,7 +257,7 @@ def task2():
 DAG = Examples()
 ```
 
-![test](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256233954-f2c73f0f-9cf3-4bce-bca0-15dbfc660381.png)
+![test](/images/airflow-1/256233954-f2c73f0f-9cf3-4bce-bca0-15dbfc660381.png)
 
 3가지 정의 방식 모두 같은 결과를 출력함을 확인할 수 있다.
 `DAG` 혹은 `@dag`의 파라미터는 아래와 같다.
@@ -287,7 +287,7 @@ task1 >> [task2, task3] >> task4
 
 최하단과 같이 정의할 경우 아래와 같이 Graph가 구성됨을 확인할 수 있다.
 
-![Dependencies](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256242312-58d01c2d-e290-4b4c-8a89-beb34a347732.png)
+![Dependencies](/images/airflow-1/256242312-58d01c2d-e290-4b4c-8a89-beb34a347732.png)
 
 ---
 
@@ -339,7 +339,7 @@ Airflow에서는 앞서 말한 것과 같이 매번 전체 데이터를 처리�
 아래의 예시는 `"10 * * * *"`의 주기로 실행되는데, 실제 실행 시간인 `Start Date`와 `End Date`는 사진 기준의 현재 시간임을 알 수 있다.
 하지만 `Logical Date` (`execution_date`, `ts`)는 Cron의 schedule 간격인 1시간 전으로 명시되어있음을 알 수 있다.
 
-![execution_date](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256258850-2a7ab0c1-59aa-4953-83b7-686b813c396d.png)
+![execution_date](/images/airflow-1/256258850-2a7ab0c1-59aa-4953-83b7-686b813c396d.png)
 
 이것은 `ts`가 schedule 간격의 시작 시점을 의미하기 때문이다.
 따라서 이 점을 유의하여 개발해야한다.

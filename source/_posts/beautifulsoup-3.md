@@ -8,18 +8,18 @@ tags:
 - BeautifulSoup
 ---
 # 새로운 파이썬 파일에 bs4 추가하기(PyCharm)
-![](https://user-images.githubusercontent.com/42334717/44445278-49f63480-a61b-11e8-8342-11e95c0503cc.png)
-![](https://user-images.githubusercontent.com/42334717/44445290-58dce700-a61b-11e8-86ca-4b3f82165e38.png)
+![](/images/beautifulsoup-3/44445278-49f63480-a61b-11e8-8342-11e95c0503cc.png)
+![](/images/beautifulsoup-3/44445290-58dce700-a61b-11e8-86ca-4b3f82165e38.png)
 `bs4`를 검색하여 찾은 후 install한다.
 ***
 # HTML 구조 확인하기
 크롬에서 `Ctrl+Shift+i`키를 눌러서 개발자 도구를 열어서 확인할 수 있다.
-![요소 선택 아이콘을 통해 DOM요소 확인](https://user-images.githubusercontent.com/42334717/44444561-5d53d080-a618-11e8-8597-043c366ef6e4.png)
+![요소 선택 아이콘을 통해 DOM요소 확인](/images/beautifulsoup-3/44444561-5d53d080-a618-11e8-8597-043c366ef6e4.png)
 개발자 도구 팝업 메뉴에서 `Copy > Copy selector`을 사용하면 선택한 요소의 CSS 선택자가 클립보드에 복사된다.
 <!-- more -->
 ***
 # Wiki에서 화제의 단어 크롤링하기
-![CSS 선택자 복사하기](https://user-images.githubusercontent.com/42334717/44446834-42398e80-a621-11e8-93a8-a5d2f9c01238.png)
+![CSS 선택자 복사하기](/images/beautifulsoup-3/44446834-42398e80-a621-11e8-93a8-a5d2f9c01238.png)
 CSS 선택자의 결과
 `#mw-content-text > div > table:nth-child(3) > tbody > tr > td:nth-child(1) > table:nth-child(6) > tbody > tr:nth-child(2) > td > ul:nth-child(4) > li > a:nth-child(1)`
 `nth-child(n)`은 n번째의 요소를 말한다.(`BeautifulSoup`는 `nth-child`를 지원하지 않는다.)

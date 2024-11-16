@@ -12,7 +12,7 @@ tags:
 
 > 그렇게 됐습니다,,,
 
-![shit](https://user-images.githubusercontent.com/42334717/223337358-c7b568d4-75e1-4310-a406-dc2bf37aa001.png)
+![shit](/images/technical-research-personnel-train-init/223337358-c7b568d4-75e1-4310-a406-dc2bf37aa001.png)
 
 <!-- More -->
 
@@ -22,21 +22,21 @@ tags:
 
 전문연구요원에 실제 편입이 되기 전에는 병무청 측에서 일정을 통보해주는 방식인 것으로 알고있었는데, 킹 갓 공식문서를 읽어보면 본인선택이 가능하더군요! (아래 자료는 [산업지원 병역일터](https://work.mma.go.kr/caisBYIS/main.do)의 사이버교육방에 게시되어 있습니다.)
 
-![kinggod](https://user-images.githubusercontent.com/42334717/222298243-ffbf307f-e296-46ef-b388-bd3433f32888.png)
+![kinggod](/images/technical-research-personnel-train-init/222298243-ffbf307f-e296-46ef-b388-bd3433f32888.png)
 
 그래서 이 자료를 읽고 호다닥 [병무청](https://www.mma.go.kr/index.do)에 들어가서 조회해보았습니다.
 
-![gogo1](https://user-images.githubusercontent.com/42334717/222299021-8beb6f5c-13f9-4f11-b057-3312e33ac973.png)
+![gogo1](/images/technical-research-personnel-train-init/222299021-8beb6f5c-13f9-4f11-b057-3312e33ac973.png)
 
-![gogo2](https://user-images.githubusercontent.com/42334717/222301748-c520c319-ab71-4d9a-b08f-ab5955800e86.png)
+![gogo2](/images/technical-research-personnel-train-init/222301748-c520c319-ab71-4d9a-b08f-ab5955800e86.png)
 
-![gogo3](https://user-images.githubusercontent.com/42334717/222302037-cdb447a1-166a-44a7-8053-2e60e97c46e7.png)
+![gogo3](/images/technical-research-personnel-train-init/222302037-cdb447a1-166a-44a7-8053-2e60e97c46e7.png)
 
 네,,, 이제 신청 후 소집일자를 기다리고 머리 깎고,,, 3주를 열심히 보내면 됩니다 ^^,,,
 
-![bye1,,,](https://user-images.githubusercontent.com/42334717/222303528-bb0667d0-bb8d-48f1-bc59-c1ad9870f1b0.png)
+![bye1,,,](/images/technical-research-personnel-train-init/222303528-bb0667d0-bb8d-48f1-bc59-c1ad9870f1b0.png)
 
-![bye2,,,](https://user-images.githubusercontent.com/42334717/222303856-e1ca928d-cef4-4a61-8902-cca712161bf5.png)
+![bye2,,,](/images/technical-research-personnel-train-init/222303856-e1ca928d-cef4-4a61-8902-cca712161bf5.png)
 
 ---
 

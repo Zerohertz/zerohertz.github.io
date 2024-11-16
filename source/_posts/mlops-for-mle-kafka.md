@@ -141,7 +141,7 @@ $ kcat -L -b localhost:9092
 $ kcat -b localhost:9092 -t postgres-source-breast_cancer_data
 ~~~
 
-<img width="500" src="https://user-images.githubusercontent.com/42334717/221479676-bb9cb23e-76d1-4c36-8e27-affb2da42d18.gif">
+<img width="500" src="/images/mlops-for-mle-kafka/221479676-bb9cb23e-76d1-4c36-8e27-affb2da42d18.gif">
 
 ---
 
@@ -296,7 +296,7 @@ fb93165c1c87   postgres:14.0                           "docker-entrypoint.s…" 
 /MLOps-Breast-Cancer/Kafka$ PGPASSWORD=qwer123! psql -h localhost -p 5433 -U zerohertz_target -d targetdatabase
 ~~~
 
-<img width="500" src="https://user-images.githubusercontent.com/42334717/221571082-adb84ed7-fd46-4845-a01f-5bc4cf6ff665.gif">
+<img width="500" src="/images/mlops-for-mle-kafka/221571082-adb84ed7-fd46-4845-a01f-5bc4cf6ff665.gif">
 
 ---
 

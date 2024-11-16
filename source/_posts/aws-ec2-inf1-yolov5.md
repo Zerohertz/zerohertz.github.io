@@ -19,7 +19,7 @@ tags:
 
 # Local 내 구현
 
-![local](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/252835059-74184fdc-5d7d-4daf-9a39-e079b93af1b3.png)
+![local](/images/aws-ec2-inf1-yolov5/252835059-74184fdc-5d7d-4daf-9a39-e079b93af1b3.png)
 
 <!-- More -->
 
@@ -510,7 +510,7 @@ Docker Compose와 Kubernetes는 모두 컨테이너 오케스트레이션 도구
 
 # Amazon EC2 Inf1
 
-![Amazon_EC2_Inf1](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253738363-d1cbc5e5-e0a1-4763-adeb-6657568a6a85.png)
+![Amazon_EC2_Inf1](/images/aws-ec2-inf1-yolov5/253738363-d1cbc5e5-e0a1-4763-adeb-6657568a6a85.png)
 
 목표는 이렇지만,,, 처음 AWS를 경험해보고 가능할지 모르겠다,,, (~~AWS 어린이는 울어요,,, ㅜ~~)
 
@@ -526,7 +526,7 @@ $ python export.py --weights {MODEL_WEIGHTS}.pt --include onnx
 
 Amazon EC2 Inf1 인스턴스를 생성할 때 아래와 같이 OS를 선택할 수 있다.
 
-![AWS_AMI&DLAMI](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253299262-a0b5cb31-920a-46b5-be57-470244f5830d.png)
+![AWS_AMI&DLAMI](/images/aws-ec2-inf1-yolov5/253299262-a0b5cb31-920a-46b5-be57-470244f5830d.png)
 
 AWS AMI와 [AWS DLAMI](https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-inferentia-launching.html)가 존재한다.
 이런건 어려우니,,, ChatGPT 선생님 나와주세요!
@@ -671,7 +671,7 @@ Login Succeeded
 Triton Inference Server를 Amazon EC2 Inf1 인스턴스에서 사용하기 위해 [nvcr.io](https://ngc.nvidia.com/setup/api-key)에 로그인한다.
 해당 페이지에 들어가면 아래와 같이 Docker에서 로그인하는 방법을 알려준다.
 
-![nvcr.io](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253293423-00d2bbfa-9d23-4f97-8920-df7ef7da41d8.png)
+![nvcr.io](/images/aws-ec2-inf1-yolov5/253293423-00d2bbfa-9d23-4f97-8920-df7ef7da41d8.png)
 
 설정을 마치고 local에서와 같이 Triton Inference Server로 실험해보기 위해 `docker-compose`를 이용했다.
 
@@ -743,7 +743,7 @@ Triton Inference Server로 불가능 했다,,, 우선 다음에 다시 돌아와
 
 YOLOv5는 PyTorch의 버전을 1.7.0 이상으로 권장하기 때문에 아래와 같이 Amazon Machine Image를 Deep Learning AMI Neuron PyTorch 1.13 (Ubuntu 20.04)로 설정했다.
 
-![DLAMI](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253728928-8987a933-5e3a-44bf-8a45-73d192f3d7c2.png)
+![DLAMI](/images/aws-ec2-inf1-yolov5/253728928-8987a933-5e3a-44bf-8a45-73d192f3d7c2.png)
 
 해당 AMI를 사용하면 스토리지가 자동으로 35GB로 설정된다.
 또한 ssh 연결 시 사용자 이름은 `ubuntu`로 지정해야한다.
@@ -795,11 +795,11 @@ RecursiveScriptModule(
 드디어 AWS Neuron SDK로 컴파일된 모델 로드 성공!
 또한 `neuron-top` 명령어로 `htop`처럼 모니터링이 가능하다.
 
-![neuron-top](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253730169-17a135d8-c49b-4d35-9983-1bb6b23573cd.png)
+![neuron-top](/images/aws-ec2-inf1-yolov5/253730169-17a135d8-c49b-4d35-9983-1bb6b23573cd.png)
 
 모델 추론을 진행하면 아래와 같이 NeuronCore에 부하가 걸리는 것을 확인할 수 있다.
 
-![neuron-top-inf](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253730101-8e79e7f3-4bbb-4582-9c48-b481aedec4e3.gif)
+![neuron-top-inf](/images/aws-ec2-inf1-yolov5/253730101-8e79e7f3-4bbb-4582-9c48-b481aedec4e3.gif)
 
 ### Python Backend
 
@@ -835,7 +835,7 @@ $ docker compose up -d
 
 설치를 시작하고 EBS의 볼륨을 증가시켜야할 슬픈 예감이 든다.
 
-![df](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253730566-e739b33b-c24d-44df-9769-780943237d45.gif)
+![df](/images/aws-ec2-inf1-yolov5/253730566-e739b33b-c24d-44df-9769-780943237d45.gif)
 
 10GB를 더 늘려서 45GB로 마운트 했다...
 DLAMI는 첫 시도 때와 다른 파일 시스템을 사용해서 변경 방법이 살짝 달랐다. ([공식 문서](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html))
@@ -976,7 +976,7 @@ instance-id: i-098116f54903c5fc6
 +--------+--------+--------+---------+--------+----------------------------------------------------------------------------------+---------+
 ```
 
-![END](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/253736940-62db6a0b-ce2d-4e4b-92a9-75598d0de5b3.gif)
+![END](/images/aws-ec2-inf1-yolov5/253736940-62db6a0b-ce2d-4e4b-92a9-75598d0de5b3.gif)
 
 M1 Pro 환경에서 local로 추론할 때 (물론 CPU를 사용하긴 했지만) 약 1.93초, Amazon EC2 Inf1에서는 0.28~0.31초 가량 소요됐다.
 비교 대상이 아니긴 하지만,,, 지금 환경에서 비교 대상이 없어서 간략히 비교를 해봤다.

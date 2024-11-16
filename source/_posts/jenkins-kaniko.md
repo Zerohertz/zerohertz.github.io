@@ -381,7 +381,7 @@ spec:
 
 </details>
 
-![github-slack](https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/287151765-d86a0dc5-37de-4d56-82c2-24f66bbc1d7c.png)
+![github-slack](/images/jenkins-kaniko/287151765-d86a0dc5-37de-4d56-82c2-24f66bbc1d7c.png)
 
 1. Detect Changes
    + `git diff --name-only HEAD^ HEAD | grep -E '${regex}' | xargs -r -n 1 dirname | uniq"`으로 변경 사항이 존재하는 목표 directory를 불러온다.

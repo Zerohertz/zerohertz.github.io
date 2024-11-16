@@ -11,7 +11,7 @@ tags:
 
 > 한 Part의 각 Body에 상응하는 조건을 정의하고 해석하기 위해 진행
 
-<img width="600" alt="Introduction" src="https://user-images.githubusercontent.com/42334717/160532674-71a42534-d381-4964-99d4-d21d6adcbb17.png">
+<img width="600" alt="Introduction" src="/images/ansys-act/160532674-71a42534-d381-4964-99d4-d21d6adcbb17.png">
 
 1. Mechanical - Engineering Data: 물질에 대한 성질 정의
 2. Mecahnical - Geometry: 한 Part에 많은 Body 생성 (Python, SpaceClaim)
@@ -54,11 +54,11 @@ for i in range(0, Length of Web, BS): #MD
         MakeBody([i, j], BS, 0.1)
 ~~~
 
-<img width="960" alt="Many Bodies in One Part" src="https://user-images.githubusercontent.com/42334717/160554712-5301718b-2ce9-4b8f-837d-9421d6f87964.png">
+<img width="960" alt="Many Bodies in One Part" src="/images/ansys-act/160554712-5301718b-2ce9-4b8f-837d-9421d6f87964.png">
 
 + `Share Mophology - Share` 필수
 
-<img width="500" alt="Share Mophology - Share" src="https://user-images.githubusercontent.com/42334717/160571077-35c442fd-d59c-4fc5-9364-336cb0cdda11.png">
+<img width="500" alt="Share Mophology - Share" src="/images/ansys-act/160571077-35c442fd-d59c-4fc5-9364-336cb0cdda11.png">
 
 ***
 
@@ -122,4 +122,4 @@ for j in range(0,MD,1):
         x = x + 1
 ~~~
 
-<img width="960" alt="Setting Thermal Condition" src="https://user-images.githubusercontent.com/42334717/160555986-ef8502bb-ae5f-4a6f-a0af-e4a60b367f40.png">
+<img width="960" alt="Setting Thermal Condition" src="/images/ansys-act/160555986-ef8502bb-ae5f-4a6f-a0af-e4a60b367f40.png">

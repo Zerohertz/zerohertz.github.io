@@ -22,11 +22,11 @@ $ sudo npm install hexo-generator-alias --save
 
 > 검색 시 기존의 url을 노출
 
-![기존](https://user-images.githubusercontent.com/42334717/90713568-95ae4800-e2e0-11ea-8856-5a62f01e517e.png)
+![기존](/images/hexo-generator-alias/90713568-95ae4800-e2e0-11ea-8856-5a62f01e517e.png)
 
 > 404
 
-![404](https://user-images.githubusercontent.com/42334717/90713667-cf7f4e80-e2e0-11ea-8e78-2bc71f7c62cd.png)
+![404](/images/hexo-generator-alias/90713667-cf7f4e80-e2e0-11ea-8e78-2bc71f7c62cd.png)
 
 ~~~xml _config.yml
 alias:

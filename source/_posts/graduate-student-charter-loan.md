@@ -98,7 +98,7 @@ categories:
   + 연장시점에 갱신
   + 대출 시점의 연봉을 기준으로 하여 금리가 변동하진 않는다고 하네요~!!
 
-![HUG_HF](https://user-images.githubusercontent.com/42334717/206162025-1c524290-7da1-4153-92eb-5a7861a8e2ee.png)
+![HUG_HF](/images/graduate-student-charter-loan/206162025-1c524290-7da1-4153-92eb-5a7861a8e2ee.png)
 
 > 이후 계획,,,
 
@@ -262,7 +262,7 @@ categories:
 
 # Conclusion
 
-![Conclusion](https://user-images.githubusercontent.com/42334717/221774015-0b671db2-83e0-4f57-9b93-169ed6f30bcd.jpeg)
+![Conclusion](/images/graduate-student-charter-loan/221774015-0b671db2-83e0-4f57-9b93-169ed6f30bcd.jpeg)
 
 ***
 

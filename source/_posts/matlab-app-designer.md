@@ -10,15 +10,15 @@ tags:
 
 > 첫 화면
 
-![첫 화면](https://user-images.githubusercontent.com/42334717/105130390-4a67c200-5b2a-11eb-8b6a-82eee5451972.png)
+![첫 화면](/images/matlab-app-designer/105130390-4a67c200-5b2a-11eb-8b6a-82eee5451972.png)
 
-![첫 화면](https://user-images.githubusercontent.com/42334717/105130461-6bc8ae00-5b2a-11eb-9bba-acb327e42bb6.png)
+![첫 화면](/images/matlab-app-designer/105130461-6bc8ae00-5b2a-11eb-9bba-acb327e42bb6.png)
 
 <!-- More -->
 
 > 속성 추가
 
-<img width="407" alt="속성 추가" src="https://user-images.githubusercontent.com/42334717/105130512-8864e600-5b2a-11eb-89ae-b37ed1e2290b.png">
+<img width="407" alt="속성 추가" src="/images/matlab-app-designer/105130512-8864e600-5b2a-11eb-89ae-b37ed1e2290b.png">
 
 ~~~Matlab 
 properties (Access = private)
@@ -28,11 +28,11 @@ end
 
 > UIAxes 추가
 
-![UIAxes](https://user-images.githubusercontent.com/42334717/105130739-edb8d700-5b2a-11eb-849d-dd7b47563d97.png)
+![UIAxes](/images/matlab-app-designer/105130739-edb8d700-5b2a-11eb-849d-dd7b47563d97.png)
 
 > Callback 추가
 
-<img width="294" alt="Callback" src="https://user-images.githubusercontent.com/42334717/105130905-37092680-5b2b-11eb-9345-27949288a1f9.png">
+<img width="294" alt="Callback" src="/images/matlab-app-designer/105130905-37092680-5b2b-11eb-9345-27949288a1f9.png">
 
 ~~~Matlab
 function startupFcn(app)
@@ -80,9 +80,9 @@ function SliderValueChanged(app, event)
 end
 ~~~
 
-<img width="752" alt="Init" src="https://user-images.githubusercontent.com/42334717/105429426-c120ce80-5c94-11eb-8abc-30faa58e0eb0.png">
-<img width="752" alt="Normal" src="https://user-images.githubusercontent.com/42334717/105429371-a4849680-5c94-11eb-885d-b8c53969ebf7.png">
-<img width="752" alt="Fault" src="https://user-images.githubusercontent.com/42334717/105429379-a9494a80-5c94-11eb-8da3-d66d07007368.png">
+<img width="752" alt="Init" src="/images/matlab-app-designer/105429426-c120ce80-5c94-11eb-8abc-30faa58e0eb0.png">
+<img width="752" alt="Normal" src="/images/matlab-app-designer/105429371-a4849680-5c94-11eb-885d-b8c53969ebf7.png">
+<img width="752" alt="Fault" src="/images/matlab-app-designer/105429379-a9494a80-5c94-11eb-8da3-d66d07007368.png">
 
 ## DAQ App for PHM by ML
 
@@ -90,7 +90,7 @@ end
 
 [Source Code on Github](https://github.com/Zerohertz/DAQ-App-for-PHM)
 
-<img width="1341" alt="ML" src="https://user-images.githubusercontent.com/42334717/105814056-21e13b80-5ff4-11eb-9ef0-8670de049f43.png">
+<img width="1341" alt="ML" src="/images/matlab-app-designer/105814056-21e13b80-5ff4-11eb-9ef0-8670de049f43.png">
 
 ## DAQ App for PHM by DNN
 
@@ -98,4 +98,4 @@ end
 
 [Source Code on Github](https://github.com/Zerohertz/DAQ-App-for-PHM)
 
-<img width="1341" alt="DNN" src="https://user-images.githubusercontent.com/42334717/105814083-2ad20d00-5ff4-11eb-84f0-4e72a8bd874c.png">
+<img width="1341" alt="DNN" src="/images/matlab-app-designer/105814083-2ad20d00-5ff4-11eb-84f0-4e72a8bd874c.png">

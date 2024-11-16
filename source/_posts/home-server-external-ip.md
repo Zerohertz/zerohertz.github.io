@@ -46,7 +46,7 @@ $ chmod +x check_ip_change.sh
 $ ./check_ip_change.sh
 ```
 
-<img width="300" src="https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/261217200-3bf81cf8-8edc-4191-874c-492cad7f12e8.png">
+<img width="300" src="/images/home-server-external-ip/261217200-3bf81cf8-8edc-4191-874c-492cad7f12e8.png">
 
 혹은 아래와 같이 script를 작성하면 Slack에서도 사용할 수 있다.
 
