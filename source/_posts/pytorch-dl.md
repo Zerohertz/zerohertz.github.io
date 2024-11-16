@@ -1,5 +1,5 @@
 ---
-title: Deep Learning with PyTorch (1)
+title: Deep Learning with PyTorch
 date: 2023-01-17 18:07:18
 categories:
 - 5. Machine Learning

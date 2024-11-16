@@ -5,6 +5,7 @@ categories:
 - 3. DevOps
 tags:
 - GitHub
+- GitHub Actions
 - Docker
 - Kubernetes
 - Jenkins
@@ -15,14 +16,14 @@ tags:
 
 Jenkins를 통해 GitOps 기반으로 Docker image가 빌드되고 Docker Hub에 push 되게 하려면 아래와 같은 여러 방식이 존재한다.
 
-||Docker-in-Docker (DinD)|Docker Outside of Docker (DooD)|Kaniko|
-|:-:|:-:|:-:|:-:|
-|Definition|Container 내부에 별도의 Docker daemon 실행|Host의 Docker daemon을 사용|Docker daemon 없이 container image 빌드|
-|Security|더 높은 격리 제공, 하지만 보안상의 우려도 존재|Host Docker와 직접적인 상호작용으로 보안상 취약할 수 있음|Docker daemon 없이 작동하여 보안 강화|
-|Performance|성능 overhead 가능성|일반적으로 더 나은 성능|Docker daemon을 사용하지 않기 때문에 성능이 최적화될 수 있음|
-|Complexity|설정과 관리가 더 복잡|상대적으로 간단한 설정|환경 설정에 따라 다르나, 일반적으로 설정이 간단함|
-|Used Tools|Jib, Buildah|Docker CLI, Docker Compose|Kaniko CLI, Kubernetes와의 통합|
-|Suitable Use Cases|격리된 환경에서의 독립적인 container 관리|간단한 CI/CD pipeline 구성|Cloud 환경 및 Kubernetes에서의 image build|
+|                    |            Docker-in-Docker (DinD)             |              Docker Outside of Docker (DooD)              |                            Kaniko                            |
+| :----------------: | :--------------------------------------------: | :-------------------------------------------------------: | :----------------------------------------------------------: |
+|     Definition     |   Container 내부에 별도의 Docker daemon 실행   |                Host의 Docker daemon을 사용                |           Docker daemon 없이 container image 빌드            |
+|      Security      | 더 높은 격리 제공, 하지만 보안상의 우려도 존재 | Host Docker와 직접적인 상호작용으로 보안상 취약할 수 있음 |            Docker daemon 없이 작동하여 보안 강화             |
+|    Performance     |              성능 overhead 가능성              |                  일반적으로 더 나은 성능                  | Docker daemon을 사용하지 않기 때문에 성능이 최적화될 수 있음 |
+|     Complexity     |             설정과 관리가 더 복잡              |                  상대적으로 간단한 설정                   |      환경 설정에 따라 다르나, 일반적으로 설정이 간단함       |
+|     Used Tools     |                  Jib, Buildah                  |                Docker CLI, Docker Compose                 |               Kaniko CLI, Kubernetes와의 통합                |
+| Suitable Use Cases |   격리된 환경에서의 독립적인 container 관리    |                간단한 CI/CD pipeline 구성                 |          Cloud 환경 및 Kubernetes에서의 image build          |
 
 <!-- More -->
 
