@@ -62,13 +62,13 @@ code snippet
 
 ```jinja
 <!-- markdownlint-disable -->
-{% video https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256519614-dfd3b399-031a-46d8-aac4-b8da47535472.mp4 %}
+{% video /images/hexo-next-tags/boonmosa.mp4 %}
 <!-- markdownlint-enable -->
 ```
 
 <!-- markdownlint-disable -->
 
-{% video https://github-production-user-asset-6210df.s3.amazonaws.com/42334717/256519614-dfd3b399-031a-46d8-aac4-b8da47535472.mp4 %}
+{% video /images/hexo-next-tags/boonmosa.mp4 %}
 
 <!-- markdownlint-enable -->
 
@@ -86,16 +86,16 @@ code snippet
 
 ```jinja
 {% gp 3-3 %}
-![](/images/hexo-next-tag/zerohertz_red.png)
-![](/images/hexo-next-tag/zerohertz_red.png)
-![](/images/hexo-next-tag/zerohertz_red.png)
+![](/props/zerohertz_red.png)
+![](/props/zerohertz_red.png)
+![](/props/zerohertz_red.png)
 {% endgp %}
 ```
 
 {% gp 3-3 %}
-![](/images/hexo-next-tag/zerohertz_red.png)
-![](/images/hexo-next-tag/zerohertz_red.png)
-![](/images/hexo-next-tag/zerohertz_red.png)
+![](/props/zerohertz_red.png)
+![](/props/zerohertz_red.png)
+![](/props/zerohertz_red.png)
 {% endgp %}
 
 ---
@@ -286,7 +286,6 @@ pie
 {% note [class] [no-icon] [summary] %}
 Any content (support inline tags too).
 {% endnote %}
-
 ```
 
 ```jinja
