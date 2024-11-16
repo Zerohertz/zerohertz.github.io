@@ -246,7 +246,7 @@ networks:
 
 ## Result
 
-![result](/images/mlops-for-mle-stream/result.gif)
+![results](/images/mlops-for-mle-stream/results.gif)
 
 ---
 
