@@ -103,7 +103,7 @@ plotly.offline.plot({
 })
 ~~~
 <!-- more -->
-![실행결과](/images/numerical-analysis-2/46286543-7ad26d80-c5ba-11e8-9c8b-48a847db3c5f.png)
+![results](/images/numerical-analysis-2/results.png)
 ***
 # Error 추가
 

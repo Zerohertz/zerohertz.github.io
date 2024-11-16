@@ -121,7 +121,7 @@ int main() {
 	system("pause");
 }
 ~~~
-![delete한 뒤의 상황](/images/cpp-2/50733545-d2443300-11d2-11e9-981a-0a81acd87eb5.png)
+![delete](/images/cpp-2/delete.png)
 ~~~C++
 #include <iostream>
 #include <windows.h>

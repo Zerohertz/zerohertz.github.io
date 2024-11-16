@@ -33,7 +33,7 @@ tags:
 
 # Queue
 
-<img width="647" alt="Queue" src="/images/queue-and-stack/180357720-db9127a2-8b5d-4d73-aa71-67d7186b3478.png">
+<img src="/images/queue-and-stack/queue-1.png" alt="queue-1" width="647" />
 
 + Method
   + `enQueue`: Insert
@@ -62,13 +62,13 @@ class Queue():
         print(self.queue)
 ~~~
 
-![Queue](/images/queue-and-stack/180360564-2004a21f-3c33-4ff5-a22a-ad98e0c4fecc.png)
+![queue-2](/images/queue-and-stack/queue-2.png)
 
 ***
 
 # Stack
 
-<img width="647" alt="Stack" src="/images/queue-and-stack/180357599-be2205fc-1569-46e8-a8de-5d3b3ddc7cda.png">
+<img src="/images/queue-and-stack/stack-1.png" alt="stack-1" width="647" />
 
 + Method
   + `push`: Insert
@@ -97,15 +97,15 @@ class Stack():
         print(self.stack)
 ~~~
 
-![Stack](/images/queue-and-stack/180360631-edf403ba-21a0-48bf-8b15-3afd8d569e99.png)
+![stack-2](/images/queue-and-stack/stack-2.png)
 
 ***
 
 # Queue vs. Stack
 
-||Queue|Stack|
-|:-:|:-:|:-:|
-|순서 유무|O|O|
-|삽입 (insert)|List의 rear|List의 top|
-|삭제 (delete)|List의 front|List의 top|
-|구조 (structure)|First-In-First-Out (FIFO)|Last-In-First-Out (LIFO)|
+|                  |           Queue           |          Stack           |
+| :--------------: | :-----------------------: | :----------------------: |
+|    순서 유무     |             O             |            O             |
+|  삽입 (insert)   |        List의 rear        |        List의 top        |
+|  삭제 (delete)   |       List의 front        |        List의 top        |
+| 구조 (structure) | First-In-First-Out (FIFO) | Last-In-First-Out (LIFO) |

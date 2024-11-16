@@ -9,9 +9,9 @@ tags:
 ---
 # Mass-Spring-Damper System
 
-![Mass-Spring-Damper System](/images/matlab-10/70117378-ae21f800-16a8-11ea-91a0-b861a296a778.png)
+![mass-spring-damper-system](/images/matlab-10/mass-spring-damper-system.png)
 <!-- more -->
-![General Solution](/images/matlab-10/70117517-ffca8280-16a8-11ea-874c-742e2bbb72f8.png)
+![general-solution](/images/matlab-10/general-solution.png)
 
 >General Solution
 
@@ -36,15 +36,15 @@ x0*exp(-t*wn*z)*(cosh(t*wn*(z^2 - 1)^(1/2)) - (sinh(t*wn*(z^2 - 1)^(1/2))*(wn*z 
 ***
 # Simulink
 
-![Look up table](/images/matlab-10/70118412-3d300f80-16ab-11ea-9d22-8fc500c3abbc.png)
-![display b, k](/images/matlab-10/70118523-82ecd800-16ab-11ea-982c-2b64558e511d.png)
-![Wn, Zeta](/images/matlab-10/70118996-a6fce900-16ac-11ea-9c32-43ead6a57246.png)
-![Dynamic properties at 32'C](/images/matlab-10/70119141-fb07cd80-16ac-11ea-90ad-7c9e93341126.png)
+![look-up-table](/images/matlab-10/look-up-table.png)
+![display-b-k](/images/matlab-10/display-b-k.png)
+![wn-zeta](/images/matlab-10/wn-zeta.png)
+![dynamic-properties-at-32'c](/images/matlab-10/dynamic-properties-at-32'c.png)
 
 
-![Subsystem](/images/matlab-10/70120137-2ab7d500-16af-11ea-8fe3-cc9926cf07b6.png)
-![](/images/matlab-10/70124317-de24c780-16b7-11ea-801e-bad594ed62ef.png)
+![subsystem](/images/matlab-10/subsystem.png)
+![model](/images/matlab-10/model.png)
 
-![Pretty](/images/matlab-10/70122875-cb5cc380-16b4-11ea-9795-d315b54971eb.png)
+![pretty](/images/matlab-10/pretty.png)
 
-![Scope](/images/matlab-10/70124417-1d531880-16b8-11ea-9acf-d866858e427e.png)
+![scope](/images/matlab-10/scope.png)

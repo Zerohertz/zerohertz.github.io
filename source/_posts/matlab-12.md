@@ -203,7 +203,7 @@ net =
 >> Out=classify(net,imds)
 ~~~
 
-![trainNetwork](/images/matlab-12/89501255-ff692500-d7fd-11ea-9cf5-9534f547e3c0.png)
+![trainnetwork](/images/matlab-12/trainnetwork.png)
 
 ~~~Matlab alex.m
 camera=webcam;

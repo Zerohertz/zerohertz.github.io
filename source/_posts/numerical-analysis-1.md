@@ -135,7 +135,7 @@ plotly.offline.plot({
     "layout": Layout(title="ODE 풀이")
 })
 ~~~
-![실행결과](/images/numerical-analysis-1/45418251-f37e9200-b6be-11e8-9b1c-9648e01a6cf2.png)
+![results](/images/numerical-analysis-1/results.png)
 ***
 # input까지
 ~~~Python

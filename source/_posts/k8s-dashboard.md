@@ -149,7 +149,7 @@ spec:
     certResolver: ${RESOLVER}
 ```
 
-![traefik](/images/k8s-dashboard/260745369-f5340159-41e8-4059-9c3a-5a23cf719882.png)
+![traefik](/images/k8s-dashboard/traefik.png)
 
 Ingress도 잘 되는 것을 확인할 수 있다!
 
@@ -211,6 +211,6 @@ WUiOiJj...
 
 이 토큰을 원하는 권한에 맞춰 입력하면 ~
 
-![tada](/images/k8s-dashboard/260747675-647d4089-f58f-4a46-b580-ed2760f52623.png)
+![results](/images/k8s-dashboard/results.png)
 
 완성!

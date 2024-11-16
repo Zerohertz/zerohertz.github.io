@@ -22,7 +22,7 @@ tags:
   + ARM CPUs
     + ARM Compute Library
 
-![MatLAB Coder](/images/matlab-exporting-ai-model-cpp/109254668-d78eec80-7835-11eb-897b-228d0a7b468f.png)
+![matlab-coder](/images/matlab-exporting-ai-model-cpp/matlab-coder.png)
 
 <!-- More -->
 
@@ -212,7 +212,7 @@ void classifyX_init()
 
 > Print Result of Test
 
-![Print Result of Test](/images/matlab-exporting-ai-model-cpp/109256818-29397600-783a-11eb-9b9a-6727dce26b38.png)
+![print-result-of-test](/images/matlab-exporting-ai-model-cpp/print-result-of-test.png)
 
 ~~~C++ main.cpp
 #include "main.h"

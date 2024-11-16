@@ -11,19 +11,19 @@ tags:
 
 > CKA: Kubernetes 관리자의 책임을 수행할 수 있는 기술, 지식 및 역량을 갖추고 있음을 보증하는 자격증
 
-<img src="/images/cka/327992720-225860a9-8741-4360-8af7-ad9f3c73e667.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150125Z&X-Amz-Expires=300&X-Amz-Signature=6eede39836129f2cda4d52aac40029111107b974abd6e6c7d8bc5df096dbd620&X-Amz-SignedHeaders=host" width=700>
+<img src="/images/cka/certificate.png" alt="certificate" width=700 />
 
 [CKA curriculum](https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.29.pdf)에서 CKA가 포함하는 내용들을 아래와 같이 확인할 수 있다.
 
 <div align="right"><code>v1.29</code> 기준</div>
 
-|Domain|Weight|Key Points|
-|:-:|:-:|:-|
-|Cluster Architecture,<br />Installation & Configuration|25%|✅ Manage role based access control (RBAC)<br />✅ Use Kubeadm to install a basic cluster<br />✅ Manage a highly-available Kubernetes cluster<br />✅ Provision underlying infrascruture to deploy a Kubernetes cluster<br />✅ Implement etcd backup and restore|
-|Workloads & Scheduling|15%|✅ Understand deployments and how to perform rolling update and rollbacks<br />✅ Use ConfigMaps and Secrets to configure applications<br />✅ Know how to scale applications<br />✅ Understand how resource limits can effect Pod scheduling<br />✅ Awareness of manifest management and common templating tools|
-|Services & Networking|20%|✅ Understand host networking configuration on the cluster nodes<br />✅ Understand connectivity between Pods<br />✅ Understand ClusterIP, NodePort, LoadBalancer service types and endpoints<br />✅ Know how to use Ingress controllers and Ingress resources<br />✅ Know how to configure and use CoreDNS<br />✅ Choose an appropriate container network interface plugin|
-|Storage|10%|✅ Understand storage classes, persistent volumes<br />✅ Understand volume mode, access modes and reclaim polices for volumes<br />✅ Understand persistent volume claims primitive<br />✅ Know how to configure applications with persistent storage|
-|Troubleshooting|30%|✅ Evaluate cluster and node logging<br />✅ Understand how to monitor applications<br />✅ Manage container stdout & stderr logs<br />✅ Troubleshoot application failure<br />✅ Troubleshoot cluster component failure<br />✅ Troubleshoot networking|
+|                         Domain                          | Weight | Key Points                                                                                                                                                                                                                                                                                                                                                                |
+| :-----------------------------------------------------: | :----: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cluster Architecture,<br />Installation & Configuration |  25%   | ✅ Manage role based access control (RBAC)<br />✅ Use Kubeadm to install a basic cluster<br />✅ Manage a highly-available Kubernetes cluster<br />✅ Provision underlying infrascruture to deploy a Kubernetes cluster<br />✅ Implement etcd backup and restore                                                                                                             |
+|                 Workloads & Scheduling                  |  15%   | ✅ Understand deployments and how to perform rolling update and rollbacks<br />✅ Use ConfigMaps and Secrets to configure applications<br />✅ Know how to scale applications<br />✅ Understand how resource limits can effect Pod scheduling<br />✅ Awareness of manifest management and common templating tools                                                            |
+|                  Services & Networking                  |  20%   | ✅ Understand host networking configuration on the cluster nodes<br />✅ Understand connectivity between Pods<br />✅ Understand ClusterIP, NodePort, LoadBalancer service types and endpoints<br />✅ Know how to use Ingress controllers and Ingress resources<br />✅ Know how to configure and use CoreDNS<br />✅ Choose an appropriate container network interface plugin |
+|                         Storage                         |  10%   | ✅ Understand storage classes, persistent volumes<br />✅ Understand volume mode, access modes and reclaim polices for volumes<br />✅ Understand persistent volume claims primitive<br />✅ Know how to configure applications with persistent storage                                                                                                                       |
+|                     Troubleshooting                     |  30%   | ✅ Evaluate cluster and node logging<br />✅ Understand how to monitor applications<br />✅ Manage container stdout & stderr logs<br />✅ Troubleshoot application failure<br />✅ Troubleshoot cluster component failure<br />✅ Troubleshoot networking                                                                                                                       |
 
 <!-- More -->
 
@@ -37,7 +37,7 @@ tags:
 결제 전에 [Coupert](https://chromewebstore.google.com/detail/coupert-automatic-coupon/mfidniedemcgceagapgdekdbmanojomk?pli=1)를 설치하면 기존 \\$395의 가격을 할인 받을 수 있다. (필자는 40%의 할인을 받아 \\$237에 결제했다.)
 결제를 마쳤다면 1년 내로 아래와 같이 시험을 예약해야 한다.
 
-![cka-exam-date](/images/cka/318053133-9cab2993-b5b4-457a-ac28-22c7ca28f5dc.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150120Z&X-Amz-Expires=300&X-Amz-Signature=e6ac6750708f0ac252f7eb16e208d67b238c6c2b74bb2c8ce8fda7bcd18cfba7&X-Amz-SignedHeaders=host)
+![cka-exam-date](/images/cka/cka-exam-date.png)
 
 [시험 응시 시 환경](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad#exam-technical-instructions)에서는 현재 존재하지 않지만 multi-cluster 환경에서 시험을 응시하게 된다.
 [여기](https://syscheck.bridge.psiexams.com/)에서 시험 응시 시 사용할 기기의 검증을 수행할 수 있다.
@@ -45,7 +45,7 @@ tags:
 해당 강의를 수강하면 [KodeKloud](https://kodekloud.com/courses/certified-kubernetes-administrator-cka/)를 통해 실제 시험과 유사한 조건 속에서 연습할 수 있다.
 마지막으로 CKA 시험의 결제를 마치면 아래와 같이 [killer.sh](https://killer.sh/)의 문제를 2회 풀 수 있는 권한을 주기 때문에 복기를 위해 이를 풀었다.
 
-![killer.sh](/images/cka/327413334-8770deea-4e59-41e2-8081-c26a628c1d1a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150122Z&X-Amz-Expires=300&X-Amz-Signature=76b0ee551dbc49b1e56002094eb5607d32c2999e4183ba383d18570b8e929604&X-Amz-SignedHeaders=host)
+![killer.sh](/images/cka/killer.sh.png)
 
 ---
 
@@ -55,7 +55,7 @@ tags:
 
 [Kubernetes의 요소](https://kubernetes.io/docs/concepts/architecture/)들은 아래와 같이 구성된다.
 
-![kubernetes-components](/images/cka/318077704-aec69195-2580-428f-9db9-750858c727c4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T150123Z&X-Amz-Expires=300&X-Amz-Signature=8de14a99fcc4fe6c1dc4a4421a250459c4659ca44aa26cbfb4dd99b47f4b826d&X-Amz-SignedHeaders=host)
+![schematic](/images/cka/schematic.png)
 
 ## Core Concepts
 

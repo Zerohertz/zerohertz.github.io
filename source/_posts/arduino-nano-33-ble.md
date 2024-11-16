@@ -11,11 +11,11 @@ tags:
 ---
 # Arduino Nano 33 BLE
 
-|센서 / 모듈 이름|Info|
-|:--:|:--:|
-|nRF52840|32Bbit, 64MHz MCU|
-|NINA-B306|Bluetooth|
-|LSM9DS1|9축 IMU센서|
+| 센서 / 모듈 이름 |       Info        |
+| :--------------: | :---------------: |
+|     nRF52840     | 32Bbit, 64MHz MCU |
+|    NINA-B306     |     Bluetooth     |
+|     LSM9DS1      |    9축 IMU센서    |
 
 + RESET 버튼을 2번 눌러 Upload mode로 전환
 + `begin()` 메서드 필수
@@ -28,12 +28,12 @@ tags:
 
 # Arduino IDE와 Arduino Nano 33 BLE 연결
 
-<img width="912" alt="Board Manager" src="/images/arduino-nano-33-ble/89915513-6ab55b80-dc31-11ea-96ee-de1eac623357.png">
+<img src="/images/arduino-nano-33-ble/board-manager.png" alt="board-manager" width="912" />
 
 + `툴` - `보드` - `보드 매니저`에서 `arduino nano 33 BLE`를 검색
 + `Arduino nRF528x Boards` 설치
 
-<img width="1100" alt="Serial Port" src="/images/arduino-nano-33-ble/89915989-ffb85480-dc31-11ea-946e-f56a7c213746.png">
+<img src="/images/arduino-nano-33-ble/serial-port.png" alt="serial-port" width="1100" />
 
 + `툴` - `포트` - `Arduino Nano 33 BLE` 선택
 + `보드 정보 얻기`로 연결 확인 가능
@@ -43,11 +43,11 @@ tags:
 
 # IMU Sensor
 
-<img width="730" alt="Manage Library" src="/images/arduino-nano-33-ble/89916584-be747480-dc32-11ea-98e8-2d2c457aa54f.png">
+<img src="/images/arduino-nano-33-ble/manage-library.png" alt="manage-library" width="730" />
 
 + `툴` - `라이브러리 관리...`
 
-<img width="912" alt="LSM9DS1" src="/images/arduino-nano-33-ble/89916551-b583a300-dc32-11ea-8d7d-549241512a9c.png">
+<img src="/images/arduino-nano-33-ble/lsm9ds1.png" alt="lsm9ds1" width="912" />
 
 + 9축 IMU센서의 이름 `LSM9DS1` 검색 후 `Arduino_LSM9DS1` 라이브러리 다운로드
 
@@ -90,13 +90,13 @@ void loop() {
 
 > Graph
 
-<img width="1204" alt="IMU" src="/images/arduino-nano-33-ble/89924286-c6d1ad00-dc3c-11ea-9da0-2ff8961262f9.png">
+<img src="/images/arduino-nano-33-ble/graph.png" alt="graph" width="1204" />
 
 ***
 
 # Bluetooth Module
 
-<img width="912" alt="스크린샷 2020-08-12 오전 1 47 07" src="/images/arduino-nano-33-ble/89924997-bcfc7980-dc3d-11ea-8533-10b7bea3d618.png">
+<img src="/images/arduino-nano-33-ble/arduinoble.png" alt="arduinoble" width="912" />
 
 ~~~C++ PeripheralExplorer.ino
 /*

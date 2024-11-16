@@ -17,7 +17,7 @@ tags:
 conda install pytorch torchvision torchaudio -c pytorch-nightly
 ~~~
 
-![RIP Kernel](/images/generative-adversarial-network-1/179754313-48642bc4-affd-45c0-a9c2-dc2b53c1439a.png)
+![rip-kernel](/images/generative-adversarial-network-1/rip-kernel.png)
 
 + `conda activate env` 이후 `jupyter notebook`을 통해 `import torch`를 실행할 경우 위의 사진과 같이 커널이 죽는다.
 + 따라서 아래 명령어를 통해 `jupyter notebook`에서 커널을 선택할 수 있게 해줘야한다.
@@ -26,7 +26,7 @@ conda install pytorch torchvision torchaudio -c pytorch-nightly
 conda install nb_conda_kernels
 ~~~
 
-![Change kernel](/images/generative-adversarial-network-1/179777082-69e27242-9c36-4491-815a-30cbc3a4ba2c.png)
+![change-kernel](/images/generative-adversarial-network-1/change-kernel.png)
 
 + 위의 모듈 `nb_conda_kernels`를 통해 모든 가상환경들을 선택해서 `jupyter notebook`에서 사용할 수 있다.
 
@@ -86,13 +86,13 @@ tensor(24.)
 [Download MNIST Test Data](https://pjreddie.com/media/files/mnist_test.csv)
 
 > Read MNIST Data
-![MNIST](/images/generative-adversarial-network-1/179787188-9956c4ac-d0c3-4550-8aa6-b9d54145458f.png)
+![mnist](/images/generative-adversarial-network-1/mnist.png)
 
 + 첫 숫자는 해당 이미지의 label을 의미한다.
 + 나머지 784개의 숫자는 $28\times 28$으로 이뤄진 이미지의 각 픽셀 값이다.
 
 > Data Visualization
-![Data Visualization](/images/generative-adversarial-network-1/179788444-07444eab-f2fa-4488-8d46-8226aa1cb35c.png)
+![data-visualization](/images/generative-adversarial-network-1/data-visualization.png)
 
 ## Artificial Neural Network
 
@@ -128,16 +128,16 @@ class ANN(nn.Module):
         return self.model(inputs)
 ~~~
 
-|문법|명칭|의미|
-|:-:|:-:|:-:|
-|`ANN(nn.Module)`|클래스 이름|nn.Module로부터 상속|
-|`__init__()`|생성자 (constructor)|-|
-|`super.__init__()`|-|부모 클래스의 생성자 호출|
-|`nn.Sequential()`|-|파라미터를 통해 간단한 레이어 정의|
-|`nn.Linear(m,n)`|-|m개의 노드로부터 n개의 노드까지의 선형 완전 연결 매핑|
-|`nn.Sigmoid()`|-|로지스틱 활성화 함수를 이전 레이어의 출력에 적용|
-|`nn.MSELoss()`|-|신경망에서 오차를 정의하는 방법 중 하나|
-|`torch.optim.SGD()`|-|손실을 토대로 신경망의 가중치를 수정하는 방법 중 하나|
+|        문법         |         명칭         |                         의미                          |
+| :-----------------: | :------------------: | :---------------------------------------------------: |
+|  `ANN(nn.Module)`   |     클래스 이름      |                 nn.Module로부터 상속                  |
+|    `__init__()`     | 생성자 (constructor) |                           -                           |
+| `super.__init__()`  |          -           |               부모 클래스의 생성자 호출               |
+|  `nn.Sequential()`  |          -           |          파라미터를 통해 간단한 레이어 정의           |
+|  `nn.Linear(m,n)`   |          -           | m개의 노드로부터 n개의 노드까지의 선형 완전 연결 매핑 |
+|   `nn.Sigmoid()`    |          -           |   로지스틱 활성화 함수를 이전 레이어의 출력에 적용    |
+|   `nn.MSELoss()`    |          -           |        신경망에서 오차를 정의하는 방법 중 하나        |
+| `torch.optim.SGD()` |          -           | 손실을 토대로 신경망의 가중치를 수정하는 방법 중 하나 |
 
 + `nn.Linear()`: $Ax+B$와 같은 형태로 노드 사이를 연결
   + $A$: 가중치
@@ -226,33 +226,33 @@ class MnistDataset(Dataset):
     pass
 ~~~
 
-|문법|의미|
-|:-:|:-:|
-|`__len__()`|데이터셋의 길이 반환|
-|`__getitem__()`|데이터셋의 n번째 아이템 반환|
+|      문법       |             의미             |
+| :-------------: | :--------------------------: |
+|   `__len__()`   |     데이터셋의 길이 반환     |
+| `__getitem__()` | 데이터셋의 n번째 아이템 반환 |
 
 > `__getitem__()`
-<img width="497" alt="getitem" src="/images/generative-adversarial-network-1/179807111-db80c2f6-f1fd-4cc0-9448-371515ff3184.png">
+<img src="/images/generative-adversarial-network-1/getitem.png" alt="getitem" width="497" />
 
 > `plot_image()`
-![plot_image](/images/generative-adversarial-network-1/179806567-facb03df-ef86-4d79-8a8c-0a7549bc3968.png)
+![plot-image](/images/generative-adversarial-network-1/plot-image.png)
 
 
 ## Classifier Training
 
 > Classifier training
-![Classifier training](/images/generative-adversarial-network-1/179815267-744dfab0-a705-43c1-a2b6-28f89947a777.png)
+![classifier-training](/images/generative-adversarial-network-1/classifier-training.png)
 
 > Plot loss chart
-![plot loss chart](/images/generative-adversarial-network-1/179815343-b6e690df-7b43-46d6-8676-c892ee0e35c8.png)
+![plot-loss-chart](/images/generative-adversarial-network-1/plot-loss-chart.png)
 
 ## Classifier Validation
 
 > Classification of test data
-![Classification of test data](/images/generative-adversarial-network-1/179815843-51c1f128-4e0d-41ff-b20c-0df0be866aea.png)
+![classification-of-test-data](/images/generative-adversarial-network-1/classification-of-test-data.png)
 
 > Classifier validation
-![Classifier validation](/images/generative-adversarial-network-1/179816249-a38d4d7c-98ce-4abd-97ad-f1229abe27fc.png)
+![classifier-validation](/images/generative-adversarial-network-1/classifier-validation.png)
 
 + 87.99%의 분류 정확도
 
@@ -335,7 +335,7 @@ for i in range(epochs):
 ~~~
 
 > Reinforcing Neural Network by Changing Loss Function
-<img width="1021" alt="Reinforcing Neural Network by Changing Loss Function" src="/images/generative-adversarial-network-1/179886806-c3a5bd36-4fdb-411a-95ac-5abf2f3f5217.png">
+<img src="/images/generative-adversarial-network-1/reinforcing-neural-network-by-changing-loss-function.png" alt="reinforcing-neural-network-by-changing-loss-function" width="1021" />
 
 + 이진 교차 엔트로피 (Binary Cross Entropy, BCE) 손실: Classification에서 loss function으로 자주 사용
   + 확실하게 틀린 경우 큰 페널티 부여
@@ -357,8 +357,7 @@ for i in range(epochs):
 ~~~
 
 > Reinforcing Neural Network by Changing Activation Function
-<img width="1021" alt="Reinforcing Neural Network by Changing Activation Function
-" src="/images/generative-adversarial-network-1/179895206-993af8af-4586-475c-a1b2-fdaab54f3f49.png">
+<img src="/images/generative-adversarial-network-1/reinforcing-neural-network-by-changing-activation-function.png" alt="reinforcing-neural-network-by-changing-activation-function" width="1021" />
 
 + Logistic function: 뉴런에서 일어나는 신호 전달 현상과 비슷하여 초기의 신경망에서 자주 사용
   + 수학적으로 기울기를 도출하기 간단
@@ -381,7 +380,7 @@ for i in range(epochs):
 ~~~
 
 > Reinforcing Neural Network by Changing Optimizer
-<img width="1021" alt="Reinforcing Neural Network by Changing Optimizer" src="/images/generative-adversarial-network-1/179896344-a72cca9f-b0eb-48f5-975f-c08fa8a80e2d.png">
+<img src="/images/generative-adversarial-network-1/reinforcing-neural-network-by-changing-optimizer.png" alt="reinforcing-neural-network-by-changing-optimizer" width="1021" />
 
 + 확률적 경사 하강법 (Stochastic Gradient Descent, SGD)
   + 국소 최적해에 빠질 가능성 존재
@@ -405,7 +404,7 @@ self.model = nn.Sequential(
 ~~~
 
 > Reinforcing Neural Network by Normalization
-<img width="1021" alt="Reinforcing Neural Network by Normalization" src="/images/generative-adversarial-network-1/179897536-fc204ebf-d1c2-4d3d-bb3b-f8c671fc7e13.png">
+<img src="/images/generative-adversarial-network-1/reinforcing-neural-network-by-normalization.png" alt="reinforcing-neural-network-by-normalization" width="1021" />
 
 + 신경망의 가중치 혹은 신호의 값에 대해 peak로 인해 중요한 값이 소실될 수 있음
 + 따라서 파라미터들의 범위를 조절하거나 평균을 0으로 설정하는 방법 사용 $\rightarrow$ 정규화 (normalization)
@@ -430,7 +429,7 @@ self.model = nn.Sequential(
 ~~~
 
 > Reinforcing Neural Network
-<img width="1021" alt="Reinforcing Neural Network" src="/images/generative-adversarial-network-1/179899497-c78b9eba-6021-4362-b64a-ed01b1c47a69.png">
+<img src="/images/generative-adversarial-network-1/reinforcing-neural-network.png" alt="reinforcing-neural-network" width="1021" />
 
 + Loss Function
 + Activation Function
@@ -449,4 +448,4 @@ device = torch.device("mps") #CUDA 아님. . .
 ~~~
 
 > CUDA는 아니지만 M1 Mac에서의 GPU 가속...
-<img width="644" alt="GPU" src="/images/generative-adversarial-network-1/179909787-04998599-3d3b-466c-8634-fa61a911abe4.png">
+<img src="/images/generative-adversarial-network-1/gpu.png" alt="gpu" width="644" />

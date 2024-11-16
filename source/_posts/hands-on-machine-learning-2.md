@@ -54,7 +54,7 @@ svm_clf.fit(X, y)
 ~~~
 
 > Classification of trained SVM model
-![Classification of trained SVM model](/images/hands-on-machine-learning-2/180766088-00ce29ac-8eb0-4725-8f5d-8de6bbc64dc1.png)
+![classification-of-trained-svm-model](/images/hands-on-machine-learning-2/classification-of-trained-svm-model.png)
 
 ## Nonlinear SVM Classification
 
@@ -74,7 +74,7 @@ polynomial_svm_clf.fit(X, y)
 ~~~
 
 > Linear SVM classifier based on polynomial features
-![Linear SVM classifier based on polynomial features](/images/hands-on-machine-learning-2/180772311-3da42590-e6b3-4d6b-a071-ccf3daa6889e.png)
+![linear-svm-classifier-based-on-polynomial-features](/images/hands-on-machine-learning-2/linear-svm-classifier-based-on-polynomial-features.png)
 
 ### Polynomial Kernel
 
@@ -99,7 +99,7 @@ poly_kernel_svm_clf.fit(X, y)
 + `coef0`: 모델이 높은 차수와 낮은 차수에 얼마나 영향을 받을지 조절하는 hyperparameter
 
 > Linear SVM model based on Polynomial Features vs. Polynomial Kernel SVM model
-![스크린샷 2022-07-25 오후 9 08 44](/images/hands-on-machine-learning-2/180774365-32c54717-3a8b-4725-a7f1-11a3a97af52e.png)
+![linear-svm-model-based-on-polynomial-features-vs.-polynomial-kernel-svm-model](/images/hands-on-machine-learning-2/linear-svm-model-based-on-polynomial-features-vs.-polynomial-kernel-svm-model.png)
 
 ### Adding Similarity Features
 
@@ -116,7 +116,7 @@ def gaussian_rbf(x, landmark, gamma):
 ~~~
 
 > Improved linear classification through Gaussian RBF
-<img width="760" alt="Improved linear classification through Gaussian RBF" src="/images/hands-on-machine-learning-2/180777068-7a71780f-744c-4560-85cd-b687e905fb33.png">
+<img src="/images/hands-on-machine-learning-2/improved-linear-classification-through-gaussian-rbf.png" alt="improved-linear-classification-through-gaussian-rbf" width="760" />
 
 + Landmark: $x_1=-2$ (green), $x_1=1$ (blue)
 + Sample $x_1=-1$ $\rightarrow$ $x_2=\exp(-0.3\times1^2)\approx0.74$, $x_3=\exp(-0.3\times2^2)\approx0.30$
@@ -133,17 +133,17 @@ rbf_kernel_svm_clf = Pipeline([
 ~~~
 
 > Gaussian SVM according to hyperparameters
-<img width="630" alt="Gaussian SVM according to hyperparameters" src="/images/hands-on-machine-learning-2/180919139-a162e4ea-134c-43f4-bae3-1df69947b7fa.png">
+<img src="/images/hands-on-machine-learning-2/gaussian-svm-according-to-hyperparameters.png" alt="gaussian-svm-according-to-hyperparameters" width="630" />
 
 + Hyperparameter $\gamma$
   + Low $\gamma$: 결정 경계가 상대적으로 규칙적이고 부드러움
   + High $\gamma$: 결정 경계가 상대적으로 불규칙하고 구부러짐
 
-|Class|Time complexity|Out-of-core support|Scaling required|Kernel trick|
-|:-:|:-:|:-:|:-:|:-:|
-|LinearSVC|$O(m\times n)$|X|O|X|
-|SGDClassifier|$O(m\times n)$|O|O|X|
-|SVC|$O(m^2\times n)$ to $O(m^3\times n)$|X|O|O|
+|     Class     |           Time complexity            | Out-of-core support | Scaling required | Kernel trick |
+| :-----------: | :----------------------------------: | :-----------------: | :--------------: | :----------: |
+|   LinearSVC   |            $O(m\times n)$            |          X          |        O         |      X       |
+| SGDClassifier |            $O(m\times n)$            |          O          |        O         |      X       |
+|      SVC      | $O(m^2\times n)$ to $O(m^3\times n)$ |          X          |        O         |      O       |
 
 ## SVM Regression
 
@@ -162,7 +162,7 @@ svm_poly_reg.fit(X, y)
 ~~~
 
 > SVM Regression according to hyperparameters
-<img width="603" alt="SVM Regression according to hyperparameters" src="/images/hands-on-machine-learning-2/180919777-4e0d5bc3-ea04-45db-9bca-06c14a175d32.png">
+<img src="/images/hands-on-machine-learning-2/svm-regression-according-to-hyperparameters.png" alt="svm-regression-according-to-hyperparameters" width="603" />
 
 + SVM Regression: 제한된 마진 오류 내에서 마진이 포함하는 샘플 최대화
   + Hyperparameter $\varepsilon$: 마진의 폭 설정
@@ -211,7 +211,7 @@ tree_clf.fit(X, y)
 ~~~
 
 > Visualization
-<img width="538" alt="Visualization" src="/images/hands-on-machine-learning-2/180926067-a6d19aa8-8d4d-4ba1-a6f4-7ff1fb28067c.png">
+<img src="/images/hands-on-machine-learning-2/visualization.png" alt="visualization" width="538" />
 
 ## Prediction
 
@@ -226,14 +226,14 @@ G_i=1-\Sigma^n_{k=1}p_{i,k}^2
 $$
 
 > Decision boundaries
-<img width="538" alt="Decision boundaries" src="/images/hands-on-machine-learning-2/180928765-d2de4569-38f2-4263-80ff-3b4da829ab42.png">
+<img src="/images/hands-on-machine-learning-2/decision-boundaries.png" alt="decision-boundaries" width="538" />
 
 ## Estimating Class Probabilities
 
 > Class estimation process
-<img width="752" alt="Class estimation process_1" src="/images/hands-on-machine-learning-2/180930482-54eb2877-60f9-482b-8ace-636e7b206953.png">
-<img width="406" alt="Class estimation process_2" src="/images/hands-on-machine-learning-2/180931255-fd3bbd93-55ee-4459-ae7b-f6bdffb20531.png">
-<img width="538" alt="Class estimation process_3" src="/images/hands-on-machine-learning-2/180930656-5538ca1d-45f1-4a9a-9ec0-785b2dbda298.png">
+<img src="/images/hands-on-machine-learning-2/class-estimation-process-1.png" alt="class-estimation-process-1" width="752" />
+<img src="/images/hands-on-machine-learning-2/class-estimation-process-2.png" alt="class-estimation-process-2" width="406" />
+<img src="/images/hands-on-machine-learning-2/class-estimation-process-3.png" alt="class-estimation-process-3" width="538" />
 
 + $0\\%=0/54\times100$
 + $90.7\\%=49/54\times100$
@@ -283,7 +283,7 @@ H_i=-\overset{n}{\underset{p_{i,k}\neq0}{\underset{k=1}{\Sigma}}} p_{i,k}\log_2(
 $$
 
 > Entropy Impurity
-<img width="471" alt="Entropy Impurity" src="/images/hands-on-machine-learning-2/180937086-e81b7f91-554e-40bb-9c7f-6fe83ca89268.png">
+<img src="/images/hands-on-machine-learning-2/entropy-impurity.png" alt="entropy-impurity" width="471" />
 
 ## Regularization Hyperparameters
 
@@ -308,7 +308,7 @@ tree_reg.fit(X, y)
 ~~~
 
 > Decision Tree Regression
-<img width="622" alt="Decision Tree Regression" src="/images/hands-on-machine-learning-2/180960239-5dc5f338-5103-429e-974e-e0c039493329.png">
+<img src="/images/hands-on-machine-learning-2/decision-tree-regression.png" alt="decision-tree-regression" width="622" />
 
 + 각 노드에서 값 예측
 + 각 영역의 예측값은 그 영역에 있는 훈련 데이터의 평균

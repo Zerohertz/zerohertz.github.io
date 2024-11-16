@@ -16,7 +16,7 @@ tags:
 2. OAuth 동의 화면 생성
 3. OAuth 클라이언트 ID 생성
 
-![OAuth](/images/traefik-oauth/260895821-80479252-91a7-4521-a86f-9bc770f96ab4.png)
+![oauth](/images/traefik-oauth/oauth.png)
 
 <!-- More -->
 
@@ -126,7 +126,7 @@ spec:
 
 다른 서비스에도 아래와 같이 잘 적용된다.
 
-![grafana](/images/traefik-oauth/261001754-072c74ca-f08f-423f-b489-01034b6827f0.gif)
+![grafana](/images/traefik-oauth/grafana.gif)
 
 만약 subdomain을 사용한다면 `svc.${DDNS}`에 접속 시 `auth.${DDNS}`에 인증을 거치도록 아래와 같이 구성할 수 있다.
 

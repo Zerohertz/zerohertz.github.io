@@ -164,15 +164,15 @@ docker run \
     ${image_name}
 ```
 
-![Local files 1](/images/label-studio-yolov5/231914244-163c8e3b-c6f3-48e9-85da-a7f87fbb2002.png)
+![local-files-1](/images/label-studio-yolov5/local-files-1.png)
 
-![Local files 2](/images/label-studio-yolov5/231919586-7aed66ca-e643-4d65-972a-c7656e2f7cfc.png)
+![local-files-2](/images/label-studio-yolov5/local-files-2.png)
 
 이렇게 설정을 마치고 `yolo2ls.py`에서 생성된 `.json` 파일을 업로드해주면 아래와 같이 Pre-labeling이 완료된 Repository를 확인할 수 있다.
 
-![Pre-labeling 1](/images/label-studio-yolov5/231921155-0dc7c02c-7fdc-4d5e-bfd0-450f453b5157.png)
+![pre-labeling-1](/images/label-studio-yolov5/pre-labeling-1.png)
 
-![Pre-labeling 2](/images/label-studio-yolov5/231982165-6551757b-11bf-4cc7-9bc7-2a384cbb95d5.png)
+![pre-labeling-2](/images/label-studio-yolov5/pre-labeling-2.png)
 
 ---
 

@@ -136,8 +136,8 @@ tags:
 + **거시경제학**(Macroeconomics)
   + 경제전체의 현상, 예를 들어 인플레이션, 실업, 그리고 경제성장 등을 연구하는 학문 분야
 
-![경제의 순환](/images/economics/77847667-d6a2a480-71f9-11ea-8206-490950f5a3e7.jpg)
-![경제의 순환](/images/economics/77847671-dacec200-71f9-11ea-9f76-09fd782e2d2f.jpg)
+![경제의-순환-1](/images/economics/경제의-순환-1.jpg)
+![경제의-순환-2](/images/economics/경제의-순환-2.jpg)
 
 + 실제로 경제활동의 70~80%는 기업과 가계 사이
 + 나머지 20~30%는 정부, 금융시장, 해외부문
@@ -165,8 +165,8 @@ tags:
 + 한 가지의 자원 : 노동(시간으로 측정) 
 + 월 50,000 노동시간(labor hours) 투입 가능
 
-![PPF](/images/economics/77847733-49138480-71fa-11ea-8b50-e0c4e06845cc.jpg)
-![PPF](/images/economics/77847735-4dd83880-71fa-11ea-9637-d439c5808831.jpg)
+![ppf-1](/images/economics/ppf-1.jpg)
+![ppf-2](/images/economics/ppf-2.jpg)
 
 + PPF 상에 있는 생산 조합(점 A~E) : 달성 가능
   + 효율적 : 경제는 모든 자원을 완전 활용
@@ -288,11 +288,11 @@ tags:
 
 > PPF of Narnia(Self-sufficient)
 
-![PPF of Narnia](/images/economics/79119412-45235d00-7dcb-11ea-8aa5-6d164cde8c80.jpeg)
+![ppf-of-narnia](/images/economics/ppf-of-narnia.jpeg)
 
 > PPF of Neverland(Self-sufficient)
 
-![PPF of Neverland](/images/economics/79119703-f6c28e00-7dcb-11ea-90c8-49b325c9c974.jpeg)
+![ppf-of-neverland](/images/economics/ppf-of-neverland.jpeg)
 
 #### 무역이 있는 경우의 소비
   
@@ -302,19 +302,19 @@ tags:
 
 > 무역 PPF
 
-![무역 PPF](/images/economics/79120375-b49a4c00-7dcd-11ea-9093-59dceb3e0777.jpeg)
+![무역-ppf](/images/economics/무역-ppf.jpeg)
 
 > Assumption
 
-|나니아|수출|수입|
-|:-:|:-:|:-:|
-|밀|700톤|0|
-|컴퓨터|0|110대|
+| 나니아 | 수출  | 수입  |
+| :----: | :---: | :---: |
+|   밀   | 700톤 |   0   |
+| 컴퓨터 |   0   | 110대 |
 
-|네버랜드|수출|수입|
-|:-:|:-:|:-:|
-|밀|0|700톤|
-|컴퓨터|110대|0|
+| 네버랜드 | 수출  | 수입  |
+| :------: | :---: | :---: |
+|    밀    |   0   | 700톤 |
+|  컴퓨터  | 110대 |   0   |
 
 + 700톤 : 110대 = 6.36톤 : 1대
   + 컴퓨터 1대의 국제가격은 밀 6.36톤
@@ -325,17 +325,17 @@ tags:
 
 > 무역 시 소비 PPF
 
-![무역 시 소비 PPF](/images/economics/79121387-2a9fb280-7dd0-11ea-9e6e-5757b70919f2.jpeg)
+![무역-시-소비-ppf](/images/economics/무역-시-소비-ppf.jpeg)
 
-|나니아의 무역 이득|무역 없을 때 소비량|무역 시의 소비량|무역 이득|
-|:-:|:-:|:-:|:-:|
-|밀|2500|2700|200|
-|컴퓨터|250|270|20|
+| 나니아의 무역 이득 | 무역 없을 때 소비량 | 무역 시의 소비량 | 무역 이득 |
+| :----------------: | :-----------------: | :--------------: | :-------: |
+|         밀         |        2500         |       2700       |    200    |
+|       컴퓨터       |         250         |       270        |    20     |
 
-|네버랜드의 무역 이득|무역 없을 때 소비량|무역 시의 소비량|무역 이득|
-|:-:|:-:|:-:|:-:|
-|밀|600|700|100|
-|컴퓨터|120|130|10|
+| 네버랜드의 무역 이득 | 무역 없을 때 소비량 | 무역 시의 소비량 | 무역 이득 |
+| :------------------: | :-----------------: | :--------------: | :-------: |
+|          밀          |         600         |       700        |    100    |
+|        컴퓨터        |         120         |       130        |    10     |
 
 ## 수출과 수입
 
@@ -594,8 +594,8 @@ tags:
 
 > Examples
 
-![Example-1](/images/economics/79872782-2eab8000-8421-11ea-9d64-66669829a397.jpeg)
-![Example-2](/images/economics/79872804-35d28e00-8421-11ea-90af-80b5baaaf4f3.jpeg)
+![example-1](/images/economics/example-1.jpeg)
+![example-2](/images/economics/example-2.jpeg)
 
 ## 가격 = 신호등
 
@@ -746,8 +746,8 @@ $$
     + 최저임금법
 + 조세(Taxes) : 구매자 또는 판매자에게 재화 한 단위당 일정 금액의 세금을 부과
 
-![정부의 시장 개입](/images/economics/80800338-30750080-8be4-11ea-957d-9b9186a32294.jpeg)
-![정부의 시장 개입](/images/economics/80800864-9910ad00-8be5-11ea-8f71-27eef39e55d9.jpeg)
+![정부의-시장-개입-1](/images/economics/정부의-시장-개입-1.jpeg)
+![정부의-시장-개입-2](/images/economics/정부의-시장-개입-2.jpeg)
 
 ### 공급부족(Shortage)과 배급(Rationing)
 
@@ -788,14 +788,14 @@ $$
 + 연말정산과 공제(기본공제, 소득공제, 세액공제)
 + 국세청, 미국 IRS
 
-![구매자에게 세금을 부과하는 경우](/images/economics/82336057-12e9c880-9a25-11ea-9587-22b6464574df.JPG)
-![판매자에 대한 세금 부과](/images/economics/82336070-1715e600-9a25-11ea-9468-2a8175e76403.jpeg)
+![구매자에게-세금을-부과하는-경우](/images/economics/구매자에게-세금을-부과하는-경우.JPG)
+![판매자에-대한-세금-부과](/images/economics/판매자에-대한-세금-부과.jpeg)
 
 > 가격 P와 물량 Q에 대한 효과, 그리고 조세귀착은 세금이 구매자 또는 판매자 어느 쪽에 부과되든 동일하다!
 
 + 세금은 구매자가 지불하는 가격과 판매자가 받는 가격이 서로 달라지게 만든다
 
-![조세 귀착](/images/economics/82411907-9ea73780-9aad-11ea-9766-4826bc6f0bf8.jpeg)
+![조세-귀착](/images/economics/조세-귀착.jpeg)
 
 > 상대적으로 탄력적인 공급자 / 수요자가 상대적으로 덜 탄력적인 수요자 / 공급자보다 우위에 있다
 

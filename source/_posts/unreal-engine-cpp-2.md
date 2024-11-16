@@ -9,15 +9,15 @@ tags:
 ---
 # 프로젝트 구성
 
-![파일 생성](/images/unreal-engine-cpp-2/52553672-a9453c80-2e27-11e9-8f39-972d4343c66c.png)
-![Maps 폴더 생성](/images/unreal-engine-cpp-2/52553714-da257180-2e27-11e9-843d-052977910ea1.png)
+![파일-생성](/images/unreal-engine-cpp-2/파일-생성.png)
+![maps-폴더-생성](/images/unreal-engine-cpp-2/maps-폴더-생성.png)
 
 <!-- more -->
 
-![Ctrl + S로 Map 저장](/images/unreal-engine-cpp-2/52553760-04772f00-2e28-11e9-9e16-ab03dd3fc8a0.png)
-![설정에 들어가서](/images/unreal-engine-cpp-2/52553797-2375c100-2e28-11e9-8f54-84f751fb54e8.png)
-![저장한 Map을 시작 Map으로 저장](/images/unreal-engine-cpp-2/52553823-37212780-2e28-11e9-8288-99f7950ac379.png)
-![Visual Studio의 구성](/images/unreal-engine-cpp-2/52553866-65066c00-2e28-11e9-875b-6b17cfb9b549.png)
+![ctrl+s로-map-저장](/images/unreal-engine-cpp-2/ctrl+s로-map-저장.png)
+![설정에-들어가서](/images/unreal-engine-cpp-2/설정에-들어가서.png)
+![저장한-map을-시작-map으로-저장](/images/unreal-engine-cpp-2/저장한-map을-시작-map으로-저장.png)
+![visual-studio의-구성](/images/unreal-engine-cpp-2/visual-studio의-구성.png)
 ## Hello World
 
 > FPSGameModeBase.h
@@ -63,17 +63,17 @@ void AFPSGameModeBase::StartPlay()
 }
 ~~~
 
-![C++ 클래스를 블루프린트로 확장](/images/unreal-engine-cpp-2/52554808-5c636500-2e2b-11e9-996f-8eff73bdaebc.png)
-![저장](/images/unreal-engine-cpp-2/52560158-b9b2e280-2e3a-11e9-8226-94ea976b8755.png)
-![시작 모드 설정](/images/unreal-engine-cpp-2/52560203-e9fa8100-2e3a-11e9-8c14-72e0aa7046cf.png)
-![성공](/images/unreal-engine-cpp-2/52560216-f252bc00-2e3a-11e9-8a60-5369185d3578.png)
+![c++-클래스를-블루프린트로-확장](/images/unreal-engine-cpp-2/c++-클래스를-블루프린트로-확장.png)
+![저장](/images/unreal-engine-cpp-2/저장.png)
+![시작-모드-설정](/images/unreal-engine-cpp-2/시작-모드-설정.png)
+![성공](/images/unreal-engine-cpp-2/성공.png)
 > 보다시피 여기서 삽질을 매우 많이했다... `AFPSGameMode::StartPlay()`를 `AFPSGameModeBase::StartPlay()`로 고치는 것을 유념한다...
 
 ***
 # 캐릭터 임포트
 
-![새 캐릭터 클래스 선언](/images/unreal-engine-cpp-2/52560515-f3381d80-2e3b-11e9-8a77-ee1d55c6c751.png)
-![캐릭터 선택](/images/unreal-engine-cpp-2/52560533-fe8b4900-2e3b-11e9-97e5-458591c5e476.png)
+![새-캐릭터-클래스-선언](/images/unreal-engine-cpp-2/새-캐릭터-클래스-선언.png)
+![캐릭터-선택](/images/unreal-engine-cpp-2/캐릭터-선택.png)
 ## 캐릭터 작동 확인
 
 > FPSCharacter.cpp
@@ -90,14 +90,14 @@ void AFPSCharacter::BeginPlay()
 	}
 }
 ~~~
-![Build](/images/unreal-engine-cpp-2/52560661-5c1f9580-2e3c-11e9-8c58-62575b436a9e.png)
-![캐릭터 클래스 블루프린트로 확장](/images/unreal-engine-cpp-2/52560687-73f71980-2e3c-11e9-8a60-5f105725c288.png)
-![캐릭터 기본 설정](/images/unreal-engine-cpp-2/52560764-b6b8f180-2e3c-11e9-8208-04a66dbfd954.png)
-![캐릭터 클래스 작동 확인](/images/unreal-engine-cpp-2/52560815-e0721880-2e3c-11e9-9329-ec136c8f7e07.png)
+![build](/images/unreal-engine-cpp-2/build.png)
+![캐릭터-클래스-블루프린트로-확장](/images/unreal-engine-cpp-2/캐릭터-클래스-블루프린트로-확장.png)
+![캐릭터-기본-설정](/images/unreal-engine-cpp-2/캐릭터-기본-설정.png)
+![캐릭터-클래스-작동-확인](/images/unreal-engine-cpp-2/캐릭터-클래스-작동-확인.png)
 ## W, A, S, D 조작
 
-![](/images/unreal-engine-cpp-2/52560899-1dd6a600-2e3d-11e9-959a-ada0cd1cc4a7.png)
-![Input 설정](/images/unreal-engine-cpp-2/52561087-b66d2600-2e3d-11e9-82e9-100d5ff3b433.png)
+![wasd](/images/unreal-engine-cpp-2/wasd.png)
+![input-설정-1](/images/unreal-engine-cpp-2/input-설정-1.png)
 
 > FPSCharacter.h
 
@@ -200,7 +200,7 @@ void AFPSCharacter::MoveRight(float Value) {
 
 ## 마우스 카메라
 
-![Input 설정](/images/unreal-engine-cpp-2/52562713-bd4a6780-2e42-11e9-89dd-c91c90973205.png)
+![input-설정-2](/images/unreal-engine-cpp-2/input-설정-2.png)
 > `SetupPlayerInputComponent`아래에 선언(FPSCharacter.cpp)
 
 ~~~C++
@@ -264,7 +264,7 @@ void AFPSCharacter::MoveRight(float Value) {
 ~~~
 ## Jump 설정
 
-![Jump는 Action Mapping에서 설정한다](/images/unreal-engine-cpp-2/52563028-a8220880-2e43-11e9-8096-acdee1e607ef.png)
+![jump는-action-mapping에서-설정한다](/images/unreal-engine-cpp-2/jump는-action-mapping에서-설정한다.png)
 
 > 함수 선언(FPSCharacter.h)
 
@@ -296,15 +296,15 @@ PlayerInputComponent->BindAction("Jump", IE_Released, this, &AFPSCharacter::Stop
 ~~~
 ## Mesh 추가
 
-![스켈레탈 메시 설정](/images/unreal-engine-cpp-2/52564121-a86fd300-2e46-11e9-82cf-b48857e57bf9.png)
-![그림자가 진다](/images/unreal-engine-cpp-2/52564276-19af8600-2e47-11e9-8b01-55def09fd6c2.png)
+![스켈레탈-메시-설정](/images/unreal-engine-cpp-2/스켈레탈-메시-설정.png)
+![그림자가-진다](/images/unreal-engine-cpp-2/그림자가-진다.png)
 ***
 # 발사체 구현
 
-![Fire Input 설정](/images/unreal-engine-cpp-2/52831434-f66f2a00-3117-11e9-944c-ef12e3f4614a.png)
+![fire-input-설정](/images/unreal-engine-cpp-2/fire-input-설정.png)
 ## 발사체 클래스 정의
 
-![Actor Class 설정](/images/unreal-engine-cpp-2/52831498-3504e480-3118-11e9-9938-65c14c9b4336.png)
+![actor-class-설정](/images/unreal-engine-cpp-2/actor-class-설정.png)
 ## 발사체의 여러 Component 추가
 
 + USphere Component
@@ -436,15 +436,15 @@ void AFPSCharacter::Fire() // 함수 정의
     }
 }
 ~~~
-![블루프린트로 정의](/images/unreal-engine-cpp-2/52839333-1cf18d00-3139-11e9-8c47-31d4c2f86f5a.png)
-![Component 추가](/images/unreal-engine-cpp-2/52839412-6641dc80-3139-11e9-9ca0-80da91feb9eb.png)
-![Character 설정](/images/unreal-engine-cpp-2/52839455-84a7d800-3139-11e9-9fc4-3a357f1c2c02.png)
-![실행 결과](/images/unreal-engine-cpp-2/52839468-8a9db900-3139-11e9-98b1-56668e8b8113.png)
+![블루프린트로-정의](/images/unreal-engine-cpp-2/블루프린트로-정의.png)
+![component-추가](/images/unreal-engine-cpp-2/component-추가.png)
+![character-설정](/images/unreal-engine-cpp-2/character-설정.png)
+![실행-결과](/images/unreal-engine-cpp-2/실행-결과.png)
 ## 발사체 콜리전 및 수명 구성
 
-![새 오브젝트 채널 추가](/images/unreal-engine-cpp-2/53150530-232db080-35f4-11e9-8097-601aefeb390c.png)
-![새 프리셋 추가](/images/unreal-engine-cpp-2/53150682-6a1ba600-35f4-11e9-9192-985b55d24b7e.png)
-![새 콜리전 채널 세팅 사용(FPSProjcetile.cpp)](/images/unreal-engine-cpp-2/53150887-09409d80-35f5-11e9-964b-849fa5a56e2e.png)
+![새-오브젝트-채널-추가](/images/unreal-engine-cpp-2/새-오브젝트-채널-추가.png)
+![새-프리셋-추가](/images/unreal-engine-cpp-2/새-프리셋-추가.png)
+![새-콜리전-채널-세팅-사용-fpsprojcetile.cpp-](/images/unreal-engine-cpp-2/새-콜리전-채널-세팅-사용-fpsprojcetile.cpp-.png)
 + 수명 추가
 
 > FPSProjectile.cpp

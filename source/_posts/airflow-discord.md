@@ -14,7 +14,7 @@ tags:
 
 [Fail2Ban](https://zerohertz.github.io/home-server-init/#Fail2Ban)의 명령어 중 `sudo fail2ban-client status sshd`을 사용하면 아래와 같은 결과가 나온다.
 
-![jail](/images/airflow-discord/260302422-589245b2-4509-4711-be99-fbc844a11ad3.gif)
+![fail2ban](/images/airflow-discord/fail2ban.gif)
 
 ```shell
 $ sudo fail2ban-client status sshd
@@ -63,17 +63,17 @@ $ conda activate test
 
 Discord에서 Webhook과 Bot의 차이는 아래와 같다.
 
-|항목|Webhook|Bot|
-|:-:|:-:|:-:|
-|목적|특정 이벤트에 따른 자동 메시지 전송|사용자와의 상호작용 및 다양한 작업 수행|
-|상호작용|없음<br />(Only 메시지 전송)|사용자와 상호작용 가능<br />(명령어 처리, 메시지 반응 등)|
-|인증|웹훅 URL을 통한 인증|토큰을 사용한 인증|
-|설정 및 관리|Discord 서버의 특정 채널에서 설정 및 관리|Discord Developer Portal에서 생성 및 관리<br />다양한 권한 설정 가능<br />여러 서버에 추가 가능|
+|     항목     |                  Webhook                  |                                               Bot                                               |
+| :----------: | :---------------------------------------: | :---------------------------------------------------------------------------------------------: |
+|     목적     |    특정 이벤트에 따른 자동 메시지 전송    |                             사용자와의 상호작용 및 다양한 작업 수행                             |
+|   상호작용   |       없음<br />(Only 메시지 전송)        |                    사용자와 상호작용 가능<br />(명령어 처리, 메시지 반응 등)                    |
+|     인증     |           웹훅 URL을 통한 인증            |                                       토큰을 사용한 인증                                        |
+| 설정 및 관리 | Discord 서버의 특정 채널에서 설정 및 관리 | Discord Developer Portal에서 생성 및 관리<br />다양한 권한 설정 가능<br />여러 서버에 추가 가능 |
 
 진행하려는 service의 목표는 event 발생 시 Discord로 단순 메시지를 전송하는 것이므로 Webhook를 사용한다.
 아래와 같이 Discord에서 Webhook을 발급받는다.
 
-![discord](/images/airflow-discord/260303443-07d39198-b66c-4bee-a89a-b8e510bb46e7.png)
+![discord](/images/airflow-discord/discord.png)
 
 `웹후크 URL 복사` 버튼을 누르면 끝이다!
 아래와 같이 테스트를 진행했다.
@@ -102,7 +102,7 @@ def send_discord_message(webhook_url, content):
 <Response [204]>
 ```
 
-![test](/images/airflow-discord/260304378-46424e32-6c2b-41a8-b993-cad930ad5be5.png)
+![test](/images/airflow-discord/test.png)
 
 아주 잘 수신이 되는 것을 확인했다.
 
@@ -589,7 +589,7 @@ def jail():
 DAG = jail()
 ```
 
-![jail](/images/airflow-discord/260419362-6244ab72-e0c9-4366-acb3-bf5fd5022d7a.gif)
+![fail2ban-discord](/images/airflow-discord/fail2ban-discord.gif)
 
 다 하고나니 아래와 같은 방법이 있었다...
 
@@ -638,7 +638,7 @@ webhook = ${WEBHOOK}
 hostname = ${HOSTNAME}
 ```
 
-![fail2ban-discord](/images/airflow-discord/260435859-84884c61-463b-4bc1-a34f-ded9a2899f83.png)
+![fail2ban-discord](/images/airflow-discord/fail2ban-discord.png)
 
 심지어 대략적인 위치 정보도 제공하는 사이트를 링크해준다...
 현재는 Slack으로 이전하여 사용 중 이다.

@@ -10,7 +10,7 @@ tags:
 ---
 # EMG Sensor란?
 
-![](/images/arduino-emg-sensor/60704160-9d752680-9f3e-11e9-93f4-e4e0c814231f.png)
+![emg-sensor](/images/arduino-emg-sensor/emg-sensor.png)
 
 > 근육의 수축 이완을 전압으로 나타냄
 + 노이즈가 많음
@@ -21,12 +21,12 @@ tags:
 
 <!-- more -->
 
-![회로도](/images/arduino-emg-sensor/60704263-e6c57600-9f3e-11e9-8e1b-879d0c54b7ef.png)
-![아두이노 연결](/images/arduino-emg-sensor/60788153-fd660a00-a196-11e9-87b6-2323ab253da5.png)
+![circuit-diagram](/images/arduino-emg-sensor/circuit-diagram.png)
+![arduino](/images/arduino-emg-sensor/arduino.png)
 ***
 # 오실로스코프로 EMG Sensor값 읽기
 
-![](/images/arduino-emg-sensor/60788154-fdfea080-a196-11e9-94b5-0e8b54273098.jpeg)
+![experiment](/images/arduino-emg-sensor/experiment.jpeg)
 ***
 # 아두이노로 EMG Sensor값 읽어보기
 
@@ -60,7 +60,7 @@ void loop() {
   delay(100);
 }
 ~~~
-![결과 그래프](/images/arduino-emg-sensor/60788155-fdfea080-a196-11e9-998f-96de5b8594c1.jpeg)
+![results](/images/arduino-emg-sensor/results.jpeg)
 ***
 # Serial 통신
 
@@ -125,5 +125,5 @@ void loop() {
 }
 ~~~
 
-![결과 그래프1](/images/arduino-emg-sensor/60788156-fdfea080-a196-11e9-8478-6379bf4fe5ab.png)
-![결과 그래프2](/images/arduino-emg-sensor/60788157-fdfea080-a196-11e9-90c3-7578e07b0491.png)
+![graph-1](/images/arduino-emg-sensor/graph-1.png)
+![graph-2](/images/arduino-emg-sensor/graph-2.png)

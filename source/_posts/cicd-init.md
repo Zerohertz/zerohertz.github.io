@@ -27,7 +27,7 @@ tags:
 
 이러한 GitHub Actions와 Argo CD를 통해 아래와 같은 CI/CD를 도전해본다.
 
-![cicd](/images/cicd-init/262577036-f2ad5f3b-6f45-4f52-8368-20e3fa97f22c.png)
+![schematic](/images/cicd-init/schematic.png)
 
 <!-- More -->
 
@@ -65,7 +65,7 @@ GitHub Actions는 `.github/workflows/*.yaml`에서 어떤 작업들을 언제 �
 위에서 정의한 `Dockerfile`을 build하고 push하기 위해 [Docker Hub](https://hub.docker.com/)에 login한다.
 이를 위해 아래와 같이 GitHub Actions에서 Docker Hub에 login하기 위해 사용할 변수들을 정의한다.
 
-![secrets](/images/cicd-init/262512736-5a622851-1e6d-41e4-8241-d53a24ae4d31.png)
+![secrets](/images/cicd-init/secrets.png)
 
 ```yaml .github/workflows/ci.yaml
 name: Build and Push Docker Image
@@ -98,7 +98,7 @@ jobs:
 
 이 파일을 `master` branch에 push하면 build 후 Docker Hub에 잘 push되는 것을 확인할 수 있다.
 
-![build-test:latest](/images/cicd-init/262511256-f2c4a095-69da-40c2-93ef-1ef5f8942925.png)
+![build-test-latest](/images/cicd-init/build-test-latest.png)
 
 ```shell
 $ docker run --name build-test zerohertzkr/build-test
@@ -124,7 +124,7 @@ Hello, World! => CI!
 
 ## Portal
 
-![server-portal](/images/cicd-init/262010647-c873b57a-95cb-4a57-ac44-6116b8d3c265.png)
+![server-portal](/images/cicd-init/server-portal.png)
 
 [Home server portal](https://zerohertz.xyz)의 [repository](https://github.com/Zerohertz/server-portal)에 push하면 Docker Hub에 build된 이미지를 push하도록 설정했다.
 또한 Argo CD에 Docker image 버전 변경을 알리기 위해 `k8s/main.yaml`에서 사용하는 버전을 바꾸고 push하도록 설정했다.
@@ -200,7 +200,7 @@ jobs:
 
 Home server portal를 Argo CD로 배포하기 위해 아래와 같이 설정했다.
 
-![argo-cd-1](/images/cicd-init/262567537-e280e68c-2f65-4a2d-b3e5-58c4e062c2ea.png)
+![argo-cd](/images/cicd-init/argo-cd.png)
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -247,7 +247,7 @@ $ git push origin main
 
 아주 잘 배포되는 것을 확인할 수 있다.
 
-![result](/images/cicd-init/262576978-2b89e1bf-8f06-4b05-91cf-8bdac9bd582c.png)
+![results](/images/cicd-init/results.png)
 
-![github-actions](/images/cicd-init/262684482-ac3f0e8a-a426-4b4d-be76-04783395fc2c.gif)
-![argo-cd-2](/images/cicd-init/262684467-c1ece4a8-0b6e-4ac7-909b-4acd22878eec.gif)
+![github-actions](/images/cicd-init/github-actions.gif)
+![argo-cd](/images/cicd-init/argo-cd.gif)

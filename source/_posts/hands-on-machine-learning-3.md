@@ -26,7 +26,7 @@ tags:
   + 모든 분류기가 클래스의 확률을 예측할 수 있어야함 (`probability = True`)
 
 > Individual classifiers vs. voting classifier
-<img width="660" alt="Individual classifiers vs. voting classifier" src="/images/hands-on-machine-learning-3/182311386-d20d1398-e1b3-47a6-9117-0f70049cc9b2.png">
+<img src="/images/hands-on-machine-learning-3/individual-classifiers-vs.-voting-classifier.png" alt="individual-classifiers-vs.-voting-classifier" width="660" />
 
 ## Bagging and Pasting
 
@@ -56,7 +56,7 @@ bag_clf.fit(X_train, y_train)
 ~~~
 
 > Decision tree vs. Decision trees with bagging
-<img width="626" alt="Decision tree vs. Decision trees with bagging" src="/images/hands-on-machine-learning-3/182312219-088b91a7-dd37-4339-a522-db744b15cad8.png">
+<img src="/images/hands-on-machine-learning-3/decision-tree-vs.-decision-trees-with-bagging.png" alt="decision-tree-vs.-decision-trees-with-bagging" width="626" />
 
 + oob (out-of-bag) sample: 선택되지 않은 훈련 샘플의 나머지 37%를 의미
   + `BaggingClassifier(bootstrap = True)`
@@ -67,7 +67,7 @@ bag_clf.fit(X_train, y_train)
     + 예측기가 훈련되는 동안에는 oob sample을 사용하지 않으므로 별도의 검증 세트를 사용하지 않고 oob sample 사용
     
 > oob vs. accuracy
-<img width="451" alt="oob vs. accuracy" src="/images/hands-on-machine-learning-3/182524012-0dc1b358-b969-4db6-9f04-b48873ea1d78.png">
+<img src="/images/hands-on-machine-learning-3/oob-vs.-accuracy.png" alt="oob-vs.-accuracy" width="451" />
 
 ## Random Patches and Random Subspaces
 
@@ -87,7 +87,7 @@ bag_clf.fit(X_train, y_train)
   + `RandomForestClassifier`, `RandomForestRegressor` 사용
 
 > Random forest
-<img width="512" alt="Random forest" src="/images/hands-on-machine-learning-3/182525619-5390854e-7498-4500-9c91-3ea3c77aa735.png">
+<img src="/images/hands-on-machine-learning-3/random-forest.png" alt="random-forest" width="512" />
 
 + Extremely randomized trees (extra-trees): 극단적으로 무작위한 트리의 랜덤 포레스트
   + 트리의 노드: 무작위 특성의 서브셋을 만들어 분할에 사용
@@ -100,7 +100,7 @@ bag_clf.fit(X_train, y_train)
   + `feature_importances_` 사용
 
 > Feature importance
-<img width="659" alt="Feature importance" src="/images/hands-on-machine-learning-3/182527382-8bb04117-8a51-4c4a-9c2b-312b84384f7f.png">
+<img src="/images/hands-on-machine-learning-3/feature-importance.png" alt="feature-importance" width="659" />
 
 ## Boosting
 
@@ -119,10 +119,10 @@ bag_clf.fit(X_train, y_train)
     + XGBoost (extreme gradient boosting): 최적화된 그레디언트 부스팅 라이브러리
 
 > Decision boundaries of consecutive predictors
-<img width="810" alt="Decision boundaries of consecutive predictors" src="/images/hands-on-machine-learning-3/182530032-00209f28-11ad-43de-8b32-920fe544d518.png">
+<img src="/images/hands-on-machine-learning-3/decision-boundaries-of-consecutive-predictors.png" alt="decision-boundaries-of-consecutive-predictors" width="810" />
 
 > Gradient boosting
-<img width="782" alt="Gradient boosting" src="/images/hands-on-machine-learning-3/182531172-6d62aeda-142e-49a3-a424-284aae79e073.png">
+<img src="/images/hands-on-machine-learning-3/gradient-boosting.png" alt="gradient-boosting" width="782" />
 
 ## Stacking
 
@@ -166,13 +166,13 @@ X2D = pca.fit_transform(X)
 ~~~
 
 > Visualization of explained variance along dimensions and information on desired explaine variance
-<img width="515" alt="Visualization of explained variance along dimensions and information on desired explaine variance" src="/images/hands-on-machine-learning-3/183077701-e40b942a-79b1-4504-abbe-c1016e20ac9c.png">
+<img src="/images/hands-on-machine-learning-3/visualization-of-explained-variance-along-dimensions-and-information-on-desired-explaine-variance.png" alt="visualization-of-explained-variance-along-dimensions-and-information-on-desired-explaine-variance" width="515" />
 
 + 재구성 오차 (reconstruction error): 원본 데이터와 재구성된 데이터 사이의 평균 제곱 거리
   +  원본의 차원 수로 되돌리는 PCA 역변환: $\boldsymbol{X}\_{recovered}=\boldsymbol{X}\_{d-proj}\boldsymbol{W}\_d^T$
 
 > Original vs. Recover after compression
-<img width="820" alt="Original vs. Restore after compression" src="/images/hands-on-machine-learning-3/183078720-973003cd-c6f1-4343-8c18-d22ae94409df.png">
+<img src="/images/hands-on-machine-learning-3/original-vs.-restore-after-compression.png" alt="original-vs.-restore-after-compression" width="820" />
 
 + Random PCA: 확률적 알고리즘을 통해 처음 `d`개의 주성분에 대한 근삿값 도출
   + `svd_solver` 매개변수를 `randomized`로 지정
@@ -207,7 +207,7 @@ X_reduced = rbf_pca.fit_transform(X)
 ~~~
 
 > Dimension reduction result according to kernel type
-<img width="1011" alt="Dimension reduction result according to kernel type" src="/images/hands-on-machine-learning-3/183081321-fab22216-bed1-47c1-aea0-babc26b23f25.png">
+<img src="/images/hands-on-machine-learning-3/dimension-reduction-result-according-to-kernel-type.png" alt="dimension-reduction-result-according-to-kernel-type" width="1011" />
 
 ## LLE
 
@@ -217,7 +217,7 @@ X_reduced = rbf_pca.fit_transform(X)
   + 노이즈가 심하지 않은 꼬인 매니폴드에 유리
 
 > LLE applied to swiss roll dataset
-<img width="672" alt="LLE applied to swiss roll dataset" src="/images/hands-on-machine-learning-3/183082311-2d2d0f80-77b7-4cbb-b552-42e95e15f723.png">
+<img src="/images/hands-on-machine-learning-3/lle-applied-to-swiss-roll-dataset.png" alt="lle-applied-to-swiss-roll-dataset" width="672" />
 
 ## Etc.
 
@@ -243,7 +243,7 @@ X_reduced_tsne = tsne.fit_transform(X)
 ~~~
 
 > MDS vs. Isomap vs. t-SNE
-<img width="755" alt="MDS vs. Isomap vs. t-SNE" src="/images/hands-on-machine-learning-3/183084216-3dd3bfdd-0383-4412-a59d-15e9cb062a7e.png">
+<img src="/images/hands-on-machine-learning-3/mds-vs.-isomap-vs.-t-sne.png" alt="mds-vs.-isomap-vs.-t-sne" width="755" />
 
 ***
 

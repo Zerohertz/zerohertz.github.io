@@ -38,7 +38,7 @@ sys=tf(num,den);
 bode(sys)
 ~~~
 
-![](/images/matlab-9/69698862-caaeb500-1129-11ea-91bb-9a5c5defa953.png)
+![bode-plot-1](/images/matlab-9/bode-plot-1.png)
 
 + Hz
 
@@ -52,7 +52,7 @@ h=bodeplot(sys);
 setoptions(h,'FreqUnits','Hz');
 ~~~
 
->k
+> k
 
 ~~~Matlab
 num=[1];
@@ -60,6 +60,6 @@ den=[10 0.1 1000];
 den=[10 0.1 4000];
 ~~~
 
-![](/images/matlab-9/69700035-d059ca00-112c-11ea-905e-5f83d38f2006.png)
+![bode-plot-2](/images/matlab-9/bode-plot-2.png)
 
 + b is same in frequency domain

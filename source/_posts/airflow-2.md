@@ -125,7 +125,7 @@ DAG = Chap04()
 
 실행 결과 아래와 같이 `execution_date`의 각 변수가 잘 삽입되어 API를 호출했음을 확인할 수 있다.
 
-![BashOperator](/images/airflow-2/256542335-8799e0f1-ed14-49eb-bcd3-45a26a52df40.png)
+![bashoperator](/images/airflow-2/bashoperator.png)
 
 
 Airflow에서 `execution_date`와 같은 변수를 task context라 칭한다.
@@ -278,7 +278,7 @@ def Chap04():
 DAG = Chap04()
 ```
 
-![PythonOperator](/images/airflow-2/256546050-a172fb0f-2f27-4c79-afb2-37f400038396.png)
+![pythonoperator](/images/airflow-2/pythonoperator.png)
 
 `PythonOperator`는 python에서 `*args`, `**kwargs`와 같이 함수의 parameter를 입력 받을 수 있다.
 
@@ -540,7 +540,7 @@ def Chap04():
 `fetch_pageviews`에서 `print()` 대신 `postgres_query.sql`에 query문을 작성하는 것을 확인할 수 있다.
 이렇게 작성된 query문은 `PostgresOperator`을 통해 Postgres server로 전송된다.
 
-![PostgresOperator](/images/airflow-2/256566043-57c070aa-c986-4d98-bf26-96ee1aa46022.png)
+![postgresoperator](/images/airflow-2/postgresoperator.png)
 
 Webserver 상에서는 잘 실행되는 것으로 보이지만, 해당 DAG가 Postgres server에 증분 데이터를 잘 적재하는지 확인하기 위해 아래의 query문을 실행했다.
 

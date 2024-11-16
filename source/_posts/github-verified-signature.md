@@ -10,7 +10,7 @@ tags:
 
 > GitHub에 commit을 push하고 log에 `Verified`를 남기는 방법!
 
-![Verfied](/images/github-verified-signature/259277614-e08c3c6f-c7d6-4557-92a1-23a060e9453f.png)
+![verfied](/images/github-verified-signature/verfied.png)
 
 <!-- More -->
 
@@ -87,7 +87,7 @@ mQINBGTS2LoBEACxnsidkifzeZDzGZseKanqKPYATUr67v+8ELV98NUzR/bTkDKY
 
 맨 마지막 명령어에서 출력된 값들을 아래의 화면 처럼 `New GPG key`를 누르고 추가하면 된다.
 
-![GPG](/images/github-verified-signature/259278415-85d4ccaf-1552-4e95-890a-bbc876c662b5.png)
+![gpg](/images/github-verified-signature/gpg.png)
 
 ---
 

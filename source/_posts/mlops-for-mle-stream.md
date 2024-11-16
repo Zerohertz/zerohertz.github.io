@@ -154,11 +154,11 @@ docker compose -p stream -f stream-docker-compose.yaml up -d
 /MLOps-Breast-Cancer/Stream$ sh stream.sh
 ```
 
-<img width="1571" alt="Containers" src="/images/mlops-for-mle-stream/223940927-57d5d6c0-f265-4614-888b-7b25c94c7c2a.png">
+<img src="/images/mlops-for-mle-stream/containers.png" alt="containers" width="1571" />
 
 > Container: data-subscriber
 
-![data-subscriber](/images/mlops-for-mle-stream/223939709-5b0c682c-89af-43e1-838c-264dd6653093.gif)
+![data-subscriber](/images/mlops-for-mle-stream/data-subscriber.gif)
 
 
 ```bash
@@ -181,7 +181,7 @@ targetdatabase=# \d
 targetdatabase=# SELECT * FROM breast_cancer_prediction LIMIT 100;
 ```
 
-![breast_cancer_prediction](/images/mlops-for-mle-stream/223940411-4de0df2a-e176-4331-a6b5-3e71d9cc965b.gif)
+![breast-cancer-prediction](/images/mlops-for-mle-stream/breast-cancer-prediction.gif)
 
 ---
 
@@ -212,15 +212,15 @@ networks:
 /MLOps-Breast-Cancer/Stream$ docker compose -p dashboard -f grafana-docker-compose.yaml up -d
 ```
 
-<img width="1202" alt="Grafana" src="/images/mlops-for-mle-stream/223943145-545928dd-0182-46c4-8792-5e93fbe53026.png">
+<img src="/images/mlops-for-mle-stream/grafana.png" alt="grafana" width="1202" />
 
 ## Grafana Dashboard
 
-<img width="1202" alt="Grafana Dashboard" src="/images/mlops-for-mle-stream/223944135-3b4d7eb6-4103-4cac-978b-22d027d5cae0.png">
+<img src="/images/mlops-for-mle-stream/grafana-dashboard.png" alt="grafana-dashboard" width="1202" />
 
 ## Source Database
 
-<img width="1202" alt="src" src="/images/mlops-for-mle-stream/223945596-f1c5918f-fc45-4b99-aead-a2ed93bff942.png">
+<img src="/images/mlops-for-mle-stream/source-database.png" alt="source-database" width="1202" />
 
 + Name: `Source-database`
 + Host: `postgres-server:5432`
@@ -230,11 +230,11 @@ networks:
 + TLS/SSL Mode: `disable`
 + Version: `14.0`
 
-<img width="1202" alt="dashboard" src="/images/mlops-for-mle-stream/223947423-fb945928-c4fe-450a-a26d-6aaecbb0559b.png">
+<img src="/images/mlops-for-mle-stream/dashboard.png" alt="dashboard" width="1202" />
 
 ## Inference Database
 
-<img width="1233" alt="inf" src="/images/mlops-for-mle-stream/223952972-1bb30912-da6b-408f-9332-2f765cf5da69.png">
+<img src="/images/mlops-for-mle-stream/inf.png" alt="inf" width="1233" />
 
 + Name: `Inference-database`
 + Host: `target-postgres-server:5432`
@@ -246,7 +246,7 @@ networks:
 
 ## Result
 
-![Result](/images/mlops-for-mle-stream/223958893-4b4df8e0-9916-42eb-b7c1-31b41be4c3cd.gif)
+![result](/images/mlops-for-mle-stream/result.gif)
 
 ---
 

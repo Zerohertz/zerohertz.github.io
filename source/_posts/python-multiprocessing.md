@@ -60,7 +60,7 @@ processes=128:  35.111초
 확실히 `multiprocessing`를 사용하지 않는 것 (`ORG`)에 비해 빠름을 확인할 수 있고, process의 수를 증가시킴에 따라 처리 시간이 짧아짐을 확인할 수 있다.
 하지만 CPU 코어 수는 아래와 같이 64개인데 process의 수를 128로 설정해도 잘 실행됐고 오히려 빨랐다. (~~ChatGPT는 이러지 말라긴 하는데,,,~~)
 
-![CPU](/images/python-multiprocessing/257830180-ea23c216-c877-4d92-bba1-7894e3140096.png)
+![cpu](/images/python-multiprocessing/cpu.png)
 
 ~~불타는 CPU~~
 

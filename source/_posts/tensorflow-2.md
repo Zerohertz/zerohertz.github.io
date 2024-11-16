@@ -26,14 +26,14 @@ tags:
 
 + 동적 사이즈를 갖는 다차원 데이터 배열
 
-|텐서플로우 타입|파이썬 타입|설명|
-|---|---|---|
-|DT_FLOAT|tf.float32|32비트 실수|
-|DT_INT16|tf.int16|16비트 정수|
-|DT_INT32|tf.int32|32비트 정수|
-|DT_INT64|tf.int64|64비트 정수|
-|DT_STRING|tf.string|문자열|
-|DT_BOOL|tf.bool|불리언|
+| 텐서플로우 타입 | 파이썬 타입 | 설명        |
+| --------------- | ----------- | ----------- |
+| DT_FLOAT        | tf.float32  | 32비트 실수 |
+| DT_INT16        | tf.int16    | 16비트 정수 |
+| DT_INT32        | tf.int32    | 32비트 정수 |
+| DT_INT64        | tf.int64    | 64비트 정수 |
+| DT_STRING       | tf.string   | 문자열      |
+| DT_BOOL         | tf.bool     | 불리언      |
 
 + 각 텐서는 배열의 차원을 나타내는 랭크(rank)를 가짐
 + 텐서의 랭크는 제한이 없음
@@ -80,7 +80,7 @@ plt.show()
 + 샘플 데이터 생성
 + 두 개의 정규분포를 이용하여 2D 좌표계에 2000개의 포인트를 난수로 발생
 
-![실행결과](/images/tensorflow-2/62998283-0c329180-bea6-11e9-90fb-7ab886f4b9e9.png)
+![results](/images/tensorflow-2/results.png)
 
 ~~~Python
 vectors = tf.constant(conjunto_puntos)
@@ -155,7 +155,7 @@ means = tf.concat([tf.reduce_mean(tf.gather(vectors, tf.reshape(tf.where( tf.equ
 + K개의 클러스터에 속한 모든 포인트의 평균을 가지고있는 K개의 텐서를 합친 `means`텐서 정의
 
 
-![원래의 분포](/images/tensorflow-2/62998535-cd510b80-bea6-11e9-9552-61482c901090.png)
-![클러스터링](/images/tensorflow-2/62998530-caeeb180-bea6-11e9-99b4-c9e33773807a.png)
+![distribution](/images/tensorflow-2/distribution.png)
+![clustering](/images/tensorflow-2/clustering.png)
 ***
 [참고](https://tensorflow.blog/2016/04/28/first-contact-with-tensorflow/)

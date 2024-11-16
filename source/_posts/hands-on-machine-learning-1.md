@@ -26,7 +26,7 @@ conda --version
 conda update conda
 ~~~
 
-<img width="762" alt="Anaconda" src="/images/hands-on-machine-learning-1/178926724-78b45d14-cdd0-4dbc-ad54-4880fd3c1702.png">
+<img src="/images/hands-on-machine-learning-1/anaconda.png" alt="anaconda" width="762" />
 
 ## [Download Jupyter Notebook](https://zerohertz.github.io/getting-started-with-jupyter-notebook/)
 
@@ -38,7 +38,7 @@ conda activate tf2
 python -m ipykernel install --user --name=python3
 ~~~
 
-<img width="762" alt="Environment" src="/images/hands-on-machine-learning-1/178929280-dbf2c674-b056-4e05-aa9b-64b1155f373d.png">
+<img src="/images/hands-on-machine-learning-1/environment.png" alt="environment" width="762" />
 
 ~~~python
 jupyter notebook
@@ -46,7 +46,7 @@ jupyter notebook
 
 > Setting complete
 
-<img width="1800" alt="Setting complete" src="/images/hands-on-machine-learning-1/178929909-ab8762aa-53d0-4003-bf52-4fbaa9940ac1.png">
+<img src="/images/hands-on-machine-learning-1/setting-complete.png" alt="setting-complete" width="1800" />
 
 ***
 
@@ -153,7 +153,7 @@ f1_score(y_train, y_train_pred)
 ~~~
 
 > Precision and recall versus the decision threshold (precision/recall tradeoff)
-![Precision and recall versus the decision threshold (precision/recall tradeoff)](/images/hands-on-machine-learning-1/180436858-65f82988-8fe5-429a-9ecc-09f3dd59872e.png)
+![precision-and-recall-versus-the-decision-threshold-precision/recall-tradeoff-](/images/hands-on-machine-learning-1/precision-and-recall-versus-the-decision-threshold-precision/recall-tradeoff-.png)
 
 ~~~python
 from sklearn.metrics import precision_recall_curve
@@ -163,7 +163,7 @@ precisions, recalls, thresholds = precision_recall_curve(y_train, y_scores)
 ~~~
 
 > ROC (Receiver Operating Characteristic) curve
-![ROC curve](/images/hands-on-machine-learning-1/180438383-ecf66d9c-1f54-4cb8-8fcf-812223bbf82d.png)
+![roc-curve](/images/hands-on-machine-learning-1/roc-curve.png)
 
 ~~~python
 from sklearn.metrics import roc_curve

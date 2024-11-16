@@ -50,7 +50,7 @@ In [3]: exit()
 
 > nano 에디터를 통해 아래와 같이 수정한다.
 
-![Jupyter](/images/raspberry-pi-jupyter-notebook/93658730-32e3d400-fa79-11ea-80dd-ed5086acd002.png)
+![jupyter](/images/raspberry-pi-jupyter-notebook/jupyter.png)
 
 > 가상환경에서 deactivate 명령어로 나올 수 있다.
 

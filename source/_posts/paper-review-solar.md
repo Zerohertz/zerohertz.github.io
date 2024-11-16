@@ -42,7 +42,7 @@ Llama 2 구조에 호환되는 최고의 성능 중 하나인 Mistral 7B의 pret
 + $m$: Base model에서 제거할 layer 수
 + $s$: Scaled model의 layer 수 (Hardware의 사양에 따라 결정)
 
-![DUS](/images/paper-review-solar/305718873-372c5a42-fbee-4bd3-bdb9-da51c02f9c05.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241116T151121Z&X-Amz-Expires=300&X-Amz-Signature=ade6f84fa7fb21ba795ab16cf00315614b2d005e966f49fa02425a81b476d9e9&X-Amz-SignedHeaders=host)
+![dus](/images/paper-review-solar/dus.png)
 
 1. $n$ layer들을 복제
 2. 원본 model에서 최종의 $m$ layer들을 삭제
