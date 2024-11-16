@@ -1,5 +1,5 @@
 ---
-title: Arduino Basic
+title: Arduino
 date: 2018-08-17 17:01:00
 categories:
 - Etc.
