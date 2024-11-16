@@ -137,6 +137,7 @@ feed:
 # npm install hexo-generator-sitemap --save
 sitemap:
   path: sitemap.xml
+  template: ./source/seo/sitemap.xml
   tags: true
   categories: true
 # npm install hexo-generator-seo-friendly-sitemap --save
