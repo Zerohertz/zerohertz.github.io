@@ -153,3 +153,77 @@ robotstxt:
   allow:
     - /
   sitemap: https://zerohertz.github.io/sitemap.xml
+
+# npm install hexo-generator-alias --save
+alias:
+  /apache-airflow-1/: /airflow-1/
+  /apache-airflow-2/: /airflow-2/
+  /analysis-of-many-bodies-in-one-part-with-ansys-act/: /ansys-act/
+  /simulation-of-temperature-distribution-of-material-in-dryer/: /ansys-dryer-temperature/
+  /crane-and-transporter-by-arduino/: /arduino-crane-transporter/
+  /emg-sensor/: /arduino-emg-sensor/
+  /imu-sensor/: /arduino-imu-sensor/
+  /arduino-basic/: /arduino-init/
+  /serial-communication-arduino-to-raspberrypi/: /arduino-raspberry-pi-serial-communication/
+  /serving-yolov5-segmentation-model-with-aws-ec2-inf1/: /aws-ec2-inf1-yolov5/
+  /web-crawling-by-beautifulsoup-1/: /beautifulsoup-1/
+  /web-crawling-by-beautifulsoup-2/: /beautifulsoup-2/
+  /web-crawling-by-beautifulsoup-3/: /beautifulsoup-3/
+  /web-crawling-by-beautifulsoup-4/: /beautifulsoup-4/
+  /c-basic-1/: /cpp-1/
+  /c-basic-2/: /cpp-2/
+  /c-basic-3/: /cpp-3/
+  /c-basic-4/: /cpp-4/
+  # /cpp-1/: /cpp-5/
+  # /cpp-2/: /cpp-6/
+  # /cpp-3/: /cpp-7/
+  # /cpp-4/: /cpp-8/
+  /introduction-of-c/: /cpp-init/
+  /line-detection/: /cpp-line-detection/
+  /cpp-selection-and-iteration/: /cpp-selection-iteration/
+  /exporting-to-unreal-engine-at-3ds-max-by-datasmith/: /unreal-engine-3ds-max-datasmith/
+  /getting-started-with-jupyter-notebook/: /jupyter-notebook-init/
+  /formatting-python-code-based-on-git-hooks/: /git-hooks-code-formatting/
+  /automating-code-formatting-with-github-actions/: /github-actions-code-formatting/
+  /graduate-student-charter-loan-challenge-story/: /graduate-student-charter-loan/
+  /upload-hexo-by-git/: /hexo-git/
+  /hexo-basic/: /hexo-init/
+  /update-hexo-next-blog/: /hexo-next-blog/
+  /building-a-windows-server-infrastructure-for-data-analysis/: /jupyter-notebook-windows-server/
+  /the-lateral-dynamics-of-a-moving-web/: /lateral-dynamics/
+  /mathjax-test/: /mathjax/
+  /app-designer/: /matlab-app-designer/
+  /exporting-ai-model-to-c-from-matlab/: /matlab-exporting-ai-model-cpp/
+  /vision-data-acquisition-matlab-source-code-using-gige-vision-cmos-camera/: /matlab-gige-vision-cmos-camera/
+  /development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/: /obstructive-sleep-apnea-diagnosis-hrv/
+  /development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/: /obstructive-sleep-apnea-diagnosis-acceleration/
+  /multiprocessing/: /python-multiprocessing/
+  /sphinx/: /python-pkg-sphinx/
+  /deep-learning-with-pytorch-1/: /pytorch-dl/
+  /implementing-mask-r-cnn-with-pytorch/: /pytorch-mask-r-cnn/
+  /how-to-change-pytorch-model-structure-and-train-only-some-layers/: /pytorch-model-structure-layers/
+  /how-to-convert-a-pytorch-model-to-tensorrt/: /pytorch-model-to-tensorrt/
+  /neural-network-example/: /pytorch-tensor-nn/
+  /source-code-for-extracting-cis/: /r-condition-indicator/
+  /normality-test/: /r-normality-test/
+  /statistics/: /r-statistics/
+  /face-recognition-by-raspberrypi/: /raspberry-pi-face-recognition/
+  /jupyter-notebook-in-raspberry-pi/: /raspberry-pi-jupyter-notebook/
+  /web-crawling-by-selenium-1/: /selenium-1/
+  /web-crawling-by-selenium-2/: /selenium-2/
+  /web-crawler-for-ecampus-by-selenium/: /selenium-ecampus/
+  /web-crawler-for-nlp-1/: /selenium-nlp-1/
+  /web-crawler-for-nlp-2/: /selenium-nlp-2/
+  /web-crawler-for-nlp-3/: /selenium-nlp-3/
+  /telegram-bot-using-web-crawler-based-on-selenium/: /selenium-telegram-bot/
+  /professional-research-agent-career-change/: /technical-research-personnel-career-change/
+  /professional-research-agent-init/: /technical-research-personnel-init/
+  /professional-research-agent-raw/: /technical-research-personnel-law/
+  /professional-research-agent-train-init/: /technical-research-personnel-train-init/
+  /professional-research-agent-train-review/: /technical-research-personnel-train-review/
+  /serving-yolov5-object-detection-model-using-triton-server/: /triton-inference-server-yolov5/
+  /upstage-udemy/: /udemy-upstage/
+  /unreal-engine-and-c-1/: /unreal-engine-cpp-1/
+  /unreal-engine-and-c-2/: /unreal-engine-cpp-2/
+  /inverse-kinematics-in-unreal-engine-1/: /unreal-engine-inverse-kinematics-1/
+  /inverse-kinematics-in-unreal-engine-2/: /unreal-engine-inverse-kinematics-2/
