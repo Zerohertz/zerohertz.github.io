@@ -12,7 +12,7 @@ tags:
 ---
 # Introduction
 
-[YOLOv5 모델을 ONNX로 변환하여 Triton Inference Server로 배포](https://zerohertz.github.io/serving-yolov5-object-detection-model-using-triton-server/)한 경험은 있지만, [Amazon EC2 Inf1](https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/#Introduction)을 통해 모델을 배포하고 REST API를 직접 구성해본 경험은 없어 직접 inference server와 API server를 구성해보려고한다.
+[YOLOv5 모델을 ONNX로 변환하여 Triton Inference Server로 배포](https://zerohertz.github.io/triton-inference-server-yolov5/)한 경험은 있지만, [Amazon EC2 Inf1](https://zerohertz.github.io/aws-neuron-sdk-aws-inferentia/#Introduction)을 통해 모델을 배포하고 REST API를 직접 구성해본 경험은 없어 직접 inference server와 API server를 구성해보려고한다.
 [공식 문서](https://github.com/triton-inference-server/python_backend/tree/main/inferentia)와 [참고 자료](https://hyperconnect.github.io/2022/12/13/infra-cost-optimization-with-aws-inferentia.html)들도 존재하지만 실질적 개발을 하는데 있어 막히는 부분이 꽤 많아 기록으로 남긴다.
 
 ---

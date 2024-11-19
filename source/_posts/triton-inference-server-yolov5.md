@@ -565,7 +565,7 @@ $ pip install tensorrt
 
 역시 쉽게되지 않는다. 아마 `tensorrt` 모듈과 GPU Driver의 버전 차이로 인해 발생하는 오류 같다.
 `pip`로 설치하면 `cu12`를 볼 수 있는데 CUDA 버전이 호완되지 않아 오류가 발생하는 것 같다.
-따라서 [여기](https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/)에서 설치했던 방식과 같이 직접 진행해보겠다.
+따라서 [여기](https://zerohertz.github.io/pytorch-model-to-tensorrt/)에서 설치했던 방식과 같이 직접 진행해보겠다.
 
 ```bash rm.sh
 # 1. Container 종료

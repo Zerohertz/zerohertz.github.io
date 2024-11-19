@@ -28,7 +28,7 @@ conda update conda
 
 <img src="/images/hands-on-machine-learning-1/anaconda.png" alt="anaconda" width="762" />
 
-## [Download Jupyter Notebook](https://zerohertz.github.io/getting-started-with-jupyter-notebook/)
+## [Download Jupyter Notebook](https://zerohertz.github.io/jupyter-notebook-init/)
 
 ## Set environment
 
@@ -109,10 +109,10 @@ sgd_clf.predict(y_test)
 
 > Confusion Matrix
 
-||Predicted: Negative|Pridicted: Positive|
-|:-:|:-:|:-:|
-|Actual: Negative|True Negative (TN)|False Positive (FP)|
-|Actual: Positive|False Negative (FN)|True Positive (TP)|
+|                  | Predicted: Negative | Pridicted: Positive |
+| :--------------: | :-----------------: | :-----------------: |
+| Actual: Negative | True Negative (TN)  | False Positive (FP) |
+| Actual: Positive | False Negative (FN) | True Positive (TP)  |
 
 ~~~python
 from sklearn.model_selection import cross_val_predict

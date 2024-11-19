@@ -2,34 +2,38 @@
 title: Harnessing The ML Backends for Efficient Labeling in Label Studio
 date: 2024-02-28 21:07:04
 categories:
-- 4. MLOps
+  - 4. MLOps
 tags:
-- Label Studio
-- Python
-- Docker
-- Kubernetes
+  - Label Studio
+  - Python
+  - Docker
+  - Kubernetes
 ---
+
 # Introduction
 
-Open source data labeling platform [Label Studio](https://zerohertz.github.io/labeling-with-label-studio-for-pre-labeled-data-using-yolov5/#Introduction)에 Label Studio ML Backend의 도입으로 machine learning model을 통합하고 labeling 작업을 위한 자동화된 예측을 제공할 수 있다.
+Open source data labeling platform [Label Studio](https://zerohertz.github.io/label-studio-yolov5/)에 Label Studio ML Backend의 도입으로 machine learning model을 통합하고 labeling 작업을 위한 자동화된 예측을 제공할 수 있다.
 이를 통해 labeling process를 가속화하고 일관성과 정확성을 향상시킬 수 있으며 실시간으로 모델의 성능을 평가하고 빠르게 반복함으로써 model을 지속적으로 개선할 수 있다.
 Label Studio와 Label Studio ML Backend의 작동 방식은 아래와 같이 구성된다.
 
 <img src="/images/label-studio-ml-backend/label-studio-ml-backend.png" alt="label-studio-ml-backend" width="1000" />
 
-+ `predict()`: 입력된 data에 대해 model의 출력을 Label Studio format으로 변경 후 UI에 제공
-+ `fit()`: Label Studio 내 annotation이 완료된 data를 학습하고 load
+- `predict()`: 입력된 data에 대해 model의 출력을 Label Studio format으로 변경 후 UI에 제공
+- `fit()`: Label Studio 내 annotation이 완료된 data를 학습하고 load
 
 <!-- More -->
----
 
 # Hands-On
 
 Label Studio ML Backend 사용을 위해 `label-studio-ml`을 설치한다.
 
+<!-- markdownlint-disable -->
+
 ```shell
 $ pip install label-studio-ml
 ```
+
+<!-- markdownlint-enable -->
 
 공식 page에서 제공하는 dummy model을 아래와 같이 구성한다.
 
@@ -295,17 +299,13 @@ class YOLOv8Det(LabelStudioMLBase):
 <br />
 
 > Add model
-<img src="/images/label-studio-ml-backend/add-model.gif" alt="add-model" width="2000" />
+> <img src="/images/label-studio-ml-backend/add-model.gif" alt="add-model" width="2000" />
 
-> Annotation using pre-trained model [`predict()` (Before `fit()`)]
-<img src="/images/label-studio-ml-backend/detection-annotation-using-pre-trained-model-1.gif" alt="detection-annotation-using-pre-trained-model-1" width="2000" />
-<img src="/images/label-studio-ml-backend/detection-annotation-using-pre-trained-model-2.gif" alt="detection-annotation-using-pre-trained-model-2" width="2000" />
+> Annotation using pre-trained model [`predict()` (Before `fit()`)] <img src="/images/label-studio-ml-backend/detection-annotation-using-pre-trained-model-1.gif" alt="detection-annotation-using-pre-trained-model-1" width="2000" /> <img src="/images/label-studio-ml-backend/detection-annotation-using-pre-trained-model-2.gif" alt="detection-annotation-using-pre-trained-model-2" width="2000" />
 
-> Training [`fit()`]
-<img src="/images/label-studio-ml-backend/detection-training.gif" alt="detection-training" width="2000" />
+> Training [`fit()`] <img src="/images/label-studio-ml-backend/detection-training.gif" alt="detection-training" width="2000" />
 
-> Annotation using trained model [`predict()` (After `fit()`)]
-<img src="/images/label-studio-ml-backend/detection-annotation-using-trained-model.gif" alt="detection-annotation-using-trained-model" width="2000" />
+> Annotation using trained model [`predict()` (After `fit()`)] <img src="/images/label-studio-ml-backend/detection-annotation-using-trained-model.gif" alt="detection-annotation-using-trained-model" width="2000" />
 
 결과적으로 학습에 포함되지 않았던 image에 대해 정확한 bbox와 class 결과를 추론하는 것을 확인할 수 있다.
 
@@ -448,16 +448,13 @@ class YOLOv8Seg(LabelStudioMLBase):
 <br />
 
 > Add model
-<img src="/images/label-studio-ml-backend/add-model.gif" alt="add-model" width="2000" />
+> <img src="/images/label-studio-ml-backend/add-model.gif" alt="add-model" width="2000" />
 
-> Annotation using pre-trained model [`predict()` (Before `fit()`)]
-<img src="/images/label-studio-ml-backend/segmentation-annotation-using-pre-trained-model.gif" alt="segmentation-annotation-using-pre-trained-model" width="2000" />
+> Annotation using pre-trained model [`predict()` (Before `fit()`)] <img src="/images/label-studio-ml-backend/segmentation-annotation-using-pre-trained-model.gif" alt="segmentation-annotation-using-pre-trained-model" width="2000" />
 
-> Training [`fit()`]
-<img src="/images/label-studio-ml-backend/segmentation-training.gif" alt="segmentation-training" width="2000" />
+> Training [`fit()`] <img src="/images/label-studio-ml-backend/segmentation-training.gif" alt="segmentation-training" width="2000" />
 
-> Annotation using fine-tuned model [`predict()` (After `fit()`)]
-<img src="/images/label-studio-ml-backend/segmentation-annotation-using-fine-tuned-model.gif" alt="segmentation-annotation-using-fine-tuned-model" width="2000" />
+> Annotation using fine-tuned model [`predict()` (After `fit()`)] <img src="/images/label-studio-ml-backend/segmentation-annotation-using-fine-tuned-model.gif" alt="segmentation-annotation-using-fine-tuned-model" width="2000" />
 
 Detection의 추론 성능까지는 못미치지만, NMS와 같은 추론 시 사용될 변수를 조정하여 사용하면 annotation 시 큰 도움이 될 수 있다.
 
@@ -1095,10 +1092,7 @@ Add model 시 URL을 `http://backend.${NAMESPACE}:9090`와 같은 형태로 작�
 
 # Issues
 
-<details>
-<summary>
-<code>TypeError: argument of type 'ModelWrapper' is not iterable</code>
-</summary>
+{% note `TypeError: argument of type 'ModelWrapper' is not iterable` %}
 
 ```python
 Traceback (most recent call last):
@@ -1117,15 +1111,12 @@ TypeError: argument of type 'ModelWrapper' is not iterable
 
 [위와 같은 issue](https://github.com/HumanSignal/label-studio-ml-backend/issues/117#issuecomment-1195698557) 발생 시 `LABEL_STUDIO_ML_BACKEND_V2=True` 환경 변수를 추가하면 해결된다.
 
-</details>
+{% endnote %}
 
-<details>
-<summary>
-<code>AssertionError: job returns exception</code>
-</summary>
+{% note `AssertionError: job returns exception` %}
 
 ```python
-[2024-02-26 23:10:57,401] [ERROR] [label_studio_ml.model::get_result_from_last_job::141] 1708956600 job returns exception: 
+[2024-02-26 23:10:57,401] [ERROR] [label_studio_ml.model::get_result_from_last_job::141] 1708956600 job returns exception:
 Traceback (most recent call last):
   File "/home/zerohertz/anaconda3/envs/ls/lib/python3.8/site-packages/label_studio_ml/model.py", line 139, in get_result_from_last_job
     result = self.get_result_from_job_id(job_id)
@@ -1136,12 +1127,9 @@ AssertionError
 
 Webhook 기능을 끄면 해당 error가 발생하지 않는다.
 
-</details>
+{% endnote %}
 
-<details>
-<summary>
-학습이 완료된 model을 다시 load하여 기존 model을 load하는 현상
-</summary>
+{% note 학습이 완료된 model을 다시 load하여 기존 model을 load하는 현상 %}
 
 ```python
 2024-02-26 22:13:37,932 | INFO     | LS_ML_BE | Train: Done!    [runs/segment/train24/weights/best.pt]
@@ -1171,21 +1159,14 @@ Webhook 기능을 끄면 해당 error가 발생하지 않는다.
 ~~따라서 해당 version 이후에 `event`가 입력되면 비어있는 `train_output`이 출력되어 발생한 문제다.~~
 해결에 실패하여... 환경 변수 정의를 통해 학습이 완료된 model을 load하고 다시 새로운 model을 load하는 것을 방지했다.
 
-</details>
+{% endnote %}
 
-
-<details>
-<summary>
-<code>LABEL_STUDIO_USE_REDIS=true</code>
-</summary>
+{% note `LABEL_STUDIO_USE_REDIS=true` %}
 
 Production level로 나아가서 Docker Compose 및 Kubernetes를 이용한 Label Studio ML Backend를 배포하는 것을 시도했으나 `predict()`는 잘 수행하지만 `fit()`을 수행하지 못하는 현상에 의해 실패했다.
 아래 code는 Docker Compose를 통해 Label Studio ML Backend를 배포하는 code인데 위의 예시들과 같이 `Start Training`을 눌러서 `fit()`을 수행하려 했지만 log 조차 출력되지 않았다.
 
-<details>
-<summary>
-전체 code
-</summary>
+{% note info 전체 code %}
 
 ```python model.py
 import os
@@ -1382,16 +1363,13 @@ services:
     user: "1000"
 ```
 
-</details>
+{% endnote %}
 
 이를 해결하기 위해 `Settings` > `Cloud Storage` > `Add Source Storage` > `Redis`를 시도했지만 오류가 발생하여 `LABEL_STUDIO_USE_REDIS=false`로 선언하여 해결했다.
 
-</details>
+{% endnote %}
 
-<details>
-<summary>
-<code>RuntimeError: DataLoader worker (pid(s) *) exited unexpectedly</code>
-</summary>
+{% note `RuntimeError: DataLoader worker (pid(s) *) exited unexpectedly` %}
 
 공유 memory 크기 제한으로 발생하는 문제이기 때문에 아래와 같이 공유 memory를 확장하여 해결한다.
 
@@ -1419,4 +1397,4 @@ spec:
             medium: Memory
 ```
 
-</details>
+{% endnote %}

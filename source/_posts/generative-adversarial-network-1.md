@@ -74,7 +74,7 @@ tensor(24.)
 ~~~
 
 + 매개변수와 같은 응용도 가능하다.
-+ [이 외의 tensor handling](https://zerohertz.github.io/neural-network-example/)
++ [이 외의 tensor handling](https://zerohertz.github.io/pytorch-tensor-nn/)
 
 ***
 
