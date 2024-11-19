@@ -45,7 +45,7 @@ Amazon EC2 Inf*는 앞서 설명한 ASIC으로 구동되기 때문에 모델을 
   + End-to-End ML development lifecycle에서 새로운 모델 구축, 학습 및 최적화 후 배포를 위해 사용
   + TensorFlow, PyTorch, Apache MXNet에 통합되는 deep learning compiler, runtime, tools 포함
 
-AWS Neuron SDK를 통한 모델 컴파일은 [TensorRT 변환](https://zerohertz.github.io/how-to-convert-a-pytorch-model-to-tensorrt/)과 유사하게 진행된다.
+AWS Neuron SDK를 통한 모델 컴파일은 [TensorRT 변환](https://zerohertz.github.io/pytorch-model-to-tensorrt/)과 유사하게 진행된다.
 변환된 모델을 Triton Inference Server로 모델을 배포하면 모델 serving에 대한 준비는 모두 완료된다.
 
 ---

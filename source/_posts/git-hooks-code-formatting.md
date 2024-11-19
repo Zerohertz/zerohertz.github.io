@@ -10,7 +10,7 @@ tags:
 ---
 # Introduction
 
-[저번](https://zerohertz.github.io/automating-code-formatting-with-github-actions/#%EC%B0%A8%ED%9B%84-%EC%8B%9C%EB%8F%84)에 이어서 python code들의 formatting을 조금 더 간편하게 [Git Hooks](https://git-scm.com/book/ko/v2/Git%EB%A7%9E%EC%B6%A4-Git-Hooks)를 통해 도전한다.
+[저번](https://zerohertz.github.io/github-actions-code-formatting/#차후-시도)에 이어서 python code들의 formatting을 조금 더 간편하게 [Git Hooks](https://git-scm.com/book/ko/v2/Git%EB%A7%9E%EC%B6%A4-Git-Hooks)를 통해 도전한다.
 
 ## Git Hooks
 

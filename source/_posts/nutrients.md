@@ -43,7 +43,7 @@ categories:
 
 </details>
 
-이렇게 먹어보고 한 세달 뒤,, [훈련소](https://zerohertz.github.io/professional-research-agent-train/)도,, 마치고,, 후기로 돌아오겠습니다,,
+이렇게 먹어보고 한 세달 뒤,, [훈련소](https://zerohertz.github.io/technical-research-personnel-train-init/)도,, 마치고,, 후기로 돌아오겠습니다,,
 
 ---
 

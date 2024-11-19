@@ -28,13 +28,15 @@ $ sudo npm install hexo-generator-alias --save
 
 ![404](/images/hexo-generator-alias/404.png)
 
-~~~xml _config.yml
+~~~yaml _config.yml
 alias:
-    기존 url: 새로운 url
-    /2020/01/30/a-phm-approach-to-additive-manufacturing-equipment-health-monitoring-fault-diagnosis-and-quality-control/: /a-phm-approach-to-additive-manufacturing-equipment-health-monitoring-fault-diagnosis-and-quality-control/
+  /apache-airflow-1/: /airflow-1/
+  /apache-airflow-2/: /airflow-2/
+  /analysis-of-many-bodies-in-one-part-with-ansys-act/: /ansys-act/
+...
 ~~~
 
-[https://zerohertz.github.io/2020/01/30/a-phm-approach-to-additive-manufacturing-equipment-health-monitoring-fault-diagnosis-and-quality-control/](https://zerohertz.github.io/2020/01/30/a-phm-approach-to-additive-manufacturing-equipment-health-monitoring-fault-diagnosis-and-quality-control/)
+[https://zerohertz.github.io/apache-airflow-1/](https://zerohertz.github.io/apache-airflow-1/)
 
 + `_config.yml`에 위의 소스를 사용하여 `redirection` 가능
 + `url`은 `local` 위치로 지정

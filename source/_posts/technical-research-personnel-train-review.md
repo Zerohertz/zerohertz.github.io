@@ -9,7 +9,7 @@ tags:
 > 본 후기는 2023.05.25 ~ 2023.06.15에 [25연대](https://www.katc.mil.kr/katc/corner/main_25ca.jsp)에서 진행된 [보충역 훈련소 3주과정](https://www.katc.mil.kr/katc/eduinfo/support.jsp)를 토대로 작성되었습니다.
 
 후기를 시작하기 앞서 훈련소는 연대에 따라, 중대에 따라 큰 차이가 존재할 수 있는 것 같습니다.
-따라서 [다양한 후기 글](https://zerohertz.github.io/professional-research-agent-train-init/#%EC%9D%BD%EC%9C%BC%EB%A9%B4-%EB%8F%84%EC%9B%80%EB%90%98%EB%8A%94)들을 참고하시는 것을 추천드립니다.
+따라서 [다양한 후기 글](https://zerohertz.github.io/technical-research-personnel-train-init/#읽으면-도움되는)들을 참고하시는 것을 추천드립니다.
 
 <!-- More -->
 
@@ -97,7 +97,7 @@ tags:
 
 # 준비물 평가
 
-> [이전 글](https://zerohertz.github.io/professional-research-agent-train-init/#%EC%A4%80%EB%B9%84%EB%AC%BC)의 준비물을 기준으로 평가하였습니다.
+> [이전 글](https://zerohertz.github.io/technical-research-personnel-train-init/#준비물)의 준비물을 기준으로 평가하였습니다.
 
 + 💩: 똥템 (챙겨가지 마세요)
 + 🤔: 흠템 (본인 선택)
