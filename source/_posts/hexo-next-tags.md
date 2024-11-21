@@ -86,16 +86,16 @@ code snippet
 
 ```jinja
 {% gp 3-3 %}
-![](/props/zerohertz_red.png)
-![](/props/zerohertz_red.png)
-![](/props/zerohertz_red.png)
+![](/props/zerohertz-black-red-og.png)
+![](/props/zerohertz-black-red-og.png)
+![](/props/zerohertz-black-red-og.png)
 {% endgp %}
 ```
 
 {% gp 3-3 %}
-![](/props/zerohertz_red.png)
-![](/props/zerohertz_red.png)
-![](/props/zerohertz_red.png)
+![](/props/zerohertz-black-red-og.png)
+![](/props/zerohertz-black-red-og.png)
+![](/props/zerohertz-black-red-og.png)
 {% endgp %}
 
 ---
