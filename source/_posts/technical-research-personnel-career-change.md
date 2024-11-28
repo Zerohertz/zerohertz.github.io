@@ -1,5 +1,5 @@
 ---
-title: "전문연구요원: 전직"
+title: "전문연구요원: 전직 (1.5년)"
 date: 2024-09-12 23:10:45
 categories:
   - 0. Daily
@@ -108,7 +108,7 @@ tags:
 > 최종적으로 전직이 완료된 상태이며 아래와 같은 일정으로 진행했다.
 > ![plan-2](/images/technical-research-personnel-career-change/plan-2.png)
 
-병무청에서 전직 승인이 되면 아래와 같이 카카오톡을 통해 통보되며 [병무청: 병무민원](https://mwpt.mma.go.kr/) 또는 [산업지원 병역일터](https://work.mma.go.kr/)에서 아래와 같이 확인할 수 있다.
+병무청에서 전직 승인이 되면 아래와 같이 카카오톡을 통해 통보되며 [병무청: 병무민원](https://mwpt.mma.go.kr/) 또는 [산업지원 병역일터: 병역정보](https://work.mma.go.kr/)에서 아래와 같이 확인할 수 있다.
 
 ![career-change](/images/technical-research-personnel-career-change/career-change.png)
 
