@@ -2,33 +2,34 @@
 title: Kubernetes 입문기
 date: 2023-06-18 15:11:10
 categories:
-- 3. DevOps
+  - 3. DevOps
 tags:
-- Kubernetes
+  - Kubernetes
 ---
+
 # Introduction
 
-+ Kubernetes$\_{^{\ [1]}}$: Container화된 application을 자동화하고 관리하기 위한 open source container orchestration 플랫폼$\_{^{\ [2,3]}}$
-  + MLOps에서 왜 Kubernetes가 필요할까?$\_{^{\ [4]}}$
-    + 수많은 머신러닝 모델의 학습 요청을 차례대로 실행하는 것
-    + 다른 작업 공간에서도 같은 실행 환경을 보장해야 하는 것
-    + 배포된 서비스에 장애가 생겼을 때 빠르게 대응해야 하는 것
-    + Etc.
-  + Cluster: Container화된 application을 실행하는 node라고 하는 worker machine의 집합
-    + 모든 cluster는 최소 한 개의 worker node를 가짐
-  + Kubectl: Kubernetes의 cluster와 통신하여 다양한 object들의 상태 확인 또는 CRUD 작업 등을 위해 사용되는 CLI 도구$\_{^{\ [5]}}$
-    + CRUD: Create (생성), Read (읽기), Update (갱신), Delete (삭제)
-  + Node: Cluster 내에서 workload를 실행할 수 있는 하드웨어 또는 가상 머신 인스턴스$\_{^{\ [6]}}$
-    + Cluster에 따라 가상 또는 물리적 머신일 수 있음
-    + Control plane에 의해 관리되며 pod를 실행하는 데 필요한 서비스를 포함
-  + Pod: Cluster의 가장 작은 배포 단위
-    + 한 개 이상의 container로 구성
-    + Storage 및 network를 공유하고 함께 batch 및 scheduling (공유 context)
-  + etcd: Cluster의 데이터를 저장하는 key-value 기반 DB
-  + Namespace: Cluster 내의 논리적 분리 단위
-    + Resource를 논리적으로 나누기 위한 방법
-    + 사용자별 접근 권한 부여 가능
-+ Minikube$\_{^{\ [7]}}$: 로컬 개발 환경에서 단일 node Kubernetes cluster를 실행하기 위한 도구
+- Kubernetes$\_{^{\ [1]}}$: Container화된 application을 자동화하고 관리하기 위한 open source container orchestration 플랫폼$\_{^{\ [2,3]}}$
+  - MLOps에서 왜 Kubernetes가 필요할까?$\_{^{\ [4]}}$
+    - 수많은 머신러닝 모델의 학습 요청을 차례대로 실행하는 것
+    - 다른 작업 공간에서도 같은 실행 환경을 보장해야 하는 것
+    - 배포된 서비스에 장애가 생겼을 때 빠르게 대응해야 하는 것
+    - Etc.
+  - Cluster: Container화된 application을 실행하는 node라고 하는 worker machine의 집합
+    - 모든 cluster는 최소 한 개의 worker node를 가짐
+  - Kubectl: Kubernetes의 cluster와 통신하여 다양한 object들의 상태 확인 또는 CRUD 작업 등을 위해 사용되는 CLI 도구$\_{^{\ [5]}}$
+    - CRUD: Create (생성), Read (읽기), Update (갱신), Delete (삭제)
+  - Node: Cluster 내에서 workload를 실행할 수 있는 하드웨어 또는 가상 머신 인스턴스$\_{^{\ [6]}}$
+    - Cluster에 따라 가상 또는 물리적 머신일 수 있음
+    - Control plane에 의해 관리되며 pod를 실행하는 데 필요한 서비스를 포함
+  - Pod: Cluster의 가장 작은 배포 단위
+    - 한 개 이상의 container로 구성
+    - Storage 및 network를 공유하고 함께 batch 및 scheduling (공유 context)
+  - etcd: Cluster의 데이터를 저장하는 key-value 기반 DB
+  - Namespace: Cluster 내의 논리적 분리 단위
+    - Resource를 논리적으로 나누기 위한 방법
+    - 사용자별 접근 권한 부여 가능
+- Minikube$\_{^{\ [7]}}$: 로컬 개발 환경에서 단일 node Kubernetes cluster를 실행하기 위한 도구
 
 <!-- More -->
 
@@ -36,15 +37,15 @@ tags:
 
 # Minikube, K3s, K8s?
 
-|Feature|Minikube|K3s|K8s (기본 Kubernetes)|
-|:-:|:-:|:-:|:-:|
-|설치의 용이성|로컬 개발에 최적화, 쉽게 설치 가능|단일 바이너리로 빠르고 간단한 설치|복잡한 설정과 배포 요구|
-|메모리 사용량|일반적으로 더 많은 메모리 사용|경량화, 적은 메모리 사용|메모리 사용량은 설정에 따라 다름|
-|운영 체제 지원|대부분의 주요 OS 지원|대부분의 Linux 배포판 지원|광범위한 OS 및 플랫폼 지원|
-|클러스터 구성|주로 단일 노드 클러스터|멀티 노드 클러스터 지원 가능|다양한 멀티 노드 클러스터 구성 가능|
-|확장성|주로 개발 및 테스팅 목적|소규모에서 중규모 규모까지 확장 가능|대규모 클러스터를 위한 확장성|
-|추가 기능|로컬 개발에 특화된 추가 도구 및 기능 제공|IoT, 엣지 컴퓨팅 등에 특화|광범위한 플러그인 및 확장 지원|
-|관리 복잡성|적음|중간|높음|
+|    Feature     |                 Minikube                  |                 K3s                  |        K8s (기본 Kubernetes)        |
+| :------------: | :---------------------------------------: | :----------------------------------: | :---------------------------------: |
+| 설치의 용이성  |    로컬 개발에 최적화, 쉽게 설치 가능     |  단일 바이너리로 빠르고 간단한 설치  |       복잡한 설정과 배포 요구       |
+| 메모리 사용량  |      일반적으로 더 많은 메모리 사용       |       경량화, 적은 메모리 사용       |  메모리 사용량은 설정에 따라 다름   |
+| 운영 체제 지원 |           대부분의 주요 OS 지원           |      대부분의 Linux 배포판 지원      |     광범위한 OS 및 플랫폼 지원      |
+| 클러스터 구성  |          주로 단일 노드 클러스터          |     멀티 노드 클러스터 지원 가능     | 다양한 멀티 노드 클러스터 구성 가능 |
+|     확장성     |         주로 개발 및 테스팅 목적          | 소규모에서 중규모 규모까지 확장 가능 |    대규모 클러스터를 위한 확장성    |
+|   추가 기능    | 로컬 개발에 특화된 추가 도구 및 기능 제공 |      IoT, 엣지 컴퓨팅 등에 특화      |   광범위한 플러그인 및 확장 지원    |
+|  관리 복잡성   |                   적음                    |                 중간                 |                높음                 |
 
 ---
 
@@ -126,35 +127,38 @@ $ sudo systemctl enable minikube.service
 ## Create
 
 > Imperative (명령형)
+>
 > ```shell
-$ kubectl run k8s-is-so-hard-name --image=nginx
-pod/k8s-is-so-hard-name created
-```
+> $ kubectl run k8s-is-so-hard-name --image=nginx
+> pod/k8s-is-so-hard-name created
+> ```
 
 > Declarative (선언형)
+>
 > ```yaml pod.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: k8s-is-so-hard-name2
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.14.2
-    ports:
-    - containerPort: 80
-```
+> apiVersion: v1
+> kind: Pod
+> metadata:
+>   name: k8s-is-so-hard-name2
+> spec:
+>   containers:
+>     - name: nginx
+>       image: nginx:1.14.2
+>       ports:
+>         - containerPort: 80
+> ```
+>
 > ```shell
-$ kubectl apply -f pod.yaml
-pod/k8s-is-so-hard-name2 created
-```
+> $ kubectl apply -f pod.yaml
+> pod/k8s-is-so-hard-name2 created
+> ```
 
 <details>
 <summary>
 Kubernetes는 _를 싫어해요,,,
 </summary>
 
-The Pod "k8s_is_so_hard_name" is invalid: metadata.name: Invalid value: "k8s_is_so_hard_name": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
+The Pod "k8s_is_so_hard_name" is invalid: metadata.name: Invalid value: "k8s_is_so_hard_name": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)\*')
 
 </details>
 
@@ -217,26 +221,26 @@ Events:
 ## Update
 
 ```shell
-$ kubectl edit pods k8s-is-so-hard-name2
+kubectl edit pods k8s-is-so-hard-name2
 ```
-
-<img width="1082" alt="Update" src="/images/k8s/2b13f1ed-ed99-49c5-9b49-152ec76e2b2a">
 
 vi editor를 통한 실행 중인 pod 수정 가능
 
 ## Delete
 
 > Imperative (명령형)
+>
 > ```shell
-$ kubectl delete pods k8s-is-so-hard-name
-pod "k8s-is-so-hard-name" deleted
-```
+> $ kubectl delete pods k8s-is-so-hard-name
+> pod "k8s-is-so-hard-name" deleted
+> ```
 
 > Declarative (선언형)
+>
 > ```shell
-$ kubectl delete -f pod.yaml
-pod "k8s-is-so-hard-name2" deleted
-```
+> $ kubectl delete -f pod.yaml
+> pod "k8s-is-so-hard-name2" deleted
+> ```
 
 ---
 
@@ -337,32 +341,46 @@ $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 > CNI (Container Network Interface): Kubernetes에서 pod 간의 networking 처리
 
+<!-- markdownlint-disable -->
+
 ```shell
 $ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
-|Name|Pros|Cons|
-|:-:|:-:|:-:|
-|Calico|- 정책 기반의 보안<br />- 확장성이 뛰어남<br />- 네트워크 정책 지원|- 설정과 운영이 복잡할 수 있음<br />- 다양한 네트워크 토폴로지와 상호 작용할 때|
-|Weave Net|- 설치 및 설정이 간단<br />- 다양한 환경과 토폴로지에서 동작<br />- 클라우드, 온-프레미스, 하이브리드 환경 모두 지원|- 대규모 클러스터에서 성능 저하 가능<br />- 직접 연결된 호스트간 통신에 제한이 있을 수 있음|
-|Flannel|- 설치 및 설정이 간단<br />- 다양한 백엔드 옵션 (UDP, VXLAN 등)<br />- 작은 규모의 클러스터에서 잘 작동|- 고급 네트워킹 기능 제한<br />- 네트워크 정책 지원이 제한적<br />- 확장성과 성능이 다른 옵션에 비해 떨어질 수 있음|
+<!-- markdownlint-enable -->
+
+|   Name    |                                                         Pros                                                         |                                                        Cons                                                         |
+| :-------: | :------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: |
+|  Calico   |                         - 정책 기반의 보안<br />- 확장성이 뛰어남<br />- 네트워크 정책 지원                          |                   - 설정과 운영이 복잡할 수 있음<br />- 다양한 네트워크 토폴로지와 상호 작용할 때                   |
+| Weave Net | - 설치 및 설정이 간단<br />- 다양한 환경과 토폴로지에서 동작<br />- 클라우드, 온-프레미스, 하이브리드 환경 모두 지원 |             - 대규모 클러스터에서 성능 저하 가능<br />- 직접 연결된 호스트간 통신에 제한이 있을 수 있음             |
+|  Flannel  |       - 설치 및 설정이 간단<br />- 다양한 백엔드 옵션 (UDP, VXLAN 등)<br />- 작은 규모의 클러스터에서 잘 작동        | - 고급 네트워킹 기능 제한<br />- 네트워크 정책 지원이 제한적<br />- 확장성과 성능이 다른 옵션에 비해 떨어질 수 있음 |
 
 아래 명령어를 통해 worker node를 등록할 수 있다.
+
+<!-- markdownlint-disable -->
 
 ```shell
 $ kubeadm join ${MASTER_NODE_IP}:6443 --token ${TOKEN} --discovery-token-ca-cert-hash sha256:${HASH}
 ```
 
+<!-- markdownlint-enable -->
+
 단일 node에서 사용할 경우 아래 과정을 거치면 된다.
+
+<!-- markdownlint-disable -->
 
 ```shell
 $ kubectl describe node ${MASTER_NODE_NAME} | grep Taints
 $ kubectl taint nodes ${MASTER_NODE_NAME} node-role.kubernetes.io/control-plane:NoSchedule-
 ```
 
+<!-- markdownlint-enable -->
+
 마지막으로 삭제는 아래 명령어로 진행할 수 있다.
+
+<!-- markdownlint-disable -->
 
 ```shell
 $ kubectl drain ${NODE_NAME} --delete-local-data --force --ignore-daemonsets
@@ -372,6 +390,8 @@ $ sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*
 $ sudo apt-get autoremove
 $ rm -rf ~/.kube
 ```
+
+<!-- markdownlint-enable -->
 
 최신 버전을 위처럼 생으로 사용하면 어려운 점이 많을 수 있으니 안정적인 버전을 채택하여 아래와 같이 사용토록 하자...
 
