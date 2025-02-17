@@ -116,7 +116,7 @@ export GPG_TTY=$TTY
 ```shell
 $ git config --global user.signingkey ${Fingerprint}
 $ git config --global commit.gpgsign true
-$ git config --global gpg.program gpg
+$ git config --global gpg.program $(which gpg)
 ```
 
 그럼 끝 !
