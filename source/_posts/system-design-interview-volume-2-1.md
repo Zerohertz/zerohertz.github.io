@@ -250,7 +250,7 @@ classDiagram
 ### 캐시
 
 - Cache 계층 도입 전, 정말 필요한가? 생각해보기.
-  - 처리 부하가 읽기 중심이고 database 크기는 상대적으로 작아서 모든data는 1대 database 서버에 수용 가능 $\rightarrow$ Query 처리 성능은 I/O에 좌우되지 않으므로 memory cache 사용할 때와 비슷
+  - 처리 부하가 읽기 중심이고 database 크기는 상대적으로 작아서 모든 data는 1대 database 서버에 수용 가능 $\rightarrow$ Query 처리 성능은 I/O에 좌우되지 않으므로 memory cache 사용할 때와 비슷
   - 읽기 성능이 병목이라면 secondary database를 증설하여 읽기 대역폭을 늘릴 수 있음
 - Cache key: 사용자 위치의 위도 경도?
   - 사용자의 전화기에서 반환되는 위치 정보는 추정치
