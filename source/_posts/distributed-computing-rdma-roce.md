@@ -4,7 +4,7 @@ date: 2025-04-18 11:10:49
 categories:
   - 4. MLOps
 tags:
-  - NCCL
+  - Computer Science
 ---
 
 # Introduction
@@ -121,7 +121,6 @@ RoCE v2가 표준 IP network 상에서 routing을 지원함으로써, 물리적�
 | Interoperability | 낮음                                  | 높음                                   |
 | Typical Use Case | Ultra-low-latency, 소규모 data center | 대규모 data center, 분산 AI/cloud 환경 |
 
-
 ## InfiniBand vs RoCE
 
 | 항목         | InfiniBand                   | RoCE                                         |
@@ -131,7 +130,6 @@ RoCE v2가 표준 IP network 상에서 routing을 지원함으로써, 물리적�
 | 성능         | 최고 성능, ultra-low latency | Lossless Ethernet 환경에서 InfiniBand에 근접 |
 | 호환성       | HPC/AI 특화, 범용성 낮음     | 범용성 높음, 기존 infra와 통합 용이          |
 | 관리 복잡도  | 전용 환경, 관리 일관성       | Ethernet tuning 필요, 설정 복잡할 수 있음    |
-
 
 ## 최신 동향 및 활용 사례
 
