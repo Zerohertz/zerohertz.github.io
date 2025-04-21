@@ -40,7 +40,7 @@ tags:
 
 <!-- tab QPS (Query per Second) 계산 -->
 
-- $1 day=24h \times 60m \times 60s=86,400s\backsimeq100,000=10^5$
+- $1 day=24h \times 60m \times 60s=86,400s\simeq100,000=10^5$
 - 한 사용자 당 하루 5회 검색 시도 가정
 - $\therefore\ QPS=(100,000,000\times5)/10^5=5,000$
 
@@ -261,7 +261,7 @@ classDiagram
   - `business_id`: 사업장 정보 객체
 - 격자 내 사업장 ID
   - 사업자 정보는 상대적으로 변경이 빈번하지 않기 때문에 특정 geohash에 해당하는 사업장 ID 목록을 아래와 같이 미리 계산하여 Redis 같은 key-value 저장소에 cache 가능
-  - Redis 저장소에 값 (value)를 저장하기 위해 필요한 공간: $8byte\times 200m \times 3\backsimeq5GB$ ($3$: 정밀도 가지수)
+  - Redis 저장소에 값 (value)를 저장하기 위해 필요한 공간: $8byte\times 200m \times 3\simeq5GB$ ($3$: 정밀도 가지수)
   - 하지만 고가용성을 보장하고 대륙 경계를 넘는 traffic의 전송지연을 방지하기 위해서는 Redis cluster를 전 세계 지역별로 두고, 동일 data를 각 지역에 중복하여 저장
 
 ```sql
@@ -367,7 +367,7 @@ flowchart TD
 - $100,000,000 DAU$
 - 동시 접속 사용자: $100,000,000\times10\\%=10,000,000$
 - 사용자는 30초마다 자신의 위치를 system에 전송
-- 위치 정보 갱신 $QPS = \frac{10,000,000}{30}\backsimeq334,000$
+- 위치 정보 갱신 $QPS = \frac{10,000,000}{30}\simeq334,000$
 
 <!-- endtab -->
 

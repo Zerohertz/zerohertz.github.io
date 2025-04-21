@@ -33,8 +33,8 @@ Google Maps: 위성 이미지, 거리 뷰, 실시간 교통 상황, 경로 계�
     - 21번 확대 가정 $\rightarrow$ 4.4조개의 tile
     - $256\times 256$ pixel PNG file = 100KB
     - $\therefore 4.4\times 10^{12} \times 100KB = 440PB$
-    - 사람이 존재하는 지역 20% 가정 $\rightarrow$ $440PB\times 20\\%=88PB\backsimeq50PB$
-    - 확대 수준이 1 감소될 때 필요한 tile 수 $\frac{1}{4}$ 감소 $\rightarrow$ $50+\frac{50}{4}+\frac{50}{16}+\frac{50}{64}+...\backsimeq67PB$
+    - 사람이 존재하는 지역 20% 가정 $\rightarrow$ $440PB\times 20\\%=88PB\simeq50PB$
+    - 확대 수준이 1 감소될 때 필요한 tile 수 $\frac{1}{4}$ 감소 $\rightarrow$ $50+\frac{50}{4}+\frac{50}{16}+\frac{50}{64}+...\simeq67PB$
   - 서버 대역폭
     - Server 측 처리 요청
       - 경로 안내 요청: Client가 경로 안내 session을 시작할 때 전송
@@ -124,7 +124,7 @@ $\therefore$ 시간당 $75MB$의 data 소진 ($30\times2.5MB$) $\rightarrow$ 분
 <!-- tab CDN을 통해 service되는 traffic 규모 -->
 
 - 매일 50억 분 가량의 경로 안내 처리
-- $5\times10^9\times1.25MB=6.25PB/day\backsimeq62,500MB/sec$
+- $5\times10^9\times1.25MB=6.25PB/day\simeq62,500MB/sec$
 <!-- endtab -->
 
 {% endtabs %}
