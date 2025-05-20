@@ -89,45 +89,39 @@ flowchart TD
 
 ### 데이터 모델
 
-- 관계형 database
+<!-- markdownlint-disable -->
 
+- 관계형 database
   - 각 월별 순위표는 사용자 ID와 점수 열을 갖는 database table로 표현 가능
   - 사용자가 경연에서 승리하면 신규 사용자에게 1점을 주고 기존 사용자에게는 원래 점수에 1을 더함
   - 사용자가 점수를 얻은 경우
-
     ```sql
     INSERT INTO leaderboard (user_id, score) VALUES ('mary1934', 1);
     UPDATE leaderboard set score=score + 1 where user_id='mary1934';
     ```
-
   - 특정 사용자 순위 검색
-
     ```sql
     SELECT (@rownum := @rownum + 1) AS rank, user_id, score FROM
     leaderboard
     ORDER BY score DESC;
     ```
-
   - 이러한 방안은 data가 많지 않을 때 효과적이지만 record가 수백만 개 정도로 많아지면 성능 저하가 너무 큼
     - 사용자의 순위를 파악하려면 모든 player를 순위표의 정확한 위치에 정렬해야 함
     - SQL database는 지속적으로 변화하는 대량의 정보를 신속하게 처리 불가 (data가 지속적으로 변하기에 cache 도입도 불가)
   - 색인 (index)을 추가하고 `LIMIT` 절을 사용하여 scan할 page 수 제한
-
     ```sql
     SELECT (@rownum := @rownum + 1) AS rank, user_id, score FROM
     leaderboard
     ORDER BY score DESC
     LIMIT 10
     ```
-
   - 하지만 규모 확장성이 좋지 않음
     - 특정 사용자의 순위를 알아내려면 기본적으로 전체 table 조회 필수
     - 순위표 상단에 있지 않은 사용자의 순위를 간단히 찾기 어려움
-
 - Redis: Memory 기반 key-value 저장소 system
   - 정렬 집합 (sorted set)
     - 각 원소는 점수 (고유하지도 않을 수 있음)에 연결되어 있음
-    - 내부적으로 hash table과 skip list라는 두 가지 자료 구조 사음
+    - 내부적으로 hash table과 skip list라는 두 가지 자료 구조 사용
     - Hash table: 사용자의 점수를 저장하기 위해
     - Skip list: 특정 점수를 딴 사용자들의 목록을 저장하기 위해
   - 정렬 집합을 사용한 구현
@@ -149,6 +143,8 @@ flowchart TD
     - Redis 내 disk에 영속적 보관 옵션 지원
     - Disk에서 data를 읽어 대규모 Redis instance를 재시작 시 너무 많은 시간 소모
     - $\therefore$ Redis에 읽기 사본을 두어 주 server에서 장애 발생 시 읽기 사본을 승격시켜 주 server로 만들고 새로운 읽기 사본을 연결
+
+<!-- markdownlint-enable -->
 
 ## 3단계 상세 설계
 
