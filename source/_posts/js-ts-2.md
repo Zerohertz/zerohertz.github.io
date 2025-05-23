@@ -2,7 +2,7 @@
 title: JavaScript & TypeScript (2)
 date: 2025-05-07 20:58:55
 categories:
-  - Etc
+  - Etc.
 tags:
   - JavaScript
   - TypeScript
