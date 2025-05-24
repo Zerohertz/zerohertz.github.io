@@ -100,7 +100,7 @@ menu:
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
-  Coffee Chat: https://cal.com/zerohertz?redirect=false || fa fa-coffee
+  zerohertzLib: /zerohertzLib/ || fa fa-scroll
   #schedule: /schedule/ || fa fa-calendar
   sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -156,10 +156,11 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
+  E-Mail: mailto:ohg3417@gmail.com || fa fa-envelope
   GitHub: https://github.com/Zerohertz || fab fa-github
   Linkedin: https://www.linkedin.com/in/hyogeun-oh-67470b242/ || fab fa-linkedin
   Google: https://scholar.google.com/citations?user=TxiJyc0AAAAJ || fab fa-google
-  E-Mail: mailto:ohg3417@gmail.com || fa fa-envelope
+  Coffee Chat: https://cal.com/zerohertz?redirect=false || fa fa-coffee
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
