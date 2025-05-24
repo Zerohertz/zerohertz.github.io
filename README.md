@@ -2,7 +2,7 @@
     <h2>🧑🏻‍🎨 Zerohertz's Blog 🧑🏻‍🎨</h2>
     <img src="https://shields.io/badge/Hexo-7.3.0-0E83CD?logo=hexo&style=for-the-badge&logoColor=0E83CD"/>
     <a href="https://github.com/Zerohertz/hexo-theme-next">
-        <img src="https://img.shields.io/badge/NexT-8.21.1-000000?style=for-the-badge&logo=nextdotjs&logoColor=000000"/>
+        <img src="https://img.shields.io/badge/NexT-8.23.0-000000?style=for-the-badge&logo=nextdotjs&logoColor=000000"/>
     </a>
     <br />
     <a href="https://github.com/Zerohertz/zerohertz.github.io/actions/workflows/deploy.yaml">
@@ -18,14 +18,14 @@
 > $ hexo s -p ${PORT}
 > INFO  Validating config
 > INFO  ==================================
->  ███╗   ██╗███████╗██╗  ██╗████████╗
->  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝
->  ██╔██╗ ██║█████╗   ╚███╔╝    ██║
->  ██║╚██╗██║██╔══╝   ██╔██╗    ██║
->  ██║ ╚████║███████╗██╔╝ ██╗   ██║
->  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝
+>   ███╗   ██╗███████╗██╗  ██╗████████╗
+>   ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝
+>   ██╔██╗ ██║█████╗   ╚███╔╝    ██║
+>   ██║╚██╗██║██╔══╝   ██╔██╗    ██║
+>   ██║ ╚████║███████╗██╔╝ ██╗   ██║
+>   ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝
 > ========================================
-> NexT version 8.21.1
+> NexT version 8.23.0
 > Documentation: https://theme-next.js.org
 > ========================================
 > ```
