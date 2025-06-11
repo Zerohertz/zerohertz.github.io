@@ -13,7 +13,7 @@ from typing import Dict, List, Tuple
 from loguru import logger
 
 PREFIX = r"$\_[$"
-TEMPLATE = r"[$\_{REFERENCE_INDEX}$](REFERENCE_URL)"
+TEMPLATE = r"[$\_{{REFERENCE_INDEX}}$](REFERENCE_URL)"
 JOIN = r"$\_,$"
 POSTFIX = r"$\_]$"
 
