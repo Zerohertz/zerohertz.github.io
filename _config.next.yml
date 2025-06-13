@@ -399,7 +399,7 @@ reading_progress:
 
 # Bookmark Support
 bookmark:
-  enable: true
+  enable: false
   # Customize the color of the bookmark.
   color: "#800a0a"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
