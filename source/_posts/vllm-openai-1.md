@@ -22,7 +22,7 @@ In response to these challenges, vLLM has emerged as a leading solution, garneri
 As demonstrated in the star history graph below, vLLM has established itself as the most prominent LLM serving framework among various competing solutions.
 
 <a href="https://www.star-history.com/#deepspeedai/DeepSpeed-MII&huggingface/text-generation-inference&lm-sys/FastChat&vllm-project/vllm&bentoml/OpenLLM&InternLM/lmdeploy&NVIDIA/TensorRT-LLM&sgl-project/sglang&Date">
-  <img src="/images/vllm-openai/star-history-202569.png" alt="star-history-202569" width="600" />
+  <img src="/images/vllm-openai-1/star-history-202569.png" alt="star-history-202569" width="600" />
 </a>
 
 A particularly noteworthy aspect is the standardized API interface provided by OpenAI's GPT series.
@@ -193,7 +193,7 @@ INFO:     Application startup complete.
 
 vLLM automatically generates interactive API documentation accessible via Swagger UI:
 
-<img src="/images/vllm-openai/vllm-serve-swagger.png" alt="vllm-serve-swagger" width="600" />
+<img src="/images/vllm-openai-1/vllm-serve-swagger.png" alt="vllm-serve-swagger" width="600" />
 
 The Swagger interface provides:
 
@@ -231,7 +231,7 @@ vllm:prompt_tokens_total{model_name="Qwen/Qwen3-0.6B"} 28.0
 ...
 ```
 
-<img src="/images/vllm-openai/vllm-grafana.png" alt="vllm-grafana" width="1000" />
+<img src="/images/vllm-openai-1/vllm-grafana.png" alt="vllm-grafana" width="1000" />
 
 ---
 
