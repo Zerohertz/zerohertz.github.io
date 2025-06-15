@@ -7,6 +7,7 @@ tags:
   - Python
   - PyTorch
   - vLLM
+  - FastAPI
   - Code Review
 ---
 
