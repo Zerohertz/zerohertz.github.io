@@ -399,7 +399,7 @@ reading_progress:
 
 # Bookmark Support
 bookmark:
-  enable: false
+  enable: true
   # Customize the color of the bookmark.
   color: "#800a0a"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
@@ -621,7 +621,7 @@ quicklink:
 # Use Animate.css to animate everything.
 # For more information: https://animate.style
 motion:
-  enable: true
+  enable: false
   async: false
   duration: 120
   transition:
@@ -649,7 +649,7 @@ pace:
 # Generate a ribbon in your website with HTML5 canvas.
 # For more information: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: true
+  enable: false
   size: 150 # The width of the ribbon
   alpha: 0.5 # The transparency of the ribbon
   zIndex: -2 # The display level of the ribbon
