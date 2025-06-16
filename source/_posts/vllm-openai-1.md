@@ -297,8 +297,8 @@ class ServeSubcommand(CLISubcommand):
         if hasattr(args, 'model_tag') and args.model_tag is not None:
             args.model = args.model_tag
 
-        if args.v0.9.0.1less:
-            run_v0.9.0.1less(args)
+        if args.headless:
+            run_headless(args)
         else:
             uvloop.run(run_server(args))
 ...
@@ -452,7 +452,7 @@ class MPClient(EngineCoreClient):
                     executor_class=executor_class,
                     log_stats=log_stats,
                     input_address=input_address,
-                    on_v0.9.0.1_node=True,
+                    on_head_node=True,
                     local_engine_count=local_engine_count,
                     start_index=start_index,
                     local_start_index=local_start_index)
