@@ -49,7 +49,7 @@ INFO 06-09 23:16:17 [launcher.py:36] Route: /v1/completions, Methods: POST
 
 Let me walk you through the differences between these two endpoints.
 
-| Aspect                      | `/v1/completions` [REF: f552c6eb-bf89-4121-bf60-2c42b9fa20c1] | `/v1/chat/completions` [REF: f76096f7-4e43-4cf9-939c-65511ac58128]    |
+| Aspect                      | `/v1/completions` $\_[$[$\_{1}$](https://platform.openai.com/docs/api-reference/completions/create)$\_]$ | `/v1/chat/completions` $\_[$[$\_{2}$](https://platform.openai.com/docs/api-reference/chat/create)$\_]$    |
 | --------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------- |
 | **Purpose**                 | Text Completion                                               | Conversational Chat                                                   |
 | **Input Format**            | Single string (`prompt`)                                      | Array of messages (`messages`)                                        |
