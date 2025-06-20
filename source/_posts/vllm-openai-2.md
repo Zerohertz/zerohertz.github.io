@@ -49,18 +49,18 @@ INFO 06-09 23:16:17 [launcher.py:36] Route: /v1/completions, Methods: POST
 
 Let me walk you through the differences between these two endpoints.
 
-| Aspect                      | `/v1/completions` $\_[$[$\_{1}$](https://platform.openai.com/docs/api-reference/completions/create)$\_]$ | `/v1/chat/completions` $\_[$[$\_{2}$](https://platform.openai.com/docs/api-reference/chat/create)$\_]$    |
-| --------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **Purpose**                 | Text Completion                                               | Conversational Chat                                                   |
-| **Input Format**            | Single string (`prompt`)                                      | Array of messages (`messages`)                                        |
-| **Message Structure**       | `{"prompt": "Hello, World!"}`                                 | `{"messages": [{"role": "user", "content": "Hello, World!"}]}`        |
-| **Role Support**            | None (plain text)                                             | `system`, `user`, `assistant`, etc.                                   |
-| **Context Management**      | Manual inclusion in prompt                                    | Automatic management via message history                              |
-| **Conversation Continuity** | Requires manual implementation                                | Built-in support                                                      |
-| **Response Format**         | `choices[].text`                                              | `choices[].message.content`                                           |
-| **Use Cases**               | - Code generation<br/>- Text completion<br/>- One-shot tasks  | - Chatbots<br/>- Conversational assistants<br/>- Multi-turn dialogues |
-| **Token Efficiency**        | Low (full context retransmission)                             | High (message-level management)                                       |
-| **Legacy Status**           | Legacy (not recommended)                                      | Currently recommended approach                                        |
+| Aspect                      | `/v1/completions` $\_[$[$\_{1}$](https://platform.openai.com/docs/api-reference/completions/create)$\_]$ | `/v1/chat/completions` $\_[$[$\_{2}$](https://platform.openai.com/docs/api-reference/chat/create)$\_]$ |
+| --------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Purpose**                 | Text Completion                                                                                          | Conversational Chat                                                                                    |
+| **Input Format**            | Single string (`prompt`)                                                                                 | Array of messages (`messages`)                                                                         |
+| **Message Structure**       | `{"prompt": "Hello, World!"}`                                                                            | `{"messages": [{"role": "user", "content": "Hello, World!"}]}`                                         |
+| **Role Support**            | None (plain text)                                                                                        | `system`, `user`, `assistant`, etc.                                                                    |
+| **Context Management**      | Manual inclusion in prompt                                                                               | Automatic management via message history                                                               |
+| **Conversation Continuity** | Requires manual implementation                                                                           | Built-in support                                                                                       |
+| **Response Format**         | `choices[].text`                                                                                         | `choices[].message.content`                                                                            |
+| **Use Cases**               | - Code generation<br/>- Text completion<br/>- One-shot tasks                                             | - Chatbots<br/>- Conversational assistants<br/>- Multi-turn dialogues                                  |
+| **Token Efficiency**        | Low (full context retransmission)                                                                        | High (message-level management)                                                                        |
+| **Legacy Status**           | Legacy (not recommended)                                                                                 | Currently recommended approach                                                                         |
 
 As officially documented by OpenAI, `/v1/completions` is legacy and not recommended.
 
@@ -1816,7 +1816,7 @@ sequenceDiagram
     participant AsyncLLM as AsyncLLM(EngineClient)
     participant EngineCoreProc as EngineCoreProc(EngineCore)
     participant Scheduler as Scheduler(SchedulerInterface)
-    participant UniProcExecutor(UniProcExecutorV0 Executor)
+    participant UniProcExecutor as UniProcExecutor(UniProcExecutorV0|Executor)
     participant Worker as Worker(WorkerBase)
     participant GPUModelRunner as GPUModelRunner(LoRAModelRunnerMixin)
     participant OutputProcessor
