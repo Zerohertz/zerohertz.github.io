@@ -1814,6 +1814,8 @@ sequenceDiagram
     participant FastAPI
     participant OpenAIServingChat as OpenAIServingChat(OpenAIServing)
     participant AsyncLLM as AsyncLLM(EngineClient)
+    participant AsyncMPClient as AsyncMPClient(MPClient)
+    participant ZMQ as ZeroMQ
     participant EngineCoreProc as EngineCoreProc(EngineCore)
     participant Scheduler as Scheduler(SchedulerInterface)
     participant UniProcExecutor as UniProcExecutor(UniProcExecutorV0|Executor)
@@ -1821,32 +1823,44 @@ sequenceDiagram
     participant GPUModelRunner as GPUModelRunner(LoRAModelRunnerMixin)
     participant OutputProcessor
 
+    EngineCoreProc-->>EngineCoreProc: run_busy_loop()
     Client->>FastAPI: POST /v1/chat/completions
-    FastAPI->>OpenAIServingChat: create_chat_completion(request)
+    FastAPI->>OpenAIServingChat: create_chat_completion(ChatCompletionRequest)
 
-    Note over OpenAIServingChat: Validation & Preprocessing
     OpenAIServingChat->>OpenAIServingChat: _check_model, _preprocess_chat, etc.
 
-    OpenAIServingChat->>AsyncLLM: generate(engine_prompt, sampling_params)
-    AsyncLLM->>EngineCoreProc: add_request(EngineCoreRequest)
+    OpenAIServingChat->>AsyncLLM: generate()
+    AsyncLLM->>AsyncMPClient: add_request(EngineCoreRequest)
+    AsyncMPClient->>ZMQ: add_request_async(EngineCoreRequest)
+    EngineCoreProc->>ZMQ: _handle_client_request(EngineCoreRequestType)
+    ZMQ-->>EngineCoreProc: add_request(EngineCoreRequest)
+    EngineCoreProc->>Scheduler: add_request(Request)
 
-    Note over EngineCoreProc,Scheduler: Scheduling & Execution Loop
-    EngineCoreProc->>Scheduler: add_request → schedule()
-    Scheduler-->>EngineCoreProc: SchedulerOutput
+    rect rgb(255,128,128)
+        note over EngineCoreProc: step_fn()
+        EngineCoreProc->>Scheduler: schedule()
+        Scheduler-->>EngineCoreProc: SchedulerOutput
+        EngineCoreProc->>UniProcExecutor: execute_model(SchedulerOutput)
+        UniProcExecutor->>Worker: collective_rpc("execute_model")
+        Worker->>GPUModelRunner: execute_model(SchedulerOutput)
+        GPUModelRunner-->>Worker: ModelRunnerOutput | IntermediateTensors
+        Worker-->>UniProcExecutor: ModelRunnerOutput
+        UniProcExecutor-->>EngineCoreProc: ModelRunnerOutput
+        EngineCoreProc->>Scheduler: update_from_output(SchedulerOutput, ModelRunnerOutput)
+        Scheduler->>EngineCoreProc: EngineCoreOutputs
+    end
+    EngineCoreProc-->>EngineCoreProc: put_nowait(EngineCoreOutputs)
+    EngineCoreProc->>ZMQ: process_output_socket()
+    rect rgb(128,128,255)
+        note over AsyncLLM: output_handler()
+        AsyncLLM->>AsyncMPClient: get_output_async()
+        AsyncMPClient->>ZMQ: process_outputs_socket()
+        ZMQ-->>AsyncLLM: EngineCoreOutputs
+        AsyncLLM->>OutputProcessor: process_outputs()
+        OutputProcessor-->>AsyncLLM: OutputProcessorOutput
+    end
+    AsyncLLM-->>OpenAIServingChat: AsyncGenerator[RequestOutput, None]
 
-    EngineCoreProc->>UniProcExecutor: execute_model(scheduler_output)
-    UniProcExecutor->>Worker: execute_model(scheduler_output)
-    Worker->>GPUModelRunner: execute_model()
-    GPUModelRunner-->>Worker: SamplerOutput
-    Worker-->>UniProcExecutor: model_output
-    UniProcExecutor-->>EngineCoreProc: model_output
-
-    EngineCoreProc->>Scheduler: update_from_output()
-    EngineCoreProc->>OutputProcessor: process_outputs()
-    OutputProcessor-->>AsyncLLM: RequestOutput
-    AsyncLLM-->>OpenAIServingChat: RequestOutput
-
-    Note over OpenAIServingChat: Response Generation
     OpenAIServingChat-->>FastAPI: ChatCompletionResponse / AsyncGenerator
     FastAPI-->>Client: JSONResponse / StreamingResponse
 ```
