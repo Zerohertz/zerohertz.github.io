@@ -1865,7 +1865,8 @@ sequenceDiagram
     FastAPI-->>Client: JSONResponse / StreamingResponse
 ```
 
-The structure turned out to be much more complex than I expected, making this article quite lengthy with many parts omitted. In future articles, I'll take a closer look at core components like `EngineCoreProc(EngineCore)`, `Scheduler(SchedulerInterface)`, and `GPUModelRunner(LoRAModelRunnerMixin)`.
+The structure turned out to be much more complex than I expected, making this article quite lengthy with many parts omitted.
+In future articles, I'll take a closer look at core components like `EngineCoreProc(EngineCore)`, `Scheduler(SchedulerInterface)`, and `GPUModelRunner(LoRAModelRunnerMixin)`.
 
 ---
 
