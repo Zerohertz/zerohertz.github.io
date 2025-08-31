@@ -261,7 +261,7 @@ Attention 계산 중 PagedAttention kernel은 서로 다른 KV block을 개별�
 
 Fig. 5는 PagedAttention의 예시를 보여준다.
 Key vector와 value vector는 세 block에 분산되어 있고, physical memory에서 contiguous하지 않다.
-각 시점에서 kernel은 query token ("*forth*")의 query vector $q\_i$와 block의 key vector $K\_j$ (e.g., block 0의 "Four score and seven"의 key vector)를 곱하여 attention score $A\_{ij}$를 계산하고, 나중에 $A\_{ij}$와 block의 value vector $V\_j$를 곱하여 최종 attention output $o\_i$를 도출한다.
+각 시점에서 kernel은 query token ("forth")의 query vector $q\_i$와 block의 key vector $K\_j$ (e.g., block 0의 "Four score and seven"의 key vector)를 곱하여 attention score $A\_{ij}$를 계산하고, 나중에 $A\_{ij}$와 block의 value vector $V\_j$를 곱하여 최종 attention output $o\_i$를 도출한다.
 
 요약하자면, PagedAttention algorithm을 사용하면 KV block을 non-contiguous한 physical memory에 저장할 수 있으므로 vLLM에서 더욱 유연한 paged memory management가 가능하다.
 
