@@ -387,7 +387,6 @@ def main():
     # Add command
     add_parser = subparsers.add_parser("add", help="Add a reference")
     add_parser.add_argument("post_name", help="Post name (without .md extension)")
-    add_parser.add_argument("ref_url", help="Reference URL")
     add_parser.add_argument("--name", dest="ref_name", help="Reference name")
     add_parser.add_argument("--idx", dest="ref_index", type=int, help="Reference index")
 
@@ -415,9 +414,11 @@ def main():
     refctl = RefCtl("/home/zerohertz/Zerohertz/blog/source/_posts")
 
     if args.command == "add":
-        refctl.add_reference(
-            args.post_name, args.ref_url, args.ref_name, args.ref_index
-        )
+        ref_url = sys.stdin.readline().strip()
+        if not ref_url:
+            logger.error("No URL provided from stdin")
+            sys.exit(1)
+        refctl.add_reference(args.post_name, ref_url, args.ref_name, args.ref_index)
     elif args.command == "run":
         refctl.run_conversion(args.post_name, args.reverse)
     elif args.command == "val":
