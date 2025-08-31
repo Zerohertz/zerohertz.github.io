@@ -226,7 +226,7 @@ Compaction을 사용하더라도 각 요청에 대해 미리 할당된 chunk spa
 
 # Method
 
-본 연구에서는 새로운 attention algorithm인 *PagedAttention*을 개발하고, LLM serving engine인 [*vLLM*](https://github.com/vllm-project/vllm)을 구축하여 [$\S3$](#memory-challenges-in-llm-serving)의 문제들을 해결한다.
+본 연구에서는 새로운 attention algorithm인 *PagedAttention*을 개발하고, LLM serving engine인 [*vLLM*](https://github.com/vllm-project/vllm)을 구축하여 [$\S3$](#Memory-Challenges-in-LLM-Serving)의 문제들을 해결한다.
 
 > <img src="/images/paper-review-pagedattention/vllm-system.png" alt="vllm-system" width="800" />
 > <p align="center"><b>Figure 4.</b> vLLM system overview.</p>
@@ -238,7 +238,7 @@ vLLM은 분산된 GPU worker의 실행을 조정하기 위해 centralized schedu
 
 ## PagedAttention
 
-[$\S3$](#memory-challenges-in-llm-serving)의 memory 문제들을 해결하기 위해 운영 체제의 고전적인 *paging* $\_[$[$\_{25}$](https://ieeexplore.ieee.org/document/5219356)$\_]$ idea에서 영감을 받은 attention algorithm인 *PagedAttention*은 기존의 attention algorithm과 달리 non-contiguous memory space에 연속적인 key와 value를 저장할 수 있다.
+[$\S3$](#Memory-Challenges-in-LLM-Serving)의 memory 문제들을 해결하기 위해 운영 체제의 고전적인 *paging* $\_[$[$\_{25}$](https://ieeexplore.ieee.org/document/5219356)$\_]$ idea에서 영감을 받은 attention algorithm인 *PagedAttention*은 기존의 attention algorithm과 달리 non-contiguous memory space에 연속적인 key와 value를 저장할 수 있다.
 구체적으로 PagedAttention은 각 sequence의 KV cache를 *KV block*으로 분할한다.
 각 block들은 고정된 수의 token에 대한 key 및 value vector를 포함하며, 이를 *KV block size* ($B$)라고 한다.
 Key block은 $K\_j=(k\_{(j-1)B+1},...,k\_{jB})$, value block은 $V\_j=(v\_{(j-1)B+1},...,v\_jB)$로 표시한다.
@@ -275,7 +275,7 @@ vLLM은 virtual memory의 기본 개념을 활용하여 LLM service의 KV cache�
 PagedAttention을 통해 KV cache를 virtual memory의 page와 같이 fixed-size KV block으로 구성한다
 
 요청의 KV cache는 일련의 *logical KV block*으로 표현되며, 새로운 token과 해당 token의 KV cache가 생성됨에 따라 왼쪽에서 오른쪽으로 채워진다.
-GPU worker에서 *block engine*은 GPU DRAM의 contiguous chunk를 할당하고 이를 *physical KV block*으로 나눈다 (이는 CPU RAM에서도 swapping을 위해 수행된다. [$\S4.5$](#scheduling-and-preemption)).
+GPU worker에서 *block engine*은 GPU DRAM의 contiguous chunk를 할당하고 이를 *physical KV block*으로 나눈다 (이는 CPU RAM에서도 swapping을 위해 수행된다. [$\S4.5$](#Scheduling-and-Preemption)).
 *KV block manager*는 각 요청의 logical KV block과 physical KV block 간의 mapping인 *block table*도 관리한다.
 각 block table 항목은 logical block에 해당하는 physical block과 채워진 위치의 개수를 기록한다.
 Logical KV block과 physical KV block을 분리하면 vLLM이 모든 위치에 미리 예약하지 않고도 KV cache memory를 동적으로 확장할 수 있으므로 기존 system의 대부분 memory 낭비를 제거할 수 있다.
@@ -298,11 +298,11 @@ Prefill step에서 vLLM은 기존의 self attention algorithm (e.g., $[$[${13}$]
 ③ 두 번째 decoding step에서 마지막 logical block이 가득 차면 vLLM은 새로 생성된 KV cache를 새 logical block에 저장합니다.
 vLLM은 해당 block에 새 physical block (physical block 3)을 할당하고 이 mapping을 block table에 저장한다.
 
-전역적으로, 각 decoding iteration마다 vLLM은 먼저 batching할 후보 sequence 집합을 선택하고 ([$\S4.5$](#scheduling-and-preemption)), 새로 필요한 logical block에 physical block을 할당한다.
+전역적으로, 각 decoding iteration마다 vLLM은 먼저 batching할 후보 sequence 집합을 선택하고 ([$\S4.5$](#Scheduling-and-Preemption)), 새로 필요한 logical block에 physical block을 할당한다.
 그 이후, vLLM은 현재 iteration의 모든 input token (i.e., prompt phase 요청에 대한 모든 token과 생성 단계 요청에 대한 최신 token)을 하나의 sequence로 연결하여 LLM에 제공한다.
 LLM의 계산 과정에서 vLLM은 PagedAttention kernel을 사용하여 logical KV block로 저장된 이전 KV cache에 접근하고 새로 생성된 KV cache를 physical KV block에 저장한다.
 KV block (block size > 1) 내에 여러 token을 저장하면 PagedAttention kernel이 더 많은 위치에서 KV cache를 병렬로 처리할 수 있어 hardware 사용률이 증가하고 latency가 단축된다.
-그러나 block 크기가 커지면 memory fragmentation도 증가한다. ([$\S7.2$](#impact-of-block-size))
+그러나 block 크기가 커지면 memory fragmentation도 증가한다. ([$\S7.2$](#Impact-of-Block-Size))
 
 > <img src="/images/paper-review-pagedattention/vllm-kv-cache.png" alt="vllm-kv-cache" width="1200" />
 > <p align="center"><b>Figure 7.</b> Storing the KV cache of two requests at the same time in vLLM.</p>
@@ -317,7 +317,7 @@ Fig. 7은 vLLM이 두 sequence를 관리하는 예시를 보여준다.
 
 ## Application to Other Decoding Scenarios
 
-[$\S4.3$](#decoding-with-pagedattention-and-vllm)은 PagedAttention과 vLLM이 하나의 사용자 prompt를 입력으로 받아 단일 output sequence를 생성하는 greedy decoding 및 sampling과 같은 기본적인 decoding algorithm을 처리하는 방법을 보여준다.
+[$\S4.3$](#Decoding-with-PagedAttention-and-vLLM)은 PagedAttention과 vLLM이 하나의 사용자 prompt를 입력으로 받아 단일 output sequence를 생성하는 greedy decoding 및 sampling과 같은 기본적인 decoding algorithm을 처리하는 방법을 보여준다.
 많은 성공적인 LLM application $\_[$[$\_{18}$](https://github.com/features/copilot)$\_,$[$\_{34}$](https://openai.com/index/openai-api/)$\_]$에서 LLM service는 복잡한 접근 pattern과 더 많은 memory 공유 기회를 보이는 더욱 복잡한 decoding scenario를 제공해야 한다.
 이 section에서는 이러한 scenario에 대한 vLLM의 일반적인 적용 가능성을 보여준다.
 
@@ -437,7 +437,7 @@ Decoding 시 생성된 token을 원래 사용자 prompt에 새로운 prompt로 �
 모든 위치의 KV cache는 한 번의 prompt phase iteration으로 생성될 수 있다.
 
 Swapping 및 recomputation 성능은 CPU RAM과 GPU memory 간의 bandwidth과 GPU의 computation power에 따라 달라진다.
-[$\S7.3$](#comparing-recomputation-and-swapping)에서 swapping 및 recomputation 속도를 살펴본다.
+[$\S7.3$](#Comparing-Recomputation-and-Swapping)에서 swapping 및 recomputation 속도를 살펴본다.
 
 ## Distributed Execution
 
@@ -619,10 +619,10 @@ Buddy allocation algorithm으로 인해 Orca baseline은 출력 길이 예측 �
 ## Kernel Microbenchmark
 
 PagedAttention의 dynamic block mapping은 저장된 KV cache와 관련된 GPU operation, 즉 block read/write 및 attention 성능에 영향을 미친다.
-기존 system과 비교했을 때, 본 논문의 GPU kernel ([$\S5$](#implementation))은 block table 접근, 추가 branch 실행, 가변 sequence 길이 등 추가적인 overhead를 발생시킨다.
+기존 system과 비교했을 때, 본 논문의 GPU kernel ([$\S5$](#Implementation))은 block table 접근, 추가 branch 실행, 가변 sequence 길이 등 추가적인 overhead를 발생시킨다.
 이로 인해 고도로 최적화된 FasterTransformer 구현에 비해 attention kernel latency가 20-26% 더 길어진다.
 Attention operator에만 영향을 미치고 Linear와 같은 다른 operator에는 영향을 미치지 않으므로 overhead는 작다고 판단한다.
-이러한 overhead에도 불구하고, PagedAttention은 vLLM이 end-to-end performance 측면에서 FasterTransformer보다 훨씬 우수한 성능을 발휘하도록 한다 ([$\S6$](#evaluation)).
+이러한 overhead에도 불구하고, PagedAttention은 vLLM이 end-to-end performance 측면에서 FasterTransformer보다 훨씬 우수한 성능을 발휘하도록 한다 ([$\S6$](#Evaluation)).
 
 ## Impact of Block Size
 
