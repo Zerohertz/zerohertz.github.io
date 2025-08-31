@@ -183,7 +183,7 @@ class RefCtl:
                 existing_refs = new_refs
 
         # Generate UUID
-        ref_uuid = str(uuid.uuid4())
+        ref_uuid = str(uuid.uuid4()).replace("-", "")[:10]
 
         # Use URL as name if name not provided
         if ref_name is None:
@@ -206,7 +206,7 @@ class RefCtl:
                     old_uuid = old_ref["uuid"]
                 else:
                     # Generate new UUID for references without UUID
-                    old_uuid = str(uuid.uuid4())
+                    old_uuid = str(uuid.uuid4()).replace("-", "")[:10]
                 new_ref_lines.append(
                     f"{idx}. [{old_ref['name']}]({old_ref['url']}) <!-- {old_uuid} -->\n"
                 )
@@ -328,9 +328,6 @@ class RefCtl:
             return
 
         errors_found = False
-
-        # Build reverse lookup: index -> uuid
-        index_to_uuid = {ref_info["index"]: uuid for uuid, ref_info in refs.items()}
 
         for line_num, line in enumerate(lines, 1):
             # Find LaTeX-style reference patterns
