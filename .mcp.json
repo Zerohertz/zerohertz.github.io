@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "Hexo Docs": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://gitmcp.io/hexojs/hexo"],
+      "env": {}
+    },
+    "Hexo Next Theme Docs": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://gitmcp.io/next-theme/hexo-theme-next"
+      ],
+      "env": {}
+    }
+  }
+}
