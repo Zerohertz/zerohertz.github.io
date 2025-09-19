@@ -459,8 +459,8 @@ font:
 
   # Font settings for <code> and code blocks.
   codes:
-    external: false
-    family: D2Coding
+    external: true
+    family: JetBrains Mono, D2Coding
 
 # ---------------------------------------------------------------
 # SEO Settings
