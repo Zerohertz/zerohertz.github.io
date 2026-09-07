@@ -4,7 +4,7 @@ date: 2025-03-17 20:36:32
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 근접성 서비스

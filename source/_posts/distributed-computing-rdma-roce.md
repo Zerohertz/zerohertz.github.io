@@ -4,7 +4,6 @@ date: 2025-04-18 11:10:49
 categories:
   - 4. MLOps
 tags:
-  - Computer Science
   - XPU (eXtended Processing Unit)
 ---
 
