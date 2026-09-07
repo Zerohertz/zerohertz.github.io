@@ -5,6 +5,7 @@ categories:
 - Etc.
 tags:
 - GitHub
+- Hexo
 ---
 ## 첫 업로드
 ~~~
