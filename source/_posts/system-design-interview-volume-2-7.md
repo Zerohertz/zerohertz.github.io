@@ -4,7 +4,7 @@ date: 2025-05-13 15:25:19
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # S3와 유사한 객체 저장소

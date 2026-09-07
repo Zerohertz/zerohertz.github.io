@@ -4,7 +4,7 @@ date: 2025-04-12 19:48:40
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 광고 클릭 이벤트 집계

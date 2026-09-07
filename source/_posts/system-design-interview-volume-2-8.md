@@ -4,7 +4,7 @@ date: 2025-05-19 20:40:09
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 실시간 게임 순위표

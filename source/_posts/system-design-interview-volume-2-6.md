@@ -4,7 +4,7 @@ date: 2025-04-21 19:36:47
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 호텔 예약 시스템

@@ -4,7 +4,7 @@ date: 2025-05-26 19:50:10
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 결제 시스템

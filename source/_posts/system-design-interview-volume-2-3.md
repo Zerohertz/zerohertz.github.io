@@ -4,7 +4,7 @@ date: 2025-03-31 20:12:33
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 분산 메세지 큐

@@ -4,7 +4,7 @@ date: 2025-04-07 19:49:25
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 지표 모니터링 및 경보 시스템

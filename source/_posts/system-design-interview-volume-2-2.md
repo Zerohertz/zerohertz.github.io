@@ -4,7 +4,7 @@ date: 2025-03-24 19:58:24
 categories:
   - 3. DevOps
 tags:
-  - Computer Science
+  - System Design Interview
 ---
 
 # 구글 맵
