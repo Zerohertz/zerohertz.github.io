@@ -5,6 +5,7 @@ categories:
   - 4. MLOps
 tags:
   - vLLM
+  - XPU (eXtended Processing Unit)
   - Paper Review
 ---
 

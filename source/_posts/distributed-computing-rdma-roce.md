@@ -5,6 +5,7 @@ categories:
   - 4. MLOps
 tags:
   - Computer Science
+  - XPU (eXtended Processing Unit)
 ---
 
 # Introduction

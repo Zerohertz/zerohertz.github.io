@@ -8,6 +8,7 @@ tags:
 - Docker
 - Triton Inference Server
 - Python
+- XPU (eXtended Processing Unit)
 ---
 # Introduction
 
