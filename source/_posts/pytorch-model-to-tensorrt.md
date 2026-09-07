@@ -7,6 +7,7 @@ tags:
 - Python
 - PyTorch
 - TensorRT
+- XPU (eXtended Processing Unit)
 ---
 # Introduction
 

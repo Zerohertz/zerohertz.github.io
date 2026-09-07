@@ -8,6 +8,7 @@ tags:
 - Triton Inference Server
 - TensorRT
 - Python
+- XPU (eXtended Processing Unit)
 ---
 
 # Introduction

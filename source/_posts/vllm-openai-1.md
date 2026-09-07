@@ -8,6 +8,7 @@ tags:
   - PyTorch
   - vLLM
   - FastAPI
+  - XPU (eXtended Processing Unit)
   - Code Review
 ---
 

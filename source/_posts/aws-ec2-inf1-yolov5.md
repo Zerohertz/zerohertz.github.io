@@ -9,6 +9,7 @@ tags:
 - Triton Inference Server
 - FastAPI
 - Python
+- XPU (eXtended Processing Unit)
 ---
 # Introduction
 
