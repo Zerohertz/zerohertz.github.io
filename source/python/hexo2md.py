@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # NOTE:
+# ln -sf ${PWD}/hexo2md.py ~/.local/bin/hexo2md
 # sudo ln -sf ${PWD}/hexo2md.py /usr/bin/hexo2md
 
 import os
@@ -181,7 +182,10 @@ def main():
         sys.exit(1)
 
     post_name = sys.argv[1]
-    filename = f"/home/zerohertz/Zerohertz/blog/source/_posts/{post_name}.md"
+    posts_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "_posts"
+    )
+    filename = os.path.join(posts_dir, f"{post_name}.md")
 
     # Check if file exists
     if not os.path.exists(filename):
