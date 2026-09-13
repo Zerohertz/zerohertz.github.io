@@ -6,5 +6,6 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+__pycache__
 .env
 .omc

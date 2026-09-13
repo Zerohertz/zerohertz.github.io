@@ -2,11 +2,9 @@
 
 import os
 import re
-import sys
 from glob import glob
 
 import zerohertzLib as zz
-from tqdm import tqdm
 
 
 def parse_html_img_tags(md_content):

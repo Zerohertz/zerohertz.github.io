@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # NOTE:
+# ln -sf ${PWD}/refctl.py ~/.local/bin/refctl
 # sudo ln -sf ${PWD}/refctl.py /usr/bin/refctl
 
 import argparse
@@ -411,7 +412,10 @@ def main():
         parser.print_help()
         return
 
-    refctl = RefCtl("/home/zerohertz/Zerohertz/blog/source/_posts")
+    posts_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "_posts"
+    )
+    refctl = RefCtl(posts_dir)
 
     if args.command == "add":
         ref_url = sys.stdin.readline().strip()
