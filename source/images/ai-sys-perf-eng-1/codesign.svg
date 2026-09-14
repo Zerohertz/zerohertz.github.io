@@ -1,0 +1,28 @@
+<svg viewBox="4 16 432 254" xmlns="http://www.w3.org/2000/svg" width="432" height="254" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="Hardware, Algorithms, Software가 서로를 제약하며 함께 설계되는 codesign 구조">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#800a0a" />
+    </marker>
+  </defs>
+  <g stroke="#800a0a" stroke-width="2.2" marker-start="url(#ar)" marker-end="url(#ar)">
+    <line x1="178" y1="52" x2="262" y2="52" />
+    <line x1="112" y1="88" x2="180" y2="203" />
+    <line x1="328" y1="88" x2="260" y2="203" />
+  </g>
+  <g>
+    <rect x="12" y="25" width="156" height="54" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2.2" />
+    <text x="90" y="50" text-anchor="middle" font-size="20" fill="#1a1a1a">Hardware</text>
+    <text x="90" y="69" text-anchor="middle" font-size="12.5" fill="#6b6b6b">Tensor Core · NVLink</text>
+  </g>
+  <g>
+    <rect x="272" y="25" width="156" height="54" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2.2" />
+    <text x="350" y="50" text-anchor="middle" font-size="20" fill="#1a1a1a">Algorithms</text>
+    <text x="350" y="69" text-anchor="middle" font-size="12.5" fill="#6b6b6b">FlashAttention · MoE</text>
+  </g>
+  <g>
+    <rect x="142" y="211" width="156" height="54" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2.2" />
+    <text x="220" y="236" text-anchor="middle" font-size="20" fill="#1a1a1a">Software</text>
+    <text x="220" y="255" text-anchor="middle" font-size="12.5" fill="#6b6b6b">CUDA · PyTorch · vLLM</text>
+  </g>
+  <text x="220" y="152" text-anchor="middle" font-size="18" fill="#800a0a">codesign</text>
+</svg>
