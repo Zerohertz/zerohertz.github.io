@@ -1,0 +1,73 @@
+<svg viewBox="0 0 820 366" xmlns="http://www.w3.org/2000/svg" width="820" height="366" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="SHARP가 rack 안에서는 NVSwitch, rack 사이에서는 InfiniBand switch에서 collective 연산을 계층적으로 수행하고 결과만 모든 GPU로 돌려주는 구조">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#800a0a" />
+    </marker>
+  </defs>
+
+  <g fill="none" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="6 4">
+    <rect x="42" y="40" width="340" height="218" rx="10" />
+    <rect x="438" y="40" width="340" height="218" rx="10" />
+  </g>
+  <g font-size="13.5" fill="#6b6b6b">
+    <text x="56" y="60">Rack 1 · NVL72</text>
+    <text x="452" y="60">Rack 2 · NVL72</text>
+  </g>
+
+  <g stroke="#800a0a" stroke-width="2.2" fill="none" marker-end="url(#ar)">
+    <line x1="110" y1="108" x2="110" y2="132" />
+    <line x1="314" y1="108" x2="314" y2="132" />
+    <line x1="506" y1="108" x2="506" y2="132" />
+    <line x1="710" y1="108" x2="710" y2="132" />
+    <line x1="212" y1="182" x2="212" y2="200" />
+    <line x1="608" y1="182" x2="608" y2="200" />
+    <line x1="212" y1="248" x2="212" y2="292" />
+    <line x1="608" y1="248" x2="608" y2="292" />
+  </g>
+
+  <g stroke="#800a0a" stroke-width="2.2" fill="none" stroke-dasharray="7 4" marker-end="url(#ar)">
+    <path d="M 42 322 L 20 322 L 20 90 L 54 90" />
+    <path d="M 778 322 L 800 322 L 800 90 L 766 90" />
+  </g>
+  <text x="9" y="200" text-anchor="middle" font-size="12" fill="#800a0a" transform="rotate(-90 9 200)">합산 결과가 모든 GPU로</text>
+
+  <g fill="#fff" stroke="#1a1a1a" stroke-width="2.2">
+    <rect x="58" y="72" width="104" height="36" rx="8" />
+    <rect x="262" y="72" width="104" height="36" rx="8" />
+    <rect x="454" y="72" width="104" height="36" rx="8" />
+    <rect x="658" y="72" width="104" height="36" rx="8" />
+    <rect x="58" y="136" width="308" height="46" rx="8" />
+    <rect x="454" y="136" width="308" height="46" rx="8" />
+    <rect x="58" y="204" width="308" height="44" rx="8" />
+    <rect x="454" y="204" width="308" height="44" rx="8" />
+    <rect x="42" y="296" width="736" height="52" rx="8" />
+  </g>
+
+  <g text-anchor="middle" fill="#1a1a1a" font-size="15">
+    <text x="110" y="95">GPU 0</text>
+    <text x="314" y="95">GPU 71</text>
+    <text x="506" y="95">GPU 0</text>
+    <text x="710" y="95">GPU 71</text>
+    <text x="212" y="159">NVSwitch · SHARP engine</text>
+    <text x="608" y="159">NVSwitch · SHARP engine</text>
+    <text x="212" y="225">BlueField DPU · node마다 1개</text>
+    <text x="608" y="225">BlueField DPU · node마다 1개</text>
+    <text x="410" y="319">InfiniBand switch · SHARP engine</text>
+  </g>
+
+  <g text-anchor="middle" fill="#6b6b6b" font-size="12.5">
+    <text x="212" y="97" font-size="18">···</text>
+    <text x="608" y="97" font-size="18">···</text>
+    <text x="212" y="176">rack 안 GPU 72개를 합산</text>
+    <text x="608" y="176">rack 안 GPU 72개를 합산</text>
+    <text x="212" y="241">rack 부분합을 밖으로</text>
+    <text x="608" y="241">rack 부분합을 밖으로</text>
+    <text x="410" y="337">rack 사이에서 한 번 더 합산</text>
+  </g>
+
+  <g text-anchor="middle" font-size="12" fill="#800a0a">
+    <text x="212" y="126">NVLink 5 · GPU 당 1.8 TB/s</text>
+    <text x="608" y="126">NVLink 5 · GPU 당 1.8 TB/s</text>
+    <text x="410" y="276">InfiniBand · NIC 당 800 Gb/s (100 GB/s)</text>
+  </g>
+</svg>
