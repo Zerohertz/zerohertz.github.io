@@ -47,16 +47,16 @@ OS 수준의 고려사항부터 memory 계층, network 기초, Python과 C++, Py
 한 번 재고 마는 게 아니라 자동화된 성능 test를 걸어둬야 성능 회귀를 개발 주기 초반에 잡을 수 있다는 조언도 붙는다.
 
 병목을 찾았으면 근본 원인까지 내려가야 하는데, 비효율적인 CUDA kernel인지, 불필요한 통신 overhead인지, workload 불균형인지에 따라 처방이 완전히 달라진다.
-Transformer Engine $\_[$[$\_{2}$](https://docs.nvidia.com/deeplearning/transformer-engine/index.html)$\_]$을 써서 matrix 연산을 바꾸는 것, 병렬도를 올리는 것, attention algorithm의 memory 관리를 손보는 것이 전부 다른 처방이다.
+Transformer Engine $\_[$[$\_{2}$](https://github.com/NVIDIA/TransformerEngine)$\_,$[$\_{3}$](https://docs.nvidia.com/deeplearning/transformer-engine/index.html)$\_]$을 써서 matrix 연산을 바꾸는 것, 병렬도를 올리는 것, attention algorithm의 memory 관리를 손보는 것이 전부 다른 처방이다.
 
-사소한 수정이 큰 결과를 내기도 하는데, Python으로 짠 전처리 한 단계가 전체 학습 pipeline을 붙들고 있다면, 그 부분만 C++로 다시 쓰거나 NumPy를 그대로 대체하면서 array 연산을 CPU와 GPU에 분산시키는 NVIDIA cuPyNumeric $\_[$[$\_{3}$](https://docs.nvidia.com/cupynumeric/)$\_]$으로 바꾸면 병목이 사라진다.
+사소한 수정이 큰 결과를 내기도 하는데, Python으로 짠 전처리 한 단계가 전체 학습 pipeline을 붙들고 있다면, 그 부분만 C++로 다시 쓰거나 NumPy를 그대로 대체하면서 array 연산을 CPU와 GPU에 분산시키는 NVIDIA cuPyNumeric $\_[$[$\_{4}$](https://github.com/nv-legate/cupynumeric)$\_,$[$\_{5}$](https://docs.nvidia.com/cupynumeric/)$\_]$으로 바꾸면 병목이 사라진다.
 
 ### Scaling Distributed Training and Inference
 
 연구 단계의 작은 workload를 production 규모로 올리는 일이다.
 GPU 8장에서 80,000장으로 가면서 overhead와 효율 손실을 최소로 유지해야 한다.
 
-학습에서는 all-reduce 같은 collective를 NCCL $\_[$[$\_{4}$](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html)$\_]$로 최적화하고, 추론에서는 NIXL (NVIDIA Inference Xfer Library) $\_[$[$\_{5}$](https://github.com/ai-dynamo/nixl)$\_]$이 GPU memory와 storage 계층을 가로지르는 point-to-point 전송을 맡는다.
+학습에서는 all-reduce 같은 collective를 NCCL $\_[$[$\_{6}$](https://github.com/NVIDIA/nccl)$\_,$[$\_{7}$](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html)$\_]$로 최적화하고, 추론에서는 NIXL (NVIDIA Inference Xfer Library) $\_[$[$\_{8}$](https://github.com/ai-dynamo/nixl)$\_]$이 GPU memory와 storage 계층을 가로지르는 point-to-point 전송을 맡는다.
 All-reduce, all-to-all, all-gather 같은 집합 연산은 학습과 추론 양쪽에서 계속 나온다.
 
 Model이 GPU 한 장에 안 들어가면 data, tensor, pipeline parallelism으로 쪼개야 하고, MoE model이라면 expert parallelism이라는 선택지가 추가된다.
@@ -66,7 +66,7 @@ Model이 GPU 한 장에 안 들어가면 data, tensor, pipeline parallelism으�
 CPU core, GPU memory, interconnect 대역폭, storage I/O를 남김없이 쓰는 일이다.
 GPU에 data가 끊기지 않게 밀어넣고, thread를 특정 CPU core에 고정하고, context switch overhead를 줄이고, 대형 model에서 OOM이 나지 않도록 memory 사용을 조율한다.
 
-GPU 한 장을 다 쓸 필요가 없는 job이라면 MIG (multi-instance GPU) $\_[$[$\_{6}$](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/)$\_]$로 GPU를 쪼개서 전체 활용률을 올리는 편이 낫다.
+GPU 한 장을 다 쓸 필요가 없는 job이라면 MIG (multi-instance GPU) $\_[$[$\_{9}$](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/)$\_]$로 GPU를 쪼개서 전체 활용률을 올리는 편이 낫다.
 
 ### Cross-Team Collaboration
 
@@ -79,10 +79,10 @@ Performance engineer는 이 교차점에 앉아서 AI와 computer science, syste
 ### Transparency and Reproducibility
 
 가정이 아니라 data를 믿고, 모든 것을 측정하고, 측정한 것을 공개해서 남이 재현하고 그 위에 쌓을 수 있게 하는 것이다.
-DeepSeek이 Open-Source Week $\_[$[$\_{7}$](https://github.com/deepseek-ai/open-infra-index)$\_]$에서 infra 최적화를 통째로 공개한 것이 이 태도의 사례로 제시된다.
+DeepSeek이 Open-Source Week $\_[$[$\_{10}$](https://github.com/deepseek-ai/open-infra-index)$\_]$에서 infra 최적화를 통째로 공개한 것이 이 태도의 사례로 제시된다.
 
-MLPerf $\_[$[$\_{8}$](https://mlcommons.org/benchmarks/)$\_]$ 같은 산업 benchmark는 codesign의 효과를 세대별로 정량화해준다.
-MLPerf Training v5.0 (2025)에서 Blackwell 기반 GB200 NVL72는 동급 Hopper cluster 대비 GPU 당 학습 처리량이 최대 2.6배, MLPerf Inference v5.0에서는 추론 처리량이 약 3.4배 높게 나왔다 $\_[$[$\_{9}$](https://www.nvidia.com/en-us/data-center/resources/mlperf-benchmarks/)$\_]$.
+MLPerf $\_[$[$\_{11}$](https://mlcommons.org/benchmarks/)$\_]$ 같은 산업 benchmark는 codesign의 효과를 세대별로 정량화해준다.
+MLPerf Training v5.0 (2025)에서 Blackwell 기반 GB200 NVL72는 동급 Hopper cluster 대비 GPU 당 학습 처리량이 최대 2.6배, MLPerf Inference v5.0에서는 추론 처리량이 약 3.4배 높게 나왔다 $\_[$[$\_{12}$](https://www.nvidia.com/en-us/data-center/resources/mlperf-benchmarks/)$\_]$.
 단, MLPerf 자신이 GPU 당 수치는 platform 간 비교의 주 지표가 아니라고 경고한다.
 올바른 비교 기준은 system 수준의 end-to-end 처리량이고, GPU 당 숫자는 component 수준 지표로만 봐야 한다.
 
@@ -91,12 +91,12 @@ MLPerf Training v5.0 (2025)에서 Blackwell 기반 GB200 NVL72는 동급 Hopper 
 
 ## DeepSeek Scales to \~680-Billion Parameter Models Despite US Export Hardware Restrictions in China
 
-책은 DeepSeek 이야기로 시작하는데, 2024년 말 미국의 수출 규제 $\_[$[$\_{10}$](https://www.cnbc.com/2023/10/17/us-bans-export-of-more-ai-chips-including-nvidia-h800-to-china.html)$\_]$ 때문에 DeepSeek은 최신 Blackwell (B200, B300)이나 Hopper (H100, H200)를 쓸 수 없었고, 규제를 준수하는 NVIDIA H800으로 frontier model을 학습해야 했다.
+책은 DeepSeek 이야기로 시작하는데, 2024년 말 미국의 수출 규제 $\_[$[$\_{13}$](https://www.cnbc.com/2023/10/17/us-bans-export-of-more-ai-chips-including-nvidia-h800-to-china.html)$\_]$ 때문에 DeepSeek은 최신 Blackwell (B200, B300)이나 Hopper (H100, H200)를 쓸 수 없었고, 규제를 준수하는 NVIDIA H800으로 frontier model을 학습해야 했다.
 
 H800은 H100의 수출 규제 대응 판본인데, 책은 "HBM 용량과 대역폭은 유지하고 NVLink와 FP64만 깎았다" 정도로만 서술하고 넘어간다.
 같은 PCIe 80GB 폼팩터로 나란히 놓으면 무엇이 잘렸는지가 훨씬 선명하다.
 
-| 항목             | H100 80GB PCIe $\_[$[$\_{11}$](https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu)$\_]$ | H800 80GB PCIe $\_[$[$\_{12}$](https://lenovopress.lenovo.com/lp1814-thinksystem-nvidia-h800-pcie-gen5-gpu)$\_]$ | 비고 |
+| 항목             | H100 80GB PCIe $\_[$[$\_{14}$](https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu)$\_]$ | H800 80GB PCIe $\_[$[$\_{15}$](https://lenovopress.lenovo.com/lp1814-thinksystem-nvidia-h800-pcie-gen5-gpu)$\_]$ | 비고 |
 | ---------------- | ------------------------- | ------------------------- | ---- |
 | Memory           | 80 GB HBM2e               | 80 GB HBM2e               | 동일 |
 | Memory 대역폭    | 2 TB/s                    | 2 TB/s                    | 동일 |
@@ -113,14 +113,14 @@ Sparsity를 적용한 기준으로 TF32부터 FP8까지 AI 연산에 실제로 �
 FP64가 26에서 0.8 TFLOPS로 1/32, FP64 Tensor Core는 51에서 0.8 TFLOPS로 1/64까지 내려가는데, HPC 입장에서는 치명적이지만 LLM 학습에서는 FP64를 쓸 일이 없으니 실질적인 타격은 결국 NVLink 쪽이다.
 
 DeepSeek이 실제로 쓴 건 PCIe가 아니라 SXM 판본이고, 책이 드는 수치도 이 기준이다.
-H800은 어느 폼팩터든 400 GB/s인데 H100 $\_[$[$\_{13}$](https://www.nvidia.com/en-us/data-center/h100/)$\_]$은 SXM에서 \~900 GB/s까지 올라가므로, 표의 −33%가 아니라 절반 넘게 깎인 셈이 된다.
+H800은 어느 폼팩터든 400 GB/s인데 H100 $\_[$[$\_{16}$](https://www.nvidia.com/en-us/data-center/h100/)$\_]$은 SXM에서 \~900 GB/s까지 올라가므로, 표의 −33%가 아니라 절반 넘게 깎인 셈이 된다.
 연산 성능은 그대로 두고 GPU 간 통신만 묶어놓은 chip이라, 다중 GPU 확장성이 곧바로 병목이 되는 구조다.
 
 다만 책을 직접 읽으면 이 지점에서 헷갈릴 수 있다.
 "H100은 3.35 TB/s의 memory 대역폭을 제공하는 반면 H800은 throughput이 제한돼 data 전송이 훨씬 느리다"라는 문장이 나와서 memory가 느려진 것처럼 읽히는데, 여기서 말하는 throughput은 그 앞에서 다룬 NVLink 쪽이다.
 저자도 같은 문단 앞부분에서는 "HBM capacity and bandwidth largely similar"라고 쓰고 있고, 위 표에서도 memory 대역폭은 양쪽 다 2 TB/s로 같다.
 
-그럼에도 DeepSeek은 이 환경에서 \~680B parameter MoE (mixture of experts) model인 DeepSeek-V3 $\_[$[$\_{14}$](https://huggingface.co/deepseek-ai/DeepSeek-V3)$\_,$[$\_{15}$](https://arxiv.org/abs/2412.19437)$\_]$를 학습시켰다.
+그럼에도 DeepSeek은 이 환경에서 \~680B parameter MoE (mixture of experts) model인 DeepSeek-V3 $\_[$[$\_{17}$](https://github.com/deepseek-ai/DeepSeek-V3)$\_,$[$\_{18}$](https://huggingface.co/deepseek-ai/DeepSeek-V3)$\_,$[$\_{19}$](https://arxiv.org/abs/2412.19437)$\_]$를 학습시켰다.
 Token 하나당 전체 680B가 아니라 약 37B만 활성화되는 구조로, 256개 expert 중 router가 고른 8개와 공유 expert 1개, 총 9개만 쓴다.
 
 <img src="/images/ai-sys-perf-eng-1/moe-routing.svg" alt="moe-routing" width="760" />
@@ -130,18 +130,18 @@ Token 하나당 전체 680B가 아니라 약 37B만 활성화되는 구조로, 2
 
 비용을 보면 차이가 더 분명하다.
 책은 GPT-4의 학습 비용을 약 \\$100M, Gemini Ultra를 약 \\$191M으로 적는 반면, DeepSeek은 DeepSeek-R1을 \\$6M 미만으로 학습했다고 주장한다.
-Stanford HAI의 AI Index 2024 $\_[$[$\_{16}$](https://hai.stanford.edu/ai-index/2024-ai-index-report)$\_]$는 GPT-4를 \\$78M으로 더 낮게 잡지만 Gemini Ultra는 \\$191M으로 같고, 어느 추정을 쓰든 자릿수가 다르다는 점은 그대로다.
+Stanford HAI의 AI Index 2024 $\_[$[$\_{20}$](https://hai.stanford.edu/ai-index/2024-ai-index-report)$\_]$는 GPT-4를 \\$78M으로 더 낮게 잡지만 Gemini Ultra는 \\$191M으로 같고, 어느 추정을 쓰든 자릿수가 다르다는 점은 그대로다.
 물론 이 \\$6M에 단일 training run만 포함된 것인지 실험과 model 개발 pipeline 전체가 빠진 것인지에 대한 의심은 남아 있다.
 다만 발표 직후 NVIDIA 주가가 하루에 약 17% 빠졌다는 사실만으로도 이 결과가 시장에 어떤 의미였는지는 충분히 드러난다.
 
 DeepSeek은 2025년 2월 Open-Source Week에 최적화 결과물을 대거 공개했는데, 각각이 stack의 서로 다른 층을 겨냥한다.
 
-- FlashMLA $\_[$[$\_{17}$](https://github.com/deepseek-ai/FlashMLA)$\_]$: CUDA C++로 작성한 attention kernel
-- DeepGEMM $\_[$[$\_{18}$](https://github.com/deepseek-ai/DeepGEMM)$\_]$: FP8에 최적화된 matrix multiplication library
-- DeepEP $\_[$[$\_{19}$](https://github.com/deepseek-ai/DeepEP)$\_]$: MoE 전용 통신 library
-- EPLB (expert parallelism load balancer) $\_[$[$\_{20}$](https://github.com/deepseek-ai/EPLB)$\_]$: 부하가 몰린 expert를 복제해 분산
-- DualPipe $\_[$[$\_{21}$](https://github.com/deepseek-ai/DualPipe)$\_]$: forward/backward 연산과 통신을 겹치는 양방향 pipeline parallelism
-- 3FS (Fire-Flyer File System) $\_[$[$\_{22}$](https://github.com/deepseek-ai/3FS)$\_]$: 분산 file system
+- FlashMLA $\_[$[$\_{21}$](https://github.com/deepseek-ai/FlashMLA)$\_]$: CUDA C++로 작성한 attention kernel
+- DeepGEMM $\_[$[$\_{22}$](https://github.com/deepseek-ai/DeepGEMM)$\_]$: FP8에 최적화된 matrix multiplication library
+- DeepEP $\_[$[$\_{23}$](https://github.com/deepseek-ai/DeepEP)$\_]$: MoE 전용 통신 library
+- EPLB (expert parallelism load balancer) $\_[$[$\_{24}$](https://github.com/deepseek-ai/EPLB)$\_]$: 부하가 몰린 expert를 복제해 분산
+- DualPipe $\_[$[$\_{25}$](https://github.com/deepseek-ai/DualPipe)$\_]$: forward/backward 연산과 통신을 겹치는 양방향 pipeline parallelism
+- 3FS (Fire-Flyer File System) $\_[$[$\_{26}$](https://github.com/deepseek-ai/3FS)$\_]$: 분산 file system
 
 Kernel부터 file system까지 전부 손을 댔는데, 어느 한 층만 최적화해서는 이 정도 결과가 나오지 않는다.
 
@@ -165,11 +165,11 @@ $$
 어느 쪽이든 model을 올려놓기만 하는 데 드는 숫자라 실제로 학습을 돌리려면 여기서 더 올라간다.
 
 그래서 답으로 제시되는 것이 sparsity, 구체적으로는 MoE인데, token마다 일부 expert만 활성화하면 총 parameter가 늘어도 token 당 FLOPS는 거의 일정하게 유지되기 때문이다.
-Google의 Switch Transformer $\_[$[$\_{23}$](https://arxiv.org/abs/2101.03961)$\_]$는 1.6T parameter MoE로 dense model과 같은 정확도를 훨씬 적은 연산으로, 7배 빠르게 학습했다.
+Google의 Switch Transformer $\_[$[$\_{27}$](https://arxiv.org/abs/2101.03961)$\_]$는 1.6T parameter MoE로 dense model과 같은 정확도를 훨씬 적은 연산으로, 7배 빠르게 학습했다.
 
 ## NVIDIA's "AI Supercomputer in a Rack"
 
-이 규모를 감당하려고 NVIDIA가 내놓은 것이 rack 단위로 통째로 파는 system이고, 스스로 "rack에 담은 AI supercomputer" $\_[$[$\_{24}$](https://www.nvidia.com/en-us/data-center/gb200-nvl72/)$\_]$라고 부른다.
+이 규모를 감당하려고 NVIDIA가 내놓은 것이 rack 단위로 통째로 파는 system이고, 스스로 "rack에 담은 AI supercomputer" $\_[$[$\_{28}$](https://www.nvidia.com/en-us/data-center/gb200-nvl72/)$\_]$라고 부른다.
 Grace Blackwell Superchip 36개가 rack 하나에 들어가는데, superchip 하나가 72-core Grace CPU 1개와 Blackwell GPU 2개이므로 rack 전체로는 Grace CPU 36개와 Blackwell GPU 72개가 되고 여기서 NVL72라는 이름이 나온다.
 
 | 항목      | 수치                            |
@@ -194,20 +194,20 @@ GB200 NVL72는 이 계보의 현재 지점일 뿐이라, GB300 NVL72 Ultra가 GP
 Mechanical sympathy는 software engineer Martin Thompson이 만든 표현으로, 자기 차의 기계적 특성을 속속들이 알았던 F1 champion Jackie Stewart에서 따왔다.
 Computing에서는 **자신이 돌아가는 hardware를 깊이 이해하고 쓴 software**를 의미한다.
 
-대표적인 예가 FlashAttention $\_[$[$\_{25}$](https://arxiv.org/abs/2205.14135)$\_]$으로, Transformer의 attention 연산을 tiling해서 GPU memory에 대한 read/write 횟수를 줄였고, 긴 sequence에서 학습과 추론 모두 2\~4배 빨라졌다.
+대표적인 예가 FlashAttention $\_[$[$\_{29}$](https://github.com/Dao-AILab/flash-attention)$\_,$[$\_{30}$](https://arxiv.org/abs/2205.14135)$\_]$으로, Transformer의 attention 연산을 tiling해서 GPU memory에 대한 read/write 횟수를 줄였고, 긴 sequence에서 학습과 추론 모두 2\~4배 빨라졌다.
 Memory 사용량까지 줄었기 때문에 거의 하룻밤 사이에 여러 library의 기본값이 됐다.
 
-DeepSeek이 DeepSeek-V2에서 내놓은 MLA (multi-head latent attention) $\_[$[$\_{26}$](https://arxiv.org/abs/2405.04434)$\_]$도 같은 계열인데, NVIDIA memory hierarchy와 Tensor Core를 더 잘 쓰도록 attention 연산을 재구성한 것이다.
-2025년에 CUDA kernel로 구현해 공개한 FlashMLA $\_[$[$\_{17}$](https://github.com/deepseek-ai/FlashMLA)$\_]$가 같은 H800에서 FlashAttention보다도 높은 처리량을 냈다.
+DeepSeek이 DeepSeek-V2에서 내놓은 MLA (multi-head latent attention) $\_[$[$\_{31}$](https://github.com/deepseek-ai/DeepSeek-V2)$\_,$[$\_{32}$](https://arxiv.org/abs/2405.04434)$\_]$도 같은 계열인데, NVIDIA memory hierarchy와 Tensor Core를 더 잘 쓰도록 attention 연산을 재구성한 것이다.
+2025년에 CUDA kernel로 구현해 공개한 FlashMLA $\_[$[$\_{21}$](https://github.com/deepseek-ai/FlashMLA)$\_]$가 같은 H800에서 FlashAttention보다도 높은 처리량을 냈다.
 
 반대 방향도 그대로 성립하는데, Transformer와 저정밀도 quantization (FP8/FP4)이 유행하자 NVIDIA는 Transformer Engine과 전용 저정밀도 Tensor Core를 hardware에 넣었다.
-Attention의 softmax가 병목이 되자 지수 연산을 담당하는 SFU (special function unit)까지 손봤는데, SemiAnalysis는 Blackwell Ultra에서 이 unit이 기존 Blackwell 대비 2.5배 빨라졌다고 전한다 $\_[$[$\_{27}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_]$.
+Attention의 softmax가 병목이 되자 지수 연산을 담당하는 SFU (special function unit)까지 손봤는데, SemiAnalysis는 Blackwell Ultra에서 이 unit이 기존 Blackwell 대비 2.5배 빨라졌다고 전한다 $\_[$[$\_{33}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_]$.
 Hardware가 algorithm을 낳고, algorithm이 다시 hardware를 낳는 선순환이다.
 
 ## Measuring "Goodput" Useful Throughput
 
 이 책에서 가장 중요한 개념으로, FLOPS나 GPU utilization은 높게 나와도 실제로는 통신 대기, idle, 재시작으로 낭비되는 시간이 대부분일 수 있다.
-그래서 실제로 유용한 일을 한 처리량만 세자는 게 goodput인데, Meta가 자사 ML cluster 두 곳의 11개월치 job을 분석한 논문 $\_[$[$\_{28}$](https://arxiv.org/abs/2410.21680)$\_]$에서는 이를 effective training time ratio라는 지표로 제시했다.
+그래서 실제로 유용한 일을 한 처리량만 세자는 게 goodput인데, Meta가 자사 ML cluster 두 곳의 11개월치 job을 분석한 논문 $\_[$[$\_{34}$](https://arxiv.org/abs/2410.21680)$\_]$에서는 이를 effective training time ratio라는 지표로 제시했다.
 
 예를 들어 GPU 8장짜리 node가 100,000 token을 10초에 처리했다면 goodput은 10,000 token/s다.
 GPU 한 장의 이론적 최대가 1,500 token/s라면 8장은 12,000 token/s이므로, 이 node의 효율은 83.3%다.
@@ -221,7 +221,7 @@ $$
 </div>
 
 분모가 되는 이론적 최대치를 NVIDIA는 **speed of light** (SOL)라고 부른다.
-Nsight Compute $\_[$[$\_{29}$](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html)$\_]$를 열면 첫 section 이름이 아예 "GPU Speed Of Light"이고, 각 unit의 throughput을 "achieved percentage of utilization with respect to the theoretical maximum"으로 보고한다.
+Nsight Compute $\_[$[$\_{35}$](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html)$\_]$를 열면 첫 section 이름이 아예 "GPU Speed Of Light"이고, 각 unit의 throughput을 "achieved percentage of utilization with respect to the theoretical maximum"으로 보고한다.
 
 이 논문이 분석한 cluster는 100% 활용된 것처럼 보였지만, 통신 지연·불충분한 병렬화·data 지연·장애 복구 때문에 연산의 70\~75%가 날아가고 있었다는 분석이다.
 Job 선점 (preemption), network hotspot, 복구 불가능한 fault가 주된 원인이었다.
@@ -282,7 +282,7 @@ NVIDIA의 확장 전략은 CPU와 GPU를 한 module에 묶는 것에서 시작�
 Hopper 세대부터 ARM 기반 CPU와 GPU를 같은 package에 넣기 시작했고, 첫 구현인 GH200 (Grace Hopper)은 Grace CPU 1개에 Hopper GPU 1개를, GB200 (Grace Blackwell)은 Grace CPU 1개에 Blackwell GPU 2개를 붙였다.
 
 전통적인 system에서 CPU와 GPU는 memory pool이 분리되어 있고 PCIe 같은 느린 bus로 통신하기 때문에 data를 계속 복사해야 한다.
-Superchip은 이 벽을 NVLink-C2C (chip-to-chip) $\_[$[$\_{30}$](https://www.nvidia.com/en-us/data-center/nvlink-c2c/)$\_]$로 없앤다.
+Superchip은 이 벽을 NVLink-C2C (chip-to-chip) $\_[$[$\_{36}$](https://www.nvidia.com/en-us/data-center/nvlink-c2c/)$\_]$로 없앤다.
 
 ```mermaid
 flowchart TB
@@ -433,7 +433,7 @@ Compute tray 18개에 superchip을 2개씩 (GPU 4 + CPU 2) 담아 GPU 72개와 G
 Tray 하나가 곧 node 하나인데, superchip 2개가 좌우 대칭으로 앉고 두 Grace CPU는 tray 안에서 직접 이어진다.
 각 superchip에 ConnectX NIC 2장과 local NVMe가 붙어 node 밖으로 나가는 경로를 만들고, GPU 4개는 전부 18개 NVSwitch로 빠진다.
 
-이름의 "NVL"은 NVLink $\_[$[$\_{31}$](https://www.nvidia.com/en-us/data-center/nvlink/)$\_]$에서 온 것인데, GPU 하나가 NVLink 5 port 18개를 노출하고 각 port가 100 GB/s 양방향이므로 GPU 당 1.8 TB/s다.
+이름의 "NVL"은 NVLink $\_[$[$\_{37}$](https://www.nvidia.com/en-us/data-center/nvlink/)$\_]$에서 온 것인데, GPU 하나가 NVLink 5 port 18개를 노출하고 각 port가 100 GB/s 양방향이므로 GPU 당 1.8 TB/s다.
 이 18개 link가 18개 NVSwitch chip에 하나씩 연결되어 full crossbar를 이룬다.
 
 ### NVLink and NVSwitch
@@ -454,13 +454,13 @@ Rack 전체 aggregate bisection 대역폭은 약 130 TB/s다.
 ### Multi-GPU Programming
 
 GPU 하나가 NVLink로 다른 GPU의 memory에 직접 접근할 수 있고, peer-to-peer나 PGAS (partitioned global address space) model을 쓸 수 있다.
-NVIDIA가 OpenSHMEM을 GPU 가속용으로 구현한 NVSHMEM $\_[$[$\_{32}$](https://docs.nvidia.com/nvshmem/api/index.html)$\_]$이 대표적이다.
+NVIDIA가 OpenSHMEM을 GPU 가속용으로 구현한 NVSHMEM $\_[$[$\_{38}$](https://github.com/NVIDIA/nvshmem)$\_,$[$\_{39}$](https://docs.nvidia.com/nvshmem/api/index.html)$\_]$이 대표적이다.
 
 Global address space는 있지만, **GPU 간에 cache는 globally coherent하지 않다.**
 Cache coherent한 경로는 NVLink-C2C를 통한 CPU↔GPU뿐이다.
 GPU↔GPU의 정합성과 순서는 hardware가 아니라 NCCL, NVSHMEM 같은 software stack이 보장한다.
 
-Node를 넘어가는 통신에는 RDMA가 쓰이는데, NVIDIA의 구현인 GPUDirect RDMA $\_[$[$\_{33}$](https://docs.nvidia.com/cuda/gpudirect-rdma/)$\_]$는 `nvidia-peermem` driver로 NIC가 GPU memory를 직접 등록하게 해서, host RAM을 경유하지 않고 NIC와 GPU memory 사이에 DMA를 수행한다.
+Node를 넘어가는 통신에는 RDMA가 쓰이는데, NVIDIA의 구현인 GPUDirect RDMA $\_[$[$\_{40}$](https://docs.nvidia.com/cuda/gpudirect-rdma/)$\_]$는 `nvidia-peermem` driver로 NIC가 GPU memory를 직접 등록하게 해서, host RAM을 경유하지 않고 NIC와 GPU memory 사이에 DMA를 수행한다.
 CPU가 개입하지 않으니 node 간 data 교환에서 CPU가 병목이 되지 않는다.
 
 다만 GPUDirect RDMA가 제공하는 건 data 경로일 뿐 atomic API 자체는 아니다.
@@ -483,7 +483,7 @@ Use the slower InfiniBand- or Ethernet-based communication between racks ("inter
 
 ### In-Network Aggregations with NVIDIA SHARP
 
-NVSwitch ASIC에는 SHARP (scalable hierarchical aggregation and reduction protocol) $\_[$[$\_{34}$](https://docs.nvidia.com/networking/category/mlnxsharp)$\_]$ engine이 들어 있다.
+NVSwitch ASIC에는 SHARP (scalable hierarchical aggregation and reduction protocol) $\_[$[$\_{41}$](https://docs.nvidia.com/networking/category/mlnxsharp)$\_]$ engine이 들어 있다.
 All-reduce 같은 collective 연산을 GPU가 아니라 switch hardware가 직접 수행한다.
 
 부분 결과가 GPU로 되돌아올 필요 없이 fabric 안에서 합쳐지므로, GPU는 본연의 연산에 집중하고 network를 오가는 data 총량도 줄어든다.
@@ -563,7 +563,7 @@ Rack 내부 loop와 data center 냉수 loop 사이에는 CDU (coolant distributi
 ## Performance Monitoring and Utilization in Practice
 
 수백만 달러짜리 rack을 놀리지 않으려면 얼마나 쓰고 있는지를 계속 봐야 한다.
-모니터링은 DCGM (data center GPU manager) $\_[$[$\_{35}$](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/index.html)$\_]$으로 GPU 활용률, memory 사용량, 온도, NVLink 처리량을 추적한다.
+모니터링은 DCGM (data center GPU manager) $\_[$[$\_{42}$](https://github.com/NVIDIA/DCGM)$\_,$[$\_{43}$](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/index.html)$\_]$으로 GPU 활용률, memory 사용량, 온도, NVLink 처리량을 추적한다.
 GPU가 50% 활용률이라면 절반의 시간을 놀고 있다는 뜻이니 data loading 병목이나 동기화 문제를 의심해야 하고, NVLink가 자주 포화된다면 통신이 범인이다.
 
 ## Sharing and Scheduling
@@ -571,7 +571,7 @@ GPU가 50% 활용률이라면 절반의 시간을 놀고 있다는 뜻이니 dat
 72개 GPU를 한 job이 다 쓰는 경우는 드물다.
 SLURM이나 Kubernetes에 NVIDIA plugin을 붙이면 같은 rack 안에서 8장, 16장, 48장씩 나눠 쓸 수 있다.
 
-여기에 MIG (multi-instance GPU) $\_[$[$\_{6}$](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/)$\_]$를 쓰면 물리 GPU 한 장을 hardware 수준에서 분할할 수 있다.
+여기에 MIG (multi-instance GPU) $\_[$[$\_{9}$](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/)$\_]$를 쓰면 물리 GPU 한 장을 hardware 수준에서 분할할 수 있다.
 Blackwell GPU 하나당 최대 7개의 완전히 격리된 MIG instance를 만들 수 있어서, 180 GB짜리 GPU 한 장으로 작은 추론 job 여럿을 동시에 서빙하는 게 가능하다.
 
 BlueField DPU가 firewall이자 virtual switch 역할을 해서 job과 사용자별 network traffic을 격리하므로, 부서나 외부 고객이 같은 system의 partition을 안전하게 나눠 쓰는 multitenancy도 성립한다.
@@ -596,10 +596,10 @@ NVIDIA는 매 세대 무언가를 두 배로 만드는 패턴을 반복한다.
 
 | 세대 | 시기 | 주요 변화                          |
 | ---- | ---- | ---------------------------------- |
-| Blackwell Ultra (B300/GB300) $\_[$[$\_{36}$](https://www.nvidia.com/en-us/data-center/gb300-nvl72/)$\_]$ | 현재 | Memory 288 GB (B200 180 GB 대비 +50%)<br />연산 1.5배, 추론 처리량 45\~50% 증가<br />NVLink 5 유지 |
-| Vera Rubin (VR200) $\_[$[$\_{27}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_,$[$\_{37}$](https://www.nvidia.com/en-us/data-center/technologies/rubin/)$\_]$ | 2026 | Vera CPU (TSMC 3nm, LPDDR6 \~1 TB/s)<br />Rubin GPU (HBM \~13\~14 TB/s), die 당 \~200 SM<br />NVLink 6<br />성능 5배 / 전력 \~600 kW |
-| Rubin Ultra (R300) $\_[$[$\_{27}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_]$ | 2027 | 4-die module, HBM stack 16개로 module 당 1 TB<br />NVL144 / NVL576<br />Rack 당 3\~4 exaFLOPS |
-| Feynman $\_[$[$\_{27}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_]$ | 2028 | TSMC 2nm, HBM5<br />die 8개 가능성 |
+| Blackwell Ultra (B300/GB300) $\_[$[$\_{44}$](https://www.nvidia.com/en-us/data-center/gb300-nvl72/)$\_]$ | 현재 | Memory 288 GB (B200 180 GB 대비 +50%)<br />연산 1.5배, 추론 처리량 45\~50% 증가<br />NVLink 5 유지 |
+| Vera Rubin (VR200) $\_[$[$\_{33}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_,$[$\_{45}$](https://www.nvidia.com/en-us/data-center/technologies/rubin/)$\_]$ | 2026 | Vera CPU (TSMC 3nm, LPDDR6 \~1 TB/s)<br />Rubin GPU (HBM \~13\~14 TB/s), die 당 \~200 SM<br />NVLink 6<br />성능 5배 / 전력 \~600 kW |
+| Rubin Ultra (R300) $\_[$[$\_{33}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_]$ | 2027 | 4-die module, HBM stack 16개로 module 당 1 TB<br />NVL144 / NVL576<br />Rack 당 3\~4 exaFLOPS |
+| Feynman $\_[$[$\_{33}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_]$ | 2028 | TSMC 2nm, HBM5<br />die 8개 가능성 |
 
 {% note info %}
 2027년 이후 항목은 책도 확정된 사실로 쓰지 않는다.
@@ -690,41 +690,49 @@ NUMA와 CPU pinning, hugepage부터 MIG와 Kubernetes Topology Manager까지, GP
 {% note References %}
 
 1. [GitHub: cfregly/ai-performance-engineering](https://github.com/cfregly/ai-performance-engineering) <!-- 3485ae5185 -->
-2. [NVIDIA: Transformer Engine Documentation](https://docs.nvidia.com/deeplearning/transformer-engine/index.html) <!-- 2e1f8d7074 -->
-3. [NVIDIA: cuPyNumeric Documentation](https://docs.nvidia.com/cupynumeric/) <!-- 8d1b10a620 -->
-4. [NVIDIA: NCCL User Guide](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html) <!-- e706a1ce36 -->
-5. [GitHub: ai-dynamo/nixl](https://github.com/ai-dynamo/nixl) <!-- 72f3c83620 -->
-6. [NVIDIA: Multi-Instance GPU (MIG) User Guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/) <!-- 02977a66b6 -->
-7. [GitHub: deepseek-ai/open-infra-index](https://github.com/deepseek-ai/open-infra-index) <!-- ffbaf0f4d8 -->
-8. [MLCommons: MLPerf Benchmarks](https://mlcommons.org/benchmarks/) <!-- 8b96a4ff44 -->
-9. [NVIDIA: MLPerf Benchmarks](https://www.nvidia.com/en-us/data-center/resources/mlperf-benchmarks/) <!-- 912a85df81 -->
-10. [CNBC: U.S. curbs export of more AI chips, including Nvidia H800, to China](https://www.cnbc.com/2023/10/17/us-bans-export-of-more-ai-chips-including-nvidia-h800-to-china.html) <!-- ed5d8d9531 -->
-11. [Lenovo: ThinkSystem NVIDIA H100 PCIe Gen5 GPUs Product Guide](https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu) <!-- ee7966772f -->
-12. [Lenovo: ThinkSystem NVIDIA H800 PCIe Gen5 GPUs Product Guide](https://lenovopress.lenovo.com/lp1814-thinksystem-nvidia-h800-pcie-gen5-gpu) <!-- 83bdd63ecc -->
-13. [NVIDIA: H100 Tensor Core GPU](https://www.nvidia.com/en-us/data-center/h100/) <!-- 95ffa075dc -->
-14. [Hugging Face: deepseek-ai/DeepSeek-V3](https://huggingface.co/deepseek-ai/DeepSeek-V3) <!-- 1d985c6a65 -->
-15. [arXiv 2024: DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437) <!-- 8c77b040b8 -->
-16. [Stanford HAI: AI Index Report 2024](https://hai.stanford.edu/ai-index/2024-ai-index-report) <!-- 780b8bf5da -->
-17. [GitHub: deepseek-ai/FlashMLA](https://github.com/deepseek-ai/FlashMLA) <!-- a165de2547 -->
-18. [GitHub: deepseek-ai/DeepGEMM](https://github.com/deepseek-ai/DeepGEMM) <!-- d00935f224 -->
-19. [GitHub: deepseek-ai/DeepEP](https://github.com/deepseek-ai/DeepEP) <!-- e6937d9cbe -->
-20. [GitHub: deepseek-ai/EPLB](https://github.com/deepseek-ai/EPLB) <!-- 493ef90c57 -->
-21. [GitHub: deepseek-ai/DualPipe](https://github.com/deepseek-ai/DualPipe) <!-- 535189ac51 -->
-22. [GitHub: deepseek-ai/3FS](https://github.com/deepseek-ai/3FS) <!-- 34283f244f -->
-23. [arXiv 2021: Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) <!-- 239eee1b40 -->
-24. [NVIDIA: GB200 NVL72](https://www.nvidia.com/en-us/data-center/gb200-nvl72/) <!-- 589cff04e2 -->
-25. [NeurIPS 2022: FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) <!-- 3a745b2c19 -->
-26. [arXiv 2024: DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) <!-- bb6c01eacf -->
-27. [SemiAnalysis: NVIDIA GTC 2025 - Built For Reasoning, Vera Rubin, Kyber, CPO, Dynamo Inference, Jensen Math, Feynman](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman) <!-- b0430a53cf -->
-28. [arXiv 2024: Revisiting Reliability in Large-Scale Machine Learning Research Clusters](https://arxiv.org/abs/2410.21680) <!-- a9bee49951 -->
-29. [NVIDIA: Nsight Compute Profiling Guide (GPU Speed Of Light)](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html) <!-- 7b4002f964 -->
-30. [NVIDIA: NVLink-C2C Chip Interconnect Technology](https://www.nvidia.com/en-us/data-center/nvlink-c2c/) <!-- 4805decb16 -->
-31. [NVIDIA: NVLink and NVLink Switch](https://www.nvidia.com/en-us/data-center/nvlink/) <!-- 0417cbda5c -->
-32. [NVIDIA: NVSHMEM Documentation](https://docs.nvidia.com/nvshmem/api/index.html) <!-- 8e0d5bde76 -->
-33. [NVIDIA: GPUDirect RDMA](https://docs.nvidia.com/cuda/gpudirect-rdma/) <!-- ca7193aa74 -->
-34. [NVIDIA: Scalable Hierarchical Aggregation and Reduction Protocol (SHARP)](https://docs.nvidia.com/networking/category/mlnxsharp) <!-- 51bac50c7d -->
-35. [NVIDIA: Data Center GPU Manager (DCGM) User Guide](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/index.html) <!-- 012d31c5f1 -->
-36. [NVIDIA: GB300 NVL72](https://www.nvidia.com/en-us/data-center/gb300-nvl72/) <!-- 709daf050b -->
-37. [NVIDIA: Vera Rubin Platform](https://www.nvidia.com/en-us/data-center/technologies/rubin/) <!-- 9c0e364687 -->
+2. [GitHub: NVIDIA/TransformerEngine](https://github.com/NVIDIA/TransformerEngine) <!-- 1a6dc0d0c3 -->
+3. [NVIDIA: Transformer Engine Documentation](https://docs.nvidia.com/deeplearning/transformer-engine/index.html) <!-- 2e1f8d7074 -->
+4. [GitHub: nv-legate/cupynumeric](https://github.com/nv-legate/cupynumeric) <!-- b9a53c5e9c -->
+5. [NVIDIA: cuPyNumeric Documentation](https://docs.nvidia.com/cupynumeric/) <!-- 8d1b10a620 -->
+6. [GitHub: NVIDIA/nccl](https://github.com/NVIDIA/nccl) <!-- a24233d453 -->
+7. [NVIDIA: NCCL User Guide](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html) <!-- e706a1ce36 -->
+8. [GitHub: ai-dynamo/nixl](https://github.com/ai-dynamo/nixl) <!-- 72f3c83620 -->
+9. [NVIDIA: Multi-Instance GPU (MIG) User Guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/) <!-- 02977a66b6 -->
+10. [GitHub: deepseek-ai/open-infra-index](https://github.com/deepseek-ai/open-infra-index) <!-- ffbaf0f4d8 -->
+11. [MLCommons: MLPerf Benchmarks](https://mlcommons.org/benchmarks/) <!-- 8b96a4ff44 -->
+12. [NVIDIA: MLPerf Benchmarks](https://www.nvidia.com/en-us/data-center/resources/mlperf-benchmarks/) <!-- 912a85df81 -->
+13. [CNBC: U.S. curbs export of more AI chips, including Nvidia H800, to China](https://www.cnbc.com/2023/10/17/us-bans-export-of-more-ai-chips-including-nvidia-h800-to-china.html) <!-- ed5d8d9531 -->
+14. [Lenovo: ThinkSystem NVIDIA H100 PCIe Gen5 GPUs Product Guide](https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu) <!-- ee7966772f -->
+15. [Lenovo: ThinkSystem NVIDIA H800 PCIe Gen5 GPUs Product Guide](https://lenovopress.lenovo.com/lp1814-thinksystem-nvidia-h800-pcie-gen5-gpu) <!-- 83bdd63ecc -->
+16. [NVIDIA: H100 Tensor Core GPU](https://www.nvidia.com/en-us/data-center/h100/) <!-- 95ffa075dc -->
+17. [GitHub: deepseek-ai/DeepSeek-V3](https://github.com/deepseek-ai/DeepSeek-V3) <!-- 5905f1302d -->
+18. [Hugging Face: deepseek-ai/DeepSeek-V3](https://huggingface.co/deepseek-ai/DeepSeek-V3) <!-- 1d985c6a65 -->
+19. [arXiv 2024: DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437) <!-- 8c77b040b8 -->
+20. [Stanford HAI: AI Index Report 2024](https://hai.stanford.edu/ai-index/2024-ai-index-report) <!-- 780b8bf5da -->
+21. [GitHub: deepseek-ai/FlashMLA](https://github.com/deepseek-ai/FlashMLA) <!-- a165de2547 -->
+22. [GitHub: deepseek-ai/DeepGEMM](https://github.com/deepseek-ai/DeepGEMM) <!-- d00935f224 -->
+23. [GitHub: deepseek-ai/DeepEP](https://github.com/deepseek-ai/DeepEP) <!-- e6937d9cbe -->
+24. [GitHub: deepseek-ai/EPLB](https://github.com/deepseek-ai/EPLB) <!-- 493ef90c57 -->
+25. [GitHub: deepseek-ai/DualPipe](https://github.com/deepseek-ai/DualPipe) <!-- 535189ac51 -->
+26. [GitHub: deepseek-ai/3FS](https://github.com/deepseek-ai/3FS) <!-- 34283f244f -->
+27. [arXiv 2021: Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) <!-- 239eee1b40 -->
+28. [NVIDIA: GB200 NVL72](https://www.nvidia.com/en-us/data-center/gb200-nvl72/) <!-- 589cff04e2 -->
+29. [GitHub: Dao-AILab/flash-attention](https://github.com/Dao-AILab/flash-attention) <!-- 353f8f76aa -->
+30. [NeurIPS 2022: FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) <!-- 3a745b2c19 -->
+31. [GitHub: deepseek-ai/DeepSeek-V2](https://github.com/deepseek-ai/DeepSeek-V2) <!-- d05c528af8 -->
+32. [arXiv 2024: DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) <!-- bb6c01eacf -->
+33. [SemiAnalysis: NVIDIA GTC 2025 - Built For Reasoning, Vera Rubin, Kyber, CPO, Dynamo Inference, Jensen Math, Feynman](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman) <!-- b0430a53cf -->
+34. [arXiv 2024: Revisiting Reliability in Large-Scale Machine Learning Research Clusters](https://arxiv.org/abs/2410.21680) <!-- a9bee49951 -->
+35. [NVIDIA: Nsight Compute Profiling Guide (GPU Speed Of Light)](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html) <!-- 7b4002f964 -->
+36. [NVIDIA: NVLink-C2C Chip Interconnect Technology](https://www.nvidia.com/en-us/data-center/nvlink-c2c/) <!-- 4805decb16 -->
+37. [NVIDIA: NVLink and NVLink Switch](https://www.nvidia.com/en-us/data-center/nvlink/) <!-- 0417cbda5c -->
+38. [GitHub: NVIDIA/nvshmem](https://github.com/NVIDIA/nvshmem) <!-- 64670412e4 -->
+39. [NVIDIA: NVSHMEM Documentation](https://docs.nvidia.com/nvshmem/api/index.html) <!-- 8e0d5bde76 -->
+40. [NVIDIA: GPUDirect RDMA](https://docs.nvidia.com/cuda/gpudirect-rdma/) <!-- ca7193aa74 -->
+41. [NVIDIA: Scalable Hierarchical Aggregation and Reduction Protocol (SHARP)](https://docs.nvidia.com/networking/category/mlnxsharp) <!-- 51bac50c7d -->
+42. [GitHub: NVIDIA/DCGM](https://github.com/NVIDIA/DCGM) <!-- b66ca6cedf -->
+43. [NVIDIA: Data Center GPU Manager (DCGM) User Guide](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/index.html) <!-- 012d31c5f1 -->
+44. [NVIDIA: GB300 NVL72](https://www.nvidia.com/en-us/data-center/gb300-nvl72/) <!-- 709daf050b -->
+45. [NVIDIA: Vera Rubin Platform](https://www.nvidia.com/en-us/data-center/technologies/rubin/) <!-- 9c0e364687 -->
 
 {% endnote %}
