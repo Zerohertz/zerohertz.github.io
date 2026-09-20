@@ -194,6 +194,11 @@ GB200 NVL72는 이 계보의 현재 지점일 뿐이라, GB300 NVL72 Ultra가 GP
 Mechanical sympathy는 software engineer Martin Thompson이 만든 표현으로, 자기 차의 기계적 특성을 속속들이 알았던 F1 champion Jackie Stewart에서 따왔다.
 Computing에서는 **자신이 돌아가는 hardware를 깊이 이해하고 쓴 software**를 의미한다.
 
+{% cq %}
+In computing, it refers to writing software that is deeply aware of the hardware it runs on.
+In the AI context, it means codesigning algorithms hand in hand with hardware capabilities to maximize performance.
+{% endcq %}
+
 대표적인 예가 FlashAttention $\_[$[$\_{29}$](https://github.com/Dao-AILab/flash-attention)$\_,$[$\_{30}$](https://arxiv.org/abs/2205.14135)$\_]$으로, Transformer의 attention 연산을 tiling해서 GPU memory에 대한 read/write 횟수를 줄였고, 긴 sequence에서 학습과 추론 모두 2\~4배 빨라졌다.
 Memory 사용량까지 줄었기 때문에 거의 하룻밤 사이에 여러 library의 기본값이 됐다.
 
@@ -208,6 +213,10 @@ Hardware가 algorithm을 낳고, algorithm이 다시 hardware를 낳는 선순�
 
 이 책에서 가장 중요한 개념으로, FLOPS나 GPU utilization은 높게 나와도 실제로는 통신 대기, idle, 재시작으로 낭비되는 시간이 대부분일 수 있다.
 그래서 실제로 유용한 일을 한 처리량만 세자는 게 goodput인데, Meta가 자사 ML cluster 두 곳의 11개월치 job을 분석한 논문 $\_[$[$\_{34}$](https://arxiv.org/abs/2410.21680)$\_]$에서는 이를 effective training time ratio라는 지표로 제시했다.
+
+{% cq %}
+In simple terms, goodput measures the throughput of useful work completed (number of tokens processed or inference requests completed) per unit time—discounting everything that doesn’t directly contribute to model training or inference.
+{% endcq %}
 
 예를 들어 GPU 8장짜리 node가 100,000 token을 10초에 처리했다면 goodput은 10,000 token/s다.
 GPU 한 장의 이론적 최대가 1,500 token/s라면 8장은 12,000 token/s이므로, 이 node의 효율은 83.3%다.
