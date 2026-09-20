@@ -1,0 +1,65 @@
+<svg viewBox="0 0 880 278" xmlns="http://www.w3.org/2000/svg" width="880" height="278" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="GPU 8장이 NUMA node 두 개에 4장씩 나뉘어 붙은 구조와 로컬 대 원격 memory 접근 지연 차이">
+  <g fill="none" stroke="#6b6b6b" stroke-width="1.5" stroke-dasharray="6 4">
+    <rect x="30" y="40" width="400" height="196" rx="10" />
+    <rect x="450" y="40" width="400" height="196" rx="10" />
+  </g>
+  <g font-size="13.5" fill="#6b6b6b">
+    <text x="44" y="60">NUMA node 0</text>
+    <text x="464" y="60">NUMA node 1</text>
+  </g>
+
+  <g stroke="#800a0a" stroke-width="2.2" fill="none">
+    <line x1="156" y1="94" x2="186" y2="94" />
+    <line x1="576" y1="94" x2="606" y2="94" />
+    <line x1="246" y1="114" x2="246" y2="140" />
+    <line x1="666" y1="114" x2="666" y2="140" />
+    <line x1="88" y1="140" x2="374" y2="140" />
+    <line x1="508" y1="140" x2="794" y2="140" />
+    <line x1="88" y1="140" x2="88" y2="166" />
+    <line x1="183" y1="140" x2="183" y2="166" />
+    <line x1="278" y1="140" x2="278" y2="166" />
+    <line x1="374" y1="140" x2="374" y2="166" />
+    <line x1="508" y1="140" x2="508" y2="166" />
+    <line x1="603" y1="140" x2="603" y2="166" />
+    <line x1="698" y1="140" x2="698" y2="166" />
+    <line x1="794" y1="140" x2="794" y2="166" />
+  </g>
+
+  <path d="M 230 236 L 230 254 L 650 254 L 650 236" fill="none" stroke="#800a0a" stroke-width="2.2" stroke-dasharray="7 4" />
+
+  <g fill="#fff" stroke="#1a1a1a" stroke-width="2.2">
+    <rect x="46" y="74" width="110" height="40" rx="8" />
+    <rect x="186" y="74" width="120" height="40" rx="8" />
+    <rect x="466" y="74" width="110" height="40" rx="8" />
+    <rect x="606" y="74" width="120" height="40" rx="8" />
+    <rect x="46" y="166" width="85" height="40" rx="8" />
+    <rect x="141" y="166" width="85" height="40" rx="8" />
+    <rect x="236" y="166" width="85" height="40" rx="8" />
+    <rect x="331" y="166" width="85" height="40" rx="8" />
+    <rect x="466" y="166" width="85" height="40" rx="8" />
+    <rect x="561" y="166" width="85" height="40" rx="8" />
+    <rect x="656" y="166" width="85" height="40" rx="8" />
+    <rect x="751" y="166" width="85" height="40" rx="8" />
+  </g>
+
+  <g text-anchor="middle" fill="#1a1a1a" font-size="15">
+    <text x="101" y="99">Local DRAM</text>
+    <text x="246" y="99">CPU cores</text>
+    <text x="521" y="99">Local DRAM</text>
+    <text x="666" y="99">CPU cores</text>
+    <text x="88" y="191">GPU 0</text>
+    <text x="183" y="191">GPU 1</text>
+    <text x="278" y="191">GPU 2</text>
+    <text x="374" y="191">GPU 3</text>
+    <text x="508" y="191">GPU 4</text>
+    <text x="603" y="191">GPU 5</text>
+    <text x="698" y="191">GPU 6</text>
+    <text x="794" y="191">GPU 7</text>
+  </g>
+
+  <g text-anchor="middle" font-size="12.5" fill="#800a0a">
+    <rect x="365" y="245" width="150" height="17" fill="#fff" stroke="none" />
+    <text x="440" y="258">cross-NUMA interconnect</text>
+  </g>
+
+</svg>
