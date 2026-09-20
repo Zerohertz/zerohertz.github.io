@@ -437,7 +437,7 @@ Blackwell이 L2를 2.5배 키운 이유가 이것이다.
 Superchip을 72개 GPU 규모로 묶은 것이 GB200/GB300 NVL72다.
 Compute tray 18개에 superchip을 2개씩 (GPU 4 + CPU 2) 담아 GPU 72개와 Grace CPU 36개를 채우고, switch tray 9개에 NVSwitch를 2개씩 넣어 총 18개를 배치한다.
 
-<img src="/images/ai-sys-perf-eng-1/compute-tray.svg" alt="1U compute tray 구성" width="800" />
+<img src="/images/ai-sys-perf-eng-1/compute-tray.svg" alt="compute-tray" width="800" />
 
 Tray 하나가 곧 node 하나인데, superchip 2개가 좌우 대칭으로 앉고 두 Grace CPU는 tray 안에서 직접 이어진다.
 각 superchip에 ConnectX NIC 2장과 local NVMe가 붙어 node 밖으로 나가는 경로를 만들고, GPU 4개는 전부 18개 NVSwitch로 빠진다.
@@ -498,7 +498,7 @@ All-reduce 같은 collective 연산을 GPU가 아니라 switch hardware가 직�
 부분 결과가 GPU로 되돌아올 필요 없이 fabric 안에서 합쳐지므로, GPU는 본연의 연산에 집중하고 network를 오가는 data 총량도 줄어든다.
 분산 학습에서 gradient 집계와 parameter 동기화의 무거운 작업이 통째로 offload된다.
 
-<img src="/images/ai-sys-perf-eng-1/sharp.svg" alt="SHARP in-network reduction" width="820" />
+<img src="/images/ai-sys-perf-eng-1/sharp.svg" alt="sharp" width="820" />
 
 이름의 hierarchical이 여기서 나온다.
 Rack 안에서는 NVSwitch가 합치고, rack을 넘어가는 몫만 InfiniBand switch로 올라가 한 번 더 합쳐진다.
