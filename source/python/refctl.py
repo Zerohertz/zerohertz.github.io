@@ -161,6 +161,9 @@ class RefCtl:
         # If no References section exists, add one at the end
         if start_line == -1:
             if not lines[-1].endswith("\n"):
+                lines[-1] += "\n"
+            # 본문 바로 아래 "---"가 붙으면 setext heading으로 해석되므로 빈 줄을 보장
+            if lines and lines[-1].strip():
                 lines.append("\n")
             lines.extend(
                 ["---\n", "\n", "{% note References %}\n", "\n", "{% endnote %}\n"]
