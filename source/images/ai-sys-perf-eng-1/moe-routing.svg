@@ -1,4 +1,4 @@
-<svg viewBox="0 0 760 458" xmlns="http://www.w3.org/2000/svg" width="760" height="458" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="MoE expert routing: shared expert는 router를 거치지 않고 항상 활성, router가 routed expert N개 중 K개를 골라 gate weight를 곱해 합산">
+<svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" width="760" height="430" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="MoE expert routing: shared expert는 router를 거치지 않고 항상 활성, router가 routed expert N개 중 K개를 골라 gate weight를 곱해 합산">
   <defs>
     <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a" /></marker>
@@ -27,12 +27,12 @@
   <text x="678" y="250" text-anchor="end" font-size="12" fill="#800a0a" font-weight="normal">gate weight</text>
   <rect x="310.0" y="23.0" width="150" height="42" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2.2" />
   <text x="385" y="49" text-anchor="middle" font-size="15" fill="#1a1a1a" font-weight="normal">Output hidden</text>
-  <rect x="310.0" y="300.0" width="150" height="44" rx="8" fill="#fdf1e3" stroke="#c98a3e" stroke-width="2.2" />
+  <rect x="310.0" y="300.0" width="150" height="44" rx="8" fill="#f7f7e8" stroke="#80800a" stroke-width="2.2" />
   <text x="385" y="327" text-anchor="middle" font-size="15" fill="#1a1a1a" font-weight="normal">Router</text>
   <rect x="310.0" y="373.0" width="150" height="42" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2.2" />
   <text x="385" y="399" text-anchor="middle" font-size="15" fill="#1a1a1a" font-weight="normal">Input hidden</text>
-  <rect x="57.0" y="215.0" width="66" height="46" rx="8" fill="#dff0e6" stroke="#2f6b4f" stroke-width="2.2" />
-  <text x="90" y="244" text-anchor="middle" font-size="15" fill="#2f6b4f" font-weight="bold">Shared</text>
+  <rect x="57.0" y="215.0" width="66" height="46" rx="8" fill="#e8f4e8" stroke="#0a800a" stroke-width="2.2" />
+  <text x="90" y="244" text-anchor="middle" font-size="15" fill="#0a800a" font-weight="bold">Shared</text>
   <rect x="167.0" y="215.0" width="66" height="46" rx="8" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="2.2" />
   <text x="200" y="244" text-anchor="middle" font-size="16" fill="#9a9a9a" font-weight="normal">1</text>
   <rect x="247.0" y="215.0" width="66" height="46" rx="8" fill="#f6e0e0" stroke="#800a0a" stroke-width="2.2" />
@@ -51,9 +51,8 @@
   <circle cx="385" cy="112" r="16" fill="#fff" stroke="#1a1a1a" stroke-width="2.2" />
   <text x="385" y="118" text-anchor="middle" font-size="19" fill="#1a1a1a" font-weight="normal">+</text>
   <g><rect x="562" y="24" width="186" height="74" rx="7" fill="#fff" stroke="#bbb" stroke-width="1.4" stroke-dasharray="4 3" />
-    <rect x="580.0" y="37.0" width="16" height="14" rx="3" fill="#dff0e6" stroke="#2f6b4f" stroke-width="1.8" /><text x="604" y="49" font-size="12" fill="#444">Shared expert</text>
+    <rect x="580.0" y="37.0" width="16" height="14" rx="3" fill="#e8f4e8" stroke="#0a800a" stroke-width="1.8" /><text x="604" y="49" font-size="12" fill="#444">Shared expert</text>
     <rect x="580.0" y="59.0" width="16" height="14" rx="3" fill="#f6e0e0" stroke="#800a0a" stroke-width="1.8" /><text x="604" y="71" font-size="12" fill="#444">Routed expert · 선택됨</text>
     <rect x="580.0" y="81.0" width="16" height="14" rx="3" fill="#f4f4f4" stroke="#9a9a9a" stroke-width="1.8" /><text x="604" y="93" font-size="12" fill="#444">Routed expert · 미선택</text>
   </g>
-  <text x="385" y="442" text-anchor="middle" font-size="13" fill="#555" font-weight="normal">shared expert는 항상 활성, routed expert N개 중 router가 고른 K개만 계산</text>
 </svg>

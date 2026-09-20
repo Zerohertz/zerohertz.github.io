@@ -1,0 +1,80 @@
+<svg viewBox="0 0 880 264" xmlns="http://www.w3.org/2000/svg" width="880" height="264" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="같은 시간 창에서 time-slicing은 Process A와 B를 두 번씩 번갈아 처리하고, MPS는 두 process를 겹쳐 세 번씩 처리한다">
+  <defs>
+    <marker id="tm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6b6b" />
+    </marker>
+  </defs>
+
+  <text x="40" y="30" font-size="13.5" fill="#6b6b6b">Time-slicing</text>
+  <text x="755" y="30" font-size="12.5" fill="#6b6b6b">Time</text>
+  <line x1="792" y1="26" x2="836" y2="26" stroke="#6b6b6b" stroke-width="1.6" marker-end="url(#tm)" />
+
+  <g fill="#fff" stroke="#1a1a1a" stroke-width="1.8">
+    <rect x="40" y="42" width="200" height="40" />
+    <rect x="240" y="42" width="200" height="40" />
+    <rect x="440" y="42" width="200" height="40" />
+    <rect x="640" y="42" width="200" height="40" />
+    <rect x="40" y="82" width="200" height="40" />
+    <rect x="240" y="82" width="200" height="40" />
+    <rect x="440" y="82" width="200" height="40" />
+    <rect x="640" y="82" width="200" height="40" />
+  </g>
+  <g text-anchor="middle" font-size="12.5" fill="#1a1a1a">
+    <text x="140" y="62">Process A</text>
+    <text x="540" y="62">Process A</text>
+    <text x="340" y="102">Process B</text>
+    <text x="740" y="102">Process B</text>
+  </g>
+  <g text-anchor="middle" font-size="12" fill="#6b6b6b">
+    <text x="340" y="67">Idle</text>
+    <text x="740" y="67">Idle</text>
+    <text x="140" y="107">Idle</text>
+    <text x="540" y="107">Idle</text>
+  </g>
+  <g fill="#800a0a">
+    <rect x="90" y="68" width="100" height="8" rx="2" />
+    <rect x="490" y="68" width="100" height="8" rx="2" />
+    <rect x="290" y="108" width="100" height="8" rx="2" />
+    <rect x="690" y="108" width="100" height="8" rx="2" />
+  </g>
+
+  <text x="40" y="152" font-size="13.5" fill="#6b6b6b">MPS</text>
+
+  <g fill="#fff" stroke="#1a1a1a" stroke-width="1.8">
+    <rect x="40" y="164" width="250" height="40" />
+    <rect x="290" y="164" width="25" height="40" />
+    <rect x="315" y="164" width="250" height="40" />
+    <rect x="565" y="164" width="25" height="40" />
+    <rect x="590" y="164" width="250" height="40" />
+    <rect x="40" y="204" width="25" height="40" />
+    <rect x="65" y="204" width="250" height="40" />
+    <rect x="315" y="204" width="25" height="40" />
+    <rect x="340" y="204" width="250" height="40" />
+    <rect x="590" y="204" width="25" height="40" />
+    <rect x="615" y="204" width="225" height="40" />
+  </g>
+  <g text-anchor="middle" font-size="12.5" fill="#1a1a1a">
+    <text x="165" y="184">Process A</text>
+    <text x="440" y="184">Process A</text>
+    <text x="715" y="184">Process A</text>
+    <text x="190" y="224">Process B</text>
+    <text x="465" y="224">Process B</text>
+    <text x="727" y="224">Process B</text>
+  </g>
+  <g text-anchor="middle" font-size="10" fill="#6b6b6b">
+    <text transform="translate(302.5,184) rotate(-90)">Idle</text>
+    <text transform="translate(577.5,184) rotate(-90)">Idle</text>
+    <text transform="translate(52.5,224) rotate(-90)">Idle</text>
+    <text transform="translate(327.5,224) rotate(-90)">Idle</text>
+    <text transform="translate(602.5,224) rotate(-90)">Idle</text>
+  </g>
+  <g fill="#800a0a">
+    <rect x="105" y="190" width="120" height="8" rx="2" />
+    <rect x="380" y="190" width="120" height="8" rx="2" />
+    <rect x="655" y="190" width="120" height="8" rx="2" />
+    <rect x="130" y="230" width="120" height="8" rx="2" />
+    <rect x="405" y="230" width="120" height="8" rx="2" />
+    <rect x="670" y="230" width="115" height="8" rx="2" />
+  </g>
+
+</svg>
