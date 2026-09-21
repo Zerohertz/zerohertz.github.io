@@ -48,12 +48,12 @@ Multi-petaFLOP GPU cluster를 돌리는 일은 PyTorch code를 짜는 것으로 
 | 계층                      | 구성 요소 |
 | ------------------------- | --------- |
 | Frameworks and DSLs       | PyTorch $\_[$[$\_{6}$](https://github.com/pytorch/pytorch)$\_]$ · OpenAI Triton $\_[$[$\_{7}$](https://github.com/triton-lang/triton)$\_,$[$\_{8}$](https://triton-lang.org/)$\_]$ · Warp $\_[$[$\_{9}$](https://github.com/NVIDIA/warp)$\_,$[$\_{10}$](https://nvidia.github.io/warp/)$\_]$ |
-| SDKs                      | RAPIDS $\_[$[$\_{11}$](https://github.com/rapidsai)$\_,$[$\_{12}$](https://rapids.ai/)$\_]$ · CUDA-Q $\_[$[$\_{13}$](https://github.com/NVIDIA/cuda-quantum)$\_,$[$\_{14}$](https://developer.nvidia.com/cuda-q)$\_]$ |
+| SDKs                      | RAPIDS $\_[$[$\_{11}$](https://github.com/rapidsai)$\_,$[$\_{12}$](https://developer.nvidia.com/topics/ai/data-science/cuda-x-for-data-science)$\_]$ · CUDA-Q $\_[$[$\_{13}$](https://github.com/NVIDIA/cuda-quantum)$\_,$[$\_{14}$](https://developer.nvidia.com/cuda-q)$\_]$ |
 | Domain-specific libraries | cuPyNumeric $\_[$[$\_{15}$](https://github.com/nv-legate/cupynumeric)$\_,$[$\_{16}$](https://docs.nvidia.com/cupynumeric/)$\_]$ · cuDNN-python $\_[$[$\_{17}$](https://github.com/NVIDIA/cudnn-frontend)$\_]$ |
 | Accelerated libraries     | cuda-parallel $\_[$[$\_{18}$](https://github.com/NVIDIA/cccl)$\_]$ · nvmath-python $\_[$[$\_{19}$](https://github.com/NVIDIA/nvmath-python)$\_,$[$\_{20}$](https://docs.nvidia.com/cuda/nvmath-python/)$\_]$ · cuBLAS $\_[$[$\_{21}$](https://docs.nvidia.com/cuda/cublas/)$\_]$ |
-| Communication libraries   | mpi4py $\_[$[$\_{22}$](https://github.com/mpi4py/mpi4py)$\_,$[$\_{23}$](https://mpi4py.readthedocs.io/)$\_]$ · nvshmem4py $\_[$[$\_{24}$](https://github.com/NVIDIA/nvshmem)$\_,$[$\_{25}$](https://docs.nvidia.com/nvshmem/api/index.html)$\_]$ |
+| Communication libraries   | mpi4py $\_[$[$\_{22}$](https://github.com/mpi4py/mpi4py)$\_,$[$\_{23}$](https://mpi4py.readthedocs.io/en/stable/)$\_]$ · nvshmem4py $\_[$[$\_{24}$](https://github.com/NVIDIA/nvshmem)$\_,$[$\_{25}$](https://docs.nvidia.com/nvshmem/api/index.html)$\_]$ |
 | Device libraries          | cuda-cooperative $\_[$[$\_{18}$](https://github.com/NVIDIA/cccl)$\_]$ · nvmath-python $\_[$[$\_{19}$](https://github.com/NVIDIA/nvmath-python)$\_,$[$\_{20}$](https://docs.nvidia.com/cuda/nvmath-python/)$\_]$ |
-| Kernel authoring          | CUDA C++/Python $\_[$[$\_{26}$](https://github.com/NVIDIA/cuda-python)$\_,$[$\_{27}$](https://nvidia.github.io/cuda-python/)$\_,$[$\_{28}$](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)$\_]$ · cuTile $\_[$[$\_{29}$](https://github.com/NVIDIA/cutile-python)$\_]$ · CUTLASS $\_[$[$\_{30}$](https://github.com/NVIDIA/cutlass)$\_]$ |
+| Kernel authoring          | CUDA C++/Python $\_[$[$\_{26}$](https://github.com/NVIDIA/cuda-python)$\_,$[$\_{27}$](https://nvidia.github.io/cuda-python/)$\_,$[$\_{28}$](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html)$\_]$ · cuTile $\_[$[$\_{29}$](https://github.com/NVIDIA/cutile-python)$\_]$ · CUTLASS $\_[$[$\_{30}$](https://github.com/NVIDIA/cutlass)$\_]$ |
 | Compiler stack            | nvcc $\_[$[$\_{31}$](https://docs.nvidia.com/cuda/)$\_]$ · NVVM/LLVM $\_[$[$\_{32}$](https://docs.nvidia.com/cuda/nvvm-ir-spec/)$\_]$ · PTX $\_[$[$\_{33}$](https://docs.nvidia.com/cuda/parallel-thread-execution/)$\_]$ |
 | Host runtimes and tools   | CUDA runtime $\_[$[$\_{31}$](https://docs.nvidia.com/cuda/)$\_]$ · cuda.core $\_[$[$\_{26}$](https://github.com/NVIDIA/cuda-python)$\_,$[$\_{34}$](https://nvidia.github.io/cuda-python/cuda-core/latest/)$\_]$ · Nsight tools $\_[$[$\_{35}$](https://docs.nvidia.com/nsight-systems/)$\_]$ |
 
@@ -74,7 +74,7 @@ Toolkit에는 CUDA C++ kernel을 compile하는 `nvcc`가 들어 있고, compile�
 이 runtime이 driver와 직접 통신해 GPU에 작업을 던지고 memory를 할당한다.
 
 Toolkit은 최적화된 library도 함께 제공한다.
-신경망 primitive를 담당하는 cuDNN $\_[$[$\_{37}$](https://docs.nvidia.com/deeplearning/cudnn/)$\_]$, 선형대수의 cuBLAS $\_[$[$\_{21}$](https://docs.nvidia.com/cuda/cublas/)$\_]$, 다중 GPU 통신의 NCCL $\_[$[$\_{38}$](https://github.com/NVIDIA/nccl)$\_,$[$\_{39}$](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html)$\_]$ 같은 것들이다.
+신경망 primitive를 담당하는 cuDNN $\_[$[$\_{37}$](https://docs.nvidia.com/deeplearning/cudnn/latest/)$\_]$, 선형대수의 cuBLAS $\_[$[$\_{21}$](https://docs.nvidia.com/cuda/cublas/)$\_]$, 다중 GPU 통신의 NCCL $\_[$[$\_{38}$](https://github.com/NVIDIA/nccl)$\_,$[$\_{39}$](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html)$\_]$ 같은 것들이다.
 저자는 GPU의 compute capability를 지원하는 최신 Toolkit을 쓰라고 권하는데, compiler 최적화와 GPU별 library가 최신 버전에 들어가기 때문이다.
 
 ### CUDA Forward and Backward Compatibility Across GPU Hardware Generations
@@ -125,7 +125,7 @@ Driver가 실행 시점에 하는 JIT compile도 결국 이 변환을 그때 수
 Fatbinary는 이렇게 나온 결과물을 하나로 묶어 실행 파일에 심어두는 container로, 아키텍처별 CUBIN 여러 개와 원본 PTX를 함께 담는다.
 이름의 "fat"은 한 binary 안에 여러 target용 code가 겹쳐 들어 있다는 뜻이고 fatbin으로 줄여 쓰기도 한다.
 
-그래서 현재 아키텍처용 SASS와 forward compatibility용 PTX를 같이 담은 fatbinary로 배포하라는 것이 결론이다 $\_[$[$\_{41}$](https://docs.nvidia.com/deploy/cuda-compatibility/)$\_]$.
+그래서 현재 아키텍처용 SASS와 forward compatibility용 PTX를 같이 담은 fatbinary로 배포하라는 것이 결론이다 $\_[$[$\_{41}$](https://docs.nvidia.com/deploy/cuda-compatibility/latest/)$\_]$.
 
 ### C++ and Python CUDA Libraries
 
@@ -141,7 +141,7 @@ Python DSL로 custom GPU kernel을 쓸 수 있게 해줘서 손으로 짜는 CUD
 
 ### PyTorch and Higher-Level AI Frameworks
 
-CUDA 위에 올라간 Python framework로는 PyTorch $\_[$[$\_{6}$](https://github.com/pytorch/pytorch)$\_]$와 TensorFlow $\_[$[$\_{46}$](https://github.com/tensorflow/tensorflow)$\_,$[$\_{47}$](https://www.tensorflow.org/)$\_]$, JAX $\_[$[$\_{48}$](https://github.com/jax-ml/jax)$\_,$[$\_{49}$](https://docs.jax.dev/)$\_]$, Keras $\_[$[$\_{50}$](https://github.com/keras-team/keras)$\_,$[$\_{51}$](https://keras.io/)$\_]$가 있고, 모두 NVIDIA GPU를 쓰면서 deep learning용 고수준 인터페이스를 제공한다.
+CUDA 위에 올라간 Python framework로는 PyTorch $\_[$[$\_{6}$](https://github.com/pytorch/pytorch)$\_]$와 TensorFlow $\_[$[$\_{46}$](https://github.com/tensorflow/tensorflow)$\_,$[$\_{47}$](https://www.tensorflow.org/)$\_]$, JAX $\_[$[$\_{48}$](https://github.com/jax-ml/jax)$\_,$[$\_{49}$](https://docs.jax.dev/en/latest/)$\_]$, Keras $\_[$[$\_{50}$](https://github.com/keras-team/keras)$\_,$[$\_{51}$](https://keras.io/)$\_]$가 있고, 모두 NVIDIA GPU를 쓰면서 deep learning용 고수준 인터페이스를 제공한다.
 이 책이 주로 다루는 것은 PyTorch의 compile과 graph 최적화 기능이고, `torch.compile` stack $\_[$[$\_{52}$](https://docs.pytorch.org/docs/stable/torch.compiler.html)$\_]$도 그 안에 들어간다.
 PyTorch compiler stack은 TorchDynamo $\_[$[$\_{53}$](https://github.com/pytorch/pytorch/tree/main/torch/_dynamo)$\_,$[$\_{54}$](https://docs.pytorch.org/docs/stable/torch.compiler_dynamo_overview.html)$\_]$와 AOT Autograd $\_[$[$\_{55}$](https://github.com/pytorch/pytorch/tree/main/torch/_functorch)$\_]$, 그리고 TorchInductor $\_[$[$\_{56}$](https://github.com/pytorch/pytorch/tree/main/torch/_inductor)$\_]$나 XLA $\_[$[$\_{57}$](https://github.com/openxla/xla)$\_,$[$\_{58}$](https://openxla.org/xla)$\_]$ 같은 backend로 구성되는데, 가장 흔한 TorchInductor가 내부적으로 Triton을 쓴다.
 
@@ -208,8 +208,8 @@ done
 
 Framework 쪽에서도 code로 붙일 수 있는데, PyTorch `DataLoader` $\_[$[$\_{62}$](https://docs.pytorch.org/docs/stable/data.html)$\_]$가 `worker_init_fn`을 열어두고 있어서 worker process가 초기화될 때 CPU affinity를 직접 걸 수 있다.
 책은 이 흐름을 100줄짜리 예제로 싣는다.
-먼저 NVML (NVIDIA management library) $\_[$[$\_{63}$](https://docs.nvidia.com/deploy/nvml-api/)$\_,$[$\_{64}$](https://pypi.org/project/nvidia-ml-py/)$\_]$로 GPU가 붙은 NUMA node를 알아낸다 (`nvmlDeviceGetNUMANodeId`, 없으면 `nvmlDeviceGetCpuAffinity`, 그것도 없으면 `/sys/bus/pci/devices/<PCI_ID>/numa_node`).
-이어서 그 node에 속한 core 목록을 `/sys/devices/system/node/node<N>/cpulist`에서 읽어 `psutil` $\_[$[$\_{65}$](https://github.com/giampaolo/psutil)$\_,$[$\_{66}$](https://psutil.readthedocs.io/en/latest/)$\_]$로 CPU affinity를 걸고, 마지막으로 `libnuma` $\_[$[$\_{59}$](https://github.com/numactl/numactl)$\_,$[$\_{67}$](https://man7.org/linux/man-pages/man3/numa.3.html)$\_]$의 `numa_run_on_node`와 `numa_set_preferred`로 이후 memory 할당까지 같은 node에 묶는다.
+먼저 NVML (NVIDIA management library) $\_[$[$\_{63}$](https://docs.nvidia.com/deploy/nvml-api/latest/)$\_,$[$\_{64}$](https://pypi.org/project/nvidia-ml-py/)$\_]$로 GPU가 붙은 NUMA node를 알아낸다 (`nvmlDeviceGetNUMANodeId`, 없으면 `nvmlDeviceGetCpuAffinity`, 그것도 없으면 `/sys/bus/pci/devices/<PCI_ID>/numa_node`).
+이어서 그 node에 속한 core 목록을 `/sys/devices/system/node/node<N>/cpulist`에서 읽어 `psutil` $\_[$[$\_{65}$](https://github.com/giampaolo/psutil)$\_,$[$\_{66}$](https://psutil.io/)$\_]$로 CPU affinity를 걸고, 마지막으로 `libnuma` $\_[$[$\_{59}$](https://github.com/numactl/numactl)$\_,$[$\_{67}$](https://man7.org/linux/man-pages/man3/numa.3.html)$\_]$의 `numa_run_on_node`와 `numa_set_preferred`로 이후 memory 할당까지 같은 node에 묶는다.
 
 `numactl` 정책은 문서상 자식 process에 상속되지만 launcher나 container runtime, kernel에 따라 전파가 보장되지 않고, `spawn` 방식으로 바뀌거나 새 program을 `exec`하면 아예 끊긴다.
 그래서 worker마다 명시적으로 다시 걸어야 한다.
@@ -254,7 +254,7 @@ PyTorch에서는 `DataLoader`의 `pin_memory=True` 한 줄이다.
 ### Transparent Hugepages
 
 Linux는 보통 4 KB page를 쓰는데, 수십에서 수백 GB를 쓰는 process에서 수백만 개의 작은 page를 관리하는 것은 비효율적이다.
-2 MB나 1 GB짜리 hugepage $\_[$[$\_{73}$](https://docs.kernel.org/admin-guide/mm/transhuge.html)$\_]$는 page fault를 줄이고 TLB 압력을 낮춘다.
+Page 크기를 2 MB, 크게는 1 GB까지 키운 hugepage $\_[$[$\_{73}$](https://docs.kernel.org/admin-guide/mm/transhuge.html)$\_]$는 memory chunk를 키워 가상 memory 관리 overhead를 줄이는데, page fault가 줄고 TLB 압력이 낮아지는 것이 주된 이득이다.
 
 TLB (translation lookaside buffer)는 가상 주소를 물리 주소로 변환하는 CPU의 cache다.
 Page가 더 크고 개수가 적으면 같은 entry 수로 더 넓은 memory를 덮을 수 있어 miss가 줄어든다.
@@ -275,10 +275,10 @@ I/O용으로 미리 잡아두는 pinned buffer처럼 memory pool이 아주 크�
 ### Scheduler and Interrupt Affinity
 
 바쁜 시스템에서 data pipeline thread 같은 중요한 thread가 자주 선점되지 않게 해야 한다.
-Linux 기본 CFS (completely fair scheduler)로 대부분 충분하지만, GPU에 data를 먹이는 지연 민감 thread에는 real-time FIFO나 RR 우선순위를 검토할 수 있다.
+Linux 기본 CFS (completely fair scheduler)로 대부분 충분하지만, GPU에 data를 전송하는 지연 민감 thread에는 real-time FIFO (first in, first out)나 RR (round-robin) priority scheduling을 검토할 수 있다.
 다만 real-time thread는 관리를 잘못하면 다른 process를 굶길 수 있고, 애초에 thread를 전용 core에 pin해뒀다면 대개 손댈 필요가 없다.
 
-Core를 격리하는 방법도 있는데, `cset` $\_[$[$\_{74}$](https://github.com/lpechacek/cpuset)$\_]$이나 `isolcpus`, `nohz_full` 같은 kernel parameter $\_[$[$\_{69}$](https://docs.kernel.org/admin-guide/kernel-parameters.html)$\_]$, cgroup cpuset 격리를 쓰면 OS scheduler가 해당 core를 건드리지 않는다.
+Core를 격리하는 방법도 있는데, `cset` $\_[$[$\_{74}$](https://github.com/SUSE/cpuset)$\_]$이나 `isolcpus`, `nohz_full` 같은 kernel parameter $\_[$[$\_{69}$](https://docs.kernel.org/admin-guide/kernel-parameters.html)$\_]$, cgroup cpuset 격리를 쓰면 OS scheduler가 해당 core를 건드리지 않는다.
 Production에서는 cgroup $\_[$[$\_{75}$](https://docs.kernel.org/admin-guide/cgroup-v2.html)$\_]$ CPU·memory affinity가 강하게 권장되는데, workload마다 물리 core와 memory 영역을 분리해 교차 경합과 NUMA 페널티를 막기 때문이다.
 
 Hardware interrupt에도 같은 원칙이 적용되어, NUMA node 0의 GPU나 NIC가 interrupt를 올리면 node 0의 core가 처리해야 한다.
@@ -295,6 +295,9 @@ GPU program은 data caching용으로 host memory를 많이 할당하는 편이�
 그렇지 않으면 OOM killer가 process를 거둬간다.
 설정 후에는 `vmstat`이나 `free -m`으로 swap 사용량이 0을 유지하는지 확인한다.
 
+Swap을 막는 데는 pinned memory에서 나왔던 `ulimit -l`도 함께 봐야 한다.
+이 값이 낮으면 lock할 수 있는 memory가 모자라 오히려 swap이 심해지므로, memory를 많이 쓰는 AI workload라면 여기서도 충분히 크게, 보통은 unlimited로 둔다.
+
 Container 환경이라면 Docker나 Kubernetes를 통해 cgroup v2로 memory와 CPU를 묶는 것이 권장된다.
 그래야 NUMA affinity와 no-swap 정책이 container 안까지 강제된다.
 
@@ -307,8 +310,7 @@ Container 환경이라면 Docker나 Kubernetes를 통해 cgroup v2로 memory와 
 수 GB짜리 checkpoint라면 dirty ratio를 높여 OS가 더 많은 data를 RAM에 모았다가 flush하게 하는 편이 학습 loop의 정지를 줄인다.
 
 별도 thread에서 checkpoint를 쓰거나, PyTorch의 분산 checkpoint로 각 node가 자기 partition을 쓰고 불러올 때 합치는 방법도 있다.
-지연에 민감한 흐름이라면 page cache를 아예 우회한다.
-`O_DIRECT`로 파일을 열거나 `io_uring`으로 비동기 I/O를 쓰고, checkpoint를 쓴 뒤 `posix_fadvise(fd, 0, 0, POSIX_FADV_DONTNEED)`로 해당 page를 즉시 cache에서 내린다.
+지연에 민감한 학습 workflow에서 page cache를 아예 우회하려면, `O_DIRECT`로 파일을 열거나 `io_uring`으로 비동기 I/O를 쓰고 checkpoint를 쓴 뒤 `posix_fadvise(fd, 0, 0, POSIX_FADV_DONTNEED)`로 해당 page를 즉시 cache에서 내려야 한다.
 
 ### CPU Frequency and C-states
 
@@ -321,27 +323,26 @@ CPU를 downclock하거나 유휴 시 재우는 것인데, 새 작업이 도착�
 cpupower frequency-set -g performance
 ```
 
-깊은 C-state를 끄는 것도 같은 맥락이다.
-C-state는 ACPI (advanced configuration and power interface)가 정의한 절전 모드로 C0가 활성 상태이고 그 위로 갈수록 더 깊이 잠든다.
-깊이 잘수록 전력은 아끼지만 깨어나는 데 오래 걸린다.
+ACPI (advanced configuration and power interface)가 정의한 절전 모드인 deep C-state를 끄는 것도 같은 맥락이다.
+CPU core가 유휴 상태일 때 들어가는 C-state는 C0가 활성 상태이고 번호가 올라갈수록 더 깊은 절전 상태가 되는데, 깊을수록 전력은 아끼지만 깨어나는 데 오래 걸린다.
 
 Data loader thread가 data를 기다리다 CPU가 C6까지 내려가면 깨어나는 데 수 마이크로초가 걸린다.
 길지 않아 보여도 이것이 쌓이면 GPU가 CPU의 재개를 기다리는 구간, 즉 bubble이 된다.
-서버 BIOS/UEFI에 이 둘을 한 번에 설정하는 고성능 프로파일이 있는 경우가 많다.
+서버의 BIOS (basic input/output system)나 UEFI (unified extensible firmware interface)에 이 둘을 한 번에 설정하는 고성능 프로파일이 있는 경우가 많다.
 
 ### Tune Host CPU Memory Allocator
 
 잘 조정된 GPU 서버에서 CPU 사용률이 아주 높지는 않지만, GPU 활동과 보조를 맞춰 꾸준해야 한다.
 GPU가 현재 batch를 처리하는 동안 CPU는 다음 batch를 준비하고 있어야 한다.
 
-Host의 memory allocator를 jemalloc이나 tcmalloc으로 바꾸고 조정하면 data 준비 과정의 예측 불가능한 정지를 없앨 수 있다.
-jemalloc $\_[$[$\_{76}$](https://github.com/jemalloc/jemalloc)$\_,$[$\_{77}$](https://jemalloc.net/)$\_]$은 CPU별 arena로 할당을 쪼개고 (`narenas`), 백그라운드 purging을 켜고 (`background_thread`), 해제한 page를 바로 OS에 돌려주지 않도록 decay 시간을 늘려 lock 경합과 단편화를 줄인다.
+Host의 memory allocator를 jemalloc $\_[$[$\_{76}$](https://github.com/jemalloc/jemalloc)$\_,$[$\_{77}$](https://jemalloc.net/)$\_]$이나 tcmalloc $\_[$[$\_{78}$](https://github.com/google/tcmalloc)$\_]$으로 바꾸고 조정하면 data 준비 과정의 예측 불가능한 정지를 없앨 수 있다.
+jemalloc은 CPU별 arena로 할당을 쪼개고 (`narenas`), 백그라운드 purging을 켜고 (`background_thread`), 해제한 page를 바로 OS에 돌려주지 않도록 decay 시간을 늘려 (`dirty_decay_ms`, `muzzy_decay_ms`) lock 경합과 단편화를 줄이는데, 이 값들은 `MALLOC_CONF` 환경 변수 하나에 모아서 넘긴다.
 
 ```bash
 export MALLOC_CONF="narenas:8,dirty_decay_ms:10000,muzzy_decay_ms:10000,background_thread:true"
 ```
 
-tcmalloc $\_[$[$\_{78}$](https://github.com/google/tcmalloc)$\_]$은 thread별 cache를 키워 작은 할당이 전역 lock과 syscall을 피하게 한다.
+tcmalloc은 thread별 cache를 키워 작은 할당이 전역 lock과 syscall을 피하게 하고, `TCMALLOC_MAX_TOTAL_THREAD_CACHE_BYTES`와 `TCMALLOC_RELEASE_RATE` 환경 변수로 조정한다.
 
 ```bash
 export TCMALLOC_MAX_TOTAL_THREAD_CACHE_BYTES=$((512*1024*1024))
@@ -350,8 +351,8 @@ export TCMALLOC_RELEASE_RATE=16
 
 ## GPU Driver and Runtime Settings for Performance
 
-CPU 쪽을 정리했으니 GPU driver와 runtime 차례다.
-특히 여러 GPU를 여러 사용자가 나눠 쓰는 상황에서 효과가 큰 설정들이다.
+CPU 쪽을 정리했으니 GPU driver와 runtime 차례인데, 여러 GPU를 여러 사용자가 나눠 쓰는 상황에서 특히 효과가 크고 제대로 맞추면 overhead를 줄이면서 여러 workload가 GPU를 나눠 쓰는 방식을 개선할 수 있다.
+GPU persistence mode와 GPU를 쪼개는 MPS·MIG, 그리고 clock 설정과 ECC memory, out-of-memory 동작을 차례로 본다.
 
 ### GPU Persistence Mode
 
@@ -359,7 +360,7 @@ GPU를 쓰는 application이 없으면 driver가 GPU를 저전력 상태로 내�
 다음 application이 GPU를 쓰려 할 때 초기화 비용이 발생하는데, driver가 전부 다시 올라오는 데 1\~2초가 걸린다.
 
 Job이 자주 시작하고 끝나는 학습 cluster나, 요청이 드문드문 오는 추론 cluster에서는 이 overhead가 그대로 성능 저하가 된다.
-`nvidia-persistenced` daemon $\_[$[$\_{2}$](https://docs.nvidia.com/deploy/driver-persistence/persistence-daemon.html)$\_]$을 띄우면 application이 없어도 driver가 올라가 있고 hardware가 준비 상태로 남는다.
+`nvidia-persistenced` daemon $\_[$[$\_{2}$](https://docs.nvidia.com/deploy/driver-persistence/persistence-daemon.html)$\_]$을 띄우면 application이 없어도 driver가 올라가 있고 hardware가 준비 상태로 남는데, 부팅 시점부터 적용하려면 service로 등록해둔다.
 
 ```bash
 systemctl enable nvidia-persistenced
@@ -367,14 +368,14 @@ systemctl enable nvidia-persistenced
 
 연산 자체가 빨라지는 것은 아니고 job 시작 지연과 cold start를 없애는 설정이다.
 대가는 유휴 시 전력 소모가 조금 늘어나는 것뿐이라, AI cluster에서는 부팅 시점에 모든 GPU에 켜두는 것이 일반적이다.
-Kubernetes 환경이라면 NVIDIA GPU Operator가 모든 GPU에 자동으로 켜도록 설정할 수 있다.
+Kubernetes 환경이라면 NVIDIA GPU Operator $\_[$[$\_{79}$](https://github.com/NVIDIA/gpu-operator)$\_,$[$\_{80}$](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html)$\_]$가 모든 GPU에 자동으로 켜도록 설정할 수 있다.
 
 ### MPS
 
 여러 process가 하나의 GPU를 공유하면 GPU scheduler가 그들 사이를 time-slice한다.
 Kernel이 짧고 사이에 유휴 구간이 있으면 GPU는 context switch만 왕복하면서 활용률이 떨어진다.
 
-MPS (multi-process service) $\_[$[$\_{79}$](https://docs.nvidia.com/deploy/mps/)$\_]$는 여러 process가 하나의 우산 아래에서 동시에 GPU를 쓰게 만든다.
+MPS (multi-process service) $\_[$[$\_{81}$](https://docs.nvidia.com/deploy/mps/latest/index.html)$\_]$는 여러 process가 하나의 우산 아래에서 동시에 GPU를 쓰게 만든다.
 
 {% cq %}
 MPS is a feature that creates a sort of umbrella under which multiple processes can run on the GPU concurrently and without strict time-slicing.
@@ -405,7 +406,7 @@ Device plugin이 같은 GPU에 여러 pod을 시간 단위로 배치하는데, �
 
 ### MIG
 
-MIG (multi-instance GPU) $\_[$[$\_{80}$](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/)$\_]$는 GPU를 hardware 수준에서 분할한다.
+MIG (multi-instance GPU) $\_[$[$\_{82}$](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/latest/)$\_]$는 GPU를 hardware 수준에서 분할한다.
 
 {% cq %}
 MIG is a form of virtualization but done in hardware.
@@ -473,13 +474,13 @@ Framework마다 동작이 다르다.
 TensorFlow는 기본적으로 시작 시 GPU memory를 전부 잡고 (`TF_FORCE_GPU_ALLOW_GROWTH=true`로 필요한 만큼 늘려가게 바꿀 수 있다), PyTorch는 필요할 때만 할당한다.
 GPU를 공유하는 상황에서는 후자가 훨씬 낫다.
 
-CUDA Unified Memory $\_[$[$\_{28}$](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)$\_]$는 CPU와 GPU 중 어디에 둘지 미리 정하지 않고 할당하게 해준다.
+CUDA Unified Memory $\_[$[$\_{28}$](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html)$\_]$는 CPU와 GPU 중 어디에 둘지 미리 정하지 않고 할당하게 해준다.
 Hopper와 Blackwell은 Page Migration Engine으로 on-demand paging을 hardware에서 지원해서, GPU memory가 부족하면 page를 host RAM으로 자동 이주시킨다.
 다만 CPU memory I/O가 HBM보다 느리므로 여기에 기대는 순간 성능이 떨어진다.
 Script가 죽는 대신 느리게라도 도는 안전망으로 보는 것이 맞다.
 
 PyTorch 같은 library는 caching allocator를 써서 해제한 GPU memory를 OS에 바로 돌려주지 않고 재사용한다.
-단편화와 반복 할당 overhead를 피하기 위한 것이고, `PYTORCH_ALLOC_CONF` (구 `PYTORCH_CUDA_ALLOC_CONF`) $\_[$[$\_{81}$](https://docs.pytorch.org/docs/stable/notes/cuda.html)$\_]$로 pool 크기를 조정한다.
+단편화와 반복 할당 overhead를 피하기 위한 것이고, `PYTORCH_ALLOC_CONF` (구 `PYTORCH_CUDA_ALLOC_CONF`) $\_[$[$\_{83}$](https://docs.pytorch.org/docs/stable/notes/cuda.html)$\_]$로 pool 크기를 조정한다.
 
 OOM을 만나면 `torch.cuda.empty_cache()`로 cache를 비워볼 수 있지만, 대개는 workload가 정말로 그만큼의 memory를 필요로 한다는 뜻이다.
 `torch.cuda.memory_stats()`와 `torch.cuda.memory_summary()`로 할당량 대비 예약량을 보면 단편화를 진단할 수 있다.
@@ -493,8 +494,8 @@ Container는 CUDA와 library 버전을 포함한 의존성을 일정하게 만�
 약간의 복잡도와 아주 작은 overhead가 붙지만, 제대로 설정하면 GPU workload에서 bare-metal에 가까운 성능이 나온다.
 
 Container는 VM이 아니다.
-Host OS kernel을 공유하므로 CPU와 memory 연산이 거의 native 속도로 돌고, NVIDIA Container Toolkit $\_[$[$\_{82}$](https://github.com/NVIDIA/nvidia-container-toolkit)$\_,$[$\_{83}$](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)$\_]$을 쓰면 container 안에서의 GPU 접근도 직접적이라 overhead가 없다.
-최신 Toolkit 기준으로 제대로 설정된 환경에서는 bare metal과 2% 미만 차이라고 저자는 주장하며, MLPerf Inference v5.0 $\_[$[$\_{84}$](https://mlcommons.org/benchmarks/)$\_]$ 결과가 Red Hat OpenShift와 Kubernetes에서 나왔다는 사실을 근거로 든다.
+Host OS kernel을 공유하므로 CPU와 memory 연산이 거의 native 속도로 돌고, NVIDIA Container Toolkit $\_[$[$\_{84}$](https://github.com/NVIDIA/nvidia-container-toolkit)$\_,$[$\_{85}$](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)$\_]$을 쓰면 container 안에서의 GPU 접근도 직접적이라 overhead가 없다.
+최신 Toolkit 기준으로 제대로 설정된 환경에서는 bare metal과 2% 미만 차이라고 저자는 주장하며, MLPerf Inference v5.0 $\_[$[$\_{86}$](https://mlcommons.org/benchmarks/)$\_]$ 결과가 Red Hat OpenShift와 Kubernetes에서 나왔다는 사실을 근거로 든다.
 
 ### NVIDIA Container Toolkit and CUDA Compatibility
 
@@ -507,7 +508,7 @@ Container로 GPU를 쓸 때의 과제는 container 안 CUDA library와 host driv
 | 12.x | R525 이상              |
 
 오래된 driver 위에서 새 CUDA runtime을 쓰면 CUDA 초기화가 실패한다.
-가장 단순한 접근은 NGC $\_[$[$\_{85}$](https://catalog.ngc.nvidia.com/)$\_]$나 DockerHub의 NVIDIA 공식 base image를 쓰는 것으로, CUDA runtime과 cuDNN, NCCL 버전이 맞춰진 상태로 묶여 있다.
+가장 단순한 접근은 NGC $\_[$[$\_{87}$](https://catalog.ngc.nvidia.com/)$\_]$나 DockerHub의 NVIDIA 공식 base image를 쓰는 것으로, CUDA runtime과 cuDNN, NCCL 버전이 맞춰진 상태로 묶여 있다.
 
 ### NVIDIA Container Runtime
 
@@ -517,13 +518,13 @@ NVIDIA container runtime은 host의 driver library를 container 시작 시점에
 Container 안의 application은 image에 들어 있는 `libcudart.so` 같은 CUDA runtime library를 쓰고, Container Toolkit이 host의 `libcuda.so`와 `libnvidia-ml.so`를 붙여준다.
 Hypervisor나 가상화 계층이 끼지 않으므로 kernel이 GPU에서 실행될 때 host에서 실행한 것과 같다.
 
-Toolkit은 Docker뿐 아니라 containerd $\_[$[$\_{86}$](https://github.com/containerd/containerd)$\_,$[$\_{87}$](https://containerd.io/)$\_]$와 Podman에서도 동작한다.
+Toolkit은 Docker뿐 아니라 containerd $\_[$[$\_{88}$](https://github.com/containerd/containerd)$\_,$[$\_{89}$](https://containerd.io/)$\_]$와 Podman에서도 동작한다.
 containerd를 기본 runtime으로 쓰는 요즘 Kubernetes 환경에서 의미가 있다.
 
 ### Avoiding Container Overlay Filesystem Overhead
 
 Container와 host의 실질적인 차이는 I/O에서 나온다.
-Container는 보통 여러 계층을 하나로 겹쳐 보여주는 union filesystem을 쓰는데, OverlayFS $\_[$[$\_{88}$](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/)$\_]$가 대표적이다.
+Container는 보통 여러 계층을 하나로 겹쳐 보여주는 union filesystem을 쓰는데, OverlayFS $\_[$[$\_{90}$](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/)$\_]$가 대표적이다.
 
 여기에는 두 종류의 overhead가 있다.
 파일을 읽을 때 읽기 전용 계층과 쓰기 계층 중 어느 쪽 버전을 돌려줄지 판단하려면 여러 계층을 확인해야 하고, 쓸 때는 copy-on-write가 걸린다.
@@ -544,16 +545,16 @@ Image가 크고 network로 당겨와야 하면 시작 시간이 길어진다.
 다만 몇 시간에서 몇 달을 도는 학습 loop에서 몇 분의 시작 시간은 무시할 만하다.
 그래도 불필요한 build 도구와 임시 파일을 빼서 image를 가볍게 유지하면 디스크도 아끼고 시작도 빨라진다.
 
-HPC 센터에서는 Docker 대신 Apptainer (구 Singularity) $\_[$[$\_{89}$](https://github.com/apptainer/apptainer)$\_,$[$\_{90}$](https://apptainer.org/)$\_]$를 선호하기도 한다.
-root daemon 없이 사용자 공간에서 image를 돌리고 host filesystem을 직접 쓰기 때문에 OS가 이미 가진 것 이상의 overhead가 사실상 없다.
+HPC 센터에서는 Docker 대신 Apptainer (구 Singularity) $\_[$[$\_{91}$](https://github.com/apptainer/apptainer)$\_,$[$\_{92}$](https://apptainer.org/)$\_]$를 선호하기도 한다.
+Root daemon 없이 사용자 공간에서 image를 돌리고 host filesystem을 직접 쓰기 때문에 OS가 이미 가진 것 이상의 overhead가 사실상 없다.
 
 ## Kubernetes for Topology-Aware Container Orchestration and Networking
 
-NVIDIA device plugin $\_[$[$\_{91}$](https://github.com/NVIDIA/k8s-device-plugin)$\_]$은 GPU hardware를 scheduler에 광고하는 가벼운 구성 요소다.
+NVIDIA device plugin $\_[$[$\_{93}$](https://github.com/NVIDIA/k8s-device-plugin)$\_]$은 GPU hardware를 scheduler에 광고하는 가벼운 구성 요소다.
 `resources.limits`에 `nvidia.com/gpu`를 요청하면 device node를 pod에 mount해준다.
 이 plugin은 topology를 인식해서 한 pod에 같은 NVLink Switch나 같은 NUMA node의 GPU를 우선 배정할 수 있다.
 
-NVIDIA GPU Operator $\_[$[$\_{92}$](https://github.com/NVIDIA/gpu-operator)$\_,$[$\_{93}$](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html)$\_]$는 driver library와 device plugin, Container Toolkit의 설치와 생명주기를 자동화한다.
+NVIDIA GPU Operator $\_[$[$\_{79}$](https://github.com/NVIDIA/gpu-operator)$\_,$[$\_{80}$](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html)$\_]$는 driver library와 device plugin, Container Toolkit의 설치와 생명주기를 자동화한다.
 GPU Feature Discovery로 각 GPU에 NUMA node와 NVLink/NVSwitch ID를 label로 붙이는 것도 이쪽 일이고, DCGM 기반 monitoring도 함께 올린다.
 
 문제는 Kubernetes가 기본적으로 topology를 모른다는 점이다.
@@ -599,7 +600,7 @@ resources:
 SM으로 환산하면 132 SM짜리 GPU에서 `2g`는 `2/7 × 132 ≈ 38 SM`이므로 두 개면 \~76 SM이고, memory는 45 GB다.
 
 다만 pod은 여러 node에 걸칠 수 없으므로 scheduler가 이 요청을 node 사이로 쪼개지 못한다.
-cluster 전체를 합치면 MIG 용량이 충분해도, 단일 node가 두 slice를 모두 제공하지 못하면 pod은 계속 `Pending`에 머문다.
+Cluster 전체를 합치면 MIG 용량이 충분해도, 단일 node가 두 slice를 모두 제공하지 못하면 pod은 계속 `Pending`에 머문다.
 그래서 일반적인 workload 크기에 맞춰 MIG 크기를 미리 계획해야 한다.
 
 MIG mode와 일반 mode를 오가려면 GPU reset이나 node 재부팅이 필요해서 scheduler가 job마다 동적으로 바꿀 수 있는 것이 아니다.
@@ -662,7 +663,7 @@ GPU에 data를 먹이려고 CPU RAM에 많은 data를 쥐고 있는 학습·추�
 | Burstable  | limit만 높게 설정          | 중간      |
 | Guaranteed | 모든 container가 CPU·memory에 대해 `requests == limits` | 가장 낮음 |
 
-limit만 높게 잡으면 Guaranteed가 아니라 Burstable이 된다는 점이 자주 놓치는 부분이다 $\_[$[$\_{99}$](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/)$\_]$.
+Limit만 높게 잡으면 Guaranteed가 아니라 Burstable이 된다는 점이 자주 놓치는 부분이다 $\_[$[$\_{99}$](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/)$\_]$.
 
 ### Dealing with I/O Isolation
 
@@ -728,7 +729,7 @@ NUMA pinning은 CPU와 GPU 사이의 경로를, persistence mode는 job 시작 �
 9. [GitHub: NVIDIA/warp](https://github.com/NVIDIA/warp) <!-- 441fb2db2c -->
 10. [NVIDIA: Warp](https://nvidia.github.io/warp/) <!-- 2562873e18 -->
 11. [GitHub: rapidsai](https://github.com/rapidsai) <!-- 9488e0a184 -->
-12. [RAPIDS](https://rapids.ai/) <!-- 7b7ed35ddb -->
+12. [NVIDIA: CUDA-X for Data Science](https://developer.nvidia.com/topics/ai/data-science/cuda-x-for-data-science) <!-- 7b7ed35ddb -->
 13. [GitHub: NVIDIA/cuda-quantum](https://github.com/NVIDIA/cuda-quantum) <!-- 72ee213a19 -->
 14. [NVIDIA: CUDA-Q](https://developer.nvidia.com/cuda-q) <!-- bd52b3b017 -->
 15. [GitHub: nv-legate/cupynumeric](https://github.com/nv-legate/cupynumeric) <!-- bd6394ed02 -->
@@ -739,12 +740,12 @@ NUMA pinning은 CPU와 GPU 사이의 경로를, persistence mode는 job 시작 �
 20. [NVIDIA: nvmath-python](https://docs.nvidia.com/cuda/nvmath-python/) <!-- f1537176cf -->
 21. [NVIDIA: cuBLAS Documentation](https://docs.nvidia.com/cuda/cublas/) <!-- b44aac01d0 -->
 22. [GitHub: mpi4py/mpi4py](https://github.com/mpi4py/mpi4py) <!-- 32ffe4e9f6 -->
-23. [mpi4py: MPI for Python](https://mpi4py.readthedocs.io/) <!-- 425b6e0824 -->
+23. [mpi4py: MPI for Python](https://mpi4py.readthedocs.io/en/stable/) <!-- 425b6e0824 -->
 24. [GitHub: NVIDIA/nvshmem](https://github.com/NVIDIA/nvshmem) <!-- 118950cf8a -->
 25. [NVIDIA: NVSHMEM Documentation](https://docs.nvidia.com/nvshmem/api/index.html) <!-- d735b60761 -->
 26. [GitHub: NVIDIA/cuda-python](https://github.com/NVIDIA/cuda-python) <!-- ae1aada822 -->
 27. [NVIDIA: CUDA Python](https://nvidia.github.io/cuda-python/) <!-- 2dcd72629b -->
-28. [NVIDIA: CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html) <!-- 16f949c7d7 -->
+28. [NVIDIA: CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html) <!-- 16f949c7d7 -->
 29. [GitHub: NVIDIA/cutile-python](https://github.com/NVIDIA/cutile-python) <!-- ffc3007697 -->
 30. [GitHub: NVIDIA/cutlass](https://github.com/NVIDIA/cutlass) <!-- 4459688a22 -->
 31. [NVIDIA: CUDA Toolkit Documentation](https://docs.nvidia.com/cuda/) <!-- 9143738a68 -->
@@ -753,11 +754,11 @@ NUMA pinning은 CPU와 GPU 사이의 경로를, persistence mode는 job 시작 �
 34. [NVIDIA: cuda.core](https://nvidia.github.io/cuda-python/cuda-core/latest/) <!-- 602b99640e -->
 35. [NVIDIA: Nsight Systems Documentation](https://docs.nvidia.com/nsight-systems/) <!-- 0e3e5ad2fe -->
 36. [NVIDIA: System Management Interface (nvidia-smi)](https://docs.nvidia.com/deploy/nvidia-smi/) <!-- 049377d921 -->
-37. [NVIDIA: cuDNN Documentation](https://docs.nvidia.com/deeplearning/cudnn/) <!-- 778da43876 -->
+37. [NVIDIA: cuDNN Documentation](https://docs.nvidia.com/deeplearning/cudnn/latest/) <!-- 778da43876 -->
 38. [GitHub: NVIDIA/nccl](https://github.com/NVIDIA/nccl) <!-- ddb3abd945 -->
 39. [NVIDIA: NCCL User Guide](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html) <!-- 7f571352d6 -->
 40. [NVIDIA: CUDA Compiler Driver NVCC](https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/) <!-- 04dd541d2f -->
-41. [NVIDIA: CUDA Compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/) <!-- c711324ddf -->
+41. [NVIDIA: CUDA Compatibility](https://docs.nvidia.com/deploy/cuda-compatibility/latest/) <!-- c711324ddf -->
 42. [GitHub: NVIDIA/cutlass - CuTe DSL](https://github.com/NVIDIA/cutlass/tree/main/python/CuTeDSL) <!-- 11824e84ca -->
 43. [NVIDIA: CUTLASS Documentation](https://docs.nvidia.com/cutlass/) <!-- 3fc7815a66 -->
 44. [GitHub: cupy/cupy](https://github.com/cupy/cupy) <!-- c1d3b9b76d -->
@@ -765,7 +766,7 @@ NUMA pinning은 CPU와 GPU 사이의 경로를, persistence mode는 job 시작 �
 46. [GitHub: tensorflow/tensorflow](https://github.com/tensorflow/tensorflow) <!-- 67637484df -->
 47. [TensorFlow](https://www.tensorflow.org/) <!-- e8fcdd7d5f -->
 48. [GitHub: jax-ml/jax](https://github.com/jax-ml/jax) <!-- 2a71d731c0 -->
-49. [JAX Documentation](https://docs.jax.dev/) <!-- 25e40ab9e6 -->
+49. [JAX Documentation](https://docs.jax.dev/en/latest/) <!-- 25e40ab9e6 -->
 50. [GitHub: keras-team/keras](https://github.com/keras-team/keras) <!-- f75b2e0ac2 -->
 51. [Keras](https://keras.io/) <!-- a058f98427 -->
 52. [PyTorch: torch.compiler](https://docs.pytorch.org/docs/stable/torch.compiler.html) <!-- 9bec9da2fc -->
@@ -779,10 +780,10 @@ NUMA pinning은 CPU와 GPU 사이의 경로를, persistence mode는 job 시작 �
 60. [Linux man-pages: numactl(8)](https://man7.org/linux/man-pages/man8/numactl.8.html) <!-- 8d6e681d0d -->
 61. [Linux man-pages: taskset(1)](https://man7.org/linux/man-pages/man1/taskset.1.html) <!-- cac75c8ed5 -->
 62. [PyTorch: torch.utils.data](https://docs.pytorch.org/docs/stable/data.html) <!-- 291a80e051 -->
-63. [NVIDIA: NVML API Reference](https://docs.nvidia.com/deploy/nvml-api/) <!-- d394e84002 -->
+63. [NVIDIA: NVML API Reference](https://docs.nvidia.com/deploy/nvml-api/latest/) <!-- d394e84002 -->
 64. [PyPI: nvidia-ml-py](https://pypi.org/project/nvidia-ml-py/) <!-- a6d593cb22 -->
 65. [GitHub: giampaolo/psutil](https://github.com/giampaolo/psutil) <!-- 0cd24c1453 -->
-66. [psutil Documentation](https://psutil.readthedocs.io/en/latest/) <!-- 2377370984 -->
+66. [psutil Documentation](https://psutil.io/) <!-- 2377370984 -->
 67. [Linux man-pages: numa(3)](https://man7.org/linux/man-pages/man3/numa.3.html) <!-- b8e298fb8b -->
 68. [PyTorch: Multiprocessing Best Practices](https://docs.pytorch.org/docs/stable/notes/multiprocessing.html) <!-- eea117033d -->
 69. [Linux Kernel: The kernel's command-line parameters](https://docs.kernel.org/admin-guide/kernel-parameters.html) <!-- a23bcdf1ae -->
@@ -790,26 +791,26 @@ NUMA pinning은 CPU와 GPU 사이의 경로를, persistence mode는 job 시작 �
 71. [NVIDIA: GPUDirect RDMA](https://docs.nvidia.com/cuda/gpudirect-rdma/) <!-- f415755734 -->
 72. [NVIDIA: GPUDirect Storage Documentation](https://docs.nvidia.com/gpudirect-storage/) <!-- e00dd92aca -->
 73. [Linux Kernel: Transparent Hugepage Support](https://docs.kernel.org/admin-guide/mm/transhuge.html) <!-- 3a20adbfd0 -->
-74. [GitHub: lpechacek/cpuset](https://github.com/lpechacek/cpuset) <!-- fe66496dbe -->
+74. [GitHub: SUSE/cpuset](https://github.com/SUSE/cpuset) <!-- fe66496dbe -->
 75. [Linux Kernel: Control Group v2](https://docs.kernel.org/admin-guide/cgroup-v2.html) <!-- 4653a219b3 -->
 76. [GitHub: jemalloc/jemalloc](https://github.com/jemalloc/jemalloc) <!-- bb0694d067 -->
 77. [jemalloc](https://jemalloc.net/) <!-- e361a63f87 -->
 78. [GitHub: google/tcmalloc](https://github.com/google/tcmalloc) <!-- b381daae95 -->
-79. [NVIDIA: Multi-Process Service (MPS)](https://docs.nvidia.com/deploy/mps/) <!-- 87f5ff025d -->
-80. [NVIDIA: Multi-Instance GPU (MIG) User Guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/) <!-- b5ceb754d3 -->
-81. [PyTorch: CUDA Semantics](https://docs.pytorch.org/docs/stable/notes/cuda.html) <!-- f15aa14e7a -->
-82. [GitHub: NVIDIA/nvidia-container-toolkit](https://github.com/NVIDIA/nvidia-container-toolkit) <!-- 59148ab972 -->
-83. [NVIDIA: Container Toolkit Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html) <!-- f761298f6e -->
-84. [MLCommons: MLPerf Benchmarks](https://mlcommons.org/benchmarks/) <!-- 23dd605757 -->
-85. [NVIDIA: NGC Catalog](https://catalog.ngc.nvidia.com/) <!-- 69b9447e3a -->
-86. [GitHub: containerd/containerd](https://github.com/containerd/containerd) <!-- 9b53ed4d42 -->
-87. [containerd](https://containerd.io/) <!-- e64995802d -->
-88. [Docker: OverlayFS Storage Driver](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) <!-- 695e8a3655 -->
-89. [GitHub: apptainer/apptainer](https://github.com/apptainer/apptainer) <!-- 1ee5d74b86 -->
-90. [Apptainer](https://apptainer.org/) <!-- f69a1feaef -->
-91. [GitHub: NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin) <!-- 2c2d39540f -->
-92. [GitHub: NVIDIA/gpu-operator](https://github.com/NVIDIA/gpu-operator) <!-- 5396bb0ecd -->
-93. [NVIDIA: GPU Operator Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html) <!-- c6a7e24c46 -->
+79. [GitHub: NVIDIA/gpu-operator](https://github.com/NVIDIA/gpu-operator) <!-- 5396bb0ecd -->
+80. [NVIDIA: GPU Operator Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/index.html) <!-- c6a7e24c46 -->
+81. [NVIDIA: Multi-Process Service (MPS)](https://docs.nvidia.com/deploy/mps/latest/index.html) <!-- 87f5ff025d -->
+82. [NVIDIA: Multi-Instance GPU (MIG) User Guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/latest/) <!-- b5ceb754d3 -->
+83. [PyTorch: CUDA Semantics](https://docs.pytorch.org/docs/stable/notes/cuda.html) <!-- f15aa14e7a -->
+84. [GitHub: NVIDIA/nvidia-container-toolkit](https://github.com/NVIDIA/nvidia-container-toolkit) <!-- 59148ab972 -->
+85. [NVIDIA: Container Toolkit Documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html) <!-- f761298f6e -->
+86. [MLCommons: MLPerf Benchmarks](https://mlcommons.org/benchmarks/) <!-- 23dd605757 -->
+87. [NVIDIA: NGC Catalog](https://catalog.ngc.nvidia.com/) <!-- 69b9447e3a -->
+88. [GitHub: containerd/containerd](https://github.com/containerd/containerd) <!-- 9b53ed4d42 -->
+89. [containerd](https://containerd.io/) <!-- e64995802d -->
+90. [Docker: OverlayFS Storage Driver](https://docs.docker.com/engine/storage/drivers/overlayfs-driver/) <!-- 695e8a3655 -->
+91. [GitHub: apptainer/apptainer](https://github.com/apptainer/apptainer) <!-- 1ee5d74b86 -->
+92. [Apptainer](https://apptainer.org/) <!-- f69a1feaef -->
+93. [GitHub: NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin) <!-- 2c2d39540f -->
 94. [Kubernetes: Control Topology Management Policies on a Node](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/) <!-- 36be2ead79 -->
 95. [GitHub: SchedMD/slurm](https://github.com/SchedMD/slurm) <!-- 1662f269b5 -->
 96. [SchedMD: Slurm Workload Manager](https://slurm.schedmd.com/) <!-- 281adef4c1 -->
