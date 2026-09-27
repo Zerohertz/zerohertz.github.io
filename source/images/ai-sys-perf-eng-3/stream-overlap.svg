@@ -1,0 +1,48 @@
+<svg viewBox="0 0 880 404" xmlns="http://www.w3.org/2000/svg" width="880" height="404" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="H2D 복사와 kernel, D2H 복사를 stream 하나로 차례대로 처리할 때와 네 개의 CUDA stream으로 나눠 세 engine이 겹쳐 일할 때의 비교">
+  <rect x="20" y="16" width="840" height="178" rx="10" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="440" y="42" text-anchor="middle" font-size="14" fill="#1a1a1a">Sequential</text>
+  <rect x="40" y="58" width="800" height="38" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="82" font-size="13" fill="#1a1a1a">H2D engine</text>
+  <rect x="190" y="64" width="200" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="290" y="81" text-anchor="middle" font-size="12.5" fill="#1a1a1a">Stream 0</text>
+  <rect x="40" y="102" width="800" height="38" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="126" font-size="13" fill="#1a1a1a">Kernel engine</text>
+  <rect x="390" y="108" width="200" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="490" y="125" text-anchor="middle" font-size="12.5" fill="#1a1a1a">0</text>
+  <rect x="40" y="146" width="800" height="38" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="170" font-size="13" fill="#1a1a1a">D2H engine</text>
+  <rect x="590" y="152" width="200" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="690" y="169" text-anchor="middle" font-size="12.5" fill="#1a1a1a">0</text>
+  <rect x="20" y="210" width="840" height="178" rx="10" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="440" y="236" text-anchor="middle" font-size="14" fill="#1a1a1a">Overlapped</text>
+  <rect x="40" y="252" width="800" height="38" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="276" font-size="13" fill="#1a1a1a">H2D engine</text>
+  <rect x="192" y="258" width="46" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="215" y="275" text-anchor="middle" font-size="12.5" fill="#1a1a1a">1</text>
+  <rect x="242" y="258" width="46" height="26" rx="5" fill="#efefd9" stroke="#80800a" stroke-width="1.6" />
+  <text x="265" y="275" text-anchor="middle" font-size="12.5" fill="#1a1a1a">2</text>
+  <rect x="292" y="258" width="46" height="26" rx="5" fill="#d9efd9" stroke="#0a800a" stroke-width="1.6" />
+  <text x="315" y="275" text-anchor="middle" font-size="12.5" fill="#1a1a1a">3</text>
+  <rect x="342" y="258" width="46" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="365" y="275" text-anchor="middle" font-size="12.5" fill="#1a1a1a">4</text>
+  <rect x="40" y="296" width="800" height="38" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="320" font-size="13" fill="#1a1a1a">Kernel engine</text>
+  <rect x="242" y="302" width="46" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="265" y="319" text-anchor="middle" font-size="12.5" fill="#1a1a1a">1</text>
+  <rect x="292" y="302" width="46" height="26" rx="5" fill="#efefd9" stroke="#80800a" stroke-width="1.6" />
+  <text x="315" y="319" text-anchor="middle" font-size="12.5" fill="#1a1a1a">2</text>
+  <rect x="342" y="302" width="46" height="26" rx="5" fill="#d9efd9" stroke="#0a800a" stroke-width="1.6" />
+  <text x="365" y="319" text-anchor="middle" font-size="12.5" fill="#1a1a1a">3</text>
+  <rect x="392" y="302" width="46" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="415" y="319" text-anchor="middle" font-size="12.5" fill="#1a1a1a">4</text>
+  <rect x="40" y="340" width="800" height="38" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="364" font-size="13" fill="#1a1a1a">D2H engine</text>
+  <rect x="292" y="346" width="46" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="315" y="363" text-anchor="middle" font-size="12.5" fill="#1a1a1a">1</text>
+  <rect x="342" y="346" width="46" height="26" rx="5" fill="#efefd9" stroke="#80800a" stroke-width="1.6" />
+  <text x="365" y="363" text-anchor="middle" font-size="12.5" fill="#1a1a1a">2</text>
+  <rect x="392" y="346" width="46" height="26" rx="5" fill="#d9efd9" stroke="#0a800a" stroke-width="1.6" />
+  <text x="415" y="363" text-anchor="middle" font-size="12.5" fill="#1a1a1a">3</text>
+  <rect x="442" y="346" width="46" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="465" y="363" text-anchor="middle" font-size="12.5" fill="#1a1a1a">4</text>
+</svg>

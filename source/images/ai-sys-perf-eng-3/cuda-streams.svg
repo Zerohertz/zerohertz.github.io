@@ -1,0 +1,45 @@
+<svg viewBox="0 0 880 342" xmlns="http://www.w3.org/2000/svg" width="880" height="342" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="default stream 하나에서 backward와 all-reduce가 번갈아 직렬로 실행될 때와, all-reduce를 NCCL 전용 stream으로 옮겨 다음 layer의 backward와 겹칠 때의 비교">
+  <defs>
+    <marker id="tm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6b6b" /></marker>
+    <marker id="dp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#800a0a" /></marker>
+  </defs>
+  <text x="775" y="22" font-size="12.5" fill="#6b6b6b">Time</text>
+  <line x1="812" y1="18" x2="856" y2="18" stroke="#6b6b6b" stroke-width="1.6" marker-end="url(#tm)" />
+  <rect x="20" y="38" width="840" height="112" rx="10" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="440" y="64" text-anchor="middle" font-size="14" fill="#1a1a1a">Default stream</text>
+  <rect x="40" y="84" width="800" height="40" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="109" font-size="13" fill="#1a1a1a">default stream</text>
+  <rect x="202" y="91" width="86" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="245" y="108" text-anchor="middle" font-size="11.5" fill="#1a1a1a">backward fc3</text>
+  <rect x="292" y="91" width="86" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="335" y="108" text-anchor="middle" font-size="11.5" fill="#1a1a1a">all-reduce fc3</text>
+  <rect x="382" y="91" width="86" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="425" y="108" text-anchor="middle" font-size="11.5" fill="#1a1a1a">backward fc2</text>
+  <rect x="472" y="91" width="86" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="515" y="108" text-anchor="middle" font-size="11.5" fill="#1a1a1a">all-reduce fc2</text>
+  <rect x="562" y="91" width="86" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="605" y="108" text-anchor="middle" font-size="11.5" fill="#1a1a1a">backward fc1</text>
+  <rect x="652" y="91" width="86" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="695" y="108" text-anchor="middle" font-size="11.5" fill="#1a1a1a">all-reduce fc1</text>
+  <rect x="20" y="166" width="840" height="160" rx="10" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="440" y="192" text-anchor="middle" font-size="14" fill="#1a1a1a">Default stream + NCCL stream</text>
+  <rect x="40" y="208" width="800" height="40" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="233" font-size="13" fill="#1a1a1a">default stream</text>
+  <rect x="40" y="270" width="800" height="40" rx="8" fill="#fbfbfb" stroke="#9a9a9a" stroke-width="1.5" />
+  <text x="56" y="295" font-size="13" fill="#1a1a1a">NCCL stream</text>
+  <rect x="202" y="215" width="86" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="245" y="232" text-anchor="middle" font-size="11.5" fill="#1a1a1a">backward fc3</text>
+  <rect x="292" y="277" width="86" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="335" y="294" text-anchor="middle" font-size="11.5" fill="#1a1a1a">all-reduce fc3</text>
+  <line x1="290" y1="243" x2="290" y2="275" stroke="#800a0a" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#dp)" />
+  <rect x="292" y="215" width="86" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="335" y="232" text-anchor="middle" font-size="11.5" fill="#1a1a1a">backward fc2</text>
+  <rect x="382" y="277" width="86" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="425" y="294" text-anchor="middle" font-size="11.5" fill="#1a1a1a">all-reduce fc2</text>
+  <line x1="380" y1="243" x2="380" y2="275" stroke="#800a0a" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#dp)" />
+  <rect x="382" y="215" width="86" height="26" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="425" y="232" text-anchor="middle" font-size="11.5" fill="#1a1a1a">backward fc1</text>
+  <rect x="472" y="277" width="86" height="26" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <text x="515" y="294" text-anchor="middle" font-size="11.5" fill="#1a1a1a">all-reduce fc1</text>
+  <line x1="470" y1="243" x2="470" y2="275" stroke="#800a0a" stroke-width="1.4" stroke-dasharray="3 3" marker-end="url(#dp)" />
+</svg>
