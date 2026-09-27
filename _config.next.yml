@@ -85,7 +85,6 @@ open_graph:
   enable: true
   options:
     image: /props/zerohertz-black-red-og.png
-    description: ⚡️ Zerohertz's Tech Blog ⚡️
     #twitter_card: <twitter:card>
     #twitter_id: <twitter:creator>
     #twitter_site: <twitter:site>
