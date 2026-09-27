@@ -14,14 +14,27 @@
 // }
 
 // - source/css/_common/outline/header/site-meta.styl - //
+.site-meta {
+  position: relative;
+}
 .custom-logo-image {
   margin-top: -30px !important;
   + tablet-mobile() {
     display: block !important;
   }
 }
+.brand {
+  -webkit-tap-highlight-color: transparent;
+  &::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+}
 .site-title {
-  color: black;
+  color: transparent;
+  user-select: none;
 }
 
 // - source/css/_common/outline/sidebar/index.styl - //
