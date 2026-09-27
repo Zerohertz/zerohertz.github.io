@@ -15,6 +15,13 @@ jobs:
         with:
           # token: ${{ secrets.GITHUB_TOKEN }}
           submodules: recursive
+          fetch-depth: 0
+      - name: Restore mtime of posts from git history
+        # updated_option: mtime -> sitemap lastmod must reflect the last commit, not the checkout time
+        run: |
+          for f in source/_posts/*.md; do
+            touch -d "$(git log -1 --format=%cI -- "$f")" "$f"
+          done
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
