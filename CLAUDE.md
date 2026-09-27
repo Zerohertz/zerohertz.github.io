@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Hexo-based static blog** using the **NexT theme** (version 8.23.0). The blog is deployed automatically to GitHub Pages via GitHub Actions and focuses on technical content covering machine learning, software engineering, and various tech topics.
+This is a **Hexo-based static blog** using the **NexT theme** (version 8.29.0). The blog is deployed automatically to GitHub Pages via GitHub Actions and focuses on technical content covering machine learning, software engineering, and various tech topics.
 
 ## Development Commands
 

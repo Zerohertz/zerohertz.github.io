@@ -31,18 +31,26 @@ custom_file_path:
   mixin: source/_data/mixins.styl
   style: source/_data/styles.styl
 
+
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
 
 # Schemes
-# scheme: Muse
+#scheme: Muse
 #scheme: Mist
 scheme: Pisces
 #scheme: Gemini
 
 # Dark Mode
 darkmode: false
+
+# Light-Dark Mode
+lightdark:
+  enable: false
+  # Add @supports (color: light-dark(red, red)) check
+  check_supports: true
+
 
 # ---------------------------------------------------------------
 # Site Information Settings
@@ -82,9 +90,9 @@ open_graph:
     #twitter_id: <twitter:creator>
     #twitter_site: <twitter:site>
     #twitter_image: <twitter:image>
-    #google_plus: <g+:profile_link>
     #fb_admins: <fb:admin_id>
     #fb_app_id: <fb:app_id>
+
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -109,6 +117,7 @@ menu:
 menu_settings:
   icons: true
   badges: false
+
 
 # ---------------------------------------------------------------
 # Sidebar Settings
@@ -196,6 +205,7 @@ toc:
   # Maximum heading depth of generated toc.
   max_depth: 10
 
+
 # ---------------------------------------------------------------
 # Footer Settings
 # See: https://theme-next.js.org/docs/theme-settings/footer
@@ -234,6 +244,7 @@ footer:
     gongan_num:
     # The icon for gongan beian. Login and See: https://beian.mps.gov.cn/web/business/businessHome/website
     gongan_icon_url:
+
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -287,8 +298,8 @@ follow_me:
   #RSS: /atom.xml || fa fa-rss
 
 # Related popular posts
-# Dependencies: https://github.com/sergeyzwezdin/hexo-related-posts
-# npm install hexo-related-posts --save-dev
+# Dependencies: https://github.com/next-theme/hexo-posts-embedding
+# Or: https://github.com/sergeyzwezdin/hexo-related-posts
 related_posts:
   enable: true
   icon: fa fa-signs-post
@@ -303,6 +314,7 @@ post_edit:
 # Show previous post and next post in post footer if exists
 # Available values: left | right | false
 post_navigation: left
+
 
 # ---------------------------------------------------------------
 # Custom Page Settings
@@ -329,6 +341,7 @@ calendar:
   showDeleted: false
   singleEvents: true
   maxResults: 250
+
 
 # ---------------------------------------------------------------
 # Misc Theme Settings
@@ -357,8 +370,6 @@ theme_color:
 body_scrollbar:
   # Place the scrollbar over the content.
   overlay: true
-  # Present the scrollbar even if the content is not overflowing.
-  stable: true
 
 codeblock:
   # Code Highlight theme
@@ -378,6 +389,8 @@ codeblock:
   fold:
     enable: true
     height: 500
+  # Display language name
+  language: false
 
 back2top:
   enable: true
@@ -411,13 +424,14 @@ github_banner:
   enable: false
   permalink: https://github.com/yourname
 
+
 # ---------------------------------------------------------------
 # Font Settings
 # ---------------------------------------------------------------
 # Find fonts on Google Fonts (https://fonts.google.com)
 # All fonts set here will have the following styles:
 #   light | light italic | normal | normal italic | bold | bold italic
-# Be aware that setting too much fonts will cause site running slowly
+# Be aware that setting too much fonts will cause site loading slowly
 # ---------------------------------------------------------------
 # Web Safe fonts are recommended for `global` (and `title`):
 # Arial | Tahoma | Helvetica | Times New Roman | Courier New | Verdana | Georgia | Palatino | Garamond | Comic Sans MS | Trebuchet MS
@@ -462,6 +476,7 @@ font:
     external: true
     family: JetBrains Mono, D2Coding
 
+
 # ---------------------------------------------------------------
 # SEO Settings
 # See: https://theme-next.js.org/docs/theme-settings/seo
@@ -491,6 +506,7 @@ yandex_site_verification:
 # Baidu Webmaster tools verification.
 # See: https://ziyuan.baidu.com/site
 baidu_site_verification:
+
 
 # ---------------------------------------------------------------
 # Tags Settings
@@ -528,7 +544,6 @@ pdf:
   height: 500px
 
 # Mermaid tag
-# https://theme-next.js.org/docs/tag-plugins/mermaid
 mermaid:
   enable: true
   # Available themes: default | dark | forest | neutral
@@ -563,11 +578,14 @@ math:
     enable: true
     # Available values: none | ams | all
     tags: all
+    # Available values: overflow | scroll | scale | truncate | linebreak
+    display_overflow: scroll
 
   katex:
     enable: false
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
+
 
 # ---------------------------------------------------------------
 # External Libraries
@@ -586,10 +604,6 @@ fancybox: false
 # Warning: Do not enable both `fancybox` and `mediumzoom`.
 # For more information: https://medium-zoom.francoischalifour.com
 mediumzoom: true
-
-# Vanilla JavaScript plugin for lazyloading images.
-# For more information: https://apoorv.pro/lozad.js/demo/
-lazyload: false
 
 # Automatically insert whitespace between CJK and half-width characters.
 # For more information: https://github.com/vinta/pangu.js
@@ -613,6 +627,7 @@ quicklink:
   timeout: 3000
   # Default (true) will attempt to use the fetch() API if supported (rather than link[rel=prefetch]).
   priority: true
+
 
 # ---------------------------------------------------------------
 # Animation Settings
@@ -654,9 +669,11 @@ canvas_ribbon:
   alpha: 0.5 # The transparency of the ribbon
   zIndex: -2 # The display level of the ribbon
 
+
 # ---------------------------------------------------------------
 # Comments Settings
 # See: https://theme-next.js.org/docs/third-party-services/comments
+# More comment system plugins: https://github.com/next-theme/awesome-next/blob/main/README.md#comment
 # ---------------------------------------------------------------
 
 # Multiple Comment System Support
@@ -664,7 +681,7 @@ comments:
   # Available values: tabs | buttons
   style: tabs
   # Choose a comment system to be displayed by default.
-  # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
+  # Available values: disqus | disqusjs | livere | gitalk | utterances | isso
   active: gitalk
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
@@ -697,15 +714,6 @@ disqusjs:
   apikey: # Register new application from https://disqus.com/api/applications/
   shortname: # See: https://disqus.com/admin/settings/general/
 
-# Changyan
-# For more information: https://changyan.kuaizhan.com
-changyan:
-  enable: false
-  appid:
-  appkey:
-  # Show comments count
-  count: true
-
 # LiveRe comments system
 # You can get your uid from https://livere.com/insight/myCode (General web site)
 livere_uid: # <your_uid>
@@ -716,7 +724,6 @@ gitalk:
   enable: true
   github_id: Zerohertz # GitHub repo owner
   repo: zerohertz.github.io # Repository name to store issues
-  # https://github.com/settings/developers
   client_id: GITALK_CLIENT_ID # GitHub Application Client ID
   client_secret: GITALK_CLIENT_SECRET # GitHub Application Client Secret
   admin_user: Zerohertz # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
@@ -727,10 +734,13 @@ gitalk:
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
   language: en
+  # If you want to customize the content of the initialized Issue, please edit the body parameter.
+  # For example:
+  # body: Comments for post ${title}, see ${url}
+  body:
 
 # Utterances
 # For more information: https://utteranc.es
-# https://github.com/apps/utterances
 utterances:
   enable: false
   repo: Zerohertz/zerohertz.github.io # Github repository owner and name
@@ -743,6 +753,7 @@ utterances:
 # For more information: https://isso-comments.de
 isso: # <data_isso>
 
+
 # ---------------------------------------------------------------
 # Post Widgets & Content Sharing Services
 # See: https://theme-next.js.org/docs/third-party-services/post-widgets
@@ -751,9 +762,9 @@ isso: # <data_isso>
 # AddToAny Share. See: https://www.addtoany.com
 addtoany:
   enable: false
-  buttons:
-    - facebook
-    - twitter
+  # Example: bottons: [facebook, twitter]
+  buttons: [facebook, twitter]
+
 
 # ---------------------------------------------------------------
 # Statistics and Analytics
@@ -773,10 +784,6 @@ google_analytics:
 # Baidu Analytics
 # See: https://tongji.baidu.com
 baidu_analytics: # <app_id>
-
-# Growingio Analytics
-# See: https://www.growingio.com
-growingio_analytics: # <project_id>
 
 # Cloudflare Web Analytics
 # See: https://www.cloudflare.com/web-analytics/
@@ -808,26 +815,13 @@ plausible:
   script_url: # https://plausible.io/js/script.js
   site_domain: # www.example.com
 
-# Show number of visitors of each article.
-# You can visit https://www.leancloud.cn to get AppID and AppKey.
-leancloud_visitors:
-  enable: false
-  app_id: # <your app id>
-  app_key: # <your app key>
-  # Required for apps from CN region
-  server_url: # <your server url>
-  # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
-  # If you don't care about security in leancloud counter and just want to use it directly
-  # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
-  security: true
-
-# Another tool to show number of visitors to each article.
-# Visit https://console.firebase.google.com/u/0/ to get apiKey and projectId.
-# Visit https://firebase.google.com/docs/firestore/ to get more information about firestore.
+# Show the number of visitors to each article using the Firestore REST API.
+# Visit https://console.firebase.google.com/ to get projectId.
+# Visit https://firebase.google.com/docs/firestore/use-rest-api for more information.
+# Anonymous requests are authorized by your Firestore Security Rules.
 firestore:
   enable: false
   collection: articles # Required, a string collection name to access firestore database
-  apiKey: # Required
   projectId: # Required
 
 # Show Views / Visitors of the website / page with busuanzi.
@@ -840,6 +834,7 @@ busuanzi_count:
   total_views_icon: fa fa-eye
   post_views: true
   post_views_icon: far fa-eye
+
 
 # ---------------------------------------------------------------
 # Search Services
@@ -855,7 +850,6 @@ algolia_search:
 
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
-# npm install hexo-generator-searchdb
 local_search:
   enable: true
   # Show top n results per article, show all results by setting to -1
@@ -864,6 +858,7 @@ local_search:
   unescape: false
   # Preload the search data when the page loads.
   preload: true
+
 
 # ---------------------------------------------------------------
 # Chat Services
@@ -891,6 +886,14 @@ chatra:
 tidio:
   enable: false
   key: # Public Key, get it from dashboard. See: https://www.tidio.com/panel/settings/developer
+
+# Knocket is a 100% free live chat widget by Tencent RTC.
+# For more information: https://trtc.io/solutions/knocket
+knocket:
+  enable: false
+  async: true
+  identifier: # Get it from https://trtc.io/solutions/knocket
+
 
 # ---------------------------------------------------------------
 # CDN Settings
