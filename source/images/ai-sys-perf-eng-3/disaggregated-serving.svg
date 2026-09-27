@@ -1,0 +1,58 @@
+<svg viewBox="0 0 880 496" xmlns="http://www.w3.org/2000/svg" width="880" height="496" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="한 GPU node가 prefill과 decode를 모두 맡는 전통적인 serving과, prefill GPU가 만든 KV cache를 decode GPU로 넘기는 disaggregated serving 비교">
+  <defs>
+    <marker id="bk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a" /></marker>
+    <marker id="rd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#800a0a" /></marker>
+  </defs>
+  <rect x="20" y="16" width="840" height="170" rx="10" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="440" y="42" text-anchor="middle" font-size="14" fill="#1a1a1a">Traditional serving</text>
+  <text x="40" y="108" text-anchor="start" font-size="13" fill="#1a1a1a">Input</text>
+  <line x1="80" y1="104" x2="106" y2="104" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#bk)" />
+  <rect x="110" y="58" width="140" height="92" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="180" y="76" text-anchor="middle" font-size="13" fill="#1a1a1a">Multi-GPU</text>
+  <rect x="156" y="94.0" width="44" height="32" rx="5" fill="#d9efef" stroke="#0a8080" stroke-width="1.6" />
+  <rect x="162" y="100.0" width="44" height="32" rx="5" fill="#d9efef" stroke="#0a8080" stroke-width="1.6" />
+  <rect x="168" y="106.0" width="44" height="32" rx="5" fill="#d9efef" stroke="#0a8080" stroke-width="1.6" />
+  <line x1="252" y1="104" x2="632" y2="104" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#bk)" />
+  <rect x="640" y="90" width="32" height="28" rx="4" fill="#fff" stroke="#1a1a1a" stroke-width="1.6" />
+  <rect x="700" y="90" width="32" height="28" rx="4" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <rect x="744" y="90" width="32" height="28" rx="4" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <rect x="788" y="90" width="32" height="28" rx="4" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="656" y="66" text-anchor="middle" font-size="13" fill="#800a0a">Prefill</text>
+  <text x="656" y="82" text-anchor="middle" font-size="12" fill="#1a1a1a">First token</text>
+  <text x="760" y="66" text-anchor="middle" font-size="13" fill="#0a0a80">Decode</text>
+  <text x="760" y="82" text-anchor="middle" font-size="12" fill="#1a1a1a">Remaining tokens</text>
+  <rect x="270" y="124" width="180" height="48" rx="7" fill="#f7ecec" stroke="#800a0a" stroke-width="1.6" />
+  <text x="360" y="144" text-anchor="middle" font-size="13" fill="#1a1a1a">Compute bound</text>
+  <text x="360" y="162" text-anchor="middle" font-size="11.5" fill="#4a4a4a">Matrix-matrix multiplication</text>
+  <rect x="470" y="124" width="370" height="48" rx="7" fill="#ececf7" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="655" y="144" text-anchor="middle" font-size="13" fill="#1a1a1a">Memory bound</text>
+  <text x="655" y="162" text-anchor="middle" font-size="11.5" fill="#4a4a4a">KV cache · Frequent data movement</text>
+  <rect x="20" y="202" width="840" height="278" rx="10" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="440" y="228" text-anchor="middle" font-size="14" fill="#1a1a1a">Disaggregated serving</text>
+  <text x="40" y="294" text-anchor="start" font-size="13" fill="#1a1a1a">Input</text>
+  <line x1="80" y1="290" x2="106" y2="290" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#bk)" />
+  <rect x="110" y="248" width="140" height="84" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="180" y="266" text-anchor="middle" font-size="13" fill="#800a0a">Prefill</text>
+  <rect x="156" y="280.0" width="44" height="32" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <rect x="162" y="286.0" width="44" height="32" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <rect x="168" y="292.0" width="44" height="32" rx="5" fill="#f2dede" stroke="#800a0a" stroke-width="1.6" />
+  <line x1="252" y1="270" x2="632" y2="270" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#bk)" />
+  <rect x="640" y="256" width="32" height="28" rx="4" fill="#fff" stroke="#1a1a1a" stroke-width="1.6" />
+  <text x="656" y="248" text-anchor="middle" font-size="12" fill="#1a1a1a">First token</text>
+  <rect x="270" y="292" width="330" height="32" rx="6" fill="#fff" stroke="#9a9a9a" stroke-width="1.4" />
+  <text x="435" y="313" text-anchor="middle" font-size="12.5" fill="#4a4a4a">Dedicated GPUs to improve prefill efficiency</text>
+  <line x1="180" y1="334" x2="180" y2="376" stroke="#800a0a" stroke-width="1.8" marker-end="url(#rd)" />
+  <text x="192" y="360" text-anchor="start" font-size="12.5" fill="#800a0a">KV cache</text>
+  <rect x="110" y="380" width="140" height="84" rx="8" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="180" y="398" text-anchor="middle" font-size="13" fill="#0a0a80">Decode</text>
+  <rect x="156" y="412.0" width="44" height="32" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <rect x="162" y="418.0" width="44" height="32" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <rect x="168" y="424.0" width="44" height="32" rx="5" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <line x1="252" y1="402" x2="632" y2="402" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#bk)" />
+  <rect x="640" y="388" width="32" height="28" rx="4" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <rect x="684" y="388" width="32" height="28" rx="4" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <rect x="728" y="388" width="32" height="28" rx="4" fill="#dedef2" stroke="#0a0a80" stroke-width="1.6" />
+  <text x="700" y="380" text-anchor="middle" font-size="12" fill="#1a1a1a">Remaining tokens</text>
+  <rect x="270" y="424" width="330" height="32" rx="6" fill="#fff" stroke="#9a9a9a" stroke-width="1.4" />
+  <text x="435" y="445" text-anchor="middle" font-size="12.5" fill="#4a4a4a">High tensor parallel to increase memory bandwidth</text>
+</svg>

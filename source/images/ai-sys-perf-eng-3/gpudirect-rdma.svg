@@ -1,0 +1,49 @@
+<svg viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg" width="880" height="290" font-family="&quot;Noto Serif KR&quot;, Georgia, serif" role="img" aria-label="GPUDirect RDMA로 두 서버의 GPU memory 사이를 host CPU와 system memory를 거치지 않고 PCIe와 RDMA NIC, InfiniBand network로 직접 전송하는 경로">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a" /></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#800a0a" /></marker>
+  </defs>
+  <rect x="110" y="30" width="90" height="40" rx="7" fill="#dedef2" stroke="#0a0a80" stroke-width="2" />
+  <text x="155" y="47" text-anchor="middle" font-size="13" fill="#1a1a1a">System</text>
+  <text x="155" y="63" text-anchor="middle" font-size="13" fill="#1a1a1a">memory</text>
+  <rect x="220" y="30" width="90" height="40" rx="7" fill="#d9efd9" stroke="#0a800a" stroke-width="2" />
+  <text x="265" y="47" text-anchor="middle" font-size="13" fill="#1a1a1a">GPU</text>
+  <text x="265" y="63" text-anchor="middle" font-size="13" fill="#1a1a1a">memory</text>
+  <rect x="110" y="110" width="90" height="40" rx="7" fill="#dedef2" stroke="#0a0a80" stroke-width="2" />
+  <text x="155" y="135" text-anchor="middle" font-size="13" fill="#1a1a1a">CPU</text>
+  <rect x="220" y="110" width="90" height="40" rx="7" fill="#d9efd9" stroke="#0a800a" stroke-width="2" />
+  <text x="265" y="135" text-anchor="middle" font-size="13" fill="#1a1a1a">GPU</text>
+  <line x1="155" y1="74" x2="155" y2="106" stroke="#1a1a1a" stroke-width="1.8" marker-start="url(#ak)" marker-end="url(#ak)" />
+  <line x1="155" y1="150" x2="155" y2="185" stroke="#1a1a1a" stroke-width="1.8" />
+  <line x1="265" y1="74" x2="265" y2="106" stroke="#1a1a1a" stroke-width="1.8" marker-start="url(#ak)" marker-end="url(#ak)" />
+  <line x1="265" y1="150" x2="265" y2="185" stroke="#1a1a1a" stroke-width="1.8" />
+  <line x1="40" y1="185" x2="380" y2="185" stroke="#1a1a1a" stroke-width="2.4" />
+  <text x="40" y="177" text-anchor="start" font-size="12.5" fill="#4a4a4a">PCIe</text>
+  <line x1="265" y1="185" x2="265" y2="215" stroke="#1a1a1a" stroke-width="1.8" />
+  <rect x="220" y="215" width="90" height="40" rx="7" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="265" y="232" text-anchor="middle" font-size="13" fill="#1a1a1a">RDMA</text>
+  <text x="265" y="248" text-anchor="middle" font-size="13" fill="#1a1a1a">NIC</text>
+  <rect x="680" y="30" width="90" height="40" rx="7" fill="#dedef2" stroke="#0a0a80" stroke-width="2" />
+  <text x="725" y="47" text-anchor="middle" font-size="13" fill="#1a1a1a">System</text>
+  <text x="725" y="63" text-anchor="middle" font-size="13" fill="#1a1a1a">memory</text>
+  <rect x="570" y="30" width="90" height="40" rx="7" fill="#d9efd9" stroke="#0a800a" stroke-width="2" />
+  <text x="615" y="47" text-anchor="middle" font-size="13" fill="#1a1a1a">GPU</text>
+  <text x="615" y="63" text-anchor="middle" font-size="13" fill="#1a1a1a">memory</text>
+  <rect x="680" y="110" width="90" height="40" rx="7" fill="#dedef2" stroke="#0a0a80" stroke-width="2" />
+  <text x="725" y="135" text-anchor="middle" font-size="13" fill="#1a1a1a">CPU</text>
+  <rect x="570" y="110" width="90" height="40" rx="7" fill="#d9efd9" stroke="#0a800a" stroke-width="2" />
+  <text x="615" y="135" text-anchor="middle" font-size="13" fill="#1a1a1a">GPU</text>
+  <line x1="725" y1="74" x2="725" y2="106" stroke="#1a1a1a" stroke-width="1.8" marker-start="url(#ak)" marker-end="url(#ak)" />
+  <line x1="725" y1="150" x2="725" y2="185" stroke="#1a1a1a" stroke-width="1.8" />
+  <line x1="615" y1="74" x2="615" y2="106" stroke="#1a1a1a" stroke-width="1.8" marker-start="url(#ak)" marker-end="url(#ak)" />
+  <line x1="615" y1="150" x2="615" y2="185" stroke="#1a1a1a" stroke-width="1.8" />
+  <line x1="500" y1="185" x2="840" y2="185" stroke="#1a1a1a" stroke-width="2.4" />
+  <text x="840" y="177" text-anchor="end" font-size="12.5" fill="#4a4a4a">PCIe</text>
+  <line x1="615" y1="185" x2="615" y2="215" stroke="#1a1a1a" stroke-width="1.8" />
+  <rect x="570" y="215" width="90" height="40" rx="7" fill="#fff" stroke="#1a1a1a" stroke-width="2" />
+  <text x="615" y="232" text-anchor="middle" font-size="13" fill="#1a1a1a">RDMA</text>
+  <text x="615" y="248" text-anchor="middle" font-size="13" fill="#1a1a1a">NIC</text>
+  <line x1="313" y1="246" x2="567" y2="246" stroke="#1a1a1a" stroke-width="1.8" marker-start="url(#ak)" marker-end="url(#ak)" />
+  <text x="440" y="272" text-anchor="middle" font-size="12.5" fill="#4a4a4a">IB network</text>
+  <path d="M 292 76 L 292 226 L 592 226 L 592 76" fill="none" stroke="#800a0a" stroke-width="3" stroke-linejoin="round" marker-start="url(#ar)" marker-end="url(#ar)" />
+</svg>
