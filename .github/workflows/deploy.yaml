@@ -22,10 +22,10 @@ jobs:
           git ls-files -z 'source/*.md' | while IFS= read -r -d '' f; do
             touch -d "$(git log -1 --format=%cI -- "$f")" "$f"
           done
-      - name: Use Node.js 20
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version-file: .nvmrc
       - name: Cache NPM dependencies
         uses: actions/cache@v4
         with:
