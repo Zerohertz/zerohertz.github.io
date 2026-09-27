@@ -1,7 +1,7 @@
 /* global hexo */
 "use strict";
 
-// Fill page.description for open_graph() when front matter has none:
+// Fill the meta/og description when front matter has none:
 // posts/pages with content -> leading text of excerpt/content, others -> site default.
 const { stripHTML } = require("hexo-util");
 
@@ -28,16 +28,21 @@ function summarize(html) {
     : text;
 }
 
-hexo.extend.filter.register("template_locals", (locals) => {
-  const { page } = locals;
-  if (page.description) return locals;
+const openGraph = hexo.extend.helper.get("open_graph");
+
+// Pass the summary to open_graph() only; setting page.description would also
+// render it under the post title and in index excerpts (NexT post.njk).
+hexo.extend.helper.register("open_graph", function (options = {}) {
+  const { page } = this;
+  if (options.description || page.description)
+    return openGraph.call(this, options);
   // Short excerpts ("실행결과") lose to the content; posts with little prose use the title.
   const [excerpt, content] = [page.excerpt, page.content].map((html) =>
     html ? summarize(html) : "",
   );
-  page.description =
+  const description =
     [excerpt, content].find((text) => text.length >= MIN_LENGTH) ||
     page.title ||
     DEFAULT_DESCRIPTION;
-  return locals;
+  return openGraph.call(this, { ...options, description });
 });
