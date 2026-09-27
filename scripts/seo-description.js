@@ -5,7 +5,7 @@
 // posts/pages with content -> leading text of excerpt/content, others -> site default.
 const { stripHTML } = require("hexo-util");
 
-const DEFAULT_DESCRIPTION = "⚡️ Zerohertz's Tech Blog ⚡️";
+const DEFAULT_DESCRIPTION = hexo.config.description;
 const MIN_LENGTH = 50;
 const MAX_LENGTH = 160;
 
