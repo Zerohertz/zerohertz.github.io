@@ -25,7 +25,7 @@ Grace Blackwell 같은 최신 chip에서 출발해 OS와 CUDA kernel, PyTorch를
 # Chapter 1: Introduction and AI System Overview
 
 Model 크기는 수백만에서 수십억으로, 다시 수조 parameter로 뛰었다.
-10배씩 커질 때마다 질적으로 새로운 능력이 열렸지만 그만큼 비용과 자원도 같이 폭발했다.
+10배씩 커질 때마다 질적으로 새로운 능력이 열렸지만 필요한 비용과 자원도 그만큼 크게 늘었다.
 
 이 규모에 오면 system에서 짜낸 성능 한 조각이 수백만에서 수십억 달러의 절감으로 환산될 수 있고, 병목 하나를 없애는 것이 학습 처리량과 추론 지연에 불균형하게 큰 영향을 줄 수 있다.
 그래서 저자는 AI systems performance engineering을 단순히 빠르게 만드는 일이 아니라, 불가능하던 것을 가능하면서 감당할 수 있는 수준으로 만드는 일이라고 정의한다.
@@ -234,7 +234,7 @@ $$
 분모가 되는 이론적 최대치를 NVIDIA는 **speed of light** (SOL)라고 부른다.
 Nsight Compute $\_[$[$\_{45}$](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html)$\_]$를 열면 첫 section 이름이 아예 "GPU Speed Of Light"이고, 각 unit의 throughput을 "achieved percentage of utilization with respect to the theoretical maximum"으로 보고한다.
 
-이 논문에 따르면 cluster는 100% 활용된 것처럼 보였지만, 통신 지연·불충분한 병렬화·data 지연·장애 복구 때문에 연산의 70\~75%가 날아가고 있었다.
+이 논문에 따르면 cluster는 100% 활용된 것처럼 보였지만, 통신 지연·불충분한 병렬화·data 지연·장애 복구 때문에 연산의 70\~75%가 낭비되고 있었다.
 Job 선점 (preemption), network hotspot, 복구 불가능한 fault가 주된 원인이었다.
 
 Goodput을 20%만 올려도 대규모 환경에서는 hardware 비용을 수백만 달러 단위로 줄일 수 있다.
@@ -379,7 +379,7 @@ TE는 민감한 초기 layer는 FP16/BF16으로 두고, 덜 민감한 후반 lay
 Hopper 세대의 TE가 FP8을 도입해 FP16 대비 처리량을 2배로 만들었고, Blackwell은 NVFP4라는 4-bit 형식으로 FP8 대비 처리량을 다시 최대 2배까지 끌어올렸다.
 Bit 수가 반이 되면 parameter 당 memory도 반이 되므로, 같은 GPU에 더 큰 model이 들어간다.
 
-세대 차이를 가장 극적으로 보여주는 수치가 1.8T parameter MoE model의 추론 성능이다.
+세대 차이가 가장 크게 드러나는 수치가 1.8T parameter MoE model의 추론 성능이다.
 H100 기반 system이 GPU 당 \~3.4 token/s에 first token까지 5초를 넘겼는데, GB200 NVL72는 GPU 당 \~150 token/s에 TTFT (time to first token) \~50 ms를 냈다 $\_[$[$\_{47}$](https://developer.nvidia.com/blog/nvidia-gb200-nvl72-delivers-trillion-parameter-llm-training-and-real-time-inference/)$\_]$.
 약 30배 차이이고, 연산 성능만으로 나온 숫자가 아니라 FP4와 NVLink interconnect가 함께 만든 결과라는 게 저자의 강조점이다.
 
@@ -659,7 +659,7 @@ Rubin 다음 세대의 code name이 Feynman이고 2028년으로 예정돼 있다
 
 결국 NVIDIA는 세대마다 무언가를 두 배로 만든다.
 Blackwell은 die를 2개로 늘렸고, NVLink link 당 양방향 대역폭은 \~900 GB/s에서 \~1.8 TB/s로, GPU 당 memory는 Blackwell 180 GB에서 Ultra 세대 \~288 GB로 올라갔다.
-몇 세대만 지나도 이 두 배씩의 누적 효과는 엄청나다.
+몇 세대만 지나도 두 배씩 쌓인 효과가 커진다.
 
 ## Key Takeaways
 
@@ -667,7 +667,7 @@ Blackwell은 die를 2개로 늘렸고, NVLink link 당 양방향 대역폭은 \~
 
 - **Integrated superchip architecture**: ARM 기반 Grace CPU와 GPU를 한 superchip에 융합해 통합 memory 공간을 만든다. CPU와 GPU 사이의 수동 data 전송이 사라진다.
 - **Unified memory architecture**: Coherent interconnect 덕분에 개발자가 명시적 data 이동을 신경 쓰지 않고 algorithm 개선에 집중할 수 있다.
-- **Ultrafast interconnects**: NVLink-C2C와 NVLink 5, NVSwitch로 rack 내부 대역폭과 지연을 극한까지 끌어올려, GPU들이 하나의 큰 processor처럼 통신한다.
+- **Ultrafast interconnects**: NVLink-C2C와 NVLink 5, NVSwitch로 rack 내부 대역폭을 높이고 지연을 줄여, GPU들이 하나의 큰 processor처럼 통신한다.
 - **High-density, ultrascale system (NVL72)**: GPU 72개를 한 rack에 담아 거대한 통합 memory pool과 연산을 동시에 제공한다.
 - **Advanced cooling and power management**: Rack 당 \~130 kW를 정교한 액랭과 전원 분배로 감당한다.
 - **Significant performance and efficiency gains**: Hopper H100 대비 연산과 memory 대역폭이 \~2\~2.5배이고, FP4 Tensor Core와 Transformer Engine을 쓰면 추론이 경우에 따라 최대 30배까지 빨라진다 $\_[$[$\_{47}$](https://developer.nvidia.com/blog/nvidia-gb200-nvl72-delivers-trillion-parameter-llm-training-and-real-time-inference/)$\_]$.
@@ -677,7 +677,7 @@ Blackwell은 die를 2개로 늘렸고, NVLink link 당 양방향 대역폭은 \~
 ## Conclusion
 
 Grace Blackwell Superchip과 NVLink fabric, 그리고 액랭까지 NVL72의 모든 부품은 AI workload 가속이라는 하나의 목표로 함께 설계됐다.
-CPU와 GPU를 한 덩어리로 묶어 전송 병목을 없애고, 수십 개 GPU를 초고속 network로 묶어 하나의 거대한 GPU처럼 만들고, memory 계층을 넓히고, 전력과 발열까지 한계까지 밀어붙인 결과다.
+CPU와 GPU를 한 덩어리로 묶어 전송 병목을 없애고, 수십 개 GPU를 초고속 network로 묶어 하나의 거대한 GPU처럼 만들고, memory 계층을 넓히고, 전력과 발열까지 함께 설계한 결과다.
 
 대가는 만만치 않아서 전용 시설과 전력·냉각 계획, 그리고 이걸 제대로 쓸 software가 모두 갖춰져야 한다.
 그 대신 예전 infra에서 한 달 걸리던 학습이 며칠로 줄 수 있고, 초 단위였던 추론이 밀리초 단위 실시간이 된다.
