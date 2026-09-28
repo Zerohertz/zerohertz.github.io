@@ -556,7 +556,7 @@ GPU를 자원으로 다룰 뿐, GPU 0과 GPU 1이 같은 NUMA node에 있는지 
 
 4개씩 NVLink로 묶인 8-GPU 서버에서 job이 GPU 4장을 요청했다고 하자.
 같은 NVLink domain의 4장을 받으면 이상적이지만, 임의로 고르면 한 domain에서 2장, 다른 domain에서 2장을 받게 된다.
-이러면 GPU 간 경로에 InfiniBand나 Ethernet 같은 느린 interconnect가 끼어들어 대역폭이 반토막 날 수 있다.
+이러면 GPU 간 경로에 InfiniBand나 Ethernet 같은 느린 interconnect가 끼어들어 대역폭이 절반으로 줄 수 있다.
 
 NVL72에서는 72개 GPU가 NVLink 5로 묶여 rack 안에서 \~130 TB/s를 내므로, topology를 모르는 scheduler가 job을 서로 다른 NVLink domain에 흩뿌리면 그 대역폭의 이점이 사라진다.
 
