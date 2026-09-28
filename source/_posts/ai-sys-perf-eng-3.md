@@ -319,7 +319,7 @@ Topology에 맞춰 최적화됐는지는 Nsight Systems나 NCCL trace로 확인�
 
 PCIe를 기다리는 naive한 방식에서는 많은 warp가 memory 접근에 묶여 SM 활용률이 60%에 머물고 iteration이 100 ms 걸리지만, topology를 인식하면 SM 활용률이 90%로 오르고 iteration이 70 ms로 30% 줄어든다.
 
-경험칙은 통신을 가장 빠른 interconnect (node 안이라면 대개 NVLink/NVSwitch)에 최대한 두고 PCIe나 NUMA node 간 link 같은 느린 경로의 전송을 최소화하는 것이다.
+그래서 통신은 가능한 한 가장 빠른 interconnect (node 안이라면 대개 NVLink/NVSwitch)에 두고, PCIe나 NUMA node 간 link 같은 느린 경로로 보내는 전송은 최소화하는 게 좋다.
 GPU의 직접 NVLink lane 수는 정해져 있어서 GB200/GB300 NVL72의 Blackwell GPU는 link당 \~100 GB/s인 NVLink 5 link 18개로 양방향 합계 \~1.8 TB/s (이전 세대 900 GB/s의 두 배)를 갖는데, 직접 연결되지 않은 device 사이의 통신은 더 적은 lane이나 PCIe로 떨어질 수 있고 NUMA domain을 건너면 처리량이 크게 준다.
 NVL72 rack에서는 72장의 Blackwell GPU가 모두 한 NVLink Switch domain에 속해 어떤 GPU든 NVSwitch 한 단계로 full bisection bandwidth에 도달하고, NVLS 지원과 함께 균일한 all-to-all 연결을 제공한다.
 
