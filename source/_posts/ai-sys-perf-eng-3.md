@@ -321,7 +321,7 @@ PCIe를 기다리는 naive한 방식에서는 많은 warp가 memory 접근에 �
 
 그래서 통신은 가능한 한 가장 빠른 interconnect (node 안이라면 대개 NVLink/NVSwitch)에 두고, PCIe나 NUMA node 간 link 같은 느린 경로로 보내는 전송은 최소화하는 게 좋다.
 GPU의 직접 NVLink lane 수는 정해져 있어서 GB200/GB300 NVL72의 Blackwell GPU는 link당 \~100 GB/s인 NVLink 5 link 18개로 양방향 합계 \~1.8 TB/s (이전 세대 900 GB/s의 두 배)를 갖는데, 직접 연결되지 않은 device 사이의 통신은 더 적은 lane이나 PCIe로 떨어질 수 있고 NUMA domain을 건너면 처리량이 크게 준다.
-NVL72 rack에서는 72장의 Blackwell GPU가 모두 한 NVLink Switch domain에 속해 어떤 GPU든 NVSwitch 한 단계로 full bisection bandwidth에 도달하고, NVLS 지원과 함께 균일한 all-to-all 연결을 제공한다.
+NVL72 rack에서는 72장의 Blackwell GPU가 모두 한 NVLink Switch domain에 속해 어떤 GPU든 NVSwitch 한 단계로 full bisection bandwidth에 도달하고, NVLS 지원과 함께 uniform all-to-all connectivity를 제공한다.
 
 NCCL이 가장 대역폭이 큰 경로를 고르는지 profiling으로 확인했는데도 대역폭 한계에 부딪힌다면, 느린 link로 GPU 여덟 장에 걸치기보다 같은 NUMA node나 같은 NVSwitch island의 네 장처럼 촘촘하게 연결된 부분 집합으로 job을 좁히는 편이 나은데, 제한적이거나 간접적인 link의 동기화 overhead가 GPU를 더 쓰는 이득보다 큰 경우가 많기 때문이다.
 Grace Blackwell Superchip처럼 CPU와 GPU 사이를 900 GB/s NVLink-C2C로 잇는 superchip에서는 CPU memory가 GPU memory의 고속 확장처럼 동작해, all-reduce 일부가 CPU나 system memory를 거쳐도 이전 세대의 GPU 간 link만큼 빠를 수 있다.
