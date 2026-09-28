@@ -329,15 +329,17 @@ NVLink 경로가 제대로 쓰이는지는 Nsight Systems나 `NCCL_DEBUG=INFO`, 
 
 ### NCCL Communication Algorithms
 
-NCCL은 data 크기와 GPU 수, topology에 따라 내부적으로 Ring과 Tree, CollTree, CollNet, PAT 같은 algorithm을 골라 쓴다.
+NCCL은 data 크기와 GPU 수, topology에 따라 내부적으로 Ring과 Tree, CollTree, CollNet, PAT 같은 algorithm을 골라 쓰는데, 각 algorithm에서 GPU들이 data를 주고받는 구조를 그리면 아래와 같다.
 
-| Algorithm       | 구조 | 특징 |
-| --------------- | ---- | ---- |
-| Ring            | GPU를 논리적 ring으로 배치하고 이웃과 pipeline 방식으로 주고받으며 부분합을 ring을 따라 한 바퀴 순환시킴 | Link마다 2 × (data_size ÷ num_gpus) bytes로 부하가 균등한 bandwidth 최적 구조지만 GPU 수에 비례해 지연이 늘어 큰 message (bandwidth-dominated)에 적합 |
-| Tree · NVLSTree | Spanning tree로 reduction과 broadcast를 수행 | O(log N) 단계로 지연이 낮아 작은 message (latency-dominated)에 적합하지만 leaf GPU가 한 번만 보내 큰 message에서는 link를 다 못 쓸 수 있음, NVLSTree는 NVLink SHARP offload |
-| CollTree        | 빠른 local domain마다 local tree를 만들고 group별 leader가 RDMA로 2단계 tree에 참여, 두 단계를 pipeline | Node 간 단계를 O(log N)으로 줄이면서 node 안에서는 full bandwidth, node 간 지연이 지배적인 작고 중간 크기 message에 유리 |
-| CollNet         | Local interconnect를 공유하는 GPU group 안에서 ring이나 local tree로 집계한 뒤 leader가 2단계 tree reduction | Internode 저지연과 intranode 고대역폭을 함께 얻어 매우 큰 multi-node cluster의 network 부하를 줄임 |
-| PAT             | Tensor를 segment로 나누고 segment마다 tree 기반 reduce-scatter를 엇갈려 연속으로 띄움 | Ring에 가까운 처리량과 segment당 O(log N)의 tree 수준 지연을 함께 얻는 절충안 |
+<img src="/images/ai-sys-perf-eng-3/nccl-algorithms.svg" alt="nccl-algorithms" width="880" />
+
+| Algorithm       | 구조 | Pros | Cons |
+| --------------- | ---- | ---- | ---- |
+| Ring            | GPU를 논리적 ring으로 배치하고 이웃과 pipeline 방식으로 주고받으며 부분합을 한 바퀴 순환시킴 | Link마다 2 × (data_size ÷ num_gpus) bytes로 부하가 균등한 bandwidth 최적 구조라 큰 message (bandwidth-dominated)에 적합 | 단계 수가 GPU 수에 비례해 GPU가 많을수록 지연이 늘어남 |
+| Tree · NVLSTree | Spanning tree로 reduction과 broadcast를 수행, NVLSTree는 NVLink SHARP로 offload | O(log N) 단계로 지연이 낮아 작은 message (latency-dominated)에 적합 | Leaf GPU가 한 번만 보내 큰 message에서는 link를 다 못 쓸 수 있음 |
+| CollTree        | 빠른 local domain마다 local tree를 만들고 group별 leader가 RDMA로 2단계 tree에 참여, 두 단계를 pipeline | Node 간 단계를 O(log N)으로 줄이면서 node 안에서는 full bandwidth, node 간 지연이 지배적인 작고 중간 크기 message에 유리 | 매우 큰 message에서는 Ring이나 PAT의 최대 처리량이 더 높을 수 있음 |
+| CollNet         | Local interconnect를 공유하는 GPU group 안에서 ring이나 local tree로 집계한 뒤 leader가 2단계 tree reduction | Internode 저지연과 intranode 고대역폭을 함께 얻어 매우 큰 multi-node cluster의 network 부하를 줄임 | Group마다 leader 하나가 node 간 전송을 도맡아 leader 쪽 link에 부하가 몰림 |
+| PAT             | Tensor를 segment로 나누고 segment마다 tree 기반 reduce-scatter를 엇갈려 연속으로 띄움 | Ring에 가까운 처리량과 segment당 O(log N)의 tree 수준 지연을 함께 얻는 절충안 | Message가 작아 segment로 나눌 여지가 적으면 pipelining 이득이 줄어듦 |
 
 PAT (parallel aggregated tree)는 한 segment의 tree reduction이 끝나기 무섭게 다음 segment가 round-robin으로 자기 tree reduction을 시작하는 방식이라, 늘 전송 중인 작업이 있어 link가 포화된 상태를 유지한다.
 
