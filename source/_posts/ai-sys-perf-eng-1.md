@@ -64,7 +64,7 @@ Model이 GPU 한 장에 안 들어갈 만큼 크면 tensor나 pipeline paralleli
 
 ### Managing Resources Efficiently
 
-CPU core, GPU memory, interconnect 대역폭, storage I/O를 남김없이 쓰는 일이다.
+CPU core, GPU memory, interconnect bandwidth, storage I/O를 남김없이 쓰는 일이다.
 GPU에 data가 끊기지 않게 밀어넣고, thread를 특정 CPU core에 고정하고, context switch overhead를 줄이고, 대형 model에서 OOM이 나지 않도록 memory 사용을 조율한다.
 
 GPU 한 장을 다 쓸 필요가 없는 job이라면 MIG (multi-instance GPU) $\_[$[$\_{12}$](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/latest/)$\_]$로 GPU를 쪼개서 전체 활용률을 올릴 수 있다.
@@ -94,23 +94,23 @@ MLPerf Training v5.0 (2025)에서 Blackwell 기반 GB200 NVL72는 동급 Hopper 
 
 책은 2024년 말 AI 업계를 놀라게 한 DeepSeek 이야기로 시작하는데, DeepSeek은 미국의 수출 규제 $\_[$[$\_{16}$](https://www.cnbc.com/2023/10/17/us-bans-export-of-more-ai-chips-including-nvidia-h800-to-china.html)$\_]$ 때문에 최신 Blackwell (B200, B300)이나 Hopper (H100, H200)를 쓸 수 없었고, 규제를 준수하는 NVIDIA H800으로 frontier model을 학습해야 했다.
 
-H800은 H100의 수출 규제 대응 판본인데, 책은 "HBM 용량과 대역폭은 유지하고 NVLink와 FP64만 깎았다" 정도로만 서술하고 넘어간다.
+H800은 H100의 수출 규제 대응 판본인데, 책은 "HBM 용량과 bandwidth는 유지하고 NVLink와 FP64만 깎았다" 정도로만 서술하고 넘어간다.
 같은 PCIe 80GB 폼팩터로 나란히 놓으면 무엇이 잘렸는지가 훨씬 선명하다.
 
 | 항목             | H100 80GB PCIe $\_[$[$\_{17}$](https://lenovopress.lenovo.com/lp1732-thinksystem-nvidia-h100-pcie-gen5-gpu)$\_]$ | H800 80GB PCIe $\_[$[$\_{18}$](https://lenovopress.lenovo.com/lp1814-thinksystem-nvidia-h800-pcie-gen5-gpu)$\_]$ | 비고 |
-| ---------------- | ------------------------- | ------------------------- | ---- |
-| Memory           | 80 GB HBM2e               | 80 GB HBM2e               | 동일 |
-| Memory 대역폭    | 2 TB/s                    | 2 TB/s                    | 동일 |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---- |
+| Memory           | 80 GB HBM2e | 80 GB HBM2e | 동일 |
+| Memory bandwidth | 2 TB/s | 2 TB/s | 동일 |
 | NVLink           | 600 GB/s (SXM \~900 GB/s) | 400 GB/s (SXM \~400 GB/s) | −33% |
-| FP64             | 26 TFLOPS                 | 0.8 TFLOPS                | 1/32 |
-| FP64 Tensor Core | 51 TFLOPS                 | 0.8 TFLOPS                | 1/64 |
-| FP32             | 51 TFLOPS                 | 51 TFLOPS                 | 동일 |
-| TF32             | 756 TFLOPS                | 756 TFLOPS                | 동일 |
-| FP16 / BF16      | 1,513 TFLOPS              | 1,513 TFLOPS              | 동일 |
-| FP8 / INT8       | 3,026 TFLOPS              | 3,026 TFLOPS              | 동일 |
-| TDP              | 350 W                     | 350 W                     | 동일 |
+| FP64             | 26 TFLOPS | 0.8 TFLOPS | 1/32 |
+| FP64 Tensor Core | 51 TFLOPS | 0.8 TFLOPS | 1/64 |
+| FP32             | 51 TFLOPS | 51 TFLOPS | 동일 |
+| TF32             | 756 TFLOPS | 756 TFLOPS | 동일 |
+| FP16 / BF16      | 1,513 TFLOPS | 1,513 TFLOPS | 동일 |
+| FP8 / INT8       | 3,026 TFLOPS | 3,026 TFLOPS | 동일 |
+| TDP              | 350 W | 350 W | 동일 |
 
-Sparsity를 적용한 기준으로 TF32부터 FP8까지 AI 연산에 실제로 쓰는 정밀도는 한 자리도 다르지 않고, memory 용량과 대역폭은 물론 TDP까지 같으니 결국 깎인 것은 NVLink와 FP64 둘뿐이다.
+Sparsity를 적용한 기준으로 TF32부터 FP8까지 AI 연산에 실제로 쓰는 정밀도는 한 자리도 다르지 않고, memory 용량과 bandwidth는 물론 TDP까지 같으니 결국 깎인 것은 NVLink와 FP64 둘뿐이다.
 FP64가 26에서 0.8 TFLOPS로 1/32, FP64 Tensor Core는 51에서 0.8 TFLOPS로 1/64까지 내려가는데, HPC 입장에서는 치명적이지만 LLM 학습에서는 FP64를 쓸 일이 없으니 실질적인 타격은 결국 NVLink 쪽이다.
 
 DeepSeek이 실제로 쓴 건 PCIe가 아니라 SXM 판본이고, 책이 드는 수치도 이 기준이다.
@@ -118,8 +118,8 @@ H800은 어느 폼팩터든 400 GB/s인데 H100 $\_[$[$\_{19}$](https://www.nvid
 연산 성능은 그대로 두고 GPU 간 통신만 묶어놓은 chip이라, 다중 GPU 확장성이 곧바로 병목이 되는 구조다.
 
 다만 책을 직접 읽으면 이 지점에서 헷갈릴 수 있다.
-"H100은 3.35 TB/s의 memory 대역폭을 제공하는 반면 H800은 throughput이 제한돼 data 전송이 훨씬 느리다"라는 문장이 나와서 memory가 느려진 것처럼 읽히는데, 여기서 말하는 throughput은 그 앞에서 다룬 NVLink 쪽이다.
-저자도 같은 문단 앞부분에서는 "HBM capacity and bandwidth largely similar"라고 쓰고 있고, 위 표에서도 memory 대역폭은 양쪽 다 2 TB/s로 같다.
+"H100은 3.35 TB/s의 memory bandwidth를 제공하는 반면 H800은 throughput이 제한돼 data 전송이 훨씬 느리다"라는 문장이 나와서 memory가 느려진 것처럼 읽히는데, 여기서 말하는 throughput은 그 앞에서 다룬 NVLink 쪽이다.
+저자도 같은 문단 앞부분에서는 "HBM capacity and bandwidth largely similar"라고 쓰고 있고, 위 표에서도 memory bandwidth는 양쪽 다 2 TB/s로 같다.
 
 그럼에도 DeepSeek은 이 환경에서 \~680B parameter MoE (mixture of experts) model인 DeepSeek-V3 $\_[$[$\_{20}$](https://github.com/deepseek-ai/DeepSeek-V3)$\_,$[$\_{21}$](https://huggingface.co/deepseek-ai/DeepSeek-V3)$\_,$[$\_{22}$](https://arxiv.org/abs/2412.19437)$\_]$를 학습시켰다.
 Token 하나당 전체 680B가 아니라 약 37B만 활성화되는 구조로, 256개 expert 중 router가 고른 8개와 공유 expert 1개, 총 9개만 쓴다.
@@ -173,16 +173,16 @@ Google의 Switch Transformer $\_[$[$\_{34}$](https://arxiv.org/abs/2101.03961)$\
 이 규모를 감당하려고 NVIDIA가 내놓은 것이 rack 단위로 통째로 파는 system이고, 스스로 "rack에 담은 AI supercomputer" $\_[$[$\_{35}$](https://www.nvidia.com/en-us/data-center/gb200-nvl72/)$\_]$라고 부른다.
 Grace Blackwell Superchip 36개가 rack 하나에 들어가는데, superchip 하나가 72-core Grace CPU 1개와 Blackwell GPU 2개이므로 rack 전체로는 Grace CPU 36개와 Blackwell GPU 72개가 되고 여기서 NVL72라는 이름이 나온다.
 
-| 항목      | 수치                            |
-| --------- | ------------------------------- |
+| 항목      | 수치 |
+| --------- | ---- |
 | 연산      | \~1.44 exaFLOPS (FP4) / \~720 petaFLOPS (FP8), 2:1 structured sparsity 기준 |
-| HBM3e     | \~13.5 TB (192 GB × 72)         |
+| HBM3e     | \~13.5 TB (192 GB × 72) |
 | 총 memory | \~30 TB (Grace CPU memory 포함) |
-| 전력      | 120\~132 kW                     |
+| 전력      | 120\~132 kW |
 
 수치보다 중요한 건 이 72개 GPU가 NVLink와 NVSwitch로 묶여 **하나의 NVLink domain**을 이룬다는 점이다.
 학습의 PyTorch든 추론의 vLLM이든 rack 전체를 한 덩어리로 보고 data, tensor, pipeline, expert parallelism을 걸 수 있다는 뜻이다.
-다만 CUDA Unified Memory가 NVLink 너머로 page를 옮기거나 원격 접근할 수 있다고 해도, 원격 memory는 latency와 대역폭이 달라 rack이 하나의 균일한 memory 장치처럼 동작하지는 않는다.
+다만 CUDA Unified Memory가 NVLink 너머로 page를 옮기거나 원격 접근할 수 있다고 해도, 원격 memory는 latency와 bandwidth가 달라 rack이 하나의 균일한 memory 장치처럼 동작하지는 않는다.
 
 Rack을 여러 대 묶어 ultrascale cluster로 키울 수도 있고, 직접 들여놓을 형편이 아니어도 AWS나 GCP, Azure, CoreWeave 같은 곳에서 클릭 몇 번으로 (그리고 적지 않은 돈으로) 빌릴 수 있다.
 
@@ -244,8 +244,8 @@ Performance engineer라는 직무가 존재하는 이유가 결국 여기에 있
 
 1편이니 책 전체가 어디로 가는지도 정리해둔다.
 
-| 구간           | 주제                    | 주요 내용                          |
-| -------------- | ----------------------- | ---------------------------------- |
+| 구간           | 주제                    | 주요 내용 |
+| -------------- | ----------------------- | --------- |
 | Chapter 3\~5   | OS · 네트워크 · storage | CPU/memory pinning, NUMA, hugepage<br />Docker container, Kubernetes orchestration<br />GPU 환경의 network·storage I/O 설정 |
 | Chapter 6\~12  | CUDA kernel 최적화      | Occupancy, warp 효율, 산술 강도<br />Kernel 내부/외부 pipelining, CUDA graph<br />FlashAttention·MLA 같은 hardware-aware algorithm |
 | Chapter 13\~14 | PyTorch와 compiler      | PyTorch profiling·scaling<br />PyTorch compiler, OpenAI Triton, XLA backend<br />병렬화 (DP, FSDP, TP, PP, CP, MoE)<br />Activation checkpointing, optimizer state sharding, CPU offload |
@@ -265,7 +265,7 @@ Chapter 13\~14에서 PyTorch compiler stack과 Python 기반 OpenAI Triton을 �
 - **Measure goodput**: 순수 FLOPS나 활용률 말고, GPU가 실제로 유용한 연산을 한 시간의 비율을 본다. Nsight Systems/Compute와 PyTorch profiler로 그 비율을 재고 끌어올린다.
 - **Prefer skillful engineering optimizations instead of brute-force spending**: Hardware를 더 사는 것은 만능이 아니다. DeepSeek은 interconnect가 제한된 H800으로 frontier model을 훨씬 싸게 학습시켰다.
 - **Look for order-of-magnitude impact with incremental optimizations**: 규모가 커지면 몇 %의 효율 개선으로도 수백만 달러를 아낄 수 있고, 반대로 중복 연산이나 느린 data pipeline 같은 작은 비효율도 조용히 비용을 불린다.
-- **Approach performance tuning with a profile-driven mindset**: 연산인지, memory 대역폭인지, memory latency인지, cache miss인지, 통신 지연인지를 profiler로 특정한 다음 그 병목만 친다.
+- **Approach performance tuning with a profile-driven mindset**: 연산인지, memory bandwidth인지, memory latency인지, cache miss인지, 통신 지연인지를 profiler로 특정한 다음 그 병목만 친다.
 - **Maintain a holistic view**: GPU, CPU, memory, network 같은 hardware와 algorithm, library 같은 software 중 한 층만 약해도 전체가 막힌다.
 - **Stay informed on the latest hardware, software, and algorithms**: 통합 CPU-GPU memory, 더 빠른 interconnect, 새로운 정밀도 형식이 나올 때마다 최적 전략 자체가 바뀐다.
 
@@ -329,20 +329,20 @@ flowchart TB
 ```
 
 NVLink-C2C가 \~900 GB/s인데, PCIe Gen5 x16이 방향당 \~64 GB/s, Gen6 x16이 \~128 GB/s다.
-대역폭이 10배 이상 차이 나고, 여기에 cache coherent라는 성질까지 붙는다.
+Bandwidth가 10배 이상 차이 나고, 여기에 cache coherent라는 성질까지 붙는다.
 
 CPU와 GPU가 항상 같은 값을 보기 때문에 명시적 복사 없이 서로의 memory를 직접 읽고 쓸 수 있다.
 NVIDIA는 이를 Unified CPU-GPU Memory 또는 EGM (extended GPU memory)이라 부른다.
 
 Module 하나에 1 TB에 가까운 통합 memory가 붙는 셈이라, 500 GB짜리 model이 단일 GPU HBM에 안 들어가도 superchip 하나 안에서 partitioning 없이 실행할 수 있다.
 
-단, unified라고 해서 균일한 건 아니어서 NVLink-C2C를 통한 LPDDR5X 접근은 HBM 직접 접근보다 latency가 높고 대역폭은 대략 10배 낮다.
+단, unified라고 해서 균일한 건 아니어서 NVLink-C2C를 통한 LPDDR5X 접근은 HBM 직접 접근보다 latency가 높고 bandwidth는 대략 10배 낮다.
 정확성 측면에서는 신경 안 써도 되지만 성능 측면에서는 배치와 이동을 명시적으로 관리하는 게 좋고, `cudaMemPrefetchAsync` 같은 비동기 prefetch나 단계별 pipeline으로 page fault stall을 줄일 수 있다.
 
 ### NVIDIA Grace CPU
 
 ARM Neoverse V2 기반으로 NVIDIA가 직접 설계한 CPU다.
-Clock은 평범하지만 memory 대역폭 (\~500 GB/s)과 cache (L3 100 MB 이상)로 승부한다.
+Clock은 평범하지만 memory bandwidth (\~500 GB/s)와 cache (L3 100 MB 이상)로 승부한다.
 
 설계 철학은 CPU가 GPU에 data를 밀어넣는 과정에서 병목이 되어서는 안 된다는 것 하나로 요약된다.
 Storage에서 data를 stream하거나 tokenization, data augmentation 같은 변환을 즉석에서 수행하고 NVLink-C2C로 GPU에 넘긴다.
@@ -355,12 +355,12 @@ Random memory access나 control이 복잡한 code처럼 GPU가 약한 영역은 
 B200과 B300은 단일 chip이 아니라 GPU die 2개를 한 module에 넣은 MCM (multichip module)이다.
 단일 die는 실리콘 제조 한계 때문에 무한정 키울 수 없으니, die를 쪼개고 초고속 interconnect로 붙여 transistor 예산을 두 배로 늘린 것이다.
 
-| 항목          | Hopper H100 | Blackwell B200        |
-| ------------- | ----------- | --------------------- |
-| Transistor    | \~80B       | \~208B (die 당 104B)  |
-| Memory        | 80 GB HBM3  | 192 GB HBM3e          |
-| Memory 대역폭 | \~3.35 TB/s | \~8 TB/s (\~2.4배)    |
-| L2 cache      | 50 MB       | 126 MB (die 당 63 MB) |
+| 항목             | Hopper H100 | Blackwell B200        |
+| ---------------- | ----------- | --------------------- |
+| Transistor       | \~80B       | \~208B (die 당 104B)  |
+| Memory           | 80 GB HBM3  | 192 GB HBM3e          |
+| Memory bandwidth | \~3.35 TB/s | \~8 TB/s (\~2.4배)    |
+| L2 cache         | 50 MB       | 126 MB (die 당 63 MB) |
 
 두 die는 NV-HBI (high-bandwidth interface)라는 10 TB/s die-to-die interconnect로 연결되어, software에서는 GPU 한 장으로만 보인다.
 HBM3e는 8-Hi stack 구조로, 3 GB짜리 DRAM die 8장을 수직으로 쌓아 stack 당 24 GB, die 당 4 stack씩 총 8 stack으로 192 GB를 구성한다.
@@ -460,7 +460,7 @@ flowchart LR
 ```
 
 결과적으로 임의의 GPU가 다른 임의의 GPU에 `GPU → NVSwitch → GPU` 단 1 hop으로 도달한다.
-Rack 전체 aggregate bisection 대역폭은 약 130 TB/s다.
+Rack 전체 aggregate bisection bandwidth는 약 130 TB/s다.
 
 ### Multi-GPU Programming
 
@@ -481,7 +481,7 @@ Remote atomic 연산 자체는 IBTA (InfiniBand Trade Association) $\_[$[$\_{56}
 
 | 항목                   | NVL72 (intra-rack NVLink) | H100 + InfiniBand |
 | ---------------------- | ------------------------- | ----------------- |
-| GPU 당 대역폭          | 1.8 TB/s                  | 20\~80 GB/s       |
+| GPU 당 bandwidth       | 1.8 TB/s                  | 20\~80 GB/s       |
 | Latency (소형 message) | 1\~2 µs                   | 5\~10 µs 이상     |
 | Collective overhead    | 수 % 수준                 | 수십 % 수준       |
 
@@ -532,7 +532,7 @@ GPU 72개를 손으로 NVLink 배선할 일이 없고, cluster 관리용 Base Co
 ### Co-Packaged Optics: Future of Networking Hardware
 
 Network 쪽에서는 CPO (co-packaged optics)가 등장한다.
-광 송신기를 switch silicon 바로 옆에 통합해 전기 경로를 극단적으로 줄이는 방식으로, rack 수백\~수천 개를 하나의 fabric으로 묶을 때 inter-rack 대역폭이 병목이 되지 않게 하는 것이 목표다.
+광 송신기를 switch silicon 바로 옆에 통합해 전기 경로를 극단적으로 줄이는 방식으로, rack 수백\~수천 개를 하나의 fabric으로 묶을 때 inter-rack bandwidth가 병목이 되지 않게 하는 것이 목표다.
 
 ## Compute Density and Power Requirements
 
@@ -556,13 +556,13 @@ Rack 8개면 약 1 MW로, 작은 data center 하나의 전체 용량이다.
 
 한 rack의 130 kW를 식히는 일은 공랭으로 감당이 안 되는데, GPU 한 장이 1 kW를 넘게 방출하는 것이 72개면 hurricane 급 기류가 필요한 수준이라 NVL72는 처음부터 전면 액랭으로 설계됐다.
 
-| 항목        | 수치                                |
-| ----------- | ----------------------------------- |
+| 항목        | 수치 |
+| ----------- | ---- |
 | 공급 냉각수 | 20\~30°C (온수 냉각 시 30°C 유입 / 45°C 배출) |
 | 유량        | 150\~200 L/min (10\~12°C 상승 기준) |
-| GPU 온도    | 부하 시 50\~70°C                    |
+| GPU 온도    | 부하 시 50\~70°C |
 | 방열 설계   | GPU 1,000 W / CPU 500 W (cold plate 기준) |
-| Rack 무게   | \~1.3\~1.4톤 (냉각수 포함)          |
+| Rack 무게   | \~1.3\~1.4톤 (냉각수 포함) |
 
 Grace Blackwell module과 NVSwitch chip마다 cold plate가 붙고, hose와 manifold, pump가 냉각수를 순환시킨다.
 Rack 내부 loop와 data center 냉수 loop 사이에는 CDU (coolant distribution unit)라는 열교환기가 들어간다.
@@ -603,8 +603,8 @@ Blackwell은 장당 2배 이상 (FP8/FP4를 쓰면 그 이상) 빠르므로 50�
 
 NVIDIA는 매 세대 무언가를 두 배로 만드는 패턴을 반복한다.
 
-| 세대 | 시기 | 주요 변화                          |
-| ---- | ---- | ---------------------------------- |
+| 세대 | 시기 | 주요 변화 |
+| ---- | ---- | --------- |
 | Blackwell Ultra (B300/GB300) $\_[$[$\_{36}$](https://www.nvidia.com/en-us/data-center/gb300-nvl72/)$\_]$ | 현재 | Memory 288 GB (B200 180 GB 대비 +50%)<br />연산 1.5배, 추론 처리량 45\~50% 증가<br />NVLink 5 유지 |
 | Vera Rubin (VR200) $\_[$[$\_{43}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_,$[$\_{61}$](https://www.nvidia.com/en-us/data-center/technologies/rubin/)$\_]$ | 2026 | Vera CPU (TSMC 3nm, LPDDR6 \~1 TB/s)<br />Rubin GPU (HBM \~13\~14 TB/s), die 당 \~200 SM<br />NVLink 6<br />성능 5배 / 전력 \~600 kW |
 | Rubin Ultra (R300) $\_[$[$\_{43}$](https://newsletter.semianalysis.com/p/nvidia-gtc-2025-built-for-reasoning-vera-rubin-kyber-cpo-dynamo-inference-jensen-math-feynman)$\_]$ | 2027 | 4-die module, HBM stack 16개로 module 당 1 TB<br />NVL144 / NVL576<br />Rack 당 3\~4 exaFLOPS |
@@ -630,7 +630,7 @@ Rack 내부 NVLink와 NVSwitch는 GB200 NVL72와 같은 NVLink 5 세대를 쓴�
 암흑물질의 증거를 찾은 천문학자의 이름을 딴 세대로, Vera는 Grace를 잇는 ARM CPU, Rubin은 Blackwell을 잇는 GPU이고, VR200은 Vera 1개에 Rubin 2개를 묶어 superchip 개념을 그대로 이어간다.
 
 Vera는 TSMC 3nm 공정에 core 수를 늘리고 LPDDR6를 \~1 TB/s로 물린다.
-Rubin은 HBM을 \~13\~14 TB/s까지 끌어올리고, NVLink는 6세대로 가면서 CPU-GPU와 GPU-GPU 대역폭이 다시 두 배가 될 것으로 예상된다.
+Rubin은 HBM을 \~13\~14 TB/s까지 끌어올리고, NVLink는 6세대로 가면서 CPU-GPU와 GPU-GPU bandwidth가 다시 두 배가 될 것으로 예상된다.
 GB200/GB300 NVL72 8-rack의 576 GPU 한계를 넘어설 수 있다는 관측도 있다.
 
 대부분의 지표가 다시 \~2배씩 오르는 세대이고, Rubin GPU는 die 당 SM이 \~200개까지 늘어난다.
@@ -658,7 +658,7 @@ Rubin 다음 세대의 code name이 Feynman이고 2028년으로 예정돼 있다
 그래서 chip 설계도 대규모 추론 효율에 맞춰질 가능성이 크고, 새로운 정밀도 형식과 더 큰 on-chip memory, package에 직접 붙는 광 link가 후보로 거론된다.
 
 결국 NVIDIA는 세대마다 무언가를 두 배로 만든다.
-Blackwell은 die를 2개로 늘렸고, NVLink link 당 양방향 대역폭은 \~900 GB/s에서 \~1.8 TB/s로, GPU 당 memory는 Blackwell 180 GB에서 Ultra 세대 \~288 GB로 올라갔다.
+Blackwell은 die를 2개로 늘렸고, NVLink link 당 양방향 bandwidth는 \~900 GB/s에서 \~1.8 TB/s로, GPU 당 memory는 Blackwell 180 GB에서 Ultra 세대 \~288 GB로 올라갔다.
 몇 세대만 지나도 두 배씩 쌓인 효과가 커진다.
 
 ## Key Takeaways
@@ -667,10 +667,10 @@ Blackwell은 die를 2개로 늘렸고, NVLink link 당 양방향 대역폭은 \~
 
 - **Integrated superchip architecture**: ARM 기반 Grace CPU와 GPU를 한 superchip에 융합해 통합 memory 공간을 만든다. CPU와 GPU 사이의 수동 data 전송이 사라진다.
 - **Unified memory architecture**: Coherent interconnect 덕분에 개발자가 명시적 data 이동을 신경 쓰지 않고 algorithm 개선에 집중할 수 있다.
-- **Ultrafast interconnects**: NVLink-C2C와 NVLink 5, NVSwitch로 rack 내부 대역폭을 높이고 지연을 줄여, GPU들이 하나의 큰 processor처럼 통신한다.
+- **Ultrafast interconnects**: NVLink-C2C와 NVLink 5, NVSwitch로 rack 내부 bandwidth를 높이고 지연을 줄여, GPU들이 하나의 큰 processor처럼 통신한다.
 - **High-density, ultrascale system (NVL72)**: GPU 72개를 한 rack에 담아 거대한 통합 memory pool과 연산을 동시에 제공한다.
 - **Advanced cooling and power management**: Rack 당 \~130 kW를 정교한 액랭과 전원 분배로 감당한다.
-- **Significant performance and efficiency gains**: Hopper H100 대비 연산과 memory 대역폭이 \~2\~2.5배이고, FP4 Tensor Core와 Transformer Engine을 쓰면 추론이 경우에 따라 최대 30배까지 빨라진다 $\_[$[$\_{47}$](https://developer.nvidia.com/blog/nvidia-gb200-nvl72-delivers-trillion-parameter-llm-training-and-real-time-inference/)$\_]$.
+- **Significant performance and efficiency gains**: Hopper H100 대비 연산과 memory bandwidth가 \~2\~2.5배이고, FP4 Tensor Core와 Transformer Engine을 쓰면 추론이 경우에 따라 최대 30배까지 빨라진다 $\_[$[$\_{47}$](https://developer.nvidia.com/blog/nvidia-gb200-nvl72-delivers-trillion-parameter-llm-training-and-real-time-inference/)$\_]$.
 - **Modern software stack support**: 통합 memory 관리와 FP8/FP4 native 지원 덕분에 code를 거의 고치지 않고 성능을 끌어낼 수 있다.
 - **Future-proof roadmap**: Blackwell Ultra, Vera Rubin, Rubin Ultra, Feynman으로 이어지며 핵심 지표를 계속 두 배씩 올린다.
 

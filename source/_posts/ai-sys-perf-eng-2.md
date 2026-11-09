@@ -241,7 +241,7 @@ Pinned host memory에서 GPU로 복사하는 것이 일반 pageable memory보다
 GPUDirect RDMA $\_[$[$\_{73}$](https://docs.nvidia.com/cuda/gpudirect-rdma/)$\_]$와 GPUDirect Storage $\_[$[$\_{74}$](https://docs.nvidia.com/gpudirect-storage/)$\_]$가 바로 이 성질 위에 서 있다.
 전자는 InfiniBand 같은 NIC가 GPU memory와 직접 data를 주고받게 하고, 후자는 NVMe drive가 CPU를 거치지 않고 GPU memory로 data를 흘려보내게 한다.
 
-CUDA utility에 들어 있는 `bandwidthTest --memory=pinned`와 `--memory=pageable`로 두 경우의 전송 대역폭을 직접 재볼 수 있다.
+CUDA utility에 들어 있는 `bandwidthTest --memory=pinned`와 `--memory=pageable`로 두 경우의 전송 bandwidth를 직접 재볼 수 있다.
 
 PyTorch에서는 `DataLoader`에 `pin_memory=True`만 주면 batch가 pinned RAM에 올라간다.
 `tensor.to(device)`가 빨라지는데 CUDA driver가 즉석에서 page를 pin할 필요가 없어지기 때문이고, batch가 크거나 iteration마다 읽는 data가 많을수록 효과가 크다.
@@ -265,11 +265,11 @@ I/O용으로 미리 잡아두는 pinned buffer처럼 memory pool이 아주 크�
 
 문제는 THP의 백그라운드 compaction이 예측 불가능한 정지를 만들 수 있고, 이것이 지연에 민감한 LLM 추론 workload에는 치명적이라는 점이다.
 
-| Workload                          | 권고                                    |
-| --------------------------------- | --------------------------------------- |
-| 학습 (처리량 중심)                | THP 켜기                                |
-| 추론 (지연 중심)                  | `transparent_hugepage=never` 또는 `madvise` |
-| distributed 학습 (여러 rank가 동시 할당) | 지연 민감도에 따라 판단, 기본은 끄는 쪽 |
+| Workload                                 | 권고 |
+| ---------------------------------------- | ---- |
+| 학습 (처리량 중심)                       | THP 켜기 |
+| 추론 (지연 중심)                         | `transparent_hugepage=never` 또는 `madvise` |
+| Distributed 학습 (여러 rank가 동시 할당) | 지연 민감도에 따라 판단, 기본은 끄는 쪽 |
 
 ### Scheduler and Interrupt Affinity
 
@@ -556,9 +556,9 @@ GPU를 자원으로 다룰 뿐, GPU 0과 GPU 1이 같은 NUMA node에 있는지 
 
 4개씩 NVLink로 묶인 8-GPU 서버에서 job이 GPU 4장을 요청했다고 하자.
 같은 NVLink domain의 4장을 받으면 이상적이지만, 임의로 고르면 한 domain에서 2장, 다른 domain에서 2장을 받게 된다.
-이러면 GPU 간 경로에 InfiniBand나 Ethernet 같은 느린 interconnect가 끼어들어 대역폭이 절반으로 줄 수 있다.
+이러면 GPU 간 경로에 InfiniBand나 Ethernet 같은 느린 interconnect가 끼어들어 bandwidth가 절반으로 줄 수 있다.
 
-NVL72에서는 72개 GPU가 NVLink 5로 묶여 rack 안에서 \~130 TB/s를 내므로, topology를 모르는 scheduler가 job을 서로 다른 NVLink domain에 흩뿌리면 그 대역폭의 이점이 사라진다.
+NVL72에서는 72개 GPU가 NVLink 5로 묶여 rack 안에서 \~130 TB/s를 내므로, topology를 모르는 scheduler가 job을 서로 다른 NVLink domain에 흩뿌리면 그 bandwidth의 이점이 사라진다.
 
 ### Orchestrating Containers with Kubernetes Topology Manager
 
@@ -648,10 +648,10 @@ OOM killer는 휴리스틱으로 대상을 고르는데, 때로 가장 큰 pod�
 GPU에 data를 먹이려고 CPU RAM에 많은 data를 쥐고 있는 학습·추론 job이 정확히 그 대상이다.
 그래서 저자는 학습·추론 container에 일부러 엄격한 memory limit을 걸지 않고, 걸더라도 실제 사용량보다 여유 있게 잡으라고 권한다.
 
-| QoS class  | 조건                       | 축출 위험 |
-| ---------- | -------------------------- | --------- |
+| QoS class  | 조건 | 축출 위험 |
+| ---------- | ---- | --------- |
 | BestEffort | request와 limit 둘 다 없음 | 가장 높음 |
-| Burstable  | limit만 높게 설정          | 중간      |
+| Burstable  | limit만 높게 설정 | 중간      |
 | Guaranteed | 모든 container가 CPU·memory에 대해 `requests == limits` | 가장 낮음 |
 
 Limit만 높게 잡으면 Guaranteed가 아니라 Burstable이 된다는 점이 자주 놓치는 부분이다 $\_[$[$\_{108}$](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/)$\_]$.

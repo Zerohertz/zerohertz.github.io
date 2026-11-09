@@ -33,11 +33,11 @@ PyTorch $\_[$[$\_{10}$](https://github.com/pytorch/pytorch)$\_]$ 같은 고수�
 
 <img src="/images/ai-sys-perf-eng-3/collectives.svg" alt="collectives" width="880" />
 
-| 연산           | 동작                                  | 결과를 받는 rank            | 대표적인 쓰임                        |
-| -------------- | ------------------------------------- | --------------------------- | ------------------------------------ |
+| 연산           | 동작 | 결과를 받는 rank            | 대표적인 쓰임 |
+| -------------- | ---- | --------------------------- | ------------- |
 | Reduce         | 모든 rank의 buffer를 합산 같은 reduction으로 합침 | Root                        | Loss나 평가 지표를 rank 0으로 모아 logging |
 | All-reduce     | Reduce와 같지만 결과를 모든 rank가 받음<br />reduce 뒤 broadcast, 또는 reduce-scatter 뒤 all-gather와 같음 | 모든 rank (같은 결과)       | DDP의 gradient 합산 $\_[$[$\_{12}$](https://docs.pytorch.org/docs/stable/notes/ddp.html)$\_]$ |
-| Gather         | 각 rank의 chunk를 rank 순서대로 모음  | Root                        | 각 rank의 추론·평가 결과를 rank 0으로 수집 |
+| Gather         | 각 rank의 chunk를 rank 순서대로 모음 | Root                        | 각 rank의 추론·평가 결과를 rank 0으로 수집 |
 | All-gather     | Gather와 같지만 모은 결과를 모든 rank가 받음 | 모든 rank (같은 결과)       | FSDP가 forward·backward 전에 sharding된 parameter를 복원 $\_[$[$\_{13}$](https://docs.pytorch.org/docs/stable/fsdp.html)$\_]$ |
 | Scatter        | Root의 buffer를 rank 수만큼 chunk로 나눠 하나씩 보냄 | 모든 rank (서로 다른 chunk) | Rank 0이 읽은 입력을 rank마다 나눠줌 |
 | Reduce-scatter | Reduction 결과를 rank마다 chunk 하나씩 나눠 가짐 | 모든 rank (서로 다른 chunk) | FSDP가 gradient를 rank마다 나눠 가짐 $\_[$[$\_{13}$](https://docs.pytorch.org/docs/stable/fsdp.html)$\_]$ |
@@ -97,7 +97,7 @@ Minibatch마다 all-reduce하는 대신 몇 개의 minibatch에 걸쳐 gradient�
 전송량 자체를 줄이는 방법으로는 model 품질을 크게 해치지 않는 gradient compression이나 quantization이 있고, 극단적으로는 gradient의 일부만 보내는 sparsification까지 가는데, 이 경우 정확도를 지키려면 대개 algorithm 수준의 변경이 필요하다.
 
 PyTorch DDP의 bucketing은 작은 tensor 여러 개를 큰 message로 묶어 호출당 overhead를 줄이지만 크기에 trade-off가 있다.
-Bucket이 너무 크면 대역폭은 잘 쓰지만 gradient가 충분히 쌓일 때까지 all-reduce 시작이 늦어지고, 너무 작으면 일찍 보내는 대신 작은 NCCL 호출이 많아져 overhead가 커진다.
+Bucket이 너무 크면 bandwidth는 잘 쓰지만 gradient가 충분히 쌓일 때까지 all-reduce 시작이 늦어지고, 너무 작으면 일찍 보내는 대신 작은 NCCL 호출이 많아져 overhead가 커진다.
 기본값 25 MB는 대부분의 경우 overlap이 잘 되는 균형점인데, layer가 아주 큰 model이라면 overhead를 줄이려고 키우고 작은 layer가 많은 model이라면 줄여서 통신을 일찍 시작하는 편이 나을 수 있다.
 결국 최대 overlap을 얻으려면 여러 크기를 profiling해 iteration 시간이 가장 짧은 값을 찾아야 할 수 있다.
 
@@ -125,13 +125,13 @@ ddp_model = nn.parallel.DistributedDataParallel(model, device_ids=[rank])
 Backward에서 가장 먼저 계산되는 마지막 layer (`fc3`)의 gradient부터 바로 all-reduce되기 시작해 나머지 layer의 backward와 overlap되므로 backward가 마무리될 무렵에는 대부분의 all-reduce가 끝나 있고, profiler timeline에는 backward kernel과 NCCL all-reduce kernel이 번갈아 나타난다.
 다만 model이 너무 작아 gradient 전체가 bucket 하나에 들어가면 마지막에 all-reduce가 한 번만 일어나 거의 overlap되지 않을 수 있지만, model과 batch가 커지면 bucket이 여러 개로 나뉘어 overlap도 커진다.
 
-| 지표                              | No overlap (manual sync)                 | Overlap (DDP)                       | 비고                                    |
-| --------------------------------- | ---------------------------------------- | ----------------------------------- | --------------------------------------- |
-| Backward + 통신 총 시간           | 100% (baseline)                          | baseline의 \~70%                    | Overlap 덕분에 iteration당 약 30% 단축 (예시) |
-| 통신 시작 시점                    | Backward 완료 후                         | Backward 도중                       | DDP에서는 backward 중간에 통신이 시작   |
-| 통신 구간의 GPU 유휴              | 있음<br />backward 후 all-reduce 동안 대기 | 최소<br />다른 layer 연산 중에 통신 | DDP가 지연 대부분을 숨김                |
-| SM 활용률                         | 낮음<br />통신 중 SM이 idle인 cycle 발생 | 높음<br />연속적으로 활동           | Overlap이 GPU를 꾸준히 바쁘게 유지      |
-| Overlap 비율 (연산에 가려진 통신) | 0% (직렬 실행)                           | \~50% 이상                          | 큰 model이나 batch일수록 overlap이 커짐 |
+| 지표                              | No overlap (manual sync) | Overlap (DDP)                       | 비고 |
+| --------------------------------- | ------------------------ | ----------------------------------- | ---- |
+| Backward + 통신 총 시간           | 100% (baseline) | baseline의 \~70%                    | Overlap 덕분에 iteration당 약 30% 단축 (예시) |
+| 통신 시작 시점                    | Backward 완료 후 | Backward 도중                       | DDP에서는 backward 중간에 통신이 시작 |
+| 통신 구간의 GPU 유휴              | 있음<br />backward 후 all-reduce 동안 대기 | 최소<br />다른 layer 연산 중에 통신 | DDP가 지연 대부분을 숨김 |
+| SM 활용률                         | 낮음<br />통신 중 SM이 idle인 cycle 발생 | 높음<br />연속적으로 활동           | Overlap이 GPU를 꾸준히 바쁘게 유지 |
+| Overlap 비율 (연산에 가려진 통신) | 0% (직렬 실행) | \~50% 이상                          | 큰 model이나 batch일수록 overlap이 커짐 |
 
 표의 수치는 개념 설명을 위한 예시이고, 실제 benchmark 결과는 책의 GitHub 저장소 $\_[$[$\_{1}$](https://github.com/cfregly/ai-performance-engineering)$\_]$에 따로 있다.
 이 예시에서는 overlap으로 iteration 시간이 약 30% 줄었는데, model이 클수록 통신 병목이 생길 여지가 커서 이득도 더 커진다.
@@ -183,12 +183,12 @@ NVIDIA의 GPU용 RDMA 구현이 GPUDirect RDMA $\_[$[$\_{6}$](https://docs.nvidi
 GPU buffer를 NIC에 등록해두면 원격 GPU 사이에서 one-sided RDMA read와 write가 가능해져 multi-node 학습의 지연과 CPU overhead가 함께 줄어든다.
 RDMA는 InfiniBand에서는 기본으로 지원되고 일부 고속 Ethernet에서는 RoCE로 쓸 수 있는데, 이 경우 network 장비가 RDMA를 지원하고 올바르게 설정돼 있어야 하며 InfiniBand와 RoCE용 NVIDIA OFED (OpenFabrics enterprise distribution) $\_[$[$\_{39}$](https://networking-docs.nvidia.com/mlnxofedswum/24100700/introduction)$\_]$ 같은 driver가 대개 필요하다.
 
-성능 차이도 커서, 최신 InfiniBand link는 작은 message의 지연이 수 µs 수준일 수 있는데 Ethernet 위의 일반 TCP는 5\~10배 높을 수 있고, network 대역폭이 병목인 큰 전송에서는 InfiniBand RDMA가 수백 Gbps를 유지하는 반면 TCP/IP는 kernel overhead와 NIC 속도에 묶여 RDMA를 지원하는 200\~400 Gbps Ethernet이 아니면 100 Gbps 이하에 머무는 경우가 많다.
+성능 차이도 커서, 최신 InfiniBand link는 작은 message의 지연이 수 µs 수준일 수 있는데 Ethernet 위의 일반 TCP는 5\~10배 높을 수 있고, network bandwidth가 병목인 큰 전송에서는 InfiniBand RDMA가 수백 Gbps를 유지하는 반면 TCP/IP는 kernel overhead와 NIC 속도에 묶여 RDMA를 지원하는 200\~400 Gbps Ethernet이 아니면 100 Gbps 이하에 머무는 경우가 많다.
 Gradient처럼 message가 큰 distributed 학습에서는 작은 message의 지연보다 큰 message의 처리량이 더 중요하다.
 
-Ethernet밖에 없다면 가능한 한 높은 대역폭과 낮은 지연 구성을 쓰는 게 좋은데, 200 Gbps 이상의 RoCE가 10\~25 Gbps TCP보다 all-reduce 트래픽에서 훨씬 낫고, 최소한 MTU (maximum transmission unit) 9000 같은 jumbo frame을 사용해 작은 packet 여러 개 대신 큰 packet을 적게 보내도록 해야 CPU overhead가 줄어든다.
-TCP stack도 같은 이유로 조정해야 하는데, `net.core.rmem_max`/`wmem_max`와 autotuning 범위인 `net.ipv4.tcp_rmem`/`tcp_wmem`이 고대역폭 link를 다 쓸 만큼 충분히 큰지 확인하는 게 좋다.
-외부 인터넷 트래픽이 없는 전용 cluster network라면 기본 congestion control $\_[$[$\_{40}$](https://en.wikipedia.org/wiki/TCP_congestion_control)$\_]$인 CUBIC $\_[$[$\_{41}$](https://en.wikipedia.org/wiki/CUBIC_TCP)$\_]$으로 대체로 충분하고, 지연과 대역폭이 모두 큰 link라면 BBR (bottleneck bandwidth and round-trip propagation time) $\_[$[$\_{42}$](https://github.com/google/bbr)$\_]$ 같은 최신 algorithm과 buffer 크기 조정을 검토하는 게 좋다.
+Ethernet밖에 없다면 가능한 한 높은 bandwidth와 낮은 지연 구성을 쓰는 게 좋은데, 200 Gbps 이상의 RoCE가 10\~25 Gbps TCP보다 all-reduce 트래픽에서 훨씬 낫고, 최소한 MTU (maximum transmission unit) 9000 같은 jumbo frame을 사용해 작은 packet 여러 개 대신 큰 packet을 적게 보내도록 해야 CPU overhead가 줄어든다.
+TCP stack도 같은 이유로 조정해야 하는데, `net.core.rmem_max`/`wmem_max`와 autotuning 범위인 `net.ipv4.tcp_rmem`/`tcp_wmem`이 high-bandwidth link를 다 쓸 만큼 충분히 큰지 확인하는 게 좋다.
+외부 인터넷 트래픽이 없는 전용 cluster network라면 기본 congestion control $\_[$[$\_{40}$](https://en.wikipedia.org/wiki/TCP_congestion_control)$\_]$인 CUBIC $\_[$[$\_{41}$](https://en.wikipedia.org/wiki/CUBIC_TCP)$\_]$으로 대체로 충분하고, 지연과 bandwidth가 모두 큰 link라면 BBR (bottleneck bandwidth and round-trip propagation time) $\_[$[$\_{42}$](https://github.com/google/bbr)$\_]$ 같은 최신 algorithm과 buffer 크기 조정을 검토하는 게 좋다.
 어느 경우든 기본 설정이 처리량을 제한하고 있지 않은지 항상 확인해야 하며, `sysctl net.ipv4.tcp_congestion_control`로 현재 설정을 보고 조정할 수 있다.
 
 Cloud나 hybrid 환경이라면 정말로 통제된 고속 연결 위에 있는지부터 의심해야 한다.
@@ -202,10 +202,10 @@ RDMA를 쓰더라도 CPU가 완전히 빠지지는 않는데, host가 여전히 
 Distributed multi-node 학습에서 network가 병목이 되지 않으려면 앞서 본 기술을 쓰는 것에 더해 제대로 설정해야 하는데, 저자는 다음 여섯 가지를 권한다.
 
 - **Understand the topology**: `nvidia-smi topo -m`으로 GPU interconnect를 기본적으로 파악하되, NVSwitch와 NVLink 기반 system이라면 `nvidia-smi nvlink`나 Nsight Systems로 multi-hop switch fabric 연결까지 확인하는 게 좋다.
-- **Leverage NVLink Switch domains if available**: GB200과 GB300 NVL72 $\_[$[$\_{9}$](https://www.nvidia.com/en-us/data-center/gb200-nvl72/)$\_]$는 NVLink Switch로 GPU 72장을 한 NVLink domain에 묶어 hop당 수백 ns 수준의 지연과 rack 전체 \~130 TB/s의 all-to-all 대역폭을 준다. NVIDIA Quantum 계열 InfiniBand switch도 link당 800 Gb/s를 주지만 NVLink의 rack 내부 대역폭과 1 µs 미만의 지연에는 못 미치므로, job을 같은 NVLink domain 안에 배치해 traffic을 최대한 NVLink/NVSwitch에 둔다.
+- **Leverage NVLink Switch domains if available**: GB200과 GB300 NVL72 $\_[$[$\_{9}$](https://www.nvidia.com/en-us/data-center/gb200-nvl72/)$\_]$는 NVLink Switch로 GPU 72장을 한 NVLink domain에 묶어 hop당 수백 ns 수준의 지연과 rack 전체 \~130 TB/s의 all-to-all bandwidth를 준다. NVIDIA Quantum 계열 InfiniBand switch도 link당 800 Gb/s를 주지만 NVLink의 rack 내부 bandwidth와 1 µs 미만의 지연에는 못 미치므로, job을 같은 NVLink domain 안에 배치해 traffic을 최대한 NVLink/NVSwitch에 둔다.
 - **Use RDMA whenever possible**: InfiniBand나 RoCE hardware라면 NCCL이 실제로 RDMA를 쓰는지 확인한다. NCCL은 GPUDirect RDMA를 자동으로 쓰지만 설정이 틀리거나 지원되지 않으면 조용히 TCP로 fallback할 수 있는데, all-reduce 중에 GPU 활용률은 떨어지고 CPU 사용률이 치솟는다면 CPU가 통신용 data를 복사하고 있다는 신호다.
-- **Aggregate bandwidth with multiple NICs if available**: NIC가 여러 개라면 NCCL이 traffic을 나눠 싣는 multirail로 대역폭을 합칠 수 있고, 이때 `NCCL_NSOCKS_PERTHREAD`와 `NCCL_SOCKET_NTHREADS`를 조정해야 할 수 있다. NIC마다 subnet이 달라야 하고 NCCL이 모두 발견할 수 있어야 하며, 800 Gbps NIC 두 개를 병렬로 쓰면 1.6 Tbps, 네 개면 \~3.2 Tbps가 된다.
-- **Utilize optimized "direct NIC" mode when available**: GPU 하나 또는 작은 GPU group마다 충분한 전용 network 대역폭을 주는 multirail 구성을 우선한다. NIC는 물리적으로 PCIe를 통해 host CPU나 DPU에 붙는데, 최신 GPU system에서 NCCL은 IBGDA (InfiniBand GPUDirect Async) $\_[$[$\_{44}$](https://developer.nvidia.com/blog/improving-network-performance-of-hpc-systems-using-nvidia-magnum-io-nvshmem-and-gpudirect-async/)$\_]$와 direct NIC 경로로 GPU가 CPU 개입 없이 full-bandwidth RDMA를 직접 구동하는 GPU-initiated networking을 지원한다.
+- **Aggregate bandwidth with multiple NICs if available**: NIC가 여러 개라면 NCCL이 traffic을 나눠 싣는 multirail로 bandwidth를 합칠 수 있고, 이때 `NCCL_NSOCKS_PERTHREAD`와 `NCCL_SOCKET_NTHREADS`를 조정해야 할 수 있다. NIC마다 subnet이 달라야 하고 NCCL이 모두 발견할 수 있어야 하며, 800 Gbps NIC 두 개를 병렬로 쓰면 1.6 Tbps, 네 개면 \~3.2 Tbps가 된다.
+- **Utilize optimized "direct NIC" mode when available**: GPU 하나 또는 작은 GPU group마다 충분한 전용 network bandwidth를 주는 multirail 구성을 우선한다. NIC는 물리적으로 PCIe를 통해 host CPU나 DPU에 붙는데, 최신 GPU system에서 NCCL은 IBGDA (InfiniBand GPUDirect Async) $\_[$[$\_{44}$](https://developer.nvidia.com/blog/improving-network-performance-of-hpc-systems-using-nvidia-magnum-io-nvshmem-and-gpudirect-async/)$\_]$와 direct NIC 경로로 GPU가 CPU 개입 없이 full-bandwidth RDMA를 직접 구동하는 GPU-initiated networking을 지원한다.
 - **Check for misconfigurations**: 흔한 함정은 network 설정 불일치로 느린 경로로 fallback하는 것이다. RDMA가 설정 오류로 안 되면 NCCL이 100 Gbps Ethernet 위의 TCP를 쓰면서 kernel overhead 때문에 그 일부만 쓸 수 있고, 더 나쁘면 고속 network를 잘못 인식해 사용자도 모르게 10 Gbps 관리용 network로 traffic이 흐르기도 한다. NCCL debug 출력과 `ibstat`, `ifstat` 같은 interface counter로 traffic이 주로 어느 interface로 흐르는지 확인할 수 있는데, 200\~400 Gbps 경로를 갖춘 최신 system에서 10 Gbps로 떨어지면 심각한 병목이 된다.
 
 ### Multinode Communication Pitfalls
@@ -246,7 +246,7 @@ NCCL은 out-of-band 초기 설정에 임시 TCP port를 쓰는데, OS의 `net.ip
 
 **Pitfall #4: Insufficient network bandwidth or misconfigured NICs**
 
-동기화할 data 양에 비해 network 대역폭이 모자라거나 가용 interface를 다 쓰지 않는 경우로, cluster가 커질수록 흔해지는데, 예를 들어 Blackwell GPU라면 node당 400 Gbps link 하나는 쉽게 포화된다.
+동기화할 data 양에 비해 network bandwidth가 모자라거나 가용 interface를 다 쓰지 않는 경우로, cluster가 커질수록 흔해지는데, 예를 들어 Blackwell GPU라면 node당 400 Gbps link 하나는 쉽게 포화된다.
 Node를 늘렸는데 GPU당 처리량이 떨어진다면 network link부터 확인하는데, `nvidia-smi dmon`으로 NVLink/PCIe/network 통계를 모으거나 `ethtool -S <iface>`, `ip -s link show <iface>`로 byte/packet counter를 보고, `iftop`이나 `nload`로 NIC 처리량을 실시간으로 볼 수 있다.
 
 800 Gbps (100 GB/s) InfiniBand link가 이미 포화됐는데 처리량이 더 필요하고 NIC가 여러 개라면 NCCL의 multi-NIC 지원을 켜는 것을 검토하고, NCCL이 network 전송에 쓰는 병렬 연결 수와 thread 수를 정하는 `NCCL_NSOCKS_PERTHREAD`와 `NCCL_SOCKET_NTHREADS`를 platform별 기본값보다 올려 두 NIC를 모두 쓰게 할 수 있다.
@@ -284,7 +284,7 @@ PyTorch의 caching allocator는 iteration을 넘어 GPU memory를 붙잡고 있�
 
 최신 CUDA runtime으로 올려야 하고, `torch.cuda.empty_cache()`를 단편화에서 빠져나오는 최후의 수단으로 써볼 수는 있지만 장기적인 해결책은 아니므로 allocator를 조정하고 원인을 찾아 고쳐야 한다.
 
-Multi-node 함정을 정리하면, GPU 통신에는 항상 NCCL을 쓰고 RDMA와 고속 network가 실제로 켜져 있는지 확인하며, 여러 NIC를 포함해 가용 대역폭을 모두 쓰고, CUDA와 함께 나오는 최신 NCCL로 최근 수정 사항을 받으면서 느린 통신으로 fallback시키는 설정이 없는지 살펴야 한다.
+Multi-node 함정을 정리하면, GPU 통신에는 항상 NCCL을 쓰고 RDMA와 고속 network가 실제로 켜져 있는지 확인하며, 여러 NIC를 포함해 가용 bandwidth를 모두 쓰고, CUDA와 함께 나오는 최신 NCCL로 최근 수정 사항을 받으면서 느린 통신으로 fallback시키는 설정이 없는지 살펴야 한다.
 
 ## NCCL for Distributed Multi-GPU Communication
 
@@ -323,7 +323,7 @@ PCIe를 기다리는 naive한 방식에서는 많은 warp가 memory 접근에 �
 GPU의 직접 NVLink lane 수는 정해져 있어서 GB200/GB300 NVL72의 Blackwell GPU는 link당 \~100 GB/s인 NVLink 5 link 18개로 양방향 합계 \~1.8 TB/s (이전 세대 900 GB/s의 두 배)를 갖는데, 직접 연결되지 않은 device 사이의 통신은 더 적은 lane이나 PCIe로 떨어질 수 있고 NUMA domain을 건너면 처리량이 크게 준다.
 NVL72 rack에서는 72장의 Blackwell GPU가 모두 한 NVLink Switch domain에 속해 어떤 GPU든 NVSwitch 한 단계로 full bisection bandwidth에 도달하고, NVLS 지원과 함께 uniform all-to-all connectivity를 제공한다.
 
-NCCL이 가장 대역폭이 큰 경로를 고르는지 profiling으로 확인했는데도 대역폭 한계에 부딪힌다면, 느린 link로 GPU 여덟 장에 걸치기보다 같은 NUMA node나 같은 NVSwitch island의 네 장처럼 촘촘하게 연결된 부분 집합으로 job을 좁히는 편이 나은데, 제한적이거나 간접적인 link의 synchronization overhead가 GPU를 더 쓰는 이득보다 큰 경우가 많기 때문이다.
+NCCL이 가장 bandwidth가 큰 경로를 고르는지 profiling으로 확인했는데도 bandwidth 한계에 부딪힌다면, 느린 link로 GPU 여덟 장에 걸치기보다 같은 NUMA node나 같은 NVSwitch island의 네 장처럼 촘촘하게 연결된 부분 집합으로 job을 좁히는 편이 나은데, 제한적이거나 간접적인 link의 synchronization overhead가 GPU를 더 쓰는 이득보다 큰 경우가 많기 때문이다.
 Grace Blackwell Superchip처럼 CPU와 GPU 사이를 900 GB/s NVLink-C2C로 잇는 superchip에서는 CPU memory가 GPU memory의 고속 확장처럼 동작해, all-reduce 일부가 CPU나 system memory를 거쳐도 이전 세대의 GPU 간 link만큼 빠를 수 있다.
 NVLink 경로가 제대로 쓰이는지는 Nsight Systems나 `NCCL_DEBUG=INFO`, `NCCL_TOPO_DUMP_FILE=<path>`로 남긴 NCCL trace로 확인할 수 있다.
 
@@ -338,12 +338,12 @@ NCCL은 data 크기와 GPU 수, topology에 따라 내부적으로 Ring과 Tree,
 | Ring            | GPU를 논리적 ring으로 배치<br />이웃과 pipeline 방식으로 주고받으며 부분합을 한 바퀴 순환시킴 | Link마다 2 × (data_size ÷ num_gpus) bytes로 부하가 균등한 bandwidth 최적 구조<br />큰 message (bandwidth-dominated)에 적합 | 단계 수가 GPU 수에 비례<br />GPU가 많을수록 지연이 늘어남 |
 | Tree · NVLSTree | Spanning tree로 reduction과 broadcast를 수행<br />NVLSTree는 NVLink SHARP로 offload | O(log N) 단계로 지연이 낮음<br />작은 message (latency-dominated)에 적합 | Leaf GPU가 한 번만 보냄<br />큰 message에서는 link를 다 못 쓸 수 있음 |
 | CollTree        | 빠른 local domain마다 local tree를 만듦<br />Group별 leader가 RDMA로 2단계 tree에 참여<br />두 단계를 pipeline | Node 간 단계를 O(log N)으로 줄이면서 node 안에서는 full bandwidth<br />Node 간 지연이 지배적인 작고 중간 크기 message에 유리 | 매우 큰 message에서는 Ring이나 PAT의 최대 처리량이 더 높을 수 있음 |
-| CollNet         | Local interconnect를 공유하는 GPU group 안에서 ring이나 local tree로 집계<br />Leader가 2단계 tree reduction | Internode 저지연과 intranode 고대역폭을 함께 얻음<br />매우 큰 multi-node cluster의 network 부하를 줄임 | Group마다 leader 하나가 node 간 전송을 도맡음<br />Leader 쪽 link에 부하가 몰림 |
+| CollNet         | Local interconnect를 공유하는 GPU group 안에서 ring이나 local tree로 집계<br />Leader가 2단계 tree reduction | Internode 저지연과 intranode high bandwidth를 함께 얻음<br />매우 큰 multi-node cluster의 network 부하를 줄임 | Group마다 leader 하나가 node 간 전송을 도맡음<br />Leader 쪽 link에 부하가 몰림 |
 | PAT             | Tensor를 segment로 나눔<br />Segment마다 tree 기반 reduce-scatter를 엇갈려 연속으로 띄움 | Ring에 가까운 처리량과 segment당 O(log N)의 tree 수준 지연을 함께 얻는 절충안 | Message가 작아 segment로 나눌 여지가 적으면 pipelining 이득이 줄어듦 |
 
 PAT (parallel aggregated tree)는 한 segment의 tree reduction이 끝나면 곧바로 다음 segment가 round-robin으로 자기 tree reduction을 시작하는 방식이라, 늘 전송 중인 작업이 있어 link가 포화된 상태를 유지한다.
 
-Algorithm 선택은 결국 message 크기와 topology로 정해지는데, 책은 수십 MB 수준의 작은 message는 단계가 적은 tree가, 큰 message는 대역폭을 잘 쓰는 ring이 유리하다고 정리한다.
+Algorithm 선택은 결국 message 크기와 topology로 정해지는데, 책은 수십 MB 수준의 작은 message는 단계가 적은 tree가, 큰 message는 bandwidth를 잘 쓰는 ring이 유리하다고 정리한다.
 NCCL은 NVLink로 연결된 system에서 작고 중간 크기 message의 all-reduce 지연을 줄이는 symmetric memory 최적화와 low-latency kernel도 지원해 최대 \~7.6배까지 줄어든 사례 $\_[$[$\_{54}$](https://developer.nvidia.com/blog/enabling-fast-inference-and-resilient-training-with-nccl-2-27/)$\_]$가 있고, NVLink domain 안에서 NVSwitch의 hardware multicast로 갱신된 model weight처럼 같은 data를 모든 GPU에 한 번에 보내는 one-hop broadcast도 할 수 있다.
 InfiniBand의 SHARP와 NVSwitch fabric의 NVLS (NVLink SHARP)도 NCCL-SHARP plugin이 설정돼 있으면 all-gather와 reduce-scatter 같은 collective를 가속한다.
 
@@ -358,13 +358,13 @@ All-reduce에는 NCCL을, one-to-one 전송에는 NIXL을 쓰고, 초대형 규�
 한 node의 여러 GPU로 확장할 때 PyTorch는 data를 나누는 data parallel과 model을 나누는 model parallel을 framework 수준에서 제공하는데, 책은 system 성능 관점에서 가장 기본적인 두 data parallel 전략인 `nn.DataParallel` (DP) $\_[$[$\_{55}$](https://docs.pytorch.org/docs/stable/generated/torch.nn.DataParallel.html)$\_]$와 `torch.distributed.DistributedDataParallel` (DDP) $\_[$[$\_{56}$](https://docs.pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html)$\_]$를 비교한다.
 Activation과 gradient, parameter를 GPU들에 sharding해 model 전체 복제본을 두지 않아 memory overhead를 크게 줄이는 FSDP (fully sharded data parallel) $\_[$[$\_{13}$](https://docs.pytorch.org/docs/stable/fsdp.html)$\_]$는 초대형 model에서 tensor parallel이나 pipeline parallel과 함께 쓰이는 경우가 많은데, 책은 이를 Chapter 13에서 다룬다.
 
-| 항목           | DP (`nn.DataParallel`)               | DDP (`DistributedDataParallel`) |
-| -------------- | ------------------------------------ | ------------------------------- |
+| 항목           | DP (`nn.DataParallel`) | DDP (`DistributedDataParallel`) |
+| -------------- | ---------------------- | ------------------------------- |
 | Process 구조   | 단일 process가 GPU마다 thread를 두고 여러 GPU를 제어 | GPU마다 process 하나, 각자 model 복제본 보유 |
-| GIL            | Kernel launch가 GIL (global interpreter lock)에 막혀 Python에서 직렬화 | 별도 process라 영향 없음        |
+| GIL            | Kernel launch가 GIL (global interpreter lock)에 막혀 Python에서 직렬화 | 별도 process라 영향 없음 |
 | Gradient 집계  | GPU 0으로 모아 합산한 뒤 나머지 GPU로 broadcast, 동기식으로 backward를 막음 | NCCL all-reduce로 GPU끼리 직접 교환, backward와 overlap |
-| 확장성         | 2\~4 GPU를 넘으면 main thread가 병목 | 주로 통신 대역폭에만 제한       |
-| 책의 예시 측정 | 45 ms                                | 30 ms                           |
+| 확장성         | 2\~4 GPU를 넘으면 main thread가 병목 | 주로 통신 bandwidth에만 제한 |
+| 책의 예시 측정 | 45 ms | 30 ms |
 
 DP는 입력 batch를 GPU 수만큼 나눠 (예시에서는 `[512, 1024]`를 `[256, 1024]` 두 개로) 각 GPU에서 forward를 실행하고, 첫 forward 호출 때 GPU 0의 model을 다른 GPU로 자동 복사한다.
 GPU마다 thread를 하나씩 두어 enqueue하지만 GIL을 두고 경쟁하므로 kernel launch 호출은 Python에서 순서대로 일어나고, enqueue된 GPU 작업만 device에서 동시에 실행된다.
@@ -390,7 +390,7 @@ srun --ntasks=$WORLD_SIZE --gpus-per-task=1 --nodes=$NNODES \
 
 같은 양의 data를 처리하는데 DDP가 30 ms로 DP의 45 ms보다 33% 빠르다.
 각 process가 GIL 경합 없이 batch 절반씩을 진짜 병렬로 처리하고, NCCL all-reduce가 backward와 overlap되며, gradient를 GPU 0으로 모았다가 되돌리는 추가 복사 없이 각 GPU의 gradient가 제자리에서 직접 교환·평균되고, 통신 부담도 GPU 하나에 몰리지 않고 all-reduce에 참여하는 모든 GPU로 분산되기 때문이다.
-Model이 클수록, 특히 GPU 수천 장으로 확장할수록 차이는 더 벌어져 DP는 2\~4 GPU를 넘으면 초선형으로 나빠질 수 있는 반면 DDP는 GPU 수에 맞춰 잘 확장되는 편이고 CPU나 단일 GPU overhead가 아니라 주로 통신 대역폭에 제한된다.
+Model이 클수록, 특히 GPU 수천 장으로 확장할수록 차이는 더 벌어져 DP는 2\~4 GPU를 넘으면 초선형으로 나빠질 수 있는 반면 DDP는 GPU 수에 맞춰 잘 확장되는 편이고 CPU나 단일 GPU overhead가 아니라 주로 통신 bandwidth에 제한된다.
 PyTorch 팀 $\_[$[$\_{58}$](https://discuss.pytorch.org/t/data-parallel-solution-comparisons-which-would-be-the-data-parallel-solution-nn-dataparallel-vs-distributeddataparallel-vs-pytorch-lightning-horovod-vs-any-other/126012)$\_]$도 명시적으로 권장하듯 multi-GPU 학습에는 항상 DDP를 써야 하고, DP는 사용 편의가 성능보다 중요한 GPU 두 장짜리 빠른 prototype 정도에서만 용인될 수 있다.
 
 ### NCCL Communicator Lifecycle and Environment Gotchas
@@ -422,18 +422,18 @@ Runtime에 membership이 동적으로 바뀌거나 단계적으로 초기화해�
 **Pitfall #3: Avoid overtuning or disabling NCCL features with environment variables**
 
 NCCL 환경 변수는 특별한 이유가 없으면 기본값으로 두되, 기본값에 기대기보다 현재 기본값을 명시적으로 설정하고 release note를 보며 조정하는 편이 낫다고 저자는 권한다.
-흔한 실수는 debugging 중 기능을 끄고 production에서 다시 켜는 것을 잊는 것으로, P2P (peer-to-peer)를 끈 `NCCL_P2P_DISABLE=1`이 남아 있으면 node 안 traffic이 NVLink 대신 CPU host의 중간 buffer를 거쳐 지연이 수 µs에서 수십 µs로 늘고 대역폭이 수백 GB/s에서 수십 GB/s로 떨어질 수 있다.
+흔한 실수는 debugging 중 기능을 끄고 production에서 다시 켜는 것을 잊는 것으로, P2P (peer-to-peer)를 끈 `NCCL_P2P_DISABLE=1`이 남아 있으면 node 안 traffic이 NVLink 대신 CPU host의 중간 buffer를 거쳐 지연이 수 µs에서 수십 µs로 늘고 bandwidth가 수백 GB/s에서 수십 GB/s로 떨어질 수 있다.
 `NCCL_SHM_DISABLE=1`이 남아 있으면 node 안 통신에 shared memory를 못 써 network나 host를 거치는 복사로 넘어간다.
 
-| 환경 변수                                | 역할                                   | 권장                          |
-| ---------------------------------------- | -------------------------------------- | ----------------------------- |
-| `NCCL_BUFFSIZE`                          | 통신 buffer 크기, 키우면 큰 all-reduce의 대역폭 개선 | 4 MB에서 시작해 단계적으로 올리며 GPU memory 압박을 확인 |
-| `NCCL_DEBUG`                             | Log 수준 (`VERSION`, `WARN`, `INFO`, `DEBUG`) | 기본은 `WARN`, 문제 추적 시 `INFO`, production에서 `DEBUG`는 피함 |
-| `NCCL_NSOCKS_PERTHREAD` · `NCCL_SOCKET_NTHREADS` | Thread당 socket 수와 socket thread 수  | NIC가 여럿이거나 대역폭이 매우 크면 증가, 두 값의 곱은 64 이하 $\_[$[$\_{49}$](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/troubleshooting.html)$\_]$ |
+| 환경 변수 | 역할 | 권장 |
+| --------- | ---- | ---- |
+| `NCCL_BUFFSIZE` | 통신 buffer 크기, 키우면 큰 all-reduce의 bandwidth 개선 | 4 MB에서 시작해 단계적으로 올리며 GPU memory 압박을 확인 |
+| `NCCL_DEBUG` | Log 수준 (`VERSION`, `WARN`, `INFO`, `DEBUG`) | 기본은 `WARN`, 문제 추적 시 `INFO`, production에서 `DEBUG`는 피함 |
+| `NCCL_NSOCKS_PERTHREAD` · `NCCL_SOCKET_NTHREADS` | Thread당 socket 수와 socket thread 수 | NIC가 여럿이거나 bandwidth가 매우 크면 증가, 두 값의 곱은 64 이하 $\_[$[$\_{49}$](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/troubleshooting.html)$\_]$ |
 | `NCCL_MIN_NCHANNELS` · `NCCL_MAX_NCHANNELS` | 여러 NVLink를 병렬로 쓰기 위한 channel (subring) 수, channel 하나가 CUDA block 하나 | 기본값 유지, NVSwitch system에서는 NCCL이 topology와 message 크기로 자동 조정, channel이 많을수록 GPU 자원을 더 씀 |
 | `NCCL_TOPO_FILE` · `NCCL_TOPO_DUMP_FILE` | Topology 파일 $\_[$[$\_{59}$](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/optimizing-ai-workloads-on-azure-cpu-pinning-via-nccl-topology-file/4371810)$\_]$ 지정 · NCCL이 감지한 topology를 파일로 저장 | Cloud처럼 topology 감지가 틀리기 쉬운 환경에서 활용 |
-| `NCCL_MNNVL_ENABLE`                      | MNNVL (multi-node NVLink) 활성화       | NVL72 GB200/GB300처럼 multi-node NVLink switch를 지원하는 system |
-| `NCCL_SHARP_DISABLE`                     | SHARP in-network aggregation 사용 여부 | A/B test나 문제 추적 때만 `1` |
+| `NCCL_MNNVL_ENABLE` | MNNVL (multi-node NVLink) 활성화 | NVL72 GB200/GB300처럼 multi-node NVLink switch를 지원하는 system |
+| `NCCL_SHARP_DISABLE` | SHARP in-network aggregation 사용 여부 | A/B test나 문제 추적 때만 `1` |
 
 64라는 상한은 communicator당 허용되는 TCP socket 연결 수의 NCCL 내장 최댓값으로, CPU와 network 자원 사용을 제한하고 OS와 hardware 한계를 넘지 않게 하려는 것이다.
 결국 특정 값이 도움이 된다는 근거가 있을 때만 바꾸고, 바꿨다면 문서로 남겨 hardware나 NCCL version을 올릴 때마다 효과가 여전한지 계속 확인해야 한다.
@@ -491,8 +491,8 @@ Plugin은 `NCCL_PROFILER_PLUGIN` 환경 변수로 다른 NCCL plugin처럼 동�
 Plugin을 켜지 않아도 Kineto는 CUPTI와 NVTX로 NCCL 활동을 모을 수 있다.
 Load되면 group, collective, point-to-point, proxy 관련 연산처럼 NCCL event마다 bit 하나를 대응시킨 32-bit event activation mask를 설정해 event를 계층적으로 표현한다.
 
-| Callback           | 역할                                     |
-| ------------------ | ---------------------------------------- |
+| Callback           | 역할 |
+| ------------------ | ---- |
 | `init`             | 불투명한 context를 제공하며 plugin을 설정하고 profiling할 event를 정함 |
 | `startEvent`       | NCCL에서 event descriptor를 받아 새 event 객체를 할당하고 handle을 돌려줌 |
 | `stopEvent`        | Event 완료를 표시해 자원을 재활용하게 함 |
@@ -506,7 +506,7 @@ SHARP는 Quantum 계열 InfiniBand switch에서 NCCL-SHARP plugin으로 쓰는 i
 
 Data 양으로 보면 ring reduce-scatter에서 각 GPU는 $n-1$ hop에 걸쳐 $\frac{B(n-1)}{n}$ bytes를 받는데, in-network reduction에서는 switch가 합산해 $\frac{B}{n}$만 돌려줘 endpoint당 수신량이 full ring의 $\frac{1}{n-1}$이 된다.
 All-gather에서는 NVLS의 hardware multicast로 각 GPU가 자기 $\frac{B}{n}$ chunk를 한 번만 보내면 network가 복제해줘 송신량이 역시 $\frac{1}{n-1}$로 준다.
-Multicast all-gather와 in-network reduce-scatter를 overlap하면 shard 교환의 실제 시간이 두 연산의 합이 아니라 큰 쪽이 되고, endpoint 대신 network가 집계와 복제를 맡으므로 대역폭이 병목인 단계의 시간이 \~절반까지 줄어들 수 있다.
+Multicast all-gather와 in-network reduce-scatter를 overlap하면 shard 교환의 실제 시간이 두 연산의 합이 아니라 큰 쪽이 되고, endpoint 대신 network가 집계와 복제를 맡으므로 bandwidth가 병목인 단계의 시간이 \~절반까지 줄어들 수 있다.
 다만 all-gather에는 산술 reduction이 없어서 NVLS는 주로 multicast 복제로 도움을 주고, 속도 향상은 topology와 message 크기에 따라 다르지만 all-reduce나 reduce-scatter보다는 작다.
 
 InfiniBand fabric에서 NCCL이 all-reduce 같은 collective를 SHARP로 offload하려면 switch에 SHARP firmware가, Subnet Manager와 함께 관리 서버에 SHARP Aggregation Manager가 떠 있어야 하고, 각 host에 GPUDirect RDMA kernel module이 올라와 있어야 하며, NCCL RDMA SHARP plugin이 선택돼야 한다.
@@ -552,7 +552,7 @@ Prefill cluster의 GPU가 입력 sequence의 KV cache를 만들어 NIXL로 decod
 
 긴 prompt라면 KV cache가 수십 GB에 이를 수 있어 사용자가 눈치채지 못하는 속도로 text를 생성하려면 거의 실시간으로 한 처리 장치에서 다른 장치로 옮겨져야 하지만, CPU memory나 storage를 거치는 전통적인 방법으로는 이 속도와 지연을 맞추지 못한다.
 NIXL은 바로 이 상황을 위해 만들어져 multi-node 추론이 interconnect 지연에 막히지 않고 확장되게 한다.
-필요한 것은 구성 요소 사이의 고대역폭 GPU 간 직접 전송이고 이 통신이 연산과 overlap되어, 목적지 GPU가 다음 입력 token들의 KV cache를 받는 중에도 다음 token 계산을 시작할 수 있어야 한다.
+필요한 것은 구성 요소 사이의 high-bandwidth GPU 간 직접 전송이고 이 통신이 연산과 overlap되어, 목적지 GPU가 다음 입력 token들의 KV cache를 받는 중에도 다음 token 계산을 시작할 수 있어야 한다.
 
 NIXL은 GPU 하나에서 다른 GPU나 작은 GPU group으로, compute node와 rack을 넘어서까지 data를 옮기는 직접 채널을 제공하면서 가용 경로 중 가장 빨리 도착하는 것을 고르는데, NCCL의 경로 선택과 비슷하지만 one-to-one의 큰 message 같은 추론 pattern에 맞춰져 있다.
 같은 board라면 NVLink나 NVLink-C2C를, rack domain 안이라면 NVSwitch를, rack 사이라면 InfiniBand나 RoCE를, 필요하면 NVMe storage 직접 접근까지 쓰는 식으로, GB200/GB300 NVL72 rack 안에서는 NVSwitch network를 먼저 쓰고 rack을 넘으면 지원 여부에 따라 InfiniBand나 Ethernet RDMA로 자동 전환한다.
@@ -560,7 +560,7 @@ NIXL은 GPU 하나에서 다른 GPU나 작은 GPU group으로, compute node와 r
 ### Intelligent Interconnect Routing for KV Cache Transfers
 
 전통적으로는 GPU 간 data를 CPU를 거쳐 옮길 수 있지만 너무 느리고, 원본과 목적지 GPU를 같은 compute node에 두도록 강제하면 확장 유연성이 줄어드는데, NIXL은 KV cache 같은 큰 payload를 GPU와 compute node, 필요하면 rack을 넘어 직접 옮기도록 설계됐다.
-높은 대역폭으로 동작하면서 통신을 연산과 최대한 overlap해 목적지 GPU가 원본 GPU에서 KV cache를 받는 동안 다음 token을 생성하기 시작하게 하고, interconnect에 의존하지 않아 같은 compute node라면 NVLink를, 같은 rack domain이라면 NVSwitch를, node 사이라면 InfiniBand나 RDMA Ethernet을, 필요하면 PCIe나 NVMe까지 쓰면서 NCCL처럼 항상 가장 빠른 interconnect로 경로를 잡는다.
+높은 bandwidth로 동작하면서 통신을 연산과 최대한 overlap해 목적지 GPU가 원본 GPU에서 KV cache를 받는 동안 다음 token을 생성하기 시작하게 하고, interconnect에 의존하지 않아 같은 compute node라면 NVLink를, 같은 rack domain이라면 NVSwitch를, node 사이라면 InfiniBand나 RDMA Ethernet을, 필요하면 PCIe나 NVMe까지 쓰면서 NCCL처럼 항상 가장 빠른 interconnect로 경로를 잡는다.
 GPU HBM과 CPU DRAM, NVMe SSD처럼 서로 다른 memory 계층 사이의 전송도 같은 방식으로 지원한다.
 
 ### NIXL Asynchronous API with Callbacks
